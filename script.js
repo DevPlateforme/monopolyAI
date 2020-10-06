@@ -59,7 +59,11 @@ function alphabeta(depth, playerNum){
 
         aiEvaluation(); //get the array at the current step, to compare its values with the result obtained, to make the ratio gain-loss/probability
     
-        var choosedScore = [];
+        let choosedScore = [];
+         
+        //probability/difference score. This score will take into account the probability of an event, and its impact, to know whether the thinking player will focus on it, or not.
+
+        let bestPdScore= 0;
 
 
      for (i = 0; i < dicesResults.length; i++){
@@ -68,11 +72,11 @@ function alphabeta(depth, playerNum){
 
        //we simulate the consequences of a launch of each dice combination
 
+        let score =  alphabeta(depth-1, gameBoard.playingPlayer);
 
-        score = diceScore(dicesResults[i].probability,thinkingAi, evaluationArray, alphabeta(depth-1, gameBoard.playerInPlay));
+        let pdScore = diceScore(dicesResults[i].probability, thinkingAi , evaluationArray, alphabeta(depth-1, gameBoard.playerInPlay));
         
-
-        if(score > choosedScore){
+        if(pdScore > bestpdScore ){
 
            choosedScore = score;
         }
@@ -239,7 +243,7 @@ function aiEvaluation(){
 
         } 
 
-
+        //at the end, add the player situation to the evaluation array
 
         evaluationArray[] = players[i].situation;
 
@@ -292,8 +296,64 @@ function movePlayer(player, diceResult){
         player.position += diceResult;
     }
 
+    //set the next state, according to what the current state was
+
+    if(gameBoard.state == 'ai1DiceLaunch'){
+
+        gameBoard.state == 'ai1PostDiceLaunchAction'
+
+    } else if(gameBoard.state == 'ai2DiceLaunch'){
+
+        gameBoard.state == 'ai2PostDiceLaunchAction'
+
+    } else if(gameBoard.state == 'player1DiceLaunch'){
+
+        gameBoard.state == 'player1PostDiceLaunchAction'
+
+    } else if(gameBoard.state == 'player2DiceLaunch'){
+
+        gameBoard.state == 'player2PostDiceLaunchAction'
+
+    } 
+
+
 }
 
+
+
+function movePlayerBack(player, diceResult){
+
+    
+    if(player.position - diceResult < 0){
+
+        player.position = ( 39 - (player.position - diceResult));
+
+    } else {
+
+        player.position += diceResult;
+    }
+
+
+    //set the state as it was before the launch
+    ai1PostDiceLaunchAction
+    if(gameBoard.state == 'ai1PostDiceLaunchAction'){
+
+        gameBoard.state == 'ai1DiceLaunch'
+
+    } else if(gameBoard.state == 'ai2PostDiceLaunchAction' ){
+
+        gameBoard.state == 'ai2DiceLaunch'
+
+    } else if(gameBoard.state == 'player1PostDiceLaunchAction'){
+
+        gameBoard.state == 'player1DiceLaunch'
+
+    } else if(gameBoard.state == 'player2PostDiceLaunchAction'){
+
+        gameBoard.state == 'player2DiceLaunch'
+
+    } 
+}
 
 
 function nextPlayerToLaunchDice(){
