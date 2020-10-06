@@ -1,30 +1,29 @@
-var brownProperty1 = 1;
 
-var brownProperty2 = 2;
+var brownProperty1 = { color: 'brown', value: 1000}
+var brownProperty2  = { color: 'brown', value: 1000}
 
-var lightBlueProperty1 = 3;
+var lightBlueProperty1  = { color: 'lightBlue', value: 1000}
 
-var lightBlueProperty2 = 4;
+var lightBlueProperty2  = { color: 'lightBlue', value: 1000}
+var purpleProperty  = { color: 'purple', value: 1000}
 
-var purpleProperty = 5;
+var redProperty = { color: 'red', value: 1000}
 
-var redProperty = 6;
-
-var greenProperty = 7;
-
-var yellowProperty = 8;
+var greenProperty = { color: 'green', value: 1000}
+var yellowProperty = { color: 'yellow', value: 1000}
 
 
 
-var ai1 = { properties: {brown: [brownProperty1], lightBlue: [lightBlueProperty2] }, position: 0,  purse: 1500}
+var ai1 = { properties: [brownProperty1 , lightBlueProperty2], position: 0,  purse: 1500, propertyCounts: { brownProperties: 0 , lightBlueProperties: 0, purpleProperties: 0, orangeProperties: 0, redProperties: 0, yellowProperties: 0, greenProperties: 0, darkBlueProperties: 0 }, situation: 0 }
 
-var ai2 = { properties: {brown: [brownProperty2], lightBlue: [lightBlueProperty1]}, position: 0, purse: 1500}
+var ai2 = { properties: [ brownProperty2, lightBlueProperty1] , position: 0, purse: 1500, propertyCounts: { brownProperties: 0 , lightBlueProperties: 0, purpleProperties: 0, orangeProperties: 0, redProperties: 0, yellowProperties: 0, greenProperties: 0, darkBlueProperties: 0 } , situation: 0 }
 
-var player1 = { properties: {purple: [purpleProperty], red: [redProperty]}, position: 0, purse: 1500}
+var player1 = { properties: [purpleProperty, redProperty ], position: 0, purse: 1500,  propertyCounts: { brownProperties: 0 , lightBlueProperties: 0, purpleProperties: 0, orangeProperties: 0, redProperties: 0, yellowProperties: 0, greenProperties: 0, darkBlueProperties: 0} , situation: 0 }
 
-var player2 = { properties: {green: [greenProperty], yellow: [yellowProperty]}, position: 0, purse: 1500}
+var player2 = { properties: [greenProperty, yellowProperty ], position: 0, purse: 1500, propertyCounts: {  brownProperties: 0 , lightBlueProperties: 0, purpleProperties: 0, orangeProperties: 0, redProperties: 0, yellowProperties: 0, greenProperties: 0, darkBlueProperties: 0} , situation: 0 }
 
 var monopoly;
+
 
 
 
@@ -49,16 +48,42 @@ var dicesResults = [diceTwo, diceThree, diceFour, diceFive, diceSix, diceSeven, 
 var players = [ai1, ai2, player1, player2, monopoly];
 
 
-var gameBoard = { playerInPlay: ai1 , state: 'none', activeDiceLauncher: ai1, playerInPlay: ai1};
+var gameBoard = { playerInPlay: ai1 , state: 'none', lastDiceLauncher: 'none' , nextDiceLauncher: ai1, playerInPlay: ai1};
 
-
-console.log(player2.purse);
 
 
 
 function alphabeta(depth, playerNum){
 
-    if(players[playerNum] == a1 || players[playerNum] == ai2 ){
+    if (players[playerNum] == monopoly){
+
+        aiEvaluation(); //get the array at the current step, to compare its values with the result obtained, to make the ratio gain-loss/probability
+    
+        var choosedScore = [];
+
+
+     for (i = 0; i < dicesResults.length; i++){
+
+       layDice(dicesResults[i]); //equivalent of the makeMove function, except we check the result of a dice launching
+
+       //we simulate the consequences of a launch of each dice combination
+
+
+        score = diceScore(dicesResults[i].probability,thinkingAi, evaluationArray, alphabeta(depth-1, gameBoard.playerInPlay));
+        
+
+        if(score > choosedScore){
+
+           choosedScore = score;
+        }
+        
+           takeDiceBack(); //equivalent of takeMove
+       }
+
+   
+     } else if(players[playerNum] == a1 || players[playerNum] == ai2 ){
+
+        
          
         generateAiMoves();
 
@@ -100,33 +125,7 @@ function alphabeta(depth, playerNum){
 
           
 
-       } else if (players[playerNum] == monopoly){
-
-              aiEvaluation(); //get the array at the current step, to compare its values with the result obtained, to make the ratio gain-loss/probability
-          
-              var choosedScore = [];
-
-    
-            for (i = 0; i < dicesResults.length; i++){
-
-             layDice(dicesResults[i]); //equivalent of the makeMove function, except we check the result of a dice launching
-
-             //we simulate the consequences of a launch of each dice combination
-
-
-              score = diceScore(dicesResults[i].probability,thinkingAi, evaluationArray, alphabeta(depth-1, gameBoard.playerInPlay));
-              
-
-              if(score > choosedScore){
-
-                 choosedScore = score;
-              }
-              
-              takeDiceBack(); //equivalent of takeMove
-           }
- 
-      }
-
+       } 
 }
 
 
@@ -134,6 +133,9 @@ function alphabeta(depth, playerNum){
 
 
 function generateAiMoves(){
+
+    
+    var moveList = [move1, move2, move3];
 
     
 }
@@ -156,16 +158,95 @@ function diceScore(probability,thinkingAi, evaluationArray, newEvalArray){
 }
 
 
-function generateDicesLaunches(){
-
-
-}
-
 
 
 function aiEvaluation(){
     
     var evaluationArray;
+
+    //we'll check the situation of each player, meaning : purse + points
+
+            //we loop on each player except the "monopoly"
+
+
+    for (i=0; i < (players.length - 1) ; i++){
+
+                //for each property owned, we'll add a certain array
+
+        for(pIndex = 0; pIndex < players[i].properties.length ; pIndex++){
+             
+             //we initialize properties counts for each player
+
+            players[i].brownProperties = 0;
+            players[i].lightBlueProperties = 0;
+            players[i].purpleProperties = 0;
+            players[i].orangeProperties = 0;
+            players[i].redProperties = 0;
+            players[i].yellowProperties = 0;
+            players[i].greenProperties = 0;
+            players[i].darkBlueProperties = 0;
+
+               
+            //for each property owned, we'll increment the right variable
+
+            if( properties[pIndex] == 'brown'){
+
+                players[i].propertyCounts.brownProperties += 1;
+
+            } else if( properties[pIndex] == 'lightBlue'){
+                players[i].lightBlueProperties += 1;
+
+            } else if( properties[pIndex] == 'purple'){
+                players[i].purpleProperties += 1;
+
+            } else if( properties[pIndex] == 'orange'){
+                players[i].orangeProperties += 1;
+
+            }  else if( properties[pIndex] == 'red'){
+
+                players[i].redProperties += 1;
+
+            } else if( properties[pIndex] == 'yellow'){
+
+                players[i].yellowProperties += 1;
+
+
+            } else if( properties[pIndex] == 'green'){
+
+                players[i].greenProperties += 1;
+              
+
+            } else if( properties[pIndex] == 'darkBlue'){
+
+                players[i].darkBlueProperties += 1;
+
+            } 
+
+
+        }
+
+        //loop on the property count object, for each player
+        for (propertyCount = players[i].propertyCounts.brownProperties ; propertyCount > players[i].propertyCounts.darkBlueProperties; propertyCount++){
+           
+            if( propertyCounts == 1){
+                players[i].situation += 1;
+
+            } else if ( propertyCounts == 2){
+                  
+                players[i].situation += 1000;
+
+            }
+
+        } 
+
+
+
+        evaluationArray[] = players[i].situation;
+
+    }
+
+
+
 
     return evaluationArray;
 
@@ -230,9 +311,34 @@ function nextPlayerToLaunchDice(){
 
 function makeMove(move){
 
-    
+    //It's litterally an object with a set of methods, that are determined within the generatemoves function.
 
-    
-    nextPlayerNum = 0
+
+
+    //move = player1 asks a question.
+
+    //move.nextstate 
+    //->set gameboard.state to move.answerer needs to respond (it will influence the next move generation)
+
+
+    //we need to take the move we generated, and actually make it on the board
+     
+    //a move is something like : proposition
+
+    //if move.type = proposition, let proposition = move.type
+
+    //proposition.sender = 
+   //proposition.answerer = 
+
+     
+
+
+    //move.type = answer
+    //move.type = 
+    //move.type = 
+
+
 
 }
+
+
