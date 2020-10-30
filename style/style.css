@@ -17,6 +17,7 @@
 }
 
 
+
 #topEdge{
 
     height: 9.09%;
@@ -71,7 +72,7 @@
 
 #boardDiv2{
 
-    height: 80.91%;
+    height: 81.82%;
 
     width: 100%;
 
@@ -99,12 +100,28 @@
 
 #boardDiv2 div div{
 
-    height: 12.5%;
+    height: 11.11%;
     width: 100%;
     border: 1px solid;
 
 
 }
 
+
+
+.square{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.square div{
+
+
+   background: red;
+}
 
 

@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+  require 'header.php';
 
 ?>
 
@@ -8,36 +8,13 @@ require 'header.php';
 <h1>Welcome, my friend...do you want to test yourself against the best of the best AIs?</h1>
 
 
-<div id='ai1Div'>
-
-ai1:
-
-</div>
-
-<div id='ai2Div'>
-
-  ai2:
-
-</div>
-
-<div id='player1Div'>
-
-  player1:
-
-</div>
-
-
-<div id='player2Div'>
-
-  player2:
-
-</div>
-
-
 
 <h1 id='activePlayerPresentation'>C'est le tour de l'IA 1</h1>
 
 <h3 id='ThinkingAiDiv'>L'IA réfléchit...</h3>
+
+<h3 id='diceDiv'>Lancer de dés en attente...</h3>
+
 
 
 <div id="board">
@@ -54,6 +31,6 @@ ai1:
 
 <?php
     
-    require 'footer.php';
+   require 'footer.php';
 
 ?>

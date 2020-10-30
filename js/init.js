@@ -1,4 +1,0 @@
-
-//display the squares.
-
-
