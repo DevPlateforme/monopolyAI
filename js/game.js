@@ -8,12 +8,15 @@ window.onload = init();
 function init(){
  
     newGame();
+
 }
 
 
 
 
 function newGame(){
+
+        initPawnsPositions();
 
     //ai1 launches first
     
