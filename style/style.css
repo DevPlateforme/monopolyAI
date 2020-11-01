@@ -131,3 +131,14 @@ img{
 
     width: auto;
 }
+
+
+
+#diceLaunchButton{
+
+    position: absolute;
+
+    top: 40vh;
+
+    left: 0.5vw;
+}

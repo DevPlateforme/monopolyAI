@@ -57,7 +57,6 @@ for(i=0; i < 11; i++){
              topDiv.append(ai1PawnContainer);
 
 
-     
 
         ai2PawnContainer = document.createElement("div");
 
@@ -66,8 +65,6 @@ for(i=0; i < 11; i++){
               topDiv.append(ai2PawnContainer);
 
 
-     
-
           player1PawnContainer = document.createElement("div");
 
               player1PawnContainer.setAttribute("class", "player1PawnContainer" );
@@ -75,9 +72,7 @@ for(i=0; i < 11; i++){
               topDiv.append(player1PawnContainer);
 
 
-
-
-        player2PawnContainer = document.createElement("div");
+         player2PawnContainer = document.createElement("div");
 
                player2PawnContainer.setAttribute("class", "player2PawnContainer" );
 
@@ -121,7 +116,7 @@ for(i=0; i < 11; i++){
 
          ai1PawnContainer = document.createElement("div");
 
-             ai1PawnContainer.setAttribute("id", "ai1PawnContainer" + 'square' + bottomSquareNum);
+             ai1PawnContainer.setAttribute("id", "ai1PawnContainer" + 'Square' + bottomSquareNum);
 
              bottomDiv.append(ai1PawnContainer);
 
@@ -130,7 +125,7 @@ for(i=0; i < 11; i++){
 
          ai2PawnContainer = document.createElement("div");
 
-              ai2PawnContainer.setAttribute("id", "ai2PawnContainer" + 'square' + bottomSquareNum);
+              ai2PawnContainer.setAttribute("id", "ai2PawnContainer" + 'Square' + bottomSquareNum);
 
               bottomDiv.append(ai2PawnContainer);
 
@@ -139,7 +134,7 @@ for(i=0; i < 11; i++){
 
          player1PawnContainer = document.createElement("div");
 
-              player1PawnContainer.setAttribute("id", "player1PawnContainer" + 'square' + bottomSquareNum);
+              player1PawnContainer.setAttribute("id", "player1PawnContainer" + 'Square' + bottomSquareNum);
 
               bottomDiv.append(player1PawnContainer);
 
@@ -148,7 +143,7 @@ for(i=0; i < 11; i++){
 
          player2PawnContainer = document.createElement("div");
 
-               player2PawnContainer.setAttribute("id", "player2PawnContainer" + 'square' + bottomSquareNum );
+               player2PawnContainer.setAttribute("id", "player2PawnContainer" + 'Square' + bottomSquareNum );
 
                bottomDiv.append(player2PawnContainer);
 
@@ -264,7 +259,7 @@ for(i=0; i < 9 ; i++){
 
         ai1PawnContainer = document.createElement("div");
 
-             ai1PawnContainer.setAttribute("class", "ai1PawnContainer"+ 'square' + leftSquareNum );
+             ai1PawnContainer.setAttribute("class", "ai1PawnContainer"+ 'Square' + leftSquareNum );
 
              leftDiv.append(ai1PawnContainer);
 
@@ -272,7 +267,7 @@ for(i=0; i < 9 ; i++){
 
         ai2PawnContainer = document.createElement("div");
 
-              ai2PawnContainer.setAttribute("class", "ai2PawnContainer" + 'square' + leftSquareNum);
+              ai2PawnContainer.setAttribute("class", "ai2PawnContainer" + 'Square' + leftSquareNum);
 
               leftDiv.append(ai2PawnContainer);
 
@@ -281,7 +276,7 @@ for(i=0; i < 9 ; i++){
 
          player1PawnContainer = document.createElement("div");
 
-              player1PawnContainer.setAttribute("class", "player1PawnContainer" + 'square' + leftSquareNum);
+              player1PawnContainer.setAttribute("class", "player1PawnContainer" + 'Square' + leftSquareNum);
 
               leftDiv.append(player1PawnContainer);
 
@@ -290,7 +285,7 @@ for(i=0; i < 9 ; i++){
 
          player2PawnContainer = document.createElement("div");
 
-               player2PawnContainer.setAttribute("class", "player2PawnContainer" + 'square' + leftSquareNum);
+               player2PawnContainer.setAttribute("class", "player2PawnContainer" + 'Square' + leftSquareNum);
 
                leftDiv.append(player2PawnContainer);
      
@@ -334,7 +329,7 @@ for(i=0; i < 9 ; i++){
 
         ai1PawnContainer = document.createElement("div");
 
-             ai1PawnContainer.setAttribute("class", "ai1PawnContainer"+ 'square' + rightSquareNum );
+             ai1PawnContainer.setAttribute("class", "ai1PawnContainer"+ 'Square' + rightSquareNum );
 
              rightDiv.append(ai1PawnContainer);
 
@@ -343,7 +338,7 @@ for(i=0; i < 9 ; i++){
 
         ai2PawnContainer = document.createElement("div");
 
-              ai2PawnContainer.setAttribute("class", "ai2PawnContainer" + 'square' + rightSquareNum);
+              ai2PawnContainer.setAttribute("class", "ai2PawnContainer" + 'Square' + rightSquareNum);
 
               rightDiv.append(ai2PawnContainer);
 
@@ -352,7 +347,7 @@ for(i=0; i < 9 ; i++){
 
          player1PawnContainer = document.createElement("div");
 
-              player1PawnContainer.setAttribute("class", "player1PawnContainer" + 'square' + rightSquareNum );
+              player1PawnContainer.setAttribute("class", "player1PawnContainer" + 'Square' + rightSquareNum );
 
               rightDiv.append(player1PawnContainer);
 
@@ -361,7 +356,7 @@ for(i=0; i < 9 ; i++){
 
          player2PawnContainer = document.createElement("div");
 
-               player2PawnContainer.setAttribute("class", "player2PawnContainer" + 'square' + rightSquareNum );
+               player2PawnContainer.setAttribute("class", "player2PawnContainer" + 'Square' + rightSquareNum );
 
                rightDiv.append(player2PawnContainer);
      
@@ -386,36 +381,43 @@ function moveGuiPiece(player , fromSquare, toSquare){
 
   let playerName;
 
+  let pawnImg;
+
   if(player == ai1){
       
     playerName = 'ai1';
+    
   
   } else if (player == ai2){
 
     playerName = 'ai2';
 
+
   } else if (player == player1){
 
     playerName = 'player1';
+
 
   } else if (player == player2){
      
     playerName = 'player2';
 
-  
   }
 
 
-       console.log('from:' + fromSquare);
+       console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
 
-       console.log('to:' + toSquare);
+       console.log(' Board State' );
 
+       console.log(' GUI STATE : ai1 is on square ' + (ai1.position + 1) );
+       console.log(' GUI STATE : ai2 is on square ' + (ai2.position + 1));
+       console.log(' GUI STATE : player1 is on square ' + (player1.position + 1));
+       console.log(' GUI STATE : player2 is on square ' + (player2.position + 1));
 
-       //ON THE FROM SQUARE, THE PAWN DIV WILL ACTUALLY BE REMOVED.
-
-
-
-}
+     
+     
+    
+   }
 
 
 
@@ -424,28 +426,41 @@ function moveGuiPiece(player , fromSquare, toSquare){
 function initPawnsPositions(){
 
     //APPEND TO EACH DIV OF THE DEPARTURE SQUARE, THE ACCORDING IMAGE
+    
+
+         //CONTAINERS
 
     ai1PawnContainer = $('#ai1PawnContainerSquare1');
     ai2PawnContainer = $('#ai2PawnContainerSquare1');
     player1PawnContainer = $('#player1PawnContainerSquare1');
     player2PawnContainer = $('#player2PawnContainerSquare1');
 
+     //IMAGES
+
     let ai1Img = document.createElement('IMG');
     ai1Img.setAttribute('src', 'img/ai1Pawn.png' );
-    ai1PawnContainer.append(ai1Img);
     
     let ai2Img = document.createElement('IMG');
     ai2Img.setAttribute('src', 'img/ai2Pawn.png' );
-
-    ai2PawnContainer.append(ai2Img);
-
+    
+    
     let player1Img = document.createElement('IMG');
     player1Img.setAttribute('src', 'img/player1Pawn.png' );
-
-    player1PawnContainer.append(player1Img);
-
+    
+    
     let player2Img = document.createElement('IMG');
     player2Img.setAttribute('src', 'img/player2Pawn.png');
+    
+    
+
+    
+
+    ai1PawnContainer.append(ai1Img);
+    
+    
+    ai2PawnContainer.append(ai2Img);
+
+    player1PawnContainer.append(player1Img);
 
     player2PawnContainer.append(player2Img);
 
@@ -453,4 +468,39 @@ function initPawnsPositions(){
     console.log('images added!!');
 
 }
+
+
+
+
+function displayDiceLaunchButton(){
+
+
+     let main = $('#main');
+      
+     let diceButton = document.createElement('button');
+
+     diceButton.setAttribute('id', 'diceLaunchButton');
+
+
+     diceButton.innerHTML = 'lancer les dés';
+
+
+     main.append(diceButton)
+
+
+}
+
+
+
+function removeDiceLaunchButton(){
+
+
+     let main = $('#main');
+      
+     let diceButton = $('#diceLaunchButton');
+     
+     main.remove(diceButton)
+}
+
+
 
