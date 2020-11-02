@@ -13,8 +13,9 @@ function newGame(){
 
         initPawnsPositions();
 
-        launchGameCycle();
+        launchDices();
 
+        movePiece();
 
 
 }
@@ -26,7 +27,7 @@ function newGame(){
 
 
 
-function launchDice(){
+function launchDices(){
      
     //because Math.random() is a number below 1, the max number that be obtained by this operation would be 11, if we didn't add 1
       
@@ -76,34 +77,39 @@ function movePiece(){
 
      }
 
+
+
+
      lastDiceLauncher.position = updatedPosition;
 
 
      moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
 
 
-         //IF PLAYER LANDS ON AVAILABLE PROPERTY
-       
-     if (squaresArray[updatedPosition].owner == 'none') {
-
-        gameBoard.state = postDiceLaunchMove;
-
-         //ELSE IF PLAYER LANDS ON ANOTHER PLAYERS PROPERTY
 
 
-     } else if (squaresArray[updatedPosition].owner != lastDiceLauncher) {
+
+     gameBoard.state = postDicesLaunch;
+
+     
+     makePostLaunchMove();
 
 
-        
-        let payer = gameBoard.activePlayer;
+   }
 
-        let landLord = squaresArray[updatedPosition].landLord;
 
-        let rent = squaresArray[updatedPosition].rentValue;
 
-        payRent(payer, landLord, rent);  
 
-     }
+   function makePostLaunchMove(){
+
+
+
+    //IF AI1 AND AI2
+
+
+     gameBoard.state = proposition1;
+
+     startAiThinking();
 
    }
 
@@ -122,23 +128,10 @@ function movePiece(){
 
 
 
-   function launchGameCycle(){
+  
 
 
-    
-        //GAME CYCLE
-
-
-        //THE NEXT DICE LAUNCHER LAUNCHES THE DICE 
-
-        launchDice();
-
-        //IT TRIGGERS THE PROPOSITION 1 , TRIGGERING AN ANSWER, TRIGGERING THE PROPOSITION 2 , TRIGGERING ANOTHER ANSWER...UP UNTIL THE 4th PROPOSITION
-        
-
-   }
-
-
+   /*
 
 
    function makeMove(){
@@ -168,7 +161,6 @@ function movePiece(){
 
             answer2.propositionSubmitted = proposition;
 
-    
 
          } else if(gameBoard.state == proposition3){
 
@@ -187,30 +179,32 @@ function movePiece(){
         }
 
 
-        
+    }
 
-
-       }
-       
-
-
-      else if( gameBoard.state == answer1 || gameBoard.state == answer2|| gameBoard.state == answer3|| gameBoard.state == answer4){
-
+        else if( gameBoard.state == answer1 || gameBoard.state == answer2|| gameBoard.state == answer3|| gameBoard.state == answer4){
               
-          if(gameBoard.state == anwer1){
-
+          if(gameBoard.state == answer1){
+              
              gameBoard.state = proposition2;
+
+             startAIthinking(ai1);
 
           } else if(gameBoard.state == anwer2){
 
              gameBoard.state = proposition3;
 
+             displayPlayer1PropositionInterface();
 
-         } else if(gameBoard.state == anwer3){
+
+          } else if(gameBoard.state == anwer3){
 
            gameBoard.state = proposition4;
+
+           displayPlayer2PropositionInterface();
+
+
  
-         } else if(gameBoard.state == anwer4){
+          } else if(gameBoard.state == answer4){
 
           gameBoard.state = mortgageDecision1;
 
@@ -220,7 +214,9 @@ function movePiece(){
 
         let answer = gameBoard.state;
 
-        makeAnswer(answer);
+          makeAnswer(answer);
+
+
         
       }
 
@@ -229,7 +225,7 @@ function movePiece(){
     //MORTGAGE DECISIONS
 
 
-    else if (gameBoard.state == mortgageDecision1 || gameBoard.state == mortgageDecision2 || gameBoard.state == mortgageDecision3 || gameBoard.state == mortgageDecision4   ){
+    else if (gameBoard.state == mortgageDecision1 || gameBoard.state == mortgageDecision2 || gameBoard.state == mortgageDecision3 || gameBoard.state == mortgageDecision4 ){
 
      
     if (gameBoard.state == mortgageDecision1){
@@ -276,14 +272,12 @@ function movePiece(){
 
         gameBoard.state = houseSellingDecision1;
 
-
-
     } 
 
 
  }
 
-                //HOUSE BUYING DECISIONS
+     //HOUSE BUYING DECISIONS
 
 
 
@@ -306,10 +300,35 @@ function movePiece(){
 
         gameBoard.state = launchDices;
 
+        return launchDices();
+
     } 
 
 
   }
+          
+        
+          //AFTER SETTING THE NEXT STATE, TRIGGER THE NEXT EVENT
+  
+  
+  
+        //IF THE FUNCTION HAS NOT RETURNED (IF IT'S NOT TIME TO ROLL THE DICES)
+
+
+          if(proposition.answerer == players[0] || proposition.answerer == players[1] ){
+
+            startAiSearch();
+
+          //IF THE ANSWERER IS A HUMAN, GIVE THEM THE OPPORTUNITY TO ANSWER, this answer (when the player will execute the function makeAnswer()) creating the nextState
+
+        } else if(proposition.answerer == players[2] || proposition.answerer == players[3] ){
+
+            displayHumanActionInterface();
+
+        }
+
+
+     }
 
 
 
@@ -333,9 +352,259 @@ function makeAnswer(answer){
 
         //accept trade
 
+    }
 
+ }
+
+
+ */
+
+
+
+
+
+ function startAiThinking(){
+
+           //ITERATIVE DEEPENING
+
+           for(depthIndex = 1; depthIndex < 5; depthIndex++){
+                  
+            //IT ALL COMES FROM THERE.
+            //THE EXECUTION OF THIS FUNCTION WILL GENERATE ALL THE POSSIBLE MOVES FOR THE CURRENT POSITION, AND GET A PVLINE.
+              bestScore = depthForSearch(depthIndex);
+  
+              pvNum = getPvLine(depthIndex);
+
+              //THE POINT IS TO GET A BESTMOVE FOR THE CURRENT POSITION.
+              //WE LL TAKE THE LASTLY UPDATED VALUE AS THE BEST MOVE
+
+              bestMove = brd_pvArray[0];        
+              
+           }
+
+           bestMoveFound = bestMove;
+            
+ }
+
+
+
+
+   function depthForSearch(depth){
+           
+       if(depth <= 0){
+
+        return boardEvaluation();
+       }
+
+       if((searched_nodes & 2047) == 0) CheckUp();
+
+       searched_nodes++;
+
+
+       generateMoves();
+
+
+       var moveNum = 0;
+
+       var legal = 0;
+
+       var bestMove = NOMOVE;
+
+       score = -INFINITE;
+
+       //TRY TO GET A PVMOVE FOR THIS GAME POSKEY
+
+       var pvMove = probePvTable();
+      
+       
+       //IF THERE IS A PVMOVE, GIVE IT THE HIGHEST SCORE , SO IT SORTED FIRST
+
+       
+      if( PvMove != NOMOVE){
+
+        for(MoveNum = moveListStart[currentPosition]; MoveNum = moveListStart[nextPosition]; moveNum++){
+                
+            if(brd_moveList[moveNum] == pvMove){
+
+                moveScores[moveNum].score = 2000000;
+
+                break;
+            }
+
+        }
+
+      }
+
+
+
+      for(moveNum = moveListStart[currentPosition] ; moveListStart[currentPosition] ; ++moveNum ){
+        
+              //NOW , SORT THE MOVES.
+
+          pickNextMove(moveNum);
+
+          if(makeMove(moveList[moveNum] == false)){
+              continue;
+          }
+
+          //WHEN VALID MOVES, START THE ITERATION.
+
+          legal++;
+
+          score = depthForSearch(depth - 1);
+
+          takeMove();
+
+      }
+
+       
+      if(score > bestScore){
+
+        bestScore = score;
+
+        bestMove = board_moveList[moveNum];
+
+        //IF BEST MOVE, STORE IT AS PV MOVE
+
+        storePvMove(bestMove);
+
+      }
+   
+      return bestScore;
     }
 
 
 
+      //NOW, SORT THE MOVES ON A STACK, FROM THE HIGHEST TO THE LOWEST VALUES.
+
+
+   }
+
+
+
+
+
+   function getPvLine(depth){
+
+    //CREATE A PVARRAY, CONTAINING AN ARRAY WITH (for a depth of 5 for example) the 5 best 
+    
+    //GET THE PV MOVE FOR THE CURRENT POSKEY
+
+    var move = ProbePvTable();
+
+    var count = 0;
+
+    while(move != NOMOVE && count < depth ){
+
+        //UP UNTIL THERE ARE PV MOVES AVAILABLE FOR THE LINE WE CHECK
+        
+        if(moveExists(move)) { 
+           
+            makeMove(move);
+            board_pvArray[count++] = move;
+        } else {
+            break;
+        }
+
+        //
+
+        move = ProbePvTable();
+
+    }
+
+
+    while(brd_ply > 0){
+        takeMove();
+    }
+
+
+    return count;
+
+   }
+
+
+
+
+   function ProbePvTable(){
+     
+    //FOR THE CURRENT BOARD POSITION HASH,
+
+    //RETURN THE PVMOVE IF THERE IS ONE.
+
+    var index = board_posKey % PVENTRIES;
+
+    if(board_pvTable[index].posKey == board_posKey){
+
+      return board_pvTable[index].move;
+    } 
+
+    else {
+
+      return NOMOVE;
+
+   }
+
+    
+   }
+
+
+
+   function storePvMove(move){
+
+
+      var index = gameBoard_posKey % PVENTRIES;
+
+      board_pvTable[index].move = move;
+
+      board_PvTable[index].posKey = board_posKey;
+
+
+   }
+
+
+
+ /*
+
+
+ function displayHumanActionInterface(){
+
+    //THE INTERFACE WILL DIFFER, ACCORDING TO THE GAMEBOARD STATE
+
+
+    //PROPOSITION
+
+    //IF THE GAMEBOARD STATE IS PROPOSITION 3
+        
+
+         displayHumanPropositionInterface(player1);
+
+
+    //IF THE GAMEBOARD STATE IS PROPOSITION 4
+
+        displayHumanPropositionInterface(player2);
+    
+
+    //ANSWER
+
+
+    //POST LAUNCH
+
+
+    displayHumanPostLaunchInterface();
+
+
  }
+
+
+
+
+ function displayHumanPostLaunchInterface(){
+        
+    //DIFFERENT INTERFACES ACCORDING TO THE PLAYER AND THE SQUARE IT JUST LANDED ON.
+
+ }
+
+
+ */
+
+
