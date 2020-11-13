@@ -1,4 +1,6 @@
 
+
+/*
 function generateGameKey(){
 
     //INITIALLY, EACH PLAYERS SITUATIONS WILL BE EMPTY.
@@ -74,3 +76,7 @@ function initHashKeys(){
 
 
 }
+
+
+
+*/

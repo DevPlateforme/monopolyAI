@@ -1,12 +1,21 @@
 //BOARD EVALUATION
 
-
-function boardEvaluation(){
+/*
+function getPlayerIndividualSituation(){
      
+
+  //THE EVALUATION TAKES INTO ACCOUNT THE EVALUATOR'S SITUATION, BUT ALSO OTHER PLAYER'S SITUATIONS, IMPACTING THE EVALUATOR.
+
+    
+  
+  //FIRST, THE COLOR'S BONUS : 
+
+  //A COLOR BONUS (VALUE DEPENDING ON THE COLOR) PER HOUSE, AND A COLOR BONUS PER PROPERTY
+
+
+
     let evaluationArray = [];
 
-
-    for(playerIndex = 0; playerIndex < players.length; playerIndex++){
         
         let player = players[playerIndex];
 
@@ -20,15 +29,19 @@ function boardEvaluation(){
 
               if (count(player.properties[colorIndex]) == 3) {
 
-                playerEvaluation += 10000000;
+
+                 getBonusPerPropertySet(colorIndex, 3);
+
 
               } else if (count(player.properties[colorIndex]) == 2){
 
-                playerEvaluation += 1000;
+
+                getBonusPerPropertySet(colorIndex, 2);
 
               } else if (count(player.properties[colorIndex]) == 2){
 
-                playerEvaluation += 100;
+
+                getBonusPerPropertySet(colorIndex, 1);
 
               }
 
@@ -39,24 +52,91 @@ function boardEvaluation(){
 
                 if (count(player.properties[colorIndex]) == 2) {
 
-                    playerEvaluation += 10000000;
+                    getBonusPerPropertySet(colorIndex, 2);
+
+
+                    //1/2
+
 
                 } else if (count(player.properties[colorIndex]) == 1){
 
-                    playerEvaluation += 1000;
+                  getBonusPerPropertySet(colorIndex, 1);
 
            }
 
 
 
 
-        }
-
+      
 
        evaluationArray[playerIndex] = playerEvaluation;
 
 
     }
+
+
+
+    function getPlayerRealSituation(player){
+
+      //EACH PLAYER 
+
+       getOtherPlayersArray(player);
+
+
+       playerSituation = getPlayerIndividualSituation(player);
+
+
+       //FOR EACH OTHER PLAYER, TAKE THEIR SITUATIONS/2 AND SUBSTRACT IT TO THE PLAYERS SITUATION
+
+
+       for(otherPlayerIndex = 0; otherPlayerIndex < otherPlayersArray.length ; otherPlayerIndex++ ){
+
+         otherPlayer = otherPlayersArray[otherPlayerIndex];
+
+            playerSituation -= (getPlayerIndividualSituation(otherPlayer)/2);
+
+       }
+
+
+    }
+
+
+
+    function getBonusPerPropertySet(colorIndex, numberOfProperties){
+
+      let color = colorsArray[colorIndex];
+
+      let colorBonus = colorsArray[colorIndex].score;
+
+
+        switch(numberOfProperties){
+
+          case 1 :  return colorBonus;
+
+          case 2 : if(color == brown || color == darkBlue ){
+
+            return Math.pow(colorBonus, 3);
+
+          } else {
+
+            return Math.pow(colorBonus, 2);
+          }
+
+
+          case 3 : return Math.pow(colorBonus, 3);
+
+
+        } 
+
+
+    }
+
+
+
+
+
+
+
 
 
     //AI1
@@ -110,9 +190,13 @@ function boardEvaluation(){
               //FOR EACH 2/3 , + 2000
 
 
-              //FOR EACH OTHER OPPONENT 3/3, -2000
+              
+              /FOR EACH OTHER OPPONENT 3/3, -2000
 
 
 
 
 }
+
+
+*/

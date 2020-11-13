@@ -1,0 +1,213 @@
+function generatePropositions(){
+
+    let activePlayer = gameBoard.activePlayer;
+
+
+ 
+    let otherPlayer;
+
+    let offerer = activePlayer;
+
+    let answerer;
+
+    let counterPartAsked;
+
+    let propositionMaterial;
+
+    let propertySetColor;
+    
+
+    console.log('moves generated...');
+
+    
+
+
+     otherPlayersArray = [ai2, player1, player2];
+
+
+    console.log('the active player index is ' + activePlayer.playerIndex );
+
+
+    for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {
+
+         console.log(' color.........................' + colorIndex);
+        
+        //FOR EACH COLOR
+
+
+        for(otherPlayerIndex = 0; otherPlayerIndex < otherPlayersArray.length ; otherPlayerIndex++){
+
+            otherPlayer = otherPlayersArray[otherPlayerIndex];
+
+            answerer = otherPlayer;
+
+         
+
+
+            
+            //FOR EACH OTHER PLAYER
+
+
+            //LOOP ON EACH COLOR
+
+            
+            //FOREACH
+
+
+
+            if( ( activePlayer.propertiesByColor[colorIndex].properties.length + otherPlayer.propertiesByColor[colorIndex].properties.length ) == 3){
+
+                if(activePlayer.propertiesByColor[colorIndex].properties.length != 3){
+
+                    console.log('possible monopoly found');
+
+                    //IF WE WANT A MONOPOLY, WE TRY TO TAKE THE WHOLE ARRAY OF THE OTHER PLAYER
+
+                    let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties;
+
+                    if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+
+                        counterPartAsked = {valueForTheOfferer: zeroThreeToThreeThree, color: colorArray[colorIndex], array : otherPlayerPropertiesArrayForThisColor};
+
+
+                        
+                        propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
+
+                        tryToCreateProposition(propositionMaterial);
+                       
+
+                     }else if(activePlayer.propertiesByColor[colorIndex].properties.length == 1){
+
+                        
+                        counterPartAsked = {valueForTheOfferer: oneThreeToThreeThree, color: colorArray[colorIndex], array :  otherPlayerPropertiesArrayForThisColor};
+                        
+                        propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
+
+                        tryToCreateProposition(propositionMaterial);
+
+
+
+            
+
+                     } else if(activePlayer.propertiesByColor[colorIndex].properties.length == 2){
+
+
+                        
+                        counterPartAsked = {valueForTheOfferer: twoThreeToThreeThree, color: colorArray[colorIndex], array :  otherPlayerPropertiesArrayForThisColor};
+                        
+                        propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
+
+                        tryToCreateProposition(propositionMaterial);
+
+
+
+                    }
+
+                    
+                }
+                
+    
+             } else if( ( activePlayer.propertiesByColor[colorIndex].properties.length + otherPlayer.propertiesByColor[colorIndex].properties.length ) == 2) {
+
+
+
+                        if(activePlayer.propertiesByColor[colorIndex].properties.length != 2){
+
+                                             //IF DARK BLUE OR BROWN
+
+                                             
+
+
+                              if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown){
+
+        
+        
+                            if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+
+
+                            } else if (activePlayer.propertiesByColor[colorIndex].properties.length == 1){
+
+
+                            }
+
+                                     //IF NOT DARK BLUE OR BROWN
+
+
+                        } else{
+
+
+                      if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+
+
+
+
+
+                       } else if (activePlayer.propertiesByColor[colorIndex].properties.length == 1){
+
+
+                      }
+               
+               }
+ 
+           }
+
+
+     
+    
+
+      } else if( ( activePlayer.propertiesByColor[colorIndex].properties.length + otherPlayer.propertiesByColor[colorIndex].properties.length ) == 1) {
+          
+        
+             if(activePlayer.propertiesByColor[colorIndex].properties.length != 1){
+
+                                             //IF DARK BLUE OR BROWN
+
+
+
+                   if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown){
+
+    
+
+                            if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+
+
+
+
+                            }
+
+
+                                     //IF NOT DARK BLUE OR BROWN
+
+
+                   } else{
+
+
+                      if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+
+
+                       }
+            
+                  }
+
+
+
+
+        
+
+  
+          }       
+        
+     }
+
+     
+  
+  }
+ 
+
+}
+
+    //LOOP ON EACH PLAYER
+
+
+
+}
