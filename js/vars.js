@@ -28,7 +28,7 @@ var colorArray = [ brown , lightBlue ,  purple , orange ,  red , yellow , green 
 
 
 
-//PROPOSITIONS TYPES
+//GAINS
 
        //3 PROPERTIES SET
               //MONOPOLY
@@ -51,10 +51,38 @@ var zeroTwoToTwoTwo = 9000;
 
 var oneTwoToTwoTwo = 7000;
 
-var oneTwoToOneTwo = 900;
+var zeroTwoToOneTwo = 900;
 
 
-   //VARS
+
+//LOSSES
+
+
+
+       //3 PROPERTIES SET
+              //MONOPOLY
+
+var threeThreeToZeroThree = 10000;
+
+var ThreeTreeToOneThree = 8000;
+
+var ThreeThreeToTwoThree = 6000;
+
+            //2/3
+
+var TwoThreeToZeroThree = 1000;
+
+var TwoThreeToOneThree = 500;
+
+   //2 PROPERTIES SET
+
+var TwoTwoToZeroTwo = 9000;
+
+var TwoTwoToOneTwo = 7000;
+
+var oneTwoToZeroTwo = 900;
+
+
 
 var playerNum = 4;
 

@@ -1,10 +1,16 @@
+
 function generatePropositions(){
+
+                //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
+
 
     let activePlayer = gameBoard.activePlayer;
 
-
+    let activePlayerGain;
  
     let otherPlayer;
+
+    let otherPlayerLoss;
 
     let offerer = activePlayer;
 
@@ -15,14 +21,12 @@ function generatePropositions(){
     let propositionMaterial;
 
     let propertySetColor;
+
     
 
     console.log('moves generated...');
-
     
-
-
-     otherPlayersArray = [ai2, player1, player2];
+    otherPlayersArray = [ai2, player1, player2];
 
 
     console.log('the active player index is ' + activePlayer.playerIndex );
@@ -51,7 +55,8 @@ function generatePropositions(){
             //LOOP ON EACH COLOR
 
             
-            //FOREACH
+            //LOOP ON EACH ARRAY, AND EXECUTE THE SAME FUNCTION : GET A sET OF ARRAYS. FOR EACH OF THOSE ARRAYS, GENERATE DIFFERENT ARRAYS
+
 
 
 
@@ -67,10 +72,24 @@ function generatePropositions(){
 
                     if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
 
-                        counterPartAsked = {valueForTheOfferer: zeroThreeToThreeThree, color: colorArray[colorIndex], array : otherPlayerPropertiesArrayForThisColor};
-
-
+                        //FROM AN ARRAY, AN OFFERER, AND AN ANSWERER, WE CAN OBTAIN AN 
                         
+                        /* NO NEED TO EXECUTE THE GETARRAY GAIN VALUE FOR PLAYER, WE KNOW WHAT IT IS */
+
+                        activePlayerGain = zeroThreeToThreeThree; 
+
+                        otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, array);
+
+
+                        counterPartAsked =  new CounterPartAsked(otherPlayerArray, otherPlayerLoss, activePlayerGain);
+
+
+                        //RETURN { LOSS FOR THE OWNER : , GAIN FOR THE OFFERER : , ARRAY, COLOR}
+                   
+
+                        //{valueForTheOfferer: zeroThreeToThreeThree, color: colorArray[colorIndex], array : otherPlayerPropertiesArrayForThisColor};
+
+                
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
                         tryToCreateProposition(propositionMaterial);
@@ -115,9 +134,7 @@ function generatePropositions(){
 
                                              //IF DARK BLUE OR BROWN
 
-                                             
-
-
+                            
                               if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown){
 
         
@@ -155,10 +172,11 @@ function generatePropositions(){
      
     
 
-      } else if( ( activePlayer.propertiesByColor[colorIndex].properties.length + otherPlayer.propertiesByColor[colorIndex].properties.length ) == 1) {
+      } else if( 1 <= ( activePlayer.propertiesByColor[colorIndex].properties.length + otherPlayer.propertiesByColor[colorIndex].properties.length ) <= 2  ) {
           
         
-             if(activePlayer.propertiesByColor[colorIndex].properties.length != 1){
+           //FOR EACH ELEMENT , PROPOSE A 1 ELEMENT OFFER
+
 
                                              //IF DARK BLUE OR BROWN
 
@@ -189,22 +207,13 @@ function generatePropositions(){
             
                   }
 
-
-
-
         
-
+             }
   
-          }       
-        
-     }
-
-     
-  
-  }
+       }
  
 
-}
+   }
 
     //LOOP ON EACH PLAYER
 
