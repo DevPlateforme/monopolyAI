@@ -24,7 +24,7 @@ function PropositionMaterial(offerer, answerer, counterPartAsked){
 
 
 
-function CounterPartAsked(array, answererLoss, offererGain){
+function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlayer){
 
 	
 
@@ -38,30 +38,30 @@ function CounterPartAsked(array, answererLoss, offererGain){
 
 
 
-	this.offererGain = function(){
+	this.gainValueForTheOtherPlayer = function(){
 
 		//CALCULATE THE GAIN FOR THE OFFERER
 
-		return offererGain;
+		return gainValueForTheOtherPlayer;
 
 	};
 
 
-	this.answererLoss = function(){
+	this.lossValueForTheOwner = function(){
 
 		//CALCULATE THE LOSS FOR THE ANSWERER
 
-		return answererLoss;
+		return lossValueForTheOwner;
 
 	};
 
 
 
-	this.offererGain = function(){
+	this.gainValueForTheOtherPlayer = function(){
 
 		//CALCULATE THE GAIN FOR THE OFFERER
 
-		return offererGain;
+		return gainValueForTheOtherPlayer;
 
 	};
 
@@ -73,7 +73,7 @@ function CounterPartAsked(array, answererLoss, offererGain){
 
 
 
-function Offer(array, lossForTheOfferer, gainForTheAnswerer) {
+function Offer(array, lossValueForTheOwner, gainValueForTheAnswerer) {
 
 	
 	this.array = function(){
@@ -85,20 +85,21 @@ function Offer(array, lossForTheOfferer, gainForTheAnswerer) {
 	};
 
 
-     this.lossForTheOfferer = function(){
+
+     this.lossValueForTheOwner = function(){
 
 		//CALCULATE THE LOSS FOR THE ANSWERER
 
-		return lossForTheOfferer;
+		return lossValueForTheOwner;
 
 	};
 
 
-	 this.gainForTheAnswerer = function(){
+	 this.gainValueForTheAnswerer = function(){
 
 		//CALCULATE THE GAIN FOR THE OFFERER
 
-		return gainForTheAnswerer;
+		return gainValueForTheAnswerer;
 
 	};
 
@@ -109,7 +110,7 @@ function Offer(array, lossForTheOfferer, gainForTheAnswerer) {
 
 
 
-function Proposition(offerer, answerer, proposition, counterPart ) {
+function Proposition(offerer, answerer, proposition, counterPartAsked ) {
 	// For each property and get out of jail free cards, 1 means offered, -1 means requested, 0 means neither.
 
 	this.offerer = function() {
@@ -124,8 +125,8 @@ function Proposition(offerer, answerer, proposition, counterPart ) {
 		return proposition;
 	};
 
-	this.counterPart = function() {
-		return counterPart;
+	this.counterPartAsked = function() {
+		return counterPartAsked;
 	};
 
 

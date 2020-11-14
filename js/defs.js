@@ -25,8 +25,9 @@ function launchDices(){
         nextDiceLauncherIndex++;
     }
 
-    return diceResult;
 
+    return diceResult;
+    
 }
 
 
@@ -61,14 +62,10 @@ function movePiece(){
      }
 
 
-
-
      lastDiceLauncher.position = updatedPosition;
 
 
      moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
-
-
 
 
 
@@ -249,8 +246,6 @@ function tryToCreateProposition(propositionMaterial){
 
 
 
-        console.log('trying to create proposition matching the score ' + 'color ' + color.index) 
-
 
         //THEN, TRY TO ADD POSSIBLE PROPOSITIONS TO THE MOVELIST
 
@@ -269,9 +264,12 @@ function tryToCreateProposition(propositionMaterial){
 
                    offerArray = [propertiesArray[propertyIndex]];
 
-                   answererGain = getArrayGainValueForPlayer(answerer, offerArray);
- 
-                   offererLoss = getArrayGainValueForPlayer(offerer, offerArray);
+                    //DIVIDE THIS ARRAY IN SETS
+
+
+                    offer = createOffer(offerer, answerer, offerArray);
+
+                    //RETURN AN OFFER OBJECT
 
                    offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
 
@@ -279,13 +277,19 @@ function tryToCreateProposition(propositionMaterial){
 
 
                 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-         
+               
+                /*
 
-                if(reasonableProposition(proposition) == true ){
+                if(profitableTrade(){
+
+                  console.log('pushing proposition...')
 
                   propositionList.push(proposition);
 
                 }
+
+        
+                */
 
 
               }
@@ -296,7 +300,6 @@ function tryToCreateProposition(propositionMaterial){
         //2 ELEMENTS PROPOSITIONS
         
         
-
               let arrayForPairs =  propertiesArray.slice(0);
 
               let pairArray = [];
@@ -345,14 +348,33 @@ function tryToCreateProposition(propositionMaterial){
 
 
 
-
-                  for(pi = 0 ; pi < pairArray.length; pi++){
-
-
-                        //GET A GAIN AND LOSS, CREATE A PROPOSITION OBJECT. IF PROFITABLE, PUSH IT.
+                
+                   console.log('pair array: ' + pairArray);
 
 
-                    }
+                   for(pi = 0 ; pi < pairArray.length ; pi++){          
+                     
+                    
+                    offerArray = pairArray[pi];
+
+
+                    //DIVIDE THIS ARRAY IN SETS
+
+
+                    offer = createOffer(offerer, answerer, offerArray);
+
+                    //RETURN AN OFFER OBJECT
+
+                   offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
+
+                   proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+
+
+                   console.log('generating two element propositions...');
+
+
+                  
+                   }
 
                
          //3 ELEMENTS PROPOSITIONS
@@ -402,10 +424,22 @@ function tryToCreateProposition(propositionMaterial){
   
   for(ti = 0 ; ti < tripletArray.length; ti++){
 
-
     //GET A GAIN AND LOSS, CREATE A PROPOSITION OBJECT. IF PROFITABLE, PUSH IT.
 
+          offerArray = tripletArray[ti];
 
+                    //DIVIDE THIS ARRAY IN SETS
+
+           offer = createOffer(offerer, answerer, offerArray);
+
+                    //RETURN AN OFFER OBJECT
+
+            offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
+
+            proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+
+
+            console.log('generating three elements propositions...');
 
    }
 
@@ -415,7 +449,7 @@ function tryToCreateProposition(propositionMaterial){
 
           //FUNCTION END
 
-       }
+ }
 
 
 
@@ -428,20 +462,20 @@ function getPropositionScoreAsAnOfferer(proposition){
        
        //OFFERER 
 
-       offererScore += counterPartAsked.gainValueForTheOfferer;
+       offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 
        //SUBSTRACT THE LOSS
 
-       offererScore -= offer.lossValueForTheOfferer;
+       offererScore -= offer.lossValueForTheOwner;
 
        
        //ANSWERER
 
-       answererScore += offer.gainValueForTheAnswerer;
+       answererScore += offer.gainValueForTheOtherPlayer
 
        //SUBSTRACT THE LOSS
 
-       answererScore -= counterPartAsked.lossValueForTheAnswerer;
+       answererScore -= counterPartAsked.lossValueForTheOwner;
 
 
 
@@ -461,16 +495,25 @@ function getPropositionScoreAsAnOfferer(proposition){
 
 
 
-function createOffer(offerArray){
+function createOffer(offerer, answerer, offerArray){
 
   //WITH A CERTAIN OFFER ARRAY, THE OFFERER CAN KNOW WHAT IT LOSES AND WHAT THE OPPONENT OBTAINS FROM IT
 
+  
 
-  let offer = { gainValueForTheAnswerer: 0 , gainValueForTheOfferer: 0, offerArray}
+  let lossValueForTheOfferer = 0;
+
+  let gainValueForTheAnswerer = 0;
+
+  
+  let offer = new Offer( offerArray, lossValueForTheOfferer, gainValueForTheAnswerer)
+
 
 
         //FIRST, WE NEED TO DIVIDE THE OFFER INTO SETS , TO OBTAIN A SCORE FOR EACH SET (WHAT IS EARNED AND LOST FROM IT)     
        
+
+     
         if(offerArray > 1){
 
           
@@ -483,46 +526,45 @@ function createOffer(offerArray){
         //GAIN VALUE FOR THE ANSWERER
 
       
-         offer.gainValueForTheAnswerer += getArrayGainValueForPlayer(answerer,offerSets[offerSetIndex]);
+         offer.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(answerer,offerSets[offerSetIndex]);
 
          
        //LOSS VALUE FOR THE OFFERER
 
 
-        offer.lossValueForTheOfferer = getArrayLossValueForPlayer(offerer, offerSets[offerSetIndex]);
+        offer.lossValueForTheOwner = getArrayLossValueForPlayer(offerer, offerSets[offerSetIndex]);
         
 
           }
 
 
 
-        } else {
+       } else {
 
 
-
-          
-        //GAIN VALUE FOR THE ANSWERER
 
       
-         offer.gainValueForTheAnswerer += getArrayGainValueForPlayer(answerer,offerArray);
+         offer.gainValueForTheOtherPlayer  += getArrayGainValueForPlayer(answerer,offerArray);
 
          
        //LOSS VALUE FOR THE OFFERER
 
 
-        offer.lossValueForTheOfferer = getArrayLossValueForPlayer(offerArray);
+        offer.lossValueForTheOwner = getArrayLossValueForPlayer(offerer, offerArray);
+
 
          
-
-
-
-
 
         }
 
           
          //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
 
+         
+
+
+
+   return offer;
 
 
 
@@ -530,7 +572,6 @@ function createOffer(offerArray){
 }
 
 
-/*
 
 
 function getArrayGainValueForPlayer(player, array){
@@ -616,10 +657,15 @@ function getArrayGainValueForPlayer(player, array){
 
 
 function getArrayLossValueForPlayer(player, array){
+
+
+  console.log('generating array loss...')
      
      let value;
 
-     let colorScore = array[0].color.score;
+     let color = array[0].color;
+
+     let colorScore = color.score;
 
   
          //IF COUNT == 3 
@@ -695,14 +741,18 @@ function getArrayLossValueForPlayer(player, array){
     }
 
 
-
     return (value * colorScore);
+
+  
 
 }
 
 
 
 function divideOfferInSets(offerArray){
+
+
+  console.log('dividing offer in sets....')
 
       
       //GET A COPY OF THE ARRAY, WHICH IS A STACK WE'LL USE
@@ -754,10 +804,61 @@ function divideOfferInSets(offerArray){
             
            }
 
+      
+      
+           for(setindex = 0; setindex < setArray.length; setindex++){     
+             
+                console.log('set: ' + setIndex + ' array ' + setArray);
+
+           }
+
+
 
 
       return setArray;
 
+    
+
   }
 
-  */
+
+
+
+
+
+
+  function profitableTrade(playerA, playerB, arrayPlayerA, arrayPlayerB){
+
+    console.log('checking for profitable trade...');
+
+    //RETURN THE PROFITABILITY, WITH THE POINT OF VIEW OF A PLAYER A
+
+
+    let playerAScore;
+
+    let playerBScore;
+
+
+    //RETURN THE PROBABILITY WITH THE PLAYER A'S POINT OF VIEW
+
+    playerAScore -= arrayPlayerA. lossValueForTheOwner;;
+
+    playerAScore += arrayPlayerB.gainForTheOtherPlayer;
+
+
+
+
+    playerBScore -= arrayPlayerB.lossForTheOwner;
+
+    playerBScore +=  arrayPlayerA.gainForTheOtherPlayer;
+
+
+
+    if(playerAScore > (playerBScore * 0.1)){
+
+      return true;
+    }
+
+
+
+  }

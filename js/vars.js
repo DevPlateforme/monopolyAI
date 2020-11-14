@@ -64,21 +64,21 @@ var zeroTwoToOneTwo = 900;
 
 var threeThreeToZeroThree = 10000;
 
-var ThreeTreeToOneThree = 8000;
+var threeTreeToOneThree = 8000;
 
-var ThreeThreeToTwoThree = 6000;
+var threeThreeToTwoThree = 6000;
 
             //2/3
 
-var TwoThreeToZeroThree = 1000;
+var twoThreeToZeroThree = 1000;
 
-var TwoThreeToOneThree = 500;
+var twoThreeToOneThree = 500;
 
    //2 PROPERTIES SET
 
-var TwoTwoToZeroTwo = 9000;
+var twoTwoToZeroTwo = 9000;
 
-var TwoTwoToOneTwo = 7000;
+var twoTwoToOneTwo = 7000;
 
 var oneTwoToZeroTwo = 900;
 

@@ -94,8 +94,13 @@ function setColorScores(){
           //2 ORANGES
 
     ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
+    ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel);
 
-   ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel);
+   ai1.propertiesByColor[purple.index].properties.push( rueDuParadis ,  avenueDeNeuilly);
+
+   ai1.propertiesArray.push(rueDuParadis ,  avenueDeNeuilly);
+
+
 
           
           //1 RED PROPERTY
