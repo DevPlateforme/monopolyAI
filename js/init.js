@@ -1,4 +1,3 @@
-
 window.onload = function(){
 
     init();
@@ -13,21 +12,17 @@ function init(){
 
     setColorScores();
 
-
-    givePlayersPropertiesForDemo();
-
-    /*
     launchGameProcess();
 
-    */
+   searchForTradesOpportunities();
 
-    generatePropositions();
+   createTheCommunityChestDeck();
 
+   createTheChanceDeck();
+   
 
-
+  
 }
-
-
 
 
 
@@ -84,6 +79,7 @@ function setColorScores(){
   
   
 
+/*
   
 
   function givePlayersPropertiesForDemo(){
@@ -96,20 +92,15 @@ function setColorScores(){
     ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
     ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel);
 
-   ai1.propertiesByColor[purple.index].properties.push( rueDuParadis ,  avenueDeNeuilly);
 
-   ai1.propertiesArray.push(rueDuParadis ,  avenueDeNeuilly);
-
-
-
-          
           //1 RED PROPERTY
 
-   ai2.propertiesByColor[red.index].properties.push(avenueMatignon );
-   ai2.propertiesArray.push(avenueMatignon );
+   ai1.propertiesByColor[red.index].properties.push(avenueMatignon );
+   ai1.propertiesArray.push(avenueMatignon);
 
 
-//AI2
+   //AI2
+
 
           //1 ORANGE
 
@@ -118,9 +109,7 @@ function setColorScores(){
    ai2.propertiesArray.push(placePigalle);
 
 
-
-
-           //2 RED PROPERTIES
+         //2 RED PROPERTIES
 
    ai2.propertiesByColor[red.index].properties.push(bdMalesherbes, avenueHenriMartin);
    ai2.propertiesArray.push( bdMalesherbes, avenueHenriMartin );
@@ -129,6 +118,73 @@ function setColorScores(){
 
 }
 
-  
-  
-  
+*/
+
+
+
+
+function createTheCommunityChestDeck(){
+
+  //USE THE CARD LIST AS A STACK.
+
+  //WE CAN ALSO TAKE EACH ELEMENT, AND DO A SWAP.
+
+  //THE SIMPLEST WE'LL DO
+
+ 
+  let randomIndex;
+   
+  for(deckIndex = 0 ; deckIndex < communityChestCardsList.length ; deckIndex++){
+ 
+       //FOR EACH ELEMENT OF THE ARRAY, 
+
+       randomIndex = Math.floor((Math.random() * availableCommunityCardsIndexesArray.length ) + 1);
+
+
+       communityChestDeck[availableCommunityCardsIndexesArray[randomIndex] ] = communityChestCardsList[deckIndex];
+
+       availableCommunityCardsIndexesArray .splice(randomIndex , 1 );
+
+
+   }
+
+
+   console.log(communityChestDeck);
+
+
+}
+
+
+function createTheChanceDeck(){
+
+  //USE THE CARD LIST AS A STACK.
+
+  //WE CAN ALSO TAKE EACH ELEMENT, AND DO A SWAP.
+
+  //THE SIMPLEST WE'LL DO
+
+ 
+  let randomIndex;
+   
+  for(deckIndex = 0 ; deckIndex < chanceCardsList.length ; deckIndex++){
+ 
+       //FOR EACH ELEMENT OF THE ARRAY, 
+
+       randomIndex = Math.floor((Math.random() * availableChanceCardsIndexesArray.length ) + 1);
+
+       chanceDeck[availableChanceCardsIndexesArray[randomIndex] ] = chanceCardsList[deckIndex];
+
+       availableChanceCardsIndexesArray.splice(randomIndex , 1 );
+
+   }
+
+   console.log(chanceDeck);
+
+}
+
+
+
+
+
+
+

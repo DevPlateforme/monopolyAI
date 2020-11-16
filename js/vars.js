@@ -263,3 +263,170 @@ var otherPlayer;
 
 
 var propositionList = [];
+
+
+var waiting = 'waiting';
+
+var done = 'done';
+
+
+var postLaunchMoveCheckInterval;
+
+var postLaunchMoveCheckTimeout;
+
+
+
+
+
+var postLaunchDecision = waiting;
+
+
+
+
+
+
+//COMMUNITY CHEST CARDS
+
+
+//TYPES
+
+var collection = 'collection';
+
+var movement = 'movement';
+
+var payment = 'payment';
+
+var outOfJail = 'outOfJail';
+
+var goToJail = 'goToJail';
+
+var streetRepair = 'streetRepair';
+
+
+
+
+//CARDS
+
+
+
+       //COMMUNITY CHEST
+
+
+var advanceToGoCard = {type: movement , description: "déplacez vous jusque la case départ, et recevez 200 dollars"};
+
+var bankErrorCard = {type: collection , revenue: 200 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars"};
+
+var DoctorsFeeCard = {type: payment , fee: 50 , description: "Frais de docteur. Payez 50 dollars"};
+
+var saleOfStockCard = {type: collection , revenue: 50,  description: "Vente d'actions, vous gagnez 50 dollars"};
+
+var getOutOfJailFreeCard = { type : outOfJail, descrition: "Cette carte vous permet de prison, lorsqu'utilisée"}; 
+
+var goToJailCard = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
+
+var GrandOperaNightCard = {type: collection, revenue: 150 , description : "Grand Opera Night : Vous recevez 50 dollars de la part de chaque joueur" };
+
+var HolidayFundCard = {type: collection, revenue : 100, description: "Holliday fund. Recevez 20 dollars."};
+
+var incomeTaxRefundCard = {type: collection , revenue: 20, description: "Remboursement des impôts. Recevez 20 dollars."};
+
+var birthdayCollectCard = {type: collection , revenue: 10, description: "C'est votre anniversaire. Recevez 10 dollars."};
+
+var lifeInsuranceCard = {type: collection , revenue: 100, description: "Assurance. Recevez 100 dollars"};
+
+var hospitalFeesCard = {type: payment , fee: 100 , description: "Frais d'Hôpitaux. Payez 100 dollars"};
+
+var schoolFeesCard = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"};
+
+var consultancyFeeCollectionCard  = {type: collection , fee: 25 , description: "Vous facturez 25 dollars de frais de consultation. Recevez 25 dollars"};
+
+var streetRepairCard = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
+
+var beautyPrizeCard = {type: collection , fee: 150 , description: "Vous arrivez à la seconde position d'un concours de beauté. Vous recevez 10 dollars"};
+
+var hundredDollarsInheritionCard = {type: collection , revenue : 100 , description: "Vous héritez de 100 dollars"};
+
+
+
+
+
+
+      //CHANCE
+
+
+
+      var speedFineCard = {type: payment , fee: 100,  description: "Amende pour excès de vitesse.  Payez 100 dollars"};
+
+      var bankErrorCard2 = {type: collection , revenue: 200 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars"};
+      
+      var streetRepairCard2 = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
+      
+      var advanceToGoCard2 = {type: movement , description: "déplacez vous jusque la case départ, et recevez 200 dollars"};
+  
+      var schoolFeesCard2 = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"};
+      
+      var goToRueDeLaPaixCard = {type: movement , description: "Déplacez vous jusque Rue de la Paix"};
+
+      var getOutOfJailFreeCard2 = { type : outOfJail, descrition: "Cette carte vous permet de sortir de prison, lorsqu'utilisée"}; 
+      
+      var goToAvenueHenriMartinCard = {type: movement ,  description: "Déplacez vous jusque l'avenue Henri Martin"};
+
+      var streetRepairCard3 = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
+      
+      var goToBdDeLaVilletteCard = {type: movement , description: "Avancez au Bd de la Vilette. Si vous passez par la case Départ, recevez 200 dollars"};
+ 
+      var goToGareDeLyonCard = {type: movement , description: "Avancez jusque Gare De Lyon. Si vous passez par la case Départ, recevez 200 dollars"};
+
+      var realEstateCard = {type: collection , revenue: 150 ,  description: "Votre immeuble et votre prêt vous rapportent 150 dollars"};
+       
+      var goToJailCard2 = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
+
+      var stepBackCard = { type : movement , description : "Reculez de 3 cases"};
+
+      var dangerousDrivingFineCard = { type : movement , description : "Amende pour conduite dangereuse. Vous perdez 150 dollars"};
+
+      var stepBackCard = { type : movement , description : "Reculez de 3 cases"};
+
+      var gamePrizeCard = { type : collection , description : "Vous avez gagné le prix des mots croisés. Vous recevez 100 dollars"};
+
+
+
+
+      
+      
+
+
+
+
+
+
+
+var communityChestCardsList = [
+
+advanceToGoCard, bankErrorCard,DoctorsFeeCard ,  saleOfStockCard , getOutOfJailFreeCard , goToJailCard , GrandOperaNightCard ,  HolidayFundCard, incomeTaxRefundCard , birthdayCollectCard , lifeInsuranceCard , hospitalFeesCard, schoolFeesCard
+ , consultancyFeeCollectionCard , streetRepairCard , beautyPrizeCard , hundredDollarsInheritionCard ];
+
+
+ var availableCommunityCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16] ;
+
+
+
+
+
+
+
+ var chanceCardsList = [speedFineCard ,bankErrorCard2 , streetRepairCard2 , advanceToGoCard2 , schoolFeesCard2 , goToRueDeLaPaixCard , getOutOfJailFreeCard2 , goToAvenueHenriMartinCard , streetRepairCard3 , goToBdDeLaVilletteCard , goToGareDeLyonCard , realEstateCard , goToJailCard2 , stepBackCard , dangerousDrivingFineCard , stepBackCard , gamePrizeCard ]
+
+
+
+
+
+
+
+ 
+ var availableChanceCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 ] ;
+
+
+var communityChestDeck = new Array(17);
+
+var chanceDeck = new Array(16);

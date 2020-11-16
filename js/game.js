@@ -7,6 +7,9 @@ function launchGameProcess(){
 
     launchDicesAndMovePieces();
 
+    //WAIT FOR THE POST DICE LAUNCH MOVE. CHECK TOUS LES 500ms
+
+    
     //POST DICE LAUNCH ACTION (IF THERE IS)
 
     launchPropositionsAnswersProcess();
@@ -18,6 +21,7 @@ function launchGameProcess(){
     launchBuyingPropertiesProcess();
 
 }
+
 
 
 
