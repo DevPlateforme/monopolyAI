@@ -93,7 +93,12 @@ function generatePropositions(){
                      }else if(activePlayer.propertiesByColor[colorIndex].properties.length == 1){
 
                         
-                        counterPartAsked = {valueForTheOfferer: oneThreeToThreeThree, color: colorArray[colorIndex], array :  otherPlayerPropertiesArrayForThisColor};
+                        activePlayerGain = oneThreeToThreeThree; 
+
+                        otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
+
+                        counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
+
                         
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
@@ -105,10 +110,14 @@ function generatePropositions(){
 
                      } else if(activePlayer.propertiesByColor[colorIndex].properties.length == 2){
 
+                          
+                        activePlayerGain = twoThreeToThreeThree;
 
-                        
-                        counterPartAsked = {valueForTheOfferer: twoThreeToThreeThree, color: colorArray[colorIndex], array :  otherPlayerPropertiesArrayForThisColor};
-                        
+
+                        otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
+
+                        counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
+
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
                         tryToCreateProposition(propositionMaterial);

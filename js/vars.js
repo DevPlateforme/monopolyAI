@@ -45,6 +45,14 @@ var zeroThreeToTwoThree = 1000;
 
 var oneThreeToTwoThree = 500;
 
+
+        //1/3
+
+        
+var zeroThreeToOneThree = 100;
+
+
+
    //2 PROPERTIES SET
 
 var zeroTwoToTwoTwo = 9000;
@@ -73,6 +81,10 @@ var threeThreeToTwoThree = 6000;
 var twoThreeToZeroThree = 1000;
 
 var twoThreeToOneThree = 500;
+
+         //1/3
+
+var oneThreeToZeroThree = 100;
 
    //2 PROPERTIES SET
 
@@ -165,33 +177,33 @@ var special = 'SPECIAL';
 //squares objects 
 
 
-var departure = { value: none, type: departure};
-var Belleville = { value: 60, type: rentalProperty, color: brown, landLord: none};
-var communityChest = { value: none, type: communityChest};
-var gareDeMontparnasse = { value: 200, type: trainStation , color: brown, landLord: none};
-var rueDeVaugirard = { value: 100, type: rentalProperty , color: lightBlue, landLord: none};
-var luck = { value: none, type: special , landLord: none };
-var rueDeCourcelles = { value: 100, type: rentalProperty , color: lightBlue, landLord: none};
-var avenueDeLaRepublique =  { value: 120, type: rentalProperty , color: lightBlue, landLord: none};
-var jailVisit = { value: none, type: special , landLord: none}; 
-var bdDeLaVillette = { value: 140, type: rentalProperty , color: purple, landLord: none};
-var publicServiceElectricity =  { value: 150, type: publicService , color: none, landLord: none};
-var avenueDeNeuilly = { value: 140, type: rentalProperty , color: purple, landLord: none};
-var rueDuParadis = { value: 160, type: rentalProperty , color: purple, landLord: none};
-var gareDeLyon = { value: 200, type: trainStation , color: none, landLord: none};
-var avenueMozart = { value: 180, type: rentalProperty , color: orange, landLord: none};
-var communityChest = { value: none, type: communityChest , color: none, landLord: none};
-var boulevardSaintMichel = { value: 180, type: rentalProperty , color: orange, landLord: none};
-var placePigalle = { value: 200, type: rentalProperty , color: orange, landLord: none};
+var departure = { name: 'departure', value: none, type: departure};
+var Belleville = { name: 'Belleville',value: 60, type: rentalProperty, color: brown, landLord: none};
+var communityChest = {name: 'communityChest', value: none, type: communityChest};
+var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: brown, landLord: none};
+var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
+var luck = {name: 'Luck', value: none, type: special , landLord: none };
+var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
+var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, type: rentalProperty , color: lightBlue, landLord: none};
+var jailVisit = {name: 'jailVisit', value: none, type: special , landLord: none}; 
+var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, type: rentalProperty , color: purple, landLord: none};
+var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: none, landLord: none};
+var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, type: rentalProperty , color: purple, landLord: none};
+var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , color: purple, landLord: none};
+var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: none, landLord: none};
+var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none};
+var communityChest = {name: 'community chest', value: none, type: communityChest , color: none, landLord: none};
+var boulevardSaintMichel = {name: 'boulevard Saint Michel', value: 180, type: rentalProperty , color: orange, landLord: none};
+var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none};
 /*
 var freeParc = { value: none , type: parc , color: none, landLord: none};
 */
-var avenueMatignon = { value:220, type: rentalProperty , color: red, landLord: none};
+var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none};
 /*
 var luck = { value = none, type: luck , color: none, landLord: none};
 */
-var bdMalesherbes = { value: 220, type: rentalProperty , color: red, landLord: none};
-var avenueHenriMartin = { value: 240, type: rentalProperty , color: red, landLord: none};
+var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none};
+var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none};
 /*
 
 var gareDuNord = { value: 200, type: trainStation , color: none, landLord: none};

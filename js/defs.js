@@ -210,15 +210,15 @@ function tryToCreateProposition(propositionMaterial){
 
         console.log('ai1 tries to create a suitable proposition...');
 
-        let offerer = propositionMaterial.offerer();
+        let offerer = propositionMaterial.offerer;
 
-        let answerer = propositionMaterial.answerer();
+        let answerer = propositionMaterial.answerer;
 
 
         let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
 
 
-        let counterPartAsked = propositionMaterial.counterPartAsked();
+        let counterPartAsked = propositionMaterial.counterPartAsked;
         
 
         let color = counterPartAsked.color;
@@ -271,26 +271,19 @@ function tryToCreateProposition(propositionMaterial){
 
                     //RETURN AN OFFER OBJECT
 
-                   offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
-
                    proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
 
 
                 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-               
-                /*
-
-                if(profitableTrade(){
+                  
+                if(profitableTrade(offer, counterPartAsked ) == true){
 
                   console.log('pushing proposition...')
 
                   propositionList.push(proposition);
 
                 }
-
-        
-                */
-
+      
 
               }
            
@@ -317,16 +310,13 @@ function tryToCreateProposition(propositionMaterial){
 
                 for(propertyIndex = 0; propertyIndex < propertiesArray.length; propertyIndex++){
  
-                 console.log('array' + propertiesArray);
                  
 
  
                    if(arrayForPairs.length > 1){
                         
                       arrayForPairs.splice( propertyIndex,1);
- 
-                      console.log('array for the index ' + propertyIndex + ' ' + arrayForPairs);
-                    
+                     
                     
                          for(pairIndex = 0; pairIndex < arrayForPairs.length; pairIndex++){
 
@@ -349,11 +339,12 @@ function tryToCreateProposition(propositionMaterial){
 
 
                 
-                   console.log('pair array: ' + pairArray);
 
 
                    for(pi = 0 ; pi < pairArray.length ; pi++){          
-                     
+                    
+                    
+                    console.log('pair elements  ' + pairArray[pi][0].name + ' , ' + pairArray[pi][1].name )
                     
                     offerArray = pairArray[pi];
 
@@ -370,7 +361,6 @@ function tryToCreateProposition(propositionMaterial){
                    proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
 
 
-                   console.log('generating two element propositions...');
 
 
                   
@@ -420,17 +410,21 @@ function tryToCreateProposition(propositionMaterial){
 
 
 
-
+/*
   
   for(ti = 0 ; ti < tripletArray.length; ti++){
 
     //GET A GAIN AND LOSS, CREATE A PROPOSITION OBJECT. IF PROFITABLE, PUSH IT.
+
+
 
           offerArray = tripletArray[ti];
 
                     //DIVIDE THIS ARRAY IN SETS
 
            offer = createOffer(offerer, answerer, offerArray);
+
+
 
                     //RETURN AN OFFER OBJECT
 
@@ -445,51 +439,13 @@ function tryToCreateProposition(propositionMaterial){
 
   
      console.log('triplet array: ' + tripletArray);
-      
 
-          //FUNCTION END
+     */
+  
+     
+   //FUNCTION END
 
  }
-
-
-
-
-function getPropositionScoreAsAnOfferer(proposition){
-
-           //COMPARE THE SCORE OF THE OFFER, WITH THE SCORE OF THE COUNTERPART
-
-
-       
-       //OFFERER 
-
-       offererScore += counterPartAsked.gainValueForTheOtherPlayer;
-
-       //SUBSTRACT THE LOSS
-
-       offererScore -= offer.lossValueForTheOwner;
-
-       
-       //ANSWERER
-
-       answererScore += offer.gainValueForTheOtherPlayer
-
-       //SUBSTRACT THE LOSS
-
-       answererScore -= counterPartAsked.lossValueForTheOwner;
-
-
-
-       if(offererScore > (answererScore* 0.1) ){
-
-           return true;
-
-        } else {
-
-           return false;
-
-        }
-        
-}
 
 
 
@@ -513,13 +469,16 @@ function createOffer(offerer, answerer, offerArray){
         //FIRST, WE NEED TO DIVIDE THE OFFER INTO SETS , TO OBTAIN A SCORE FOR EACH SET (WHAT IS EARNED AND LOST FROM IT)     
        
 
-     
-        if(offerArray > 1){
+        
+        if(offerArray.length > 1){
+
 
           
         let offerSets = divideOfferInSets(offerArray);
 
+
         
+
          for(offerSetIndex = 0; offerSetIndex < offerSets.length ; offerSetIndex++){
 
 
@@ -528,14 +487,22 @@ function createOffer(offerer, answerer, offerArray){
       
          offer.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(answerer,offerSets[offerSetIndex]);
 
+
+         //console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer);
+
+
          
        //LOSS VALUE FOR THE OFFERER
 
 
         offer.lossValueForTheOwner = getArrayLossValueForPlayer(offerer, offerSets[offerSetIndex]);
+
+
+        
         
 
           }
+
 
 
 
@@ -545,6 +512,9 @@ function createOffer(offerer, answerer, offerArray){
 
       
          offer.gainValueForTheOtherPlayer  += getArrayGainValueForPlayer(answerer,offerArray);
+
+         
+
 
          
        //LOSS VALUE FOR THE OFFERER
@@ -585,7 +555,6 @@ function getArrayGainValueForPlayer(player, array){
          //IF COUNT == 3 
 
          if(array.length == 3){
-                 
 
                //0/3 TO 3/3
 
@@ -635,20 +604,38 @@ function getArrayGainValueForPlayer(player, array){
 
             if(player.propertiesByColor[color.index].properties.length == 0){
 
-              return zeroTwoToOneTwo;
+               return zeroTwoToOneTwo;
 
             } else if(player.propertiesByColor[color.index].properties.length == 1){
 
-              return oneTwoToOneTwo;
+               return oneTwoToOneTwo;
 
 
             } else if(player.propertiesByColor[color.index].properties.length == 2){
 
-              return twoTwoToThreeTwo;
-
+               return twoTwoToThreeTwo;
 
             }
 
+        } else {
+              
+          if(player.propertiesByColor[color.index].properties.length == 0){
+
+               return zeroThreeToOneThree;
+
+            } else if(player.propertiesByColor[color.index].properties.length == 1){
+
+               return oneThreeToTwoThree;
+
+
+            } else if(player.propertiesByColor[color.index].properties.length == 2){
+
+               return twoThreeToThreeThree;
+
+            }
+
+           
+        
         }
 
     }
@@ -658,8 +645,6 @@ function getArrayGainValueForPlayer(player, array){
 
 function getArrayLossValueForPlayer(player, array){
 
-
-  console.log('generating array loss...')
      
      let value;
 
@@ -743,7 +728,6 @@ function getArrayLossValueForPlayer(player, array){
 
     return (value * colorScore);
 
-  
 
 }
 
@@ -752,7 +736,6 @@ function getArrayLossValueForPlayer(player, array){
 function divideOfferInSets(offerArray){
 
 
-  console.log('dividing offer in sets....')
 
       
       //GET A COPY OF THE ARRAY, WHICH IS A STACK WE'LL USE
@@ -760,9 +743,11 @@ function divideOfferInSets(offerArray){
      
       let stackForSets = offerArray.splice(0);
 
+       for(i=0; i < stackForSets.length; i++){
+
+       }
        
       let setArray = [];
-
 
 
       //GET THE ARRAY, AND DIVIDE IT BY COLOR (FIRST)
@@ -778,7 +763,7 @@ function divideOfferInSets(offerArray){
 
       //PUSH THE FIRST SET TO INIT THE PROCESS
 
-      setArray.push(new Array());
+      setArray.push([stackForSets[0]]);
 
 
       //THE INDEX STARTS AT THE SECOND ELEMENT(THERE ARE AT LEAST TO IF THIS FUNCTION IS CALLED)
@@ -796,69 +781,76 @@ function divideOfferInSets(offerArray){
                                
               } else {
 
-                  selectedColorIndex += 1;
-
-                  setArray.push(new Array());
+                   selectedColorIndex += 1;
+                   setArray.push( [stackForSets[elementIndex] ] );
 
               }
             
            }
 
       
-      
-           for(setindex = 0; setindex < setArray.length; setindex++){     
-             
-                console.log('set: ' + setIndex + ' array ' + setArray);
+          
 
-           }
+          for(setIndex = 0; setIndex < setArray.length; setIndex++){
 
 
+          }
 
 
       return setArray;
 
     
-
   }
 
 
 
 
+  function profitableTrade(arrayPlayerA, arrayPlayerB){
 
+     if(arrayPlayerA != undefined && arrayPlayerB != undefined){
 
-
-  function profitableTrade(playerA, playerB, arrayPlayerA, arrayPlayerB){
-
-    console.log('checking for profitable trade...');
 
     //RETURN THE PROFITABILITY, WITH THE POINT OF VIEW OF A PLAYER A
 
 
-    let playerAScore;
+       let playerAScore = 0;
 
-    let playerBScore;
+       let playerBScore = 0;
 
 
     //RETURN THE PROBABILITY WITH THE PLAYER A'S POINT OF VIEW
 
-    playerAScore -= arrayPlayerA. lossValueForTheOwner;;
-
-    playerAScore += arrayPlayerB.gainForTheOtherPlayer;
+    playerAScore -= arrayPlayerA.lossValueForTheOwner;
 
 
+     playerAScore += arrayPlayerB.gainValueForTheOtherPlayer;
 
 
-    playerBScore -= arrayPlayerB.lossForTheOwner;
+     playerBScore -= arrayPlayerB.lossValueForTheOwner;
 
-    playerBScore +=  arrayPlayerA.gainForTheOtherPlayer;
-
-
-
-    if(playerAScore > (playerBScore * 0.1)){
-
-      return true;
-    }
+     playerBScore +=  arrayPlayerA.gainValueForTheOtherPlayer;
 
 
+      console.log('the verdict for this proposition : ' + 'there is a score of ' + playerAScore + 'for the offerer ' + ' and a score of ' + playerBScore + ' for the answerer');
+          
+
+      //THE POINT IS TO MAKE SURE THE AI POINTS ARE HIGHER THAN PLAYER B SCORE BUT NOT MORE PLAYERB SCORE + 10 PERCENTS
+
+     if((playerBScore * 1.1) > playerAScore && (playerAScore > playerBScore)){
+
+        console.log('profitable proposition');
+        
+
+        return true;
+
+  
+       } else {
+
+        console.log('proposition not profitable');
+       }
+ 
+     }
 
   }
+
+

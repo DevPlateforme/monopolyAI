@@ -5,17 +5,11 @@
 
 function PropositionMaterial(offerer, answerer, counterPartAsked){
 
-	this.offerer = function() {
-		return offerer;
-	};
+	this.offerer = offerer;
 
-	this.answerer = function() {
-		return answerer;
-    };
+	this.answerer = answerer;
 
-    this.counterPartAsked = function() {
-		return counterPartAsked;
-    };
+    this.counterPartAsked = counterPartAsked;
     
 
 
@@ -26,44 +20,20 @@ function PropositionMaterial(offerer, answerer, counterPartAsked){
 
 function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlayer){
 
+
+	console.log('counterpart asked créée.' + 'loss ' + lossValueForTheOwner);
+
 	
 
-	this.array = function(){
+	this.array = array;
 
-		//CALCULATE THE LOSS FOR THE ANSWERER
 
-		return array;
-
-	};
+	
+	this.lossValueForTheOwner = lossValueForTheOwner;
 
 
 
-	this.gainValueForTheOtherPlayer = function(){
-
-		//CALCULATE THE GAIN FOR THE OFFERER
-
-		return gainValueForTheOtherPlayer;
-
-	};
-
-
-	this.lossValueForTheOwner = function(){
-
-		//CALCULATE THE LOSS FOR THE ANSWERER
-
-		return lossValueForTheOwner;
-
-	};
-
-
-
-	this.gainValueForTheOtherPlayer = function(){
-
-		//CALCULATE THE GAIN FOR THE OFFERER
-
-		return gainValueForTheOtherPlayer;
-
-	};
+	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
 
 
@@ -73,35 +43,19 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 
 
-function Offer(array, lossValueForTheOwner, gainValueForTheAnswerer) {
+function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 
 	
-	this.array = function(){
-
-		//CALCULATE THE LOSS FOR THE ANSWERER
-
-		return array;
-
-	};
+	this.array = array;
 
 
 
-     this.lossValueForTheOwner = function(){
-
-		//CALCULATE THE LOSS FOR THE ANSWERER
-
-		return lossValueForTheOwner;
-
-	};
+     this.lossValueForTheOwner = lossValueForTheOwner;
 
 
-	 this.gainValueForTheAnswerer = function(){
 
-		//CALCULATE THE GAIN FOR THE OFFERER
+	 this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
-		return gainValueForTheAnswerer;
-
-	};
 
 }
 
@@ -113,21 +67,13 @@ function Offer(array, lossValueForTheOwner, gainValueForTheAnswerer) {
 function Proposition(offerer, answerer, proposition, counterPartAsked ) {
 	// For each property and get out of jail free cards, 1 means offered, -1 means requested, 0 means neither.
 
-	this.offerer = function() {
-		return offerer;
-	};
+	this.offerer = offerer;
 
-	this.answerer = function() {
-		return answerer;
-    };
+	this.answerer = answerer;
     
-    this.proposition = function() {
-		return proposition;
-	};
+    this.proposition = proposition;
 
-	this.counterPartAsked = function() {
-		return counterPartAsked;
-	};
+	this.counterPartAsked =counterPartAsked;
 
 
 }
