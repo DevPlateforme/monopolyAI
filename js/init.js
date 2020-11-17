@@ -12,16 +12,23 @@ function init(){
 
     setColorScores();
 
+    givePlayersPropertiesForDemo();
+
     launchGameProcess();
 
-   searchForTradesOpportunities();
+    searchForTradesOpportunities();
 
-   createTheCommunityChestDeck();
+    createTheCommunityChestDeck();
 
-   createTheChanceDeck();
+    createTheChanceDeck();
+
+
+    
+
+
+
+
    
-
-  
 }
 
 
@@ -79,7 +86,6 @@ function setColorScores(){
   
   
 
-/*
   
 
   function givePlayersPropertiesForDemo(){
@@ -118,7 +124,6 @@ function setColorScores(){
 
 }
 
-*/
 
 
 
@@ -139,7 +144,6 @@ function createTheCommunityChestDeck(){
        //FOR EACH ELEMENT OF THE ARRAY, 
 
        randomIndex = Math.floor((Math.random() * availableCommunityCardsIndexesArray.length ) + 1);
-
 
        communityChestDeck[availableCommunityCardsIndexesArray[randomIndex] ] = communityChestCardsList[deckIndex];
 

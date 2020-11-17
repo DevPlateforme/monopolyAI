@@ -63,7 +63,6 @@ function searchForTradesOpportunities(){
 
 
 
-
                 if(activePlayer.propertiesByColor[colorIndex].properties.length != 3){
 
                     console.log('possible monopoly found');

@@ -170,11 +170,23 @@ var publicService = 'PS';
 
 var special = 'SPECIAL';
 
+var waterPublicServices = 'waterPublicServices';
 
+var parc = 'PARC';
+
+var goToJailSquare = 'GTJ';
+
+var taxSquare = 'TS';
+
+var tax = 'tax';
 
 
 
 //squares objects 
+
+
+
+
 
 
 var departure = { name: 'departure', value: none, type: departure};
@@ -193,44 +205,95 @@ var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , col
 var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: none, landLord: none};
 var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none};
 var communityChest = {name: 'community chest', value: none, type: communityChest , color: none, landLord: none};
-var boulevardSaintMichel = {name: 'boulevard Saint Michel', value: 180, type: rentalProperty , color: orange, landLord: none};
+var boulevardSaintMichel = {name: 'boulevard Saint Michel' , value: 180, type: rentalProperty , color: orange, landLord: none};
 var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none};
-/*
 var freeParc = { value: none , type: parc , color: none, landLord: none};
-*/
 var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none};
-/*
-var luck = { value = none, type: luck , color: none, landLord: none};
-*/
+var luck = { value :none, type: luck , color: none, landLord: none};
 var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none};
 var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none};
-/*
-
 var gareDuNord = { value: 200, type: trainStation , color: none, landLord: none};
 var faubourgSaintHonore = { value: 260, type: rentalProperty , color: yellow , landLord: none};
 var placeDeLaBourse = { value: 260, type: rentalProperty , color: yellow , landLord: none};
 var publicServiceWater = { value: 150, type: waterPublicServices , color: none, landLord: none};
 var rueLaFayette = { value: 280, type: rentalProperty , color: yellow , landLord: none};
-var jail = { value: none, type: jailSentence, color: none , landLord: none};
-var avenueDeBreteuil = { value: 300, type: rentalProperty , color: green , landLord: none};{ value: 260, type: rentalProperty , color: yellow , landLord: none};
+var jail = { value: none, type: goToJailSquare , color: none , landLord: none};
+var avenueDeBreteuil = { value: 300, type: rentalProperty , color: green , landLord: none};
 var avenueFoch = { value: 300, type: rentalProperty , color: green , landLord: none};
 var communityChest3 = { value: none, type: communityChest , color: green , landLord: none};
 var bdDesCapucines = { value: 320, type: rentalProperty , color: green , landLord: none};
 var GareSaintLazarre = { value: 200, type: trainStation , color: yellow , landLord: none};
 var luck3 = { value: null, type: luck  , color: none , landLord: none};
 var avenueDesChampsElysees = { value: 350, type: trainStation , color: darkBlue , landLord: none};
-var luxuryTax = { value: none, type: LuxuryTax , color: none , landLord: none};
+var luxuryTax = { value: none, type: tax , color: none , landLord: none};
 var rueDeLaPaix = { value: 400, type: rentalProperty , color: darkBlue , landLord: none};
 
 
 
 
+/*
 
 
 
-var squaresArray = [departure, Belleville, communityChest, gareDeMontparnasse, rueDeVaugirard, luck, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChest, boulevardSaintMichel, placePigalle, freeParc, avenue Matignon, luck, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChest, bdDesCapucines, GareSaintLazarre, luck, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
 
+
+var departure = new squareElement('departure', departure, none, none, none );
+var Belleville = new squareElement('Belleville',  rentalProperty, brown, 60, none );
+var rueDeVaugirard =  new squareElement('rueDeVaugirard', rentalProperty, lightBlue , 100, none)
+var rueDeCourcelles =  new squareElement('rueDeCourcelles',  rentalProperty , lightBlue , 100, none);
+var avenueDeLaRepublique =   new squareElement('avenueDeLaRepublique',  rentalProperty , lightBlue , 120, none); 
+
+var bdDeLaVillette = new squareElement('bdDeLaVillette', rentalProperty ,  purple , 140, none); 
+var avenueDeNeuilly = new squareElement('avenueDeNeuilly', rentalProperty , purple, 140 , none); 
+var rueDuParadis = new squareElement('rueDuParadis', rentalProperty , purple,  160, none); 
+var avenueMozart = new squareElement('avenue Mozart', rentalProperty,  orange, 180,  none); 
+var boulevardSaintMichel =  new squareElement('boulevard Saint Michel', rentalProperty, 180 . none, none);
+var placePigalle =  new squareElement('place Pigalle', rentalProperty, orange, 200,  none, none);
+var avenueMatignon = new squareElement('avenue Matignon', rentalProperty, red, 220 , none, none);
+var bdMalesherbes = new squareElement('boulevard Malesherbes', rentalProperty, red, 220 , none); 
+var avenueHenriMartin =  new squareElement('avenue Henri Martin', rentalProperty, red, 240 , none);  
+var faubourgSaintHonore =  new squareElement('faubourg Saint Honore', rentalProperty, yellow, 260 , none); 
+var placeDeLaBourse =  new squareElement('place de la bourse', rentalProperty, red, 260 , none); 
+var rueLaFayette =  new squareElement('rue Lafayette', rentalProperty, red, 220 , none); 
+var avenueDeBreteuil =  new squareElement('avenue de Breteuil', rentalProperty, green , 300 , none); 
+var avenueFoch =  new squareElement('avenue Foch', rentalProperty, green , 300 , none); 
+var bdDesCapucines =  new squareElement('boulevard des Capucines', rentalProperty, red, 320 , none);
+var avenueDesChampsElysees =  new squareElement('avenue des champs elyzees', rentalProperty, darkBlue, 350 , none);
+var rueDeLaPaix =  new squareElement('rue de la paix', rentalProperty, darkBlue, 400 , none);
+
+
+
+
+//TRAINS STATIONS
+
+var gareDeLyon = new squareElement('gareDeLyon', trainStation,  none, 200, none); 
+var gareDuNord =  new squareElement('gareDuNord', trainStation, none, 200, none); 
+var GareSaintLazarre = new squareElement('gareSaintLazarre', trainStation,  none, 200, none); 
+var gareDeMontparnasse =  new squareElement('gareMontParnasse', trainStation, none , 200, none);
+
+
+
+//SPECIAL SQUARES
+
+
+var luck =  new squareElement('Luck', luck, none, none , none);
+var luck2 = new  squareElement('Luck', luck, none, none , none);
+var luck3 = new  squareElement('Luck', luck, none, none , none);
+var luxuryTax =  new squareElement('luxury tax', taxSquare, none , 220 , none);  
+var freeParc = new squareElement('freeParc', parc,  none, none , none)
+var jail =  new squareElement('jail', goToJailSquare, none , none , none); 
+var jailVisit = new squareElement('jailVisit', goToJailSquare, none, none, none); 
+var publicServiceWater =  new squareElement('public services water', waterPublicServices, red, 150 , none); 
+var communityChest = new squareElement('communityChest', communityChest, none, none, none);
+var communityChest2 =  new squareElement('communityChest', communityChest,  none, none, none);
+var communityChest3 = new squareElement('communityChest', communityChest,  none, none, none);
+var publicServiceElectricity =  new squareElement('publicServiceElectricity', publicService, none , 150 , none); 
+
+
+
+var squaresArray = [departure, Belleville, communityChest, gareDeMontparnasse, rueDeVaugirard, luck, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChest, boulevardSaintMichel, placePigalle, freeParc, avenueMatignon, luck, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChest, bdDesCapucines, GareSaintLazarre, luck, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
 */
+
 
 
 
@@ -279,7 +342,6 @@ var postLaunchMoveCheckTimeout;
 
 
 var postLaunchDecision = waiting;
-
 
 
 
@@ -351,7 +413,7 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
 
 
-      //CHANCE
+      //CHANCE CARDS
 
 
 
@@ -392,22 +454,15 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
 
 
-      
-      
 
 
 
 
 
+    var communityChestCardsList = [ advanceToGoCard, bankErrorCard,DoctorsFeeCard ,  saleOfStockCard , getOutOfJailFreeCard , goToJailCard , GrandOperaNightCard ,  HolidayFundCard, incomeTaxRefundCard , birthdayCollectCard , lifeInsuranceCard , hospitalFeesCard, schoolFeesCard , consultancyFeeCollectionCard , streetRepairCard , beautyPrizeCard , hundredDollarsInheritionCard ];
 
 
-var communityChestCardsList = [
-
-advanceToGoCard, bankErrorCard,DoctorsFeeCard ,  saleOfStockCard , getOutOfJailFreeCard , goToJailCard , GrandOperaNightCard ,  HolidayFundCard, incomeTaxRefundCard , birthdayCollectCard , lifeInsuranceCard , hospitalFeesCard, schoolFeesCard
- , consultancyFeeCollectionCard , streetRepairCard , beautyPrizeCard , hundredDollarsInheritionCard ];
-
-
- var availableCommunityCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16] ;
+    var availableCommunityCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16] ;
 
 
 
@@ -424,9 +479,12 @@ advanceToGoCard, bankErrorCard,DoctorsFeeCard ,  saleOfStockCard , getOutOfJailF
 
 
  
- var availableChanceCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 ] ;
+ var availableChanceCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 ];
 
 
-var communityChestDeck = new Array(17);
 
-var chanceDeck = new Array(16);
+ var communityChestDeck = new Array(17);
+
+
+ var chanceDeck = new Array(16);
+

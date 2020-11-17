@@ -76,18 +76,18 @@ function movePiece(){
 
    }
 
-   
-
-
+  
 
 
    function launchDicesAndMovePieces(){
+
+
+       //MAKE ALL THE OTHER INTEFACES DISAPPEAR
 
     
       launchDices();
 
       movePiece();
-
 
       launchPLProcess();
       
@@ -118,7 +118,6 @@ function movePiece(){
          if(postLaunchDecision == waiting){
 
            //BREAK       
-              launchPropositionsAnswersProcess();
 
           }
 
@@ -126,95 +125,143 @@ function movePiece(){
 
      }
 
-      //AFTER THAT , THE POST LAUNCH MOVE HAS BEEN DONE.
-  
-   }
+
+ 
+
+     //MAKE ALL THE OTHER INTERFACES REAPPEAR
 
 
 
-   function launchPLProcess(){
-
-        
-           //DISPLAY A HTML INTERFACE 
-
-
-           if(lastDiceLauncher == ai1 || lastDiceLauncher == ai2 ){
-
-
-              setTimeout(function(){
-
-                makePostLaunchMove();
-
-
-              }, 2000)
+  }
 
 
 
-           }
-  
-   };
+
+   function launchPLProcess(){ 
 
 
-   function makePostLaunchAction(){ 
+     //ACTIONS WERE THE PLAYER HAS NO CHOICES (DONE AUTOMATICALLY)
 
 
-     //THE AI DECIDES WHAT ACTION TO DO
+     
+         //IF CURRENT SQUARE == OWNED
 
+               //PAY RENT
 
-     //IF CURRENT SQUARE == OWNED
-
-                 //PAY RENT
-
-
-     //IF CURRENT SQUARE ISNT OWNED
-
-                 //IF THE AI HAVE ENOUGH CASH : BUY
-
-                 //ELSE : DO NOTHING
 
       //IF CURRENT SQUARE IS SPECIAL
 
-              //IF TAX 
-                     //PAY
+                //IF TAX : PAY
                      
-              //IF JAIL
+               //IF PARC : NOTHING
 
-                    //IF OWNING OF A JAIL ESCAPE CARD : POSSIBILITY TO USE IT.
-        
-              //IF CARD TO DRAW
+
+
+
+
+          
+
+   //ACTIONS WERE THERE IS A CHOICE OR ACTION TO DO.
+
+
+
+              
+   //IF CURRENT SQUARE ISNT OWNED : INTERFACE -->DO YOU WANT TO BUY?
+
+               //IF THE AI HAVE ENOUGH CASH : BUY
+
+               //ELSE : DO NOTHING
+
+
+        //IF PLAYER : DISPLAY AVAILABLE PROPERTY INTERFACE. THE PLAYER WILL BE ABLE TO EXECUTE THIS FUNCTION : MAKEAVAILABLEPROPERTYDECISION();
+
+
+
+               //IF AI
+
+
+          //MAKEAVAILABLEPROPERTYDECISION()
+
+      
+    //IF JAIL
+
+            //IF OWNING OF A JAIL ESCAPE CARD : 
+
+                  //IF HUMAN PLAYER :
+                      //DISPLAYJAILUSECARD INTERFACE
+
+                  //IF AI
+                      //AIJAILCARDUSETHINKING
+                         //IF THERE IS MORE THAN 50 PLIES, DONT USE IT. ELSE USE IT.
+
+                  
+                //POSSIBILITY TO USE IT. ELSE NOTHING
+
+
+//DRAW CARDS
+
+
+        //IF AI : AI DRAWS CARD AUTOMATICALLY. 
+
+
+
+        //IF HUMAN : DISPLAY AN INTERFACE WHICH WILL TRIGGER AN AUTOMATIC ACTION AFTER THE PLAYER CLICKS
+
+              //IF COMMUNITY CHEST
                       
                        //DRAW A CARD
 
+                       drawCommunityChestCardAndExecuteAction();
 
-                       drawCard();
-              
+               //IF CHANCE CARD
+                      
+                       //DRAW A CHANCE CARD
+
+                       drawChanceCardAndExecuteAction();
+
+      
+        //IF HUMAN PLAYER, AN INTERFACE APPEARS , ALLOWING THE PLAYER TO DRAW THE CARD
+
+
+
+
+
+
+        //ALLTHOSE ACTIONS WILL FILL THE VARIABLE POSTLAUNCH DECISION TO DONE
+        
+
+
+    }
+
+
+
+
+   function drawCommunityChestCardAndExecuteAction(){
+       
+        //THIS ACTION IS AUTOMATIC
+
+
+            //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
+
+
+        //IF COLLECT, COLLECT 
+
+        //IF PAY, PAY
+
+          payTheBank();
+
+         
+        //IF MOVEMENT, MOVE
+            
+
    }
 
 
 
+   function drawChanceCardAndExecuteAction(){
 
-   function drawCommunityChestCard(){
+         //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
-    //TAKE A CARD OUT OF THE STACK
-
-    
-    //DIFFERENT ACTIONS ACCORDING TO THE CARD.
-
-
-           //IF GO BACK TO CENTER CARD, MOVE THE PIECE BACK TO THE CENTER.Advance to Go (Collect $200)
-
-
-           /*
-
-         Bank error in your favor—Collect $200
-
-         //IF CARD == COLLECTION CARD, COLLECT
-
-         //ELSE IF CARD == PAYMENT CARD, DISPLAY THE AMOUNT OF THE CARD, AND PAY IT. DISPLAY THE DESCRIPTION OF THE CARD. 
-
-
-      */           
-                 
 
    }
 
@@ -305,4 +352,68 @@ function launchBuyingPropertiesProcess(){
 
 
 
+function payTheBank(payer, amount){
 
+  if(payer != undefined){
+
+       if(amount > payer.cash){
+
+            //THE PLAYER IS POTENTIALLY GAME OVER. WHEN THATS THE CASE, THE PLAYER HAVE THE OPPORTUNITY TO MORTGAGE AS MANY HOUSES AS HE WANTS , THEN TO SELL ANYTHING HE WANTS.
+
+            //IF NOT , GAME OVER
+
+            playerLoses(payer);
+
+
+      } else {
+
+
+        //SUBSTRACT THE CASH FROM THE PLAYER A , ADD IT TO PLAYER B
+      }
+  }
+}
+
+
+
+function payPlayer(payer, receiver){
+
+    if(payer != undefined){
+
+       if(amount > payer.cash){
+
+            //THE PLAYER IS POTENTIALLY GAME OVER. WHEN THATS THE CASE, THE PLAYER HAVE THE OPPORTUNITY TO MORTGAGE AS MANY HOUSES AS HE WANTS , THEN TO SELL ANYTHING HE WANTS.
+
+            //IF NOT , GAME OVER;
+
+            playerLoses(payer);
+
+      } else {
+
+
+        //SUBSTRACT THE CASH FROM THE PLAYER A , ADD IT TO PLAYER B
+      }
+  }
+
+}
+
+
+
+
+
+
+function playerLoses(player){
+
+
+    playerLeavesTheGame(player);
+
+
+}
+
+
+function playerLeavesTheGame(player){
+
+
+     //THE PLAYER IS DELETED FROM THE PLAYERS ARRAY.
+
+
+}

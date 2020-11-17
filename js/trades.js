@@ -443,6 +443,8 @@ function getArrayGainValueForPlayer(player, array){
 
  let color = array[0].color;
 
+ console.log('checking array gain for the color ' + color.index)
+
 
 	 //IF COUNT == 3 
 

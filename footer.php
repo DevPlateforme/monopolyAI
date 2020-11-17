@@ -1,4 +1,5 @@
 <script src='js/jquery.js'></script>
+<script src='js/classes.js'></script>
 <script src='js/vars.js'></script>
 <script src='js/trades.js'></script>
 <script src='js/board.js'></script>

@@ -504,3 +504,24 @@ function removeDiceLaunchButton(){
 
 
 
+
+
+
+
+
+function displayPropositionInterface(){
+
+
+     document.getElementById('propositionInterface').style.opacity = 1;
+
+
+
+}
+
+
+function hideInterfaces(){
+
+
+     document.getElementById('propositionInterface').style.opacity = 0;
+
+}
