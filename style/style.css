@@ -1,3 +1,52 @@
+
+/*
+
+
+NAV BAR
+
+*/
+
+
+
+*{
+
+    margin: 0;
+
+}
+
+
+
+#navBar{
+
+    height: 10vh;
+
+    width: 100%;
+
+    background : grey;
+
+
+    
+}
+
+
+
+
+
+
+
+
+/*
+
+
+BOARD
+
+
+*/
+
+
+
+
+
 #board{
 
     position: relative;
@@ -113,10 +162,20 @@
 
     display: flex;
 
-    align-items: center;
-
-    justify-content: center;
+    flex-direction: row;
+    
+    
 }
+
+
+.square div{
+
+    height: 100%;
+
+    width: 25%;
+
+}
+
 
 
 img{
@@ -138,6 +197,17 @@ img{
     left: 0.5vw;
 }
 
+
+
+
+
+/* 
+
+
+  Pawn containers div
+
+
+*/
 
 
 
@@ -291,7 +361,7 @@ proposition button
 
 
 
-#closePropositionInterfaceBtn{
+.closeInterfaceBtn{
 
 
     position: absolute;
@@ -300,3 +370,208 @@ proposition button
 
     right: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* player properties management interface */
+
+
+
+
+#playerPropertiesMangaementInterface{
+
+    position: absolute;
+    background: blue;
+    top: 10%;
+    left: 30%;
+    height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+
+}
+
+
+#propertiesManagementLeftNav{
+
+
+    width: 30%;
+
+    height: 100%;
+
+}
+
+
+
+#playerPropertiesDiv {
+
+    width: 70%;
+
+    height: 100%;
+
+    background: grey;
+}
+
+
+#propertiesManagementLeftNav .propertySet{
+
+    width: 100%;
+
+    background: grey;
+
+    border: solid 1px;
+
+    border-radius: 10px;
+}
+
+
+
+#HouseBuildingButton{
+
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    
+}
+
+
+
+
+
+/*
+
+  Available property interface
+
+*/
+
+
+#availablePropertyInterface{
+
+    position: absolute;
+
+    top: 20%;
+
+    left: 30%;
+
+    height: 30%;
+
+    width: 50%;
+
+    background: white;
+
+    border: solid 1px;
+
+    opacity: 0;
+
+    z-index: 1;
+
+    opacity: 0;
+   
+}
+
+
+
+ #unavailableFundInterface{
+
+
+    position: absolute;
+
+    top: 20%;
+
+
+    left: 30%;
+
+
+    height: 30%;
+
+    width: 50%;
+
+    background: white;
+
+    border: solid 1px;
+
+    opacity: 0;
+
+
+ }
+
+
+
+
+
+ /* Community chest square interface */
+
+
+
+
+ #communityChestSquareInterface{
+
+    position: absolute;
+
+    top: 20%;
+
+    left: 30%;
+
+    height: 30%;
+
+    width: 50%;
+
+    background: white;
+
+    border: solid 1px;
+
+    z-index: 1;
+
+    opacity: 0;
+
+
+ }
+
+
+
+
+ /* chance square interface */
+
+
+
+ #chanceSquareInterface{
+
+    position: absolute;
+
+    top: 20%;
+
+    left: 30%;
+
+    height: 30%;
+
+    width: 50%;
+
+    background: white;
+
+    border: solid 1px;
+
+    z-index: 1;
+
+    opacity: 0;
+
+ }
+
+
+
+
+
+
+
+
+
+

@@ -18,18 +18,9 @@ function init(){
 
     searchForTradesOpportunities();
 
-    createTheCommunityChestDeck();
+    initPawnsPositions();
 
-    createTheChanceDeck();
-
-
-    
-
-
-
-
-   
-}
+ }
 
 
 
@@ -143,7 +134,7 @@ function createTheCommunityChestDeck(){
  
        //FOR EACH ELEMENT OF THE ARRAY, 
 
-       randomIndex = Math.floor((Math.random() * availableCommunityCardsIndexesArray.length ) + 1);
+       randomIndex = Math.floor((Math.random() * availableCommunityCardsIndexesArray.length ) ) + 1;
 
        communityChestDeck[availableCommunityCardsIndexesArray[randomIndex] ] = communityChestCardsList[deckIndex];
 
@@ -174,7 +165,7 @@ function createTheChanceDeck(){
  
        //FOR EACH ELEMENT OF THE ARRAY, 
 
-       randomIndex = Math.floor((Math.random() * availableChanceCardsIndexesArray.length ) + 1);
+       randomIndex = Math.floor((Math.random() * availableChanceCardsIndexesArray.length )) + 1;
 
        chanceDeck[availableChanceCardsIndexesArray[randomIndex] ] = chanceCardsList[deckIndex];
 

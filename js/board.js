@@ -56,12 +56,32 @@ function movePiece(){
      lastDiceLauncher.position = updatedPosition;
 
       
-     console.log(' le joueur ' + lastDiceLauncher.name + ' est passé de la case ' + oldPosition + ' à la position ' + updatedPosition);
+     alert(' le joueur ' + lastDiceLauncher.name + ' est passé de la case ' + oldPosition + ' à la position ' + updatedPosition + ' ce qui correspond à la case ' + squaresArray[updatedPosition].name);
+
+
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
+
+
+     moveGuiPiece();
+
+
+     //UPDATE THE POSITION ON THE BOARD
 
      
      makePostLaunchMove();
 
+
+   }
+
+
+
+
+   function moveGuiPiece(){
+
+
+    console.log('moving the piece...');
+
+       
 
    }
 
@@ -91,9 +111,6 @@ function movePiece(){
 
       launchPLProcess();
       
-
-      if(lastDiceLauncher == player1 || lastDiceLauncher == player2 ){
-
         //FOR AIS, NO NEED TO EXECUTE THIS PART
 
         //WAIT FOR THE PLAYER TO MAKE ITS POST LAUNCH MOVE, WHICH WILL FILL THE VARIABLE POSTLAUNCH DECISION
@@ -107,7 +124,6 @@ function movePiece(){
 
                    //GO ON
 
-                   launchPropositionsAnswersProcess();
                }  
           
               }, 500);
@@ -123,10 +139,7 @@ function movePiece(){
 
       }, 500)
 
-     }
 
-
- 
 
      //MAKE ALL THE OTHER INTERFACES REAPPEAR
 
@@ -138,6 +151,9 @@ function movePiece(){
 
 
    function launchPLProcess(){ 
+
+
+       let currentSquare = squaresArray[lastDiceLauncher.position];
 
 
      //ACTIONS WERE THE PLAYER HAS NO CHOICES (DONE AUTOMATICALLY)
@@ -164,10 +180,34 @@ function movePiece(){
    //ACTIONS WERE THERE IS A CHOICE OR ACTION TO DO.
 
 
-
               
    //IF CURRENT SQUARE ISNT OWNED : INTERFACE -->DO YOU WANT TO BUY?
 
+
+
+
+   if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){          
+    
+      if( squaresArray[lastDiceLauncher.position].landLord == none ){
+
+            displayAvailablePropertyInterface(currentSquare);
+       } else {
+
+        alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+       
+      }
+
+   } else if (currentSquare.type == communityChest){
+
+        displayCommunityChestSquareInterface();
+
+
+   } else if (currentSquare.type == luck){
+           
+           displayChanceSquareInterface();
+
+   }
+  
                //IF THE AI HAVE ENOUGH CASH : BUY
 
                //ELSE : DO NOTHING
@@ -211,13 +251,9 @@ function movePiece(){
                       
                        //DRAW A CARD
 
-                       drawCommunityChestCardAndExecuteAction();
-
                //IF CHANCE CARD
                       
                        //DRAW A CHANCE CARD
-
-                       drawChanceCardAndExecuteAction();
 
       
         //IF HUMAN PLAYER, AN INTERFACE APPEARS , ALLOWING THE PLAYER TO DRAW THE CARD
@@ -233,7 +269,7 @@ function movePiece(){
 
     }
 
-
+    
 
 
    function drawCommunityChestCardAndExecuteAction(){
@@ -243,24 +279,55 @@ function movePiece(){
 
             //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
+            if(communityChestCardsList.length != 0){
+              
+               alert('vous avez piochés la carte caisse de communauté : ' + communityChestCardsList[0].description);
 
-        //IF COLLECT, COLLECT 
+               communityChestCardsList.splice(0,1);
+              
+            } else {
 
-        //IF PAY, PAY
+               alert('il n y a plus de cartes dans le paquet!')
+            }
 
-          payTheBank();
+            //IF COLLECT, COLLECT 
+
+           //IF PAY, PAY
+
+        //IF MOVEMENT, MOVE
 
          
-        //IF MOVEMENT, MOVE
-            
+        setTimeout( function(){ hideCommunityChestSquareInterface()}, 1500);
 
+        
    }
+   
 
-
-
+   
    function drawChanceCardAndExecuteAction(){
 
          //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
+
+         if(chanceCardsList.length != 0){
+              
+          alert('vous avez piochés la carte chance :  ' + chanceCardsList[0].description);
+
+          chanceCardsList.splice(0,1);
+         
+       } else {
+
+          alert('il n y a plus de cartes dans le paquet!')
+       }
+
+       //IF COLLECT, COLLECT 
+
+      //IF PAY, PAY
+
+    
+     //IF MOVEMENT, MOVE
+
+
+          setTimeout( function(){ hideChanceSquareInterface()}, 1500);
 
 
    }
@@ -293,8 +360,6 @@ function movePiece(){
 
     console.log('ai2 accepts the trade...');
 
-    
-
 
     
     console.log('player1 gets to chose a trade ...');
@@ -305,8 +370,6 @@ function movePiece(){
     console.log('ai2 gets to answer the trade proposition...');
 
     console.log('ai2 accepts the trade...');
-
-
 
 
     
@@ -323,10 +386,6 @@ function movePiece(){
 
 
     console.log('launch the dices');
-
-
-
-
 
 
  }
@@ -415,5 +474,99 @@ function playerLeavesTheGame(player){
 
      //THE PLAYER IS DELETED FROM THE PLAYERS ARRAY.
 
+
+}
+
+
+
+function buyAvailableProperty(){
+
+      let property = squaresArray[lastDiceLauncher.position];
+
+      playerPaymentToTheBank(lastDiceLauncher, property.value);
+
+      addPropertyToPlayerWallet(lastDiceLauncher, property);
+
+
+      availablePropertyInterface.style.opacity = '0';
+
+
+}
+
+
+
+function dontBuyAvailableProperty(){
+
+
+     availablePropertyInterface.style.opacity = '0';
+
+
+}
+
+
+
+
+
+
+function launchInsufficientFundsForBuyingTimeout(){
+
+      
+
+        insufficientFundsForBuyingTimeout = setTimeout(function(){
+
+          setPostLaunchActionToDone( insufficientFundsForBuyingTimeout );
+
+          clearTimeout( insufficientFundsForBuyingTimeout);
+
+        } , 45000)
+
+
+
+}
+
+
+
+function clearInsufficientFundsForBuyingTimeout(){
+
+
+     clearTimeout(insufficientFundsForBuyingTimeout);
+
+
+}
+
+
+
+
+function addPropertyToPlayerWallet(player, property){
+
+
+    let propertyColor = property.color;
+    
+    player.propertiesByColor[propertyColor.index].properties.push(property); 
+
+    player.propertiesArray.push(property); 
+
+    property.landLord = player;
+
+
+}
+
+
+
+
+function setPostLaunchActionToDone(){
+
+    postDicesLaunchAction = done;
+
+}
+
+
+
+
+
+
+function playerPaymentToTheBank(player, amount){
+
+     alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }

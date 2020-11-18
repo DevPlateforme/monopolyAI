@@ -13,3 +13,13 @@
 <body>
     
     <main id='main'>
+
+        <div id='navBar'>
+
+          <div id='mainMenu'>Logo</div>
+        
+           <div id='mainMenu'>Revenir au salon</div>
+
+           <button>logout</button>
+
+        </div>

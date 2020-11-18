@@ -12,13 +12,6 @@ function launchGameProcess(){
     
     //POST DICE LAUNCH ACTION (IF THERE IS)
 
-    launchPropositionsAnswersProcess();
-
-    launchMortgagesProcess();
-
-    launchSellingPropertiesProcess();
-
-    launchBuyingPropertiesProcess();
 
 }
 

@@ -6,6 +6,14 @@ var rightEdge = $('#rightEdge');
 var leftEdge = $('#leftEdge');
 
 
+
+var availablePropertyInterface = document.getElementById('availablePropertyInterface');
+
+var availablePropertyPriceHTML = document.getElementById('availablePropertyPriceHTML');
+
+var unavailableFundInterface = document.getElementById('unavailableFundInterface');
+
+
 //VARS USED TO CREATE PAWN CONTAINERS
 
 var ai1PawnContainer;
@@ -146,11 +154,6 @@ for(i=0; i < 11; i++){
                player2PawnContainer.setAttribute("id", "player2PawnContainer" + 'Square' + bottomSquareNum );
 
                bottomDiv.append(player2PawnContainer);
-
-
-
-
-
 
 
 
@@ -513,15 +516,110 @@ function displayPropositionInterface(){
 
 
      document.getElementById('propositionInterface').style.opacity = 1;
+     document.getElementById('propositionInterface').zIndex = 3;
+
 
 
 
 }
 
 
-function hideInterfaces(){
+
+
+function displayPropertiesManagementInterface(){
+
+
+     document.getElementById('playerPropertiesMangaementInterface').style.opacity = 1;
+     
+     document.getElementById('playerPropertiesMangaementInterface').style.zIndex = 3;
+
+     
+
+
+}
+
+
+
+
+
+function hidePropositionInterface(){
 
 
      document.getElementById('propositionInterface').style.opacity = 0;
+
+     document.getElementById('propositionInterface').style.opacity = 1;
+
+
+}
+
+
+
+
+function hidePropertiesManagementInterface(){
+
+
+     document.getElementById('playerPropertiesMangaementInterface').style.opacity = 0;
+
+     document.getElementById('playerPropertiesMangaementInterface').style.zIndex = 1;
+
+}
+
+
+
+function displayAvailablePropertyInterface(square){
+
+     if(lastDiceLauncher.cash >= square.value){
+
+         availablePropertyInterface.style.zIndex = 3;
+         availablePropertyInterface.style.opacity = 1;
+
+
+         availablePropertyInterfaceText.innerHTML = 'La propriété ' + square.name + ' est disponible. Souhaitez vous l acheter?';
+ 
+         availablePropertyPriceHTML.innerHTML = 'Prix : ' + square.value;
+       
+     } else {
+       
+      unavailableFundInterface.style.zIndex = 3;
+       unavailableFundInterface.style.opacity = 1;
+
+  
+     }
+ }
+ 
+
+
+
+
+ function displayCommunityChestSquareInterface(){
+
+     document.getElementById('communityChestSquareInterface').style.zIndex = 3;
+     document.getElementById('communityChestSquareInterface').style.opacity = 1;
+
+ }
+
+ function displayChanceSquareInterface(){
+    
+     document.getElementById('chanceSquareInterface').style.zIndex = 3;
+     document.getElementById('chanceSquareInterface').style.opacity = 1;
+}
+
+
+
+
+function hideCommunityChestSquareInterface(){
+
+
+     document.getElementById('communityChestSquareInterface').style.opacity = 0;
+     document.getElementById('communityChestSquareInterface').style.zIndex = 1;
+
+
+ }
+
+
+ function hideChanceSquareInterface(){
+
+     document.getElementById('chanceSquareInterface').style.opacity = 1;
+     document.getElementById('chanceSquareInterface').style.zIndex = 1;
 
 }
