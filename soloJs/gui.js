@@ -381,31 +381,13 @@ for(i=0; i < 9 ; i++){
 
 
 function moveGuiPiece(player , fromSquare, toSquare){  
+     
 
-  let playerName;
+  let playerName = player.name;
 
   let pawnImg;
 
-  if(player == ai1){
-      
-    playerName = 'ai1';
-    
-  
-  } else if (player == ai2){
-
-    playerName = 'ai2';
-
-
-  } else if (player == player1){
-
-    playerName = 'player1';
-
-
-  } else if (player == player2){
-     
-    playerName = 'player2';
-
-  }
+   
 
 
        console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
@@ -619,7 +601,7 @@ function hideCommunityChestSquareInterface(){
 
  function hideChanceSquareInterface(){
 
-     document.getElementById('chanceSquareInterface').style.opacity = 1;
+     document.getElementById('chanceSquareInterface').style.opacity = 0;
      document.getElementById('chanceSquareInterface').style.zIndex = 1;
 
 }

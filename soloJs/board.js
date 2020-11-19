@@ -1,5 +1,4 @@
 
-
 function launchDices(){
      
     //because Math.random() is a number below 1, the max number that be obtained by this operation would be 11, if we didn't add 1
@@ -9,7 +8,7 @@ function launchDices(){
     
     //update the diceLauncher index
 
-    if(nextDiceLauncherIndex == 3){
+    if(nextDiceLauncherIndex == 2){
 
         nextDiceLauncherIndex = 0;
     } else {
@@ -29,7 +28,7 @@ function movePiece(){
 
     if(nextDiceLauncherIndex == 0){
 
-         lastDiceLauncher = playersArray[3];
+         lastDiceLauncher = playersArray[2];
 
     } else {
 
@@ -60,9 +59,6 @@ function movePiece(){
 
 
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
-
-
-     moveGuiPiece();
 
 
      //UPDATE THE POSITION ON THE BOARD
@@ -208,7 +204,8 @@ function movePiece(){
 
    }
   
-               //IF THE AI HAVE ENOUGH CASH : BUY
+    
+              //IF THE AI HAVE ENOUGH CASH : BUY
 
                //ELSE : DO NOTHING
 
@@ -570,3 +567,27 @@ function playerPaymentToTheBank(player, amount){
      alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }
+
+
+
+
+
+function acceptTrade(proposition){
+  
+    let answerer = proposition.answerer;
+
+    let offerer = proposition.offerer;
+     
+    let offer = proposition.offer;
+
+    let answer = proposition.answer;
+
+  //When one player trigger this function
+
+   //THE OFFER ARRAY IS ADDED TO THE ANSWERER'S ARRAY
+
+   //THE ANSWER ARRAY IS ADDED TO THE OFFERERSARRAY
+
+  }
+
+

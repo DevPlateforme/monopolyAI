@@ -16,9 +16,10 @@ function init(){
 
     launchGameProcess();
 
-    searchForTradesOpportunities();
-
     initPawnsPositions();
+
+    wakeUpAis();
+
 
  }
 
@@ -37,9 +38,10 @@ function setColorScores(){
     //THRESHOLDS: [N30, N50, n75, n100]
     let threshHoldMultiplicator;
   
+      
+    //WE LOOP ON THE WHOLE COLOR SET BUT THE 'NOCOLOR' COLOR ATTRIBUTED TO NON RENTAL PROPERTY ELEMENTS
   
-  
-    for(colorIndex = 0; colorIndex < colorArray.length; colorIndex++){
+    for(colorIndex = 0; colorIndex < colorArray.length - 1; colorIndex++){
   
       threshHoldMultiplicator = 4;
   
@@ -49,17 +51,13 @@ function setColorScores(){
   
       for(ri= 0 ; ri < color.ROIS.length ; ri++){
   
+         color.ROIS[ri] += 1016.16;
   
-      color.ROIS[ri] += 1016.16;
-  
-  
-      ROI = color.ROIS[ri];
-  
-        
-      color.score += (ROI * threshHoldMultiplicator);
+         ROI = color.ROIS[ri];
+     
+         color.score += (ROI * threshHoldMultiplicator);
       
-  
-      threshHoldMultiplicator--;
+         threshHoldMultiplicator--;
   
       }
   
@@ -68,10 +66,16 @@ function setColorScores(){
       color.score = color.score/43397;
   
       color.score = color.score.toFixed(2)
+
+
+      console.log(color.name + ' : ' + color.score)
   
     
     }
   
+    console.log(colorArray[8].name + ' : ' + colorArray[8].score);
+
+
   
   }
   
@@ -181,5 +185,29 @@ function createTheChanceDeck(){
 
 
 
+
+function wakeUpAis(){
+
+    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 10000) + 10000) ;
+
+    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  10000) + 10000 ) ;
+
+
+}
+
+
+
+
+function aiReflects(ai){
+
+    console.log(ai.name + ' est en train de réflechir...');
+
+    searchForTradesOpportunities(ai);
+
+    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  15000) + 5000 );
+
+
+
+}
 
 

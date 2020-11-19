@@ -16,10 +16,27 @@
 
         <div id='navBar'>
 
-          <div id='mainMenu'>Logo</div>
+          <div id='logoImg'></div>
         
            <div id='mainMenu'>Revenir au salon</div>
 
-           <button>logout</button>
+
+           <?php
+
+              //ACCORDING TO WHETHER OR NOT THE USER IS LOGGED IN 
+                 
+                 if(session_status() == PHP_SESSION_NONE){
+
+                      echo '<a href="login.php"><button>login</button></a>';
+
+                 } else {
+
+                       echo '<button>login</button>';
+
+                 }
+           
+        
+           ?>
+           
 
         </div>

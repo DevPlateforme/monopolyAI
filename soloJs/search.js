@@ -1,32 +1,43 @@
 
-function searchForTradesOpportunities(){
+function searchForTradesOpportunities(activePlayer){
 
+
+
+   if(activePlayer != undefined){
                 //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
 
 
-    let activePlayer = gameBoard.activePlayer;
 
-    let activePlayerGain;
+      let activePlayerGain;
  
-    let otherPlayer;
+      let otherPlayer;
 
-    let otherPlayerLoss;
+      let otherPlayerLoss;
 
-    let offerer = activePlayer;
+      let offerer = activePlayer;
 
-    let answerer;
+      let answerer;
 
-    let counterPartAsked;
+      let counterPartAsked;
 
-    let propositionMaterial;
+      let propositionMaterial;
 
-    let propertySetColor;
+      let propertySetColor;
 
     
 
-    console.log('moves generated...');
+      console.log('moves generated...');
+
+    if(activePlayer == ai1){
+
+        otherPlayersArray = [ai2, humanPlayer];
+
+    } else if (activePlayer == ai2){
+
+        otherPlayersArray = [ai1, humanPlayer];
+
+    }
     
-    otherPlayersArray = [ai2, player1, player2];
 
 
     console.log('the active player index is ' + activePlayer.playerIndex );
@@ -41,9 +52,17 @@ function searchForTradesOpportunities(){
 
         for(otherPlayerIndex = 0; otherPlayerIndex < otherPlayersArray.length ; otherPlayerIndex++){
 
+
+
             otherPlayer = otherPlayersArray[otherPlayerIndex];
 
             answerer = otherPlayer;
+
+        
+
+
+
+            //PROPERTIES
 
          
 
@@ -362,13 +381,16 @@ function searchForTradesOpportunities(){
 
                    }
                             
-              }
+               }
       
-          }
+           }
   
-      }
+        }
  
-    }
+     }
+
+  }
+
 
     //LOOP ON EACH PLAYER
 }

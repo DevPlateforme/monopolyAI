@@ -11,8 +11,6 @@ function PropositionMaterial(offerer, answerer, counterPartAsked){
 
     this.counterPartAsked = counterPartAsked;
     
-
-
 }
 
 
@@ -22,8 +20,6 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 
 	console.log('counterpart asked créée.' + 'loss ' + lossValueForTheOwner);
-
-	
 
 	this.array = array;
 
@@ -77,14 +73,6 @@ function Proposition(offerer, answerer, proposition, counterPartAsked ) {
 
 
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -620,7 +608,7 @@ function getArrayLossValueForPlayer(player, array){
 }
 
 
-return (value * colorScore);
+return (value * (1 + colorScore));
 
 
 }
