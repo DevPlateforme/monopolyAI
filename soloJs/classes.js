@@ -29,4 +29,3 @@ function Card(type, name, value){
 }
 
 
-

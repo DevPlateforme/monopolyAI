@@ -22,15 +22,27 @@
 
    var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , score : 0}
 
-   var noColor = {index: 8, name: 'noColor' , score: 0 }
+   var black = {index: 8, name: 'black' ,  score: 0 , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] }
+
+   var publicServicesColor = {index: 9, name: 'publicServicesColor' , score: 0 , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] }
 
 
-  var colorArray = [ brown , lightBlue ,  purple , orange ,  red , yellow , green , darkBlue, noColor];
 
+
+
+  var colorArray = [ brown , lightBlue ,  purple , orange ,  red , yellow , green , darkBlue, black, publicServicesColor];
+
+
+
+
+
+  //HEURISTICS
 
 
 
 //GAINS
+
+
 
        //3 PROPERTIES SET
               //MONOPOLY
@@ -121,7 +133,7 @@ var zeroTwoPsToOneTwoPS = 100;
 
 var threeThreeToZeroThree = 10000;
 
-var threeTreeToOneThree = 8000;
+var threeThreeToOneThree = 8000;
 
 var threeThreeToTwoThree = 6000;
 
@@ -185,21 +197,28 @@ var oneTwoPsToZeroTwoPs = -zeroTwoPsToOneTwoPS;
 
 
 
+
+
+
+
+
 var playerNum = 4;
 
 var noMove = 'NM';
 
 var none = 'NONE';
 
-
+var off = 'off';
 
 var available = 'available';
 
 var busy = 'busy';
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: noColor, properties : [ ]} ] , propertiesArray: [], availability : available  }
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: noColor, properties : [ ]} ] , propertiesArray: [] , availability : available } 
-var humanPlayer = {playerIndex: 3 , key : 0,  position: 0 , name: 'human player', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: noColor, properties : [ ]} ] , propertiesArray: [], availability : available}
+var noCash = 'no cash';
+
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], availability : available , bankruptcyInterval : off }
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , availability : available , bankruptcyInterval : off } 
+var humanPlayer = {playerIndex: 3 , key : 0,  position: 0 , name: 'human player', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], availability : available , bankruptcyInterval : off}
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -291,17 +310,17 @@ var tax = 'tax';
 var departure = { name: 'departure', value: none, type: departure};
 var Belleville = { name: 'Belleville',value: 60, type: rentalProperty, color: brown, landLord: none};
 var communityChestSquare = {name: 'communityChest', value: none, type: communityChest};
-var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: noColor, landLord: none};
+var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: black, landLord: none};
 var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
 var luckSquare = {name: 'Luck', value: none, type: luck , landLord: none };
 var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
 var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, type: rentalProperty , color: lightBlue, landLord: none};
 var jailVisit = {name: 'jailVisit', value: none, type: special , landLord: none}; 
 var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, type: rentalProperty , color: purple, landLord: none};
-var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: noColor, landLord: none};
+var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: publicServicesColor, landLord: none};
 var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, type: rentalProperty , color: purple, landLord: none};
 var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , color: purple, landLord: none};
-var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: noColor, landLord: none};
+var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: black, landLord: none};
 var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none};
 var boulevardSaintMichel = {name: 'boulevard Saint Michel' , value: 180, type: rentalProperty , color: orange, landLord: none};
 var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none};
@@ -309,16 +328,16 @@ var freeParc = {name: 'parking gratuit' ,  value: none , type: parc , color: non
 var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none};
 var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none};
 var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none};
-var gareDuNord = {name: 'gare du nord' , value: 200, type: trainStation , color: noColor, landLord: none};
+var gareDuNord = {name: 'gare du nord' , value: 200, type: trainStation , color: black, landLord: none};
 var faubourgSaintHonore = {name : 'Faubourg Saint honoré' , value: 260, type: rentalProperty , color: yellow , landLord: none};
 var placeDeLaBourse = { name:'Place de la Bourse',  value: 260, type: rentalProperty , color: yellow , landLord: none};
-var publicServiceWater = { name :'public services eau' , value: 150, type: waterPublicServices , color: noColor, landLord: none};
+var publicServiceWater = { name :'public services eau' , value: 150, type: waterPublicServices , color: publicServicesColor, landLord: none};
 var rueLaFayette = {name: 'Rue La Fayette' ,  value: 280, type: rentalProperty , color: yellow , landLord: none};
 var jail = { name : 'Prison' , value: none, type: goToJailSquare , color: none , landLord: none};
 var avenueDeBreteuil = { name: 'Avenue de Breteuil', value: 300, type: rentalProperty , color: green , landLord: none};
 var avenueFoch = { name: 'Avenue Foch' , value: 300, type: rentalProperty , color: green , landLord: none};
 var bdDesCapucines = { name:'Boulevard des capucines' , value: 320, type: rentalProperty , color: green , landLord: none};
-var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, type: trainStation , noColor: yellow , landLord: none};
+var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, type: trainStation , color: black , landLord: none};
 var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , value: 350, type: trainStation , color: darkBlue , landLord: none};
 var luxuryTax = {name: 'Taxe de luxe' , value: none, type: tax , color: none , landLord: none};
 var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, type: rentalProperty , color: darkBlue , landLord: none};
@@ -590,4 +609,14 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
  var insufficientFundsForBuyingTimeout;
 
+
+
+
+
+ var possibleFutureMonopolyTradesList = [];
+
+
+
+
+ var nodeCount = 0;
 

@@ -23,10 +23,9 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.array = array;
 
+	this.cash = noCash;
 
-	
 	this.lossValueForTheOwner = lossValueForTheOwner;
-
 
 
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
@@ -44,13 +43,11 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 	
 	this.array = array;
 
+	this.cash = noCash;
 
+    this.lossValueForTheOwner = lossValueForTheOwner;
 
-     this.lossValueForTheOwner = lossValueForTheOwner;
-
-
-
-	 this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
+    this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
 
 }
@@ -126,6 +123,12 @@ function tryToCreateProposition(propositionMaterial){
 
 
 
+	let answererCashSlices = [answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
+	
+	let offererCashSlices = [offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
+
+
+
    //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
 
 
@@ -151,25 +154,36 @@ function tryToCreateProposition(propositionMaterial){
 				//DIVIDE THIS ARRAY IN SETS
 
 
+
+				//NOW THAT WE EXTRACTED AN ITEM SET, WE'RE INTERESTED
+
+
+						//FOR EACH ELEMENT OF THE CASH SLICES ARRAY OF THE ANSWERER, TRY TO CREATE A SERIES OF PROPOSITIONS
+
 				offer = createOffer(offerer, answerer, offerArray);
 
-				//RETURN AN OFFER OBJECT
 
-			   proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+				//ADD CASH TO THE OFFER, SO THAT LATER OFFER				
+		
+				
+				 //RETURN AN OFFER OBJECT
+				      
+
+		    	proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
 
 
-			//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-			  
-			if(profitableTrade(offer, counterPartAsked ) == true){
+		     //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+		  
+			    if(profitableTrade(offer, counterPartAsked ) == true){
 
-			  console.log('pushing proposition...')
+			    	console.log('pushing proposition...');
 
-			  propositionList.push(proposition);
+			    	propositionList.push(proposition);
 
-			}
-  
+				}
 
-		  }
+
+       }
 	   
 
 
@@ -189,35 +203,34 @@ function tryToCreateProposition(propositionMaterial){
 		   //FOR EACH ELEMENT, LOOP ON THE OTHER ELEMENTS
 		
 	  
-		   if(propertiesArray.length > 1){
+	  if(propertiesArray.length > 1){
+
+			//EACH PLAYER TAKES THE AVAILABLE ARRAY, DELETE ITS OWN.
+			
+
 
 			for(propertyIndex = 0; propertyIndex < propertiesArray.length; propertyIndex++){
 
-			 
-
 
 			   if(arrayForPairs.length > 1){
+
 					
-				  arrayForPairs.splice( propertyIndex,1);
+				  arrayForPairs.splice( 0 , 1);
 				 
 				
 					 for(pairIndex = 0; pairIndex < arrayForPairs.length; pairIndex++){
 
+
 						  pairArray.push( [ propertiesArray[propertyIndex] , arrayForPairs[pairIndex] ]);
 
 
-							}
-
-
-
-						}
-			 
-						   
-	 
 					}
 
+	 	    	}
+			 			   
+    	  }
 
-			   }
+	}
 
 		  
 
@@ -335,6 +348,9 @@ console.log('now, here is the proposition list : ' + propositionList);
 
 function createOffer(offerer, answerer, offerArray){
 
+	  
+	nodeCount ++;
+
 //WITH A CERTAIN OFFER ARRAY, THE OFFERER CAN KNOW WHAT IT LOSES AND WHAT THE OPPONENT OBTAINS FROM IT
 
 
@@ -359,7 +375,6 @@ let offer = new Offer( offerArray, lossValueForTheOfferer, gainValueForTheAnswer
 	let offerSets = divideOfferInSets(offerArray);
 
 
-	
 
 	 for(offerSetIndex = 0; offerSetIndex < offerSets.length ; offerSetIndex++){
 
@@ -407,7 +422,7 @@ let offer = new Offer( offerArray, lossValueForTheOfferer, gainValueForTheAnswer
 
 	 
 
-	}
+}
 
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
@@ -423,39 +438,47 @@ return offer;
 
 
 
-
 function getArrayGainValueForPlayer(player, array){
-	  
-  
+
+
+	let color = array[0].color;
+
+
+
+
+if(color != black && color != publicServicesColor){
+
+	//RENTAL PROPERTIES
+
+
 //KNOWING THE ELEMENTS ARE SORTED BY COLOR, ALL THE ELEMENTS OF THE ARRAY HAVE THE SAME COLOR :
 
- let color = array[0].color;
-
- console.log('checking array gain for the color ' + color.index)
+      console.log('checking array gain for the color ' + color.index)
 
 
-	 //IF COUNT == 3 
 
-	 if(array.length == 3){
+	    //IF COUNT == 3 
+
+	    if(array.length == 3){
 
 		   //0/3 TO 3/3
 
-	   return zeroThreeToThreeThree;
+	          return zeroThreeToThreeThree;
 
 
-	 }
+	     }
 
 
 	 //IF COUNT == 2
 
 
-	 else if (array.length == 2){
+	    else if (array.length == 2){
 
 
-		  if(color == darkBlue ||color == brown){
+     		  if(color == darkBlue ||color == brown){
+  
 
-
-			return zeroTwoToTwoTwo;
+	 		  return zeroTwoToTwoTwo;
 
 
 		   //IF NOT DARK BLUE OR BROWN
@@ -463,6 +486,8 @@ function getArrayGainValueForPlayer(player, array){
 
 
 		  }  else {
+
+
 
 
 		   if(player.propertiesByColor[color.index].properties.length == 1){
@@ -513,16 +538,142 @@ function getArrayGainValueForPlayer(player, array){
 		} else if(player.propertiesByColor[color.index].properties.length == 2){
 
 		   return twoThreeToThreeThree;
+ 
+		}
+     }
+  }
+
+
+
+
+
+  //ELSE IF THE ARRAY IS A TRAIN STATIONS SET
+
+
+} else if(color == black){
+
+
+	    if(array.length == 4){
+
+
+			return zeroFourTsToFourFourTs;
+
+
+	    } else if(array.length == 3){
+
+
+
+			if(player.propertiesByColor[color.index].properties.length == 1){
+
+
+				return oneFourTsToFourFourTs;
+
+
+
+			} else if (player.propertiesByColor[color.index].properties.length == 0){
+
+
+				return zeroFourTsToThreeFourTs;
+
+
+			}
+
+
+    	} else if(array.length == 2){
+
+
+			if(player.propertiesByColor[color.index].properties.length == 2){
+
+
+				return twoFourTsToFourFourTs;
+
+
+			} 
+
+
+			if(player.propertiesByColor[color.index].properties.length == 1){
+
+
+				return oneFourTsToFourFourTs;
+
+
+			} else if(player.propertiesByColor[color.index].properties.length == 0){
+
+
+				return zeroFourTsToTwoFourTs;
+
+			} 
+
+
+
+		} else if(array.length == 1) {
+
+
+			
+			if(player.propertiesByColor[color.index].properties.length == 3){
+
+
+				return threeFourTsToFourFourTs;
+
+
+			} else if(player.propertiesByColor[color.index].properties.length == 2){
+
+
+				return twoFourTsToThreeFourTs;
+
+
+			} 
+
+
+			if(player.propertiesByColor[color.index].properties.length == 1){
+
+
+				return oneFourTsToTwoFourTs;
+
+
+			} else if(player.propertiesByColor[color.index].properties.length == 0){
+
+
+				return zeroFourTsToOneFourTs;
+
+			} 
+
+
+
 
 		}
 
-	   
-	
-	}
 
-}
 
-}
+   } else if( color == publicServicesColor){
+
+
+
+	     if(array.length == 2){
+
+
+			return zeroTwoPsToTwoTwoPS;
+
+
+    	} else if (array.length == 1){
+
+
+			if(player.propertiesByColor[color.index].properties.length == 1){			
+				
+				return oneTwoPsToTwoTwoPS;
+
+			} else if(player.propertiesByColor[color.index].properties.length == 0){			
+				
+				return zeroTwoPsToOneTwoPS;
+
+			}
+
+
+	     }
+            
+	  }
+	  
+ }
 
 
 function getArrayLossValueForPlayer(player, array){
@@ -761,3 +912,128 @@ playerAScore -= arrayPlayerA.lossValueForTheOwner;
 }
 
 
+
+
+
+
+
+
+
+
+//FUTURE PROPOSITION ANTICIPATION
+
+
+
+
+
+
+
+function tryToCreateFutureProposition(propositionMaterial , acquiredPropertySet){
+
+
+
+	alert('try to create future propositions....');
+
+
+
+
+	let color = acquiredPropertySet[0].color;
+
+
+	//GO AT THE RIGHT INDEX, AND APPEND THE PROPERTY.
+
+	let imaginedPropertiesArray = propositionMaterial.offerer.propertiesArray.slice(0);
+
+		
+	for(i=0; i < acquiredPropertySet; i++){
+
+		imaginedPropertiesArray.push(acquiredPropertySet[i]);
+		
+	}
+
+
+	let offerer = propositionMaterial.offerer;
+
+	let answerer = propositionMaterial.answerer;
+
+
+	let counterPartAsked = propositionMaterial.counterPartAsked;
+
+
+
+
+
+
+	//NOW DO THE EXACT SAME ACTION
+
+
+
+
+	
+	//1 ELEMENTS PROPOSITIONS
+
+		 //LOOP ON THE OFFERER'S PROPERTIES ARRAY
+
+		 //FOR THE 1 ELEMENTS PROPOSITIONS
+
+		 for(propertyIndex = 0; propertyIndex < imaginedPropertiesArray.length ; propertyIndex++){
+
+			offerArray = [imaginedPropertiesArray[propertyIndex]];
+
+			 //DIVIDE THIS ARRAY IN SETS
+
+
+			 offer = createOffer(offerer, answerer, offerArray);
+
+			 //RETURN AN OFFER OBJECT
+
+			proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+
+
+		 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+		   
+		 if(profitableTrade(offer, counterPartAsked ) == true){
+
+
+		   console.log('possible future monopoly found...');
+
+		   possibleFutureMonopolyTradesLis.push(proposition);
+
+		   
+
+		 }
+
+    }
+	
+	
+	
+	    if(possibleFutureMonopolyTradesList.length != 0){
+
+
+			return possibleFutureMonopolyTradesList;
+
+
+		} else {
+
+
+			console.log('we checked for a possible future move, but there is nothing interesting there');
+
+
+			return noMove;
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+	//TAKE THE PLAYERS ARRAY, COPY IT AND APPEND IT THE PROPERTY HE COULD POSSIBLY ACQUIRE
+
+
+}

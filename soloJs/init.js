@@ -32,10 +32,12 @@ function setColorScores(){
     let ROI;
   
     
-    //WE SET FOUR THRESHOLD BASED ON A CERTAIN NUMBER OF DICE LAUNCHES N, WHERE WE CALCULATED THE ROIS.
+    //BASED ON A GATHERED DATA SET, WE CREATED FOUR THRESHOLDS BASED ON A CERTAIN NUMBER OF DICE LAUNCHES N, WHERE WE CALCULATED THE ROIS.
     //THE MOMENTUM OF A PLAYER BEING POTENTIALLY CRITICAL, THE IMPORTANCE OF THIS VALUE DECREASE WITH THE NUMBER OF DICES
   
-    //THRESHOLDS: [N30, N50, n75, n100]
+    //THRESHOLDS: [ N30, N50, n75, n100]
+
+    
     let threshHoldMultiplicator;
   
       
@@ -91,7 +93,10 @@ function setColorScores(){
           //2 ORANGES
 
     ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
-    ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel);
+
+    ai1.propertiesByColor[red.index].properties.push(avenueHenriMartin);
+
+    ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
 
 
           //1 RED PROPERTY
@@ -112,8 +117,8 @@ function setColorScores(){
 
          //2 RED PROPERTIES
 
-   ai2.propertiesByColor[red.index].properties.push(bdMalesherbes, avenueHenriMartin);
-   ai2.propertiesArray.push( bdMalesherbes, avenueHenriMartin );
+   ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
+   ai2.propertiesArray.push( bdMalesherbes);
 
 
 
@@ -151,7 +156,8 @@ function createTheCommunityChestDeck(){
    console.log(communityChestDeck);
 
 
-}
+
+  }
 
 
 function createTheChanceDeck(){
@@ -188,9 +194,9 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 10000) + 10000) ;
+    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 2000) + 2000) ;
 
-    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  10000) + 10000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  2000) + 2000 ) ;
 
 
 }
