@@ -13,6 +13,17 @@ var availablePropertyPriceHTML = document.getElementById('availablePropertyPrice
 
 var unavailableFundInterface = document.getElementById('unavailableFundInterface');
 
+var offererDiv = document.getElementById('offererDiv');  
+
+
+
+var sendPropositionButton = document.getElementById('sendPropositionButton');
+
+
+
+
+
+
 
 //VARS USED TO CREATE PAWN CONTAINERS
 
@@ -408,6 +419,12 @@ function moveGuiPiece(player , fromSquare, toSquare){
 
 
 
+
+
+
+
+
+
 function initPawnsPositions(){
 
     //APPEND TO EACH DIV OF THE DEPARTURE SQUARE, THE ACCORDING IMAGE
@@ -457,6 +474,11 @@ function initPawnsPositions(){
 
 
 
+
+
+
+
+
 function displayDiceLaunchButton(){
 
 
@@ -494,26 +516,15 @@ function removeDiceLaunchButton(){
 
 
 
-function displayPropositionInterface(){
-
-
-     document.getElementById('propositionInterface').style.opacity = 1;
-     document.getElementById('propositionInterface').zIndex = 3;
-
-
-
-
-}
-
-
 
 
 function displayPropertiesManagementInterface(){
 
 
-     document.getElementById('playerPropertiesMangaementInterface').style.opacity = 1;
+
+     document.getElementById('playerPropertiesManagementInterface').style.opacity = 1;
      
-     document.getElementById('playerPropertiesMangaementInterface').style.zIndex = 3;
+     document.getElementById('playerPropertiesManagementInterface').style.zIndex = 3;
 
      
 
@@ -524,25 +535,13 @@ function displayPropertiesManagementInterface(){
 
 
 
-function hidePropositionInterface(){
+function closePropertiesManagementInterface(){
 
 
-     document.getElementById('propositionInterface').style.opacity = 0;
+     document.getElementById('playerPropertiesManagementInterface').style.opacity = 0;
+     
 
-     document.getElementById('propositionInterface').style.opacity = 1;
-
-
-}
-
-
-
-
-function hidePropertiesManagementInterface(){
-
-
-     document.getElementById('playerPropertiesMangaementInterface').style.opacity = 0;
-
-     document.getElementById('playerPropertiesMangaementInterface').style.zIndex = 1;
+     document.getElementById('playerPropertiesManagementInterface').style.zIndex = 1;
 
 }
 
@@ -571,6 +570,18 @@ function displayAvailablePropertyInterface(square){
  
 
 
+ 
+function closeAvailablePropertyInterface(){
+
+         availablePropertyInterface.style.opacity = 0;
+
+         availablePropertyInterface.style.zIndex = 1;
+
+ }
+ 
+
+
+
 
 
  function displayCommunityChestSquareInterface(){
@@ -589,7 +600,7 @@ function displayAvailablePropertyInterface(square){
 
 
 
-function hideCommunityChestSquareInterface(){
+function closeCommunityChestSquareInterface(){
 
 
      document.getElementById('communityChestSquareInterface').style.opacity = 0;
@@ -599,9 +610,763 @@ function hideCommunityChestSquareInterface(){
  }
 
 
- function hideChanceSquareInterface(){
+ function closeChanceSquareInterface(){
 
      document.getElementById('chanceSquareInterface').style.opacity = 0;
      document.getElementById('chanceSquareInterface').style.zIndex = 1;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//PROPOSITION INTERFACE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var answererPropertiesDiv = document.getElementById('answererProperties');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function observeAi(ai){           
+     
+     
+     //START BY CLEARING THE INITIAL HTML TEXT ("SELECT A PLAYER")
+     
+     
+
+
+       if(observedPlayer != ai ){
+
+
+          answererPropertiesDiv.innerHTML = '';
+
+
+          observedPlayer = ai;
+
+
+
+          //SET SEND PROPOSITION BUTTON
+
+
+
+          //IF A PLAYER WAS ALREADY SELECTED
+
+
+          if(observedPlayer != none ){
+
+               //BEFORE SWITCHING TO ANOTHER PLAYER, CLEAR THE BUILDING PROPOSITION OBJECT.
+
+               clearInBuildingProposition();
+
+
+               //INIT THE OFFERER DIV AS WELL (UNLESS IF THERE WAS NO OBSERVED PLAYER ==> THE ADD BUTTON WAS POSSIBLY MODIFIED)
+
+
+               offererDiv.innerHTML = '';
+
+               displayOffererDiv();
+
+
+               
+
+               //CLEAR THE PREVIOUS SEND PROPOSITION BUTTON 
+
+               sendPropositionButton.removeAttribute('onclick');
+
+          }
+
+          sendPropositionButton.setAttribute('onclick', 'sendProposition(' + ai.playerIndex +')');
+
+
+
+          //ADD THE COLORS SETS DIVS
+
+
+          let propertiesArray = ai.propertiesByColor;
+
+
+          console.log('here is the original array length:' + ai1.propertiesByColor.length );
+
+
+          
+
+
+
+
+
+           //AFTER DELETING THE EMPTY ARRAYS, WE LOOP AGAIN ON THE ARRAY
+
+
+
+          for( setIndex = 0; setIndex < propertiesArray.length; setIndex++){
+
+
+               if(propertiesArray[setIndex].properties.length != 0){
+
+
+                    let colorSetDiv = document.createElement('div');
+     
+     
+                          //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
+     
+     
+                          for(propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
+     
+     
+                              
+                                  let property = propertiesArray[setIndex].properties[propertyIndex];
+     
+                                  let propertyDiv = document.createElement('div');
+     
+     
+                                //ADD 2 DIVS IN THE PROPERTY DIV
+     
+                                     let propertyNameDiv = document.createElement('div');
+     
+                                      propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+     
+                                
+                                      let addPropertyButtonDiv =  document.createElement('button');
+     
+                                       addPropertyButtonDiv.setAttribute("class" , "addCpElementButton");
+     
+     
+                                       //FUNCTION WORKING IN CONSTANT TIME : 
+     
+                                       addPropertyButtonDiv.setAttribute("onclick" , "addCounterPartAskedElementToProposition(event ," + humanPlayer.playerIndex + "," + ai.playerIndex + "," + property.elementIndex + ")");
+     
+     
+                                      addPropertyButtonDiv.innerHTML = '+';
+     
+     
+                              
+     
+                         
+                                   
+     
+                      //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
+     
+     
+                              propertyDiv.append(propertyNameDiv);
+      
+                               propertyDiv.append(addPropertyButtonDiv);
+     
+     
+     
+     
+                       
+     
+                        //APPEND THIS DIV THE COLOR SET DIV
+     
+                               colorSetDiv.append(propertyDiv);
+     
+                              
+                          }
+     
+               
+                    answererPropertiesDiv.append(colorSetDiv);
+
+
+
+
+               }
+
+                    
+          }
+          
+
+      }
+      
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayPropositionInterface(){
+
+
+
+
+
+
+     document.getElementById('propositionInterface').style.opacity = 1;
+     document.getElementById('propositionInterface').style.zIndex = 3;
+
+
+
+
+    //FOR EACH PROPERTY
+
+
+
+     displayOffererDiv();
+
+
+     //ONE DIV PER PLAYER
+
+
+     //FOR EACH PLAYER DIV : 
+
+
+         
+
+          //CREATE A COPY OF THE PLAYER PROPERTIES. FOR EACH SET, IF A SET IS EMPTY, SPLICE IS FROM THIS ARRAY.
+
+
+          //THEN, FOR EACH ELEMENT OF THE PROPERTIES BY ARRAY COPY,
+
+          //CREATE A DIV SET
+
+
+         //THEN, FOR EACH ELEMENT OF THIS DIV, ADD AN <A>. FOR EACH ELEMENT OF THIS <A> : THERE IS AN ONCLICK FUNCTION "HUMAN ADD ELEMENT TO PROPOSITION".
+
+         //THEN, IF THIS FUNCTION IS PRESSED , THE HUMAN'S PROPERTY PROPOSITIONMADE WILL  = { offer : [ ] , counterPart : [ ] }; IT WILL ADD A DIV FOR THIS ELEMENT , WITH TWO DIVS INSIDE. ONE WITH THE NAME OF THE ELEMENT , THE OTHER WITH A LOGO WITH THE FUNCTION 'DELETE ELEMENT'.
+         
+         //IT CAN DELETE ELEMENTS FROM THE HUMAN.PROPOSITIONMADE.OFFER OR COUNTERPART.
+
+         //THEN, WHEN DONE : WHEN THE PROPOSITION IS SUBMITTED, A PROPOSITION OBJECT IS CREATED, WITH THE TWO PLAYERS, THE COUNTERPART ARRAY (new counterpart asked()) then, the offer (new OFFER())
+
+
+
+         //THE STYLING IS ALREADY DONE.
+
+
+      }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+function closePropositionInterface(){
+
+
+     document.getElementById('propositionInterface').style.opacity = 0;
+
+     document.getElementById('propositionInterface').style.zIndex = 1;
+
+
+
+
+     //INIT PROPOSITION INTERFACE
+
+
+
+     initPropositionInterface();
+
+
+
+     //IF THERE IS A BUILDING PROPOSITION , REMOVE IT
+
+
+     clearInBuildingProposition();
+
+     observedPlayer = none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayOffererDiv(){
+
+
+
+     let propertiesArray = humanPlayer.propertiesByColor;
+
+
+
+
+     for( setIndex = 0; setIndex < propertiesArray.length; setIndex++){
+
+
+          if(propertiesArray[setIndex].properties.length != 0){
+
+
+               let colorSetDiv = document.createElement('div');
+
+
+                     //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
+
+
+                     for(propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
+
+
+                         
+                             let property = propertiesArray[setIndex].properties[propertyIndex];
+
+                             let propertyDiv = document.createElement('div');
+                             propertyDiv.setAttribute('id' , property.elementIndex);
+
+
+                           //ADD 2 DIVS IN THE PROPERTY DIV
+
+                            let propertyNameDiv = document.createElement('div');
+
+                            propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+
+                           
+                            let addPropertyButtonDiv =  document.createElement('button');
+
+                            addPropertyButtonDiv.setAttribute("class" , "addOfferElementButton");
+
+                            addPropertyButtonDiv.setAttribute("onclick" , "addOfferElement(event , " + humanPlayer.playerIndex +  "," +  property.elementIndex + ")");
+
+
+                            //FUNCTION WORKING IN CONSTANT TIME : 
+
+
+                            addPropertyButtonDiv.innerHTML = '+';
+
+
+                         
+
+                     //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
+
+
+                          propertyDiv.append(propertyNameDiv);
+ 
+                          propertyDiv.append(addPropertyButtonDiv);
+
+
+
+
+                  
+
+                   //APPEND THIS DIV THE COLOR SET DIV
+
+                          colorSetDiv.append(propertyDiv);
+
+                         
+                     }
+
+          
+               offererDiv.append(colorSetDiv);
+
+
+          }
+
+
+               
+     }
+
+
+
+}
+
+
+
+
+function addCounterPartAskedElementToProposition(event, offererIndex, answererIndex, elementIndex){
+
+
+     let offerer = playersArray[offererIndex];
+
+     let answerer = playersArray[answererIndex];
+
+     let property = propertiesList[elementIndex];
+
+     
+
+
+     //ON THE GUI
+
+
+     let propertyDiv = event.target;
+
+
+     propertyDiv.removeAttribute('onclick');
+
+
+     //I need to get the element, and remove it from the human array. For that, I need the index to be used as an Id
+
+
+      //GET THE INDEX OF THE PROPERTY FOR THE PROPOSITION OBJECT PROTOTYPE. IT IS PASSED AS AN ID WHEN EACH PROPERTY DIV IS CREATED ('DISPLAY' FUCNCTION)
+
+
+     propertyDiv.setAttribute('onclick', 'removeCounterPartAskedFromProposition(event , ' + humanPlayer.playerIndex + ',' + elementIndex + ')');
+
+     propertyDiv.innerHTML = '-';
+
+
+
+
+     //REMOVE THE "ADD" BUTTON, ADD THE "REMOVE" BUTTON     
+     
+
+
+
+     //IN THE OBJECT
+
+
+     if( offerer.inBuildingProposition == none){          
+          
+          
+          offerer.inBuildingProposition = {offerer: humanPlayer , answerer: answerer , offer: new Array(27) , counterPartAsked: new Array(27) , offerElementsCount : 0, counterPartAskedElementsCount : 0 };
+         
+
+     }
+
+
+
+     offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
+
+
+     console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
+
+
+
+
+
+
+
+
+          //INCREASE THE COUNTERPART ASKED COUNT BY 1
+
+
+
+     offerer.inBuildingProposition.counterPartAskedElementsCount++;
+
+
+
+}
+
+
+
+
+
+
+function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex){
+
+     let offerer = playersArray[playerIndex];
+
+
+
+     //ON THE GUI
+
+     let removeButton = event.target;
+
+
+     removeButton.removeAttribute('onclick');
+
+
+     //I need to get the element, and remove it from the human array. For that, I need the index to be used as an Id
+
+
+      //GET THE INDEX OF THE PROPERTY FOR THE PROPOSITION OBJECT PROTOTYPE. IT IS PASSED AS AN ID WHEN EACH PROPERTY DIV IS CREATED ('DISPLAY' FUCNCTION)
+
+
+      //OK. SO, THERE
+
+     removeButton.setAttribute("onclick", "addOfferElement(event , " + humanPlayer.playerIndex + "," + elementIndex + ")");
+
+     removeButton.innerHTML = '+';
+
+
+     //WE SIMPLY NEED TO OFFERER
+
+
+     offerer.inBuildingProposition.counterPartAsked[elementIndex] = undefined;
+
+
+     console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
+
+
+
+
+     
+          //INCREASE THE COUNTERPART ASKED COUNT BY 1
+
+
+         offerer.inBuildingProposition.counterPartAskedElementsCount--;
+
+
+}
+
+
+
+
+function addOfferElement(event, offererIndex, elementIndex ){
+
+
+     //FIRST , MAKE SURE ANOTHER PLAYER WAS SELECTED
+      
+
+
+
+     if(observedPlayer != none){
+
+          //ON THE GUI
+     
+     
+          let addButton = event.target;
+     
+          addButton.removeAttribute('onclick');
+     
+          addButton.setAttribute('onclick', 'removeOfferElement(event ,' + offererIndex + ',' + elementIndex + ')');
+     
+          addButton.innerHTML = '-';
+     
+     
+     
+          //COUNTRARY TO THE ADDCOUNTERPART FUNCTION , WE ARE NOT SURE THAT A PLAYER WAS SELECTED
+     
+     
+          let offerer = playersArray[offererIndex];
+     
+     
+     
+     
+               //NOW, CHECK IF A PROPOSITION HAS ALREADY BEEN CREATED
+     
+          
+               let answerer = observedPlayer;
+          
+          
+               let property = propertiesList[elementIndex];
+          
+          
+                 //CREATE THE OBJECT IF THERE ARE NONE
+          
+          
+               if(offerer.inBuildingProposition == none){
+          
+                    offerer.inBuildingProposition = {offerer: humanPlayer , answerer: answerer , offer: new Array(27) , counterPartAsked: new Array(27) , offerElementsCount : 0, counterPartAskedElementsCount : 0 };
+          
+               }
+          
+          
+               //TO BE ABLE TO DELETE EACH ELEMENT AS NEEDED : WE'LL CREATE A HASH TABLE. IN CASE AN ELEMENT IS TAKEN, WE'LL USE A PROBING FUNCTION
+               
+          
+               offerer.inBuildingProposition.offer[elementIndex] = property;
+     
+     
+               console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
+     
+     
+     
+     
+     
+     
+               //LETS INCREASE THE OFFER ELEMENT COUNT OF THE OBJECT
+     
+     
+               offerer.inBuildingProposition.offerElementsCount++;
+     
+     
+          
+
+
+     } else {
+
+
+          alert('veuillez séléctionner un joueur');
+
+
+     }
+
+
+     
+ }
+
+
+
+
+
+function removeOfferElement(event, offererIndex, elementIndex){
+
+     
+     let offerer = playersArray[offererIndex];
+     
+
+
+     //GUI
+
+
+     let removeButton = event.target;
+
+     removeButton.removeAttribute('onclick');
+
+     removeButton.setAttribute('onclick', 'addOfferElement(event , ' + offererIndex + ',' + elementIndex + ')');
+
+     removeButton.innerHTML = '+';
+
+
+
+     //OBJECT = REMOVE ELEMENT
+
+         offerer.inBuildingProposition.offer[elementIndex] = undefined;
+
+
+         console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
+
+
+          //REDUCE THE COUNT BY 1
+
+         offerer.inBuildingProposition.offerElementsCount--;
+
+
+
+
+}
+
+
+
+     //HUMAN ACTION FROM THE GUI
+
+
+
+function sendProposition(answerer){
+
+
+     let proposition = humanPlayer.inBuildingProposition;
+
+
+     
+
+     //IF THERE ARE NO OBJECTS
+
+     if(proposition == none){
+
+          alert('vous n avez pas crée d offre!');
+
+     } else{
+     
+
+         alert('trying to send a proposition...');
+ 
+         alert('offerer : ' + proposition.offerer.name);
+
+         alert('answerer : ' + proposition.answerer.name );
+
+         alert('offer : ' + proposition.offerElementsCount);
+
+        alert('counterPart : ' + proposition.counterPartAskedElementsCount );
+
+
+
+        if (proposition.offerElementsCount == 0) {
+
+          alert('vous n avez rien offert!');
+
+         } else if (proposition.counterPartAskedElementsCount == 0){
+
+
+          alert('vous n avez demandé aucun élément!');
+
+     }
+
+     }
+
+}
+
+
+
+
+function sendPropositionToHuman(offerer, proposition){
+
+
+    //THE PROPOSITION INTERFACE HAPPENS : YOU RECEIVED A PROPOSITION FROM  offerer.name
+
+    //HERE IS THE PROPOSITION : YOU WERE OFFERED PROPOSITION.OFFER.ARRAY. FOR EACH ELEMENT OF THE ARRAY, ADD A DIV.
+
+    //SAME FOR THE COUNTERPART.
+
+
+    //IF THE PLAYER ACCEPTS : THE PLAYER TRIGGERS THE FUNCTION ACCEPT PROPOSITION
+
+
+    //BUT, HOW IS THE PROPOSITION PASSED
+
+
+    //ACTUALLY, WHEN A PLAYER IS PROPOSED SOMETHING : THE PROPOSITION FILLS A PROPERTY OF THE PLAYER OBJECT IS JS
+
+
+}
+
+
+
+
+function initPropositionInterface(){
+
+
+     answererPropertiesDiv.innerHTML = '<h4>Veuillez séléctionner un joueur</h4>';
+
+     offererDiv.innerHTML = '';
+
+
+
+}
+
