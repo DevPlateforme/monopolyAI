@@ -82,7 +82,7 @@ function Proposition(offerer, answerer, proposition, counterPartAsked ) {
 
 
 
-function tryToCreateProposition(propositionMaterial){
+function tryToCreateProposition(thinker, propositionMaterial){
 
 
 	//THE AI TAKES THIS PROPOSITION, AND LOOP OVER ITS POTENTIAL PROPOSITIONS.
@@ -121,6 +121,8 @@ function tryToCreateProposition(propositionMaterial){
 
 	let offererLoss;
 
+	let propertiesAskedPlusCash;
+
 
 
 	let answererCashSlices = [answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
@@ -142,11 +144,26 @@ function tryToCreateProposition(propositionMaterial){
 
 	//1 ELEMENTS PROPOSITIONS
 
-		 //LOOP ON THE OFFERER'S PROPERTIES ARRAY
 
-		 //FOR THE 1 ELEMENTS PROPOSITIONS
+
+
+
+
+		 //FOR EACH ANSWERER CASH SLICE
+
+	 
+     for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
+
+
+
+
+
+
+		//FOR EACH PROPERTIES THAN CAN BE OFFERED
+
 
 		 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
+
 
 
 			   offerArray = [propertiesArray[propertyIndex]];
@@ -155,35 +172,73 @@ function tryToCreateProposition(propositionMaterial){
 
 
 
-				//NOW THAT WE EXTRACTED AN ITEM SET, WE'RE INTERESTED
+
+			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+
+			 //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
 
 
-						//FOR EACH ELEMENT OF THE CASH SLICES ARRAY OF THE ANSWERER, TRY TO CREATE A SERIES OF PROPOSITIONS
-
-				offer = createOffer(offerer, answerer, offerArray);
+			 
 
 
-				//ADD CASH TO THE OFFER, SO THAT LATER OFFER				
-		
+
+				 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
+
+
+
+				 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
+
+				 				 
+
+
+
+
+
+				 
+				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+
+
+
+
 				
-				 //RETURN AN OFFER OBJECT
+				 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
+
+					
+
+				    	offer = createOffer(offerer, answerer, offerArray);
+
+				     	offer.cash = offererCashSlices[offererCashSliceIndex];
+
+						
+		        		 //RETURN AN OFFER OBJECT
 				      
 
-		    	proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
 
 
-		     //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-		  
-			    if(profitableTrade(offer, counterPartAsked ) == true){
 
-			    	console.log('pushing proposition...');
+						 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+  
+  
+						 
+						if(profitableTrade(thinker , offer,  propertiesAskedPlusCash ) == true){
+  
+							  console.log('pushing proposition...');
+  
+							  propositionList.push(proposition);
+					  
+						}
 
-			    	propositionList.push(proposition);
 
-				}
+				 }
 
 
-       }
+		
+			
+				
+			    }
+		
+           }
 	   
 
 
@@ -207,32 +262,23 @@ function tryToCreateProposition(propositionMaterial){
 
 			//EACH PLAYER TAKES THE AVAILABLE ARRAY, DELETE ITS OWN.
 			
-
-
 			for(propertyIndex = 0; propertyIndex < propertiesArray.length; propertyIndex++){
 
-
 			   if(arrayForPairs.length > 1){
-
 					
 				  arrayForPairs.splice( 0 , 1);
 				 
-				
 					 for(pairIndex = 0; pairIndex < arrayForPairs.length; pairIndex++){
-
 
 						  pairArray.push( [ propertiesArray[propertyIndex] , arrayForPairs[pairIndex] ]);
 
+				     	}
 
-					}
-
-	 	    	}
-			 			   
-    	  }
+				 }
+				 	 			   
+		  }
 
 	}
-
-		  
 
 
 			   for(pi = 0 ; pi < pairArray.length ; pi++){          
@@ -840,74 +886,15 @@ function divideOfferInSets(offerArray){
 
 function profitableTrade(arrayPlayerA, arrayPlayerB){
 
- if(arrayPlayerA != undefined && arrayPlayerB != undefined){
-
 
 //RETURN THE PROFITABILITY, WITH THE POINT OF VIEW OF A PLAYER A
 
 
-   let playerAScore = 0;
-
-   let playerBScore = 0;
-
-
-//RETURN THE PROBABILITY WITH THE PLAYER A'S POINT OF VIEW
-
-playerAScore -= arrayPlayerA.lossValueForTheOwner;
-
-
- playerAScore += arrayPlayerB.gainValueForTheOtherPlayer;
-
-
- playerBScore -= arrayPlayerB.lossValueForTheOwner;
-
- playerBScore +=  arrayPlayerA.gainValueForTheOtherPlayer;
-
-
-  console.log('the verdict for this proposition : ' + 'there is a score of ' + playerAScore + 'for the offerer ' + ' and a score of ' + playerBScore + ' for the answerer');
-	  
-
-  //THE POINT IS TO MAKE SURE THE AI POINTS ARE HIGHER THAN PLAYER B SCORE BUT NOT MORE PLAYERB SCORE + 10 PERCENTS
-
-
-  
-  console.log('here is the array A : ');
-
-  for(i = 0; i < arrayPlayerA.array.length; i++){
-
-
-	console.log(arrayPlayerA.array[i].name)
-
-  }
-
-
-  
-  console.log('here is the array B : ');
-
-  for(i = 0; i < arrayPlayerB.array.length; i++){
-
-	console.log(arrayPlayerB.array[i].name)
-
-  }
-
-
- if((playerBScore * 1.1) > playerAScore && (playerAScore > playerBScore)){
-
-	console.log(' This is a profitable proposition.');
 
 
 
 	return true;
 
-
-   } else {
-
-	console.log('This proposition is not profitable');
-
-	return false;
-   }
-
- }
 
 }
 
@@ -997,7 +984,7 @@ function tryToCreateFutureProposition(propositionMaterial , acquiredPropertySet)
 
 		   console.log('possible future monopoly found...');
 
-		   possibleFutureMonopolyTradesLis.push(proposition);
+		   possibleFutureMonopolyTradesList.push(proposition);
 
 		   
 
@@ -1034,6 +1021,67 @@ function tryToCreateFutureProposition(propositionMaterial , acquiredPropertySet)
 
 
 	//TAKE THE PLAYERS ARRAY, COPY IT AND APPEND IT THE PROPERTY HE COULD POSSIBLY ACQUIRE
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function processPropositionAndAnswer(offerer, answerer, proposition){
+
+
+	//IF THE TRADE IS PROFITABLE (IF THE AI IS P18) P18ChecksProfitableTrade(){ } , B45 checks Profitable trade
+
+	//IF THE PROPOSITION IS PROFITABLE , ACCEPT THE OFFER.
+
+	//MEANING : ELEMENTS ARE ADDED AND REMOVED FROM BOTH PLAYERS ARRAYS
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+function acceptProposition(){
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function clearInBuildingProposition(){
+
+
+	user.inBuildingProposition = none;
 
 
 }
