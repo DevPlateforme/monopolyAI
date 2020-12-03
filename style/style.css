@@ -1,7 +1,6 @@
 
 /*
 
-
 NAV BAR
 
 */
@@ -254,41 +253,129 @@ Proposition interface
 
 #propositionInterface{
 
-
+    
     position: absolute;
-
-    background: blue;
-
-
+    
     top: 10%;
 
-    left: 30%;
+    left: 10%;
 
     height: 80%;
 
-    width: 60%;
+    width: 75%;
 
     display: flex;
 
     flex-direction: column;
 
+    justify-content: space-around;
+
     opacity: 0;
 
+
 }
+
 
 
 #propositionInterface #topDiv{
 
-    height: 65%;
+    height: 60%;
+
+    width : 100%;
+
+    display : flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+}
+
+
+
+
+#offererDiv{
+
+    width: 40%;
+
+    height: 100%;
+
+    background : orange;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-around;
+
+
+    
+
+}
+
+
+#offererDiv div {
 
     width: 100%;
 
-    background: red;
+    height: 10%;
 
     display: flex;
 
     flex-direction: row;
+
+    justify-content: space-around;
+
+    background : green;
+
 }
+
+
+
+#offererDiv div div {
+
+    width: 20%;
+
+    height: 100%;
+
+}
+
+
+
+
+#answererDiv{
+
+    width: 55%;
+
+    height: 100%;
+
+    background: red;
+
+
+    display: flex;
+
+    flex-direction: row;
+
+}
+
+
+
+
+#bottomDiv{
+
+    height: 35%;
+
+    width: 100%;
+
+
+    background  :blue;
+
+
+
+}
+
+
+
 
 
 
@@ -301,9 +388,11 @@ proposition interface left nav buttons
 
 
 
-#propositionInterface #topDiv #leftNav{
+#answererDiv #leftNav{
 
-    width: 30%;
+    height: 100%;
+
+    width: 20%;
 
     display: flex;
 
@@ -313,9 +402,10 @@ proposition interface left nav buttons
 
   
 
-#propositionInterface #topDiv #leftNav div{
+#answererDiv #leftNav div{
 
-    width: 30%;
+
+    width:100%;
 
     display: flex;
 
@@ -332,38 +422,71 @@ proposition interface left nav buttons
   
 
 
-#propositionInterface #topDiv #answererProperties{
+#answererDiv #answererProperties{
 
-    width: 70%;
+    height: 100%;
+
+    width: 100%;
 
     display: flex;
 
     flex-direction: column;
 
+    background: purple;
+
+    justify-content: space-around;
+    
+
   }
 
 
   
 
-#propositionInterface #topDiv #answererProperties div {
+#answererDiv #answererProperties div {
  
-    height: 5%;
+    height: 12.5%;
+
+    width: 100%;
 
     display: flex;
 
     flex-direction: row;
 
+    background: green;
+
+    justify-content: space-around;
 
   }
 
 
+
+  #answererDiv #answererProperties div div{
+ 
+     font-size : 15px;
+
+  }
+
+    
   
 /*
 
-proposition button
+proposition buttons
 
 
 */
+
+
+
+.addCpElementButton{
+
+    height: 400%;
+}
+
+.addOfferElementButton{
+
+    height: 100%;
+}
+
 
 
 #propositionButton{
@@ -404,67 +527,8 @@ proposition button
 
 
 
-/* player properties management interface */
 
 
-
-
-#playerPropertiesMangaementInterface{
-
-    position: absolute;
-    background: blue;
-    top: 10%;
-    left: 30%;
-    height: 80%;
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    opacity: 0;
-
-}
-
-
-#propertiesManagementLeftNav{
-
-
-    width: 30%;
-
-    height: 100%;
-
-}
-
-
-
-#playerPropertiesDiv {
-
-    width: 70%;
-
-    height: 100%;
-
-    background: grey;
-}
-
-
-#propertiesManagementLeftNav .propertySet{
-
-    width: 100%;
-
-    background: grey;
-
-    border: solid 1px;
-
-    border-radius: 10px;
-}
-
-
-
-#HouseBuildingButton{
-
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    
-}
 
 
 
@@ -497,13 +561,132 @@ proposition button
 
     z-index: 1;
 
-    opacity: 0;
    
 }
 
 
 
- #unavailableFundInterface{
+/* player properties management interface */
+
+
+
+#playerPropertiesManagementInterface{
+
+    position: absolute;
+
+    height: 80%;
+
+    width: 60%;
+
+    top: 10%;
+
+    left: 30%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    border: solid 1px;
+
+    opacity: 0;
+}
+
+#playerPropertiesManagementInterface div{
+
+
+    height: 85%;
+
+    width: 45%;
+
+    background: blue;
+
+    display: flex;
+    
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+}
+
+
+
+#playerPropertiesDiv div{
+
+
+    height: 12.5%;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-around;
+
+
+
+}
+
+
+#playerPropertiesDiv div div{
+
+    height: 100%;
+
+    width: 20%;
+
+}
+
+
+#playerPropertiesManagementInterface #propertyManagementDiv{
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-around;
+
+    background: red;
+
+}
+
+
+
+#playerPropertiesManagementInterface #propertyManagementDiv #propertyManagementTop{
+
+
+    height: 10%;
+
+    width: 100%;
+
+    background : purple;
+
+}
+
+
+#playerPropertiesManagementInterface #propertyManagementDiv #propertyManagementBottom{
+
+
+    height: 80%;
+
+    width: 100%;
+
+    background : yellow;
+
+}
+
+
+
+
+
+
+#unavailableFundInterface{
 
 
     position: absolute;
@@ -597,3 +780,40 @@ proposition button
 
 
 
+ #openPropositionInterfaceButton{
+
+    position: relative;
+
+    z-index: 2;
+ }
+
+
+
+ 
+ #openPropertiesManagementInterfaceButton{
+
+    position: relative;
+
+    z-index: 2;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+ #sendPropositionButton{
+
+    position : absolute;
+
+    bottom: 20px;
+
+    right: 20px%;
+
+ }

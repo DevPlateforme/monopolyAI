@@ -1,4 +1,5 @@
 
+
 function launchDices(){
      
     //because Math.random() is a number below 1, the max number that be obtained by this operation would be 11, if we didn't add 1
@@ -277,14 +278,21 @@ function movePiece(){
             //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
             if(communityChestCardsList.length != 0){
+
+
               
                alert('vous avez piochés la carte caisse de communauté : ' + communityChestCardsList[0].description);
 
                communityChestCardsList.splice(0,1);
+
+
               
             } else {
 
-               alert('il n y a plus de cartes dans le paquet!')
+
+               alert('il n y a plus de cartes dans le paquet!');
+
+
             }
 
             //IF COLLECT, COLLECT 
@@ -294,10 +302,11 @@ function movePiece(){
         //IF MOVEMENT, MOVE
 
          
-        setTimeout( function(){ hideCommunityChestSquareInterface()}, 1500);
+        setTimeout( function(){ closeCommunityChestSquareInterface()}, 1500);
 
         
-   }
+         
+      }
    
 
    
@@ -324,7 +333,7 @@ function movePiece(){
      //IF MOVEMENT, MOVE
 
 
-          setTimeout( function(){ hideChanceSquareInterface()}, 1500);
+          setTimeout( function(){ closeChanceSquareInterface()}, 1500);
 
 
    }
@@ -485,8 +494,7 @@ function buyAvailableProperty(){
       addPropertyToPlayerWallet(lastDiceLauncher, property);
 
 
-      availablePropertyInterface.style.opacity = '0';
-
+      closeAvailablePropertyInterface();
 
 }
 
@@ -495,8 +503,7 @@ function buyAvailableProperty(){
 function dontBuyAvailableProperty(){
 
 
-     availablePropertyInterface.style.opacity = '0';
-
+    closeAvailablePropertyInterface();  
 
 }
 

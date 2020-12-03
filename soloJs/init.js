@@ -7,6 +7,7 @@ window.onload = function(){
 
 
 function init(){
+  
      
     console.log('game starting...');
 
@@ -57,7 +58,7 @@ function setColorScores(){
   
          ROI = color.ROIS[ri];
      
-         color.score += (ROI * threshHoldMultiplicator);
+         color.growthScore += (ROI * threshHoldMultiplicator);
       
          threshHoldMultiplicator--;
   
@@ -65,17 +66,17 @@ function setColorScores(){
   
       //DIVIDE EACH SCORE BY ORANGE BEING THE BIGGEST SCORE , TO GET A 1 BASED INDEX
   
-      color.score = color.score/43397;
+      color.growthScore = color.growthScore/43397;
   
-      color.score = color.score.toFixed(2)
+      color.growthScore = color.growthScore.toFixed(2)
 
 
-      console.log(color.name + ' : ' + color.score)
+      console.log(color.name + ' : ' + color.growthScore)
   
     
     }
   
-    console.log(colorArray[8].name + ' : ' + colorArray[8].score);
+    console.log(colorArray[8].name + ' : ' + colorArray[8].growthScore);
 
 
   
@@ -95,6 +96,7 @@ function setColorScores(){
     ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
 
     ai1.propertiesByColor[red.index].properties.push(avenueHenriMartin);
+
 
     ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
 
@@ -119,6 +121,13 @@ function setColorScores(){
 
    ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
    ai2.propertiesArray.push( bdMalesherbes);
+
+
+
+
+   humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+
+   humanPlayer.propertiesArray.push(rueDeLaPaix);
 
 
 
@@ -211,7 +220,6 @@ function aiReflects(ai){
     searchForTradesOpportunities(ai);
 
     setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  15000) + 5000 );
-
 
 
 }

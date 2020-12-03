@@ -17,8 +17,6 @@ var offererDiv = document.getElementById('offererDiv');
 
 
 
-var sendPropositionButton = document.getElementById('sendPropositionButton');
-
 
 
 
@@ -220,7 +218,6 @@ for(i=0; i < 11; i++){
                player2PawnContainer.setAttribute("id", "player2PawnContainer" + 'Square1');
 
                bottomDiv.append(player2PawnContainer);
-
 
 
 
@@ -679,7 +676,7 @@ function observeAi(ai){
      
 
 
-       if(observedPlayer != ai ){
+       if(observedPlayer != ai){
 
 
           answererPropertiesDiv.innerHTML = '';
@@ -711,15 +708,10 @@ function observeAi(ai){
                displayOffererDiv();
 
 
-               
-
                //CLEAR THE PREVIOUS SEND PROPOSITION BUTTON 
-
-               sendPropositionButton.removeAttribute('onclick');
 
           }
 
-          sendPropositionButton.setAttribute('onclick', 'sendProposition(' + ai.playerIndex +')');
 
 
 
@@ -1288,17 +1280,23 @@ function removeOfferElement(event, offererIndex, elementIndex){
 
 
 
-function sendProposition(answerer){
+function sendProposition(){
 
 
-     let proposition = humanPlayer.inBuildingProposition;
+
+     let IbProposition = humanPlayer.inBuildingProposition;
+
+     let offerer = humanPlayer;
+
+     let answerer = offerer.inBuildingProposition.answerer;
 
 
-     
 
-     //IF THERE ARE NO OBJECTS
+     //IF THERE ARE NO OBJECTS 
 
-     if(proposition == none){
+
+
+     if(IbProposition == none){
 
           alert('vous n avez pas crée d offre!');
 
@@ -1307,28 +1305,146 @@ function sendProposition(answerer){
 
          alert('trying to send a proposition...');
  
-         alert('offerer : ' + proposition.offerer.name);
+         alert('offerer : ' + IbProposition.offerer.name);
 
-         alert('answerer : ' + proposition.answerer.name );
+         alert('answerer : ' + IbProposition.answerer.name );
 
-         alert('offer : ' + proposition.offerElementsCount);
+         alert('offer : ' + IbProposition.offerElementsCount);
 
-        alert('counterPart : ' + proposition.counterPartAskedElementsCount );
+        alert('counterPart : ' + IbProposition.counterPartAskedElementsCount );
 
 
 
-        if (proposition.offerElementsCount == 0) {
+
+        //IS THERE AN OFFER AND A COUNTERPART?
+
+
+
+        if (IbProposition.offerElementsCount == 0) {
+
 
           alert('vous n avez rien offert!');
 
-         } else if (proposition.counterPartAskedElementsCount == 0){
+
+
+         } else if (IbProposition.counterPartAskedElementsCount == 0){
 
 
           alert('vous n avez demandé aucun élément!');
 
-     }
 
-     }
+
+
+
+
+
+
+
+
+          //ELSE, VALID PROPOSITION
+
+
+
+
+
+
+         } else {
+
+
+          //DID THE PROPERTIES HASHKEY CHANGE?
+
+
+          //IF EVERYTHING IS FINE, THEN WE CAN CREATE A PROPOSITION OBJECT, AND SUBMIT IT
+
+
+
+
+
+              let offerArray = [];
+              
+              let counterPartAskedArray = [];
+
+
+
+
+              //TO CREATE A PROPOSITION OBJECT, GET THE OFFER ELEMENTS
+
+
+            for(i=0; i < IbProposition.offer.length ; i++){
+
+                 let arrayBlock = IbProposition.offer[i];
+
+
+               if( arrayBlock != undefined){
+
+                    offerArray.push(arrayBlock);
+
+               }
+
+            }
+
+              //THEN, GET THE COUNTERPART ELEMENTS
+
+
+              for(i=0; i < IbProposition.counterPartAsked.length ; i++){
+
+                 let arrayBlock = IbProposition.counterPartAsked[i];
+
+               if(arrayBlock != undefined){
+
+                    counterPartAskedArray.push(arrayBlock);
+
+               }
+
+            }
+
+
+
+           
+          let ownerLoss;
+
+          let otherPlayerGain;
+
+
+          //CREATE THE PROPOSITION OBJECT
+
+          ownerLoss = getArrayLossValueForPlayer(offerer, offerArray)
+
+          otherPlayerGain = getArrayGainValueForPlayer(answerer, offerArray);
+
+          
+
+          let offer = new Offer(offerArray, ownerLoss, otherPlayerGain);
+
+
+          
+          ownerLoss = getArrayLossValueForPlayer(answerer, counterPartAskedArray);
+
+          otherPlayerGain = getArrayGainValueForPlayer(offerer, counterPartAskedArray);
+
+          
+          let counterPartAsked = new CounterPartAsked(counterPartAskedArray, ownerLoss, otherPlayerGain);
+
+
+          let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
+
+          
+
+          console.log(proposition);
+
+
+
+
+            alert('ok, voici la taille des éléments offerts : ' + offerArray.length );
+
+            alert('ok, voici la taille des éléments demandés à votre interlocuteur : ' + counterPartAskedArray.length );
+
+
+
+
+        }
+
+   }
 
 }
 

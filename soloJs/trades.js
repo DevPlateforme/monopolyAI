@@ -31,7 +31,7 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
 
-
+	
 }
 
 
@@ -489,323 +489,104 @@ function getArrayGainValueForPlayer(player, array){
 
 	let color = array[0].color;
 
+	let colorScore = color.score;
+
+	let value;
+
+	let setLevel;
 
 
-
-if(color != black && color != publicServicesColor){
-
-	//RENTAL PROPERTIES
-
-
-//KNOWING THE ELEMENTS ARE SORTED BY COLOR, ALL THE ELEMENTS OF THE ARRAY HAVE THE SAME COLOR :
-
-      console.log('checking array gain for the color ' + color.index)
-
-
-
-	    //IF COUNT == 3 
-
-	    if(array.length == 3){
-
-		   //0/3 TO 3/3
-
-	          return zeroThreeToThreeThree;
-
-
-	     }
-
-
-	 //IF COUNT == 2
-
-
-	    else if (array.length == 2){
-
-
-     		  if(color == darkBlue ||color == brown){
-  
-
-	 		  return zeroTwoToTwoTwo;
-
-
-		   //IF NOT DARK BLUE OR BROWN
-
-
-
-		  }  else {
+	console.log('player :' + player);
 
 
 
 
-		   if(player.propertiesByColor[color.index].properties.length == 1){
+
+	let currentSet = player.propertiesByColor[color.index].properties;
 
 
-				return oneThreeToThreeThree;
-			 
-			} else {
 
-				return zeroThreeToTwoThree;
-
-		   }
-
-		}
+      	//FETCH THE CURRENT PROPERTY OF THIS PLAYER.
+	
+	
+	let currentSetValue = calculateSetValue(currentSet);
 
 
-	} else if(array.length == 1){
-
-	  
-	  if(color == darkBlue ||color == brown){
-
-		if(player.propertiesByColor[color.index].properties.length == 0){
-
-		   return zeroTwoToOneTwo;
-
-		} else if(player.propertiesByColor[color.index].properties.length == 1){
-
-		   return oneTwoToOneTwo;
 
 
-		} else if(player.propertiesByColor[color.index].properties.length == 2){
+	  //THEN, CREATE A COPY OF THIS ARRAY, AND PUSH IT THE NEW ELEMENTS. THEN, RECALCULATE THE VALUE.
 
-		   return twoTwoToThreeTwo;
+	  //THEN, ALL WE NEED TO DO IS SUBSTRACT THE NEWVALUE FROM THE OLD ONE.
 
-		}
 
-	} else {
+	  let newSet = createPostGainsSet(currentSet, array);
+	
+
+	  let newSetValue = calculateSetValue(newSet);
+
+
+	  console.log('The player checks its gains : before, its set value was ' + currentSetValue);
+
+	  console.log('here is what this array was made of');
+
+	  for(i=0; i < currentSet.length ; i++){
 		  
-	  if(player.propertiesByColor[color.index].properties.length == 0){
+		console.log(currentSet[i].name);
 
-		   return zeroThreeToOneThree;
-
-		} else if(player.propertiesByColor[color.index].properties.length == 1){
-
-		   return oneThreeToTwoThree;
-
-
-		} else if(player.propertiesByColor[color.index].properties.length == 2){
-
-		   return twoThreeToThreeThree;
- 
-		}
-     }
-  }
-
-
-
-
-
-  //ELSE IF THE ARRAY IS A TRAIN STATIONS SET
-
-
-} else if(color == black){
-
-
-	    if(array.length == 4){
-
-
-			return zeroFourTsToFourFourTs;
-
-
-	    } else if(array.length == 3){
-
-
-
-			if(player.propertiesByColor[color.index].properties.length == 1){
-
-
-				return oneFourTsToFourFourTs;
-
-
-
-			} else if (player.propertiesByColor[color.index].properties.length == 0){
-
-
-				return zeroFourTsToThreeFourTs;
-
-
-			}
-
-
-    	} else if(array.length == 2){
-
-
-			if(player.propertiesByColor[color.index].properties.length == 2){
-
-
-				return twoFourTsToFourFourTs;
-
-
-			} 
-
-
-			if(player.propertiesByColor[color.index].properties.length == 1){
-
-
-				return oneFourTsToFourFourTs;
-
-
-			} else if(player.propertiesByColor[color.index].properties.length == 0){
-
-
-				return zeroFourTsToTwoFourTs;
-
-			} 
-
-
-
-		} else if(array.length == 1) {
-
-
-			
-			if(player.propertiesByColor[color.index].properties.length == 3){
-
-
-				return threeFourTsToFourFourTs;
-
-
-			} else if(player.propertiesByColor[color.index].properties.length == 2){
-
-
-				return twoFourTsToThreeFourTs;
-
-
-			} 
-
-
-			if(player.propertiesByColor[color.index].properties.length == 1){
-
-
-				return oneFourTsToTwoFourTs;
-
-
-			} else if(player.propertiesByColor[color.index].properties.length == 0){
-
-
-				return zeroFourTsToOneFourTs;
-
-			} 
-
-
-
-
-		}
-
-
-
-   } else if( color == publicServicesColor){
-
-
-
-	     if(array.length == 2){
-
-
-			return zeroTwoPsToTwoTwoPS;
-
-
-    	} else if (array.length == 1){
-
-
-			if(player.propertiesByColor[color.index].properties.length == 1){			
-				
-				return oneTwoPsToTwoTwoPS;
-
-			} else if(player.propertiesByColor[color.index].properties.length == 0){			
-				
-				return zeroTwoPsToOneTwoPS;
-
-			}
-
-
-	     }
-            
 	  }
+
+	
+
+	  console.log(' The player checks its gains: now, its set value is ' + newSetValue);
+
+	  console.log('here is what the updated array was made of');
+
+	  for(i=0; i < newSet.length ; i++){
+
+		  
+		console.log(newSet[i].name);
+
+	  }
+
+
+
+	  return (newSetValue - currentSetValue);
+
 	  
  }
 
 
 function getArrayLossValueForPlayer(player, array){
 
- 
- let value;
-
- let color = array[0].color;
-
- let colorScore = color.score;
 
 
-	 //IF COUNT == 3 
-
-	 if(array.length == 3){
-			 
-		   //3/3 TO 0/3 
-
-	   value = threeThreeToZeroThree;
-
-	 }
-
-	 //IF COUNT == 2
-
-	 else if (array.length == 2){
+	let value;
+   
+	let color = array[0].color;
+   
+	let colorScore = color.score;
 
 
-		  if(color == darkBlue ||color == brown){
+	//calculate the current set value
 
 
-			 value = twoTwoToZeroTwo;
+   	let currentSet = player.propertiesByColor[color.index].properties;
+
+   //calculate the set value after the loss
+
+	let currentSetValue = calculateSetValue(currentSet);
 
 
-		   //IF NOT DARK BLUE OR BROWN
+	let newSet = createPostLossSet(currentSet, array);
 
 
-		  }  else {
+
+	let newSetValue = calculateSetValue(newSet);
 
 
-		   if(player.propertiesByColor[color.index].properties.length == 3){
-
-				 value = threeThreeToOneThree;
-			 
-			} else if(player.propertiesByColor[color.index].properties.length == 2) {
-
-				value = twoThreeToZeroThree;
-
-		   }
-
-		}
 
 
-	} else if(array.length == 1){
-
-	  
-	  if(color == darkBlue ||color == brown){
-
-		
-		 if(player.propertiesByColor[color.index].properties.length == 1){
-
-			  value =  oneTwoToZeroTwo;
-		 
-		 } else if(player.propertiesByColor[color.index].properties.length == 2){
-
-			  value = twoTwoToOneTwo;
-
-		}
-
-	  } else {
-
-		if(player.propertiesByColor[color.index].properties.length == 1){
-
-			value = oneThreeToZeroThree;
-	  
-	  } else if(player.propertiesByColor[color.index].properties.length == 2){
-
-		 value = twoThreeToOneThree;
-
-	  }
-
-	}
-
-}
-
-
-return (value * (1 + colorScore));
+	return (newSetValue - currentSetValue);
 
 
 }
@@ -892,14 +673,10 @@ function profitableTrade(arrayPlayerA, arrayPlayerB){
 
 
 
-
 	return true;
 
 
 }
-
-
-
 
 
 
@@ -913,119 +690,134 @@ function profitableTrade(arrayPlayerA, arrayPlayerB){
 
 
 
-
-
-function tryToCreateFutureProposition(propositionMaterial , acquiredPropertySet){
-
-
-
-	alert('try to create future propositions....');
+function tryToCreateFutureProposition(propositionMaterial){
 
 
 
-
-	let color = acquiredPropertySet[0].color;
-
-
-	//GO AT THE RIGHT INDEX, AND APPEND THE PROPERTY.
-
-	let imaginedPropertiesArray = propositionMaterial.offerer.propertiesArray.slice(0);
-
-		
-	for(i=0; i < acquiredPropertySet; i++){
-
-		imaginedPropertiesArray.push(acquiredPropertySet[i]);
-		
-	}
+	console.log('try to create future propositions....');
 
 
-	let offerer = propositionMaterial.offerer;
 
 	let answerer = propositionMaterial.answerer;
 
+	let offerer = propositionMaterial.offerer;
 
 	let counterPartAsked = propositionMaterial.counterPartAsked;
 
+	let propertiesArray = offerer.propertiesArray;
 
 
+	let offerArray;
+
+	let propertiesAskedPlusCash;
 
 
+	let offer;
 
-	//NOW DO THE EXACT SAME ACTION
-
-
+	let proposition;
 
 
 	
-	//1 ELEMENTS PROPOSITIONS
 
-		 //LOOP ON THE OFFERER'S PROPERTIES ARRAY
-
-		 //FOR THE 1 ELEMENTS PROPOSITIONS
-
-		 for(propertyIndex = 0; propertyIndex < imaginedPropertiesArray.length ; propertyIndex++){
-
-			offerArray = [imaginedPropertiesArray[propertyIndex]];
-
-			 //DIVIDE THIS ARRAY IN SETS
+	let answererCashSlices = [answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
+	
+	let offererCashSlices = [offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
 
 
-			 offer = createOffer(offerer, answerer, offerArray);
-
-			 //RETURN AN OFFER OBJECT
-
-			proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
 
 
-		 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-		   
-		 if(profitableTrade(offer, counterPartAsked ) == true){
+
+   	//1 ELEMENT PROPOSITIONS
 
 
-		   console.log('possible future monopoly found...');
 
-		   possibleFutureMonopolyTradesList.push(proposition);
 
-		   
+		 //FOR EACH ANSWERER CASH SLICE
 
-		 }
+	 
+		 for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
 
-    }
+
+
+			//FOR EACH PROPERTIES THAN CAN BE OFFERED
+	
+	
+			 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
 	
 	
 	
-	    if(possibleFutureMonopolyTradesList.length != 0){
+				   offerArray = [propertiesArray[propertyIndex]];
+	
+					//DIVIDE THIS ARRAY IN SETS
+	
+
+				   //TAKE THE DESIRED SET AND CREATE 5 COPIES.
 
 
-			return possibleFutureMonopolyTradesList;
+	
+				  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+	
+	
+					 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
+	
+	
+	
+					 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
+	
+									  
 
 
-		} else {
+					 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+	
+	
+	
+	
+					
+					 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
+	
+						
+	
+						 	 offer = createOffer(offerer, answerer, offerArray);
+	
+							 offer.cash = offererCashSlices[offererCashSliceIndex];
+	
+							
+							 //RETURN AN OFFER OBJECT
+						  
+	
+							 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
+	
+	
+	
+							 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+	  
+	  
+							 
+							if(profitableTrade(offerer , offer,  propertiesAskedPlusCash ) == true){
+	  
+								  console.log('possible future monopoly found...');
+	  
+								  propositionList.push(proposition);
+						  
 
 
-			console.log('we checked for a possible future move, but there is nothing interesting there');
+							}
 
 
-			return noMove;
+	
+					 }
 
+
+													
+			  }
+
+
+			
 		}
+		
 
-
-
-
-
-
-
-
-
-
-
-	//TAKE THE PLAYERS ARRAY, COPY IT AND APPEND IT THE PROPERTY HE COULD POSSIBLY ACQUIRE
-
-
-}
-
-
+		   
+   }
 
 
 

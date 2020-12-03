@@ -23,12 +23,20 @@ function searchForTradesOpportunities(activePlayer){
       let propositionMaterial;
 
       let propertySetColor;
-
       
       let possibleMonopolyMoves;
 
-
       let trainProperties;
+
+
+      let activePlayerCurrentArray;
+
+      let activePlayerNewArray;
+
+      
+
+
+
 
 
     
@@ -68,6 +76,9 @@ function searchForTradesOpportunities(activePlayer){
 
 
             let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties;
+
+            let activePlayerCurrentArray = activePlayer.propertiesByColor[colorIndex].properties.length;
+
 
 
 
@@ -115,19 +126,25 @@ function searchForTradesOpportunities(activePlayer){
 
                     console.log('possible monopoly found');
 
-                    //IF WE WANT A MONOPOLY, WE TRY TO TAKE THE WHOLE ARRAY OF THE OTHER PLAYER
-
-                    let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties;
-
+                    //IF WE WANT A MONOPOLY, WE TRY TO TAKE THE WHOLE ARRAY OF THE OTHER PLAYE
+                    
 
 
-                      if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
+                      if(activePlayerCurrentArray.length == 0){
 
                           //FROM AN ARRAY, AN OFFERER, AND AN ANSWERER, WE CAN OBTAIN AN 
                         
                          /* NO NEED TO EXECUTE THE GETARRAY GAIN VALUE FOR PLAYER, WE KNOW WHAT IT IS */
+
+
+                             //0/3 TO 3/3
    
-                          activePlayerGain = zeroThreeToThreeThree; 
+
+
+
+
+                          activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+
 
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
@@ -140,7 +157,7 @@ function searchForTradesOpportunities(activePlayer){
                 
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
-                          tryToCreateProposition(propositionMaterial); 
+                          tryToCreateProposition(activePlayer, propositionMaterial); 
 
 
 
@@ -149,7 +166,8 @@ function searchForTradesOpportunities(activePlayer){
                        }else if(activePlayer.propertiesByColor[colorIndex].properties.length == 1){
 
                         
-                          activePlayerGain = oneThreeToThreeThree; 
+                          activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+
 
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
@@ -157,7 +175,7 @@ function searchForTradesOpportunities(activePlayer){
 
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
-                          tryToCreateProposition(propositionMaterial);
+                          tryToCreateProposition(activePlayer, propositionMaterial);
             
 
 
@@ -165,8 +183,7 @@ function searchForTradesOpportunities(activePlayer){
                      } else if(activePlayer.propertiesByColor[colorIndex].properties.length == 2){
 
                           
-                        activePlayerGain = twoThreeToThreeThree;
-
+                        activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
                         otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
@@ -174,7 +191,7 @@ function searchForTradesOpportunities(activePlayer){
 
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
-                        tryToCreateProposition(propositionMaterial);
+                        tryToCreateProposition( activePlayer ,propositionMaterial);
 
 
                     }
@@ -202,6 +219,9 @@ function searchForTradesOpportunities(activePlayer){
                         if(activePlayer.propertiesByColor[colorIndex].properties.length != 2){
 
                                              //IF DARK BLUE OR BROWN
+
+                                                   //WHOLE ARRAY
+
                             
                               if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown){  
                                   
@@ -209,15 +229,11 @@ function searchForTradesOpportunities(activePlayer){
         
                               if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
 
-                             //...........SPECIAL SITUATION....
+
 
     
     
-                     //IF THE OTHER PLAYER HAS 2 PROPERTIES , AND THE PLAYER HAVE 0 OF THEM. IT CAN TRY TO TAKE THE WHOLE PROPERTY, BUT ALSO TO TRY TO GET BOTH INDIVIDUALLY.
-                                       
-                                    //TRY TO GET THE WHOLE ARRAY
-                                  
-                                   activePlayerGain = zeroTwoToTwoTwo;
+                                   activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
         
@@ -225,53 +241,17 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
-
-
-                                  
-                                   //TRY TO GET ELEMENT ONE
-
-
-                                          
-                                   activePlayerGain = zeroTwoToOneTwo;
-
-                                   otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, [otherPlayerPropertiesArrayForThisColor[0]] );
-        
-                                   counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
-        
-                                   propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
-        
-                                   tryToCreateProposition(propositionMaterial);
-
-
-
-
-
-                                   //TRY TO GET ELEMENT TWO
+                                   tryToCreateProposition( activePlayer, propositionMaterial);
 
 
                                    
-                                          
-                                   activePlayerGain = zeroTwoToOneTwo;
-
-                                   otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer,[otherPlayerPropertiesArrayForThisColor[1]] );
-        
-                                   counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
-        
-                                   propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
-        
-                                   tryToCreateProposition(propositionMaterial);
-
-
-
-
 
 
  
                              } else if (activePlayer.propertiesByColor[colorIndex].properties.length == 1){
 
                                       
-                                   activePlayerGain = oneTwoToTwoTwo;
+                                   activePlayerGain = getArrayGainValueForPlayer(activePlayer , otherPlayerPropertiesArrayForThisColor );
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
         
@@ -279,18 +259,18 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
+                                   tryToCreateProposition( activePlayer , propositionMaterial);
 
-                            }
+                             }
+
+
+
+
 
                                      //IF NOT DARK BLUE OR BROWN
 
 
                         } else{
-
-
-
-
 
 
 
@@ -301,23 +281,32 @@ function searchForTradesOpportunities(activePlayer){
 
                                //...SPECIAL SITUATION... POSSIBILITY TO GET THE WHOLE ARRAY, OR TO GET ONE OF THE TWO ELEMENTS ONLY
 
+
+
+
                                //WHOLE ARRAY
 
                                   
-                                   activePlayerGain = zeroThreeToTwoThree;
+                                   activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerPropertiesArrayForThisColor);
 
 
-                                   //IF THERE WOULD A WAY TO OBTAIN A MONOPOLY AFTER THE ACQUISITION OF THIS SET OF PROPERTY, THE VALUE OF IT IS MULTIPLIED.
 
 
-                                   if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+
+
+                                   //WHEN WE ARE NOT IN A POSSIBLE MONOPOLY SITUATION , WE ANTICIPATE FUTURE POSSIBILITIES IF THIS TRADE WENT THROUGH
+
+
+
+                                    if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
-        
-                                
-                                       possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayerPropertiesArrayForThisColor);
+                                       //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
 
-                                        activePlayerGain *= possibleMonopolyMovesNumber;
+
+                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+
+                                          activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
                                         initPossibleMonopolyTradesList();
 
@@ -331,9 +320,7 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
-
-
+                                   tryToCreateProposition(  activePlayer ,  propositionMaterial);
 
 
 
@@ -342,7 +329,25 @@ function searchForTradesOpportunities(activePlayer){
 
 
                                           
-                                   activePlayerGain = zeroThreeToOneThree;
+                                   activePlayerGain = getArrayGainValueForPlayer(activePlayer, [otherPlayerPropertiesArrayForThisColor[0]] );
+
+
+
+                                   
+                                         if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+
+                                       
+                                           //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
+
+
+                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+    
+                                          activePlayerGain += (100 *possibleMonopolyMovesNumber);
+
+                                          initPossibleMonopolyTradesList();
+
+                                          }
+
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, [otherPlayerPropertiesArrayForThisColor[0]] );
         
@@ -350,7 +355,7 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
+                                   tryToCreateProposition(  activePlayer , propositionMaterial);
 
 
 
@@ -360,7 +365,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
                                           
-                                   activePlayerGain = zeroThreeToOneThree;
+                                   activePlayerGain =  getArrayGainValueForPlayer(activePlayer, [otherPlayerPropertiesArrayForThisColor[1]] );
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, [otherPlayerPropertiesArrayForThisColor[1]] );
         
@@ -376,23 +381,24 @@ function searchForTradesOpportunities(activePlayer){
 
 
                                   
-                                   activePlayerGain = oneThreeToTwoThree;
+                                   activePlayerGain =  getArrayGainValueForPlayer(activePlayer , otherPlayerPropertiesArrayForThisColor );
 
                                    console.log('checking for a possible one three to two three');
-
                                    
 
                                    if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
-        
-                                
-                                    possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayerPropertiesArrayForThisColor);
 
-                                     activePlayerGain *= possibleMonopolyMovesNumber;
+                                       
+                                    //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
+
+
+                                       possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+
+                                       activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
                                      initPossibleMonopolyTradesList();
 
                                 }
-
                                 
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
@@ -401,7 +407,7 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
+                                   tryToCreateProposition(  activePlayer, propositionMaterial);
 
            
                               }
@@ -436,19 +442,23 @@ function searchForTradesOpportunities(activePlayer){
      
                                       //IF NOT DARK BLUE OR BROWN
 
-                          activePlayerGain = zeroTwoToOneTwo;
+                          activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerPropertiesArrayForThisColor );
 
 
                           console.log('checking for a possible zero two to one two...');
 
                           
 
+                    
                           if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
-        
-                                
-                            possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayerPropertiesArrayForThisColor);
 
-                             activePlayerGain *= possibleMonopolyMovesNumber;
+                                       
+                            //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
+
+
+                               possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+
+                               activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
                              initPossibleMonopolyTradesList();
 
@@ -462,14 +472,14 @@ function searchForTradesOpportunities(activePlayer){
            
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
            
-                          tryToCreateProposition(propositionMaterial);
+                          tryToCreateProposition(activePlayer, propositionMaterial);
    
  
  
                    } else{
 
                     
-                          activePlayerGain = zeroThreeToOneThree;
+                          activePlayerGain = getArrayGainValueForPlayer(activePlayer , otherPlayerPropertiesArrayForThisColor );
 
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
            
@@ -477,7 +487,7 @@ function searchForTradesOpportunities(activePlayer){
            
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
            
-                          tryToCreateProposition(propositionMaterial);
+                          tryToCreateProposition(activePlayer, propositionMaterial);
 
 
                    }
@@ -546,7 +556,7 @@ function searchForTradesOpportunities(activePlayer){
                             for(i = 0; i < otherPlayerTrainsArray.length; i++){
 
 
-                                 activePlayerGain = zeroFourTsToOneFourTs
+                                 activePlayerGain = getArrayGainValueForPlayer(activePlayer , [otherPlayerTrainsArray[i]] );
   
                                  otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer,  [otherPlayerTrainsArray[i]] );
              
@@ -554,7 +564,7 @@ function searchForTradesOpportunities(activePlayer){
              
                                  propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
              
-                                 tryToCreateProposition(propositionMaterial);
+                                 tryToCreateProposition(activePlayer, propositionMaterial);
 
 
                             }
@@ -607,7 +617,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                               activePlayerGain = zeroFourTsToTwoFourTs;
+                               activePlayerGain = getArrayGainValueForPlayer(activePlayer, pairArray[pi] );
 
 
                                otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, pairArray[pi] );
@@ -619,7 +629,7 @@ function searchForTradesOpportunities(activePlayer){
                                propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
 
-                               tryToCreateProposition(propositionMaterial);
+                               tryToCreateProposition(activePlayer, propositionMaterial);
 
                             
                             }
@@ -677,7 +687,7 @@ function searchForTradesOpportunities(activePlayer){
                             
 
                                                 
-                             activePlayerGain = zeroFourTsToThreeFourTs;
+                             activePlayerGain = getArrayGainValueForPlayer(active,  tripletArray[ti] );
 
                              otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer,  tripletArray[ti] );
  
@@ -685,7 +695,7 @@ function searchForTradesOpportunities(activePlayer){
 
                              propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
  
-                             tryToCreateProposition(propositionMaterial);
+                             tryToCreateProposition(activePlayer , propositionMaterial);
 
 
 
@@ -697,7 +707,7 @@ function searchForTradesOpportunities(activePlayer){
                         //4 ELEMENTS (SIMPLY TAKE THE WHOLE ARRAY)
 
 
-                        activePlayerGain = zeroFourTsToFourFourTs;
+                        activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerTrainsArray );
 
 
                         otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
@@ -709,7 +719,7 @@ function searchForTradesOpportunities(activePlayer){
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
  
 
-                        tryToCreateProposition(propositionMaterial);
+                        tryToCreateProposition(activePlayer, propositionMaterial);
 
 
 
@@ -744,7 +754,7 @@ function searchForTradesOpportunities(activePlayer){
                         //WHOLE ARRAY (//0/4 TO 3/4)
 
 
-                              activePlayerGain = zeroFourTsToThreeFourTs;
+                              activePlayerGain = getArrayGainValueForPlayer(activePlayerGain, otherPlayerTrainsArray);
 
                               otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
  
@@ -752,7 +762,7 @@ function searchForTradesOpportunities(activePlayer){
 
                               propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
   
-                              tryToCreateProposition(propositionMaterial);
+                              tryToCreateProposition(activePlayer, propositionMaterial);
 
 
         
@@ -802,7 +812,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                                 activePlayerGain = zeroFourTsToTwoFourTs;
+                                 activePlayerGain = getArrayGainValueForPlayer(activePlayer, pairArray[pi] );
 
 
                                  otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, pairArray[pi] );
@@ -814,7 +824,7 @@ function searchForTradesOpportunities(activePlayer){
                                  propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
      
 
-                                 tryToCreateProposition(propositionMaterial);
+                                 tryToCreateProposition(activePlayer, propositionMaterial);
 
                          
                          }
@@ -832,7 +842,7 @@ function searchForTradesOpportunities(activePlayer){
 
                          for(i = 0 ; i < otherPlayerTrainsArray.length ; i++ ){
 
-                            activePlayerGain = zeroFourTsToOneFourTs;
+                            activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerTrainsArray[i] );;
 
 
                             otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray[i] );
@@ -844,7 +854,7 @@ function searchForTradesOpportunities(activePlayer){
                             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                            tryToCreateProposition(propositionMaterial);
+                            tryToCreateProposition(activePlayer, propositionMaterial);
 
 
                                    
@@ -867,7 +877,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
                         
-                        activePlayerGain = oneFourTsToThreeFourTs;
+                        activePlayerGain = getArrayLossValueForPlayer(activePlayer, otherPlayerTrainsArray );
 
 
                         otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
@@ -879,10 +889,7 @@ function searchForTradesOpportunities(activePlayer){
                         propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                        tryToCreateProposition(propositionMaterial);
-
-
-
+                        tryToCreateProposition(activePlayer, propositionMaterial);
                         
 
 
@@ -928,7 +935,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                             activePlayerGain = oneFourTsToThreeFourTs;
+                             activePlayerGain = getArrayGainValueForPlayer(activePlayer , pairArray[pi] );
 
 
                              otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, pairArray[pi] );
@@ -940,7 +947,7 @@ function searchForTradesOpportunities(activePlayer){
                              propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
  
 
-                             tryToCreateProposition(propositionMaterial);
+                             tryToCreateProposition(activePlayer, propositionMaterial);
 
                              
                      
@@ -957,7 +964,8 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                             activePlayerGain = oneFourTsToTwoFourTs;
+                             activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerTrainsArray[i] );
+
 
 
                              otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray[i] );
@@ -969,7 +977,7 @@ function searchForTradesOpportunities(activePlayer){
                              propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                             tryToCreateProposition(propositionMaterial);
+                             tryToCreateProposition(activePlayer, propositionMaterial);
 
                                    
                             
@@ -1007,7 +1015,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
                          
-                         activePlayerGain = zeroFourTsToTwoFourTs;
+                         activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerTrainsArray );
 
 
                          otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
@@ -1019,7 +1027,7 @@ function searchForTradesOpportunities(activePlayer){
                          propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                         tryToCreateProposition(propositionMaterial);
+                         tryToCreateProposition(activePlayer, propositionMaterial);
 
 
 
@@ -1033,7 +1041,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                            activePlayerGain = zeroFourTsToOneFourTs;
+                            activePlayerGain = getArrayGainValueForPlayer(activePlayer , otherPlayerTrainsArray[i] );
 
 
                             otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray[i] );
@@ -1045,7 +1053,7 @@ function searchForTradesOpportunities(activePlayer){
                             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                            tryToCreateProposition(propositionMaterial);
+                            tryToCreateProposition(activePlayer, propositionMaterial);
 
                                   
                            
@@ -1064,7 +1072,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
                          
-                            activePlayerGain = oneFourTsToTwoFourTs;
+                            activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerTrainsArray );
 
 
                             otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
@@ -1076,7 +1084,7 @@ function searchForTradesOpportunities(activePlayer){
                             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                            tryToCreateProposition(propositionMaterial);
+                            tryToCreateProposition(activePlayer, propositionMaterial);
 
 
 
@@ -1096,7 +1104,7 @@ function searchForTradesOpportunities(activePlayer){
                             
                             
                             
-                            activePlayerGain = zeroFourTsToOneFourTs;
+                            activePlayerGain =  getArrayGainValueForPlayer(activePlayer , otherPlayerTrainsArray );
 
 
                             otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerTrainsArray );
@@ -1108,7 +1116,7 @@ function searchForTradesOpportunities(activePlayer){
                             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
 
-                            tryToCreateProposition(propositionMaterial);
+                            tryToCreateProposition(activePlayer, propositionMaterial);
 
                  
 
@@ -1166,11 +1174,13 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setArray){
+function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desiredSet){
 
 
     console.log('checking possible future proposition...');
     
+
+    let color = desiredSet[0].color;
 
     //THE USER CHECKS IF THERE IS A WAY TO GET A MONOPOLY WITH THE OTHER PLAYERS DIRECTLY
 
@@ -1194,8 +1204,43 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
 
     let checkedPropertySet;
 
-    let colorIndex = setArray[0].color.index;
 
+    //KNOWING THE CURRENT PLAYER SET COULD BE EMPTY, WE COLLECT THE COLOR FROM THE COUNTERPARTASKED ARRAY (IT CAN'T LOGICALLY BE EMPTY)
+
+    let colorIndex = color.index;
+
+
+
+
+    //CREATE THE ARRAY THE THINKING PLAYER WOULD OBTAIN IF THE DESIRED TRADE GO THROUGH
+
+    let set = playerA.propertiesByColor[color.index].properties.slice(0);
+
+
+    for(i=0; i < desiredSet.length; i++){
+
+        set.push(desiredSet[i]);
+
+    }
+
+
+    let setValue = calculateSetValue(set);
+
+
+    //INITIALIZE THE NEW SET VARIABLES, WE'LL USE SEVERAL TIMES
+
+
+
+    let newSet;
+
+
+    let newSetValue;
+
+
+
+
+
+    //LOOP ON ALL "NON TRADING PLAYERS" , MEANING ALL THE PLAYERS WE DON'T TRADE WITH RIGHT NOW.
 
 
 
@@ -1208,16 +1253,17 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
 
         nonTradingPlayer = nonTradingPlayersArray[i];
         
-
         checkedPropertySet = nonTradingPlayer.propertiesByColor[colorIndex].properties;
         
 
+    
 
-        
+
         if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown ){
 
 
-            if(checkedPropertySet.length + setArray.length == 2){
+
+            if((checkedPropertySet.length + set.length) == 2){
 
 
                 //TRY TO GENERATE A POSSIBLE MOVE
@@ -1226,16 +1272,31 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
 
 
     
-    
-                let playerAGain;
-    
-                //DEPENDING OF THE SUM OF THE CURRENT PLAYER SET , AND THE ELEMENT THE PLAYER WANTS TO ACQUIRE
-   
+                let playerAGain;    
+
+
                     // 1/2 TO 2/2
 
-                     playerAgain = oneTwoToTwoTwo;
-    
-                     
+
+                    newSet = set.slice(0);
+
+
+
+                    for(elementIndex = 0; elementIndex < checkedPropertySet.length ; elementIndex++){
+
+
+                        newSet.push(checkedPropertySet[elementIndex]);
+
+                    }
+
+
+
+                    newSetValue = calculateSetValue(newSet);
+
+               
+                   playerAgain = newSetValue - setValue;
+
+                   
 
                let counterPartAsked = new CounterPartAsked( checkedPropertySet, nonTradingPlayerLoss , playerAGain);
     
@@ -1250,7 +1311,7 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
 
     
     
-                   if( tryToCreateFutureProposition(propositionMaterial, setArray) != noMove){
+                   if( tryToCreateFutureProposition(propositionMaterial) != noMove){
     
                         return possibleFutureMonopolyTradesList.length;
     
@@ -1268,34 +1329,35 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
 
 
 
-        } else 
 
-        if(checkedPropertySet.length + setArray.length == 3){
+        } else
+
+        if(checkedPropertySet.length + set.length == 3){
+
 
 
             //TRY TO GENERATE A POSSIBLE MOVE
 
             let nonTradingPlayerLoss = getArrayLossValueForPlayer(nonTradingPlayer, checkedPropertySet);
 
+            
+            newSet = set.slice(0);
 
-            let playerAGain;
 
-            //DEPENDING OF THE SUM OF THE CURRENT PLAYER SET , AND THE ELEMENT THE PLAYER WANTS TO ACQUIRE
-            if(playerA.propertiesByColor[colorIndex].properties.length + setArray.length == 2){
 
-                //2/3 TO 3/3
+            for(elementIndex = 0; elementIndex < checkedPropertySet.length ; elementIndex++){
 
-                  playerAgain = twoThreeToThreeThree;
 
-            } else if(playerA.propertiesByColor[colorIndex].properties.length + setArray.length == 1){
-
-                
-                // 1/3 TO 3/3
-
-                playerAgain = oneThreeToThreeThree;
+                newSet.push(checkedPropertySet[elementIndex]);
 
             }
-    
+
+
+
+            newSetValue = calculateSetValue(newSet);
+
+            playerAgain = newSetValue - setValue;
+       
 
 
            let counterPartAsked = new CounterPartAsked( checkedPropertySet, nonTradingPlayerLoss , playerAGain);
@@ -1304,7 +1366,7 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
             let propositionMaterial = new PropositionMaterial(playerA, nonTradingPlayer, counterPartAsked);
 
 
-               if( tryToCreateFutureProposition(propositionMaterial, setArray) != noMove){
+               if( tryToCreateFutureProposition(propositionMaterial) != noMove){
 
                    console.log('we found possible future monopolies for this move');
 
@@ -1331,17 +1393,12 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, setAr
     //IF NO POSSIBLE MONOPOLY OPERATION FOUND
 
 
-
-
-
     return noMove;
 
     
 
 
 }
-
-
 
 
 
@@ -1406,5 +1463,8 @@ function initPossibleMonopolyTradesList(){
 
     nodeCount = 0;
  }
+
+ 
+
 
  

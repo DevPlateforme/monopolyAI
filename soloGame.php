@@ -1,4 +1,3 @@
-
 <?php
 
     require_once 'header.php';
@@ -33,12 +32,12 @@
 
 </h1>
 
-<button onclick = 'displayPropositionInterface()'>Faire une proposition</button>
-<button onclick = 'displayPropertiesManagementInterface()'>Gérez vos propriétés</button>
 
 
+<button id='openPropositionInterfaceButton' onclick = 'displayPropositionInterface()'>Faire une proposition</button>
 
 
+<button id='openPropertiesManagementInterfaceButton'onclick = 'displayPropertiesManagementInterface()'>Gérez vos propriétés</button>
 
 
 
@@ -54,97 +53,122 @@
 
 
 
-
-
 <div id='propositionInterface'>
 
-<button class='closeInterfaceBtn'  onclick='hidePropositionInterface()'>X</button>
 
-<div id='topDiv'>
+   <button class='closeInterfaceBtn'  onclick='closePropositionInterface()'>X</button>
 
-   <div id='leftNav'>
 
-     <div>player1</div>
-     <div>player2</div>
-     <div>player3</div>
+
+   <div id='topDiv'>
+
+        
+
+
+         <div id='offererDiv'>
+
+
+
+        </div>
+
+
+
+         <div id='answererDiv'>   
+             
+                <div id='leftNav'>
+
+                  <button onclick='observeAi(ai1)'>P-45</button>
+     
+                  <button onclick='observeAi(ai2)'>V-18</button>
     
-   </div>
+              </div>
 
 
-   <div id='answererProperties'>
-    
-    Voici les propritétés du joueur sélectionnées :
+             <div id='answererProperties'> 
 
-        <div>
-        
-        <h5>Propriété A</h5>
-        
-        <button>Ajouter</button> 
-        
-      </div>
-        
-
+                <h4>Veuillez sélectionner un joueur</h4>
+       
+            </div>
       
+         </div>
+
+
+
     </div>
 
-       
-</div>
 
 
-<div id='bottomNav'>
-           
-      Votre proposition : 
+    
+     <div id='bottomDiv'>
 
-       <h5>Propriété A</h5>  <button> Supprimer</button>
 
-       <button id='propositionButton' >Faire une proposition</button> 
 
-     </div>   
+     <button id='sendPropositionButton' onclick = 'sendProposition()'>Envoyer cette proposition</button>
+
+
+     </div>
+
 
  </div>
 
 
 
 
-
-
-
- <div id='playerPropertiesMangaementInterface'>
-
-
- <button class='closeInterfaceBtn' onclick='hidePropertiesManagementInterface()'>X</button>
-
-
-    <div id='propertiesManagementLeftNav'>
-
-       <div class='propertySet'>  
-         
-         <div>Pigalle</div>
-         <div>Violet</div>
-        <div>La Villette</div>
-
-       </div>
  
-    </div>
+
+ <div id='playerPropertiesManagementInterface'>
 
 
-    <div id='playerPropertiesDiv'>
- 
-      <h3>Maisons sur cette propiété</h3>
+        <button class='closeInterfaceBtn' onclick='closePropertiesManagementInterface()'>X</button>
 
-     <h5>Maison</h5>
+        <div id='playerPropertiesDiv'>
 
-     <button>Vendre</button> 
+          <div>
 
-     <button>Hypothequer</button> 
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
 
-     
-     <button id='HouseBuildingButton'>Construire une maison</button>
-     
-    </div>
+          </div>
+
+             <div>
+
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
+
+           </div>
+
+             <div>
+
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
+             <div>rue de Courcelles</div>
+
+          </div>
+
+
+
+        
+        </div>
+
     
-  
-</div>
+
+        <div id = 'propertyManagementDiv'>
+
+
+
+           <div id='propertyManagementTop'></div>
+
+           <div id='propertyManagementBottom'></div>  
+      
+
+
+         </div>
+
+ </div>
+
+
 
 
 
@@ -177,8 +201,6 @@
 
 
 
-
-
 <div id='communityChestSquareInterface'> 
 
     <h3>Tu as atteri sur une case 'caisse de communauté'</h3>
@@ -198,11 +220,10 @@
 
 
 
-
-
 <script src='soloJs/jquery.js'></script>
 <script src='soloJs/classes.js'></script>
 <script src='soloJs/vars.js'></script>
+<script src='soloJs/defs.js'></script>
 <script src='soloJs/trades.js'></script>
 <script src='soloJs/board.js'></script>
 <script src='soloJs/search.js'></script>

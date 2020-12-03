@@ -6,25 +6,25 @@
 
    //ROIs AT : 30 DICE LAUNCHES, 50 DICE LAUNCHES, 100 DICE LAUNCHES, 200 DICE LAUNCHES
 
-   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], score : 0}
+   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 0, finishedSetValue: 1350};
 
-   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], score : 0}
+   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 0, finishedSetValue: 3330};
 
-   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], score : 0 }
+   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 0 , finishedSetValue: 5310 };
 
-   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , score : 0}
+   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 0, finishedSetValue: 7740};
 
-   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], score : 0 }
+   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 0 , finishedSetValue: 8280 };
 
-   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], score : 0 }
+   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 0 , finishedSetValue: 8190};
 
-   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], score : 0}
+   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 0 , finishedSetValue: 9180} ;
 
-   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , score : 0}
+   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 0 , finishedSetValue: 7560};
 
-   var black = {index: 8, name: 'black' ,  score: 0 , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] }
+   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 0 , finishedSetValue: 1980};
 
-   var publicServicesColor = {index: 9, name: 'publicServicesColor' , score: 0 , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] }
+   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 0 ,  finishedSetValue: 360};
 
 
 
@@ -36,167 +36,33 @@
 
 
 
-  //HEURISTICS
 
 
+  //SET LEVELS
 
-//GAINS
 
 
 
-       //3 PROPERTIES SET
-              //MONOPOLY
+  //3 PROPERTIES SETS (% VARYING ACCORDING TO THE VALUE OF THOSE COMBINATIONS)
 
-var zeroThreeToThreeThree = 10000;
+   
 
-var oneThreeToThreeThree = 8000;
+ var noPropertiesLvl = 0;
 
-var twoThreeToThreeThree = 6000;
-
-            //2/3
-
-var zeroThreeToTwoThree = 1000;
-
-var oneThreeToTwoThree = 500;
-
-
-         //1/3
-
-        
-var zeroThreeToOneThree = 100;
-
-
-
-   //2 PROPERTIES SET
-
-var zeroTwoToTwoTwo = 9000;
-
-var oneTwoToTwoTwo = 7000;
-
-var zeroTwoToOneTwo = 900;
-
-
-
-//TRAIN STATIONS
-
-
- var trainStationVar = (zeroThreeToOneThree * 2) //we oserved that it took in average 500 roll dices to get to a break even point, while it takes approximately 250 roll dices for a single train station. Then, from step to step , the number of roll dices necessary to break even is divided by 3.
-
- //4/4
-
-var zeroFourTsToFourFourTs = (trainStationVar * 3 * 3 * 3);
-var oneFourTsToFourFourTs = (trainStationVar * 3 * 3 * 3) - (zeroFourTsToOneFourTs);
-var twoFourTsToFourFourTs = (trainStationVar * 3 * 3 * 3) - (zeroFourTsToTwoFourTs);
-var threeFourTsToFourFourTs = (trainStationVar * 3 * 3 * 3) - (zeroFourTsToThreeFourTs);
-
-
-//3/4
-
-var zeroFourTsToThreeFourTs = trainStationVar * 3 * 3;
-var oneFourTsToThreeFourTs =  (trainStationVar * 3 * 3) - zeroFourTsToOneFourTs;
-var twoFourTsToThreeFourTs = (trainStationVar * 3 * 3) - zeroFourTsToTwoFourTs;
-
-
-//2/4
-
-var zeroFourTsToTwoFourTs = trainStationVar * 3;
-
-var oneFourTsToTwoFourTs = (trainStationVar * 3) - zeroFourTsToOneFourTs;
-
-//1/4
-
-var zeroFourTsToOneFourTs = trainStationVar ;
-
-
-
-
-//PUBLIC SERVICES
-
-
-var zeroTwoPsToTwoTwoPS = 500;
-
-var oneTwoPsToTwoTwoPs = 200;
-
-var zeroTwoPsToOneTwoPS = 100;
-
-//1/2
-
-
-
-
-//LOSSES
-
-
-
-       //3 PROPERTIES SET
-              //MONOPOLY
-
-var threeThreeToZeroThree = 10000;
-
-var threeThreeToOneThree = 8000;
-
-var threeThreeToTwoThree = 6000;
-
-            //2/3
-
-var twoThreeToZeroThree = 1000;
-
-var twoThreeToOneThree = 500;
-
-         //1/3
-
-var oneThreeToZeroThree = 100;
-
-   //2 PROPERTIES SET
-
-var twoTwoToZeroTwo = 9000;
-
-var twoTwoToOneTwo = 7000;
-
-var oneTwoToZeroTwo = 900;
-
-
-
-//TRAIN STATIONS
-
- //4/4
-
- var fourFourTsToZeroFourTs = -zeroFourTsToFourFourTs;
- var fourFourTsToOneFourTs = -oneFourTsToFourFourTs;
- var fourFourTsToTwoFourTs = -twoFourTsToFourFourTs;
- var fourFourTsToThreeFourTs = -threeFourTsToFourFourTs;
-
+ var oneThreeLvl = 0.05;
  
- //3/4
+ var twoThreeLvl = 0.2;
 
- var threeFourTsToTwoFourTs = -twoFourTsToThreeFourTs;
- var threeFourTsToOneFourTs = -oneFourTsToThreeFourTs;
- var threeFourTsToZeroFourTs = -zeroFourTsToThreeFourTs;
+ var threeThreeLvl = 0.75;
 
+
+
+   //2 PROPERTIES SETS
+    
+
+ var oneTwoLvl = 0.2;
  
- //2/4
- 
- var twoFourToOneFourTs = -oneFourTsToTwoFourTs;
- var twoFourTsToZeroFourTs = -zeroFourTsToTwoFourTs;
-
- //1/4
- 
- var oneFourTsToZeroFourTs = -zeroFourTsToTwoFourTs;
- 
-
-//PUBLIC SERVICES
-
-
-
-var twoTwoPsToZeroTwoPs = -zeroTwoPsToTwoTwoPS;
-
-var twoTwoPsToOneTwoPs = -oneTwoPsToTwoTwoPs;
-
-var oneTwoPsToZeroTwoPs = -zeroTwoPsToOneTwoPS;
-
-
-
-
+ var twoTwoLvl = 0.8;
 
 
 
@@ -216,9 +82,9 @@ var busy = 'busy';
 
 var noCash = 'no cash';
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], availability : available , bankruptcyInterval : off }
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , availability : available , bankruptcyInterval : off } 
-var humanPlayer = {playerIndex: 3 , key : 0,  position: 0 , name: 'human player', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], availability : available , bankruptcyInterval : off}
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none }
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingPropositionn : none ,  propositionDone : none  } 
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition: none , propositionDone : none }
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -308,40 +174,49 @@ var tax = 'tax';
 
 
 var departure = { name: 'departure', value: none, type: departure};
-var Belleville = { name: 'Belleville',value: 60, type: rentalProperty, color: brown, landLord: none};
+var belleville = { name: 'Belleville',value: 60, type: rentalProperty, color: brown, landLord: none , elementIndex : 0};
 var communityChestSquare = {name: 'communityChest', value: none, type: communityChest};
-var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: black, landLord: none};
-var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
+var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: black, landLord: none , elementIndex : 1};
+var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 2};
 var luckSquare = {name: 'Luck', value: none, type: luck , landLord: none };
-var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, type: rentalProperty , color: lightBlue, landLord: none};
-var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, type: rentalProperty , color: lightBlue, landLord: none};
+var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 3};
+var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4};
 var jailVisit = {name: 'jailVisit', value: none, type: special , landLord: none}; 
-var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, type: rentalProperty , color: purple, landLord: none};
-var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: publicServicesColor, landLord: none};
-var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, type: rentalProperty , color: purple, landLord: none};
-var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , color: purple, landLord: none};
-var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: black, landLord: none};
-var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none};
-var boulevardSaintMichel = {name: 'boulevard Saint Michel' , value: 180, type: rentalProperty , color: orange, landLord: none};
-var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none};
-var freeParc = {name: 'parking gratuit' ,  value: none , type: parc , color: none, landLord: none};
-var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none};
-var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none};
-var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none};
-var gareDuNord = {name: 'gare du nord' , value: 200, type: trainStation , color: black, landLord: none};
-var faubourgSaintHonore = {name : 'Faubourg Saint honoré' , value: 260, type: rentalProperty , color: yellow , landLord: none};
-var placeDeLaBourse = { name:'Place de la Bourse',  value: 260, type: rentalProperty , color: yellow , landLord: none};
-var publicServiceWater = { name :'public services eau' , value: 150, type: waterPublicServices , color: publicServicesColor, landLord: none};
-var rueLaFayette = {name: 'Rue La Fayette' ,  value: 280, type: rentalProperty , color: yellow , landLord: none};
+var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, type: rentalProperty , color: purple, landLord: none , elementIndex : 5};
+var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: publicServicesColor, landLord: none , elementIndex : 6};
+var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, type: rentalProperty , color: purple, landLord: none , elementIndex : 7};
+var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , color: purple, landLord: none , elementIndex : 8};
+var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: black, landLord: none , elementIndex : 9};
+var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 10};
+var boulevardSaintMichel = {name: 'boulevard Saint Michel' , value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 11};
+var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none , elementIndex : 12};
+var freeParc = {name: 'parking gratuit' ,  value: none , type: parc , color: none, landLord: none };
+var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none  , elementIndex : 13};
+var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none  , elementIndex : 14};
+var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none  , elementIndex : 15};
+var gareDuNord = {name: 'gare du nord' , value: 200, type: trainStation , color: black, landLord: none  , elementIndex : 16};
+var faubourgSaintHonore = {name : 'Faubourg Saint honoré' , value: 260, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 17};
+var placeDeLaBourse = { name:'Place de la Bourse',  value: 260, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 18};
+var publicServiceWater = { name :'public services eau' , value: 150, type: waterPublicServices , color: publicServicesColor, landLord: none  , elementIndex : 19};
+var rueLaFayette = {name: 'Rue La Fayette' ,  value: 280, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 20};
 var jail = { name : 'Prison' , value: none, type: goToJailSquare , color: none , landLord: none};
-var avenueDeBreteuil = { name: 'Avenue de Breteuil', value: 300, type: rentalProperty , color: green , landLord: none};
-var avenueFoch = { name: 'Avenue Foch' , value: 300, type: rentalProperty , color: green , landLord: none};
-var bdDesCapucines = { name:'Boulevard des capucines' , value: 320, type: rentalProperty , color: green , landLord: none};
-var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, type: trainStation , color: black , landLord: none};
-var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , value: 350, type: trainStation , color: darkBlue , landLord: none};
+var avenueDeBreteuil = { name: 'Avenue de Breteuil', value: 300, type: rentalProperty , color: green , landLord: none  , elementIndex : 21 };
+var avenueFoch = { name: 'Avenue Foch' , value: 300, type: rentalProperty , color: green , landLord: none  , elementIndex : 22};
+var bdDesCapucines = { name:'Boulevard des capucines' , value: 320, type: rentalProperty , color: green , landLord: none  , elementIndex : 23};
+var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, type: trainStation , color: black , landLord: none  , elementIndex : 24} ;
+var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , value: 350, type: trainStation , color: darkBlue , landLord: none, elementIndex : 25};
 var luxuryTax = {name: 'Taxe de luxe' , value: none, type: tax , color: none , landLord: none};
-var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, type: rentalProperty , color: darkBlue , landLord: none};
+var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, type: rentalProperty , color: darkBlue , landLord: none, elementIndex : 26};
 
+
+
+
+
+var propertiesList = [belleville, gareDeMontparnasse, rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, boulevardSaintMichel, placePigalle, avenueMatignon,  bdMalesherbes , avenueHenriMartin , gareDuNord , faubourgSaintHonore , placeDeLaBourse , publicServiceWater, rueLaFayette , avenueDeBreteuil , avenueFoch , bdDesCapucines , GareSaintLazarre, avenueDesChampsElysees , rueDeLaPaix];
+
+
+
+//So, I extract from a player each set with each element in it. I can then order the DOM properly. Then, all I need is the elementIndex
 
 
 
@@ -407,7 +282,7 @@ var publicServiceElectricity =  new squareElement('publicServiceElectricity', pu
 */
 
 
-var squaresArray = [departure, Belleville, communityChestSquare, gareDeMontparnasse, rueDeVaugirard, luckSquare, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChest, boulevardSaintMichel, placePigalle, freeParc, avenueMatignon, luckSquare, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChestSquare, bdDesCapucines, GareSaintLazarre, luckSquare, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
+var squaresArray = [departure, belleville, communityChestSquare, gareDeMontparnasse, rueDeVaugirard, luckSquare, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChest, boulevardSaintMichel, placePigalle, freeParc, avenueMatignon, luckSquare, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChestSquare, bdDesCapucines, GareSaintLazarre, luckSquare, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
 
 
 
@@ -620,3 +495,12 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
  var nodeCount = 0;
 
+
+
+
+
+ //PROPOSITION INTERFACE
+
+
+
+ var observedPlayer = none;
