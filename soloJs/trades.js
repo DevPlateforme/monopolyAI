@@ -1,6 +1,4 @@
-
 //CLASSES
-
 
 
 function PropositionMaterial(offerer, answerer, counterPartAsked){
@@ -23,17 +21,15 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.array = array;
 
-	this.cash = noCash;
+	this.cash = 0;
 
 	this.lossValueForTheOwner = lossValueForTheOwner;
 
 
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
-
 	
 }
-
 
 
 
@@ -43,7 +39,7 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 	
 	this.array = array;
 
-	this.cash = noCash;
+	this.cash = 0;
 
     this.lossValueForTheOwner = lossValueForTheOwner;
 
@@ -57,15 +53,15 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 
 
 
-function Proposition(offerer, answerer, proposition, counterPartAsked ) {
+function Proposition(offerer, answerer, offer, counterPartAsked ) {
 	// For each property and get out of jail free cards, 1 means offered, -1 means requested, 0 means neither.
 
 	this.offerer = offerer;
 
 	this.answerer = answerer;
     
-    this.proposition = proposition;
-
+	this.offer = offer;
+	
 	this.counterPartAsked =counterPartAsked;
 
 
@@ -125,15 +121,13 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-	let answererCashSlices = [answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
+	let answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
 	
-	let offererCashSlices = [offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
+	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
 
 
 
-   //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
-
-
+    //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
 
 
 	//THEN, TRY TO ADD POSSIBLE PROPOSITIONS TO THE MOVELIST
@@ -148,7 +142,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-
 		 //FOR EACH ANSWERER CASH SLICE
 
 	 
@@ -156,26 +149,33 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-
-
-
-		//FOR EACH PROPERTIES THAN CAN BE OFFERED
-
-
-		 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
-
-
-
-			   offerArray = [propertiesArray[propertyIndex]];
-
-				//DIVIDE THIS ARRAY IN SETS
+		console.log('cash asked in counterpart bucket ' + answererCashSlices[answererCashSliceIndex]);
 
 
 
 
-			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+		//ONLY ONE PLAYER CAN OFFER CASH IN A TRADE. (IF NOT, IT DOESNT MAKE SENSE)
 
-			 //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+		//SO , IF THE ANSWERER CASH SLICE IS AT THE INDEX 0 :
+
+
+	    if(answererCashSliceIndex == 0 ){		
+			   
+					
+			//FOR EACH PROPERTIES THAN CAN BE OFFERED
+
+
+		     for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
+
+
+			     offerArray = [propertiesArray[propertyIndex]];
+
+		     	 //DIVIDE THIS ARRAY IN SETS
+
+
+     			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+
+			    //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
 
 
 			 
@@ -192,8 +192,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-
-
 				 
 				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 
@@ -202,6 +200,9 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 				
 				 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
+
+
+					console.log('cash inserted in an offer ' + offererCashSlices[offererCashSliceIndex]);
 
 					
 
@@ -221,7 +222,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
   
   
 						 
-						if(profitableTrade(thinker , offer,  propertiesAskedPlusCash ) == true){
+						if(profitableTrade(offerer,  proposition ) == true){
   
 							  console.log('pushing proposition...');
   
@@ -232,13 +233,73 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 				 }
 
+				
+		   }
+
+
+
+  
+	  } else {
+
+		  for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
+
+
+			offerArray = [propertiesArray[propertyIndex]];
+
+			 //DIVIDE THIS ARRAY IN SETS
+
+
+			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+
+		   //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+
+
+	
+							 
+
+
+
+			
+			//NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+
+
+
 
 		
-			
-				
-			    }
-		
-           }
+			   
+
+				   offer = createOffer(offerer, answerer, offerArray);
+
+				   
+					//RETURN AN OFFER OBJECT
+				 
+
+					proposition = new Proposition(offerer, answerer, offer ,  counterPartAsked);
+
+
+
+					//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+
+
+					
+				   if(profitableTrade(offerer,  proposition ) == true){
+
+						 console.log('pushing proposition...');
+
+						 propositionList.push(proposition);
+				 
+				   }
+
+
+			}
+
+		   
+	  }
+
+
+
+    }
+
 	   
 
 
@@ -372,7 +433,7 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 		console.log('generating three elements propositions...');
 
 
-		if(profitableTrade(offer, counterPartAsked ) == true){
+		if(profitableTrade(offerer, proposition ) == true){
 
 		  propositionList.push(proposition);
 
@@ -380,8 +441,7 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 
 		
 
-}
-
+    }
 
 
 
@@ -486,31 +546,20 @@ return offer;
 
 function getArrayGainValueForPlayer(player, array){
 
-
 	let color = array[0].color;
-
-	let colorScore = color.score;
-
-	let value;
-
-	let setLevel;
 
 
 	console.log('player :' + player);
 
 
 
-
-
 	let currentSet = player.propertiesByColor[color.index].properties;
-
 
 
       	//FETCH THE CURRENT PROPERTY OF THIS PLAYER.
 	
 	
 	let currentSetValue = calculateSetValue(currentSet);
-
 
 
 
@@ -549,9 +598,7 @@ function getArrayGainValueForPlayer(player, array){
 	  }
 
 
-
 	  return (newSetValue - currentSetValue);
-
 	  
  }
 
@@ -665,15 +712,304 @@ function divideOfferInSets(offerArray){
 
 
 
-function profitableTrade(arrayPlayerA, arrayPlayerB){
+function profitableTrade(thinker, proposition){
+
+
+	 let offer = proposition.offer;
+
+	 let counterPartAsked = proposition.counterPartAsked;
+
+	 let offerer = proposition.offerer;
+
+	 let answerer = proposition.answerer;
+
+
+	 let offererScore = 0;
+
+	 let answererScore = 0;
+
+
+	 offererScore -= offer.lossValueForTheOwner;
+
+	 offererScore -= offer.cash;
+
+	 offererScore += counterPartAsked.gainValueForTheOtherPlayer;
+
+	 offererScore += counterPartAsked.cash;
+
+
+
+
+
+
+	 answererScore -= counterPartAsked.lossValueForTheOwner;
+
+	 answererScore -= counterPartAsked.cash;
+
+
+	 answererScore += offer.gainValueForTheOtherPlayer;
+
+	 answererScore += offer.cash;
+
+
+
+	   
+
+
+	 //SITUATION FRAGILITY (INFLUENCING CASH VALUE)
+
+	 let tradingPlayers = [offerer, answerer];
+
+
+		  
+
+	 for(i=0; i < tradingPlayers.length; i++){
+
+       
+		if(checkGlobalDanger(tradingPlayers[i]) == true){
+
+
+			if(tradingPlayers[i] == offerer){
+
+				offererScore += (counterPartAsked.cash)*1.25;
+
+			} else {
+
+
+				answererScore += (offer.cash)*1.25;
+
+
+
+			}
+
+
+             //
+
+		};
+
+  
+		if( checkDirectDanger(tradingPlayers[i]) == true){
+
+		
+			if(tradingPlayers[i] == offerer){
+
+				offererScore += (counterPartAsked.cash)*1.25;
+
+			} else {
+
+				answererScore += (offer.cash)*1.25;
+
+			}
+
+		};
+
+
+
+   }
+
+
+
+	 //TAKING INTO ACCOUNT THE FRAGILITY OF EACH PLAYERS SITUATION (INFLUENCING HOW MUCH THEY VALUE CASH)
+
+
+	 let ajustedOfferCash;
+
+	 let adjustedAnswerCash;
+
+
+
+	 let thinkerScore;
+
+	 let interlocutorScore;
+
+
+	 //WHATS THE STATUS OF THE AI TRIGGERING THIS FUNCTION IN THIS TRADE?
+
+
+	 if(thinker == offerer ){
+
+		thinkerScore = offererScore;
+		interlocutorScore = answererScore;
+
+	 } else {
+
+		thinkerScore = answererScore;
+		interlocutorScore = offererScore;
+
+	 }
+
+
+
+
+	 //BEHAVIOUR OF THE AI
+	 
+
+	  if(thinkerScore > 0){
+
+
+		 //determine a certain range
+
+
+		 //IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
+
+
+
+
+			  //AI BEHAVIOUR
+			  
+
+			  let topLimit;
+
+
+			  let bottomLimit;
+
+
+		       if(thinker == ai1){
+
+			      //top limit : value between 1 and 1.5
+			 
+				 topLimit =  interlocutorScore * (1 + (Math.random()/2).toFixed(2));
+				 
+				  //THE AI1 wants to have a better situation than the other player
+
+				 bottomLimit = interlocutorScore;
+
+				 
+
+				} else{
+
+			  //top limit : value between 1 and 1.33
+ 
+			  //bottom limit : value between 0.8 AND 1.1
+
+					topLimit =  interlocutorScore * (1 + (Math.random()/3).toFixed(2));
+
+			    	bottomLimit = interlocutorScore * ((Math.random()/3).toFixed(2) + 0.8);
+
+					
+				}
+				
+
+
+    		if (bottomLimit < thinkerScore && thinkerScore < topLimit ){				 
+				
+				
+				 console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+
+
+				 console.log('here is the offer : ');
+
+
+				 for(i=0; i < offer.array.length; i++){
+					 
+					  console.log('offer element ' + i + ' ' + offer.array[i].name);
+
+					
+				 }
+
+				 console.log('and, here is the cash in the offer :' + offer.cash);
+
+
+				
+
+				 
+				 console.log('here is the counterpart : ');
+
+
+				 for(i=0; i < counterPartAsked.array.length; i++){
+					 
+					  console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+
+					
+				 }
+
+
+				 console.log('and, here is the cash asked :' + counterPartAsked.cash);
+
+
+
+
+				 return true;
+
+
+				 
+
+	    	 } else {				
+				 
+				
+				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+
+
+				console.log('here is the offer : ');
+
+
+				for(i=0; i < offer.array.length; i++){
+					
+					 console.log('offer element ' + i + ' ' + offer.array[i].name);
+
+				   
+				}
+
+				console.log('and, here is the cash in the offer :' + offer.cash);
+
+
+			   
+
+				
+				console.log('here is the counterpart : ');
+
+
+				for(i=0; i < counterPartAsked.array.length; i++){
+					
+					 console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+
+				   
+				}
+
+
+				console.log('and, here is the cash asked :' + counterPartAsked.cash);
+
+
+
+				return false;
+
+
+			 }
+
+
+
+
+
+
+
+			 //IF NEGATIVE THINKERSCORE, IMMEDIATLY RETURN FALSE
+ 
+	  } else {
+
+
+		 return false;
+
+
+	  }
+
 
 
 //RETURN THE PROFITABILITY, WITH THE POINT OF VIEW OF A PLAYER A
 
 
 
+   //CHECK OF THE FRAGILITY OF PLAYERS SITUATIONS
 
-	return true;
+	  //FOR EACH PLAYER :
+	  
+
+		//IF THE SUM OF OTHER PLAYERS IS HIGHER THAN THE PLAYERS TOTAL ASSSETS
+	
+		
+	//PROFITABILITY PLAYER A
+
+
+
 
 
 }
@@ -719,9 +1055,9 @@ function tryToCreateFutureProposition(propositionMaterial){
 
 	
 
-	let answererCashSlices = [answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
+	let answererCashSlices = [0, answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
 	
-	let offererCashSlices = [offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
+	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
 
 
 
@@ -739,83 +1075,146 @@ function tryToCreateFutureProposition(propositionMaterial){
 
 
 
-			//FOR EACH PROPERTIES THAN CAN BE OFFERED
-	
-	
-			 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
-	
-	
-	
-				   offerArray = [propertiesArray[propertyIndex]];
-	
-					//DIVIDE THIS ARRAY IN SETS
-	
 
-				   //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+			if(answererCashSliceIndex == 0){
 
-
+				//FOR EACH PROPERTIES THAN CAN BE OFFERED
+		
+		
+				 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
+		
+		
+		
+					   offerArray = [propertiesArray[propertyIndex]];
+		
+						//DIVIDE THIS ARRAY IN SETS
+		
 	
-				  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-	
-	
-					 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
-	
-	
-	
-					 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
-	
-									  
-
-
-					 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+					   //TAKE THE DESIRED SET AND CREATE 5 COPIES.
 	
 	
+		
+					  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+		
+		
+						 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
+		
+		
+		
+						 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
+		
+										  
 	
 	
-					
-					 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
-	
+						 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+		
+		
+		
+		
 						
-	
-						 	 offer = createOffer(offerer, answerer, offerArray);
-	
-							 offer.cash = offererCashSlices[offererCashSliceIndex];
-	
+						 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
+		
 							
-							 //RETURN AN OFFER OBJECT
-						  
+		
+								  offer = createOffer(offerer, answerer, offerArray);
+		
+								 offer.cash = offererCashSlices[offererCashSliceIndex];
+		
+								
+								 //RETURN AN OFFER OBJECT
+							  
+		
+								 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
+		
+		
+		
+								 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+		  
+		  
+								 
+								if(profitableTrade(offerer,  proposition ) == true){
+		  
+									  console.log('possible future monopoly found...');
+		  
+									  propositionList.push(proposition);
+							  
 	
-							 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
+	
+								}
 	
 	
+		
+						 }
 	
-							 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-	  
-	  
+	
+														
+				  }
+
+
+
+			} else {	
+					
+				for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
+	   
+	   
+	   
+					  offerArray = [propertiesArray[propertyIndex]];
+	   
+					   //DIVIDE THIS ARRAY IN SETS
+	   
+   
+					  //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+   
+   
+	   
+					 //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+	   
+  
+   
+					//NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+	   
+	   
+	   
+	   
+	   
+						   
+	   
+								 offer = createOffer(offerer, answerer, offerArray);
+	   	   
+							   
+								//RETURN AN OFFER OBJECT
 							 
-							if(profitableTrade(offerer , offer,  propertiesAskedPlusCash ) == true){
-	  
-								  console.log('possible future monopoly found...');
-	  
-								  propositionList.push(proposition);
-						  
+	   
+								proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+	   
+	   
+	   
+								//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
+		 
+		 
+								
+							   if(profitableTrade(offerer,  proposition ) == true){
+		 
+									 console.log('possible future monopoly found...');
+		 
+									 propositionList.push(proposition);
+							 
+   
+   
+							   }
+   
+      
+						
+
+   													   
+				 }
 
 
-							}
-
-
-	
-					 }
-
-
-													
-			  }
-
+			}
 
 			
 		}
 		
-
 		   
    }
 

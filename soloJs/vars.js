@@ -82,9 +82,9 @@ var busy = 'busy';
 
 var noCash = 'no cash';
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none }
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingPropositionn : none ,  propositionDone : none  } 
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player', cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition: none , propositionDone : none }
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none }
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500,  rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingPropositionn : none ,  propositionDone : none  } 
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player', rents:0 ,  cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition: none , propositionDone : none }
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -173,40 +173,40 @@ var tax = 'tax';
 
 
 
-var departure = { name: 'departure', value: none, type: departure};
-var belleville = { name: 'Belleville',value: 60, type: rentalProperty, color: brown, landLord: none , elementIndex : 0};
-var communityChestSquare = {name: 'communityChest', value: none, type: communityChest};
-var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, type: trainStation , color: black, landLord: none , elementIndex : 1};
-var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 2};
-var luckSquare = {name: 'Luck', value: none, type: luck , landLord: none };
-var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 3};
-var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4};
-var jailVisit = {name: 'jailVisit', value: none, type: special , landLord: none}; 
-var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, type: rentalProperty , color: purple, landLord: none , elementIndex : 5};
-var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, type: publicService , color: publicServicesColor, landLord: none , elementIndex : 6};
-var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, type: rentalProperty , color: purple, landLord: none , elementIndex : 7};
-var rueDuParadis = {name: 'rueDuParadis', value: 160, type: rentalProperty , color: purple, landLord: none , elementIndex : 8};
-var gareDeLyon = {name: 'gareDeLyon', value: 200, type: trainStation , color: black, landLord: none , elementIndex : 9};
-var avenueMozart = {name: 'avenue de mozart', value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 10};
-var boulevardSaintMichel = {name: 'boulevard Saint Michel' , value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 11};
-var placePigalle = {name: 'place Pigalle', value: 200, type: rentalProperty , color: orange, landLord: none , elementIndex : 12};
-var freeParc = {name: 'parking gratuit' ,  value: none , type: parc , color: none, landLord: none };
-var avenueMatignon = {name: 'avenue Matignon', value:220, type: rentalProperty , color: red, landLord: none  , elementIndex : 13};
-var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, type: rentalProperty , color: red, landLord: none  , elementIndex : 14};
-var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, type: rentalProperty , color: red, landLord: none  , elementIndex : 15};
-var gareDuNord = {name: 'gare du nord' , value: 200, type: trainStation , color: black, landLord: none  , elementIndex : 16};
-var faubourgSaintHonore = {name : 'Faubourg Saint honoré' , value: 260, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 17};
-var placeDeLaBourse = { name:'Place de la Bourse',  value: 260, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 18};
-var publicServiceWater = { name :'public services eau' , value: 150, type: waterPublicServices , color: publicServicesColor, landLord: none  , elementIndex : 19};
-var rueLaFayette = {name: 'Rue La Fayette' ,  value: 280, type: rentalProperty , color: yellow , landLord: none  , elementIndex : 20};
-var jail = { name : 'Prison' , value: none, type: goToJailSquare , color: none , landLord: none};
-var avenueDeBreteuil = { name: 'Avenue de Breteuil', value: 300, type: rentalProperty , color: green , landLord: none  , elementIndex : 21 };
-var avenueFoch = { name: 'Avenue Foch' , value: 300, type: rentalProperty , color: green , landLord: none  , elementIndex : 22};
-var bdDesCapucines = { name:'Boulevard des capucines' , value: 320, type: rentalProperty , color: green , landLord: none  , elementIndex : 23};
-var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, type: trainStation , color: black , landLord: none  , elementIndex : 24} ;
-var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , value: 350, type: trainStation , color: darkBlue , landLord: none, elementIndex : 25};
-var luxuryTax = {name: 'Taxe de luxe' , value: none, type: tax , color: none , landLord: none};
-var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, type: rentalProperty , color: darkBlue , landLord: none, elementIndex : 26};
+var departure = { name: 'departure', value: none, rent: 0 , type: departure};
+var belleville = { name: 'Belleville',value: 60, rent: 0 ,  type: rentalProperty, color: brown, landLord: none , elementIndex : 0};
+var communityChestSquare = {name: 'communityChest', value: none, rent: 0 , type: communityChest};
+var gareDeMontparnasse = { name: 'gareMontParnasse',value: 200, rent: 0 , type: trainStation , color: black, landLord: none , elementIndex : 1};
+var rueDeVaugirard = {name: 'rueDeVaugirard', value: 100, rent: 0 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 2};
+var luckSquare = {name: 'Luck', value: none, rent: 0 , type: luck , landLord: none };
+var rueDeCourcelles = {name: 'rueDeCourcelles', value: 100, rent: 0 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 3};
+var avenueDeLaRepublique =  {name: 'avenueDeLaRepublique', value: 120, rent: 0 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4};
+var jailVisit = {name: 'jailVisit', value: none, rent: 0 , type: special , landLord: none}; 
+var bdDeLaVillette = {name: 'bdDeLaVillette', value: 140, rent: 0 , type: rentalProperty , color: purple, landLord: none , elementIndex : 5};
+var publicServiceElectricity =  {name: 'publicServiceElectricity', value: 150, rent: 0 , type: publicService , color: publicServicesColor, landLord: none , elementIndex : 6};
+var avenueDeNeuilly = {name: 'avenueDeNeuilly', value: 140, rent: 0 , type: rentalProperty , color: purple, landLord: none , elementIndex : 7};
+var rueDuParadis = {name: 'rueDuParadis', value: 160, rent: 0 , type: rentalProperty , color: purple, landLord: none , elementIndex : 8};
+var gareDeLyon = {name: 'gareDeLyon', value: 200, rent: 0 , type: trainStation , color: black, landLord: none , elementIndex : 9};
+var avenueMozart = {name: 'avenue de mozart', value: 180, rent: 0 , type: rentalProperty , color: orange, landLord: none , elementIndex : 10};
+var boulevardSaintMichel = {name: 'boulevard Saint Michel' , rent: 0 , value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 11};
+var placePigalle = {name: 'place Pigalle', value: 200, rent: 0 , type: rentalProperty , color: orange, landLord: none , elementIndex : 12};
+var freeParc = {name: 'parking gratuit' ,  value: none , rent: 0 , type: parc , color: none, landLord: none };
+var avenueMatignon = {name: 'avenue Matignon', value:220, rent: 0 , type: rentalProperty , color: red, landLord: none  , elementIndex : 13};
+var bdMalesherbes = {name: 'boulevard Malesherbes', value: 220, rent: 0 , type: rentalProperty , color: red, landLord: none  , elementIndex : 14};
+var avenueHenriMartin = {name: 'avenue Henri Martin', value: 240, rent: 0 , type: rentalProperty , color: red, landLord: none  , elementIndex : 15};
+var gareDuNord = {name: 'gare du nord' , value: 200, rent: 0 , type: trainStation , color: black, landLord: none  , elementIndex : 16};
+var faubourgSaintHonore = {name : 'Faubourg Saint honoré' , value: 260, rent: 0 , type: rentalProperty , color: yellow , landLord: none  , elementIndex : 17};
+var placeDeLaBourse = { name:'Place de la Bourse',  value: 260, rent: 0 , type: rentalProperty , color: yellow , landLord: none  , elementIndex : 18};
+var publicServiceWater = { name :'public services eau' , value: 150, rent: 0 , type: waterPublicServices , color: publicServicesColor, landLord: none  , elementIndex : 19};
+var rueLaFayette = {name: 'Rue La Fayette' ,  value: 280, rent: 0 , type: rentalProperty , color: yellow , landLord: none  , elementIndex : 20};
+var jail = { name : 'Prison' , value: none, rent: 0 , type: goToJailSquare , color: none , landLord: none};
+var avenueDeBreteuil = { name: 'Avenue de Breteuil', value: 300, rent: 0 , type: rentalProperty , color: green , landLord: none  , elementIndex : 21 };
+var avenueFoch = { name: 'Avenue Foch' , value: 300, rent: 0 , type: rentalProperty , color: green , landLord: none  , elementIndex : 22};
+var bdDesCapucines = { name:'Boulevard des capucines' , value: 320, rent: 0 , type: rentalProperty , color: green , landLord: none  , elementIndex : 23};
+var GareSaintLazarre = {name: 'Gare Saint Lazarre' , value: 200, rent: 0 , type: trainStation , color: black , landLord: none  , elementIndex : 24} ;
+var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , value: 350, rent: 0 , type: trainStation , color: darkBlue , landLord: none, elementIndex : 25};
+var luxuryTax = {name: 'Taxe de luxe' , value: none, rent: 0 , type: tax , color: none , landLord: none};
+var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, rent: 0 , type: rentalProperty , color: darkBlue , landLord: none, elementIndex : 26};
 
 
 
@@ -215,6 +215,8 @@ var rueDeLaPaix = { name : 'Rue de la paix' , value: 400, type: rentalProperty ,
 var propertiesList = [belleville, gareDeMontparnasse, rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, boulevardSaintMichel, placePigalle, avenueMatignon,  bdMalesherbes , avenueHenriMartin , gareDuNord , faubourgSaintHonore , placeDeLaBourse , publicServiceWater, rueLaFayette , avenueDeBreteuil , avenueFoch , bdDesCapucines , GareSaintLazarre, avenueDesChampsElysees , rueDeLaPaix];
 
 
+
+var squaresProbabilities = [0 , 0.16 , 0.32, 0.48, 0.64, 0.8, 1, 0.8 , 0.64 , 0.48, 0.32,0.16 ];
 
 //So, I extract from a player each set with each element in it. I can then order the DOM properly. Then, all I need is the elementIndex
 

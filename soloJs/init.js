@@ -15,7 +15,7 @@ function init(){
 
     givePlayersPropertiesForDemo();
 
-    launchGameProcess();
+    //launchGameProcess();
 
     initPawnsPositions();
 
