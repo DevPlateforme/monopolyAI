@@ -6,9 +6,7 @@
 <script src='js/board.js'></script>
 <script src='js/search.js'></script>
 <script src='js/gui.js'></script>
-<script src='js/game.js'></script>
 <script src='js/init.js'></script>
-
 
 
 </main>

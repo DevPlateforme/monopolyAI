@@ -25,7 +25,6 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.lossValueForTheOwner = lossValueForTheOwner;
 
-
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
 	
@@ -171,32 +170,12 @@ function tryToCreateProposition(thinker, propositionMaterial){
 			     offerArray = [propertiesArray[propertyIndex]];
 
 		     	 //DIVIDE THIS ARRAY IN SETS
-
-
-     			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-
-			    //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-
-
 			 
-
-
-
 				 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
 
-
-
 				 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
-
-				 				 
-
-
-
-				 
+				 				
 				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
-
-
-
 
 				
 				 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
@@ -206,7 +185,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 					
 
-				    	offer = createOffer(offerer, answerer, offerArray);
+				    	offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 
 				     	offer.cash = offererCashSlices[offererCashSliceIndex];
 
@@ -243,44 +222,20 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 		  for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
 
+			   offerArray = [propertiesArray[propertyIndex]];
 
-			offerArray = [propertiesArray[propertyIndex]];
-
-			 //DIVIDE THIS ARRAY IN SETS
-
-
-			 //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-
-		   //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-
-
-	
-							 
-
-
-
-			
+			   //DIVIDE THIS ARRAY IN SETS
+			  //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+ 		     //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
 			//NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 
-
-
-
-		
-			   
-
-				   offer = createOffer(offerer, answerer, offerArray);
-
+				offer = createTradeObject(offerObject ,offerer, answerer, offerArray);
 				   
 					//RETURN AN OFFER OBJECT
 				 
-
-					proposition = new Proposition(offerer, answerer, offer ,  counterPartAsked);
-
-
+				proposition = new Proposition(offerer, answerer, offer ,  counterPartAsked);
 
 					//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-
-
 					
 				   if(profitableTrade(offerer,  proposition ) == true){
 
@@ -355,7 +310,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 				//DIVIDE THIS ARRAY IN SETS
 
 
-				offer = createOffer(offerer, answerer, offerArray);
+				offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 
 
 			   offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
@@ -424,9 +379,9 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 
 				//DIVIDE THIS ARRAY IN SETS
 
-	offer = createOffer(offerer, answerer, offerArray);
+	  offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 
-	proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+	  proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
 
 				//RETURN AN OFFER OBJECT
 
@@ -452,126 +407,89 @@ console.log('now, here is the proposition list : ' + propositionList);
 }
 
 
-function createOffer(offerer, answerer, offerArray){
+function createTradeObject(type , offerer, answerer, tradeArray){
 
+  let lossValueForTheOwner = 0;
+  let gainValueForTheOtherPlayer = 0;
+  let tradeObject;
+  let owner;
+  let otherPlayer;
+
+  if(type == offerObject){
 	  
-	nodeCount ++;
+	tradeObject = new Offer(tradeArray, lossValueForTheOwner, gainValueForTheOtherPlayer);
+	owner = offerer;
+	otherPlayer = answerer;
 
-//WITH A CERTAIN OFFER ARRAY, THE OFFERER CAN KNOW WHAT IT LOSES AND WHAT THE OPPONENT OBTAINS FROM IT
+  } else {
 
+	tradeObject = new CounterPartAsked( tradeArray, lossValueForTheOwner, gainValueForTheOtherPlayer);
+	owner = answerer;
+	otherPlayer = offerer;
 
-
-let lossValueForTheOfferer = 0;
-
-let gainValueForTheAnswerer = 0;
-
-
-let offer = new Offer( offerArray, lossValueForTheOfferer, gainValueForTheAnswerer)
-
-
-
+  }
 	//FIRST, WE NEED TO DIVIDE THE OFFER INTO SETS , TO OBTAIN A SCORE FOR EACH SET (WHAT IS EARNED AND LOST FROM IT)     
-   
-
-	
-	if(offerArray.length > 1){
-
-
-	  
-	let offerSets = divideOfferInSets(offerArray);
-
-
-
-	 for(offerSetIndex = 0; offerSetIndex < offerSets.length ; offerSetIndex++){
-
-
-	//GAIN VALUE FOR THE ANSWERER
-
+   	
+	if(tradeArray.length > 1){
   
-	 offer.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(answerer,offerSets[offerSetIndex]);
+		let tradeSets = divideOfferInSets(tradeArray);
+		
+	    for(tradeSetIndex = 0; tradeSetIndex < tradeSets.length ; tradeSetIndex++){
 
-
-	 //console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer);
-
-
-	 
-   //LOSS VALUE FOR THE OFFERER
-
-
-	offer.lossValueForTheOwner = getArrayLossValueForPlayer(offerer, offerSets[offerSetIndex]);
-
-
+	   //GAIN VALUE FOR THE ANSWERER
 	
+	       tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeSets[tradeSetIndex]);
 	
+     	//console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer)
+    
+	  //LOSS VALUE FOR THE OFFERER
 
-	  }
-
-
-
+        	tradeObject.lossValueForTheOwner = getArrayLossValueForPlayer(owner, tradeSets[tradeSetIndex]);
+	
+	    }
 
    } else {
-
-
-
   
-	 offer.gainValueForTheOtherPlayer  += getArrayGainValueForPlayer(answerer,offerArray);
-
+	      tradeObject.gainValueForTheOtherPlayer  += getArrayGainValueForPlayer(otherPlayer,tradeArray);
 	 
+		  //LOSS VALUE FOR THE OFFERER
 
+	      tradeObject.lossValueForTheOwner = getArrayLossValueForPlayer(owner, tradeArray);
 
-	 
-   //LOSS VALUE FOR THE OFFERER
-
-
-	offer.lossValueForTheOwner = getArrayLossValueForPlayer(offerer, offerArray);
-
-
-	 
-
-}
-
+  }
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
 
 	 
-
-return offer;
-
-
-
-
+     return tradeObject;
 }
 
 
 
 function getArrayGainValueForPlayer(player, array){
 
-	let color = array[0].color;
+	 let color = array[0].color;
 
+	 console.log('player :' + player);
 
-	console.log('player :' + player);
-
-
-
-	let currentSet = player.propertiesByColor[color.index].properties;
-
+	 let currentSet = player.propertiesByColor[color.index].properties;
 
       	//FETCH THE CURRENT PROPERTY OF THIS PLAYER.
 	
-	
-	let currentSetValue = calculateSetValue(currentSet);
-
-
+     let currentSetValue = calculateSetValue(currentSet);
 
 	  //THEN, CREATE A COPY OF THIS ARRAY, AND PUSH IT THE NEW ELEMENTS. THEN, RECALCULATE THE VALUE.
 
 	  //THEN, ALL WE NEED TO DO IS SUBSTRACT THE NEWVALUE FROM THE OLD ONE.
 
-
 	  let newSet = createPostGainsSet(currentSet, array);
+
+	  alert('the new set length ' + newSet.length)
 	
 
 	  let newSetValue = calculateSetValue(newSet);
+
+	  alert('the new set value is ' + newSetValue);
 
 
 	  console.log('The player checks its gains : before, its set value was ' + currentSetValue);
@@ -596,6 +514,9 @@ function getArrayGainValueForPlayer(player, array){
 		console.log(newSet[i].name);
 
 	  }
+
+
+
 
 
 	  return (newSetValue - currentSetValue);
@@ -643,65 +564,24 @@ function getArrayLossValueForPlayer(player, array){
 function divideOfferInSets(offerArray){
 
 
-
-  
-  //GET A COPY OF THE ARRAY, WHICH IS A STACK WE'LL USE
-
- 
-  let stackForSets = offerArray.slice(0);
-
-   for(i=0; i < stackForSets.length; i++){
-
-   }
-   
-  let setArray = [];
+  let setArray = [ [], [], [] , [], [], [], [] , [] , [] , [] ];
 
 
-  //GET THE ARRAY, AND DIVIDE IT BY COLOR (FIRST)
+  for(i=0; i < offerArray.length; i++){
+
+	   setArray[offerArray[i].color.index].push(offerArray[i]);
+  }
 
 
-  //WE NEED TO OBTAIN AN ARRAY WITH DIFFERENT SETS
+  for(i=0; i < setArray.length ; i++){
 
-  //TAKE THE FIRST ELEMENT, AND CREATE AN ELEMENT. IF THE NEWR ELEMENT HAVE THE SAME COLOR, PUSH IT IN THE SAME ARRAY. IF NOT, CREATE ANOTHER ARRAY , AND MAKE THE SAME OPERATION UP TO THE END OF THE ARRAY. (RECURSION)
-  
-  let selectedColorIndex = 0;
+	if(setArray[i].length == 0){
 
+		setArray.splice(i, 1);
+		i--;
+	}
 
-
-  //PUSH THE FIRST SET TO INIT THE PROCESS
-
-  setArray.push([stackForSets[0]]);
-
-
-  //THE INDEX STARTS AT THE SECOND ELEMENT(THERE ARE AT LEAST TO IF THIS FUNCTION IS CALLED)
-
-
-
-  for(elementIndex = 1 ; elementIndex  < stackForSets.length; elementIndex++){
-
-	  //EACH ELEMENT SCANS TOWARDS THE RIGHT. WE CAN USE A STACK. WE CREATE AN ARRAY. WE STACK EACH ELEMENT OUT IF THEY HAVE THE SELECTED COLOR.
-	   
-
-		  if(stackForSets[elementIndex].color ==  stackForSets[selectedColorIndex].color){
-	  
-			   setArray[selectedColorIndex].push(stackForSets[elementIndex]);
-						   
-		  } else {
-
-			   selectedColorIndex += 1;
-			   setArray.push( [stackForSets[elementIndex] ] );
-
-		  }
-		
-	   }
-
-  
-	  
-
-	  for(setIndex = 0; setIndex < setArray.length; setIndex++){
-
-
-	  }
+  }
 
 
   return setArray;
@@ -716,46 +596,47 @@ function profitableTrade(thinker, proposition){
 
 
 	 let offer = proposition.offer;
-
 	 let counterPartAsked = proposition.counterPartAsked;
-
 	 let offerer = proposition.offerer;
-
 	 let answerer = proposition.answerer;
-
-
 	 let offererScore = 0;
-
 	 let answererScore = 0;
 
 
-	 offererScore -= offer.lossValueForTheOwner;
 
+	 offererScore -= offer.lossValueForTheOwner;
 	 offererScore -= offer.cash;
 
 	 offererScore += counterPartAsked.gainValueForTheOtherPlayer;
-
 	 offererScore += counterPartAsked.cash;
 
 
-
-
-
+	 alert('answererScore is 0 :' + answererScore);
 
 	 answererScore -= counterPartAsked.lossValueForTheOwner;
 
+	 alert('answererScore :' + answererScore);
+
 	 answererScore -= counterPartAsked.cash;
+
+	 alert('answererScore less cash :' + answererScore);
 
 
 	 answererScore += offer.gainValueForTheOtherPlayer;
 
+	 alert('the gain value for the answerer ' + offer.gainValueForTheOtherPlayer)
+
+	 alert('answererScore plus gain value for the other player :' + answererScore);
+
 	 answererScore += offer.cash;
 
+	 alert('answererScore:' + answererScore);
 
 
-	   
 
 
+
+	
 	 //SITUATION FRAGILITY (INFLUENCING CASH VALUE)
 
 	 let tradingPlayers = [offerer, answerer];
@@ -764,10 +645,8 @@ function profitableTrade(thinker, proposition){
 		  
 
 	 for(i=0; i < tradingPlayers.length; i++){
-
        
 		if(checkGlobalDanger(tradingPlayers[i]) == true){
-
 
 			if(tradingPlayers[i] == offerer){
 
@@ -775,15 +654,9 @@ function profitableTrade(thinker, proposition){
 
 			} else {
 
-
 				answererScore += (offer.cash)*1.25;
 
-
-
 			}
-
-
-             //
 
 		};
 
@@ -812,14 +685,11 @@ function profitableTrade(thinker, proposition){
 	 //TAKING INTO ACCOUNT THE FRAGILITY OF EACH PLAYERS SITUATION (INFLUENCING HOW MUCH THEY VALUE CASH)
 
 
-	 let ajustedOfferCash;
 
-	 let adjustedAnswerCash;
-
+	 alert('AI thinking...');
 
 
 	 let thinkerScore;
-
 	 let interlocutorScore;
 
 
@@ -831,27 +701,31 @@ function profitableTrade(thinker, proposition){
 		thinkerScore = offererScore;
 		interlocutorScore = answererScore;
 
-	 } else {
+
+	 } else {	 
+
+		alert('the answererScore is ' + answererScore);
+
 
 		thinkerScore = answererScore;
 		interlocutorScore = offererScore;
 
 	 }
 
-
-
-
 	 //BEHAVIOUR OF THE AI
+
+	 
+	 alert('the thinker score of the AI is ' + thinkerScore);
 	 
 
 	  if(thinkerScore > 0){
 
+		alert('the AI is considering the offer');
+
 
 		 //determine a certain range
 
-
 		 //IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
-
 
 
 
@@ -882,51 +756,88 @@ function profitableTrade(thinker, proposition){
  
 			  //bottom limit : value between 0.8 AND 1.1
 
-					topLimit =  interlocutorScore * (1 + (Math.random()/3).toFixed(2));
+					topLimit =  interlocutorScore * (1 + (Math.random()/3));
 
-			    	bottomLimit = interlocutorScore * ((Math.random()/3).toFixed(2) + 0.8);
+			    	bottomLimit = interlocutorScore * ((Math.random()/3) + 0.8);
 
 					
 				}
 				
 
+				  
+				/*
+
+
+				// /!\ IMPORTANT!! IF THE THINKER IS THE OFFERER, THE POINT IS TO GENERATE A 
+
+				REASONABLE OFFER, AND NOT TO GET TOO MUCH VALUE OUT OF IT (NOT TO RISK REFUSAL)
+
+
+				THE ANSWERER ONLY LOOK FOR PROFITABILITY
+				 
+				*/
+				
+				
+
+			if(thinker == offerer){	
+
+
+				 //THE BENEFIT TO THE OFFER HAS TO BE HIGHER THAN A CERTAIN LIMIT, BUT SMALLER THAN A CERTAIN VALUE (NOT TO RISK REFUSAL)
+				
+				
+				if (bottomLimit < thinkerScore && thinkerScore < topLimit ){
+                       profitableProposition = true;
+
+				} else{
+				  	  profitableProposition = false;
+				}
+
+				
+			} else {
+				
+				
+				
+				if (bottomLimit < thinkerScore ){
+
+			    	profitableProposition = true;
+
+		        } else{
+
+				   profitableProposition = false;
+
+	     	 }
+
+
+
+	  }
+				  
+
 
     		if (bottomLimit < thinkerScore && thinkerScore < topLimit ){				 
 				
 				
-				 console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
-
-
-				 console.log('here is the offer : ');
+				 alert('cette proposition est raisonnable (thinker: ' + thinker.name);
+				 alert('here is the offer : ');
 
 
 				 for(i=0; i < offer.array.length; i++){
 					 
-					  console.log('offer element ' + i + ' ' + offer.array[i].name);
-
-					
+					alert('offer element : ' + offer.array[i].name);
+	
 				 }
 
-				 console.log('and, here is the cash in the offer :' + offer.cash);
-
-
-				
-
-				 
-				 console.log('here is the counterpart : ');
+				   alert('and, here is the cash in the offer :' + offer.cash);
+				   alert('here is the counterpart : ');
 
 
 				 for(i=0; i < counterPartAsked.array.length; i++){
-					 
-					  console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 
-					
+				  alert('counterpart asked : '+ counterPartAsked.array[i].name);	
+
 				 }
 
 
-				 console.log('and, here is the cash asked :' + counterPartAsked.cash);
-
-
+				 alert('and, here is the cash asked :' + counterPartAsked.cash);
 
 
 				 return true;
@@ -935,39 +846,29 @@ function profitableTrade(thinker, proposition){
 				 
 
 	    	 } else {				
-				 
-				
-				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+				 	
+				alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+				alert('the answerer perceived a value of ' + thinkerScore );
+				alert('the offerer perceived a value of ' + offererScore );
+				alert('here is the offer : ');
 
 
-				console.log('here is the offer : ');
-
-
-				for(i=0; i < offer.array.length; i++){
-					
-					 console.log('offer element ' + i + ' ' + offer.array[i].name);
-
-				   
+				for(i=0; i < offer.array.length; i++){	
+					 alert('offer element ' + i + ' ' + offer.array[i].name);
 				}
 
-				console.log('and, here is the cash in the offer :' + offer.cash);
-
-
-			   
-
-				
-				console.log('here is the counterpart : ');
+				    alert('and, here is the cash in the offer :' + offer.cash);				
+				    alert('here is the counterpart : ');
 
 
 				for(i=0; i < counterPartAsked.array.length; i++){
 					
-					 console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
-
+				   alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
 
-				console.log('and, here is the cash asked :' + counterPartAsked.cash);
+				  alert('and, here is the cash asked :' + counterPartAsked.cash);
 
 
 
@@ -979,15 +880,15 @@ function profitableTrade(thinker, proposition){
 
 
 
-
-
-
 			 //IF NEGATIVE THINKERSCORE, IMMEDIATLY RETURN FALSE
  
 	  } else {
-
+		   
+		alert('the AI did not see any benefit in this offer');
 
 		 return false;
+
+
 
 
 	  }
@@ -1019,10 +920,7 @@ function profitableTrade(thinker, proposition){
 
 
 
-
 //FUTURE PROPOSITION ANTICIPATION
-
-
 
 
 
@@ -1035,21 +933,12 @@ function tryToCreateFutureProposition(propositionMaterial){
 
 
 	let answerer = propositionMaterial.answerer;
-
 	let offerer = propositionMaterial.offerer;
-
 	let counterPartAsked = propositionMaterial.counterPartAsked;
-
 	let propertiesArray = offerer.propertiesArray;
-
-
 	let offerArray;
-
 	let propertiesAskedPlusCash;
-
-
 	let offer;
-
 	let proposition;
 
 
@@ -1074,31 +963,23 @@ function tryToCreateFutureProposition(propositionMaterial){
 		 for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
 
 
-
-
 			if(answererCashSliceIndex == 0){
 
 				//FOR EACH PROPERTIES THAN CAN BE OFFERED
 		
 		
 				 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
-		
-		
-		
+			
 					   offerArray = [propertiesArray[propertyIndex]];
 		
 						//DIVIDE THIS ARRAY IN SETS
 		
-	
 					   //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-	
-	
 		
 					  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
 		
 		
 						 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
-		
 		
 		
 						 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
@@ -1109,14 +990,12 @@ function tryToCreateFutureProposition(propositionMaterial){
 						 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 		
 		
-		
-		
 						
 						 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
 		
 							
 		
-								  offer = createOffer(offerer, answerer, offerArray);
+							     offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 		
 								 offer.cash = offererCashSlices[offererCashSliceIndex];
 		
@@ -1138,10 +1017,7 @@ function tryToCreateFutureProposition(propositionMaterial){
 		  
 									  propositionList.push(proposition);
 							  
-	
-	
 								}
-	
 	
 		
 						 }
@@ -1179,7 +1055,7 @@ function tryToCreateFutureProposition(propositionMaterial){
 	   
 						   
 	   
-								 offer = createOffer(offerer, answerer, offerArray);
+								 offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 	   	   
 							   
 								//RETURN AN OFFER OBJECT
@@ -1249,20 +1125,111 @@ function processPropositionAndAnswer(offerer, answerer, proposition){
 
 
 
-function acceptProposition(){
+function acceptProposition(proposition){
+
+
+	alert("accepting the proposition...");
+
+
+	let offerer = proposition.offerer;
+	let answerer = proposition.answerer;
+	let offer = proposition.offer;
+	let counterPartAsked = proposition.counterPartAsked;
+
+
+
+	//COUNTERPART
+
+
+
+	//offerer gets all the elements it needs to get
+
+ 	   for(i=0; i < counterPartAsked.array.length; i++){
+
+		
+		let element = counterPartAsked.array[i];
+
+		let color = element.color;
+
+		   //DELETE ELEMENT FROM THE ANSWERERS ARRAY
+
+          for(n=0; n < answerer.propertiesByColor[color.index].properties.length; n++){
+
+
+		    let answererElement = answerer.propertiesByColor[color.index].properties[i];
+			  
+			
+			if(answererElement == element){
+		   
+				answerer.propertiesByColor[color.index].properties.splice(n,1);
+
+			}
+			
+
+
+		  }
 
 
 
 
 
+		   //ADD THE NEW ELEMENT TO THE OFFERERS ARRAY
+
+
+		   offerer.propertiesByColor[color.index].properties.push(element);
+		   
+
+		   offerer.propertiesArray.push(element); 		   
+
+		}
+		
+
+		offerer.cash += counterPartAsked.cash;
 
 
 
+		//OFFER
 
+
+		for(i=0; i < offer.array.length; i++){
+			
+			let element = offer.array[i];
+
+			let color = element.color;
+
+
+		  
+			
+	   //DELETE ELEMENT FROM THE OFFERERS ARRAY
+
+          for(n=0; n < offerer.propertiesByColor[color.index].properties.length; n++){
+
+
+		       let offererElement = offerer.propertiesByColor[color.index].properties[i];
+			  
+			
+			   if(offererElement == element){
+
+				  alert('the deleted element from the offer :' + offererElement.name);
+		   
+				   offerer.propertiesByColor[color.index].properties.splice(n,1);
+ 
+
+			  }
+			
+
+		  }
+
+
+ 
+			answerer.propertiesByColor[color.index].properties.push(element); 
+			answerer.propertiesArray.push(element); 		 
+		 }
+
+
+		 answerer.cash += offer.cash;
+		 alert('proposition accepted');
 }
-
-
-
 
 
 

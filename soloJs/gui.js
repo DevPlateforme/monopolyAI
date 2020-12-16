@@ -930,7 +930,6 @@ function closePropositionInterface(){
 
 
 
-
 function displayOffererDiv(){
 
 
@@ -1285,9 +1284,7 @@ function sendProposition(){
 
 
      let IbProposition = humanPlayer.inBuildingProposition;
-
      let offerer = humanPlayer;
-
      let answerer = offerer.inBuildingProposition.answerer;
 
 
@@ -1301,20 +1298,6 @@ function sendProposition(){
           alert('vous n avez pas crée d offre!');
 
      } else{
-     
-
-         alert('trying to send a proposition...');
- 
-         alert('offerer : ' + IbProposition.offerer.name);
-
-         alert('answerer : ' + IbProposition.answerer.name );
-
-         alert('offer : ' + IbProposition.offerElementsCount);
-
-        alert('counterPart : ' + IbProposition.counterPartAskedElementsCount );
-
-
-
 
         //IS THERE AN OFFER AND A COUNTERPART?
 
@@ -1334,16 +1317,7 @@ function sendProposition(){
 
 
 
-
-
-
-
-
-
-
           //ELSE, VALID PROPOSITION
-
-
 
 
 
@@ -1398,53 +1372,44 @@ function sendProposition(){
 
             }
 
-
-
            
-          let ownerLoss;
-
-          let otherPlayerGain;
 
 
           //CREATE THE PROPOSITION OBJECT
-
-          ownerLoss = getArrayLossValueForPlayer(offerer, offerArray)
-
-          otherPlayerGain = getArrayGainValueForPlayer(answerer, offerArray);
-
           
+          let offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 
-          let offer = new Offer(offerArray, ownerLoss, otherPlayerGain);
-
-
+          let counterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer , counterPartAskedArray);
           
-          ownerLoss = getArrayLossValueForPlayer(answerer, counterPartAskedArray);
-
-          otherPlayerGain = getArrayGainValueForPlayer(offerer, counterPartAskedArray);
-
-          
-          let counterPartAsked = new CounterPartAsked(counterPartAskedArray, ownerLoss, otherPlayerGain);
-
-
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
 
           
-
           console.log(proposition);
 
 
+            //now, simply use the function : profitable proposition, to check if it is.
 
 
-            alert('ok, voici la taille des éléments offerts : ' + offerArray.length );
+            if(profitableTrade(answerer, proposition) == true){
+                 
+               
+               acceptProposition(proposition);
+               
 
-            alert('ok, voici la taille des éléments demandés à votre interlocuteur : ' + counterPartAskedArray.length );
+            };
+
+
+            closePropositionInterface();
 
 
 
 
         }
 
-   }
+
+
+
+    }
 
 }
 

@@ -15,11 +15,9 @@ function init(){
 
     givePlayersPropertiesForDemo();
 
-    //launchGameProcess();
-
     initPawnsPositions();
 
-    wakeUpAis();
+    //wakeUpAis();
 
 
  }
@@ -93,18 +91,29 @@ function setColorScores(){
 
           //2 ORANGES
 
-    ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
+    humanPlayer.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
 
-    ai1.propertiesByColor[red.index].properties.push(avenueHenriMartin);
+    humanPlayer.propertiesByColor[red.index].properties.push(avenueHenriMartin);
 
 
-    ai1.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
+    humanPlayer.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
 
 
           //1 RED PROPERTY
 
-   ai1.propertiesByColor[red.index].properties.push(avenueMatignon );
-   ai1.propertiesArray.push(avenueMatignon);
+   humanPlayer.propertiesByColor[red.index].properties.push(avenueMatignon );
+   humanPlayer.propertiesArray.push(avenueMatignon);
+
+
+
+
+   
+
+   humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+
+   humanPlayer.propertiesArray.push(rueDeLaPaix);
+
+
 
 
    //AI2
@@ -122,12 +131,6 @@ function setColorScores(){
    ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
    ai2.propertiesArray.push( bdMalesherbes);
 
-
-
-
-   humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
-
-   humanPlayer.propertiesArray.push(rueDeLaPaix);
 
 
 

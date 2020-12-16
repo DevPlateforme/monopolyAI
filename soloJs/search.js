@@ -2,10 +2,8 @@
 function searchForTradesOpportunities(activePlayer){
 
 
-
    if(activePlayer != undefined){
-                //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
-
+            //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
 
 
       let activePlayerGain;
@@ -301,7 +299,7 @@ function searchForTradesOpportunities(activePlayer){
                                     if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
-                                       //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
+                                       //ADD 100 FOR EVERY FUTURE MOVE FOUND
 
 
                                           possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
@@ -1172,8 +1170,6 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-
-
 function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desiredSet){
 
 
@@ -1241,7 +1237,6 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
 
     //LOOP ON ALL "NON TRADING PLAYERS" , MEANING ALL THE PLAYERS WE DON'T TRADE WITH RIGHT NOW.
-
 
 
 

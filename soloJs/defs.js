@@ -13,10 +13,9 @@ function calculateSetValue(setArray){
 
     //multiply the sum of prperty values by the according color score
 
-
-
         let stepVar = calculateStepVariable(setArray);
     
+
     //THIS VARIABLE REPRESENTS THE POSSIBLE ROI OF A SET, WHEN FULLY DEVELOPPED (FOR PROPERTIES, IF THERE ARE HOTELS ON EACH SQUARE OF THE SET. FOR TRAINS, IF THE 4 TRAIN STATIONS ARE OWNED)
 
 
@@ -103,49 +102,32 @@ function createPostLossSet(currentSet, lossArray){
 function calculateStepVariable(setArray){
 
 
-
     let color = setArray[0].color;
 
-
-
-
- if(setArray.length != 0){
-
-
+    
+    if(setArray.length != 0){
 
      if(color == black){
 
-
         //Train stations
-
 
           if(setArray.length == 4){
 
-
             return 1;
-
-
 
           } else if (setArray.length == 3){
 
-
             return 0.5;
-
 
           } else if (setArray.length == 2){
 
-
             return 0.25;
-
 
           } else if (setArray.length == 1){
 
-
             return 0.12;
 
-
           }
-
 
     } else if(color == publicServicesColor){
 
@@ -348,7 +330,6 @@ function checkGlobalDanger(player){
 
 
         }
-
 
 
         if(potentielPayments > player.cash){

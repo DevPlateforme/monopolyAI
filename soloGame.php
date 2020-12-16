@@ -6,8 +6,6 @@
 
 
 
-<h1>Welcome, my friend...do you want to test yourself against the best of the best AIs?</h1>
-
 
 
 <h1 id='activePlayerPresentation'>C'est le tour de l'IA 1</h1>
@@ -228,7 +226,6 @@
 <script src='soloJs/board.js'></script>
 <script src='soloJs/search.js'></script>
 <script src='soloJs/gui.js'></script>
-<script src='soloJs/game.js'></script>
 <script src='soloJs/init.js'></script>
 
 
