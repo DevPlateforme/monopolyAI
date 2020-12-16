@@ -104,7 +104,7 @@ function calculateStepVariable(setArray){
 
     let color = setArray[0].color;
 
-    
+
     if(setArray.length != 0){
 
      if(color == black){
@@ -180,11 +180,9 @@ function calculateStepVariable(setArray){
 
            return 0.05;
 
-
        } else if(setArray.length == 2) {
 
-            return 0.2;
-
+            return 0.25;
 
 
        } else if(setArray.length == 3){

@@ -1228,9 +1228,11 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
 
     let newSet;
-
-
     let newSetValue;
+
+    
+    let playerAGain;    
+
 
 
 
@@ -1267,7 +1269,6 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
 
     
-                let playerAGain;    
 
 
                     // 1/2 TO 2/2

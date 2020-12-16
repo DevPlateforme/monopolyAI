@@ -1305,21 +1305,13 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-
           alert('vous n avez rien offert!');
-
-
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-
           alert('vous n avez demandé aucun élément!');
 
-
-
           //ELSE, VALID PROPOSITION
-
-
 
 
          } else {
@@ -1373,8 +1365,6 @@ function sendProposition(){
             }
 
            
-
-
           //CREATE THE PROPOSITION OBJECT
           
           let offer = createTradeObject(offerObject, offerer, answerer, offerArray);
@@ -1390,11 +1380,9 @@ function sendProposition(){
             //now, simply use the function : profitable proposition, to check if it is.
 
 
-            if(profitableTrade(answerer, proposition) == true){
-                 
-               
-               acceptProposition(proposition);
-               
+            if(profitableTrade(answerer, proposition) == true){                 
+
+               acceptProposition(proposition);     
 
             };
 
@@ -1402,15 +1390,8 @@ function sendProposition(){
             closePropositionInterface();
 
 
-
-
         }
-
-
-
-
     }
-
 }
 
 

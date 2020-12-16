@@ -409,6 +409,9 @@ console.log('now, here is the proposition list : ' + propositionList);
 
 function createTradeObject(type , offerer, answerer, tradeArray){
 
+
+	nodeCount++;
+
   let lossValueForTheOwner = 0;
   let gainValueForTheOtherPlayer = 0;
   let tradeObject;
@@ -484,12 +487,10 @@ function getArrayGainValueForPlayer(player, array){
 
 	  let newSet = createPostGainsSet(currentSet, array);
 
-	  alert('the new set length ' + newSet.length)
 	
-
 	  let newSetValue = calculateSetValue(newSet);
 
-	  alert('the new set value is ' + newSetValue);
+	  
 
 
 	  console.log('The player checks its gains : before, its set value was ' + currentSetValue);
@@ -516,8 +517,7 @@ function getArrayGainValueForPlayer(player, array){
 	  }
 
 
-
-
+	 
 
 	  return (newSetValue - currentSetValue);
 	  
@@ -604,33 +604,20 @@ function profitableTrade(thinker, proposition){
 
 
 
-	 offererScore -= offer.lossValueForTheOwner;
+	 offererScore += offer.lossValueForTheOwner;
 	 offererScore -= offer.cash;
 
 	 offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 	 offererScore += counterPartAsked.cash;
 
 
-	 alert('answererScore is 0 :' + answererScore);
-
-	 answererScore -= counterPartAsked.lossValueForTheOwner;
-
-	 alert('answererScore :' + answererScore);
-
+	 answererScore += counterPartAsked.lossValueForTheOwner;
 	 answererScore -= counterPartAsked.cash;
-
-	 alert('answererScore less cash :' + answererScore);
 
 
 	 answererScore += offer.gainValueForTheOtherPlayer;
-
-	 alert('the gain value for the answerer ' + offer.gainValueForTheOtherPlayer)
-
-	 alert('answererScore plus gain value for the other player :' + answererScore);
-
 	 answererScore += offer.cash;
 
-	 alert('answererScore:' + answererScore);
 
 
 
@@ -646,7 +633,8 @@ function profitableTrade(thinker, proposition){
 
 	 for(i=0; i < tradingPlayers.length; i++){
        
-		if(checkGlobalDanger(tradingPlayers[i]) == true){
+		if(checkGlobalDanger(tradingPlayers[i]) == true){			
+			
 
 			if(tradingPlayers[i] == offerer){
 
@@ -663,7 +651,6 @@ function profitableTrade(thinker, proposition){
   
 		if( checkDirectDanger(tradingPlayers[i]) == true){
 
-		
 			if(tradingPlayers[i] == offerer){
 
 				offererScore += (counterPartAsked.cash)*1.25;
@@ -686,8 +673,6 @@ function profitableTrade(thinker, proposition){
 
 
 
-	 alert('AI thinking...');
-
 
 	 let thinkerScore;
 	 let interlocutorScore;
@@ -704,8 +689,6 @@ function profitableTrade(thinker, proposition){
 
 	 } else {	 
 
-		alert('the answererScore is ' + answererScore);
-
 
 		thinkerScore = answererScore;
 		interlocutorScore = offererScore;
@@ -714,13 +697,9 @@ function profitableTrade(thinker, proposition){
 
 	 //BEHAVIOUR OF THE AI
 
-	 
-	 alert('the thinker score of the AI is ' + thinkerScore);
-	 
+	 	 
 
 	  if(thinkerScore > 0){
-
-		alert('the AI is considering the offer');
 
 
 		 //determine a certain range
@@ -734,7 +713,6 @@ function profitableTrade(thinker, proposition){
 
 			  let topLimit;
 
-
 			  let bottomLimit;
 
 
@@ -742,24 +720,22 @@ function profitableTrade(thinker, proposition){
 
 			      //top limit : value between 1 and 1.5
 			 
-				 topLimit =  interlocutorScore * (1 + (Math.random()/2).toFixed(2));
+				 topLimit =  interlocutorScore * (1 + (Math.random()));
 				 
 				  //THE AI1 wants to have a better situation than the other player
 
-				 bottomLimit = interlocutorScore;
+				 bottomLimit = interlocutorScore * ((Math.random()/3) + 0.4);
 
 				 
-
 				} else{
 
 			  //top limit : value between 1 and 1.33
  
 			  //bottom limit : value between 0.8 AND 1.1
 
-					topLimit =  interlocutorScore * (1 + (Math.random()/3));
+					topLimit =  interlocutorScore * (1 + (Math.random()/2));
 
-			    	bottomLimit = interlocutorScore * ((Math.random()/3) + 0.8);
-
+			    	bottomLimit = interlocutorScore * ((Math.random()/3) + 0.3);
 					
 				}
 				
@@ -810,13 +786,27 @@ function profitableTrade(thinker, proposition){
 
 
 	  }
-				  
 
 
-    		if (bottomLimit < thinkerScore && thinkerScore < topLimit ){				 
+
+    		if (profitableProposition == true ){				 
 				
 				
 				 alert('cette proposition est raisonnable (thinker: ' + thinker.name);
+
+
+				 alert('the bottom limit (score to be above of ) is ' + bottomLimit );
+		   
+				 alert('the thinker score is ' + thinkerScore );
+		   
+				 alert('the other player score is ' + interlocutorScore );
+		   
+		   
+				 alert('the top limit is ' + topLimit );
+		   
+			   
+
+				 
 				 alert('here is the offer : ');
 
 
@@ -845,30 +835,36 @@ function profitableTrade(thinker, proposition){
 
 				 
 
+				 /////
+
+				
+				 
+
 	    	 } else {				
 				 	
-				alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
-				alert('the answerer perceived a value of ' + thinkerScore );
-				alert('the offerer perceived a value of ' + offererScore );
-				alert('here is the offer : ');
+				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+				console.log('the thinker perceived a value of ' + thinkerScore );
+				console.log('the other player perceived a value of ' + interlocutorScore );
+
+				console.log('here is the offer : ');
 
 
 				for(i=0; i < offer.array.length; i++){	
-					 alert('offer element ' + i + ' ' + offer.array[i].name);
+					 console.log('offer element ' + i + ' ' + offer.array[i].name);
 				}
 
-				    alert('and, here is the cash in the offer :' + offer.cash);				
-				    alert('here is the counterpart : ');
+				    console.log('and, here is the cash in the offer :' + offer.cash);				
+				    console.log('here is the counterpart : ');
 
 
 				for(i=0; i < counterPartAsked.array.length; i++){
 					
-				   alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
 
-				  alert('and, here is the cash asked :' + counterPartAsked.cash);
+				  console.log('and, here is the cash asked :' + counterPartAsked.cash);
 
 
 
@@ -884,7 +880,7 @@ function profitableTrade(thinker, proposition){
  
 	  } else {
 		   
-		alert('the AI did not see any benefit in this offer');
+		console.log('the AI did not see any benefit in this offer');
 
 		 return false;
 

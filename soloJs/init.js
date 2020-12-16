@@ -17,7 +17,7 @@ function init(){
 
     initPawnsPositions();
 
-    //wakeUpAis();
+    wakeUpAis();
 
 
  }
