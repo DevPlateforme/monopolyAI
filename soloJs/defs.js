@@ -360,3 +360,7 @@ function checkGlobalDanger(player){
 
   return oPArray;
 }
+
+
+
+

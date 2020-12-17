@@ -411,12 +411,9 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
 
  var communityChestDeck = new Array(17);
- 
+
 
  var chanceDeck = new Array(16);
-
-
-
 
 
  var insufficientFundsForBuyingTimeout;
@@ -449,3 +446,18 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
  var offerObject = 'OO';
 
  var counterPartAskedObject = 'CAO';
+
+
+
+ //INIT VARIABLE, ALLOWING TO PROCESS AI reflections one after the other
+
+
+ var AiThinking = false;
+
+
+
+ var HASHENTRIES = 10000;
+
+ var declinedPropositionHashTable = new Array(10000);
+
+

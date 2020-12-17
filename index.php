@@ -17,7 +17,6 @@
 
   switch ($request) {
 
-
     case $root :
         redirectUser();
         break;

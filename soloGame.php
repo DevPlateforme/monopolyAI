@@ -218,14 +218,37 @@
 
 
 
+<div id='humanAnswerInterface'>
+      
+    <div id='humanAnswerInterfaceBody'></div>
+    <div id='humanAnswerInterfaceOffer'></div>
+    <div id='humanAnswerInterfaceCounterPart'></div>
+
+    </br>
+    </br>
+    <button id='acceptPropositionBtn' onclick ='acceptPropositionFromInterface()'>Accepter</button>
+    <button>Refuser</button>
+    </br>
+    </br>
+    </br>
+    </br>
+
+
+    (vous avez 45 secondes pour accepter, ou refuser l'offre. Après cela, l'offre sera automatiquement refusée)
+
+</div>
+
+
+
 <script src='soloJs/jquery.js'></script>
 <script src='soloJs/classes.js'></script>
 <script src='soloJs/vars.js'></script>
 <script src='soloJs/defs.js'></script>
-<script src='soloJs/trades.js'></script>
+<script src='soloJs/creation.js'></script>
 <script src='soloJs/board.js'></script>
-<script src='soloJs/search.js'></script>
 <script src='soloJs/gui.js'></script>
+<script src='soloJs/proposition.js'></script>
+<script src='soloJs/search.js'></script>
 <script src='soloJs/init.js'></script>
 
 

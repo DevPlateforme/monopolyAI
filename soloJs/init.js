@@ -107,12 +107,6 @@ function setColorScores(){
 
 
 
-   
-
-   humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
-
-   humanPlayer.propertiesArray.push(rueDeLaPaix);
-
 
 
 
@@ -125,11 +119,6 @@ function setColorScores(){
    ai2.propertiesByColor[orange.index].properties.push(placePigalle);
    ai2.propertiesArray.push(placePigalle);
 
-
-         //2 RED PROPERTIES
-
-   ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
-   ai2.propertiesArray.push( bdMalesherbes);
 
 
 
@@ -202,14 +191,13 @@ function createTheChanceDeck(){
 
 
 
-
-
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 2000) + 2000) ;
+    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
 
-    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  2000) + 2000 ) ;
 
+
+    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
 
 }
 
@@ -220,9 +208,25 @@ function aiReflects(ai){
 
     console.log(ai.name + ' est en train de réflechir...');
 
-    searchForTradesOpportunities(ai);
 
-    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  15000) + 5000 );
+    if(AiThinking == false){
+
+        AiThinking = true;
+    
+        searchForTradesOpportunities(ai);
+
+
+         //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
+
+         //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
+         
+
+    }
+
+    AiThinking = false;
+    
+    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  2000) + 2000 );  
+
 
 
 }

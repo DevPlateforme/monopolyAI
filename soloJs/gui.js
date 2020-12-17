@@ -7,13 +7,23 @@ var leftEdge = $('#leftEdge');
 
 
 
+
+
+
+
+
 var availablePropertyInterface = document.getElementById('availablePropertyInterface');
-
 var availablePropertyPriceHTML = document.getElementById('availablePropertyPriceHTML');
-
 var unavailableFundInterface = document.getElementById('unavailableFundInterface');
-
 var offererDiv = document.getElementById('offererDiv');  
+
+
+var humanAnswerInterface = document.getElementById('humanAnswerInterface');
+var humanAnswerInterfaceBody = document.getElementById('humanAnswerInterfaceBody');
+var humanAnswerInterfaceOffer = document.getElementById('humanAnswerInterfaceOffer');
+var humanAnswerInterfaceCounterPart = document.getElementById('humanAnswerInterfaceCounterPart');
+var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
+
 
 
 
@@ -392,9 +402,6 @@ function moveGuiPiece(player , fromSquare, toSquare){
      
 
   let playerName = player.name;
-
-  let pawnImg;
-
    
 
 
@@ -496,13 +503,84 @@ function displayDiceLaunchButton(){
 
 
 
-function removeDiceLaunchButton(){
 
+function displayHumanAnswerInterface(proposition){
 
-     let main = $('#main');
-      
-     let diceButton = $('#diceLaunchButton');
+     humanAnswerInterface.style.opacity = 1;
      
+     humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
+
+     humanAnswerInterfaceOffer.innerHTML = "Voici l'offre qui vous a été soumise :  ";
+
+     for(i=0; i < proposition.offer.array.length; i++){  
+
+          if(proposition.offer.array.length == 1){
+                 
+               humanAnswerInterfaceOffer.innerHTML += '(' + proposition.offer.array[i].color.name +')=>' + proposition.offer.array[i].name; 
+
+          } else if(proposition.offer.array.length > 1) {     
+                
+               for(n=0; n < proposition.offer.array[i].length ; n++){
+
+                    humanAnswerInterfaceOffer.innerHTML += '(' + proposition.offer.array[i][n].color.name +')=>' + proposition.offer.array[i][n].name; 
+
+               }    
+
+          }
+
+     }
+
+     //add cash
+
+     if(proposition.offer.cash != 0){
+
+          humanAnswerInterfaceOffer.innerHTML += 'cash :' + proposition.offer.cash;
+     }
+
+
+     //pass the proposition object into the proposition button attribute
+
+        humanPlayer.propositionToAnswer = proposition;
+
+}
+
+
+
+function storeInHashTable(proposition){
+
+     //proposer, offerer, property ID * property ID * propertyID
+
+     let hashValue = 1;
+
+     for(i=0; i < proposition.offer.array.length; i++){
+           hashValue *= proposition.offer.array[i];
+     }
+     if(proposition.offer.cash != 0){
+          hashValue *= proposition.offer.cash;
+     }
+
+     for(i=0; i < i < proposition.counterPartAsked.array.length; i++){
+          hashValue *= proposition.counterPartAsked.array[i];
+     }
+     
+     if(proposition.counterPartAsked.cash != 0){
+          hashValue *= proposition.offer.cash;
+     }
+
+
+     //store the hashvalue into the table
+
+      declinedPropositionHashTable[hashValue % 10000] = hashValue;
+
+} 
+
+
+
+
+
+function removeDiceLaunchButton(){
+     let main = $('#main');
+     let diceButton = $('#diceLaunchButton');
      main.remove(diceButton)
 }
 
@@ -580,7 +658,6 @@ function closeAvailablePropertyInterface(){
 
 
 
-
  function displayCommunityChestSquareInterface(){
 
      document.getElementById('communityChestSquareInterface').style.zIndex = 3;
@@ -633,17 +710,7 @@ function closeCommunityChestSquareInterface(){
 
 
 
-
-
-
-
 //PROPOSITION INTERFACE
-
-
-
-
-
-
 
 
 
@@ -879,13 +946,6 @@ function displayPropositionInterface(){
 
 
       }   
-
-
-
-
-
-
-
 
 
 
@@ -1432,3 +1492,32 @@ function initPropositionInterface(){
 
 }
 
+
+
+
+
+function acceptPropositionFromInterface(){
+
+     alert('you accepted the offer!!congrats!!');
+
+     initHumanInterface();
+
+     acceptProposition(human.propositionToAnswer);
+
+
+     //init the property
+
+     human.propositionToAnswer = none;
+
+}
+
+
+function initHumanInterface(){
+
+     humanAnswerInterface.style.opacity = 0;
+     humanAnswerInterfaceBody.innerHTML = '';
+     humanAnswerInterfaceOffer = '';
+     humanAnswerInterfaceCounterPart = '';
+     humanAnswerInterfaceBtn = '';          
+
+}

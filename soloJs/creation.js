@@ -86,52 +86,33 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 	console.log('ai1 tries to create a suitable proposition...');
 
-	let offerer = propositionMaterial.offerer;
-
-	let answerer = propositionMaterial.answerer;
-
-
-	let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
-
-
-	let counterPartAsked = propositionMaterial.counterPartAsked;
 	
+	if(propositionMaterial == undefined){
 
-	let color = counterPartAsked.color;
+		console.log('this proposition material is undefined!!!');
+	}
 
-	let counterPartValueForTheOfferer = counterPartAsked.valueForTheOfferer;
-
-	let counterPartArray = counterPartAsked.array;
-
-
+	
+	let offerer = propositionMaterial.offerer;
+	let answerer = propositionMaterial.answerer;
+	let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
+	let counterPartAsked = propositionMaterial.counterPartAsked;
 	let propertiesArray = offerer.propertiesArray;
-
-
 	let proposition;
-
-
-	let offerArray
-
+	let offerArray;
 	let answererGain;
-
 	let offererLoss;
-
 	let propertiesAskedPlusCash;
 
 
 
 	let answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
-	
 	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
 
 
 
     //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
-
-
 	//THEN, TRY TO ADD POSSIBLE PROPOSITIONS TO THE MOVELIST
-
-
 	//WE DO THE EXACT SAME THING THAT WE DID IN THE GENERATE MOVES FUNCTION, WHERE WE DID SPLIT THE OFFERS INTO SETS, AND CALCULATE SCORES FOR THE TWO INVOLVED CHARACTERS (ALLOWING US TO EVALUATE THE GAINS FOR BOTH PLAYERS FOR THIS TRADE)
 
 
@@ -145,8 +126,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 	 
      for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
-
-
 
 		console.log('cash asked in counterpart bucket ' + answererCashSlices[answererCashSliceIndex]);
 
@@ -371,7 +350,6 @@ if( propertiesArray.length > 2){
 
 
 
-
 for(ti = 0 ; ti < tripletArray.length; ti++){
 
 //GET A GAIN AND LOSS, CREATE A PROPOSITION OBJECT. IF PROFITABLE, PUSH IT.
@@ -392,12 +370,9 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 
 		  propositionList.push(proposition);
 
+
 		}
-
-		
-
     }
-
 
 
 console.log('now, here is the proposition list : ' + propositionList);
@@ -792,52 +767,49 @@ function profitableTrade(thinker, proposition){
     		if (profitableProposition == true ){				 
 				
 				
-				 alert('cette proposition est raisonnable (thinker: ' + thinker.name);
+				 console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
 
 
-				 alert('the bottom limit (score to be above of ) is ' + bottomLimit );
+				 console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
 		   
-				 alert('the thinker score is ' + thinkerScore );
+				 console.log('the thinker score is ' + thinkerScore );
 		   
-				 alert('the other player score is ' + interlocutorScore );
+				 console.log('the other player score is ' + interlocutorScore );
 		   
 		   
-				 alert('the top limit is ' + topLimit );
+				 console.log('the top limit is ' + topLimit );
 		   
 			   
 
 				 
-				 alert('here is the offer : ');
+				 console.log('here is the offer : ');
 
 
 				 for(i=0; i < offer.array.length; i++){
 					 
-					alert('offer element : ' + offer.array[i].name);
+					console.log('offer element : ' + offer.array[i].name);
 	
 				 }
 
-				   alert('and, here is the cash in the offer :' + offer.cash);
-				   alert('here is the counterpart : ');
+				   console.log('and, here is the cash in the offer :' + offer.cash);
+				   console.log('here is the counterpart : ');
 
 
 				 for(i=0; i < counterPartAsked.array.length; i++){
 
-				  alert('counterpart asked : '+ counterPartAsked.array[i].name);	
+				  console.log('counterpart asked : '+ counterPartAsked.array[i].name);	
 
 				 }
 
 
-				 alert('and, here is the cash asked :' + counterPartAsked.cash);
+				 console.log('and, here is the cash asked :' + counterPartAsked.cash);
+
+
 
 
 				 return true;
 
 
-				 
-
-				 /////
-
-				
 				 
 
 	    	 } else {				
@@ -893,17 +865,6 @@ function profitableTrade(thinker, proposition){
 
 //RETURN THE PROFITABILITY, WITH THE POINT OF VIEW OF A PLAYER A
 
-
-
-   //CHECK OF THE FRAGILITY OF PLAYERS SITUATIONS
-
-	  //FOR EACH PLAYER :
-	  
-
-		//IF THE SUM OF OTHER PLAYERS IS HIGHER THAN THE PLAYERS TOTAL ASSSETS
-	
-		
-	//PROFITABILITY PLAYER A
 
 
 
@@ -1124,7 +1085,7 @@ function processPropositionAndAnswer(offerer, answerer, proposition){
 function acceptProposition(proposition){
 
 
-	alert("accepting the proposition...");
+	console.log("accepting the proposition...");
 
 
 	let offerer = proposition.offerer;
@@ -1206,7 +1167,7 @@ function acceptProposition(proposition){
 			
 			   if(offererElement == element){
 
-				  alert('the deleted element from the offer :' + offererElement.name);
+				  console.log('the deleted element from the offer :' + offererElement.name);
 		   
 				   offerer.propertiesByColor[color.index].properties.splice(n,1);
  
@@ -1224,7 +1185,7 @@ function acceptProposition(proposition){
 
 
 		 answerer.cash += offer.cash;
-		 alert('proposition accepted');
+		 console.log('proposition accepted');
 }
 
 
@@ -1239,3 +1200,6 @@ function clearInBuildingProposition(){
 
 
 }
+
+
+

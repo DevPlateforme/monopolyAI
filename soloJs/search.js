@@ -66,18 +66,12 @@ function searchForTradesOpportunities(activePlayer){
 
         for(otherPlayerIndex = 0; otherPlayerIndex < otherPlayersArray.length ; otherPlayerIndex++){
 
-
-
             otherPlayer = otherPlayersArray[otherPlayerIndex];
 
             answerer = otherPlayer;
 
-
             let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties;
-
             let activePlayerCurrentArray = activePlayer.propertiesByColor[colorIndex].properties.length;
-
-
 
 
             //PROPERTIES
@@ -371,7 +365,7 @@ function searchForTradesOpportunities(activePlayer){
         
                                    propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
         
-                                   tryToCreateProposition(propositionMaterial);
+                                   tryToCreateProposition( activePlayer, propositionMaterial);
 
 
 
@@ -1148,6 +1142,14 @@ function searchForTradesOpportunities(activePlayer){
 
        console.log(nodeCount + 'potential offers were evaluated');
 
+
+       if(propositionList.length != 0){        
+           
+          makeProposition(propositionList[0]);
+
+
+       }
+
   
 
        initPropositionVars();
@@ -1255,31 +1257,21 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
     
 
-
         if(colorArray[colorIndex] == darkBlue || colorArray[colorIndex] == brown ){
-
 
 
             if((checkedPropertySet.length + set.length) == 2){
 
-
                 //TRY TO GENERATE A POSSIBLE MOVE
     
                 let nonTradingPlayerLoss = getArrayLossValueForPlayer(nonTradingPlayer, checkedPropertySet);
-
-
     
 
-
                     // 1/2 TO 2/2
-
-
                     newSet = set.slice(0);
 
 
-
                     for(elementIndex = 0; elementIndex < checkedPropertySet.length ; elementIndex++){
-
 
                         newSet.push(checkedPropertySet[elementIndex]);
 
@@ -1289,19 +1281,16 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
                     newSetValue = calculateSetValue(newSet);
 
-               
                    playerAgain = newSetValue - setValue;
 
                    
 
                let counterPartAsked = new CounterPartAsked( checkedPropertySet, nonTradingPlayerLoss , playerAGain);
-    
-    
+        
                 let propositionMaterial = new PropositionMaterial(playerA, nonTradingPlayer, counterPartAsked);
 
 
                 console.log('future proposition counter part is ' + counterPartAsked);
-
                 console.log('future proposition proposition material is' + propositionMaterial);
 
 
@@ -1351,14 +1340,11 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
 
             newSetValue = calculateSetValue(newSet);
-
             playerAgain = newSetValue - setValue;
        
 
 
            let counterPartAsked = new CounterPartAsked( checkedPropertySet, nonTradingPlayerLoss , playerAGain);
-
-
             let propositionMaterial = new PropositionMaterial(playerA, nonTradingPlayer, counterPartAsked);
 
 
