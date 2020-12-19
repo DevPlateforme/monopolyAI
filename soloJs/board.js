@@ -544,6 +544,9 @@ function clearInsufficientFundsForBuyingTimeout(){
 function addPropertyToPlayerWallet(player, property){
 
 
+  alert('element added to the wallet!!')
+
+
     let propertyColor = property.color;
     
     player.propertiesByColor[propertyColor.index].properties.push(property); 

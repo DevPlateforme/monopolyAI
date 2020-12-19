@@ -208,7 +208,6 @@ function aiReflects(ai){
 
     console.log(ai.name + ' est en train de réflechir...');
 
-
     if(AiThinking == false){
 
         AiThinking = true;

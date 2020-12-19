@@ -8,10 +8,6 @@ var leftEdge = $('#leftEdge');
 
 
 
-
-
-
-
 var availablePropertyInterface = document.getElementById('availablePropertyInterface');
 var availablePropertyPriceHTML = document.getElementById('availablePropertyPriceHTML');
 var unavailableFundInterface = document.getElementById('unavailableFundInterface');
@@ -543,6 +539,21 @@ function displayHumanAnswerInterface(proposition){
         humanPlayer.propositionToAnswer = proposition;
 
 }
+
+
+
+function refusePropositionFromInterface(){
+
+
+     alert('vous avez refusé cette proposition!!');
+
+     humanAnswerInterface.style.opacity = 0;
+     initHumanAnswerInterface();
+     humanPlayer.propositionToAnswer = none;
+
+
+}
+
 
 
 
@@ -1296,6 +1307,18 @@ function addOfferElement(event, offererIndex, elementIndex ){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 function removeOfferElement(event, offererIndex, elementIndex){
 
      
@@ -1497,22 +1520,25 @@ function initPropositionInterface(){
 
 
 function acceptPropositionFromInterface(){
+     
 
      alert('you accepted the offer!!congrats!!');
 
-     initHumanInterface();
+     initHumanAnswerInterface();
 
-     acceptProposition(human.propositionToAnswer);
+     acceptProposition(humanPlayer.propositionToAnswer);
+
+
 
 
      //init the property
 
-     human.propositionToAnswer = none;
+     humanPlayer.propositionToAnswer = none;
 
 }
 
 
-function initHumanInterface(){
+function initHumanAnswerInterface(){
 
      humanAnswerInterface.style.opacity = 0;
      humanAnswerInterfaceBody.innerHTML = '';

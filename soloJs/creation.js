@@ -1058,8 +1058,6 @@ function tryToCreateFutureProposition(propositionMaterial){
 
 
 
-
-
 function processPropositionAndAnswer(offerer, answerer, proposition){
 
 
@@ -1071,121 +1069,6 @@ function processPropositionAndAnswer(offerer, answerer, proposition){
 
 
 
-}
-
-
-
-
-
-
-
-
-
-
-function acceptProposition(proposition){
-
-
-	console.log("accepting the proposition...");
-
-
-	let offerer = proposition.offerer;
-	let answerer = proposition.answerer;
-	let offer = proposition.offer;
-	let counterPartAsked = proposition.counterPartAsked;
-
-
-
-	//COUNTERPART
-
-
-
-	//offerer gets all the elements it needs to get
-
- 	   for(i=0; i < counterPartAsked.array.length; i++){
-
-		
-		let element = counterPartAsked.array[i];
-
-		let color = element.color;
-
-		   //DELETE ELEMENT FROM THE ANSWERERS ARRAY
-
-          for(n=0; n < answerer.propertiesByColor[color.index].properties.length; n++){
-
-
-		    let answererElement = answerer.propertiesByColor[color.index].properties[i];
-			  
-			
-			if(answererElement == element){
-		   
-				answerer.propertiesByColor[color.index].properties.splice(n,1);
-
-			}
-			
-
-
-		  }
-
-
-
-
-
-		   //ADD THE NEW ELEMENT TO THE OFFERERS ARRAY
-
-
-		   offerer.propertiesByColor[color.index].properties.push(element);
-		   
-
-		   offerer.propertiesArray.push(element); 		   
-
-		}
-		
-
-		offerer.cash += counterPartAsked.cash;
-
-
-
-		//OFFER
-
-
-		for(i=0; i < offer.array.length; i++){
-			
-			let element = offer.array[i];
-
-			let color = element.color;
-
-
-		  
-			
-	   //DELETE ELEMENT FROM THE OFFERERS ARRAY
-
-          for(n=0; n < offerer.propertiesByColor[color.index].properties.length; n++){
-
-
-		       let offererElement = offerer.propertiesByColor[color.index].properties[i];
-			  
-			
-			   if(offererElement == element){
-
-				  console.log('the deleted element from the offer :' + offererElement.name);
-		   
-				   offerer.propertiesByColor[color.index].properties.splice(n,1);
- 
-
-			  }
-			
-
-		  }
-
-
- 
-			answerer.propertiesByColor[color.index].properties.push(element); 
-			answerer.propertiesArray.push(element); 		 
-		 }
-
-
-		 answerer.cash += offer.cash;
-		 console.log('proposition accepted');
 }
 
 

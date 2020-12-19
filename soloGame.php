@@ -227,7 +227,7 @@
     </br>
     </br>
     <button id='acceptPropositionBtn' onclick ='acceptPropositionFromInterface()'>Accepter</button>
-    <button>Refuser</button>
+    <button onclick='refusePropositionFromInterface()'>Refuser</button>
     </br>
     </br>
     </br>
