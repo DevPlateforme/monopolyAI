@@ -401,14 +401,14 @@ function moveGuiPiece(player , fromSquare, toSquare){
    
 
 
-       console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
+       //console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
 
-       console.log(' Board State' );
+       //console.log(' Board State' );
 
-       console.log(' GUI STATE : ai1 is on square ' + (ai1.position + 1) );
-       console.log(' GUI STATE : ai2 is on square ' + (ai2.position + 1));
-       console.log(' GUI STATE : player1 is on square ' + (player1.position + 1));
-       console.log(' GUI STATE : player2 is on square ' + (player2.position + 1));
+       //console.log(' GUI STATE : ai1 is on square ' + (ai1.position + 1) );
+       //console.log(' GUI STATE : ai2 is on square ' + (ai2.position + 1));
+       //console.log(' GUI STATE : player1 is on square ' + (player1.position + 1));
+       //console.log(' GUI STATE : player2 is on square ' + (player2.position + 1));
 
      
      
@@ -467,7 +467,7 @@ function initPawnsPositions(){
     player2PawnContainer.append(player2Img);
 
 
-    console.log('images added!!');
+    //console.log('images added!!');
 
 }
 
@@ -503,26 +503,20 @@ function displayDiceLaunchButton(){
 function displayHumanAnswerInterface(proposition){
 
      humanAnswerInterface.style.opacity = 1;
+     humanAnswerInterface.style.zIndex = 3;
+
      
      humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
 
-     humanAnswerInterfaceOffer.innerHTML = "Voici l'offre qui vous a été soumise :  ";
+     humanAnswerInterfaceOffer.innerHTML = "Voici l'offre qui vous a été soumise :  </br>";
+
+
+     //OFFER
 
      for(i=0; i < proposition.offer.array.length; i++){  
 
-          if(proposition.offer.array.length == 1){
-                 
-               humanAnswerInterfaceOffer.innerHTML += '(' + proposition.offer.array[i].color.name +')=>' + proposition.offer.array[i].name; 
-
-          } else if(proposition.offer.array.length > 1) {     
-                
-               for(n=0; n < proposition.offer.array[i].length ; n++){
-
-                    humanAnswerInterfaceOffer.innerHTML += '(' + proposition.offer.array[i][n].color.name +')=>' + proposition.offer.array[i][n].name; 
-
-               }    
-
-          }
+               humanAnswerInterfaceOffer.innerHTML += '' + proposition.offer.array[i].color.name +' : ' + proposition.offer.array[i].name + '</br>'; 
+       
 
      }
 
@@ -531,7 +525,38 @@ function displayHumanAnswerInterface(proposition){
      if(proposition.offer.cash != 0){
 
           humanAnswerInterfaceOffer.innerHTML += 'cash :' + proposition.offer.cash;
+
+     } else {
+
+          humanAnswerInterfaceOffer.innerHTML += 'there is no cash in this offer';
+
      }
+
+
+
+     //COUNTERPART ASKED
+
+             
+     humanAnswerInterfaceCounterPart.innerHTML = "Voici la contrepartie qui vous est demandée : </br> ";
+
+
+     for(i=0; i < proposition.counterPartAsked.array.length; i++){  
+
+               humanAnswerInterfaceCounterPart.innerHTML += '' + proposition.counterPartAsked.array[i].color.name +' :' + proposition.counterPartAsked.array[i].name + ' </br>'; 
+       
+     }
+
+     //add cash
+
+     if(proposition.counterPartAsked.cash != 0){
+
+          humanAnswerInterfaceCounterPart.innerHTML += 'cash :' + proposition.counterPartAsked.cash;
+
+     }
+
+
+
+
 
 
      //pass the proposition object into the proposition button attribute
@@ -799,7 +824,7 @@ function observeAi(ai){
           let propertiesArray = ai.propertiesByColor;
 
 
-          console.log('here is the original array length:' + ai1.propertiesByColor.length );
+          //console.log('here is the original array length:' + ai1.propertiesByColor.length );
 
 
           
@@ -1145,12 +1170,7 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
 
 
-     console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
-
-
-
-
-
+     //console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
 
 
 
@@ -1202,7 +1222,7 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = undefined;
 
 
-     console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
+     //console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
 
 
 
@@ -1275,7 +1295,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
                offerer.inBuildingProposition.offer[elementIndex] = property;
      
      
-               console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
+               //console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
      
      
      
@@ -1309,16 +1329,6 @@ function addOfferElement(event, offererIndex, elementIndex ){
 
 
 
-
-
-
-
-
-
-
-
-
-
 function removeOfferElement(event, offererIndex, elementIndex){
 
      
@@ -1344,7 +1354,7 @@ function removeOfferElement(event, offererIndex, elementIndex){
          offerer.inBuildingProposition.offer[elementIndex] = undefined;
 
 
-         console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
+         //console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
 
 
           //REDUCE THE COUNT BY 1
@@ -1457,7 +1467,7 @@ function sendProposition(){
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
 
           
-          console.log(proposition);
+          //console.log(proposition);
 
 
             //now, simply use the function : profitable proposition, to check if it is.
@@ -1492,9 +1502,7 @@ function sendPropositionToHuman(offerer, proposition){
 
     //IF THE PLAYER ACCEPTS : THE PLAYER TRIGGERS THE FUNCTION ACCEPT PROPOSITION
 
-
     //BUT, HOW IS THE PROPOSITION PASSED
-
 
     //ACTUALLY, WHEN A PLAYER IS PROPOSED SOMETHING : THE PROPOSITION FILLS A PROPERTY OF THE PLAYER OBJECT IS JS
 
@@ -1541,6 +1549,7 @@ function acceptPropositionFromInterface(){
 function initHumanAnswerInterface(){
 
      humanAnswerInterface.style.opacity = 0;
+     humanAnswerInterface.style.zIndex = 1;
      humanAnswerInterfaceBody.innerHTML = '';
      humanAnswerInterfaceOffer = '';
      humanAnswerInterfaceCounterPart = '';

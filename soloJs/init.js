@@ -99,10 +99,7 @@ function setColorScores(){
     humanPlayer.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
 
 
-          //1 RED PROPERTY
 
-   humanPlayer.propertiesByColor[red.index].properties.push(avenueMatignon );
-   humanPlayer.propertiesArray.push(avenueMatignon);
 
 
 
@@ -116,8 +113,14 @@ function setColorScores(){
           //1 ORANGE
 
 
-   ai2.propertiesByColor[orange.index].properties.push(placePigalle);
-   ai2.propertiesArray.push(placePigalle);
+      ai2.propertiesByColor[orange.index].properties.push(placePigalle);
+      ai2.propertiesArray.push(placePigalle);
+
+          //1 RED PROPERTY
+
+
+      ai2.propertiesByColor[red.index].properties.push(avenueMatignon );
+      ai2.propertiesArray.push(avenueMatignon);
 
 
 
@@ -195,8 +198,6 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
 
-
-
     setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
 
 }
@@ -206,13 +207,9 @@ function wakeUpAis(){
 
 function aiReflects(ai){
 
-    console.log(ai.name + ' est en train de réflechir...');
-
-    if(AiThinking == false){
-
-        AiThinking = true;
-    
         searchForTradesOpportunities(ai);
+
+
 
 
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
@@ -220,11 +217,10 @@ function aiReflects(ai){
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
          
 
-    }
-
-    AiThinking = false;
     
-    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  2000) + 2000 );  
+
+    
+    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
 
 
 

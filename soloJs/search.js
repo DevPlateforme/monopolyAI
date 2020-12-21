@@ -2,7 +2,11 @@
 function searchForTradesOpportunities(activePlayer){
 
 
+     console.log('----------------------------------------------------------STARTING A NEW SEARCH-----------------------------------------------------------------------------');
+
    if(activePlayer != undefined){
+
+
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
 
 
@@ -20,18 +24,6 @@ function searchForTradesOpportunities(activePlayer){
 
       let propositionMaterial;
 
-      let propertySetColor;
-      
-      let possibleMonopolyMoves;
-
-      let trainProperties;
-
-
-      let activePlayerCurrentArray;
-
-      let activePlayerNewArray;
-
-      
 
 
 
@@ -39,7 +31,7 @@ function searchForTradesOpportunities(activePlayer){
 
     
 
-      console.log('moves generated...');
+      //('moves generated...');
 
 
 
@@ -59,7 +51,7 @@ function searchForTradesOpportunities(activePlayer){
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {
 
-         console.log(' color.........................' + colorIndex);
+         //(' color.........................' + colorIndex);
         
         //FOR EACH COLOR
 
@@ -116,7 +108,7 @@ function searchForTradesOpportunities(activePlayer){
 
                 if(activePlayer.propertiesByColor[colorIndex].properties.length != 3){
 
-                    console.log('possible monopoly found');
+                    //('possible monopoly found');
 
                     //IF WE WANT A MONOPOLY, WE TRY TO TAKE THE WHOLE ARRAY OF THE OTHER PLAYE
                     
@@ -316,7 +308,6 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-
                                            //TRY TO GET ELEMENT ONE
 
 
@@ -375,7 +366,7 @@ function searchForTradesOpportunities(activePlayer){
                                   
                                    activePlayerGain =  getArrayGainValueForPlayer(activePlayer , otherPlayerPropertiesArrayForThisColor );
 
-                                   console.log('checking for a possible one three to two three');
+                                   //('checking for a possible one three to two three');
                                    
 
                                    if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
@@ -437,7 +428,7 @@ function searchForTradesOpportunities(activePlayer){
                           activePlayerGain = getArrayGainValueForPlayer(activePlayer, otherPlayerPropertiesArrayForThisColor );
 
 
-                          console.log('checking for a possible zero two to one two...');
+                          //('checking for a possible zero two to one two...');
 
                           
 
@@ -1112,17 +1103,11 @@ function searchForTradesOpportunities(activePlayer){
 
                  
 
-
-
-                          }
-
+                        }
 
                   }
-
-
         
              }
-
 
 
              //END OF PROPERTY COLOR LOOP
@@ -1131,34 +1116,38 @@ function searchForTradesOpportunities(activePlayer){
        }
   
 
-
     }
-
 
           
        //INIT THE PROPOSITION LIST FOR THE NEXT ITERATIONS
 
     
+       //(nodeCount + 'potential offers were evaluated');
 
-       console.log(nodeCount + 'potential offers were evaluated');
 
+       if(activePlayer.propositionList.length != 0){      
+              
+        
+          let rand = Math.floor(Math.random()*(activePlayer.propositionList.length-1));
 
-       if(propositionList.length != 0){        
+          //alert(rand);
            
-          makeProposition(propositionList[0]);
+          makeProposition(activePlayer.propositionList[rand]);
 
+          //alert('longeur de la liste ' + propositionList.length);
+
+          console.log('here is now the propositionList :');
+
+          console.log(activePlayer.propositionList);
+
+          AiThinking = false;
 
        }
 
-  
 
-       initPropositionVars();
-
-
+       initPropositionVars(activePlayer);
 
     //END OF FUNCTION
-
-
 
 }
 
@@ -1175,7 +1164,7 @@ function searchForTradesOpportunities(activePlayer){
 function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desiredSet){
 
 
-    console.log('checking possible future proposition...');
+    //console.log('checking possible future proposition...');
     
 
     let color = desiredSet[0].color;
@@ -1290,8 +1279,8 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
                 let propositionMaterial = new PropositionMaterial(playerA, nonTradingPlayer, counterPartAsked);
 
 
-                console.log('future proposition counter part is ' + counterPartAsked);
-                console.log('future proposition proposition material is' + propositionMaterial);
+                //('future proposition counter part is ' + counterPartAsked);
+                //('future proposition proposition material is' + propositionMaterial);
 
 
     
@@ -1302,7 +1291,7 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
     
                    } else {
 
-                    console.log(' unfortunately , there would be a future monopoly possibility, but we couldnt gnerate it ');
+                    //(' unfortunately , there would be a future monopoly possibility, but we couldnt gnerate it ');
 
                    }
     
@@ -1350,13 +1339,13 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
                if( tryToCreateFutureProposition(propositionMaterial) != noMove){
 
-                   console.log('we found possible future monopolies for this move');
+                   //('we found possible future monopolies for this move');
 
-                    return possibleFutureMonopolyTradesList.length;
+                    return possibleFutureMonopolyCount;
 
                } else {
 
-                console.log('unfortunately, there was a possible opportunity for a monopoly, but we wont be able to generate a good offer for it ');
+                //('unfortunately, there was a possible opportunity for a monopoly, but we wont be able to generate a good offer for it ');
 
 
                }
@@ -1438,12 +1427,12 @@ function initPossibleMonopolyTradesList(){
 
 
 
- function initPropositionVars(){
+ function initPropositionVars(thinker){
 
 
-    propositionList = [];
+    thinker.propositionList = [];
 
-    nodeCount = 0;
+
  }
 
  

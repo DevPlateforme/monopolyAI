@@ -76,7 +76,7 @@ function movePiece(){
    function moveGuiPiece(){
 
 
-    console.log('moving the piece...');
+    //console.log('moving the piece...');
 
        
 
@@ -86,7 +86,7 @@ function movePiece(){
    function makePostLaunchMove(){
      
 
-     console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
+     //console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
 
 
 
@@ -344,54 +344,54 @@ function movePiece(){
 
   function launchPropositionsAnswersProcess(){
 
-    console.log('ai1 gets to chose a trade ...');
+    //console.log('ai1 gets to chose a trade ...');
 
-    console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-    
-
-    console.log('ai2 gets to answer the trade proposition...');
-
-    console.log('ai2 accepts the trade...');
-
+    //console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
 
     
-    console.log('ai2 gets to chose a trade ...');
 
-    console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
+    //console.log('ai2 gets to answer the trade proposition...');
+
+    //console.log('ai2 accepts the trade...');
 
 
     
-    console.log('ai2 gets to answer the trade proposition...');
+    //console.log('ai2 gets to chose a trade ...');
 
-    console.log('ai2 accepts the trade...');
-
-
-    
-    console.log('player1 gets to chose a trade ...');
-
-    console.log('player1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-
-    console.log('ai2 gets to answer the trade proposition...');
-
-    console.log('ai2 accepts the trade...');
+    //console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
 
 
     
-    console.log('player2 gets to chose a trade ...');
+    //console.log('ai2 gets to answer the trade proposition...');
 
-    console.log('player2 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
+    //console.log('ai2 accepts the trade...');
 
 
     
-    console.log('ai2 gets to answer the trade proposition...');
+    //console.log('player1 gets to chose a trade ...');
 
-    console.log('ai2 accepts the trade...');
+    //console.log('player1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
+
+
+    //console.log('ai2 gets to answer the trade proposition...');
+
+    //console.log('ai2 accepts the trade...');
+
+
+    
+    //console.log('player2 gets to chose a trade ...');
+
+    //console.log('player2 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
+
+
+    
+    //console.log('ai2 gets to answer the trade proposition...');
+
+    //console.log('ai2 accepts the trade...');
 
 
 
-    console.log('launch the dices');
+    //console.log('launch the dices');
 
 
  }

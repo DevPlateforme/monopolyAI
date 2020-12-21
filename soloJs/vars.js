@@ -82,9 +82,9 @@ var busy = 'busy';
 
 var noCash = 'no cash';
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none }
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500,  rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingPropositionn : none ,  propositionDone : none  } 
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player', rents:0 ,  cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition: none , propositionDone : none }
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] }
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500,  rents: 0 , propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]} , { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [] , bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingPropositionn : none ,  propositionDone : none , propositionList: [] } 
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player', rents:0 ,  cash: 1500, propertiesByColor : [ { color: brown, properties : [ ]}, { color: lightBlue, properties : [ ]}, { color: purple, properties : [ ]},{ color: orange, properties : [ ]}, { color: red, properties : [ ]} , { color: yellow, properties : [ ]}, { color: green, properties : [ ]} , { color: darkBlue, properties : [ ]} , { color: black, properties : [ ]}, { color: publicServicesColor, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition: none , propositionDone : none , propositionList : [] }
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -427,9 +427,7 @@ var hundredDollarsInheritionCard = {type: collection , revenue : 100 , descripti
 
 
 
- var nodeCount = 0;
-
-
+ var possibleFutureMonopolyCount = 0;
 
 
 
