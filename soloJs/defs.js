@@ -353,12 +353,190 @@ function checkGlobalDanger(player){
 
      function getOtherPlayersArray(player){
 
-  let oPArray = playersArray.slice(0);
+       let oPArray = playersArray.slice(0);
 			 
-  oPArray.splice(tradingPlayers[i].index, 1);
+       oPArray.splice(tradingPlayers[i].index, 1);
 
 
-  return oPArray;
+      return oPArray;
+}
+
+
+
+
+function checkForBankruptcy(player){
+       
+    if(player.cash + getPotentialMortgagesValue(player) <= 0){
+
+        gameOver();
+        
+
+    } else {
+
+      alert(player.name + ' isnt in bankruptcy!!');
+    }
+          
+}
+
+
+
+
+function getPotentialMortgagesValue(player){
+
+
+     let potentialValue = 0;
+
+
+     for(i=0; i < player.propertiesArray.length; i++){
+
+        let property = player.propertiesArray[i];
+
+        
+        if(property.mortgaged == false){
+
+               potentialValue += property.mortgageValue;
+        }
+
+     }
+
+   return potentialValue;
+
+}
+
+
+function closeMortgage(property){
+
+
+     property.mortgaged = false;
+
+     property.landLord.cash -= property.mortgageValue;
+
+
+}
+
+
+
+function gameOver(){
+       
+     alert("the game is over");
+
+}
+
+
+
+
+function getMortgage(player){
+
+
+       //The player making a mortgage :
+
+       //the property in question will have a property => mortgage
+
+       //when a property has a value => mortgaged => prix de groupe cassé
+
+  
+
+}
+
+
+
+function payMortgage(){
+
+
+
+}
+
+
+
+
+function buildHouse(property){
+
+
+     property.house += 1;
+
+     //THIS FUNCTION IS ONLY AVAILABLE (THROUGH)
+
+     property.landLord.cash -= property.houseValue;
+
+     alert(property.landLord.name + ' just built a house!!');
+
+}
+
+
+
+
+
+
+
+function playerInBankruptcy(player){
+
+    
+     player.bankruptcy = true;
+
+
+     //if the answerer is in bankruptcy, the value of the cash is multiplied by 5
+
+
+}
+
+
+
+
+
+function simulateMovement(from, to){
+
+
+    let position = from + to;
+
+
+    if(position > 39){
+
+      position -= 39;
+    }
+
+
+    return position;
+
+
+}
+
+
+
+function getRent(property){
+
+
+      if(property.type == rentalProperty){
+
+          if(property.houses == 0){
+
+              return property.rent;
+              
+          } else if(property.houses == 1){
+
+             return property.rentHouse1;
+
+          } else if(property.houses == 2){
+
+             return property.rentHouse2;
+
+          } else if(property.houses == 3){
+
+            return property.rentHouse3;
+
+          }
+
+
+      } else if (property.type == trainStation) {
+
+
+          //depending of the number of train stations owned by the landlord
+
+          let numOfStationsOwned = landLord.propertiesByColor[black.index].length;
+
+          return 50 * numOfStationsOwned;
+
+      }
+
 }
 
 

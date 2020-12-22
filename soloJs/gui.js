@@ -1118,7 +1118,10 @@ function displayOffererDiv(){
 function addCounterPartAskedElementToProposition(event, offererIndex, answererIndex, elementIndex){
 
 
+
      let offerer = playersArray[offererIndex];
+
+
 
      let answerer = playersArray[answererIndex];
 
@@ -1164,6 +1167,10 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
          
 
      }
+
+
+
+
 
 
 
@@ -1477,6 +1484,9 @@ function sendProposition(){
 
                acceptProposition(proposition);     
 
+            } else {
+
+               alert('proposition refusée!!!');
             };
 
 

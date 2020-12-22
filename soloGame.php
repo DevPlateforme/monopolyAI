@@ -8,8 +8,6 @@
 
 
 
-<h1 id='activePlayerPresentation'>C'est le tour de l'IA 1</h1>
-
 <h3 id='ThinkingAiDiv'>L'IA réfléchit...</h3>
 
 <h3 id='diceDiv'>Lancer de dés en attente...</h3>

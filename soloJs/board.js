@@ -138,8 +138,13 @@ function movePiece(){
 
 
 
-     //MAKE ALL THE OTHER INTERFACES REAPPEAR
+      
+      //AIs rethink about building
 
+
+      ai1.willingnessToBuild = true;
+
+      ai2.willingnessToBuild = true;
 
 
   }
@@ -183,88 +188,48 @@ function movePiece(){
 
 
 
-   if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){          
+      if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){          
     
-      if( squaresArray[lastDiceLauncher.position].landLord == none ){
+         if( currentSquare.landLord == none ){
 
-            displayAvailablePropertyInterface(currentSquare);
-       } else {
+             if(lastDiceLauncher.cash > currentSquare.value){
 
-        alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+                   displayAvailablePropertyInterface(currentSquare);
+
+             } else {
+
+               alert('vous n avez pas assez de cash pour acheter cette propriété!');
+
+             }
+
+         
+          } else {
+
+            alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+
+             lastDiceLauncher.cash -= getRent(currentSquare);
+
+             alert('vous payez la somme de ' + getRent(currentSquare));
+
+             alert('indeed, the number of houses on this property is ' + currentSquare.houses);
+
+             checkForBankruptcy(lastDiceLauncher);
        
-      }
+        }
 
-   } else if (currentSquare.type == communityChest){
+       } else if (currentSquare.type == communityChest){
+         
+           displayCommunityChestSquareInterface();
 
-        displayCommunityChestSquareInterface();
-
-
-   } else if (currentSquare.type == luck){
+       } else if (currentSquare.type == luck){
            
            displayChanceSquareInterface();
 
-   }
+      }
   
     
-              //IF THE AI HAVE ENOUGH CASH : BUY
 
-               //ELSE : DO NOTHING
-
-
-        //IF PLAYER : DISPLAY AVAILABLE PROPERTY INTERFACE. THE PLAYER WILL BE ABLE TO EXECUTE THIS FUNCTION : MAKEAVAILABLEPROPERTYDECISION();
-
-
-
-               //IF AI
-
-
-          //MAKEAVAILABLEPROPERTYDECISION()
-
-      
-    //IF JAIL
-
-            //IF OWNING OF A JAIL ESCAPE CARD : 
-
-                  //IF HUMAN PLAYER :
-                      //DISPLAYJAILUSECARD INTERFACE
-
-                  //IF AI
-                      //AIJAILCARDUSETHINKING
-                         //IF THERE IS MORE THAN 50 PLIES, DONT USE IT. ELSE USE IT.
-
-                  
-                //POSSIBILITY TO USE IT. ELSE NOTHING
-
-
-//DRAW CARDS
-
-
-        //IF AI : AI DRAWS CARD AUTOMATICALLY. 
-
-
-
-        //IF HUMAN : DISPLAY AN INTERFACE WHICH WILL TRIGGER AN AUTOMATIC ACTION AFTER THE PLAYER CLICKS
-
-              //IF COMMUNITY CHEST
-                      
-                       //DRAW A CARD
-
-               //IF CHANCE CARD
-                      
-                       //DRAW A CHANCE CARD
-
-      
-        //IF HUMAN PLAYER, AN INTERFACE APPEARS , ALLOWING THE PLAYER TO DRAW THE CARD
-
-
-
-
-
-
-        //ALLTHOSE ACTIONS WILL FILL THE VARIABLE POSTLAUNCH DECISION TO DONE
-        
-
-
+         
     }
 
     
@@ -279,9 +244,31 @@ function movePiece(){
 
             if(communityChestCardsList.length != 0){
 
+               let card = communityChestCardsList[0];
+               
+               alert('vous avez piochés la carte caisse de communauté : ' + card.description);
 
-              
-               alert('vous avez piochés la carte caisse de communauté : ' + communityChestCardsList[0].description);
+               if(card.type == 'collection'){
+
+                alert('vous recevez la somme de ' + card.collection + ' dollars' );
+    
+              } else if(card.type == 'payment'){
+    
+                    alert('vous payez la somme de ' + card.fee + ' dollars' );
+    
+                    lastDiceLauncher.cash -= card.fee;
+    
+                    checkForBankruptcy(lastDiceLauncher);
+    
+    
+              } else if (card.type == 'movement'){
+    
+                alert('vous vous déplacez jusque ' + card.destination.name);
+
+                
+    
+              }
+    
 
                communityChestCardsList.splice(0,1);
 
@@ -304,10 +291,10 @@ function movePiece(){
          
         setTimeout( function(){ closeCommunityChestSquareInterface()}, 1500);
 
-        
-         
+                 
       }
    
+
 
    
    function drawChanceCardAndExecuteAction(){
@@ -315,8 +302,30 @@ function movePiece(){
          //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
          if(chanceCardsList.length != 0){
+
+              let card =  chanceCardsList[0];
               
-          alert('vous avez piochés la carte chance :  ' + chanceCardsList[0].description);
+          alert('vous avez piochés la carte chance :  ' + card.description);
+
+
+          if(card.type == 'collection'){
+
+            alert('vous recevez la somme de ' + card.collection + ' dollars' );
+
+          } else if(card.type == 'payment'){
+
+                alert('vous payés la somme de ' + card.fee + ' dollars' );
+
+               lastDiceLauncher.cash -= card.fee;
+
+              checkForBankruptcy(lastDiceLauncher);
+
+
+          } else if (card.type == 'movement'){
+
+            alert('vous vous déplacez jusque ' + card.destination.name);
+
+          }
 
           chanceCardsList.splice(0,1);
          
@@ -325,94 +334,13 @@ function movePiece(){
           alert('il n y a plus de cartes dans le paquet!')
        }
 
-       //IF COLLECT, COLLECT 
-
-      //IF PAY, PAY
-
-    
-     //IF MOVEMENT, MOVE
-
 
           setTimeout( function(){ closeChanceSquareInterface()}, 1500);
-
 
    }
 
   
-
-      
-
-  function launchPropositionsAnswersProcess(){
-
-    //console.log('ai1 gets to chose a trade ...');
-
-    //console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-    
-
-    //console.log('ai2 gets to answer the trade proposition...');
-
-    //console.log('ai2 accepts the trade...');
-
-
-    
-    //console.log('ai2 gets to chose a trade ...');
-
-    //console.log('ai1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-
-    
-    //console.log('ai2 gets to answer the trade proposition...');
-
-    //console.log('ai2 accepts the trade...');
-
-
-    
-    //console.log('player1 gets to chose a trade ...');
-
-    //console.log('player1 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-
-    //console.log('ai2 gets to answer the trade proposition...');
-
-    //console.log('ai2 accepts the trade...');
-
-
-    
-    //console.log('player2 gets to chose a trade ...');
-
-    //console.log('player2 proposes ai2 to exchange rue de la paix against rue de Courcelles...');
-
-
-    
-    //console.log('ai2 gets to answer the trade proposition...');
-
-    //console.log('ai2 accepts the trade...');
-
-
-
-    //console.log('launch the dices');
-
-
- }
-
-
-   
-function launchMortgagesProcess(){
-
-
-  }
-
-function launchSellingPropertiesProcess(){
-
- }
-
-function launchBuyingPropertiesProcess(){
-
  
-}
-
-
 
 
 
@@ -492,7 +420,6 @@ function buyAvailableProperty(){
       playerPaymentToTheBank(lastDiceLauncher, property.value);
 
       addPropertyToPlayerWallet(lastDiceLauncher, property);
-
 
       closeAvailablePropertyInterface();
 

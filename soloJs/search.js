@@ -2,7 +2,6 @@
 function searchForTradesOpportunities(activePlayer){
 
 
-     console.log('----------------------------------------------------------STARTING A NEW SEARCH-----------------------------------------------------------------------------');
 
    if(activePlayer != undefined){
 
@@ -1136,9 +1135,7 @@ function searchForTradesOpportunities(activePlayer){
 
           //alert('longeur de la liste ' + propositionList.length);
 
-          console.log('here is now the propositionList :');
 
-          console.log(activePlayer.propositionList);
 
           AiThinking = false;
 
@@ -1436,6 +1433,387 @@ function initPossibleMonopolyTradesList(){
  }
 
  
+
+
+
+
+ function handleBankruptcy(ai){
+
+
+
+
+
+    //if there are non monopoly properties 
+
+       for(i=0; i < ai.propertiesByColor.length; i++){
+
+             if(ai.propertiesByColor[i].monopoly == false){
+
+
+                   for(y=0; y < ai.propertiesByColor[i].properties; y++){
+
+                        if(ai.propertiesByColor[i].properties[y].mortgaged == false){
+                                     
+                            
+                            //put this property to mortgaged, which will increase cash
+
+
+
+                            getMortgage(ai.propertiesByColor[i].properties[y].mortgaged);
+
+
+                            if(ai.cash >= 0){
+
+                                //The AI is not is not in bankruptcy anymore
+
+
+                                return;
+                            }
+
+
+                        }
+
+
+                   }
+
+
+             }
+        
+
+       }
+
+
+
+       //if no mortgage to do, then, sell houses (sorting it => by values, then by position (priority queue))
+
+
+
+       for(i=0; i < ai.propertiesByColor.length ; i++){
+
+
+            let sortedMonopolies = [];
+
+            if(ai.propertiesByColor[i].monopoly == true && ai.propertiesByColor[i].housesBuilt == true){
+
+
+                let monopoly = ai.propertiesByColor[i].properties;
+
+                
+                      //sort those houses using quick sort, and sell houses one by one
+
+                    
+                 for(y=0; y < monopoly.length; y++ ){
+
+                        
+
+            
+                 }
+
+            }
+
+       }
+
+
+
+
+       //If still in bankruptcy despite selling all the houses, put properties in mortgage
+
+
+
+       
+       for(i=0; i < ai.propertiesByColor.length; i++){
+
+
+
+          if(ai.propertiesByColor[i].monopoly == true){
+
+
+              for(y=0; y < ai.propertiesByColor[i].properties; y++){
+
+
+
+                   if(ai.propertiesByColor[i].properties[y].mortgaged == false){
+                                
+                       
+                       //put this property to mortgaged, which will increase cash
+
+
+
+                       getMortgage(ai.propertiesByColor[i].properties[y].mortgaged);
+
+
+                       if(ai.cash >= 0){
+
+                           //The AI is not is not in bankruptcy anymore
+
+
+                           return;
+                       }
+
+
+                   }
+
+
+              }
+
+
+          }
+   
+
+      }
+
+
+ }
+
+
+
+
+ function checkForBuildingOpportunities(ai){
+
+
+     console.log('checking for building opportunities...');
+    
+
+     let otherPlayersArray;
+
+
+     if(ai == ai1){
+
+        otherPlayersArray = [ai2, humanPlayer];
+
+     } else if (ai == ai2){
+
+        otherPlayersArray = [ai1, humanPlayer];
+
+    }
+    
+
+    if(ai.monopolies == 0 || ai.willingnessToBuild == false){
+        
+        return noMove;
+
+    }
+
+
+
+    for(i=0; i < otherPlayersArray.length; i++){
+
+        console.log('looping on the other players...');
+
+        //sort the elements by order of probabilities 
+
+
+
+
+        for(num = 0; num < sortedProbasFrom9to5.length ; num++){
+
+        
+            let property = squaresArray[simulateMovement(otherPlayersArray[i].position , sortedProbasFrom9to5[num])];
+
+
+            console.log(property);
+
+
+            let possibilityToBuild;
+
+
+
+
+            if(property.type == rentalProperty){   
+                
+                let color = property.color;
+
+
+                
+                
+                if(property.landLord == ai ){
+
+                    alert(property.landLord.name);
+
+
+                     //if the player has cash
+
+                    alert('another player is in danger zone, he could get hit by our property in the next round!!');
+
+                   //if the AI have a monopoly
+                
+  
+                    if(property.landLord.propertiesByColor[color.index].monopoly == true){
+
+
+                        alert('another player is in a zone , close to one of your monopoly Lets check if you have enough cash!!');
+
+               
+
+                         if(ai.cash > property.houseValue){
+
+                              alert('yes, you do have enough cash to build!! Lets build a house on ' + property.name);
+
+                              alert('now, structurally, can you do it?')
+
+                              possibilityToBuild = true;
+
+                    //if there is a possiblity to build on this property ==> Meaning ==> if there isnt a house with less houses on this property => build
+                     
+                               for(n=0; n < ai.propertiesByColor[color.index].length; n++){
+
+
+                                   if(ai.propertiesByColor[color.index][n] == property){
+
+                                      continue;
+
+                                    } else {
+
+                            //if there is a property on this domain, with less houses, impossibility to build (monopoly's rules)
+
+                                       if(ai.propertiesByColor[color.index][n].houses < property.house){
+
+                                           possibilityToBuild = false;
+
+                                           break;
+                                       }
+
+                                    }
+                               }
+
+                                    if(possibilityToBuild == true){
+
+                                         alert('yes, you can build a house there!!')
+
+                                        buildHouse(property);
+
+                               }
+
+                          }
+
+                    }
+
+              } 
+
+
+          } 
+
+
+
+      }
+
+
+
+    }
+
+
+     //SET A PROPERTY, SO THAT AI LIMITS TO 1 HOUSE BUILT A ROUND
+
+
+     ai.willingnessToBuild = false;
+
+    //If a player acquire a monopoly => all the properties already on it, are automatically sold
+
+
+    //if you need to mortge , mortgage
+
+ }
+
+
+
+
+
+ function checkForMortgageBuying(ai){
+
+       //If you have cash => Diminish the cash by the biggest paying point in the properties between 9 to 5 in front.
+     
+       //else, you may need this cash
+
+
+       let virtualCash = ai.cash;
+
+       let highestPayingPoint = 0;
+    
+
+       
+
+       for(num = 0; num < sortedProbasFrom9to5.length ; num++){
+
+        
+          let property = squaresArray[simulateMovement(ai.position , sortedProbasFrom9to5[num])];
+
+          let color = property.color;
+
+          let possibilityToBuild;
+        
+
+           if(property.type == rentalProperty ){
+
+              if(property.landLord != ai){
+
+                let rent = getRent(property);
+
+
+                 if( rent> highestPayingPoint){
+
+                    highestPayingPoint = rent;
+
+                 }
+
+              }
+
+            }
+
+        }
+
+
+
+        virtualCash -= highestPayingPoint;
+
+
+        //check all the available mortgages
+
+        //choose only monopolies => properties without monopoly have few interest
+
+
+        for(i=0; i < ai.propertiesByColor.length ; i++){
+
+
+            if(ai.propertiesByColor[i].monopoly == true){
+
+                for(y = 0; y < ai.propertiesByColor[i].properties.length; y++){
+
+                    let monopolyProperty = ai.propertiesByColor[i].properties[y];
+
+
+                    if(monopolyProperty.mortgaged == true){
+
+
+                        if(virtualCash >= monopolyProperty.mortgageValue){
+
+                             closeMortgage(property);
+
+                        }     
+
+                    }
+                }
+            }
+
+        }     
+
+    }
+
+
+
+ function aiSearch(ai){
+
+    //can I build a dangerous house? (may require mortgage buying)
+
+
+        checkForBuildingOpportunities(ai);
+
+        checkForMortgageBuying(ai);
+ 
+        searchForTradesOpportunities(ai);
+
+
+
+ }
 
 
  

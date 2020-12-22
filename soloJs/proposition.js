@@ -6,13 +6,12 @@ function makeProposition(proposition){
 
     if(proposition.answerer == humanPlayer){	 
         
-        displayHumanAnswerInterface(proposition);
+        //displayHumanAnswerInterface(proposition);
         
     } else {
  
         if(profitableTrade(proposition.answerer, proposition) == true){
  
-               alert('Une IA a accepté une offre!');
  
              //the trade is accepted by the AI
 
@@ -21,7 +20,6 @@ function makeProposition(proposition){
               //the trade is refused
 
 
-              alert('Une IA a refusée une offre de l autre IA!!!')
               
                if(proposition.offerer == humanPlayer){
  

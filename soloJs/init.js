@@ -44,26 +44,28 @@ function setColorScores(){
   
     for(colorIndex = 0; colorIndex < colorArray.length - 1; colorIndex++){
   
-      threshHoldMultiplicator = 4;
+
+       threshHoldMultiplicator = 4;
   
-      color = colorArray[colorIndex];
+       color = colorArray[colorIndex];
   
       //LOOP ON EACH ROI
   
       for(ri= 0 ; ri < color.ROIS.length ; ri++){
   
-         color.ROIS[ri] += 1016.16;
+          color.ROIS[ri] += 1016.16;
   
-         ROI = color.ROIS[ri];
+          ROI = color.ROIS[ri];
      
-         color.growthScore += (ROI * threshHoldMultiplicator);
+          color.growthScore += (ROI * threshHoldMultiplicator);
       
-         threshHoldMultiplicator--;
+          threshHoldMultiplicator--;
   
       }
   
       //DIVIDE EACH SCORE BY ORANGE BEING THE BIGGEST SCORE , TO GET A 1 BASED INDEX
   
+
       color.growthScore = color.growthScore/43397;
   
       color.growthScore = color.growthScore.toFixed(2)
@@ -89,41 +91,89 @@ function setColorScores(){
 
     //AI1
 
-          //2 ORANGES
+          //3 ORANGES
 
-    humanPlayer.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
-
-    humanPlayer.propertiesByColor[red.index].properties.push(avenueHenriMartin);
+    ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
 
 
-    humanPlayer.propertiesArray.push( avenueMozart, boulevardSaintMichel, avenueHenriMartin);
+    avenueMozart.landLord = ai1;
+
+    boulevardSaintMichel.landLord = ai1;
+
+    ai1.propertiesByColor[orange.index].properties.push(placePigalle);
+    ai1.propertiesArray.push(placePigalle);
+
+    placePigalle.landLord = ai1;
+
+
+    ai1.propertiesByColor[orange.index].monopoly = true;
+
+    ai1.monopolies += 1;
+
+    //2 dark blues
+
+
+    ai1.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix, avenueDesChampsElysees);
+    ai1.propertiesArray.push(rueDeLaPaix, avenueDesChampsElysees);
+
+    rueDeLaPaix.landLord = ai1;
+
+    avenueDesChampsElysees.landLord = ai1;
+
+    ai1.propertiesByColor[darkBlue.index].monopoly = true;
+
+
+    ai1.monopolies += 1;
+
+
+
+    //yellow
+
+
+
+    ai1.propertiesByColor[yellow.index].properties.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
+    ai1.propertiesArray.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
+
+
+    rueLaFayette.landLord = ai1 ;
+    
+    placeDeLaBourse.landLord = ai1; 
+    
+    faubourgSaintHonore.landLord = ai1;
+
+    ai1.propertiesByColor[yellow.index].monopoly = true;
+
+
+    ai1.monopolies += 1;
+
+
+    
 
 
 
 
 
 
+
+
+
+
+
+    
 
 
 
 
    //AI2
 
-
           //1 ORANGE
 
-
-      ai2.propertiesByColor[orange.index].properties.push(placePigalle);
-      ai2.propertiesArray.push(placePigalle);
 
           //1 RED PROPERTY
 
 
       ai2.propertiesByColor[red.index].properties.push(avenueMatignon );
       ai2.propertiesArray.push(avenueMatignon);
-
-
-
 
 
 }
@@ -134,23 +184,15 @@ function setColorScores(){
 
 function createTheCommunityChestDeck(){
 
-  //USE THE CARD LIST AS A STACK.
-
-  //WE CAN ALSO TAKE EACH ELEMENT, AND DO A SWAP.
-
-  //THE SIMPLEST WE'LL DO
-
  
-  let randomIndex;
+   let randomIndex;
    
-  for(deckIndex = 0 ; deckIndex < communityChestCardsList.length ; deckIndex++){
+   for(deckIndex = 0 ; deckIndex < communityChestCardsList.length ; deckIndex++){
  
        //FOR EACH ELEMENT OF THE ARRAY, 
 
        randomIndex = Math.floor((Math.random() * availableCommunityCardsIndexesArray.length ) ) + 1;
-
        communityChestDeck[availableCommunityCardsIndexesArray[randomIndex] ] = communityChestCardsList[deckIndex];
-
        availableCommunityCardsIndexesArray .splice(randomIndex , 1 );
 
 
@@ -187,7 +229,7 @@ function createTheChanceDeck(){
 
    }
 
-   console.log(chanceDeck);
+      console.log(chanceDeck);
 
 }
 
@@ -198,7 +240,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
 
-    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
+    //setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
 
 }
 
@@ -207,22 +249,14 @@ function wakeUpAis(){
 
 function aiReflects(ai){
 
-        searchForTradesOpportunities(ai);
+        //searchForTradesOpportunities(ai);
 
-
-
+        aiSearch(ai);
 
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
-
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
-         
-
-    
-
-    
-    setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
-
-
+           
+       setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
 
 }
 

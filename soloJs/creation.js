@@ -10,12 +10,7 @@ function PropositionMaterial(offerer, answerer, counterPartAsked){
 	this.counterPartAsked = counterPartAsked;
 	
 	
-	console.log('proposition material created!! Here are the counter part asked we are going to try');
-	for(i=0; i < this.counterPartAsked.array.length; i++){
-
-		console.log(this.counterPartAsked.array[i]);
-
-	}
+	
     
 }
 
@@ -72,28 +67,6 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 	this.counterPartAsked =counterPartAsked;
 
 
-	console.log('voici une proposition generee . Offres : ');
-
-	 
-	for(of=0; of < this.offer.array.length; of++){
-
-		console.log(offer.array[of].name);
-
-	}
-
-	console.log(', contrepartie : ');
-
-
-		 
-	for(cp=0; cp < this.counterPartAsked.array.length; cp++){
-
-		console.log(counterPartAsked.array[cp].name);
-
-	}
-	
-
-
-
 }
 
 
@@ -131,19 +104,16 @@ function tryToCreateProposition(thinker, propositionMaterial){
 	let propertiesAskedPlusCash;
 
 
-	console.log('here is the proposition material we are actually trying inside the function!!!');
+	//console.log('here is the proposition material we are actually trying inside the function!!!');
 
 	
 
 	for(i=0; i < counterPartAsked.array.length; i++){
 
-		console.log(counterPartAsked.array[i]);
+		//console.log(counterPartAsked.array[i]);
 
 	}
     
-
-
-
 
 
 
@@ -161,10 +131,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 	//1 ELEMENTS PROPOSITIONS
 
 
-
-
-
-		 //FOR EACH ANSWERER CASH SLICE
+		 //FOR EACH ANSWERER CASH SLICES
 
 	 
      for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
@@ -190,13 +157,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 				 offerArray = [propertiesArray[propertyIndex]];
 				 
-				 console.log('properties possibly offered => ');
-
-				  for(oa = 0 ; oa < offerArray.length; oa++){
-
-					 console.log(offerArray[oa].name);
-
-				  }
+				 
 
 		     	 //DIVIDE THIS ARRAY IN SETS
 			 
@@ -208,9 +169,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 				
 				 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
-
-
-					//console.log('cash inserted in an offer ' + offererCashSlices[offererCashSliceIndex]);
 
 					
 
@@ -225,26 +183,17 @@ function tryToCreateProposition(thinker, propositionMaterial){
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
 
 
-						 console.log('now, lets check the proposition => ');
 
 						
-
-
 						 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
   
   
 						 
-						if(profitableTrade(offerer,  proposition ) == true){
-
-							alert(thinker.name + ' a trouvé une proposition à réaliser');
-  
-							  //console.log('pushing proposition...');
+						if(profitableTrade(offerer,  proposition ) == true){  
   
 							  thinker.propositionList.push(proposition);
 
-					  
 						}
-
 
 				 }
 
@@ -275,8 +224,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 					
 				   if(profitableTrade(offerer,  proposition ) == true){
 						
-					     alert(thinker.name + ' a trouvé une proposition rentable à réaliser!')
-
 						 //console.log('pushing proposition...');
 
 						 thinker.propositionList.push(proposition);
@@ -426,8 +373,6 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 
 
 		if(profitableTrade(offerer, proposition ) == true){
-
-			alert (thinker.name + ' a trouvé une proposition rentable à réaliser!')
 
   		    thinker.propositionList.push(proposition);
 
@@ -696,6 +641,24 @@ function profitableTrade(thinker, proposition){
 
 		};
 
+		
+		if( tradingPlayers[i].bankruptcy == true){
+
+			if(tradingPlayers[i] == offerer){
+
+				offererScore += (counterPartAsked.cash)*3;
+
+			} else {
+
+				answererScore += (offer.cash)*3;
+
+			}
+
+		};
+
+
+		
+
 
 
    }
@@ -704,6 +667,10 @@ function profitableTrade(thinker, proposition){
 
 
 	 //TAKING INTO ACCOUNT THE FRAGILITY OF EACH PLAYERS SITUATION (INFLUENCING HOW MUCH THEY VALUE CASH)
+
+
+
+	 
 
 
 
@@ -758,7 +725,7 @@ function profitableTrade(thinker, proposition){
 				 
 				  //THE AI1 wants to have a better situation than the other player
 
-				 bottomLimit = interlocutorScore * ((Math.random()/3) + 0.4);
+				 bottomLimit = interlocutorScore * ((Math.random()/3) + 0.6);
 
 				 
 				} else{
@@ -769,7 +736,7 @@ function profitableTrade(thinker, proposition){
 
 					topLimit =  interlocutorScore * (1 + (Math.random()/2));
 
-			    	bottomLimit = interlocutorScore * ((Math.random()/3) + 0.3);
+			    	bottomLimit = interlocutorScore * ((Math.random()/3) + 0.5);
 					
 				}
 				
