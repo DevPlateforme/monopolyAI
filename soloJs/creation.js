@@ -573,6 +573,7 @@ function divideOfferInSets(offerArray){
 function profitableTrade(thinker, proposition){
 
 
+
 	 let offer = proposition.offer;
 	 let counterPartAsked = proposition.counterPartAsked;
 	 let offerer = proposition.offerer;
@@ -669,7 +670,14 @@ function profitableTrade(thinker, proposition){
 	 //TAKING INTO ACCOUNT THE FRAGILITY OF EACH PLAYERS SITUATION (INFLUENCING HOW MUCH THEY VALUE CASH)
 
 
+	  //NOW THAT SCORES WERE SET , STORE IT IN THE OBJECT FOR FUTURE SORTING
+	  
 
+
+
+	  proposition.offererScore;
+
+	  proposition.answererScore;
 	 
 
 
@@ -876,8 +884,29 @@ function profitableTrade(thinker, proposition){
  
 	     } else {
 		   
-		//console.log('the AI did not see any benefit in this offer');
+		   console.log('the AI did not see any benefit in this offer. Score => ' + thinkerScore);
 
+
+		   console.log( 'offer loss' + offer.lossValueForTheOwner);
+
+		   console.log( 'offer gain ' + offer.gainValueForTheOtherPlayer);
+
+
+		   console.log( 'CP loss' + counterPartAsked.lossValueForTheOwner);
+
+		   console.log( 'CP gain ' + counterPartAsked.gainValueForTheOtherPlayer);
+
+
+		   
+
+	console.log("checked proposition => ");
+
+
+	console.log(proposition)
+
+
+	  
+		
 		    return false;
 
 

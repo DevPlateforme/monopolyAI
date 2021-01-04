@@ -1,9 +1,23 @@
 
 function searchForTradesOpportunities(activePlayer){
+ 
+ 
+    //DEPTH FIRST SEARCH
 
 
+                                  //ROOT
 
+
+                       //PLAYER A            PLAYER B
+              //COLOR 1         COLOR 2 ...      COLOR 1    COLOR 
+        
+
+        
    if(activePlayer != undefined){
+
+
+       console.log("AI searching...");
+
 
 
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
@@ -1126,12 +1140,12 @@ function searchForTradesOpportunities(activePlayer){
 
        if(activePlayer.propositionList.length != 0){      
               
-        
-          let rand = Math.floor(Math.random()*(activePlayer.propositionList.length-1));
+          
+        sortPropositionList(activePlayer.propositionList);
 
           //alert(rand);
            
-          makeProposition(activePlayer.propositionList[rand]);
+          //makeProposition(activePlayer.propositionList[0]);
 
           //alert('longeur de la liste ' + propositionList.length);
 
@@ -1571,141 +1585,6 @@ function initPossibleMonopolyTradesList(){
  function checkForBuildingOpportunities(ai){
 
 
-     console.log('checking for building opportunities...');
-    
-
-     let otherPlayersArray;
-
-
-     if(ai == ai1){
-
-        otherPlayersArray = [ai2, humanPlayer];
-
-     } else if (ai == ai2){
-
-        otherPlayersArray = [ai1, humanPlayer];
-
-    }
-    
-
-    if(ai.monopolies == 0 || ai.willingnessToBuild == false){
-        
-        return noMove;
-
-    }
-
-
-
-    for(i=0; i < otherPlayersArray.length; i++){
-
-        console.log('looping on the other players...');
-
-        //sort the elements by order of probabilities 
-
-
-
-
-        for(num = 0; num < sortedProbasFrom9to5.length ; num++){
-
-        
-            let property = squaresArray[simulateMovement(otherPlayersArray[i].position , sortedProbasFrom9to5[num])];
-
-
-            console.log(property);
-
-
-            let possibilityToBuild;
-
-
-
-
-            if(property.type == rentalProperty){   
-                
-                let color = property.color;
-
-
-                
-                
-                if(property.landLord == ai ){
-
-                    alert(property.landLord.name);
-
-
-                     //if the player has cash
-
-                    alert('another player is in danger zone, he could get hit by our property in the next round!!');
-
-                   //if the AI have a monopoly
-                
-  
-                    if(property.landLord.propertiesByColor[color.index].monopoly == true){
-
-
-                        alert('another player is in a zone , close to one of your monopoly Lets check if you have enough cash!!');
-
-               
-
-                         if(ai.cash > property.houseValue){
-
-                              alert('yes, you do have enough cash to build!! Lets build a house on ' + property.name);
-
-                              alert('now, structurally, can you do it?')
-
-                              possibilityToBuild = true;
-
-                    //if there is a possiblity to build on this property ==> Meaning ==> if there isnt a house with less houses on this property => build
-                     
-                               for(n=0; n < ai.propertiesByColor[color.index].length; n++){
-
-
-                                   if(ai.propertiesByColor[color.index][n] == property){
-
-                                      continue;
-
-                                    } else {
-
-                            //if there is a property on this domain, with less houses, impossibility to build (monopoly's rules)
-
-                                       if(ai.propertiesByColor[color.index][n].houses < property.house){
-
-                                           possibilityToBuild = false;
-
-                                           break;
-                                       }
-
-                                    }
-                               }
-
-                                    if(possibilityToBuild == true){
-
-                                         alert('yes, you can build a house there!!')
-
-                                        buildHouse(property);
-
-                               }
-
-                          }
-
-                    }
-
-              } 
-
-
-          } 
-
-
-
-      }
-
-
-
-    }
-
-
-     //SET A PROPERTY, SO THAT AI LIMITS TO 1 HOUSE BUILT A ROUND
-
-
-     ai.willingnessToBuild = false;
 
     //If a player acquire a monopoly => all the properties already on it, are automatically sold
 
@@ -1815,5 +1694,33 @@ function initPossibleMonopolyTradesList(){
 
  }
 
+
+ 
+
+
+
+
+ function sortPropositionList(propositionList){
+
+     //quickSort, based on the gain of the AI
+
+
+
+     //meaning , we generate a serie of offers, and we take the one benefitting us the most (given we judged it was a faire trade)
+
+
+     //find a pivot (last element)
+
+     let pivot = propositionList[0];
+
+
+     var arr = [pivot];
+
+
+     alert('the AI score for this trade is ' + pivot.offererScore);
+
+
+
+ }
 
  

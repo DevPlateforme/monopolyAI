@@ -113,17 +113,17 @@ function setColorScores(){
     //2 dark blues
 
 
-    ai1.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix, avenueDesChampsElysees);
-    ai1.propertiesArray.push(rueDeLaPaix, avenueDesChampsElysees);
+    humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix, avenueDesChampsElysees);
+    humanPlayer.propertiesArray.push(rueDeLaPaix, avenueDesChampsElysees);
 
-    rueDeLaPaix.landLord = ai1;
+    rueDeLaPaix.landLord = humanPlayer;
 
-    avenueDesChampsElysees.landLord = ai1;
+    avenueDesChampsElysees.landLord = humanPlayer;
 
-    ai1.propertiesByColor[darkBlue.index].monopoly = true;
+    humanPlayer.propertiesByColor[darkBlue.index].monopoly = true;
 
 
-    ai1.monopolies += 1;
+    humanPlayer.monopolies += 1;
 
 
 
@@ -131,36 +131,23 @@ function setColorScores(){
 
 
 
-    ai1.propertiesByColor[yellow.index].properties.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
-    ai1.propertiesArray.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
+    humanPlayer.propertiesByColor[yellow.index].properties.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
+    humanPlayer.propertiesArray.push(rueLaFayette , placeDeLaBourse, faubourgSaintHonore );
 
 
-    rueLaFayette.landLord = ai1 ;
+    rueLaFayette.landLord = humanPlayer ;
     
-    placeDeLaBourse.landLord = ai1; 
+    placeDeLaBourse.landLord = humanPlayer ; 
     
-    faubourgSaintHonore.landLord = ai1;
+    faubourgSaintHonore.landLord = humanPlayer ;
 
-    ai1.propertiesByColor[yellow.index].monopoly = true;
-
-
-    ai1.monopolies += 1;
+    humanPlayer.propertiesByColor[yellow.index].monopoly = true;
 
 
-    
-
-
-
-
-
-
-
-
-
+    humanPlayer.monopolies += 1;
 
 
     
-
 
 
 
