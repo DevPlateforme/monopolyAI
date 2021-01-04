@@ -282,6 +282,8 @@ function tryToCreateProposition(thinker, propositionMaterial){
 	}
 
 
+
+
 			   for(pi = 0 ; pi < pairArray.length ; pi++){          
 
 				
@@ -571,15 +573,34 @@ function divideOfferInSets(offerArray){
 
 
 function profitableTrade(thinker, proposition){
+    
 
-
-
+ 
 	 let offer = proposition.offer;
 	 let counterPartAsked = proposition.counterPartAsked;
 	 let offerer = proposition.offerer;
 	 let answerer = proposition.answerer;
 	 let offererScore = 0;
 	 let answererScore = 0;
+
+
+	 
+
+
+		if(counterPartAsked.array.length == 3){
+
+			
+	   	   console.log('possible monopoly offered!')
+
+		   console.log(proposition)
+
+
+		}
+
+
+	
+	 
+
 
 
 
@@ -711,6 +732,13 @@ function profitableTrade(thinker, proposition){
 	  if(thinkerScore > 0){
 
 
+		if(offer.array.length == 3 ){
+
+
+			alert('monopoly offered!')
+		   
+
+
 		 //determine a certain range
 
 		 //IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
@@ -799,42 +827,40 @@ function profitableTrade(thinker, proposition){
     		if (profitableProposition == true ){				 
 				
 				
-				 //console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+ 				  console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
 
-
-				 //console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
+				  console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
 		   
-				 //console.log('the thinker score is ' + thinkerScore );
+				  console.log('the thinker score is ' + thinkerScore );
 		   
-				 //console.log('the other player score is ' + interlocutorScore );
+				  console.log('the other player score is ' + interlocutorScore );
 		   
 		   
-				 //console.log('the top limit is ' + topLimit );
+				  console.log('the top limit is ' + topLimit );
 		   
 			   
-
 				 
-				 //console.log('here is the offer : ');
+				   console.log('here is the offer : ');
 
 
 				 for(i=0; i < offer.array.length; i++){
 					 
-					//console.log('offer element : ' + offer.array[i].name);
+				    console.log('offer element : ' + offer.array[i].name);
 	
 				 }
 
-				   //console.log('and, here is the cash in the offer :' + offer.cash);
-				   //console.log('here is the counterpart : ');
+				    console.log('and, here is the cash in the offer :' + offer.cash);
+				    console.log('here is the counterpart : ');
 
 
 				 for(i=0; i < counterPartAsked.array.length; i++){
 
-				  //console.log('counterpart asked : '+ counterPartAsked.array[i].name);	
+				    console.log('counterpart asked : '+ counterPartAsked.array[i].name);	
 
 				 }
 
 
-				 //console.log('and, here is the cash asked :' + counterPartAsked.cash);
+				 console.log('and, here is the cash asked :' + counterPartAsked.cash);
 
 
 
@@ -846,24 +872,24 @@ function profitableTrade(thinker, proposition){
 
 	    	 } else {				
 				 	
-				//console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
-				//console.log('the thinker perceived a value of ' + thinkerScore );
-				//console.log('the other player perceived a value of ' + interlocutorScore );
+				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+				console.log('the thinker perceived a value of ' + thinkerScore );
+				console.log('the other player perceived a value of ' + interlocutorScore );
 
-				//console.log('here is the offer : ');
+				console.log('here is the offer : ');
 
 
 				for(i=0; i < offer.array.length; i++){	
-					 //console.log('offer element ' + i + ' ' + offer.array[i].name);
+					 console.log('offer element ' + i + ' ' + offer.array[i].name);
 				}
 
-				    //console.log('and, here is the cash in the offer :' + offer.cash);				
-				    //console.log('here is the counterpart : ');
+				    console.log('and, here is the cash in the offer :' + offer.cash);				
+				    console.log('here is the counterpart : ');
 
 
 				for(i=0; i < counterPartAsked.array.length; i++){
 					
-				   //console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
@@ -881,30 +907,11 @@ function profitableTrade(thinker, proposition){
 
 
 			 //IF NEGATIVE THINKERSCORE, IMMEDIATLY RETURN FALSE
+
+			} //end of test
  
 	     } else {
 		   
-		   console.log('the AI did not see any benefit in this offer. Score => ' + thinkerScore);
-
-
-		   console.log( 'offer loss' + offer.lossValueForTheOwner);
-
-		   console.log( 'offer gain ' + offer.gainValueForTheOtherPlayer);
-
-
-		   console.log( 'CP loss' + counterPartAsked.lossValueForTheOwner);
-
-		   console.log( 'CP gain ' + counterPartAsked.gainValueForTheOtherPlayer);
-
-
-		   
-
-	console.log("checked proposition => ");
-
-
-	console.log(proposition)
-
-
 	  
 		
 		    return false;

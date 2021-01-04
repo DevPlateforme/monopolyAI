@@ -16,8 +16,7 @@ function searchForTradesOpportunities(activePlayer){
    if(activePlayer != undefined){
 
 
-       console.log("AI searching...");
-
+      console.log("AI searching...");
 
 
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
@@ -127,7 +126,7 @@ function searchForTradesOpportunities(activePlayer){
                     
 
 
-                      if(activePlayerCurrentArray.length == 0){
+                      if(activePlayer.propertiesByColor[colorIndex].properties.length == 0){
 
                           //FROM AN ARRAY, AN OFFERER, AND AN ANSWERER, WE CAN OBTAIN AN 
                         
@@ -140,7 +139,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                          activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+                          activePlayerGain = getArrayGainValueForPlayer( activePlayer, otherPlayerPropertiesArrayForThisColor );
 
 
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
@@ -148,9 +147,6 @@ function searchForTradesOpportunities(activePlayer){
                           counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
 
 
-                          //RETURN { LOSS FOR THE OWNER : , GAIN FOR THE OFFERER : , ARRAY, COLOR}                   
-
-                          //{valueForTheOfferer: zeroThreeToThreeThree, color: colorArray[colorIndex], array : otherPlayerPropertiesArrayForThisColor};
                 
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
@@ -163,7 +159,7 @@ function searchForTradesOpportunities(activePlayer){
                        }else if(activePlayer.propertiesByColor[colorIndex].properties.length == 1){
 
                         
-                          activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+                          activePlayerGain = getArrayGainValueForPlayer( activePlayer, otherPlayerPropertiesArrayForThisColor );
 
 
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
@@ -180,7 +176,7 @@ function searchForTradesOpportunities(activePlayer){
                      } else if(activePlayer.propertiesByColor[colorIndex].properties.length == 2){
 
                           
-                        activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+                        activePlayerGain = getArrayGainValueForPlayer( activePlayer, otherPlayerPropertiesArrayForThisColor );
 
                         otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
@@ -230,7 +226,7 @@ function searchForTradesOpportunities(activePlayer){
 
     
     
-                                   activePlayerGain = getArrayGainValueForPlayer( otherPlayer, otherPlayerPropertiesArrayForThisColor );
+                                   activePlayerGain = getArrayGainValueForPlayer( activePlayer, otherPlayerPropertiesArrayForThisColor );
 
                                    otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
         

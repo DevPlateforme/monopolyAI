@@ -95,6 +95,8 @@ function setColorScores(){
 
     ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
 
+    ai1.propertiesArray.push( avenueMozart ,  boulevardSaintMichel);
+
 
     avenueMozart.landLord = ai1;
 
