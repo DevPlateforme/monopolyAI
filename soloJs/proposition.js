@@ -182,8 +182,25 @@ function makeProposition(proposition){
     }
 
 
-
-
-
      
+   }
+
+
+
+
+
+   function makeCounterOffer(thinker, proposition){
+
+     let offerer = proposition.offerer;
+
+     let answerer = proposition.counterPartAsked;
+          
+       //DFS
+
+    
+    
+
+      
+
+
    }

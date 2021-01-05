@@ -427,7 +427,7 @@ function createTradeObject(type , offerer, answerer, tradeArray){
     
 	  //LOSS VALUE FOR THE OFFERER
 
-        	tradeObject.lossValueForTheOwner = getArrayLossValueForPlayer(owner, tradeSets[tradeSetIndex]);
+        	tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeSets[tradeSetIndex]);
 	
 	    }
 
@@ -437,7 +437,7 @@ function createTradeObject(type , offerer, answerer, tradeArray){
 	 
 		  //LOSS VALUE FOR THE OFFERER
 
-	      tradeObject.lossValueForTheOwner = getArrayLossValueForPlayer(owner, tradeArray);
+	      tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray);
 
   }
 	  
@@ -810,7 +810,7 @@ function profitableTrade(thinker, proposition){
 
 				if(thinker == answerer){
 
-					alert('proposition refusée!! AI score => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' offer element 0 =>' + offer.array[0].name + 'offer element 1 =>' + offer.array[1].name + ' offer element 2 => ' + offer.array[2].name + ' counter part element 0=>' + counterPartAsked.array[0].name +  ' counter part element 1=>' +  counterPartAsked.array[1].name + ' counter part element 2 =>' +  counterPartAsked.array[2].name );
+					alert('proposition refusée!! L IA prepare une contre offre! AI score => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner + ' offer element 0 =>' + offer.array[0].name + 'offer element 1 =>' + offer.array[1].name + ' offer element 2 => ' + offer.array[2].name + ' counter part element 0=>' + counterPartAsked.array[0].name +  ' counter part element 1=>' +  counterPartAsked.array[1].name + ' counter part element 2 =>' +  counterPartAsked.array[2].name );
 						
 				}
 				 	
@@ -855,8 +855,8 @@ function profitableTrade(thinker, proposition){
 
 			 if(thinker == answerer){
 
-				alert('proposition refusée!! AI score => ' + thinkerScore);
-			 }
+				alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
+			}
 		   
 	  
 		
