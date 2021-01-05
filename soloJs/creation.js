@@ -284,7 +284,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-			   for(pi = 0 ; pi < pairArray.length ; pi++){          
+		  for(pi = 0 ; pi < pairArray.length ; pi++){          
 
 				
 				//console.log('pair elements  ' + pairArray[pi][0].name + ' , ' + pairArray[pi][1].name )
@@ -306,7 +306,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-			   }
+		  }
 
 
 		   
@@ -451,53 +451,17 @@ function createTradeObject(type , offerer, answerer, tradeArray){
 
 function getArrayGainValueForPlayer(player, array){
 
+
 	 let color = array[0].color;
-
-	 //console.log('player :' + player);
-
 	 let currentSet = player.propertiesByColor[color.index].properties;
-
-      	//FETCH THE CURRENT PROPERTY OF THIS PLAYER.
-	
      let currentSetValue = calculateSetValue(currentSet);
 
 	  //THEN, CREATE A COPY OF THIS ARRAY, AND PUSH IT THE NEW ELEMENTS. THEN, RECALCULATE THE VALUE.
-
 	  //THEN, ALL WE NEED TO DO IS SUBSTRACT THE NEWVALUE FROM THE OLD ONE.
 
-	  let newSet = createPostGainsSet(currentSet, array);
+	 let newSet = createPostGainsSet(currentSet, array);
+	 let newSetValue = calculateSetValue(newSet);
 
-	
-	  let newSetValue = calculateSetValue(newSet);
-
-	  
-
-
-	  //console.log('The player checks its gains : before, its set value was ' + currentSetValue);
-
-	  //console.log('here is what this array was made of');
-
-	  for(i=0; i < currentSet.length ; i++){
-		  
-		//console.log(currentSet[i].name);
-
-	  }
-
-	
-
-	  //console.log(' The player checks its gains: now, its set value is ' + newSetValue);
-
-	  //console.log('here is what the updated array was made of');
-
-	  for(i=0; i < newSet.length ; i++){
-
-		  
-		//console.log(newSet[i].name);
-
-	  }
-
-
-	 
 
 	  return (newSetValue - currentSetValue);
 	  
@@ -506,37 +470,19 @@ function getArrayGainValueForPlayer(player, array){
 
 function getArrayLossValueForPlayer(player, array){
 
-
-
-	let value;
-   
 	let color = array[0].color;
-   
-	let colorScore = color.score;
-
 
 	//calculate the current set value
-
-
    	let currentSet = player.propertiesByColor[color.index].properties;
 
    //calculate the set value after the loss
 
 	let currentSetValue = calculateSetValue(currentSet);
-
-
-	let newSet = createPostLossSet(currentSet, array);
-
-
-
+	let newSet = createPostLossSet(currentSet,array);
 	let newSetValue = calculateSetValue(newSet);
 
 
-
-
 	return (newSetValue - currentSetValue);
-
-
 }
 
 
@@ -573,7 +519,6 @@ function divideOfferInSets(offerArray){
 
 
 function profitableTrade(thinker, proposition){
-    
 
  
 	 let offer = proposition.offer;
@@ -586,40 +531,17 @@ function profitableTrade(thinker, proposition){
 
 	 
 
-
-		if(counterPartAsked.array.length == 3){
-
-			
-	   	   console.log('possible monopoly offered!')
-
-		   console.log(proposition)
-
-
-		}
-
-
-	
-	 
-
-
-
-
 	 offererScore += offer.lossValueForTheOwner;
 	 offererScore -= offer.cash;
 
 	 offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 	 offererScore += counterPartAsked.cash;
 
-
 	 answererScore += counterPartAsked.lossValueForTheOwner;
 	 answererScore -= counterPartAsked.cash;
 
-
 	 answererScore += offer.gainValueForTheOtherPlayer;
 	 answererScore += offer.cash;
-
-
-
 
 
 
@@ -727,23 +649,36 @@ function profitableTrade(thinker, proposition){
 
 	 //BEHAVIOUR OF THE AI
 
+
+
+
+	 
+	 if(counterPartAsked.array.length == 3){
+
+		if(offer.array.length == 3){
+
+
+			console.log("-----------------------MONOPOLY TRADE");
+
+			console.log(proposition);
+
+			console.log('thinker score=>' + thinkerScore)
+
+			console.log('other player score=>' + interlocutorScore)
+
+
+
+		}
+
+	}
+
 	 	 
 
 	  if(thinkerScore > 0){
 
-
-		if(offer.array.length == 3 ){
-
-
-			alert('monopoly offered!')
-		   
-
-
 		 //determine a certain range
 
 		 //IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
-
-
 
 			  //AI BEHAVIOUR
 			  
@@ -807,9 +742,7 @@ function profitableTrade(thinker, proposition){
 
 				
 			} else {
-				
-				
-				
+								
 				if (bottomLimit < thinkerScore ){
 
 			    	profitableProposition = true;
@@ -818,28 +751,28 @@ function profitableTrade(thinker, proposition){
 
 				   profitableProposition = false;
 
-	     	 }
+	     	   }
 
-	  }
+	     }
 
 
 
-    		if (profitableProposition == true ){				 
+    		if (profitableProposition == true ){				
 				
 				
- 				  console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+				
 
-				  console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
-		   
-				  console.log('the thinker score is ' + thinkerScore );
-		   
-				  console.log('the other player score is ' + interlocutorScore );
-		   
-		   
-				  console.log('the top limit is ' + topLimit );
-		   
-			   
-				 
+				if(thinker == answerer){
+
+					alert('proposition aceptée!! AI score => ' + thinkerScore);
+				 }
+				
+				
+ 				   console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+				   console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
+			 	   console.log('the thinker score is ' + thinkerScore );		   
+				   console.log('the other player score is ' + interlocutorScore );
+ 				   console.log('the top limit is ' + topLimit );
 				   console.log('here is the offer : ');
 
 
@@ -870,7 +803,16 @@ function profitableTrade(thinker, proposition){
 
 				 
 
-	    	 } else {				
+	    	 } else {			
+				 
+				
+				
+
+				if(thinker == answerer){
+
+					alert('proposition refusée!! AI score => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' offer element 0 =>' + offer.array[0].name + 'offer element 1 =>' + offer.array[1].name + ' offer element 2 => ' + offer.array[2].name + ' counter part element 0=>' + counterPartAsked.array[0].name +  ' counter part element 1=>' +  counterPartAsked.array[1].name + ' counter part element 2 =>' +  counterPartAsked.array[2].name );
+						
+				}
 				 	
 				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 				console.log('the thinker perceived a value of ' + thinkerScore );
@@ -898,25 +840,27 @@ function profitableTrade(thinker, proposition){
 
 
 
-				return false;
+				  return false;
 
 
-			 }
-
-
-
-
+ 		
 			 //IF NEGATIVE THINKERSCORE, IMMEDIATLY RETURN FALSE
 
-			} //end of test
+			} 
  
+
 	     } else {
+
+
+
+			 if(thinker == answerer){
+
+				alert('proposition refusée!! AI score => ' + thinkerScore);
+			 }
 		   
 	  
 		
 		    return false;
-
-
 
 
 	  }
@@ -1057,16 +1001,11 @@ function tryToCreateFutureProposition(propositionMaterial){
 	   
 					   //DIVIDE THIS ARRAY IN SETS
 	   
+		   		      //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+      
+					  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
    
-					  //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-   
-   
-	   
-					 //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-	   
-  
-   
-					//NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+					 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 	   
 	   
 	   

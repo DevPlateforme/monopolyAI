@@ -1,5 +1,4 @@
 
-
 function calculateSetValue(setArray){
 
 
@@ -21,13 +20,11 @@ function calculateSetValue(setArray){
 
        let finishedSetValue = color.finishedSetValue;
 
-    
-
+  
        return ( stepVar * finishedSetValue * colorGrowthScore);
 
 
     } else {
-
 
       return 0;
 
@@ -65,32 +62,39 @@ function createPostGainsSet(currentSet, gains){
 
 function createPostLossSet(currentSet, lossArray){
 
-      let newSet = currentSet.slice(0);
 
+
+      let newSet = currentSet.slice(0);
 
       //LOCATE EACH ELEMENT OF THE SET, AND DELETE IT
 
 
       for(i=0; i < lossArray.length; i++){
 
+
+        let csIndex = 0;
+
           
-         for(csIndex = 0; csIndex < currentSet.length; csIndex++){
+         while(csIndex < newSet.length){
+           
 
 
-              if(currentSet[csIndex] == lossArray[i]){
+              if(newSet[csIndex] == lossArray[i]){
 
                 //DELETE THE ELEMENT OF THE ARRAY AT THE RIGHT INDEX
 
                      newSet.splice(csIndex, 1);
 
+                     csIndex--;
+
               }
+
+              csIndex++;
 
           }
          
       }
 
-
-    
       return newSet;
 
 
@@ -107,7 +111,7 @@ function calculateStepVariable(setArray){
 
     if(setArray.length != 0){
 
-     if(color == black){
+       if(color == black){
 
         //Train stations
 
@@ -139,22 +143,15 @@ function calculateStepVariable(setArray){
 
         if(setArray.length == 1){
 
-
             return 0.33;
-
-
 
         } else if(setArray.length == 2) {
 
-
             return 1;
-
 
         }
 
-
     } else if( color == darkBlue || color == brown ){
-
 
 
         if(setArray.length == 1){

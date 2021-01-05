@@ -141,7 +141,6 @@ function searchForTradesOpportunities(activePlayer){
 
                           activePlayerGain = getArrayGainValueForPlayer( activePlayer, otherPlayerPropertiesArrayForThisColor );
 
-
                           otherPlayerLoss =  getArrayLossValueForPlayer(otherPlayer, otherPlayerPropertiesArrayForThisColor );
 
                           counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, otherPlayerLoss, activePlayerGain);
@@ -1712,8 +1711,6 @@ function initPossibleMonopolyTradesList(){
 
      var arr = [pivot];
 
-
-     alert('the AI score for this trade is ' + pivot.offererScore);
 
 
 

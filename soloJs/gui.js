@@ -827,11 +827,6 @@ function observeAi(ai){
           //console.log('here is the original array length:' + ai1.propertiesByColor.length );
 
 
-          
-
-
-
-
 
            //AFTER DELETING THE EMPTY ARRAYS, WE LOOP AGAIN ON THE ARRAY
 
