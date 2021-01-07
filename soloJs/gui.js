@@ -1481,7 +1481,15 @@ function sendProposition(){
 
             } else {
 
+               makeCounterOffer(upgrade, answerer , proposition);
+
+
                alert('proposition refusée!!!');
+
+                
+                //If the thinker score was higher than 0 => Then, make a counterOffer => how to get the thinkerScore
+
+
             };
 
 

@@ -64,7 +64,12 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
     
 	this.offer = offer;
 	
-	this.counterPartAsked =counterPartAsked;
+	this.counterPartAsked = counterPartAsked;
+
+
+	this.offererScore = 0;
+
+	this.answererScore = 0;
 
 
 }
@@ -618,9 +623,9 @@ function profitableTrade(thinker, proposition){
 
 
 
-	  proposition.offererScore;
+	  proposition.offererScore = offererScore;
 
-	  proposition.answererScore;
+	  proposition.answererScore = answererScore;
 	 
 
 
@@ -805,8 +810,6 @@ function profitableTrade(thinker, proposition){
 
 	    	 } else {			
 				 
-				
-				
 
 				if(thinker == answerer){
 

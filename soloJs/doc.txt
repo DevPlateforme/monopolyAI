@@ -1,284 +1,305 @@
 
-building opportunities
 
-var sortedProbasFrom9to5 = [7, 6, 8 , 9, 5, 4];
+counter offer -----> DFS => if (thinkerScore > -500){
+    
+    counterOffer => 
 
-First, substract the biggest threat there is in the properties from 9 to 5.
-
-If not, don't build anything. (priority safe)
-
-(knowing that current virtual cash can be below 0)
+}
 
 
-How much houses to build? 
 
-As much as possible, house by house.
-
-Loop on each player => using the probability array, identify a list of sets ordered by priority.
+counterOfferWithUpgrade(ai1, proposition, offerer.propertiesArray.slice(0), answerer.propertiesArray.slice(0), depth );
 
 
-Then, what you should do : Build one house on each, one by one, to quadriller la zone, by order of priority.
 
 
-     
-     for(i=0; i < probas.length; i++){
+function counterOfferWithUpgrade(thinker, proposition, unusedOffererAssets, unusedAnswererAssets, depth){
 
-         //7 6 5 4 8...
+     if(depth == 0){
 
-         No, we can always build wherever we want, we simply need to reorganize properties. ,
+         return;
 
-           
      }
 
-     //sorted monopolies to loop on
 
 
-
-else : 
-
-If you have properties :
-
-   Take all your properties not included in a monopoly. Then , choose the smallest set. Knowing that properties with dark blue and brown are in priority to others.
-
-    quicksort
-
-  Then, if you still dont have enough cash, dont do anything.
-
-
-
-
-Bankruptcy => Same algorithm. 
-
-Only => Then , loop on monopolies properties. Start to sell houses, then mortgage. Then sell, then mortgage...repeat the process.
-
-
-Sorted by value.
-
- quicksort
-
-
-
------------
-
-
-Mortgage buying => If no opportunity to build, whenever there is a possibility to repay mortgage back, do it.
-
-
-Sorted by => monopolies sets first 
-
-
-Sorted by order of the sets with the smallest number of mortgaged properties first. (Blue and brown having the priority)
-
-
-
-
--------------
-
-
-Proposition sorting 
+    let updatedPropositions = [];
 
     
-   Lets start by going for it.
+    //for each unused offerer asset, push
 
 
-   We'll use a priority queue.
-
-   Meaning => When inserted into the propsition list => If the element in front is smaller, shift the next element to the right, replace it...recursively.
-
-
-
-------------
-
-Negotiation
-
-  Hashing (using polynamial hashes)
-
-  What happenns when a player refuses an offer. 
-
-  The AI either => stop the negociation
-              => is harder
-              => is softer
-
-    Depends on the offer made.
-
-
-The player can either => refuse categorically => The AI won't do the same offer
-
-                      => counter offer 
-
-      When this button is clicked, the same offer is set up. (Nothing, simply => an object proposition in building is being built).
-      
-
-                      => refuse but be open to negociation
-
-            The AI will generate the same offer, but will change stuff here and there.
-
-        Meaning => how much does the AI change elements?
-
-        If the AI judges that the offer was more profitable for the opponent => "The AI downgraded the offer"
+    for(i=0; i < unusedOffererAssets.length ; i++){
         
-        If the AI judges that the offer was more profitable for the AI => "The AI upgraded the offer".
+        let updatedPropositionFct = addOfferElement(proposition, i , unusedOffererAssets, unusedAnswererAssets);
+      
+         updatedPropositions.push(updatedPropositionFct);
 
-        The AI upgrades or downgrade the offer maximum twice.
-
-
-        Ex :
-
-        offer : rueDeLaPaix, rueDeCourcelle, 1 train station
+    }
 
 
-        counterPartAsked : Pigalle, rueLecourbe
+    //add cash to offer
+
+     
+
+    if(proposition.offer.cash > 100){
+
+        //divide the offer into slices
+
+        let updatedPropositionFct = addCashToOffer(proposition, offer);
+
+        updatedPropositions.push(updatedPropositionFct);
+
+    }
+
+
+    //add counter part asked element
+
+
+    for(i=0; i < unusedAnswererAssets.length ; i++){
+
+
+         let updatedPropositionFct = addCounterPartAskedElement(proposition, i , unusedOffererAssets, unusedAnswererAssets);
+      
+         updatedPropositions.push(updatedPropositionFct);
+
+
+    }
 
 
 
-      gain => AI + 100;
+        //remove cash from counterPartAsked
 
-      other player => other player + 40;
+ 
+     if(proposition.counterPartAsked.cash > 100){
+
+        //divide the offer into slices
+
+         let updatedPropositionFct = addCashToOffer(proposition, offer);
+
+         updatedPropositions.push(updatedPropositionFct);
+
+    }
 
 
-    ---
+
+     //We'll need a version of the properties array, without elements used for this specific branch
+
+    //pass the properties array into the function 
+
+    //Return an array with the different ways to change 2 elements. Return the most profitable (as usual, hash the offer)
+
+
+
+    //add cash, add other element from answerer 1 (loop), add other element from answerer 2 (loop) , remove element 1 from offerer (loop) , remove element  from offerer (loop).
+
+
+    => Heapify (when profitable offers);
+
+
+    If there is an element to return, return it.
+
+
+    //first, need to establish a list of possibilities. We can represent it using objects. 
+
+
+    let updatedPropositions = [addcounterPartAskedElement(proposition, element , unusedOffererAssets, unusedAnswererAssets, depth) , addCounterPartAskedElement(proposition, element) , removeOfferElement(proposition, element) , removeOfferElement(proposition, element) ];
 
     
-    When downgrading : best downgraded profitable version
+    for-(i=0 ; i < updatedPropositions.length; i++){
 
-    when upgrading : best upgraded profitable versioon
+      let updatedProposition = updatedPropositions[i];
 
-    
-
-   The AI makes a proposition. It's refused.
-
-   The human can be definitive, and say => I refuse.
-
-   The AI will then store this into a hash, using a probing method, to avoid collisions.
-
-
-   If refused but open to negociation => The AI will change the offer (Max twice), changing at most 2 elements in it.
-
-
-   If it finds reasonable offers, then : 
-
-      If the AI judges that the AI gained more than the opponent, it will downgrade the offer
-
-
-      function downgradeOffer(depth, proposition, index){
-
-           The AI uses a tree, to test all different combinations
-
+        //[0] => The proposition //[1] => offerer assets // [2] => answerer assets
            
-          if(depth == 0){
+        if(profitableTrade(updatedPropositions[i]) == true ){
 
-            return;
+           thinker.counterOffersList.push(counterOfferList.push(updatedPropositions[i]);
 
-          }
 
+        }) 
 
-          let dngFunctions = createDngFunctionsArray(proposition);
+        counterOfferWithUpgrade(thinker, updatedPropositions[0] , updatedPropositions[1] , updatedPropositions[2] ,  depth - 1);
+    }
 
 
-          //create a new proposition, changing one element using this index
+}
 
 
 
-          downgradeOffer(depth-1, 0);
 
+function counterOfferWithDowngrade(thinker, proposition, offererAssets, answererAssets, depth){
 
-          //array => [ fct1 , fct2 ,  fct3 ,  fct4 ,  fct5 ] ;
 
+     if(depth == 0){
 
-      }
+         return;
 
+     }
 
 
 
-                          //
+    //Return an array with the different ways to change 2 elements. Return the most profitable (as usual, hash the offer)
 
-                     A           B        C 
 
-             B              C   
 
-         P       P       P      P
+    //add cash, add other element from answerer 1 (loop), add other element from answerer 2 (loop) , remove element 1 from offerer (loop) , remove element  from offerer (loop).
 
 
+    => Heapify (when profitable offers)
 
 
+    If there is an element to return, return it.
 
 
-        function createDngFunctionsArray(proposition){
+    //first, need to establish a list of possibilities. We can represent it using objects. 
 
 
-             //create offers functions
+    let updatedPropositions = [addcounterPartAskedElement(proposition, element) , addCounterPartAskedElement(proposition, element) , removeOfferElement(proposition, element) , removeOfferElement(proposition, element) ];
 
-             let arr = [ ];
+    
+    for-(i=0 ; i < updatedPropositions.length; i++){
+           
+        if(profitableTrade(updatedPropositions[i]) == true ){
 
-             let offer = proposition.offer;
+           thinker.counterOffersList.push(counterOfferList.push(updatedPropositions[i]);
+           
+        });
 
-             for(i=0; i < offer.array.length ; i++){
+        counterOfferWithUpgrade(thinker, updatedProposition[0] , upatedProposition[1] , updatedProposition[2] , depth - 1);
+    }
 
-               let fct = removeOfferElement(proposition, i);
 
-               arr.push(fct);
+}
 
-             }
 
 
-              for(i=0; i < counterPartAsked.array.length ; i++){
 
-                let fct = addCounterPartAskedElement(proposition, i);
 
-                arr.push(fct);
+------> Importance of cash => Computing the distance
 
 
-             }
 
+------> Front, showing how many nodes werer generated.
 
 
-        }
+function addcounterPartAskedElement(proposition, elementIndex , offererAssets, answererAssets){
 
+       let newCounterPartAskedArray = proposition.counterPartAsked.array.slice(0);
 
+       newCounterPartAskedArray.push(answerer.propertiesArray[elementIndex])
 
+    	 let newCounterPartAsked = createTradeObject(counterPartAskedObject, proposition.offerer, proposition.answerer, newCounterPartAskedArray);
 
-        function addOfferElement(proposition, element){
-                 
-              let arr = proposition.offer.array.slice(index);
-              let newOffer = createOffer(arr);
+       let updatedProposition = new Proposition(proposition.offerer, proposition.answerer, proposition.offer, newCounterPartAsked)
+       
+       return [updatedProposition , updatedOffererAssets, updatedAnswererAssets] ;
 
-              return new Proposition(proposition.offerer, proposition.answerer, newOffer , proposition.counterPartAsked);
 
-        }
 
+}
 
 
-        function removeOfferElement(proposition, index){
-                  
-              let arr = proposition.offer.array.slice(index);
-              let newOffer = createOffer(arr)
+function removeCounterPartAskedElement(proposition, elementIndex , offererAssets, answererAssets){
 
-              return new Proposition(proposition.offerer, proposition.answerer, newOffer , proposition.counterPartAsked);
-        }
+       let updatedProposition = proposition.slice(0);
 
+       //element removed in constant time
+       
+       updatedProposition.counterPartAsked.array.splice(elementIndex , 1);
 
+       return upatedProposition;
 
-        function addCounterPartAskedElement( proposition, index){
+}
 
-              let arr = proposition.counterPartAsked.array.slice(index);
-              let newCounterPartAsked = createCounterPartAsked(arr);
 
-              return new Proposition(proposition.offerer, proposition.answerer, proposition.offer , newCounterPartAsked;
-        }
+function addOfferElement(proposition, elementIndex , offererAssets, answererAssets){
 
+       let updatedProposition = proposition.slice(0);
+       
+       updatedProposition.offer.array.push(offerer.propertiesArray[elementIndex]);
 
+       return upatedProposition;
+}
 
 
-        function removeCounterPartAskedElement (proposition, index){
 
-              let arr = proposition.counterPartAsked.array.slice(index);
-              let newCounterPartAsked = createCounterPartAsked(arr)
 
-              return new Proposition(proposition.offerer, proposition.answerer, proposition.offer , newCounterPartAsked);
+function removeOfferElement(proposition, elementIndex){
 
-        }
+       let updatedProposition = proposition.slice(0);
 
+       //element removed in constant time
+       
+       updatedProposition.offer.array.splice(elementIndex , 1);
 
----------------------------
+       return upatedProposition;
+
+
+}
+
+
+function addCashToOffer(proposition, cash){
+
+   let newProposition = new Proposition(proposition.offerer, proposition.answerer,    Object.assign({}, proposition.offer) ,    Object.assign({}, proposition.counterPartAsked) );
+      
+   newProposition.offer.cash += cash;
+  
+}
+
+function removeCashFromOffer(proposition, cash){
+
+   let newProposition = new Proposition(proposition.offerer, proposition.answerer,   Object.assign({}, proposition.offer) ,    Object.assign({}, proposition.counterPartAsked) );
+      
+   newProposition.offer.cash -= cash;
+  
+ }
+
+
+function addCashToCounterPartAsked(proposition, cash){
+
+   let newProposition = new Proposition(proposition.offerer, proposition.answerer,    Object.assign({}, proposition.offer) ,    Object.assign({}, proposition.counterPartAsked) );
+      
+   newProposition.counterPartAsked.cash += cash;
+
+   return new Proposition;
+       
+}
+
+
+function removeCashFromCounterPartAsked(proposition, cash){
+
+   let newProposition = new Proposition(proposition.offerer, proposition.answerer,   Object.assign({}, proposition.offer) ,    Object.assign({}, proposition.counterPartAsked) );
+      
+   newProposition.counterPartAsked.cash -= cash;
+
+   return newProposition;
+
+}
+
+
+//But, before calculation, it's not all about changing the array, the gains and loss scores need to be changed.
+
+
+//So, when you change the offer, you recreate an offer object
+
+
+
+
+
+
+
+              -------------------------------------
+
+
+//create offer 
+
+        
+        ex : +200 dollars , one element more.
+
+        
+       return proposition;
+
+
 
 

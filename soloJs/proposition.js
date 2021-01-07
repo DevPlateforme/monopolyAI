@@ -2,8 +2,6 @@
 function makeProposition(proposition){
 
 
-
-
     if(proposition.answerer == humanPlayer){	 
         
         //displayHumanAnswerInterface(proposition);
@@ -189,18 +187,304 @@ function makeProposition(proposition){
 
 
 
-   function makeCounterOffer(thinker, proposition){
+   function makeCounterOffer(type, thinker, proposition){
 
-     let offerer = proposition.offerer;
 
-     let answerer = proposition.counterPartAsked;
+     //init the "best counter offer object" 
+
+
+     thinker.bestCounterOffer = {offererScore: -infinite};
+     
+
+     let interlocutor;
+
+     let newProposition;
+
+       if(thinker == proposition.offerer){
+            
+           interlocutor = proposition.answerer;
+
+           newProposition = proposition;
           
-       //DFS
+       } else {
+
+        interlocutor = proposition.offerer;
+
+        newProposition = invertProposition(proposition); 
+
+       }
+
+
+               
+       alert('une contre offre est en train d etre réalisée!!');
+
+       
+
+       if(type == upgrade){
+
+           upgradeOffer(thinker, newProposition ,  interlocutor.propertiesArray.slice(0), 2);
+
+       } else {
+
+           downgradeOffer(thinker, newProposition , thinker.propertiesArray.slice(0) , 2);
+
+       }
+
+
+       
+      
+
+   }
+
+
+
+   function invertProposition(proposition){
+
+         //realize a deep clone of the proposition , and invert it
 
     
+
+        let newProposition = JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
+
+        //used for counter offers => the offer becomes the counterpartasked, and same goes the other way around
+
+
+        newProposition.offerer = proposition.answerer;
+
+        newProposition.offer = proposition.counterPartAsked;
+
+        newProposition.answerer = proposition.offerer;
+
+        newProposition.counterPartAsked = proposition.offer;
+
+
+        alert('proposition inverted!!');
+
+
+        return newProposition;
+
+
+
     
+   }
+
+
+   /*
+   
+
+
+   function updgradeOffer(proposition , unusedAnswererAssets, depth){
+
 
       
 
+        
 
-   }
+  }
+
+
+
+   function downgradeOffer(thinker, proposition , unusedOffererAssets, depth){
+
+
+
+    
+
+
+     //the offer becomes the counterPartAsked
+  
+
+         if(depth == 0){
+
+           alert('you reached a leaf node!!')
+
+              return;
+
+          } 
+
+      
+         //add offerelement
+
+         
+
+         for(i=0; i < unusedOffererAssets.length ; i++){
+            
+            let updatedProposition = addOfferElement(proposition, i, unusedOffererAssets);
+
+            if(profitableTrade(updatedProposition) == true){
+              
+               checkForBestCounterOfferUpdate(thinker, updatedProposition);
+
+            }
+
+            //calculate the profitability of this object, and heapify it, then keep going on that "branch" (recursion) , to create another more downgraded.
+                        
+            
+            let updatedOffererAssets = unusedOffererAssets.slice(0);
+
+            //for the next branch, give it the updated offerer assets (after inserting it into the object of this node)
+
+            updatedOffererAssets.splice(i,1);
+ 
+            downgradeOffer(updatedProposition , updatedOffererAssets , depth - 1);
+             
+         }
+
+
+         
+
+
+         //remove counterpartAsked element
+
+         for(i=0; i < proposition.counterPartAsked.array.length ; i++){
+            
+            let updatedProposition = removeCounterPartAskedElement(proposition, i, unusedOffererAssets);
+
+
+          if(profitableTrade(updatedProposition) == true){
+              
+              checkForBestCounterOfferUpdate(thinker, updatedProposition);
+
+           }
+
+           //calculate the profitability of this object, and heapify it, then keep going on that "branch" (recursion) , to create another more downgraded.
+                       
+
+           downgradeOffer(updatedProposition , offererAssets , depth - 1);
+
+         }
+
+         //add cash to element
+
+
+
+
+    }
+
+
+  
+
+
+  function addOfferElement(proposition, elementIndex , unusedOffererAssets){
+
+
+
+    
+
+
+       //deep clone the proposition
+ 
+       let newProposition = JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
+
+    
+        //simply add a different offer
+
+    
+        //=> to do that, deep clone the offer array , then add an offer element
+
+
+         let newOfferArray = proposition.offer.array.slice(0);
+
+
+         newOfferArray.push(unusedOffererAssets[elementIndex]);
+
+
+          //recreate a new offer
+       
+          let newOffer = createTradeObject( offerObject , proposition.offerer, proposition.answerer, newOfferArray);
+        
+          newProposition.offer = newOffer;
+
+
+         return newProposition;
+
+
+         
+      
+}
+
+
+
+
+
+function removeCounterpartAskedElement(proposition, elementIndex){
+
+
+    
+
+
+        //remove elements from the counterPartAsked
+  
+       //deep clone the proposition
+ 
+       let newProposition= JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
+
+    
+        //simply add a different offer
+
+        //=> to do that, deep clone the offer array , then add an offer element
+
+
+       let newCpaArray = proposition.counterPartAsked.array.slice(0);
+
+        newCpaArray.splice(elementIndex , 1);
+
+          //recreate a new offer
+       
+       let newCpa = createTradeObject( counterPartAskedObject , proposition.offerer, proposition.answerer, newCpaArray);
+        
+        newProposition.counterPartAsked = newCpa;
+
+    
+       return newProposition;
+
+
+
+       
+      
+}
+
+
+
+function addCashToElement(proposition, cash){
+
+    let newProposition= JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
+
+    newProposition.cash += cash;
+
+    return newProposition;
+
+}
+
+
+function removeCashFromElement(proposition, cash){
+  
+   let newProposition= JSON.parse(JSON.stringify(proposition , getCircularReplacer()));
+
+   newProposition.cash -= cash;
+
+  return newProposition;
+
+}
+
+
+
+
+
+
+function checkForBestCounterOfferUpdate( thinker , proposition ){
+
+      //simply, retrieve the best value
+
+ 
+      if(proposition.offererScore > thinker.bestCounterOffer.offeererScore ){
+
+             thinker.bestCounterOffer = proposition;
+
+      }
+
+}
+
+
+
+*/
