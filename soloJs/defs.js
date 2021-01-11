@@ -351,9 +351,16 @@ function checkGlobalDanger(player){
      function getOtherPlayersArray(player){
 
        let oPArray = playersArray.slice(0);
-			 
-       oPArray.splice(tradingPlayers[i].index, 1);
 
+       for(i=0 ; i < oPArray; i++){
+                
+           if(oPArray == player){
+
+             oPArray.splice(i,1);
+
+            }
+
+       }
 
       return oPArray;
 }
@@ -488,7 +495,7 @@ function simulateMovement(from, to){
 
     if(position > 39){
 
-      position -= 39;
+      position -= 40;
     }
 
 
@@ -501,8 +508,19 @@ function simulateMovement(from, to){
 
 function getRent(property){
 
+        
+
 
       if(property.type == rentalProperty){
+
+    
+
+        if(propertiesArray[property.elementIndex].monopoly == false){
+
+          return 0;
+
+        }
+ 
 
           if(property.houses == 0){
 
@@ -539,3 +557,98 @@ function getRent(property){
 
 
 
+
+
+function getMonopolies(player, propertiesByColor){
+
+   if(player.monopolies == 0){
+
+      return false;
+
+   }
+
+  let properties = propertiesByColor.slice(0);
+
+    //return the list of monopolies sets for a given player
+
+
+
+   for(i=0 ; i < properties.length; i++){
+
+        if(properties[i].monopoly == false){
+
+             
+           properties.splice(i , 1);
+
+
+           i--;
+             
+        }
+
+   }
+
+
+
+        return properties;
+   
+}
+
+
+
+
+
+function simulateBackwardMovement( from , less){
+
+
+      
+      let newPosition = from - less ;
+
+
+
+      if(newPosition < 0){
+
+        //KNOWING IT IS A NEGATIVE NUMBER , IT IS AN ADDITION, NOT A SUBSTRACTION
+
+
+        newPosition = 40 + newPosition;
+
+      }
+
+       
+       
+      return newPosition;
+
+}
+
+
+
+
+
+
+
+
+//PROPOSITION CREATION
+
+
+
+function removeColorDuplicates(setsArray , counterPartSet){
+
+    let updatedArray = setsArray.slice(0);
+
+    for(i=0; i < updatedArray.length; i++){
+
+           
+         if(updatedArray[i][0].color == counterPartSet[0].color){
+
+          updatedArray.splice(i,1);
+
+           i--;
+
+         }
+
+
+     }
+
+    return updatedArray;
+
+}

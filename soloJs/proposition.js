@@ -1,6 +1,36 @@
 
 function makeProposition(proposition){
 
+  alert(proposition.offerer.name + ' made an offer!=>Offer:' );
+
+
+  alert('offer length =>' + proposition.offer.array.length)
+
+  for(i=0; i < proposition.offer.array.length; i++){
+       
+    let element = proposition.offer.array[i];
+
+    alert('offer element ' + i + element.name);
+
+  }
+
+  alert(proposition.offerer.name + ' =>counterpart:' );
+
+
+  
+  for(i=0; i < proposition.counterPartAsked.array.length; i++){
+       
+    let element = proposition.counterPartAsked.array[i];
+
+    alert('counterPart element ' + i + element.name);
+
+  }
+
+
+
+
+
+
 
     if(proposition.answerer == humanPlayer){	 
         
@@ -13,15 +43,22 @@ function makeProposition(proposition){
  
              //the trade is accepted by the AI
 
+             alert(proposition.answerer + ' accepted the offer!');
+
         } else {
  
               //the trade is refused
+
+              alert(proposition.answerer + ' refused the offer!');
+
 
 
               
                if(proposition.offerer == humanPlayer){
  
                  //display declinedPropositionInterface
+
+                 
  
                }
   
@@ -222,11 +259,11 @@ function makeProposition(proposition){
 
        if(type == upgrade){
 
-           upgradeOffer(thinker, newProposition ,  interlocutor.propertiesArray.slice(0), 2);
+           updgradeOffer(newProposition ,  interlocutor.propertiesArray.slice(0), 2);
 
        } else {
 
-           downgradeOffer(thinker, newProposition , thinker.propertiesArray.slice(0) , 2);
+           downgradeOffer(newProposition , thinker.propertiesArray.slice(0) , 2);
 
        }
 
@@ -269,26 +306,34 @@ function makeProposition(proposition){
    }
 
 
-   /*
+   
    
 
 
    function updgradeOffer(proposition , unusedAnswererAssets, depth){
 
-
-      
-
-        
+     alert('an upgraded counter offer was made ');
 
   }
 
+  
 
 
-   function downgradeOffer(thinker, proposition , unusedOffererAssets, depth){
+
+
+
+
+   function downgradeOffer(proposition , unusedOffererAssets, depth){
+
+
+    
+     alert('a downgraded counter offer was made ');
 
 
 
     
+  /*
+
 
 
      //the offer becomes the counterPartAsked
@@ -358,10 +403,10 @@ function makeProposition(proposition){
 
 
 
-
+*/
     }
 
-
+/*
   
 
 

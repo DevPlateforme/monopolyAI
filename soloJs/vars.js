@@ -1,5 +1,5 @@
- 
- console.log('vars...');
+   
+   console.log('vars...');
 
 
    //COLORS
@@ -20,12 +20,7 @@
 
 
 
-  var colorArray = [ brown , lightBlue ,  purple , orange ,  red , yellow , green , darkBlue, black, publicServicesColor];
-
-
-
-
-
+   var colorArray = [ brown , lightBlue ,  purple , orange ,  red , yellow , green , darkBlue, black, publicServicesColor];
 
 
   //SET LEVELS
@@ -72,9 +67,9 @@ var busy = 'busy';
 
 var noCash = 'no cash';
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild: true , bestCounterOffer : {offererScore: -infinite}}
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild : true , bestCounterOffer : {offererScore: -infinite}}
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild: true , bestCounterOffer : {offererScore: -infinite}}
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild: true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500}}
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild : true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500}}
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , willingnessToBuild: true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500}}
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -275,15 +270,10 @@ var postLaunchDecision = waiting;
 //TYPES
 
 var collection = 'collection';
-
 var movement = 'movement';
-
 var payment = 'payment';
-
 var outOfJail = 'outOfJail';
-
 var goToJail = 'goToJail';
-
 var streetRepair = 'streetRepair';
 
 
@@ -445,9 +435,9 @@ var saleOfStockCard = {type: collection , description: "Vente d'actions, vous ga
 
 
 
- var sortedProbasFrom9to5 = [7, 6, 8 , 9, 5, 4];
+ var sortedProbasFrom9to5 = [6/36, 5/36, 5/36 , 4/36, 4/36, 3/36];
 
-
+ var dicesNumbersByProba = [7, 6, 8 , 9, 5, 4];
 
 
 
@@ -482,3 +472,9 @@ var saleOfStockCard = {type: collection , description: "Vente d'actions, vous ga
 };
 
 
+
+
+
+
+
+var minimumHouseValue = 50; //smallest house value

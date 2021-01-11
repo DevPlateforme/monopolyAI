@@ -9,9 +9,6 @@ function PropositionMaterial(offerer, answerer, counterPartAsked){
 
 	this.counterPartAsked = counterPartAsked;
 	
-	
-	
-    
 }
 
 
@@ -88,20 +85,40 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 function tryToCreateProposition(thinker, propositionMaterial){
 
 
-	//THE AI TAKES THIS PROPOSITION, AND LOOP OVER ITS POTENTIAL PROPOSITIONS.
-
-	//ANYTIME IT FINDS A POSSIBLE PROPOSITION , LOO
-
-	//console.log('ai1 tries to create a suitable proposition...');
-
-	
+	//THE AI TRIES TO GENERATE REASONABLE PROPOSITIONS, USING A "PROPOSITION MATERIAL" OBJECT
 
 	
 	let offerer = propositionMaterial.offerer;
 	let answerer = propositionMaterial.answerer;
 	let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
+
 	let counterPartAsked = propositionMaterial.counterPartAsked;
-	let propertiesArray = offerer.propertiesArray;
+
+	
+	 //remove color duplicates from offerer array (the AI doesnt offer properties of a color it requests)
+
+
+
+	let propertiesArray = [];
+
+	for(i=0; i < thinker.propertiesByColor.length ; i++){
+
+		 let set = thinker.propertiesByColor[i].properties.slice(0);
+
+		if(set.length > 0){
+
+			propertiesArray.push(set);
+
+		}
+
+	}
+
+     //remove color duplicates ( Dont offer elements having the same color than those you request )
+
+	propertiesArray = removeColorDuplicates(propertiesArray, counterPartAsked.array);
+	
+
+
 	let proposition;
 	let offerArray;
 	let answererGain;
@@ -243,7 +260,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 
 
-    }
+   }
 
 	   
 
@@ -394,61 +411,47 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 }
 
 
-function createTradeObject(type , offerer, answerer, tradeArray){
+function createTradeObject( type , offerer, answerer, tradeArray){
+
+	//tradeArray => (offer) [rueDeCourcelles, avenueDeLaRepublique]
 
 
-  let lossValueForTheOwner = 0;
-  let gainValueForTheOtherPlayer = 0;
-  let tradeObject;
-  let owner;
-  let otherPlayer;
+    let lossValueForTheOwner = 0 ;
+    let gainValueForTheOtherPlayer = 0;
+    let tradeObject;
+    let owner;
+    let otherPlayer;
 
-  if(type == offerObject){
+    if(type == offerObject){
 	  
-	tradeObject = new Offer(tradeArray, lossValueForTheOwner, gainValueForTheOtherPlayer);
-	owner = offerer;
-	otherPlayer = answerer;
+   	  tradeObject = new Offer( explodeSet(tradeArray), lossValueForTheOwner, gainValueForTheOtherPlayer);
+	  owner = offerer;
+	  otherPlayer = answerer;
 
-  } else {
+    } else {
 
-	tradeObject = new CounterPartAsked( tradeArray, lossValueForTheOwner, gainValueForTheOtherPlayer);
-	owner = answerer;
-	otherPlayer = offerer;
+  	  tradeObject = new CounterPartAsked( explodeSet(tradeArray), lossValueForTheOwner, gainValueForTheOtherPlayer);
+	  owner = answerer;
+	  otherPlayer = offerer;
 
-  }
-	//FIRST, WE NEED TO DIVIDE THE OFFER INTO SETS , TO OBTAIN A SCORE FOR EACH SET (WHAT IS EARNED AND LOST FROM IT)     
-   	
-	if(tradeArray.length > 1){
-  
-		let tradeSets = divideOfferInSets(tradeArray);
-		
-	    for(tradeSetIndex = 0; tradeSetIndex < tradeSets.length ; tradeSetIndex++){
+    }
+
+	    for(tradeSetIndex = 0; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
 
 	   //GAIN VALUE FOR THE ANSWERER
 	
-	       tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeSets[tradeSetIndex]);
+	       tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
 	
      	////console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer)
     
-	  //LOSS VALUE FOR THE OFFERER
+ 	   //LOSS VALUE FOR THE OFFERER
 
-        	tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeSets[tradeSetIndex]);
+        	tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
 	
 	    }
-
-   } else {
-  
-	      tradeObject.gainValueForTheOtherPlayer  += getArrayGainValueForPlayer(otherPlayer,tradeArray);
-	 
-		  //LOSS VALUE FOR THE OFFERER
-
-	      tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray);
-
-  }
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
-
-	 
+ 
      return tradeObject;
 }
 
@@ -490,7 +493,7 @@ function getArrayLossValueForPlayer(player, array){
 	return (newSetValue - currentSetValue);
 }
 
-
+/*
 
 function divideOfferInSets(offerArray){
 
@@ -521,7 +524,7 @@ function divideOfferInSets(offerArray){
 }
 
 
-
+*/
 
 function profitableTrade(thinker, proposition){
 
@@ -813,7 +816,7 @@ function profitableTrade(thinker, proposition){
 
 				if(thinker == answerer){
 
-					alert('proposition refusée!! L IA prepare une contre offre! AI score => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner + ' offer element 0 =>' + offer.array[0].name + 'offer element 1 =>' + offer.array[1].name + ' offer element 2 => ' + offer.array[2].name + ' counter part element 0=>' + counterPartAsked.array[0].name +  ' counter part element 1=>' +  counterPartAsked.array[1].name + ' counter part element 2 =>' +  counterPartAsked.array[2].name );
+					alert('proposition refusée!! L IA prepare une contre offre!' );
 						
 				}
 				 	
@@ -1098,3 +1101,24 @@ function clearInBuildingProposition(){
 
 
 
+function explodeSet(set){
+
+	let explodedSet = [];
+
+	//set => [ [rueDeCourcelles, rueDeLaPaix ] , [ avenueHenriMartin, BdMalesherbes] ];
+
+
+	 for(i=0; i < set.length; i++){
+
+		  for(y=0 ; y < set[i].length; y++){
+
+			explodedSet.push(set[i][y]);
+			
+		  }
+	 }
+	 
+
+
+	return explodedSet;
+
+}

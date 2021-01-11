@@ -16,7 +16,9 @@ function searchForTradesOpportunities(activePlayer){
    if(activePlayer != undefined){
 
 
-      console.log("AI searching...");
+
+
+      alert(activePlayer.name + " is searching...");
 
 
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
@@ -1136,17 +1138,15 @@ function searchForTradesOpportunities(activePlayer){
        if(activePlayer.propositionList.length != 0){      
               
           
-        sortPropositionList(activePlayer.propositionList);
+        //sortPropositionList(activePlayer.propositionList);
 
-          //alert(rand);
+          ////alert(rand);
            
-          //makeProposition(activePlayer.propositionList[0]);
+          makeProposition(activePlayer.propositionList[0]);
 
-          //alert('longeur de la liste ' + propositionList.length);
+          //alert('longeur de la liste pour cette recherche => ' + propositionList.length);
 
 
-
-          AiThinking = false;
 
        }
 
@@ -1420,15 +1420,6 @@ function initPossibleMonopolyTradesList(){
 
  
 
-  
-  function getOtherPlayersArray(player){
-      
-    
-       return playersArray.slice(player.index, 1);
-
- }
-
-
 
 
 
@@ -1579,12 +1570,23 @@ function initPossibleMonopolyTradesList(){
 
  function checkForBuildingOpportunities(ai){
 
+    //Before the search , init the best config variable
 
 
-    //If a player acquire a monopoly => all the properties already on it, are automatically sold
+    //alert('first, the AI is evaluating potential current revenues')
 
+    //let expectedCurrentRevenue = calculateExpectedCurrentRevenue(ai, ai.propertiesByColor);
 
-    //if you need to mortge , mortgage
+    //ai.bestConfig = { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: expectedCurrentRevenue , cashLeft: 1500 }
+        
+      //DFS 
+
+      ////alert("AI is looking to build the best organisation");
+
+      //get cash of player + the value of its mortgages
+
+      //bestBuildingConfigDFS( [ai.propertiesByColor[3] , ai.propertiesByColor[7] ] , 0 , 1000 , [0, 0] );
+
 
  }
 
@@ -1592,24 +1594,63 @@ function initPossibleMonopolyTradesList(){
 
 
 
+var nodes = 0;
+
+ 
+function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actionsArray){
+   
+    nodes++;
+
+      if(propertyCount >= monopolies.length || virtualCash < minimumHouseValue){
+
+         //alert('reaching a leaf node => here is the actions Array => 1 : ' + actionsArray[0] + " 2 : " +  actionsArray[1] + " , nodes => " + nodes);
+
+
+         return;
+
+      }
+
+
+      //else, check the nodes
+
+      //build
+
+      let updatedVirtualCash = virtualCash - 100;
+
+      let updatedActionsArray = actionsArray.slice(0);
+
+      updatedActionsArray[propertyCount] += 1;
+
+      bestBuildingConfigDFS(monopolies ,  propertyCount , updatedVirtualCash ,  updatedActionsArray);
+
+      
+      //do nothing and go to the next
+
+      bestBuildingConfigDFS(monopolies , propertyCount +1 , virtualCash , actionsArray );
+
+
+ }
+
+
+
  function checkForMortgageBuying(ai){
+
+    /*
 
        //If you have cash => Diminish the cash by the biggest paying point in the properties between 9 to 5 in front.
      
        //else, you may need this cash
 
-
        let virtualCash = ai.cash;
 
        let highestPayingPoint = 0;
-    
+   
 
-       
 
        for(num = 0; num < sortedProbasFrom9to5.length ; num++){
 
         
-          let property = squaresArray[simulateMovement(ai.position , sortedProbasFrom9to5[num])];
+          let property = squaresArray[simulateMovement(ai.position , dicesNumbersByProba[num])];
 
           let color = property.color;
 
@@ -1670,14 +1711,17 @@ function initPossibleMonopolyTradesList(){
 
         }     
 
+
+        */
     }
 
 
 
  function aiSearch(ai){
 
-    //can I build a dangerous house? (may require mortgage buying)
+       AiThinking = true;
 
+    //can I build a dangerous house? (may require mortgage buying)
 
         checkForBuildingOpportunities(ai);
 
@@ -1685,7 +1729,7 @@ function initPossibleMonopolyTradesList(){
  
         searchForTradesOpportunities(ai);
 
-
+        AiThinking = false;
 
  }
 
@@ -1699,21 +1743,150 @@ function initPossibleMonopolyTradesList(){
 
      //quickSort, based on the gain of the AI
 
-
-
      //meaning , we generate a serie of offers, and we take the one benefitting us the most (given we judged it was a faire trade)
-
 
      //find a pivot (last element)
 
      let pivot = propositionList[0];
 
-
      var arr = [pivot];
-
-
-
 
  }
 
  
+
+
+
+
+function calculateExpectedCurrentRevenue(player, propertiesByColor){
+        
+       let expectedCurrentRevenue = 0;
+       
+       let monopolies = getMonopolies(player, propertiesByColor);
+
+       //alert('here are the monopolies => ' + monopolies.length);
+
+
+       for(i=0; i < monopolies.length ; i++){
+
+            //alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
+
+       }
+
+
+
+    
+
+       //extract monopolies (plus trains and public services ), and get the sum of expected revenues for each
+       
+       //For the rest , dont interest in it, as it has an expected revenue of 0
+
+       /*
+       
+
+       for(i=0; i < monopolies.length ; i++){
+           
+
+          for(y=0 ; y < monopolies[i].properties.length ; y++){   
+               
+               expectedCurrentRevenue += expectedPropertyRevenue(monopolies[i].properties[y]);
+           
+          }
+
+          
+
+
+       }
+
+       */
+
+
+     //alert('expected revenues => ' + expectedCurrentRevenue);
+
+
+     return expectedCurrentRevenue;
+}
+
+
+var probabilitiesByNumber = [6/36 , 5/36 , "..."];
+
+
+
+
+function expectedPropertyRevenue(property){ 
+    
+    let expectedCurrentRevenue = 0;
+
+    let opponentsCount = 0;
+
+     //for 7 , 8 , 6 , 5 , 4 ... 
+
+     for(i=0 ; i < dicesNumbersByProba.length; i++){
+
+
+         //whats there seven squares behind       
+         
+       let opponentsOnSquares = opponentsOnSquareBehind(property, dicesNumbersByProba[i]);
+
+
+       //alert('on the property =>' + property.name + ' looping on the dice num =>' + dicesNumbersByProba[i]);
+
+
+        //opponentsCount += opponentsOnSquares;
+
+        //expectedCurrentRevenue += ( opponentsOnSquares * getRent(property) * sortedProbasFrom9to5[i] ); // Note => opponentsOnSquares() can return 0 , which makes expected revenues = 0
+
+            //dont count the thinkingplayer in it
+
+            
+        if(opponentsCount >= ( (playersArray.length) - 1)){
+
+            //stop looping on this property, because all the opponents were checked
+
+            break;
+
+        }
+
+        
+
+     }
+
+
+     return expectedCurrentRevenue;
+
+}
+
+
+
+
+function opponentsOnSquareBehind( property, number) {
+
+    
+    let otherPlayers = [ai2, humanPlayer]; //getOtherPlayersArray(property.landLord);
+
+
+    let playersCount = 0;
+        
+       //if there are players
+
+    let square = simulateBackwardMovement( property.square , number);
+
+
+
+         //count the number of players there
+
+
+     for(i=0 ; i < otherPlayers.length ; i++){
+
+         if(otherPlayers[i].position == square){
+
+             playersCount += 1;
+
+         }
+
+     }
+
+
+  return playersCount;
+
+}
