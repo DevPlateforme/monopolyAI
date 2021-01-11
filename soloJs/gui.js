@@ -1394,6 +1394,8 @@ function sendProposition(){
 
      } else{
 
+
+
         //IS THERE AN OFFER AND A COUNTERPART?
 
 
@@ -1410,6 +1412,9 @@ function sendProposition(){
 
 
          } else {
+
+
+          alert('proposition sent!');
 
 
           //DID THE PROPERTIES HASHKEY CHANGE?
@@ -1462,9 +1467,9 @@ function sendProposition(){
            
           //CREATE THE PROPOSITION OBJECT
           
-          let offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+          let offer = createTradeObject(offerObject, offerer, answerer, divideArrayInSets(offerArray));
 
-          let counterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer , counterPartAskedArray);
+          let counterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer , divideArrayInSets(counterPartAskedArray));
           
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
 
@@ -1474,14 +1479,13 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-
-            if(profitableTrade(answerer, proposition) == true){                 
-
+            if(profitableTrade(answerer, proposition) == true){   
+                 
                acceptProposition(proposition);     
 
             } else {
 
-               makeCounterOffer(upgrade, answerer , proposition);
+               //makeCounterOffer(upgrade, answerer , proposition);
 
 
                alert('proposition refusée!!!');

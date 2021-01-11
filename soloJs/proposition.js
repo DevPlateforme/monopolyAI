@@ -1,20 +1,20 @@
 
 function makeProposition(proposition){
 
-  alert(proposition.offerer.name + ' made an offer!=>Offer:' );
+  //alert(proposition.offerer.name + ' made an offer!=>Offer:' );
 
 
-  alert('offer length =>' + proposition.offer.array.length)
+  //alert('offer length =>' + proposition.offer.array.length)
 
   for(i=0; i < proposition.offer.array.length; i++){
        
     let element = proposition.offer.array[i];
 
-    alert('offer element ' + i + element.name);
+    console.log('offer element ' + i + element.name);
 
   }
 
-  alert(proposition.offerer.name + ' =>counterpart:' );
+  console.log(proposition.offerer.name + ' =>counterpart:' );
 
 
   
@@ -22,7 +22,7 @@ function makeProposition(proposition){
        
     let element = proposition.counterPartAsked.array[i];
 
-    alert('counterPart element ' + i + element.name);
+    console.log('counterPart element ' + i + element.name);
 
   }
 
@@ -43,13 +43,13 @@ function makeProposition(proposition){
  
              //the trade is accepted by the AI
 
-             alert(proposition.answerer + ' accepted the offer!');
+             console.log(proposition.answerer + ' accepted the offer!');
 
         } else {
  
               //the trade is refused
 
-              alert(proposition.answerer + ' refused the offer!');
+              console.log(proposition.answerer + ' refused the offer!');
 
 
 

@@ -157,14 +157,14 @@ function calculateStepVariable(setArray){
         if(setArray.length == 1){
 
 
-            return 0.2;
+            return 0.05;
 
 
 
         } else if(setArray.length == 2) {
 
 
-            return 0.75;
+            return 1;
 
 
         }
@@ -175,17 +175,17 @@ function calculateStepVariable(setArray){
         
         if(setArray.length == 1){
 
-           return 0.05;
+           return 0.02;
 
        } else if(setArray.length == 2) {
 
-            return 0.25;
+            return 0.1;
 
 
        } else if(setArray.length == 3){
 
 
-             return 0.75;
+             return 1;
 
 
       }
@@ -651,4 +651,49 @@ function removeColorDuplicates(setsArray , counterPartSet){
 
     return updatedArray;
 
+}
+
+
+
+
+function divideArrayInSets(elementsArray){
+
+
+   //Knowing that are provided with an array =>
+
+
+    let setsArray = [ [] , [] , [] , [] , [] , [] , [] , [] , [] , []];
+
+
+     for(i=0; i < elementsArray.length; i++){
+
+         //brute force
+
+         setsArray[elementsArray[i].color.index].push(elementsArray[i]);
+
+      }
+
+
+
+   //keep track of the elements added. At the end => When an array was not filled, delete it
+
+      for(i=0; i < setsArray.length; i++){
+
+
+        if(setsArray[i].length == 0){
+
+    
+               setsArray.splice(i, 1);
+
+               i--;
+
+        }
+         
+
+      }
+
+
+
+      return setsArray;
+ 
 }

@@ -644,6 +644,7 @@ function profitableTrade(thinker, proposition){
 	 if(thinker == offerer ){
 
 		thinkerScore = offererScore;
+		thinkerLoss =  offer.lossValueForTheOwner;
 		interlocutorScore = answererScore;
 
 
@@ -651,6 +652,7 @@ function profitableTrade(thinker, proposition){
 
 
 		thinkerScore = answererScore;
+		thinkerLoss =  counterPartAsked.lossValueForTheOwner;
 		interlocutorScore = offererScore;
 
 	 }
@@ -682,7 +684,9 @@ function profitableTrade(thinker, proposition){
 
 	 	 
 
-	  if(thinkerScore > 0){
+	  if(thinkerScore > (-thinkerLoss * 1.3)){
+
+
 
 		 //determine a certain range
 
@@ -765,18 +769,26 @@ function profitableTrade(thinker, proposition){
 
 
 
-    		if (profitableProposition == true ){				
+    		if (profitableProposition == true ){	
+				
+				
+				  
 				
 				
 				
 
 				if(thinker == answerer){
 
-					alert('proposition aceptée!! AI score => ' + thinkerScore);
-				 }
-				
-				
- 				   console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+					console.log('proposition aceptée!! AI score => ' + thinkerScore);
+
+
+				 } else {	
+
+
+				   console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+					
+				   console.log('the loss for the offerer =>' + thinkerLoss + ' while its score is => ' + thinkerScore);
+					 
 				   console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
 			 	   console.log('the thinker score is ' + thinkerScore );		   
 				   console.log('the other player score is ' + interlocutorScore );
@@ -805,6 +817,11 @@ function profitableTrade(thinker, proposition){
 
 
 
+
+
+				 }
+				
+			
 
 				 return true;
 

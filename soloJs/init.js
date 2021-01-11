@@ -11,7 +11,7 @@ function init(){
      
     console.log('game starting...');
 
-    setColorScores();
+    //setColorScores();
 
     givePlayersPropertiesForDemo();
 
@@ -88,6 +88,27 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
+    //Human player
+
+
+    
+
+    //3 light blues
+
+    humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique );
+    humanPlayer.propertiesArray.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique);
+
+    humanPlayer.landLord = humanPlayer;
+
+    humanPlayer.landLord = humanPlayer;
+
+    humanPlayer.landLord = humanPlayer;
+
+
+    humanPlayer.propertiesByColor[lightBlue.index].monopoly = true;
+
+    humanPlayer.monopolies += 1;
+
 
     //AI1
 
@@ -128,25 +149,6 @@ function setColorScores(){
     ai1.monopolies += 1;
 
 
-  /*
-
-    //3 light blues
-
-    ai1.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique );
-    ai1.propertiesArray.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique);
-
-    rueDeVaugirard.landLord = ai1;
-
-    rueDeCourcelles.landLord = ai1;
-
-    avenueDeLaRepublique.landLord = ai1;
-
-
-    ai1.propertiesByColor[lightBlue.index].monopoly = true;
-
-    ai1.monopolies += 1;
-
-   */
 
 
     // 2 yellows
