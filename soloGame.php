@@ -37,15 +37,6 @@
 
 
 
-<div id="board">
-   <div id="topEdge"></div>
-   <div id="boardDiv2">
-        <div id='leftEdge'></div>
-        <div id='rightEdge'></div>
-   </div>
-   <div id="bottomEdge"></div>
-</div>
-
 
 
 
@@ -236,6 +227,78 @@
 
 </div>
 
+
+
+
+<div id='mainDivs'>
+
+
+   <div id='aisAndBoard'>
+
+       <div id='ai1Div'></div>
+
+
+    <div id="board">
+          <div id="topEdge"></div>
+          <div id="boardDiv2">
+             <div id='leftEdge'></div>
+             <div id='boardJournal'></div>
+            <div id='rightEdge'></div>
+          </div>
+        <div id="bottomEdge"></div>
+    </div>
+  
+
+       <div id='ai2Div'></div>
+
+
+   </div>
+
+
+   <div id='humanBoard'>
+
+
+        <div id='propertiesCountDiv'>
+
+
+              <div id='rentalPropertiesCount'>
+        
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+             </div>
+
+
+             <div id='trainsAndPublicServicesCount'>
+ 
+                <div></div>
+                <div></div>
+
+             </div>
+
+        </div>
+
+
+        <div id='managementDiv'>
+
+        </div>
+
+
+
+   </div>
+
+
+
+
+  
+
+</div>
 
 
 <script src='soloJs/jquery.js'></script>

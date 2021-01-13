@@ -420,7 +420,9 @@ function createTradeObject( type , offerer, answerer, tradeArray){
     let gainValueForTheOtherPlayer = 0;
     let tradeObject;
     let owner;
-    let otherPlayer;
+	let otherPlayer;
+	
+
 
     if(type == offerObject){
 	  
@@ -438,17 +440,37 @@ function createTradeObject( type , offerer, answerer, tradeArray){
 
 	    for(tradeSetIndex = 0; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
 
-	   //GAIN VALUE FOR THE ANSWERER
-	
-	       tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
-	
-     	////console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer)
-    
+
+			
  	   //LOSS VALUE FOR THE OFFERER
 
-        	tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
+		tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
+
+
+
+		   
+			//Now , compute the projection (DFS)
+
+	  	   //is there a monopoly completion with another player?
+
+
+
+
+		
+
+	   //GAIN VALUE FOR THE OTHER PLAYER
+
 	
-	    }
+		   tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
+
+
+
+
+	
+     	////console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer)
+ 	    
+	
+   }
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
  
@@ -557,6 +579,8 @@ function profitableTrade(thinker, proposition){
 	 //SITUATION FRAGILITY (INFLUENCING CASH VALUE)
 
 	 let tradingPlayers = [offerer, answerer];
+
+
 
 
 		  
@@ -779,7 +803,10 @@ function profitableTrade(thinker, proposition){
 
 				if(thinker == answerer){
 
-					console.log('proposition aceptée!! AI score => ' + thinkerScore);
+					//alert('proposition aceptée!! AI score => ' + thinkerScore + ' loss => ' + thinkerLoss);
+
+
+					//alert('proposition aceptée!! AI score => ' + thinkerScore + ' loss => ' + thinkerLoss);
 
 
 				 } else {	
@@ -796,27 +823,7 @@ function profitableTrade(thinker, proposition){
 				   console.log('here is the offer : ');
 
 
-				 for(i=0; i < offer.array.length; i++){
-					 
-				    console.log('offer element : ' + offer.array[i].name);
-	
-				 }
-
-				    console.log('and, here is the cash in the offer :' + offer.cash);
-				    console.log('here is the counterpart : ');
-
-
-				 for(i=0; i < counterPartAsked.array.length; i++){
-
-				    console.log('counterpart asked : '+ counterPartAsked.array[i].name);	
-
-				 }
-
-
-				 console.log('and, here is the cash asked :' + counterPartAsked.cash);
-
-
-
+			
 
 
 				 }
@@ -833,7 +840,7 @@ function profitableTrade(thinker, proposition){
 
 				if(thinker == answerer){
 
-					alert('proposition refusée!! L IA prepare une contre offre!' );
+					//alert('proposition refusée!! L IA prepare une contre offre!' );
 						
 				}
 				 	
@@ -878,7 +885,7 @@ function profitableTrade(thinker, proposition){
 
 			 if(thinker == answerer){
 
-				alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
+				//alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
 			}
 		   
 	  
@@ -995,7 +1002,7 @@ function tryToCreateFutureProposition(propositionMaterial){
 								 
 								if(profitableTrade(offerer,  proposition ) == true){
 		  
-									  alert('possible future monopoly found...');
+									  //alert('possible future monopoly found...');
 
 
 									  possibleFutureMonopolyCount++;
@@ -1052,7 +1059,7 @@ function tryToCreateFutureProposition(propositionMaterial){
 								
 							   if(profitableTrade(offerer,  proposition ) == true){
 		 
-									alert('possible future monopoly found...');
+									//alert('possible future monopoly found...');
 
 
 									possibleFutureMonopolyCount++;

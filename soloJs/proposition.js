@@ -1,20 +1,19 @@
 
 function makeProposition(proposition){
 
-  //alert(proposition.offerer.name + ' made an offer!=>Offer:' );
+  ////alert(proposition.offerer.name + ' made an offer!=>Offer:' );
 
 
-  //alert('offer length =>' + proposition.offer.array.length)
 
   for(i=0; i < proposition.offer.array.length; i++){
        
     let element = proposition.offer.array[i];
 
-    console.log('offer element ' + i + element.name);
+    ////alert('offer element ' + i + element.name);
 
   }
 
-  console.log(proposition.offerer.name + ' =>counterpart:' );
+  //alert(proposition.offerer.name + ' =>counterpart:' );
 
 
   
@@ -22,7 +21,7 @@ function makeProposition(proposition){
        
     let element = proposition.counterPartAsked.array[i];
 
-    console.log('counterPart element ' + i + element.name);
+    ////alert('counterPart element ' + i + element.name);
 
   }
 
@@ -44,6 +43,8 @@ function makeProposition(proposition){
              //the trade is accepted by the AI
 
              console.log(proposition.answerer + ' accepted the offer!');
+
+             acceptProposition(proposition);
 
         } else {
  
@@ -83,7 +84,7 @@ function makeProposition(proposition){
      let answerer = proposition.answerer;
 
 
-     alert('proposition accepted!!');
+     //alert('proposition accepted!!');
 
 
 
@@ -114,7 +115,7 @@ function makeProposition(proposition){
 
                          offerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                         alert('element deleted from the properties by color')
+                         //alert('element deleted from the properties by color')
 
                          break;
 
@@ -130,7 +131,7 @@ function makeProposition(proposition){
 
                        offerer.propertiesArray.splice(n,1);
 
-                       alert('element deleted from the properties array');
+                       //alert('element deleted from the properties array');
 
                        break;
 
@@ -162,7 +163,7 @@ function makeProposition(proposition){
 
                        answerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                       alert('element deleted from the answerers properties by color')
+                       //alert('element deleted from the answerers properties by color')
 
                        break;
 
@@ -179,7 +180,7 @@ function makeProposition(proposition){
 
                      answerer.propertiesArray.splice(n,1);
 
-                     alert('element deleted from the properties array');
+                     //alert('element deleted from the properties array');
 
                      break;
 
@@ -253,7 +254,7 @@ function makeProposition(proposition){
 
 
                
-       alert('une contre offre est en train d etre réalisée!!');
+       //alert('une contre offre est en train d etre réalisée!!');
 
        
 
@@ -295,7 +296,7 @@ function makeProposition(proposition){
         newProposition.counterPartAsked = proposition.offer;
 
 
-        alert('proposition inverted!!');
+        //alert('proposition inverted!!');
 
 
         return newProposition;
@@ -312,7 +313,7 @@ function makeProposition(proposition){
 
    function updgradeOffer(proposition , unusedAnswererAssets, depth){
 
-     alert('an upgraded counter offer was made ');
+     //alert('an upgraded counter offer was made ');
 
   }
 
@@ -327,7 +328,7 @@ function makeProposition(proposition){
 
 
     
-     alert('a downgraded counter offer was made ');
+     //alert('a downgraded counter offer was made ');
 
 
 
@@ -341,7 +342,7 @@ function makeProposition(proposition){
 
          if(depth == 0){
 
-           alert('you reached a leaf node!!')
+           //alert('you reached a leaf node!!')
 
               return;
 

@@ -292,13 +292,13 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-                                    if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+                                    if(getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
                                        //ADD 100 FOR EVERY FUTURE MOVE FOUND
 
 
-                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
 
                                           activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
@@ -327,13 +327,13 @@ function searchForTradesOpportunities(activePlayer){
 
 
                                    
-                                         if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+                                         if(getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
                                            //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
 
 
-                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+                                          possibleMonopolyMovesNumber = getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
     
                                           activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
@@ -379,13 +379,13 @@ function searchForTradesOpportunities(activePlayer){
                                    //('checking for a possible one three to two three');
                                    
 
-                                   if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+                                   if(getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
                                     //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
 
 
-                                       possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+                                       possibleMonopolyMovesNumber = getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
 
                                        activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
@@ -443,13 +443,13 @@ function searchForTradesOpportunities(activePlayer){
                           
 
                     
-                          if(getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
+                          if(getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor) != noMove){
 
                                        
                             //ADD 100 FOR EVERY FUTUREMOVEMOVE FOUND
 
 
-                               possibleMonopolyMovesNumber = getPossibleMonopolyToCreate(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
+                               possibleMonopolyMovesNumber = getPossibleMonopolyToCreateFromTrade(activePlayer, otherPlayer, otherPlayersArray , otherPlayerPropertiesArrayForThisColor);
 
                                activePlayerGain += (100 *possibleMonopolyMovesNumber);
 
@@ -1140,11 +1140,11 @@ function searchForTradesOpportunities(activePlayer){
           
         //sortPropositionList(activePlayer.propositionList);
 
-          ////alert(rand);
+          //////alert(rand);
            
           makeProposition(activePlayer.propositionList[0]);
 
-          //alert('longeur de la liste pour cette recherche => ' + propositionList.length);
+          ////alert('longeur de la liste pour cette recherche => ' + propositionList.length);
 
 
 
@@ -1167,7 +1167,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desiredSet){
+function getPossibleMonopolyToCreateFromTrade(playerA, playerB , otherPlayersArray, desiredSet){
 
 
     //console.log('checking possible future proposition...');
@@ -1385,8 +1385,10 @@ function getPossibleMonopolyToCreate(playerA, playerB , otherPlayersArray, desir
 
 
 
-function checkIfRestOfsetElementsAreAvailable(player, array){
 
+
+
+function restOfsetElementsAvailable(player, array){
 
 
     //LOOP ON ALL OF THE OTHER SET ELEMENTS, IN CONSTANT TIME, USING THEIR INDEXES
@@ -1573,7 +1575,7 @@ function initPossibleMonopolyTradesList(){
     //Before the search , init the best config variable
 
 
-    //alert('first, the AI is evaluating potential current revenues')
+    ////alert('first, the AI is evaluating potential current revenues')
 
     //let expectedCurrentRevenue = calculateExpectedCurrentRevenue(ai, ai.propertiesByColor);
 
@@ -1581,7 +1583,7 @@ function initPossibleMonopolyTradesList(){
         
       //DFS 
 
-      ////alert("AI is looking to build the best organisation");
+      //////alert("AI is looking to build the best organisation");
 
       //get cash of player + the value of its mortgages
 
@@ -1603,7 +1605,7 @@ function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actio
 
       if(propertyCount >= monopolies.length || virtualCash < minimumHouseValue){
 
-         //alert('reaching a leaf node => here is the actions Array => 1 : ' + actionsArray[0] + " 2 : " +  actionsArray[1] + " , nodes => " + nodes);
+         ////alert('reaching a leaf node => here is the actions Array => 1 : ' + actionsArray[0] + " 2 : " +  actionsArray[1] + " , nodes => " + nodes);
 
 
          return;
@@ -1764,12 +1766,12 @@ function calculateExpectedCurrentRevenue(player, propertiesByColor){
        
        let monopolies = getMonopolies(player, propertiesByColor);
 
-       //alert('here are the monopolies => ' + monopolies.length);
+       ////alert('here are the monopolies => ' + monopolies.length);
 
 
        for(i=0; i < monopolies.length ; i++){
 
-            //alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
+            ////alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
 
        }
 
@@ -1801,7 +1803,7 @@ function calculateExpectedCurrentRevenue(player, propertiesByColor){
        */
 
 
-     //alert('expected revenues => ' + expectedCurrentRevenue);
+     ////alert('expected revenues => ' + expectedCurrentRevenue);
 
 
      return expectedCurrentRevenue;
@@ -1829,7 +1831,7 @@ function expectedPropertyRevenue(property){
        let opponentsOnSquares = opponentsOnSquareBehind(property, dicesNumbersByProba[i]);
 
 
-       //alert('on the property =>' + property.name + ' looping on the dice num =>' + dicesNumbersByProba[i]);
+       ////alert('on the property =>' + property.name + ' looping on the dice num =>' + dicesNumbersByProba[i]);
 
 
         //opponentsCount += opponentsOnSquares;

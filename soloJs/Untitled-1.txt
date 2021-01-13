@@ -1,0 +1,51 @@
+
+
+
+So, the AI :
+
+checks if direct monopolies are obtainable.
+
+If yes, they are on top of the propositionList.
+
+
+To calculate them, we simply exactly use that algorithm. 
+
+
+So , nothing to change at all. (computing static values);
+
+
+Then => If we can get a 2/3 or a 1/3 => After that, can I get a direct trade with another player?
+
+So, exactly that way.
+
+
+If I can make a trade, it will be counted as 80% of gain. 
+
+So, if I think in one round : I'll think in one round for the opponent as well.
+
+I'll say : I'll propose this opponent all my sets, and I'll try to get one allowing me to get to those 80%.
+
+
+
+//direct monopolies 
+     profitableTrade(){
+
+         if direct monopolies static, it means that, when the other player will simulate this move, he'll perceive its situation couldnt be better.
+
+     }
+
+
+     So, I always think one step ahead. But one step ahead, this value will be computed as 100% 
+
+
+
+I say => getGain += 100%;
+
+So, personnally, I'll choose to get those 100% , rather than 80%;
+
+
+In this case, I'll inform the human he'll benefit from it. Else, if I get a 80% , I won't tell the player
+
+
+
+

@@ -20,7 +20,7 @@ function init(){
     wakeUpAis();
 
 
- }
+  }
 
 
 
@@ -274,7 +274,7 @@ function aiReflects(ai){
 
      } else {
 
-        alert('an AI is already thinking!');
+        //alert('an AI is already thinking!');
 
 
      }

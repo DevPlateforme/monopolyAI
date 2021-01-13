@@ -377,7 +377,7 @@ function checkForBankruptcy(player){
 
     } else {
 
-      alert(player.name + ' isnt in bankruptcy!!');
+      //alert(player.name + ' isnt in bankruptcy!!');
     }
           
 }
@@ -422,7 +422,7 @@ function closeMortgage(property){
 
 function gameOver(){
        
-     alert("the game is over");
+     //alert("the game is over");
 
 }
 
@@ -462,7 +462,7 @@ function buildHouse(property){
 
      property.landLord.cash -= property.houseValue;
 
-     alert(property.landLord.name + ' just built a house!!');
+     //alert(property.landLord.name + ' just built a house!!');
 
 }
 
@@ -696,4 +696,70 @@ function divideArrayInSets(elementsArray){
 
       return setsArray;
  
+}
+
+
+
+
+function isThereMonopolyCompletion(playerA, playerB , color){
+
+     if(color == blue || color == brown){
+
+      if((playerA.propertiesByColor[color.index].properties.length != 2 && playerB.propertiesByColor[color.index].properties.length != 2)){
+
+        if( (playerA.propertiesByColor[color.index].properties.length + playerB.propertiesByColor[color.index].properties.length ) == 2) {
+
+          return true;
+
+        } else {
+
+
+         return false;
+        }
+
+
+      }
+
+      
+
+     } else {
+
+      if((playerA.propertiesByColor[color.index].properties.length != 3 && playerB.propertiesByColor[color.index].properties.length != 3)){
+
+
+          if( (playerA.propertiesByColor[color.index].properties.length + playerB.propertiesByColor[color.index].properties.length ) == 3) {
+
+               return true;
+ 
+           } else {
+
+
+       return false;
+      }
+
+    }
+
+  }
+
+}
+
+
+function getNonTradingPlayersArray(playerA, playerB){
+
+  let nonTradingPlayersArray = [];
+
+  for(i=0; i < playersArray.length; i++){
+
+    if(playersArray[i] != playerA || playersArray[i] != playerB){
+
+      nonTradingPlayersArray.push(playersArray[i]);
+
+      
+    }
+  }
+
+
+  return nonTradingPlayersArray;
+
+
 }

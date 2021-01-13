@@ -439,35 +439,7 @@ function initPawnsPositions(){
 
      //IMAGES
 
-    let ai1Img = document.createElement('IMG');
-    ai1Img.setAttribute('src', 'img/ai1Pawn.png' );
-    
-    let ai2Img = document.createElement('IMG');
-    ai2Img.setAttribute('src', 'img/ai2Pawn.png' );
-    
-    
-    let player1Img = document.createElement('IMG');
-    player1Img.setAttribute('src', 'img/player1Pawn.png' );
-    
-    
-    let player2Img = document.createElement('IMG');
-    player2Img.setAttribute('src', 'img/player2Pawn.png');
-    
-    
-
-    
-
-    ai1PawnContainer.append(ai1Img);
-    
-    
-    ai2PawnContainer.append(ai2Img);
-
-    player1PawnContainer.append(player1Img);
-
-    player2PawnContainer.append(player2Img);
-
-
-    //console.log('images added!!');
+   
 
 }
 
@@ -570,7 +542,7 @@ function displayHumanAnswerInterface(proposition){
 function refusePropositionFromInterface(){
 
 
-     alert('vous avez refusé cette proposition!!');
+     //alert('vous avez refusé cette proposition!!');
 
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
@@ -1316,7 +1288,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
      } else {
 
 
-          alert('veuillez séléctionner un joueur');
+          //alert('veuillez séléctionner un joueur');
 
 
      }
@@ -1390,7 +1362,7 @@ function sendProposition(){
 
      if(IbProposition == none){
 
-          alert('vous n avez pas crée d offre!');
+          //alert('vous n avez pas crée d offre!');
 
      } else{
 
@@ -1402,11 +1374,11 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-          alert('vous n avez rien offert!');
+          //alert('vous n avez rien offert!');
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-          alert('vous n avez demandé aucun élément!');
+          //alert('vous n avez demandé aucun élément!');
 
           //ELSE, VALID PROPOSITION
 
@@ -1414,7 +1386,7 @@ function sendProposition(){
          } else {
 
 
-          alert('proposition sent!');
+          //alert('proposition sent!');
 
 
           //DID THE PROPERTIES HASHKEY CHANGE?
@@ -1488,7 +1460,7 @@ function sendProposition(){
                //makeCounterOffer(upgrade, answerer , proposition);
 
 
-               alert('proposition refusée!!!');
+               //alert('proposition refusée!!!');
 
                 
                 //If the thinker score was higher than 0 => Then, make a counterOffer => how to get the thinkerScore
@@ -1547,7 +1519,7 @@ function initPropositionInterface(){
 function acceptPropositionFromInterface(){
      
 
-     alert('you accepted the offer!!congrats!!');
+     //alert('you accepted the offer!!congrats!!');
 
      initHumanAnswerInterface();
 
