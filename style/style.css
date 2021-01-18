@@ -95,19 +95,99 @@ NAV BAR
 
  #ai1Div{
 
-     width: 10%;
+     width: 15%;
 
-     background: red;
+     display: flex; 
+
+     flex-direction : row;
+
+     justify-content: space-between;
  }
+
+
+ #mainAi1Div{
+
+    height: 100%;
+
+    width: 70%;
+
+    background: red;
+
+    overflow: hidden;
+
+ }
+
+
+
+ #mainAi1Div p{
+
+    padding : 15px;
+
+
+  }
+#ai1DivPropertiesCount{
+    
+    height: 100%;
+
+    width: 20%;
+
+    background: brown;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+
+
+}
+
+
 
  #ai2Div{
 
-    width: 10%;
+    width: 15%;
+ 
+    display: flex; 
 
-    background: red
+    flex-direction : row;
+
+    justify-content: space-between;
 
 
  }
+
+
+ #mainAi2Div{
+
+    height: 100%;
+
+    width: 70%;
+
+    background: red;
+
+    overflow: hidden;
+
+    
+ }
+
+  #mainAi2Div p{
+
+    padding : 15px;
+
+
+  }
+
+#ai2DivPropertiesCount{
+    
+    height: 100%;
+
+    width: 20%;
+
+    background: brown;
+    
+}
 
 
 

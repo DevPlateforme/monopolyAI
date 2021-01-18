@@ -18,23 +18,13 @@
     <h3>cash: </h3>
 </h1>
 
-<button onclick='launchDicesAndMovePieces()'>Lancer les dés</button>
 
-<button>Abandonner</button>
 
 
 
 <h1 id='otherPlayersDiv'>
 
 </h1>
-
-
-
-<button id='openPropositionInterfaceButton' onclick = 'displayPropositionInterface()'>Faire une proposition</button>
-
-
-<button id='openPropertiesManagementInterfaceButton'onclick = 'displayPropertiesManagementInterface()'>Gérez vos propriétés</button>
-
 
 
 
@@ -50,14 +40,9 @@
    <div id='topDiv'>
 
         
-
-
          <div id='offererDiv'>
 
-
-
-        </div>
-
+         </div>
 
 
          <div id='answererDiv'>   
@@ -235,7 +220,49 @@
 
    <div id='aisAndBoard'>
 
-       <div id='ai1Div'></div>
+       <div id='ai1Div'>
+
+            <div id='mainAi1Div'>
+
+                  <p>
+                    
+                   PM45 is thinking <br> Merge sort of the available monopoliesIpsum is simply dummy text of the printing and typesetting industry. 
+                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                   when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                   It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                   It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                  and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                </p>
+            </div>
+
+            <div id = "ai1DivPropertiesCount">
+
+                  <div id='ai1RentalPropertiesCount'>
+         
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+                     <div></div>
+
+                 </div>
+
+
+                <div id='ai1TrainsAndPublicServicesCount'>
+ 
+                   <div></div>
+                   <div></div>
+
+                </div>
+
+
+            </div>
+       
+       </div>
 
 
     <div id="board">
@@ -249,7 +276,47 @@
     </div>
   
 
-       <div id='ai2Div'></div>
+       <div id='ai2Div'>
+
+            <div id = "ai2DivPropertiesCount">
+              
+              <div id='ai2RentalPropertiesCount'>
+        
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+             </div>
+
+
+             <div id='ai2TrainsAndPublicServicesCount'>
+ 
+                <div></div>
+                <div></div>
+
+             </div>
+
+
+            </div>
+
+            <div id='mainAi2Div'>
+
+                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                   when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                   It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                   It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                  and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+              
+            </div>
+        
+       </div>
 
 
    </div>
@@ -286,6 +353,12 @@
 
 
         <div id='managementDiv'>
+
+              <div><button onclick='launchDicesAndMovePieces()'>Lancer</button></div>
+
+              <div> <button onclick = 'displayPropertiesManagementInterface()'>Gérer</button></div>
+
+              <div><button onclick = 'displayPropositionInterface()'>Trade</button></div>
 
         </div>
 
