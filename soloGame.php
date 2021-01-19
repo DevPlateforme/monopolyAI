@@ -220,9 +220,9 @@
 
    <div id='aisAndBoard'>
 
-       <div id='ai1Div'>
+       <div id='ai1DivAndStats'>
 
-            <div id='mainAi1Div'>
+            <div id='ai1Div'>
 
                   <p>
                     
@@ -236,7 +236,7 @@
                 </p>
             </div>
 
-            <div id = "ai1DivPropertiesCount">
+            <div id = "statsDiv">
 
                   <div id='ai1RentalPropertiesCount'>
          
@@ -276,35 +276,24 @@
     </div>
   
 
-       <div id='ai2Div'>
+       <div id='ai2AndAi3Div'>
 
-            <div id = "ai2DivPropertiesCount">
+            <div id = "ai2Div">
               
-              <div id='ai2RentalPropertiesCount'>
-        
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
 
-             </div>
+              
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                   when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                   It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                   It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                  and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
-
-             <div id='ai2TrainsAndPublicServicesCount'>
- 
-                <div></div>
-                <div></div>
-
-             </div>
 
 
             </div>
 
-            <div id='mainAi2Div'>
+            <div id='ai3Div'>
 
                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
