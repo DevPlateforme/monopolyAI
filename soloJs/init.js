@@ -97,12 +97,14 @@ function setColorScores(){
 
     humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique );
     humanPlayer.propertiesArray.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique);
+    
 
-    humanPlayer.landLord = humanPlayer;
 
-    humanPlayer.landLord = humanPlayer;
+    rueDeVaugirard.landLord = humanPlayer;
 
-    humanPlayer.landLord = humanPlayer;
+    rueDeCourcelles.landLord = humanPlayer;
+
+    avenueDeLaRepublique.landLord = humanPlayer;
 
 
     humanPlayer.propertiesByColor[lightBlue.index].monopoly = true;
@@ -110,44 +112,25 @@ function setColorScores(){
     humanPlayer.monopolies += 1;
 
 
+    
+    humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+    humanPlayer.propertiesArray.push(rueDeLaPaix);
+    
+    rueDeLaPaix.landLord = humanPlayer;
+
+
+    humanPlayer.propertiesByColor[orange.index].properties.push( avenueMozart , boulevardSaintMichel);
+    humanPlayer.propertiesArray.push(avenueMozart , boulevardSaintMichel);
+
+
+    avenueMozart.landLord = humanPlayer;
+    boulevardSaintMichel.landLord = humanPlayer;
+
+
+
+
+
     //AI1
-
-          //3 ORANGES
-
-    ai1.propertiesByColor[orange.index].properties.push( avenueMozart ,  boulevardSaintMichel);
-
-    ai1.propertiesArray.push( avenueMozart ,  boulevardSaintMichel);
-
-
-    avenueMozart.landLord = ai1;
-
-    boulevardSaintMichel.landLord = ai1;
-
-    ai1.propertiesByColor[orange.index].properties.push(placePigalle);
-    ai1.propertiesArray.push(placePigalle);
-
-    placePigalle.landLord = ai1;
-
-
-    ai1.propertiesByColor[orange.index].monopoly = true;
-
-    ai1.monopolies += 1;
-
-    //2 dark blues
-
-
-    ai1.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix, avenueDesChampsElysees);
-    ai1.propertiesArray.push(rueDeLaPaix, avenueDesChampsElysees);
-
-    rueDeLaPaix.landLord = ai1;
-
-    avenueDesChampsElysees.landLord = ai1;
-
-    ai1.propertiesByColor[darkBlue.index].monopoly = true;
-
-
-    ai1.monopolies += 1;
-
 
 
 
@@ -160,15 +143,6 @@ function setColorScores(){
 
     rueLaFayette.landLord = ai1;
 
-
-
-  
-           // 1 red 
-
-      ai1.propertiesByColor[red.index].properties.push(bdMalesherbes);
-      ai1.propertiesArray.push(bdMalesherbes);
-
-      bdMalesherbes.landLord = ai1;
 
 
 
@@ -193,6 +167,15 @@ function setColorScores(){
 
       
       faubourgSaintHonore.landLord = ai2;
+
+
+
+      
+    ai2.propertiesByColor[orange.index].properties.push(placePigalle);
+    ai2.propertiesArray.push(placePigalle);
+
+    placePigalle.landLord = ai2;
+
 
 }
 
@@ -256,7 +239,7 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
+    //setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
 
     setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
 

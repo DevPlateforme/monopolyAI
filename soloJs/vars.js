@@ -397,14 +397,6 @@ var saleOfStockCard = {type: collection , description: "Vente d'actions, vous ga
 
 
 
- var possibleFutureMonopolyTradesList = [];
-
-
-
-
- var possibleFutureMonopolyCount = 0;
-
-
 
  //PROPOSITION INTERFACE
 
@@ -475,6 +467,13 @@ var saleOfStockCard = {type: collection , description: "Vente d'actions, vous ga
 
 
 
-
-
 var minimumHouseValue = 50; //smallest house value
+
+
+
+//proposition gain types
+
+
+var directGain = 'DG';
+
+var indirectGain = 'IG';

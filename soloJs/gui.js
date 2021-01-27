@@ -1350,6 +1350,7 @@ function sendProposition(){
 
 
 
+
      let IbProposition = humanPlayer.inBuildingProposition;
      let offerer = humanPlayer;
      let answerer = offerer.inBuildingProposition.answerer;
@@ -1451,11 +1452,19 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-            if(profitableTrade(answerer, proposition) == true){   
+            if(profitableTrade(answerer, proposition , false) == true){   
                  
                acceptProposition(proposition);     
 
+               alert('proposition accepted');
+
+
             } else {
+
+               alert('proposition refused');
+
+
+
 
                //makeCounterOffer(upgrade, answerer , proposition);
 

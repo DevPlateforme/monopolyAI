@@ -37,7 +37,7 @@ function makeProposition(proposition){
         
     } else {
  
-        if(profitableTrade(proposition.answerer, proposition) == true){
+        if(profitableTrade(proposition.answerer, proposition , false) == true){
  
  
              //the trade is accepted by the AI

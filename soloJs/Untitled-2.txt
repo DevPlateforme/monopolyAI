@@ -1,0 +1,245 @@
+
+If possibility to get a 2/2 or a 3/3 , same.
+
+
+Its all about one thing : get array gain, getArrayGainLoss;
+
+
+//Inside the trade object function 
+
+
+get array gain :
+
+
+     have the two nonTrading players generate their best offers.
+
+     if the best of those three offers result in a new monopoly , then compute 80% of the gain.
+
+
+
+     function getSetValueAtDepth2(player, array){
+
+
+              //create a deep clone of the element 
+
+
+              //Add the new set
+
+              //get the 2 non trading players to make their best offers (resulting in something close to a direct monop) for the involved color , it means there is a direct window. 
+
+              let directMonopolyWindow = false;
+
+              let obj = { directMonpooly : false , gainValue : 0 };
+
+              let set = //set of this color
+
+              let bestOffer = 0;
+
+
+
+              for(i=0 ; i < nonTradingPlayers.length ; i++){
+
+                   tryToCreateProposition(nonTradingPlayers[i], set);
+
+                    //if we'd receive a monopoly from it , obj.directMonopoly = true;
+
+                    //obj.gainValue
+
+                
+              } 
+              
+
+              if(obj.directMonopoly == true) {
+
+                  
+                    return obj;
+
+
+              } else {
+
+
+                  return false;
+
+
+              }
+
+
+     
+     }
+
+
+
+
+
+
+
+  function getArrayGainLoss(){
+
+      
+  }
+
+
+
+
+
+counterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer , array);
+
+
+
+function createTradeObject(objectType, offerer, answerer , array){
+
+    //this function creates a trade object, with owner losses, and other player gains.
+    
+    //return => indirectMonopoly = false , gainValue = //arrayGainValue 
+
+   let tradeObject;
+
+   let owner;
+
+   let otherPlayer;
+      
+    if( objectType == offerObject){
+
+        tradeObject = new Offer(offerer, answerer, array);
+        owner = offerer;
+        otherPlayer = answerer;
+
+    } else {
+
+       tradeObject = new counterPartAsked(offerer, answerer, array);
+        owner = answerer;
+        otherPlayer = offerer;
+
+    }
+
+      //ownerLoss
+    
+       counterPartAsked.lossForTheOwner += getArrayLossValue(activePlayer , array);
+
+       let set = getSetValueAtDepth2(activePlayer, array);
+
+
+       if(set.indirectMonopoly == false){
+
+           //nothing
+
+       } else {
+
+           //compute a synergetic cost for the player loosing the array 
+           
+           //Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
+           counterPartAsked.lossForTheOwner += 0.25 * set.gainValue;
+           counterPartAsked.lossForTheOtherPlayer += 0.75 * set.gainValue;
+
+       }
+
+
+       //counterPartAsked 
+
+
+     
+        
+}
+
+
+
+
+function getSetValueAtDepth2(playerA, playerB , array){
+
+       let obj = { monopolyOpportunity: false , bestGain: 0 };
+
+
+       for(i=0; i < nonTradingPlayers.length ; i++){
+
+            let newSet = getNewSet(playerA.propertiesByColor[array[0].color.index].properties, array);
+
+            let lossValueForTheOwner = ;
+
+            let gainValueForTheOtherPlayer = ;
+           
+           
+            let counterPartAsked = new counterPartAsked(playerA, lossValueForTheOwner, gainValueForTheOtherPlayer , newSet);
+            
+            let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , playerA, counterPartAsked );
+
+              //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
+
+               tryToCreateProposition(directGain, propositionMaterial);
+
+              //for each proposition : 
+
+               if(monopolyGain(player, proposition) == true){   
+
+                  obj.bestGain = proposition.answererScore ;
+
+               }
+
+       }
+
+
+    if(obj.monopolyOpportunity == false){
+
+        return false;
+
+    } else {
+
+        return obj;
+    } 
+ 
+    
+
+}
+
+
+
+
+
+
+
+
+function tryToCreateProposition(gainType, propositionMaterial){  
+
+
+
+    let bestProposition = none;
+
+     
+     if(gainType == directGain){
+
+         createDirectTradeObject(); 
+
+         //the owner of this object will only consider its gains as direct (same as the current tradeObject function ) 
+
+
+     } else {
+
+         createIndirectTradeObject();
+
+     }
+
+
+
+   return bestProposition;
+
+}
+
+
+
+
+
+
+
+-----------
+
+
+
+ //So, we always wonder what we gain indirectly. Always. But, its about where we think directly, or indirectly.
+
+//Sort the best proposition ------> anytime you call tryToCreateProposition(indirectGain)
+
+
+
+At the end of the search function, we have an array of best propositions, we sort it using quicksort.
+
+
+

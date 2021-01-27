@@ -746,20 +746,26 @@ function isThereMonopolyCompletion(playerA, playerB , color){
 
 function getNonTradingPlayersArray(playerA, playerB){
 
-  let nonTradingPlayersArray = [];
+   let ntpArray = playersArray.slice(0);
 
-  for(i=0; i < playersArray.length; i++){
 
-    if(playersArray[i] != playerA || playersArray[i] != playerB){
+    for(i=0; i < ntpArray.length; i++){
 
-      nonTradingPlayersArray.push(playersArray[i]);
+      if(ntpArray[i] == playerA || ntpArray[i] == playerB ){
 
-      
+
+        ntpArray.splice(i,1);
+
+        i--;
+
+      }
+
+
+
     }
-  }
 
 
-  return nonTradingPlayersArray;
 
+  return ntpArray;
 
 }

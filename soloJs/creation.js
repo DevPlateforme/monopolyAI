@@ -35,7 +35,6 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 
-	
 	this.array = array;
 
 	this.cash = 0;
@@ -50,29 +49,17 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 
 
 
-
-
 function Proposition(offerer, answerer, offer, counterPartAsked ) {
 	// For each property and get out of jail free cards, 1 means offered, -1 means requested, 0 means neither.
 
 	this.offerer = offerer;
-
 	this.answerer = answerer;
-    
 	this.offer = offer;
-	
 	this.counterPartAsked = counterPartAsked;
-
-
 	this.offererScore = 0;
-
 	this.answererScore = 0;
 
-
 }
-
-
-
 
 
 
@@ -82,28 +69,50 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 
 
 
-function tryToCreateProposition(thinker, propositionMaterial){
+function tryToCreateProposition(thinker,  gainType , propositionMaterial){
+
+
+
 
 
 	//THE AI TRIES TO GENERATE REASONABLE PROPOSITIONS, USING A "PROPOSITION MATERIAL" OBJECT
 
-	
 	let offerer = propositionMaterial.offerer;
 	let answerer = propositionMaterial.answerer;
 	let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
 
-	let counterPartAsked = propositionMaterial.counterPartAsked;
 
 	
+	let counterPartAsked = propositionMaterial.counterPartAsked;
+
+	let bestProposition = {thinkerScore: -infinite , proposition: none};
+
+
+	let newCounterPartAsked;
+
+	
+
+
+
+
+	
+	//remove elements requested to the answerer
+
+	
+
+	removeElementsFromPlayer(answerer, counterPartAsked.array);
+
+	
+
 	 //remove color duplicates from offerer array (the AI doesnt offer properties of a color it requests)
 
 
 
 	let propertiesArray = [];
 
-	for(i=0; i < thinker.propertiesByColor.length ; i++){
+	for(i=0; i < offerer.propertiesByColor.length ; i++){
 
-		 let set = thinker.propertiesByColor[i].properties.slice(0);
+		 let set = offerer.propertiesByColor[i].properties.slice(0);
 
 		if(set.length > 0){
 
@@ -136,8 +145,6 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 	}
     
-
-
 
 
 
@@ -183,26 +190,83 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 		     	 //DIVIDE THIS ARRAY IN SETS
 			 
-				 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
+				 //propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
 
-				 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
-				 				
+				 //propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
+
+			
 				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 
 				
 				 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
 
 					
+	                if(gainType == directGain){
 
-				    	offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+						   offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+						   
+					
 
-				     	offer.cash = offererCashSlices[offererCashSliceIndex];
+	                 } else {
+
+		                 offer = createIndirectTradeObject(offerObject, answerer, offerer, offerArray);
+ 
+					 }
+
+
+					 if(gainType == indirectGain){
+						removeElementsFromPlayer(offerer, offer.array);
+						propertiesAskedPlusCash = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);			 
+						addElementsToPlayer(offerer, offer.array);
+					
+					} else {
+						propertiesAskedPlusCash = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+					 }
+		
+
+
+
+
+				    	 offer.cash = offererCashSlices[offererCashSliceIndex];
 
 						
 		        		 //RETURN AN OFFER OBJECT
 				      
 
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
+
+						 if(gainType == indirectGain){
+							 
+							
+							alert('here is the proposition that was just created : ');
+
+							alert('offerer : ' + proposition.offerer.name);
+   
+							alert('answerer : ' + proposition.answerer.name);
+   
+							alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+   
+							alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
+						   
+							
+							alert('offer length =>' + proposition.offer.array.length)
+   
+   
+							for(i=0; i < proposition.offer.array.length; i++){
+   
+							   alert('offer element =>' + proposition.offer.array[i].name );
+   
+							}
+   
+   
+							for(i=0; i < proposition.counterPartAsked.array.length; i++){
+   
+							   alert('counterpart asked element =>' + proposition.counterPartAsked.array[i].name );
+   
+							}
+   
+
+						 }
 
 
 
@@ -211,54 +275,237 @@ function tryToCreateProposition(thinker, propositionMaterial){
   
   
 						 
-						if(profitableTrade(offerer,  proposition ) == true){  
+						if(profitableTrade(offerer,  proposition , false) == true){  
+
+							/*
+
+							if(gainType == directGain){
+
+
+								alert('here is the future monopoly opportunity found!!');
+								alert('offererScore => ' + proposition.offererScore);
+
+								alert('answerer set before => ' + calculateSetValue(proposition.answerer.propertiesByColor[proposition.offer.array[0].color.index].properties));
+
+
+								alert('offer length => ' + proposition.offer.array.length)
+
+
+								alert('answererScore after => ' + proposition.answererScore);
+
+		
+								alert('gain type =>' + gainType);
+								alert('offerer =>' + offerer.name);
+								alert('answerer =>' + answerer.name);
+	  
+								for(i=0; i < proposition.offer.array.length ; i++){
+	  
+								   alert('offered element ==> ' + proposition.offer.array[i].name);
+
+								
+							   }
+
+	  
+							   for(i=0; i < proposition.counterPartAsked.array.length ; i++){
+	  
+								  alert('counterPart Asked  ==> ' + proposition.counterPartAsked.array[i].name);
+	  
+							  }
+
+
+							}
+
+							*/
+
   
-							  thinker.propositionList.push(proposition);
+							if(thinker == offerer){
+
+								 
+								if(proposition.offererScore > bestProposition.thinkerScore){
+
+
+									bestProposition.proposition = proposition;
+
+									bestProposition.thinkerScore = proposition.offererScore;
+
+
+
+								}
+
+
+
+							  } else {
+
+								  		 
+							 	if(proposition.answererScore > bestProposition.thinkerScore){
+
+									bestProposition.proposition = proposition;
+
+									bestProposition.thinkerScore = proposition.answererScore;
+
+
+								}
+
+					  	    }
 
 						}
 
-				 }
-
+				  }
 				
-		   }
+	        }
 
-
-
-  
 	  } else {
 
 		  for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
 
 			   offerArray = [propertiesArray[propertyIndex]];
 
-			   //DIVIDE THIS ARRAY IN SETS
-			  //TAKE THE DESIRED SET AND CREATE 5 COPIES.
- 		     //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-			//NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
+			     //DIVIDE THIS ARRAY IN SETS
+			    //TAKE THE DESIRED SET AND CREATE 5 COPIES.
+ 		       //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
+			  //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 
-				offer = createTradeObject(offerObject ,offerer, answerer, offerArray);
+
+	        if(gainType == directGain){
+
+	    	  offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+
+    	    } else if (gainType == indirectGain) {
+
+	      	  offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
+
+        	} else {
+
+				alert('error');
+			}
+
+		
 				   
 					//RETURN AN OFFER OBJECT
 				 
 				proposition = new Proposition(offerer, answerer, offer ,  counterPartAsked);
 
+				if(gainType == indirectGain){
+							 
+							
+					alert('here is the proposition that was just created : ');
+					alert('offerer : ' + proposition.offerer.name);
+					alert('answerer : ' + proposition.answerer.name);
+
+
+					alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+					alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
+					alert('the offer length is =>' + proposition.offer.array.length)
+
+
+
+
+					for(i=0; i < proposition.offer.array.length; i++){
+
+					   alert('offer element =>' + proposition.offer.array[i].name );
+
+					}
+
+
+					for(i=0; i < proposition.counterPartAsked.array.length; i++){
+
+					   alert('counterpart asked element =>' + proposition.counterPartAsked.array[i].name );
+
+					}
+
+
+				 }
+
 					//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
 					
-				   if(profitableTrade(offerer,  proposition ) == true){
+				   if(profitableTrade(offerer,  proposition , false) == true){
+
+
+					/*
+
+					
+					if(gainType == directGain){
+
+
+						alert('here is the future monopoly opportunity found!!');
+						alert('offererScore => ' + proposition.offererScore);
+
+						alert('answerer set before => ' + calculateSetValue(proposition.answerer.propertiesByColor[proposition.offer.array[0].color.index].properties));
+
+
+						alert('offer length => ' + proposition.offer.array.length)
+
+
+						alert('answererScore after => ' + proposition.answererScore);
+
+
+						alert('gain type =>' + gainType);
+						alert('offerer =>' + offerer.name);
+						alert('answerer =>' + answerer.name);
+
+						for(i=0; i < proposition.offer.array.length ; i++){
+
+						   alert('offered element ==> ' + proposition.offer.array[i].name);
+
+						
+					   }
+
+
+					   for(i=0; i < proposition.counterPartAsked.array.length ; i++){
+
+						  alert('counterPart Asked  ==> ' + proposition.counterPartAsked.array[i].name);
+
+					  }
+
+
+					}
+
+
+					*/
+
+		
+
+
+					//alert('profitable proposition found!!');
+
 						
 						 //console.log('pushing proposition...');
 
-						 thinker.propositionList.push(proposition);
+						 if(thinker == offerer){
+
+								 
+							if(proposition.offererScore > bestProposition.thinkerScore){
+
+
+								bestProposition.proposition = proposition;
+
+								bestProposition.thinkerScore = proposition.offererScore;
+
+
+
+							}
+
+
+
+						  } else {
+
+									   
+							 if(proposition.answererScore > bestProposition.thinkerScore){
+
+								bestProposition.proposition = proposition;
+
+								bestProposition.thinkerScore = proposition.answererScore;
+
+
+							}
+
+					    }
 				 
 				   }
 
-
-			}
-
-		   
-	  }
-
-
+		 	 }
+	   
+	    }
 
    }
 
@@ -301,7 +548,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
 				 	 			   
 		  }
 
-	}
+	  }
 
 
 
@@ -318,13 +565,67 @@ function tryToCreateProposition(thinker, propositionMaterial){
 
 				//DIVIDE THIS ARRAY IN SETS
 
+				
 
-				offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+	          if(gainType == directGain){
+
+		            offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+
+   	          } else {
+
+	   	            offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
+
+				}
 
 
-			   offer = new Offer(offerer, answerer, offerArray, offererLoss, answererGain);
+				if(gainType == indirectGain){
+					removeElementsFromPlayer(offerer, offer.array);
+					newCounterPartAsked = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+				    addElementsToPlayer(offerer, offer.array);
+				} else {
+					newCounterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+				 }
+	
 
-			   proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+		
+				
+
+
+			   proposition = new Proposition(offerer, answerer, offer , newCounterPartAsked);
+
+
+			   if(gainType == indirectGain){
+							 
+							
+				alert('here is the proposition that was just created : ');
+
+
+				alert('offerer : ' + proposition.offerer.name);
+
+				alert('answerer : ' + proposition.answerer.name);
+
+
+				alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+
+				alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
+
+
+
+				for(i=0; i < proposition.offer.array.length; i++){
+
+				   alert('offer element =>' + proposition.offer.array[i].name );
+
+				}
+
+
+				for(i=0; i < proposition.counterPartAsked.array.length; i++){
+
+				   alert('counterpart asked element =>' + proposition.counterPartAsked.array[i].name );
+
+				}
+
+
+			 }
 
 
 
@@ -342,8 +643,7 @@ function tryToCreateProposition(thinker, propositionMaterial){
   let triplet;
 
    
-if( propertiesArray.length > 2){  
-
+  if(propertiesArray.length > 2){  
   
 	for(propertyIndex = 0; propertyIndex < propertiesArray.length; propertyIndex++){
 		 
@@ -387,20 +687,154 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
 
 				//DIVIDE THIS ARRAY IN SETS
 
-	  offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 
-	  proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
+	if(gainType == directGain){
+
+		offer = createTradeObject(offerObject, offerer, answerer, offerArray);
+
+	} else {
+
+		offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
+
+	}
+
+	
+	if(gainType == indirectGain){
+		removeElementsFromPlayer(offerer, offer.array);
+		newCounterPartAsked = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+		addElementsToPlayer(offerer, offer.array);
+	} else {
+		newCounterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+	 }
+
+
+
+
+
+
+	  proposition = new Proposition(offerer, answerer, offer , newCounterPartAsked);
+
+
+	  
+
+	  if(gainType == indirectGain){
+							 
+							
+		alert('here is the proposition that was just created : ');
+
+
+		alert('offerer : ' + proposition.offerer.name);
+
+		alert('answerer : ' + proposition.answerer.name);
+
+
+		alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+
+		alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
+
+
+
+		for(i=0; i < proposition.offer.array.length; i++){
+
+		   alert('offer element =>' + proposition.offer.array[i].name );
+
+		}
+
+		alert(' the offer length is ' + proposition.offer.array.length);
+
+
+		for(i=0; i < proposition.counterPartAsked.array.length; i++){
+
+		   alert('counterpart asked element =>' + proposition.counterPartAsked.array[i].name );
+
+		}
+
+
+	 }
+
+
+
 
 				//RETURN AN OFFER OBJECT
 
 		//console.log('generating three elements propositions...');
 
 
-		if(profitableTrade(offerer, proposition ) == true){
+		if(profitableTrade(offerer, proposition , false) == true){
 
-  		    thinker.propositionList.push(proposition);
 
-		}
+/*
+			
+			if(gainType == directGain){
+
+
+				alert('here is the future monopoly opportunity found!!');
+
+				alert('offererScore => ' + proposition.offererScore);
+
+				alert('answerer set before => ' + calculateSetValue(proposition.answerer.propertiesByColor[proposition.offer.array[0].color.index].properties));
+
+
+				alert('offer length => ' + proposition.offer.array.length)
+
+
+				alert('answererScore after => ' + proposition.answererScore);
+
+
+				alert('gain type =>' + gainType);
+				alert('offerer =>' + offerer.name);
+				alert('answerer =>' + answerer.name);
+
+				for(i=0; i < proposition.offer.array.length ; i++){
+
+				   alert('offered element ==> ' + proposition.offer.array[i].name);
+
+				
+			   }
+
+
+			   for(i=0; i < proposition.counterPartAsked.array.length ; i++){
+
+				  alert('counterPart Asked  ==> ' + proposition.counterPartAsked.array[i].name);
+
+			  }
+
+
+			}
+
+			
+*/
+
+
+			if(thinker == offerer){
+
+								 
+				if(proposition.offererScore > bestProposition.thinkerScore){
+
+					bestProposition.proposition = proposition;
+					bestProposition.thinkerScore = proposition.offererScore;
+
+				}
+
+
+
+			  } else {
+						   
+				if(proposition.answererScore > bestProposition.thinkerScore){
+
+
+					bestProposition.proposition = proposition;
+
+					bestProposition.thinkerScore = proposition.answererScore;
+
+
+
+				}
+
+				
+			  }
+
+		  }
     }
 
 
@@ -408,10 +842,26 @@ for(ti = 0 ; ti < tripletArray.length; ti++){
    
 //FUNCTION END
 
+
+
+	//add elements requested back to the answerer
+
+
+
+	
+
+	addElementsToPlayer(answerer, counterPartAsked.array);
+	
+
+
+
+
+ return bestProposition;
+
 }
 
 
-function createTradeObject( type , offerer, answerer, tradeArray){
+function createTradeObject( type , offerer, answerer, tradeArray ){
 
 	//tradeArray => (offer) [rueDeCourcelles, avenueDeLaRepublique]
 
@@ -421,7 +871,6 @@ function createTradeObject( type , offerer, answerer, tradeArray){
     let tradeObject;
     let owner;
 	let otherPlayer;
-	
 
 
     if(type == offerObject){
@@ -436,51 +885,34 @@ function createTradeObject( type , offerer, answerer, tradeArray){
 	  owner = answerer;
 	  otherPlayer = offerer;
 
-    }
+	}
+	
 
-	    for(tradeSetIndex = 0; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
-
-
+	  for(tradeSetIndex = 0; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
 			
- 	   //LOSS VALUE FOR THE OFFERER
+ 	       //LOSS VALUE FOR THE OFFERER
+ 
+		  tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
 
-		tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
-
-
-
-		   
-			//Now , compute the projection (DFS)
-
-	  	   //is there a monopoly completion with another player?
-
-
-
+	      //GAIN VALUE FOR THE OTHER PLAYER
 
 		
-
-	   //GAIN VALUE FOR THE OTHER PLAYER
-
-	
-		   tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
+		  tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
+		   
 
 
-
-
-	
-     	////console.log('the gain value for the other player is now at the offer set index : ' + offerSetIndex + ' ' + offer.gainValueForTheOtherPlayer)
- 	    
-	
    }
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
  
+	 //alert('total gain=>' + tradeObject.gainValueForTheOtherPlayer);
+
      return tradeObject;
 }
 
 
 
 function getArrayGainValueForPlayer(player, array){
-
 
 	 let color = array[0].color;
 	 let currentSet = player.propertiesByColor[color.index].properties;
@@ -548,7 +980,8 @@ function divideOfferInSets(offerArray){
 
 */
 
-function profitableTrade(thinker, proposition){
+function profitableTrade(thinker, proposition , trick){
+
 
  
 	 let offer = proposition.offer;
@@ -653,7 +1086,9 @@ function profitableTrade(thinker, proposition){
 	  proposition.offererScore = offererScore;
 
 	  proposition.answererScore = answererScore;
-	 
+
+	  
+
 
 
 
@@ -706,11 +1141,36 @@ function profitableTrade(thinker, proposition){
 
 	}
 
-	 	 
-
-	  if(thinkerScore > (-thinkerLoss * 1.3)){
 
 
+	let apparentScore;
+
+
+	if(trick == false){
+
+		apparentScore = thinkerScore;
+
+
+	} else {
+
+		let thinkerSetsAcquired;
+
+	    	if(thinker == offerer){
+				thinkerSetsAcquired = divideArrayInSets(counterPartAsked.array);
+		    } else {
+				thinkerSetsAcquired = divideArrayInSets(offer.array);
+		   }
+
+
+		   //create a direct trade object, and simply imagine that the thinker is acquiring an object at the current depth
+
+
+		  apparentScore = createTradeObject(thinker, thinkerSetsAcquired).gainValueForTheOtherPlayer;
+
+    }
+
+ 	 
+	  if(apparentScore > (-thinkerLoss * 1.3)){
 
 		 //determine a certain range
 
@@ -769,7 +1229,8 @@ function profitableTrade(thinker, proposition){
 				 //THE BENEFIT TO THE OFFER HAS TO BE HIGHER THAN A CERTAIN LIMIT, BUT SMALLER THAN A CERTAIN VALUE (NOT TO RISK REFUSAL)
 				
 				
-				if (bottomLimit < thinkerScore && thinkerScore < topLimit ){
+				if (bottomLimit < apparentScore && apparentScore < topLimit ){
+
                        profitableProposition = true;
 
 				} else{
@@ -779,7 +1240,7 @@ function profitableTrade(thinker, proposition){
 				
 			} else {
 								
-				if (bottomLimit < thinkerScore ){
+				if (bottomLimit < apparentScore ){
 
 			    	profitableProposition = true;
 
@@ -793,12 +1254,10 @@ function profitableTrade(thinker, proposition){
 
 
 
-    		if (profitableProposition == true ){	
+    		if (profitableProposition == true ){
 				
-				
-				  
-				
-				
+				console.log('profitable proposition found!!');
+
 				
 
 				if(thinker == answerer){
@@ -811,19 +1270,38 @@ function profitableTrade(thinker, proposition){
 
 				 } else {	
 
+			 /*
 
-				   console.log('cette proposition est raisonnable (thinker: ' + thinker.name);
+ 
+				   alert('cette proposition est raisonnable (thinker: ' + thinker.name);
 					
-				   console.log('the loss for the offerer =>' + thinkerLoss + ' while its score is => ' + thinkerScore);
+				   alert('the loss for the offerer =>' + thinkerLoss + ' while its score is => ' + apparentScore);
 					 
-				   console.log('the bottom limit (score to be above of ) is ' + bottomLimit );
-			 	   console.log('the thinker score is ' + thinkerScore );		   
-				   console.log('the other player score is ' + interlocutorScore );
- 				   console.log('the top limit is ' + topLimit );
-				   console.log('here is the offer : ');
+				   alert('the bottom limit (score to be above of ) is ' + bottomLimit );
+				   alert('the thinker score is ' + apparentScore );		   
+				   alert('the other player score is ' + interlocutorScore );
+				   alert('the top limit is ' + topLimit );
+				   alert('here is the offer : ');
+
+				   
+			  	  for(i=0; i < offer.array.length; i++){	
+
+				   alert('offer element ' + i + ' ' + offer.array[i].name);
+
+			      }
+
+			 	   alert('and, here is the cash in the offer :' + offer.cash);				
+				   alert('here is the counterpart : ');
 
 
-			
+			  	  for(i=0; i < counterPartAsked.array.length; i++){
+					
+					 alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   
+			 	 }
+
+			  
+		    */
 
 
 				 }
@@ -845,23 +1323,23 @@ function profitableTrade(thinker, proposition){
 				}
 				 	
 				console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
-				console.log('the thinker perceived a value of ' + thinkerScore );
+				console.log('the thinker perceived a value of ' + apparentScore );
 				console.log('the other player perceived a value of ' + interlocutorScore );
 
 				console.log('here is the offer : ');
 
 
 				for(i=0; i < offer.array.length; i++){	
-					 console.log('offer element ' + i + ' ' + offer.array[i].name);
+					console.log('offer element ' + i + ' ' + offer.array[i].name);
 				}
 
-				    console.log('and, here is the cash in the offer :' + offer.cash);				
-				    console.log('here is the counterpart : ');
+				console.log('and, here is the cash in the offer :' + offer.cash);				
+				console.log('here is the counterpart : ');
 
 
 				for(i=0; i < counterPartAsked.array.length; i++){
 					
-				   console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+					console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
@@ -887,6 +1365,26 @@ function profitableTrade(thinker, proposition){
 
 				//alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
 			}
+
+			    console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+		   	    console.log('the thinker perceived a value of ' + apparentScore );
+			    console.log('the other player perceived a value of ' + interlocutorScore );
+			    console.log('here is the offer : ');
+
+
+				for(i=0; i < offer.array.length; i++){	
+					console.log('offer element ' + i + ' ' + offer.array[i].name);
+				}
+
+				   console.log('and, here is the cash in the offer :' + offer.cash);				
+				   console.log('here is the counterpart : ');
+
+
+				for(i=0; i < counterPartAsked.array.length; i++){
+					
+					console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   
+				}
 		   
 	  
 		
@@ -903,192 +1401,6 @@ function profitableTrade(thinker, proposition){
 
 
 }
-
-
-
-
-
-
-//FUTURE PROPOSITION ANTICIPATION
-
-
-
-function tryToCreateFutureProposition(propositionMaterial){
-
-
-
-	//console.log('try to create future propositions....');
-
-
-
-	let answerer = propositionMaterial.answerer;
-	let offerer = propositionMaterial.offerer;
-	let counterPartAsked = propositionMaterial.counterPartAsked;
-	let propertiesArray = offerer.propertiesArray;
-	let offerArray;
-	let propertiesAskedPlusCash;
-	let offer;
-	let proposition;
-
-
-	
-
-	let answererCashSlices = [0, answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
-	
-	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
-
-
-
-
-
-   	//1 ELEMENT PROPOSITIONS
-
-
-
-
-		 //FOR EACH ANSWERER CASH SLICE
-
-	 
-		 for(answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
-
-
-			if(answererCashSliceIndex == 0){
-
-				//FOR EACH PROPERTIES THAN CAN BE OFFERED
-		
-		
-				 for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
-			
-					   offerArray = [propertiesArray[propertyIndex]];
-		
-						//DIVIDE THIS ARRAY IN SETS
-		
-					   //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-		
-					  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-		
-		
-						 propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
-		
-		
-						 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
-		
-										  
-	
-	
-						 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
-		
-		
-						
-						 for(offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
-		
-							
-		
-							     offer = createTradeObject(offerObject, offerer, answerer, offerArray);
-		
-								 offer.cash = offererCashSlices[offererCashSliceIndex];
-		
-								
-								 //RETURN AN OFFER OBJECT
-							  
-		
-								 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
-		
-		
-		
-								 //TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-		  
-		  
-								 
-								if(profitableTrade(offerer,  proposition ) == true){
-		  
-									  //alert('possible future monopoly found...');
-
-
-									  possibleFutureMonopolyCount++;
-
-									  
-		  
-							  
-								}
-	
-		
-						 }
-	
-	
-														
-				  }
-
-
-
-			} else {	
-					
-				for(propertyIndex = 0; propertyIndex < propertiesArray.length ; propertyIndex++){
-	   
-	   
-	   
-					  offerArray = [propertiesArray[propertyIndex]];
-	   
-					   //DIVIDE THIS ARRAY IN SETS
-	   
-		   		      //TAKE THE DESIRED SET AND CREATE 5 COPIES.
-      
-					  //FOR EACH OF THOSE COPIES , WE ADD A DIFFERENT AMOUNT OF CASH (LOOPING ON THE CASH SLICES ARRAY)
-   
-					 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
-	   
-	   
-	   
-	   
-	   
-						   
-	   
-								 offer = createTradeObject(offerObject, offerer, answerer, offerArray);
-	   	   
-							   
-								//RETURN AN OFFER OBJECT
-							 
-	   
-								proposition = new Proposition(offerer, answerer, offer , counterPartAsked);
-	   
-	   
-	   
-								//TO BE ABLE TO CALCULATE THE PROFITABILITY OF A PROPOSITION, WE NOW NEED TO FILL THE OFFERERS VALUE ARRAYS
-		 
-		 
-								
-							   if(profitableTrade(offerer,  proposition ) == true){
-		 
-									//alert('possible future monopoly found...');
-
-
-									possibleFutureMonopolyCount++;
-
-		 
-			
-   
-							   }
-   
-      
-   													   
-				    }
-
-
-			}
-
-			
-		}
-
-
-
-
-		//init the count for futures searches
-
-		possibleFutureMonopolyCount++;
-
-		
-		   
-   }
 
 
 
@@ -1145,4 +1457,274 @@ function explodeSet(set){
 
 	return explodedSet;
 
+}
+
+
+function createIndirectTradeObject(type , offerer, answerer, tradeArray){
+
+		//this function creates a trade object, with owner losses, and other player gain.
+		
+       //return => indirectMonopoly = false , gainValue = //arrayGainValue 
+
+ 	 let tradeObject;
+	 let owner;
+	 let otherPlayer;
+	   
+
+	 if(type == offerObject){
+
+		tradeObject = new Offer( explodeSet(tradeArray), 0, 0);
+	    owner = offerer;
+		otherPlayer = answerer;
+		
+   } else {
+
+	   tradeObject = new CounterPartAsked( explodeSet(tradeArray), 0 , 0);
+  	   owner = answerer;
+	   otherPlayer = offerer;
+
+   }
+   
+	   //ownerLoss
+
+	   for(tradeSetIndex = 0 ; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
+
+			  tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner , tradeArray[tradeSetIndex]);
+
+			  //tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer , tradeArray[tradeSetIndex]);
+
+			let set = getSetValueAtDepth2(owner, otherPlayer, tradeArray[tradeSetIndex]);
+
+				
+			
+		   if(set.monopolyOpportunity == false){
+ 
+			//nothing
+
+			alert("no future opportunity");
+ 
+    		} else {
+
+				alert('indirect monopoly found');
+
+				//tradeObject.gainValueForTheOtherPlayer -= getArrayGainValueForPlayer(otherPlayer , tradeArray[tradeSetIndex]);
+
+ 
+			//compute a synergetic cost for the player loosing the array 
+			
+			//Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
+			tradeObject.lossValueForTheOwner += (0.25 * set.gainValue);
+
+			tradeObject.gainValueForTheOtherPlayer += (0.75 * set.gainValue);
+
+
+
+		}
+	
+	}
+
+	//handle collision => if two element receive the same monopoly, only select the better gain
+
+
+
+	return tradeObject;
+
+}
+
+
+
+
+
+
+function getSetValueAtDepth2(playerA , playerB , array){
+	
+
+	let obj = { monopolyOpportunity: false , gainValue: 0 };
+
+	let nonTradingPlayers = getNonTradingPlayersArray(playerA, playerB);
+
+
+
+	for(i=0; i < nonTradingPlayers.length ; i++){
+
+
+	  	    let newSet = getNewSet(playerA.propertiesByColor[array[0].color.index].properties, array);
+
+		    let lossValueForTheOwner = calculateSetValue(newSet); 
+		 
+		    let gainValueForTheOtherPlayer = getArrayGainValueForPlayer(nonTradingPlayers[0] , newSet);
+		
+	 	    let counterPartAsked = new CounterPartAsked(newSet , lossValueForTheOwner, gainValueForTheOtherPlayer );
+			 
+		    let propositionMaterial = new PropositionMaterial(nonTradingPlayers[0] , playerA, counterPartAsked );
+
+		   //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
+
+			let bestProposition = tryToCreateProposition(playerA, directGain, propositionMaterial);
+
+
+
+		   //for each proposition :
+   
+		   if(bestProposition.proposition != none){
+
+		     	if(monopolyGain(playerA, divideArrayInSets(bestProposition.proposition.offer.array)) == true){   
+				
+					obj.gainValue = bestProposition.proposition.answererScore ;
+
+					obj.monopolyOpportunity = true;
+					
+
+			   }
+
+		   }		
+  
+	 }
+
+
+
+		return obj;
+		 
+
+}
+
+
+
+
+
+
+
+function getNewSet(arrayA , arrayB){
+
+	   let newArray = arrayA.slice(0);
+	   
+	    for(i=0; i < arrayB.length; i++){
+			newArray.push(arrayB[i]);
+		}
+
+		return newArray;
+}
+
+
+
+
+function monopolyGain(player, sets){
+        
+
+  for(setIndex = 0 ; setIndex < sets.length ; setIndex++ ) {
+
+
+	let set = sets[setIndex];		
+	let color = set[0].color;
+	let propertiesType = set[0].type;
+	let playerSet = player.propertiesByColor[color.index].properties;
+ 
+
+    if(propertiesType == rentalProperty){
+
+
+  	  if(color == darkBlue || color == brown){
+
+	      if(playerSet.length != 2){
+
+			if((playerSet.length + set.length) == 2){
+
+				alert('---------------------------------------new monopoly!!');
+
+
+				return true;
+
+		 	}
+
+		}
+
+      } else {
+
+		
+	    if(playerSet.length != 3){
+
+
+			if((playerSet.length + set.length) == 3){
+
+
+				alert('------------------------------------------------------new monopoly!!');
+
+				return true;
+
+			
+
+			}
+
+		}
+	
+      }
+
+    }
+
+  }
+
+
+  return false;
+
+  
+}
+
+
+
+
+
+function removeElementsFromPlayer(player, elementsArray){
+
+	
+	for(i=0; i < elementsArray.length ; i++){
+
+
+		//alert('cp element ==> ' + counterPartAsked.array[i].name);
+
+
+		  //delete the element
+
+		let elementColor =  elementsArray[i].color;
+
+
+		 for(y=0; y < player.propertiesByColor[elementColor.index].properties.length; y++){
+
+
+			  if(player.propertiesByColor[elementColor.index].properties[y] == elementsArray[i] ) {
+
+				 //alert('element deleted');
+
+ 				 player.propertiesByColor[elementColor.index].properties.splice(y,1);
+
+
+			  }
+
+		 }
+		
+	}
+
+
+
+}
+
+
+function addElementsToPlayer(player, array){
+
+	
+	for(i=0; i < array.length ; i++){
+
+		
+		let elementColor = array[i].color;
+
+
+		//alert('element added back at color ' + elementColor.name);
+
+		player.propertiesByColor[elementColor.index].properties.push(array[i]);
+
+
+
+	}
+
+
+    
 }
