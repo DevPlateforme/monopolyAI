@@ -21,7 +21,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
 
-      console.log(activePlayer.name + " is searching...");
+      //console.log(activePlayer.name + " is searching...");
 
 
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
@@ -61,6 +61,8 @@ function searchForTradesOpportunities(activePlayer){
 
     }
     
+
+    //Break right away if the AI doesnt have any property
 
 
 
@@ -149,6 +151,9 @@ function searchForTradesOpportunities(activePlayer){
                           foundProposition = tryToCreateProposition(activePlayer, indirectGain, propositionMaterial); 
 
 
+                          
+
+
                           //If a proposition was found , add it to the propositionList of that search
 
 
@@ -170,7 +175,6 @@ function searchForTradesOpportunities(activePlayer){
                           propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
 
                           foundProposition = tryToCreateProposition(activePlayer, indirectGain,  propositionMaterial);
-
 
                           
                           if(foundProposition.thinkerScore != -infinite){
@@ -1127,12 +1131,16 @@ function searchForTradesOpportunities(activePlayer){
        //(nodeCount + 'potential offers were evaluated');
 
 
+       alert('proposition list => ' + propositionList.length);
+
+
        if(propositionList.length != 0){      
               
           
         //sortPropositionList(activePlayer.propositionList);
 
           //////alert(rand);
+          
            
           makeProposition(propositionList[0]);
 
@@ -1498,6 +1506,11 @@ function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actio
         searchForTradesOpportunities(ai);
 
         AiThinking = false;
+
+
+        alert(('AI search over'));
+
+     
 
  }
 

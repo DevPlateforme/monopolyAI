@@ -769,3 +769,43 @@ function getNonTradingPlayersArray(playerA, playerB){
   return ntpArray;
 
 }
+
+
+
+
+
+
+
+function changeHumanPerception(ai, type){
+
+    
+
+    if(type == upgrade){ 
+
+      alert('the AI changed its mind regarding you...');
+
+
+      if(ai.humanPerception < 3){
+        
+         ai.humanPerception += 1;
+
+      }
+
+
+    } else {
+
+      
+
+      
+      if(ai.humanPerception > 0){
+        
+        ai.humanPerception -= 1;
+
+     }
+
+  }
+
+}
+
+
+

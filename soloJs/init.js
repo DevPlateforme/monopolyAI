@@ -90,91 +90,37 @@ function setColorScores(){
 
     //Human player
 
-
-    
-
     //3 light blues
 
-    humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique );
-    humanPlayer.propertiesArray.push(rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique);
+    humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard );
+    humanPlayer.propertiesArray.push(rueDeVaugirard);
     
 
-
     rueDeVaugirard.landLord = humanPlayer;
-
     rueDeCourcelles.landLord = humanPlayer;
-
     avenueDeLaRepublique.landLord = humanPlayer;
 
 
     humanPlayer.propertiesByColor[lightBlue.index].monopoly = true;
-
     humanPlayer.monopolies += 1;
 
 
+
+    humanPlayer.propertiesByColor[red.index].properties.push(avenueHenriMartin);
+
+    avenueHenriMartin.landLord = humanPlayer
+
+
     
-    humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
-    humanPlayer.propertiesArray.push(rueDeLaPaix);
-    
-    rueDeLaPaix.landLord = humanPlayer;
 
+    humanPlayer.propertiesByColor[brown.index].properties.push(belleville);
 
-    humanPlayer.propertiesByColor[orange.index].properties.push( avenueMozart , boulevardSaintMichel);
-    humanPlayer.propertiesArray.push(avenueMozart , boulevardSaintMichel);
-
-
-    avenueMozart.landLord = humanPlayer;
-    boulevardSaintMichel.landLord = humanPlayer;
+    belleville.landLord = humanPlayer;
 
 
 
 
-
-    //AI1
-
-
-
-    // 2 yellows
-
-    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse, rueLaFayette);
-    ai1.propertiesArray.push(placeDeLaBourse, rueLaFayette);
-
-    placeDeLaBourse.landLord = ai1;
-
-    rueLaFayette.landLord = ai1;
-
-
-
-
-      //AI2
-
-
-          //2 RED PROPERTIES
-
-
-      ai2.propertiesByColor[red.index].properties.push(avenueMatignon , avenueHenriMartin );
-      ai2.propertiesArray.push(avenueMatignon , avenueHenriMartin );
-
-      avenueHenriMartin.landLord = ai2;
-
-      avenueMatignon.landLord = ai2;
-
-
-        //1 yellow  
-
-      ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore);
-      ai2.propertiesArray.push(faubourgSaintHonore);
-
-      
-      faubourgSaintHonore.landLord = ai2;
-
-
-
-      
-    ai2.propertiesByColor[orange.index].properties.push(placePigalle);
-    ai2.propertiesArray.push(placePigalle);
-
-    placePigalle.landLord = ai2;
+    //ai2
 
 
 }
@@ -200,9 +146,7 @@ function createTheCommunityChestDeck(){
    }
 
 
-   console.log(communityChestDeck);
-
-
+     console.log(communityChestDeck);
 
   }
 
@@ -239,9 +183,9 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    //setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
+    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
 
-    setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
+    //setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
 
 }
 
@@ -262,12 +206,11 @@ function aiReflects(ai){
 
      }
 
-      
 
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
            
-       setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
+       //setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
 
 }
 

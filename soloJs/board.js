@@ -76,7 +76,7 @@ function movePiece(){
    function moveGuiPiece(){
 
 
-    //console.log('moving the piece...');
+    ////console.log('moving the piece...');
 
        
 
@@ -86,7 +86,7 @@ function movePiece(){
    function makePostLaunchMove(){
      
 
-     //console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
+     ////console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
 
 
 

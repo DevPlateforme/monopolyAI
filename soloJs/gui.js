@@ -401,14 +401,14 @@ function moveGuiPiece(player , fromSquare, toSquare){
    
 
 
-       //console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
+       ////console.log(' GUI UPDATE : ' + playerName + ' moved from square ' + (fromSquare+1) + ' to square ' + (toSquare + 1)  );
 
-       //console.log(' Board State' );
+       ////console.log(' Board State' );
 
-       //console.log(' GUI STATE : ai1 is on square ' + (ai1.position + 1) );
-       //console.log(' GUI STATE : ai2 is on square ' + (ai2.position + 1));
-       //console.log(' GUI STATE : player1 is on square ' + (player1.position + 1));
-       //console.log(' GUI STATE : player2 is on square ' + (player2.position + 1));
+       ////console.log(' GUI STATE : ai1 is on square ' + (ai1.position + 1) );
+       ////console.log(' GUI STATE : ai2 is on square ' + (ai2.position + 1));
+       ////console.log(' GUI STATE : player1 is on square ' + (player1.position + 1));
+       ////console.log(' GUI STATE : player2 is on square ' + (player2.position + 1));
 
      
      
@@ -527,10 +527,6 @@ function displayHumanAnswerInterface(proposition){
      }
 
 
-
-
-
-
      //pass the proposition object into the proposition button attribute
 
         humanPlayer.propositionToAnswer = proposition;
@@ -547,6 +543,9 @@ function refusePropositionFromInterface(){
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
      humanPlayer.propositionToAnswer = none;
+
+
+     //checkForCounterOffer()
 
 
 }
@@ -796,7 +795,7 @@ function observeAi(ai){
           let propertiesArray = ai.propertiesByColor;
 
 
-          //console.log('here is the original array length:' + ai1.propertiesByColor.length );
+          ////console.log('here is the original array length:' + ai1.propertiesByColor.length );
 
 
 
@@ -1144,7 +1143,7 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
 
 
-     //console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
+     ////console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
 
 
 
@@ -1196,7 +1195,7 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = undefined;
 
 
-     //console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
+     ////console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
 
 
 
@@ -1269,7 +1268,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
                offerer.inBuildingProposition.offer[elementIndex] = property;
      
      
-               //console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
+               ////console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
      
      
      
@@ -1328,7 +1327,7 @@ function removeOfferElement(event, offererIndex, elementIndex){
          offerer.inBuildingProposition.offer[elementIndex] = undefined;
 
 
-         //console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
+         ////console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
 
 
           //REDUCE THE COUNT BY 1
@@ -1447,7 +1446,7 @@ function sendProposition(){
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
 
           
-          //console.log(proposition);
+          ////console.log(proposition);
 
 
             //now, simply use the function : profitable proposition, to check if it is.
@@ -1536,6 +1535,14 @@ function acceptPropositionFromInterface(){
 
 
 
+     //The AI will adopt a different behavior regarding what the proposition was
+
+
+     if(humanPlayer.propositionToAnswer.trick == true){
+
+          changeHumanPerception(humanPlayer.propositionToAnswer.offerer, downgrade);
+
+     }
 
      //init the property
 

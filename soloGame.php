@@ -363,6 +363,16 @@
 </div>
 
 
+
+
+<div>Introduction div :
+
+
+
+
+
+</div>
+
 <script src='soloJs/jquery.js'></script>
 <script src='soloJs/classes.js'></script>
 <script src='soloJs/vars.js'></script>
