@@ -192,9 +192,9 @@
 
 
 
-<div id='humanAnswerInterface'>
+<div id='humanAnswerInterface'> 
       
-    <div id='humanAnswerInterfaceBody'></div>
+    <div id='humanAnswerInterfaceBody'>Vous avez recu une proposition!</div>
     <div id='humanAnswerInterfaceOffer'></div>
     <div id='humanAnswerInterfaceCounterPart'></div>
 
@@ -211,6 +211,21 @@
     (vous avez 45 secondes pour accepter, ou refuser l'offre. Après cela, l'offre sera automatiquement refusée)
 
 </div>
+
+
+
+
+<div id='moodButtons' style='position:absolute; z-index: 6'>
+
+   <button onclick='naive()'>Naive</button>
+   <button onclick='regular()'>Regular</button>
+   <button onclick='uncooperative()'>Uncooperative</button>
+
+
+</div>
+
+
+
 
 
 

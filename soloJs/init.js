@@ -92,37 +92,27 @@ function setColorScores(){
 
     //3 light blues
 
-    humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard );
-    humanPlayer.propertiesArray.push(rueDeVaugirard);
-    
-
-    rueDeVaugirard.landLord = humanPlayer;
-    rueDeCourcelles.landLord = humanPlayer;
-    avenueDeLaRepublique.landLord = humanPlayer;
+        humanPlayer.propertiesByColor[lightBlue.index].properties.push(rueDeCourcelles, avenueDeLaRepublique);
+        humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+        humanPlayer.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
+        humanPlayer.propertiesByColor[brown.index].properties.push(belleville);
+        humanPlayer.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
 
 
-    humanPlayer.propertiesByColor[lightBlue.index].monopoly = true;
-    humanPlayer.monopolies += 1;
-
-
-
-    humanPlayer.propertiesByColor[red.index].properties.push(avenueHenriMartin);
-
-    avenueHenriMartin.landLord = humanPlayer
-
-
-    
-
-    humanPlayer.propertiesByColor[brown.index].properties.push(belleville);
-
-    belleville.landLord = humanPlayer;
+       ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
+       ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);
+       ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch );
+       ai1.propertiesByColor[purple.index].properties.push(avenueDeNeuilly, rueDuParadis);
 
 
 
 
-    //ai2
+
+       ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
+       ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore , rueLaFayette);
 
 
+  
 }
 
 
@@ -183,9 +173,9 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, Math.floor( Math.random() * 1000) + 5000) ;
+    setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    //setTimeout(function(){ aiReflects(ai2)}, Math.floor( Math.random() *  1000) + 5000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 30000 ) ;
 
 }
 
@@ -210,7 +200,7 @@ function aiReflects(ai){
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
            
-       //setTimeout(function(){ aiReflects(ai) }, Math.floor( Math.random() *  3000) + 3000 );  
+       setTimeout(function(){ aiReflects(ai) }, 15000 );  
 
 }
 

@@ -475,7 +475,7 @@ function displayDiceLaunchButton(){
 function displayHumanAnswerInterface(proposition){
 
      humanAnswerInterface.style.opacity = 1;
-     humanAnswerInterface.style.zIndex = 3;
+     humanAnswerInterface.style.zIndex = 5;
 
      
      humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
@@ -1451,7 +1451,7 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-            if(profitableTrade(answerer, proposition , false) == true){   
+            if(profitableTrade(answerer, proposition , false , indirectGain) == true){   
                  
                acceptProposition(proposition);     
 

@@ -809,3 +809,42 @@ function changeHumanPerception(ai, type){
 
 
 
+
+
+//Perceptions
+
+
+
+
+function naive(){
+
+   ai1.humanPerception = 0;
+   ai2.humanPerception = 0;
+
+   alert('AIs think the human player is naive!');
+
+
+}
+
+
+function regular(){
+  ai1.humanPerception = 1;
+  ai2.humanPerception = 1;
+
+  
+  alert('AIs think the human player has a regular behaviour !');
+
+
+}
+
+
+function uncooperative(){
+  ai1.humanPerception = 2;
+  ai2.humanPerception = 2;
+
+  
+  alert('AIs think the human player is uncooperative !');
+
+
+}
+

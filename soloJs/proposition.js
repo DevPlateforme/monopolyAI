@@ -37,12 +37,12 @@ function makeProposition(proposition){
         
     } else {
  
-        if(profitableTrade(proposition.answerer, proposition , false) == true){
+        if(profitableTrade(proposition.answerer, proposition , false , indirectGain) == true){
  
  
              //the trade is accepted by the AI
 
-             alert(proposition.answerer + ' accepted the offer!');
+             alert(proposition.answerer.name + ' accepted the offer!');
 
              acceptProposition(proposition);
 
