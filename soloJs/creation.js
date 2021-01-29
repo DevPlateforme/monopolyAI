@@ -95,12 +95,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 	let newCounterPartAsked;
 
 
-
-	
-
-
-
-
 	
 	//remove elements requested to the answerer
 
@@ -196,28 +190,13 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 		//SO , IF THE ANSWERER CASH SLICE IS AT THE INDEX 0 :
 
-
-		
-
-
 			   
 					
 			//FOR EACH PROPERTIES THAN CAN BE OFFERED
 
 
-
 				 offerArray = [propertiesArray[0]];
 
-
-				 if(gainType == indirectGain){
-			 
-					 if(counterPartAsked.array[0].color == yellow){
-
-							
-
-					 }
-				 
-				 }
 
 				
 		     	 //DIVIDE THIS ARRAY IN SETS
@@ -226,13 +205,11 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 				 //propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
 			
 				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
-
 				
 					
 	                if(gainType == directGain){
 
 						   offer = createTradeObject(offerObject, offerer, answerer, offerArray);	
-
 
 	                 } else {
 
@@ -242,15 +219,13 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 
 					 if(gainType == indirectGain){
+				
 						removeElementsFromPlayer(offerer, offer.array);
 						propertiesAskedPlusCash = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, divideArrayInSets(counterPartAsked.array));			 
 						addElementsToPlayer(offerer, offer.array);
-
-
 					
 					} else {
 						propertiesAskedPlusCash = createTradeObject(counterPartAskedObject, offerer, answerer, divideArrayInSets(counterPartAsked.array));
-
 
 					 }
 		
