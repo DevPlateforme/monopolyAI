@@ -1,28 +1,19 @@
 
 function searchForTradesOpportunities(activePlayer){
  
- 
     //DEPTH FIRST SEARCH
 
-
                                   //ROOT
-
 
                        //PLAYER A            PLAYER B
               //COLOR 1         COLOR 2 ...      COLOR 1    COLOR 
         
-
         
    if(activePlayer != undefined){
 
-
        let propositionList = [];
 
-
-
-
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
-
  
       let otherPlayer;
       let offerer = activePlayer;
@@ -31,79 +22,87 @@ function searchForTradesOpportunities(activePlayer){
       let propositionMaterial;
       let foundProposition;
 
-
-    
-
       //('moves generated...');
 
-
-
     if(activePlayer == ai1){
-
         otherPlayersArray = [humanPlayer, ai2];
-
     } else if (activePlayer == ai2){
-
         otherPlayersArray = [humanPlayer, ai1];
-
     }
     
 
+    for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     
 
+         //(' color.........................' + colorIndex);      
 
-
-    for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {
-        
-
-         //(' color.........................' + colorIndex);
-        
         //FOR EACH COLOR
 
-
         for(otherPlayerIndex = 0; otherPlayerIndex < otherPlayersArray.length ; otherPlayerIndex++){
+
+                    //FOR EACH OTHER PLAYER
+
 
             otherPlayer = otherPlayersArray[otherPlayerIndex];
 
             answerer = otherPlayer;
 
             let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties.slice(0);
-
-
+          
             if(otherPlayerPropertiesArrayForThisColor.length == 0){
-
                 //break if the other players array is empty
-
                 continue;
             }
     
 
             //PROPERTIES
 
-            counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, 0, 0);
-                
-            propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);
-            
+            //HEART OF THE FUNCTION => TRY TO GENERATE A "REASONABLE" PROPOSITION(MEANING WITH A REASONABLE SCORE FOR BOTH TRADING PLAYERS) FOR THIS SPECIFIC SET OF ELEMENTS
+
+            counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, 0, 0);           
+            propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);       
             foundProposition = tryToCreateProposition(activePlayer, indirectGain, propositionMaterial); 
-
-
-            //alert(foundProposition.proposition);
-
 
             //If a proposition was found , add it to the propositionList of that search
 
-
             if(foundProposition.proposition != none){
 
+                alert('here is the best proposition we found!' );
+                
+                    alert('proposition aceptée!! AI score => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.offer.lossValueForTheOwner);
+                    
+                    alert('OP score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
+
+
+					alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
+					
+
+                    alert('here is the offer : ');
+ 
+					
+					 for(i=0; i < foundProposition.proposition.offer.array.length; i++){	
+ 
+                        alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
+     
+                       }
+     
+                         alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
+                         alert('here is the counterpart : ');
+     
+     
+                         for(i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){
+                         
+                            alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
+                        
+                       }
+     
+
+
               propositionList.push(foundProposition.proposition);
-
-
             }
-
         
         }
 
              //END OF PROPERTY COLOR LOOP
-
  
        }
 
@@ -123,7 +122,6 @@ function searchForTradesOpportunities(activePlayer){
 
 
 }
-
 
 
 

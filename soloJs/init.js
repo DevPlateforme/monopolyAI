@@ -103,6 +103,8 @@ function setColorScores(){
        ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);
        ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch );
        ai1.propertiesByColor[purple.index].properties.push(avenueDeNeuilly, rueDuParadis);
+       ai1.propertiesByColor[orange.index].properties.push(avenueMozart);
+
 
 
 
@@ -110,6 +112,8 @@ function setColorScores(){
 
        ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);
        ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore , rueLaFayette);
+       
+       ai2.propertiesByColor[orange.index].properties.push(boulevardSaintMichel, placePigalle);
 
 
   
