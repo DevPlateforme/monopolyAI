@@ -1451,7 +1451,7 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-            if(profitableTrade(answerer, proposition , false , indirectGain) == true){   
+            if(profitableTrade(answerer, proposition) == true){   
                  
                acceptProposition(proposition);     
 

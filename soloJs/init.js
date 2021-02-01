@@ -102,7 +102,6 @@ function setColorScores(){
        ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
        ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);
        ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch );
-       ai1.propertiesByColor[purple.index].properties.push(avenueDeNeuilly, rueDuParadis);
        ai1.propertiesByColor[orange.index].properties.push(avenueMozart);
 
 
@@ -179,7 +178,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 30000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
 
 }
 

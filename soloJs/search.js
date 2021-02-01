@@ -68,7 +68,7 @@ function searchForTradesOpportunities(activePlayer){
 
                 alert('here is the best proposition we found!' );
                 
-                    alert('proposition aceptée!! AI score => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.offer.lossValueForTheOwner);
+                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.offer.lossValueForTheOwner);
                     
                     alert('OP score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
 
