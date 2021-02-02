@@ -17,7 +17,7 @@ function init(){
 
     initPawnsPositions();
 
-    //wakeUpAis();
+    wakeUpAis();
 
 
   }
@@ -88,12 +88,20 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
+
+  
+
+
     //Human player
 
     humanPlayer.propertiesByColor[purple.index].properties.push(rueDuParadis, bdDeLaVillette);
     humanPlayer.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
-    ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch );
+   
 
+    ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);          
+    ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch);
+    ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
+    ai1.propertiesByColor[orange.index].properties.push(avenueMozart);
 
 
 
@@ -101,18 +109,17 @@ function setColorScores(){
 
 
     //3 light blues
-
-       ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
-       ai1.propertiesByColor[orange.index].properties.push(avenueMozart);
-       ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);        
-
        
 
 
        ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);        
        ai2.propertiesByColor[brown.index].properties.push(belleville);
        ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore , rueLaFayette);
+       ai2.propertiesByColor[orange.index].properties.push(placePigalle , boulevardSaintMichel);
+
        ai1.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard);
+       ai1.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
+
 
 
 

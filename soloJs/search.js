@@ -115,10 +115,13 @@ function searchForTradesOpportunities(activePlayer){
 
        if(propositionList.length != 0){      
                       
-          makeProposition(propositionList[0]);
+          makeProposition( getBestProposition(propositionList));
   
 
         }
+
+
+        propositionList = [];
 
 
     //END OF FUNCTION
@@ -198,17 +201,28 @@ function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actio
 
 
 
- function sortPropositionList(propositionList){
+ function getBestProposition(propositionList){
 
-     //quickSort, based on the gain of the AI
 
-     //meaning , we generate a serie of offers, and we take the one benefitting us the most (given we judged it was a faire trade)
+    //Select sort
 
-     //find a pivot (last element)
 
-     let pivot = propositionList[0];
+    let bestProposition = propositionList[0];
 
-     var arr = [pivot];
+
+     for(var i=1 ; i < propositionList.length; i++){
+
+
+          if(propositionList[i].offererScore > bestProposition.offererScore ){
+
+            bestProposition = propositionList[i];
+
+          }
+
+   }
+
+   return bestProposition
+
 
  }
 

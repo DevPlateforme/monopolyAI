@@ -367,14 +367,12 @@ function searchForAlternatives(proposition , answerer, offerer){
 
 
             
-            removeElementsFromPlayer(nonTradingPlayers[i], bestProposition.proposition.offer.array);
+           removeElementsFromPlayer(nonTradingPlayers[i], bestProposition.proposition.offer.array);
 
 
-            offeredElements.push({player: nonTradingPlayers[i], elements: bestProposition.proposition.offer.array});
+           offeredElements.push({player: nonTradingPlayers[i], elements: bestProposition.proposition.offer.array});
           
          
-
-
 
              //remove the element taken from the offerer, store it in 
 

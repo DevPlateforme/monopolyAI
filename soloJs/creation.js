@@ -515,47 +515,6 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 
 
-		 
-/*
-	for(i=0; i < tradingPlayers.length; i++){
-	  
-	   if(checkGlobalDanger(tradingPlayers[i]) == true){			
-		   
-		   if(tradingPlayers[i] == offerer){
-			   offererScore += (counterPartAsked.cash)*1.25;
-		   } else {
-			   answererScore += (offer.cash)*1.25;
-		   }
-	   };
- 
-	   if( checkDirectDanger(tradingPlayers[i]) == true){
-		   if(tradingPlayers[i] == offerer){
-			   offererScore += (counterPartAsked.cash)*1.25;
-		   } else {
-			   answererScore += (offer.cash)*1.25;
-		   }
-	   };
-	   
-	   if( tradingPlayers[i].bankruptcy == true){
-		   if(tradingPlayers[i] == offerer){
-			   offererScore += (counterPartAsked.cash)*3;
-		   } else {
-			   answererScore += (offer.cash)*3;
-		   }
-	   };
-	   
-  }
-  */
-
-
-	//TAKING INTO ACCOUNT THE FRAGILITY OF EACH PLAYERS SITUATION (INFLUENCING HOW MUCH THEY VALUE CASH)
-
-
-	 //NOW THAT SCORES WERE SET , STORE IT IN THE OBJECT FOR FUTURE SORTING
-	 
-
-
-
 	 proposition.offererScore = offererScore;
 
 	 proposition.answererScore = answererScore;
@@ -630,29 +589,31 @@ function profitableTrade(thinker, proposition , trick , gainType){
 			 let bottomLimit;
 
 
-			  if(thinker == ai1){
+			 if(thinker == ai1){
 
-				 //top limit : value between 1 and 1.5
-			
-				topLimit =  interlocutorScore * 1.5;
-				
-				 //THE AI1 wants to have a better situation than the other player
-
-				bottomLimit = interlocutorScore * 0.8;
-
-				
-			   } else{
-
-			 //top limit : value between 1 and 1.33
-
-			 //bottom limit : value between 0.8 AND 1.1
-
-				   topLimit =  interlocutorScore * 1.5;
-
-				   bottomLimit = interlocutorScore * 0.8;
-				   
-			   }
+				//top limit : value between 1 and 1.5
+		   
+			   topLimit =  interlocutorScore * (1 + (Math.random()/2));
 			   
+				//THE AI1 wants to have a better situation than the other player
+
+			   bottomLimit = interlocutorScore * ((Math.random()/5) + 0.6);
+
+			   
+			  } else{
+
+		    	//top limit : value between 1 and 1.33
+
+			   //bottom limit : value between 0.8 AND 1.1
+
+			   topLimit =  interlocutorScore * (1 + (Math.random()/2));
+			   
+			   //THE AI1 wants to have a better situation than the other player
+
+			  bottomLimit = interlocutorScore * ((Math.random()/5) + 0.6);
+
+				  
+			  }
 
 				 
 			   /*
