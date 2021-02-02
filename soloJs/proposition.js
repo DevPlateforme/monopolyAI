@@ -27,39 +27,62 @@ function makeProposition(proposition){
 
 
 
-
-
-
-
     if(proposition.answerer == humanPlayer){	 
         
            displayHumanAnswerInterface(proposition);
         
     } else {
  
-        if(profitableTrade(proposition.answerer, proposition ) == true){
+        if(profitableTrade(proposition.answerer, proposition , false , indirectGain ) == true){
+
+          let alternatives = searchForAlternatives(proposition , proposition.answerer, proposition.offerer);
+
+          if(alternatives.monopolyOpportunity == false ) {
+
+          
+              //if no alternatives found 
+
+              alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+
+
+               acceptProposition(proposition);
+
+          } else {
+
+            if(proposition.answererScore < (0.9 * alternatives.gainValue)){
+
+                 alert(proposition.answerer.name + 'found a better alternative, and refused !');
+
+                 alert(proposition.answerer.name + 'is preparing a counter offer');
+
+
+            } else {
+
+              alert(proposition.answerer.name + ' accepted the offer!');
+
+              acceptProposition(proposition);
+
+
+            }
+
+
+          }
  
  
-             //the trade is accepted by the AI
-
-             alert(proposition.answerer.name + ' accepted the offer!');
-
-             acceptProposition(proposition);
 
         } else {
  
               //the trade is refused
 
-              alert(proposition.answerer + ' refused the offer!');
+              alert(proposition.answerer.name + ' refused the offer!');
 
 
 
               
                if(proposition.offerer == humanPlayer){
  
-                 //display declinedPropositionInterface
+                 //display declinedPropositionInterface (The AI will remember it)
 
-                 
  
                }
   
@@ -288,3 +311,69 @@ function makeProposition(proposition){
     }
 
 
+
+    
+
+
+
+function searchForAlternatives(proposition , answerer, offerer){
+
+	
+
+	let obj = { monopolyOpportunity: false , gainValue: 0 };
+
+	let nonTradingPlayers = getNonTradingPlayersArray(answerer, offerer);
+
+
+
+	for(var i=0; i < nonTradingPlayers.length ; i++){
+		
+	 	    let counterPartAsked = new CounterPartAsked(proposition.counterPartAsked.array , 0 , 0);
+			 
+		    let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , answerer, counterPartAsked );
+
+		   //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
+
+
+			let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial);
+
+			
+
+
+		   //for each proposition :
+   
+		   if(bestProposition.proposition != none){
+
+		     	if(monopolyGain(answerer, divideArrayInSets(bestProposition.proposition.offer.array)) == true){   
+				
+					obj.gainValue = bestProposition.proposition.answererScore ;
+
+					obj.monopolyOpportunity = true;
+					
+
+			   }
+
+		   }		
+  
+	 }
+
+
+
+		return obj;
+		 
+
+}
+
+
+
+
+function counterOffer(proposition){
+ 
+     
+  //Genereate counter offers
+
+
+
+
+
+}

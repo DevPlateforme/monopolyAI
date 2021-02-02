@@ -52,6 +52,9 @@ function searchForTradesOpportunities(activePlayer){
                 //break if the other players array is empty
                 continue;
             }
+
+    
+    
     
 
             //PROPERTIES
@@ -66,18 +69,17 @@ function searchForTradesOpportunities(activePlayer){
 
             if(foundProposition.proposition != none){
 
-                alert('here is the best proposition we found!' );
-                
-                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.offer.lossValueForTheOwner);
-                    
-                    alert('OP score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
+                /*
 
+                    alert('here is the best proposition we found for this counterpart!' );
+                
+                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );
+                    
+                    alert('Other player score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
 
 					alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
-					
 
                     alert('here is the offer : ');
- 
 					
 					 for(i=0; i < foundProposition.proposition.offer.array.length; i++){	
  
@@ -94,6 +96,10 @@ function searchForTradesOpportunities(activePlayer){
                             alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
                         
                        }
+
+
+
+                       */
      
 
 
@@ -178,11 +184,11 @@ function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actio
 
         AiThinking = false;
 
-        alert(ai.name + ' finished its search!');
+        console.log(ai.name + ' finished its search!');
 
-        alert('removed=>' + elementsRemoved);
+        console.log('removed=>' + elementsRemoved);
 
-        alert('added=>' + elementsAdded);
+        console.log('added=>' + elementsAdded);
 
  }
 
@@ -303,6 +309,20 @@ function expectedPropertyRevenue(property){
 
 
 
+
+function sortPropositionList(){
+
+
+     //QuickSort
+
+     
+
+
+
+}
+
+
+
 function opponentsOnSquareBehind( property, number) {
 
     
@@ -334,6 +354,7 @@ function opponentsOnSquareBehind( property, number) {
   return playersCount;
 
 }
+
 
 
 

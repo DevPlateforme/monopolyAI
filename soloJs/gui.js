@@ -577,7 +577,7 @@ function storeInHashTable(proposition){
 
      //store the hashvalue into the table
 
-      declinedPropositionHashTable[hashValue % 10000] = hashValue;
+      declinedPropositionsHashTable[hashValue % 10000] = hashValue;
 
 } 
 
@@ -1439,9 +1439,9 @@ function sendProposition(){
            
           //CREATE THE PROPOSITION OBJECT
           
-          let offer = createTradeObject(offerObject, offerer, answerer, divideArrayInSets(offerArray));
+          let offer = createIndirectTradeObject(offerObject, offerer, answerer, divideArrayInSets(offerArray));
 
-          let counterPartAsked = createTradeObject(counterPartAskedObject, offerer, answerer , divideArrayInSets(counterPartAskedArray));
+          let counterPartAsked = createIndirectTradeObject(counterPartAskedObject, offerer, answerer , divideArrayInSets(counterPartAskedArray));
           
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
 
@@ -1451,14 +1451,45 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-            if(profitableTrade(answerer, proposition) == true){   
+            if(profitableTrade(answerer, proposition , false , indirectGain) == true){   
                  
-               acceptProposition(proposition);     
+               let alternatives = searchForAlternatives(proposition , proposition.answerer, proposition.offerer);
 
-               alert('proposition accepted');
+               if(alternatives.monopolyOpportunity == false ) {
+     
+               
+                   //if no alternatives found 
+     
+                   alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+     
+     
+                    acceptProposition(proposition);
+     
+               } else {
+     
+                 if(proposition.answererScore < (0.9 * alternatives.gainValue)){
+     
+                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
+     
+     
+     
+                 } else {
+     
+                   alert(proposition.answerer.name + ' accepted the offer!');
+     
+                   acceptProposition(proposition);
+     
+     
+                 }
+     
+     
+               }
+      
+      
 
 
             } else {
+               
 
                alert('proposition refused');
 

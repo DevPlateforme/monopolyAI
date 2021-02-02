@@ -6,16 +6,16 @@
 
    //ROIs AT : 30 DICE LAUNCHES, 50 DICE LAUNCHES, 100 DICE LAUNCHES, 200 DICE LAUNCHES
 
-   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 6000};
-   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 7000};
-   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 8000};
-   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 11000};
-   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 10000 };
-   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 10000} ;
-   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 10000} ;
-   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 9000};
-   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 6000};
-   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 4000};
+   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 9300};
+   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 9500};
+   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 9500};
+   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 10000};
+   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 9800};
+   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 9700} ;
+   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 9700} ;
+   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 9600};
+   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 9000};
+   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 8000};
 
 
 
@@ -446,7 +446,7 @@ var saleOfStockCard = {type: collection , description: "Vente d'actions, vous ga
 
  var HASHENTRIES = 10000;
 
- var declinedPropositionHashTable = new Array(10000);
+ var declinedPropositionsHashTable = new Array(10000);
 
 
 
@@ -505,3 +505,11 @@ var indirectGain = 'IG';
 
 
 var search = 0;
+
+
+//Search types
+
+
+var all = 'all';
+
+var directMonopolies = 'DMOs';
