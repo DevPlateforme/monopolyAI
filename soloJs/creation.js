@@ -77,8 +77,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 
 
-
-
 	//THE AI TRIES TO GENERATE REASONABLE PROPOSITIONS, USING A "PROPOSITION MATERIAL" OBJECT
 
 	let offerer = propositionMaterial.offerer;
@@ -250,43 +248,49 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 						 if(gainType == directGain){
 
-							/*
 
 
-							console.log('here is the proposition built at depth + 1');
+							if(counterPartAsked.cash == 2000){
+								//alert('here is the proposition built ');
 
-							console.log(' offerer =>' + proposition.offerer.name);
-
-							console.log('answerer =>' + proposition.answerer.name);
-
-
-
-							console.log('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
-
-							console.log('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
-
-
-
-							console.log('here is the offer :')
-
-							
-							for(i=0; i < proposition.offer.array.length ; i++){
+								//alert(' offerer =>' + proposition.offerer.name);
+	
+								//alert('answerer =>' + proposition.answerer.name);
+	
+	
+	
+								//alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+	
+								//alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
+	
+	
+	
+								//alert('here is the offer :')
+	
 								
-								console.log(proposition.offer.array[i].name );
-
+								for(i=0; i < proposition.offer.array.length ; i++){
+									
+									//alert(proposition.offer.array[i].name );
+	
+								}
+	
+	
+								//alert('and here is the counterpart : ')
+	
+								
+								for(i=0; i < proposition.counterPartAsked.array.length ; i++){
+									
+									//alert(proposition.counterPartAsked.array[i].name);
+	
+								}
 							}
 
+							
 
-							console.log('and here is the counterpart : ')
+
+						
 
 							
-							for(i=0; i < proposition.counterPartAsked.array.length ; i++){
-								
-								console.log(proposition.counterPartAsked.array[i].name);
-
-							}
-
-							*/
 
 
 						 }
@@ -630,11 +634,11 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 				 //top limit : value between 1 and 1.5
 			
-				topLimit =  interlocutorScore * (1 + (Math.random()));
+				topLimit =  interlocutorScore * 1.5;
 				
 				 //THE AI1 wants to have a better situation than the other player
 
-				bottomLimit = interlocutorScore * ((Math.random()/3) + 0.6);
+				bottomLimit = interlocutorScore * 0.8;
 
 				
 			   } else{
@@ -643,9 +647,9 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 			 //bottom limit : value between 0.8 AND 1.1
 
-				   topLimit =  interlocutorScore * (1 + (Math.random()/2));
+				   topLimit =  interlocutorScore * 1.5;
 
-				   bottomLimit = interlocutorScore * ((Math.random()/3) + 0.5);
+				   bottomLimit = interlocutorScore * 0.8;
 				   
 			   }
 			   
@@ -732,10 +736,10 @@ function profitableTrade(thinker, proposition , trick , gainType){
 				if(gainType == indirectGain){
 				
 					
-			      console.log("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+			      //alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-			      console.log('the thinker perceived a value of ' + thinkerScore );
-			      console.log('the other player perceived a value of ' + interlocutorScore );
+			      //alert('the thinker perceived a value of ' + thinkerScore );
+			      //alert('the other player perceived a value of ' + interlocutorScore );
 
 			       console.log('here is the offer : ');
 
@@ -775,15 +779,15 @@ function profitableTrade(thinker, proposition , trick , gainType){
 		if(gainType == indirectGain){
 
 
-			   console.log('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
+			   //alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
 
-			   console.log("thinker: " + thinker.name + ')');
+			   //alert("thinker: " + thinker.name + ')');
 
-			   console.log("op: " + answerer.name + ')');
+			   //alert("op: " + answerer.name + ')');
 
 			   		
-			   console.log('the thinker perceived a value of ' + thinkerScore );
-			   console.log('the other player perceived a value of ' + interlocutorScore );
+			   //alert('the thinker perceived a value of ' + thinkerScore );
+			   //alert('the other player perceived a value of ' + interlocutorScore );
 
 			   console.log('here is the offer : ');
 
@@ -1010,6 +1014,7 @@ function getSetValueAtDepth2(playerA , playerB , array){
 
 	let nonTradingPlayers = getNonTradingPlayersArray(playerA, playerB);
 
+	let offeredElements = [];
 
 
 	for(var i=0; i < nonTradingPlayers.length ; i++){
@@ -1042,7 +1047,15 @@ function getSetValueAtDepth2(playerA , playerB , array){
    
 		   if(bestProposition.proposition != none){
 
-		     	if(monopolyGain(playerA, divideArrayInSets(bestProposition.proposition.offer.array)) == true){   
+		     	if(monopolyGain(playerA, divideArrayInSets(bestProposition.proposition.offer.array)) == true){ 
+					 
+					
+					
+					removeElementsFromPlayer(nonTradingPlayers[i], bestProposition.proposition.offer.array);
+
+					offeredElements.push({player: nonTradingPlayers[i], elements: bestProposition.proposition.offer.array});
+				  
+				 
 				
 					obj.gainValue = bestProposition.proposition.answererScore ;
 
@@ -1053,6 +1066,17 @@ function getSetValueAtDepth2(playerA , playerB , array){
 
 		   }		
   
+	 }
+
+
+	   
+	 if(offeredElements.length != 0){
+    
+		for(var i=0; i < offeredElements.length ; i++){
+			addElementsToPlayer(offeredElements[i].player, offeredElements[i].elements);
+		}
+   
+   
 	 }
 
 

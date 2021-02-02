@@ -77,7 +77,6 @@ function makeProposition(proposition){
               alert(proposition.answerer.name + ' refused the offer!');
 
 
-
               
                if(proposition.offerer == humanPlayer){
  
@@ -318,44 +317,99 @@ function makeProposition(proposition){
 
 function searchForAlternatives(proposition , answerer, offerer){
 
+
+  alert('searching for alternatives');
+
 	
 
 	let obj = { monopolyOpportunity: false , gainValue: 0 };
 
-	let nonTradingPlayers = getNonTradingPlayersArray(answerer, offerer);
+  let nonTradingPlayers = getNonTradingPlayersArray(answerer, offerer);
+  
+  let sets = divideArrayInSets(proposition.counterPartAsked.array);
+
+
+
+  let offeredElements = [];
 
 
 
 	for(var i=0; i < nonTradingPlayers.length ; i++){
-		
-	 	    let counterPartAsked = new CounterPartAsked(proposition.counterPartAsked.array , 0 , 0);
+
+
+    for(var y = 0; y < sets.length; y++){
+
+      alert('name: ' + sets[y][0].name)
+
+
+         let counterPartAsked = new CounterPartAsked(sets[y] , 0 , 0);
+         
+         counterPartAsked.cash = 2000;
 			 
-		    let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , answerer, counterPartAsked );
+		     let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , answerer, counterPartAsked );
 
-		   //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
+		       //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
+ 
+         alert('SEARCHING FOR ALTERNATIVES');
 
-
-			let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial);
+	   		 let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial);
 
 			
-
 
 		   //for each proposition :
    
 		   if(bestProposition.proposition != none){
 
-		     	if(monopolyGain(answerer, divideArrayInSets(bestProposition.proposition.offer.array)) == true){   
+
+        
+
+		     	if(monopolyGain(answerer, divideArrayInSets(bestProposition.proposition.offer.array)) == true){ 
+
+
+            
+            removeElementsFromPlayer(nonTradingPlayers[i], bestProposition.proposition.offer.array);
+
+
+            offeredElements.push({player: nonTradingPlayers[i], elements: bestProposition.proposition.offer.array});
+          
+         
+
+
+
+             //remove the element taken from the offerer, store it in 
+
+            
+            alert('MONOPOLY ALTERNATIVE FOUND!');
 				
-					obj.gainValue = bestProposition.proposition.answererScore ;
+				  	obj.gainValue += bestProposition.proposition.answererScore ;
 
-					obj.monopolyOpportunity = true;
+					  obj.monopolyOpportunity = true;
 					
-
 			   }
 
-		   }		
+       }	
+       
+    }
+
   
-	 }
+  }
+
+
+
+  //Retrieve all the elements taken back for the search
+  
+  if(offeredElements.length != 0){
+    
+     for(var i=0; i < offeredElements.length ; i++){
+         addElementsToPlayer(offeredElements[i].player, offeredElements[i].elements);
+     }
+
+
+  }
+   
+
+
+  //if there was some monopolies found, some elements were deleted during the search. Put them back at the right place.
 
 
 

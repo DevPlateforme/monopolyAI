@@ -360,3 +360,41 @@ function opponentsOnSquareBehind( property, number) {
 
 
 
+function searchForBetterGain(thinker, offerer, proposition){
+
+    let sets = divideArrayInSets(proposition.counterPartAsked.array);
+
+    let nonTradingPlayers = getNonTradingPlayers(thinker, offerer);
+
+
+
+    for(var i=0; i < sets.length; i++){
+
+
+        for(var y=0; y < nonTradingPlayers.length ; y++){
+
+            
+           searchForAlternatives();
+
+
+        }
+
+        
+
+
+
+    }
+
+
+    //Greedy => get individual best offers. If there are doubles, keep the biggest.
+
+
+  
+        //Whats the best direct offer you can get? Make the two non trading players make offers
+
+        //if there is a monopoly opportunity, add the gains
+
+
+
+
+}
