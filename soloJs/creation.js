@@ -27,6 +27,9 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 
+	this.mortgagesClosed = [];
+
+
 
 
 }
@@ -42,7 +45,9 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 
     this.lossValueForTheOwner = lossValueForTheOwner;
 
-    this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
+	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
+	
+	this.mortgagesClosed = [];
 
 
 }
@@ -92,6 +97,20 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 	let newCounterPartAsked;
 
+
+	let cpaofferMortgagesToClose = [];
+
+	let offerMortgagesToClose = [];
+
+	
+
+	let proposition;
+	let offerArray;
+	let answererGain;
+	let offererLoss;
+	let propertiesAskedPlusCash;
+
+
 	
 
 
@@ -109,8 +128,44 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 	 }
 
 
+   
+
+	 //FIRST, ASK THE OTHER PLAYER TO BUY WHATEVER POSSIBLE (IF THERE ARE MORTGAGES)
 
 
+	 if(answerer.mortgages.length > 0){	 
+		 
+		 
+	
+	    for(var cpaIndex = 0 ; cpaIndex < counterPartAsked.array.length; cpaIndex++){
+
+				  
+	  	  if(counterPartAsked.array[cpaIndex].mortgaged == true){
+
+			if((refundableMortgageBeforeOffer(answerer, counterPartAsked.array[cpaIndex] ) == true)){
+
+				closeMortgage(counterPartAsked.array[cpaIndex]);
+
+				cpaofferMortgagesToClose.push(counterPartAsked.array[cpaIndex]);
+										 
+			};
+
+		 }
+
+	 }
+
+
+
+  }
+
+
+
+
+///
+  
+
+
+			 
 	
 
 	 //remove color duplicates from offerer array (the AI doesnt offer properties of a color it requests)
@@ -136,24 +191,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 	propertiesArray = removeColorDuplicates(propertiesArray, counterPartAsked.array);
 	
 
-
-	let proposition;
-	let offerArray;
-	let answererGain;
-	let offererLoss;
-	let propertiesAskedPlusCash;
-
-
-	////console.log('here is the proposition material we are actually trying inside the function!!!');
-
-	
-
-	for(var i=0; i < counterPartAsked.array.length; i++){
-
-		////console.log(counterPartAsked.array[i]);
-
-	}
-    
 
 
 
@@ -194,33 +231,69 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 
 				 offerArray = [propertiesArray[propertyIndex]];
-				 
-				 
 
+
+
+				  //IF YOU CAN BUY BACK THE MORTGAGE OF THE ELEMENT YOU OFFER, DO IT. ELSE, OFFER IT THAT WAY.
+
+				 for(var offerIndex=0; offerIndex < offerArray.length; offerIndex++){
+
+
+					alert('looping=>' + offerArray.length);
+
+					alert('offering=>' + offerArray[0].name);
+
+				  
+					if(offerArray[offerIndex].mortgaged == true){
+
+
+						if((refundableMortgageBeforeOffer(proposition.offerer, offerArray[offerIndex] ) == true)){
+							 
+							
+
+							closeMortgage(offerArray[offerIndex] );
+
+							offerMortgagesToClose.push(offerArray[offerIndex]);
+                                                     
+						};
+
+					}
+
+				 }
+				 				 
 		     	 //DIVIDE THIS ARRAY IN SETS
-			 
-				 //propertiesAskedPlusCash = Object.assign({}, counterPartAsked);
-
-				 //propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
-
 			
-				 //NOW LOOPING ON EACH COPY OF THE INITIAL COUNTERPART ASKED, WE CREATE A SERIES OF OFFER
 
 				
 				 for(var offererCashSliceIndex = 0; offererCashSliceIndex < offererCashSlices.length ; offererCashSliceIndex++){
 
 					
+
+					//OFFER
+
+
 	                if(gainType == directGain){
 
 						   offer = createTradeObject(offerObject, offerer, answerer, offerArray);
 						   
-					
-
 	                 } else {
 
 		                 offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
  
 					 }
+
+
+					 alert('offer array===>' +  offerArray[0].name)
+
+
+
+					 offer.mortgagesClosed = offerMortgagesToClose;
+
+					 offer.cash = offererCashSlices[offererCashSliceIndex];
+
+
+					 
+					//COUNTERPART ASKED
 
 
 					 if(gainType == indirectGain){
@@ -232,68 +305,17 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 					} else {
 						propertiesAskedPlusCash = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
 					 }
+
+
+					 propertiesAskedPlusCash.mortgagesClosed = cpaofferMortgagesToClose;
 		
 
-
-
-
-				    	 offer.cash = offererCashSlices[offererCashSliceIndex];
 
 						
 		        		 //RETURN AN OFFER OBJECT
 				      
 
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
-
-
-						 if(gainType == directGain){
-
-
-
-							if(counterPartAsked.cash == 2000){
-								//alert('here is the proposition built ');
-
-								//alert(' offerer =>' + proposition.offerer.name);
-	
-								//alert('answerer =>' + proposition.answerer.name);
-	
-	
-	
-								//alert('offererScore =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
-	
-								//alert('answererScore =>' + proposition.offer.gainValueForTheOtherPlayer);
-	
-	
-	
-								//alert('here is the offer :')
-	
-								
-								for(i=0; i < proposition.offer.array.length ; i++){
-									
-									//alert(proposition.offer.array[i].name );
-	
-								}
-	
-	
-								//alert('and here is the counterpart : ')
-	
-								
-								for(i=0; i < proposition.counterPartAsked.array.length ; i++){
-									
-									//alert(proposition.counterPartAsked.array[i].name);
-	
-								}
-							}
-
-							
-
-
-						
-
-							
-
-
-						 }
 
 
 						 			
@@ -333,6 +355,21 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 					  }				
 
 				  }
+
+
+
+
+				  if(offerMortgagesToClose.length != 0){
+
+				      	 for(var n=0; n < offerMortgagesToClose.length ; n++){
+
+					     	reverseMortgageClosing(offerMortgagesToClose[n]);
+
+						} 
+
+					   offerMortgagesToClose = [];
+
+				  }
 				
 	        }
 
@@ -349,6 +386,28 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 	//add elements requested back to the answerer
 
 
+    //If we asked the other player to close mortgages, reverse the closing
+		
+		if (cpaofferMortgagesToClose.length != 0){  
+
+			for(var n=0; n < cpaofferMortgagesToClose.length ; n++){
+
+			  reverseMortgageClosing(cpaofferMortgagesToClose[n]);
+
+		    } 
+
+
+         }
+
+
+
+
+
+
+
+
+
+
 	if(gainType == indirectGain){
 
 		addElementsToPlayer(answerer, counterPartAsked.array);
@@ -356,9 +415,8 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 	     search++;
      	////console.log(('AI is done thinking' + search));
 
-
-	
 	 }
+
 
 	
 
@@ -371,7 +429,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 
 function createTradeObject( type , offerer, answerer, tradeArray ){
-
 
 	//tradeArray => (offer) [rueDeCourcelles, avenueDeLaRepublique]
 
@@ -400,37 +457,38 @@ function createTradeObject( type , offerer, answerer, tradeArray ){
 	
 
 	  for(var tradeSetIndex = 0; tradeSetIndex < tradeArray.length ; tradeSetIndex++){
-
-  /*
-
-		 if(tradeArray[tradeSetIndex][0].color == brown){
-
-			//console.log('current set value ' + calculateSetValue(otherPlayer, otherPlayer.propertiesByColor[brown.index].properties))
-
-			//console.log('new val=> ' + getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]) );
-
-		 }
-
-   */
-			
+	
  	       //LOSS VALUE FOR THE OFFERER
  
 		  tradeObject.lossValueForTheOwner += getArrayLossValueForPlayer(owner, tradeArray[tradeSetIndex]);
 
 	      //GAIN VALUE FOR THE OTHER PLAYER
 
-		
 		  tradeObject.gainValueForTheOtherPlayer += getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]);
-		  
-		  /*
-		  if(tradeArray[tradeSetIndex][0].color == brown){
-
-			//console.log('gain=>' +  tradeObject.gainValueForTheOtherPlayer);
-		 }
-		 */
 
 
-   }
+
+		  //COMPUTE THE MORTGAGE VALUE
+
+
+
+		  for(var i=0; i < tradeArray[tradeSetIndex].length ; i++){
+
+			
+			if(tradeArray[tradeSetIndex][i].mortgaged == true ){
+
+	           //GAIN VALUE FOR THE OTHER PLAYER
+
+		        tradeObject.gainValueForTheOtherPlayer -= (tradeArray[tradeSetIndex][i].mortgageValue * 3);
+
+			}
+
+		  }
+
+
+
+
+       }
 	  
 	 //FOR EACH SET (KNOWING THAT ELEMENTS MIGHT BE OF DIFFERENT TYPES, AND THAT ELEMENT VALUE NEED TO BE CALCULATED PER TYPE)
  
@@ -697,10 +755,10 @@ function profitableTrade(thinker, proposition , trick , gainType){
 				if(gainType == indirectGain){
 				
 					
-			      //alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+			      ////alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-			      //alert('the thinker perceived a value of ' + thinkerScore );
-			      //alert('the other player perceived a value of ' + interlocutorScore );
+			      ////alert('the thinker perceived a value of ' + thinkerScore );
+			      ////alert('the other player perceived a value of ' + interlocutorScore );
 
 			       console.log('here is the offer : ');
 
@@ -740,15 +798,15 @@ function profitableTrade(thinker, proposition , trick , gainType){
 		if(gainType == indirectGain){
 
 
-			   //alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
+			   ////alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
 
-			   //alert("thinker: " + thinker.name + ')');
+			   ////alert("thinker: " + thinker.name + ')');
 
-			   //alert("op: " + answerer.name + ')');
+			   ////alert("op: " + answerer.name + ')');
 
 			   		
-			   //alert('the thinker perceived a value of ' + thinkerScore );
-			   //alert('the other player perceived a value of ' + interlocutorScore );
+			   ////alert('the thinker perceived a value of ' + thinkerScore );
+			   ////alert('the other player perceived a value of ' + interlocutorScore );
 
 			   console.log('here is the offer : ');
 
@@ -1204,4 +1262,29 @@ function addElementsToPlayer(player, array){
 
 
     
+}
+
+
+
+
+
+
+function refundableMortgageBeforeOffer(player, element){
+
+
+	if(player.cash >= (element.mortgageValue * 2)){
+
+
+		return true;
+
+
+	} else {
+
+
+		return false;
+	}
+
+
+
+
 }

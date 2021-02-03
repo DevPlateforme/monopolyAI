@@ -89,46 +89,22 @@ function setColorScores(){
   function givePlayersPropertiesForDemo(){
 
 
-  
-
-
     //Human player
 
-    humanPlayer.propertiesByColor[purple.index].properties.push(rueDuParadis, bdDeLaVillette);
-    humanPlayer.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
-   
+    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
+    ai1.propertiesByColor[red.index].properties.push(avenueMatignon);          
 
-    ai1.propertiesByColor[red.index].properties.push(avenueMatignon, avenueHenriMartin);          
-    ai1.propertiesByColor[green.index].properties.push(bdDesCapucines, avenueFoch);
-    ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
-    ai1.propertiesByColor[orange.index].properties.push(avenueMozart);
+    rueDuParadis.landLord = ai1;
+    rueDuParadis.mortgaged = true;
+    ai1.mortgages.push(rueDuParadis);
 
 
-
-
-
-
-    //3 light blues
-       
-
-
-       ai2.propertiesByColor[red.index].properties.push(bdMalesherbes);        
-       ai2.propertiesByColor[brown.index].properties.push(belleville);
-       ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore , rueLaFayette);
-       ai2.propertiesByColor[orange.index].properties.push(placePigalle , boulevardSaintMichel);
-
-       ai1.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard);
-       ai1.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
-
+    
+    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin , bdMalesherbes);
 
 
 
        
-
-
-
-
-  
 }
 
 
@@ -207,7 +183,7 @@ function aiReflects(ai){
 
      } else {
 
-        //alert('an AI is already thinking!');
+        ////alert('an AI is already thinking!');
 
 
      }
@@ -216,7 +192,7 @@ function aiReflects(ai){
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
            
-       setTimeout(function(){ aiReflects(ai) }, 15000 );  
+       setTimeout(function(){ aiReflects(ai) }, 5000 );  
 
 }
 

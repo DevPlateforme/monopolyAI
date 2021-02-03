@@ -11,6 +11,9 @@ function searchForTradesOpportunities(activePlayer){
         
    if(activePlayer != undefined){
 
+
+    console.log(activePlayer.name + 'starts its search');
+
        let propositionList = [];
 
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
@@ -71,29 +74,29 @@ function searchForTradesOpportunities(activePlayer){
 
                 /*
 
-                    alert('here is the best proposition we found for this counterpart!' );
+                    //alert('here is the best proposition we found for this counterpart!' );
                 
-                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );
+                    //alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );
                     
-                    alert('Other player score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
+                    //alert('Other player score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
 
-					alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
+					//alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
 
-                    alert('here is the offer : ');
+                    //alert('here is the offer : ');
 					
 					 for(i=0; i < foundProposition.proposition.offer.array.length; i++){	
  
-                        alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
+                        //alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
      
                        }
      
-                         alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
-                         alert('here is the counterpart : ');
+                         //alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
+                         //alert('here is the counterpart : ');
      
      
                          for(i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){
                          
-                            alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
+                            //alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
                         
                        }
 
@@ -148,7 +151,24 @@ function searchForTradesOpportunities(activePlayer){
 
  function checkForBuildingOpportunities(ai){
 
-    
+
+     //Determine where there is danger for the other players. Build there.
+
+
+
+     //Where is the closest building ? Take the average number of points.
+
+     //Simply add probabilities, and build at the next available slot.
+
+
+     if(ai.monopolies == 0){
+
+        return;
+
+     }
+
+     getBetterPositionedMonopoly(ai);
+     
 
  }
 
@@ -237,12 +257,12 @@ function calculateExpectedCurrentRevenue(player, propertiesByColor){
        
        let monopolies = getMonopolies(player, propertiesByColor);
 
-       ////alert('here are the monopolies => ' + monopolies.length);
+       //////alert('here are the monopolies => ' + monopolies.length);
 
 
        for(i=0; i < monopolies.length ; i++){
 
-            ////alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
+            //////alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
 
        }
 
@@ -274,7 +294,7 @@ function calculateExpectedCurrentRevenue(player, propertiesByColor){
        */
 
 
-     ////alert('expected revenues => ' + expectedCurrentRevenue);
+     //////alert('expected revenues => ' + expectedCurrentRevenue);
 
 
      return expectedCurrentRevenue;
@@ -407,6 +427,80 @@ function searchForBetterGain(thinker, offerer, proposition){
         //Whats the best direct offer you can get? Make the two non trading players make offers
 
         //if there is a monopoly opportunity, add the gains
+
+
+
+
+}
+
+
+
+
+
+
+
+function getBetterPositionedMonopoly(ai){
+
+
+     let bestMonopColor = none;
+     let bestScore = 0;
+
+
+    for(var i=0 ; i < ai.monopoliesArray.length ; i++){
+
+        let monopColor = ai.monopoliesArray[i];
+        let monopScore = 0;
+
+        for(var y = 0; ai.propertiesByColor[monopColor.index]; y++){
+
+           bestMonopColor = monopColor;
+           monopScore += getPositionScore(property);
+
+        }
+
+
+        if(monopScore > bestScore){
+
+            bpMonopoly = monopColor;
+            bestScore = monopScore;
+
+        }
+
+    }
+
+
+
+    alert('best monop color ==> ' + bestMonopColor);
+
+
+    return bestMonopColor;
+
+}
+
+
+
+function getPositionScore(property){
+
+    //loop on all the properties, and simply add it
+
+
+    let score = 0;
+      
+     
+    for(var i=0; i < probasFro10to4.length ; i++){
+
+       score += opponentsOnSquareBehind( simulateBackwardMovement(property.position , probasFro10to4[i]) ) * probasFro10to4[i];
+        
+    }
+
+
+    return score; 
+
+
+}
+
+
+function buildOnNextAvailableSlot(){
 
 
 

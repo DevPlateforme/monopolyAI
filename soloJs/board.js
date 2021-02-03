@@ -56,7 +56,7 @@ function movePiece(){
      lastDiceLauncher.position = updatedPosition;
 
       
-     //alert(' le joueur ' + lastDiceLauncher.name + ' est passé de la case ' + oldPosition + ' à la position ' + updatedPosition + ' ce qui correspond à la case ' + squaresArray[updatedPosition].name);
+     ////alert(' le joueur ' + lastDiceLauncher.name + ' est passé de la case ' + oldPosition + ' à la position ' + updatedPosition + ' ce qui correspond à la case ' + squaresArray[updatedPosition].name);
 
 
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
@@ -198,20 +198,20 @@ function movePiece(){
 
              } else {
 
-               //alert('vous n avez pas assez de cash pour acheter cette propriété!');
+               ////alert('vous n avez pas assez de cash pour acheter cette propriété!');
 
              }
 
          
           } else {
 
-            //alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+            ////alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
              lastDiceLauncher.cash -= getRent(currentSquare);
 
-             //alert('vous payez la somme de ' + getRent(currentSquare));
+             ////alert('vous payez la somme de ' + getRent(currentSquare));
 
-             //alert('indeed, the number of houses on this property is ' + currentSquare.houses);
+             ////alert('indeed, the number of houses on this property is ' + currentSquare.houses);
 
              checkForBankruptcy(lastDiceLauncher);
        
@@ -246,15 +246,15 @@ function movePiece(){
 
                let card = communityChestCardsList[0];
                
-               //alert('vous avez piochés la carte caisse de communauté : ' + card.description);
+               ////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
 
                if(card.type == 'collection'){
 
-                //alert('vous recevez la somme de ' + card.collection + ' dollars' );
+                ////alert('vous recevez la somme de ' + card.collection + ' dollars' );
     
               } else if(card.type == 'payment'){
     
-                    //alert('vous payez la somme de ' + card.fee + ' dollars' );
+                    ////alert('vous payez la somme de ' + card.fee + ' dollars' );
     
                     lastDiceLauncher.cash -= card.fee;
     
@@ -263,7 +263,7 @@ function movePiece(){
     
               } else if (card.type == 'movement'){
     
-                //alert('vous vous déplacez jusque ' + card.destination.name);
+                ////alert('vous vous déplacez jusque ' + card.destination.name);
 
                 
     
@@ -277,7 +277,7 @@ function movePiece(){
             } else {
 
 
-               //alert('il n y a plus de cartes dans le paquet!');
+               ////alert('il n y a plus de cartes dans le paquet!');
 
 
             }
@@ -305,16 +305,16 @@ function movePiece(){
 
               let card =  chanceCardsList[0];
               
-          //alert('vous avez piochés la carte chance :  ' + card.description);
+          ////alert('vous avez piochés la carte chance :  ' + card.description);
 
 
           if(card.type == 'collection'){
 
-            //alert('vous recevez la somme de ' + card.collection + ' dollars' );
+            ////alert('vous recevez la somme de ' + card.collection + ' dollars' );
 
           } else if(card.type == 'payment'){
 
-                //alert('vous payés la somme de ' + card.fee + ' dollars' );
+                ////alert('vous payés la somme de ' + card.fee + ' dollars' );
 
                lastDiceLauncher.cash -= card.fee;
 
@@ -323,7 +323,7 @@ function movePiece(){
 
           } else if (card.type == 'movement'){
 
-            //alert('vous vous déplacez jusque ' + card.destination.name);
+            ////alert('vous vous déplacez jusque ' + card.destination.name);
 
           }
 
@@ -331,7 +331,7 @@ function movePiece(){
          
        } else {
 
-          //alert('il n y a plus de cartes dans le paquet!')
+          ////alert('il n y a plus de cartes dans le paquet!')
        }
 
 
@@ -471,7 +471,7 @@ function clearInsufficientFundsForBuyingTimeout(){
 function addPropertyToPlayerWallet(player, property){
 
 
-  //alert('element added to the wallet!!')
+  ////alert('element added to the wallet!!')
 
 
     let propertyColor = property.color;
@@ -501,7 +501,7 @@ function setPostLaunchActionToDone(){
 
 function playerPaymentToTheBank(player, amount){
 
-     //alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
+     ////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }
 

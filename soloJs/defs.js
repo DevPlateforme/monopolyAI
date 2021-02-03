@@ -358,6 +358,8 @@ function checkGlobalDanger(player){
 
              oPArray.splice(i,1);
 
+             break;
+
             }
 
        }
@@ -418,6 +420,19 @@ function closeMortgage(property){
 
 }
 
+
+
+function reverseMortgageClosing(property){
+
+  
+  property.mortgaged = true;
+
+  property.landLord.cash += property.mortgageValue;
+
+
+
+
+}
 
 
 function gameOver(){

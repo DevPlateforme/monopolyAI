@@ -1,7 +1,7 @@
 
 function makeProposition(proposition){
 
-  ////alert(proposition.offerer.name + ' made an offer!=>Offer:' );
+  //////alert(proposition.offerer.name + ' made an offer!=>Offer:' );
 
 
 
@@ -9,11 +9,11 @@ function makeProposition(proposition){
        
     let element = proposition.offer.array[i];
 
-    ////alert('offer element ' + i + element.name);
+    //////alert('offer element ' + i + element.name);
 
   }
 
-  //alert(proposition.offerer.name + ' =>counterpart:' );
+  ////alert(proposition.offerer.name + ' =>counterpart:' );
 
 
   
@@ -21,7 +21,7 @@ function makeProposition(proposition){
        
     let element = proposition.counterPartAsked.array[i];
 
-    ////alert('counterPart element ' + i + element.name);
+    //////alert('counterPart element ' + i + element.name);
 
   }
 
@@ -42,7 +42,7 @@ function makeProposition(proposition){
           
               //if no alternatives found 
 
-              alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+              //alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
 
 
                acceptProposition(proposition);
@@ -51,14 +51,14 @@ function makeProposition(proposition){
 
             if(proposition.answererScore < (0.9 * alternatives.gainValue)){
 
-                 alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                 //alert(proposition.answerer.name + 'found a better alternative, and refused !');
 
-                 alert(proposition.answerer.name + 'is preparing a counter offer');
+                 //alert(proposition.answerer.name + 'is preparing a counter offer');
 
 
             } else {
 
-              alert(proposition.answerer.name + ' accepted the offer!');
+              //alert(proposition.answerer.name + ' accepted the offer!');
 
               acceptProposition(proposition);
 
@@ -74,7 +74,7 @@ function makeProposition(proposition){
  
               //the trade is refused
 
-              alert(proposition.answerer.name + ' refused the offer!');
+              //alert(proposition.answerer.name + ' refused the offer!');
 
 
               
@@ -106,8 +106,36 @@ function makeProposition(proposition){
      let answerer = proposition.answerer;
 
 
-     //alert('proposition accepted!!');
+     ////alert('proposition accepted!!');
 
+
+
+     //if one or both players needed to close mortgage before making the trade, close them
+
+   if(counterPartAsked.mortgagesClosed.length > 0){
+
+       for(var i=0; i < counterPartAsked.mortgagesClosed.length; i++){
+
+         closeMortgage(counterPartAsked.mortgagesClosed[i]);
+
+       }
+
+
+   }
+
+
+
+   if(offer.mortgagesClosed.length > 0){
+
+     for(var i=0; i < offer.mortgagesClosed.length; i++){
+
+       closeMortgage(offer.mortgagesClosed[i]);
+ 
+     }
+
+ }
+
+  
 
 
 
@@ -137,7 +165,7 @@ function makeProposition(proposition){
 
                          offerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                         //alert('element deleted from the properties by color')
+                         ////alert('element deleted from the properties by color')
 
                          break;
 
@@ -153,7 +181,7 @@ function makeProposition(proposition){
 
                        offerer.propertiesArray.splice(n,1);
 
-                       //alert('element deleted from the properties array');
+                       ////alert('element deleted from the properties array');
 
                        break;
 
@@ -185,7 +213,7 @@ function makeProposition(proposition){
 
                        answerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                       //alert('element deleted from the answerers properties by color')
+                       ////alert('element deleted from the answerers properties by color')
 
                        break;
 
@@ -202,7 +230,7 @@ function makeProposition(proposition){
 
                      answerer.propertiesArray.splice(n,1);
 
-                     //alert('element deleted from the properties array');
+                     ////alert('element deleted from the properties array');
 
                      break;
 
@@ -275,7 +303,7 @@ function makeProposition(proposition){
         newProposition.counterPartAsked = proposition.offer;
 
 
-        //alert('proposition inverted!!');
+        ////alert('proposition inverted!!');
 
 
         return newProposition;
@@ -292,7 +320,7 @@ function makeProposition(proposition){
 
    function updgradeOffer(proposition , unusedAnswererAssets, depth){
 
-     //alert('an upgraded counter offer was made ');
+     ////alert('an upgraded counter offer was made ');
 
   }
 
@@ -318,7 +346,7 @@ function makeProposition(proposition){
 function searchForAlternatives(proposition , answerer, offerer){
 
 
-  alert('searching for alternatives');
+  //alert('searching for alternatives');
 
 	
 
@@ -339,18 +367,16 @@ function searchForAlternatives(proposition , answerer, offerer){
 
     for(var y = 0; y < sets.length; y++){
 
-      alert('name: ' + sets[y][0].name)
+      //alert('name: ' + sets[y][0].name)
 
 
          let counterPartAsked = new CounterPartAsked(sets[y] , 0 , 0);
-         
-         counterPartAsked.cash = 2000;
-			 
+         			 
 		     let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , answerer, counterPartAsked );
 
 		       //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
  
-         alert('SEARCHING FOR ALTERNATIVES');
+         //alert('SEARCHING FOR ALTERNATIVES');
 
 	   		 let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial);
 
@@ -377,7 +403,7 @@ function searchForAlternatives(proposition , answerer, offerer){
              //remove the element taken from the offerer, store it in 
 
             
-            alert('MONOPOLY ALTERNATIVE FOUND!');
+            //alert('MONOPOLY ALTERNATIVE FOUND!');
 				
 				  	obj.gainValue += bestProposition.proposition.answererScore ;
 

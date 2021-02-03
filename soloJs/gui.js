@@ -902,9 +902,6 @@ function displayPropositionInterface(){
 
 
 
-
-
-
      document.getElementById('propositionInterface').style.opacity = 1;
      document.getElementById('propositionInterface').style.zIndex = 3;
 
