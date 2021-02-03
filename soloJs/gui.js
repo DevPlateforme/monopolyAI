@@ -472,7 +472,7 @@ function displayDiceLaunchButton(){
 
 
 
-function displayHumanAnswerInterface(proposition){
+function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
      humanAnswerInterface.style.opacity = 1;
      humanAnswerInterface.style.zIndex = 5;
@@ -537,15 +537,15 @@ function displayHumanAnswerInterface(proposition){
 
 function refusePropositionFromInterface(){
 
-
      //alert('vous avez refusé cette proposition!!');
-
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
-     humanPlayer.propositionToAnswer = none;
 
+      //perceptionCheck(humanPlayer.propositionToAnswer.offerer.name);
 
-     //checkForCounterOffer()
+      humanPlayer.propositionToAnswer = none;
+
+      
 
 
 }
@@ -1566,11 +1566,6 @@ function acceptPropositionFromInterface(){
      //The AI will adopt a different behavior regarding what the proposition was
 
 
-     if(humanPlayer.propositionToAnswer.trick == true){
-
-          changeHumanPerception(humanPlayer.propositionToAnswer.offerer, downgrade);
-
-     }
 
      //init the property
 
@@ -1587,5 +1582,35 @@ function initHumanAnswerInterface(){
      humanAnswerInterfaceOffer = '';
      humanAnswerInterfaceCounterPart = '';
      humanAnswerInterfaceBtn = '';          
+
+}
+
+
+
+
+
+function perceptionCheck(ai, proposition){
+
+     if(proposition.trick == true){
+
+         //if 3 trick refusals , the AI interacts with the human as an AI
+
+         ai.trickRefusalsCount++;
+
+         if(ai.trickRefusalsCount >= 3){
+
+          alert(ai.name + 'now perceives you as a regular player');
+
+             ai.humanPerception = regular; 
+
+         }
+
+     } else {
+
+          alert(ai.name + 'now perceives you as being uncooperaitive');
+
+          ai.humanPerception = uncooperative; 
+
+     }
 
 }

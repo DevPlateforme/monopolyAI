@@ -88,39 +88,21 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
+    humanPlayer.propertiesByColor[brown.index].properties.push(rueLecourbe);
+    humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+
+
     //Human player
-    ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel, placePigalle, avenueMozart);
-    ai1.propertiesByColor[red.index].properties.push(avenueHenriMartin, avenueMatignon, bdMalesherbes);    
-    ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines, avenueDeBreteuil);
-    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse, rueLaFayette, faubourgSaintHonore);
-    ai1.propertiesByColor[brown.index].properties.push(belleville, rueLecourbe);
-    ai1.propertiesByColor[purple.index].properties.push(avenueDeNeuilly, rueDuParadis, bdDeLaVillette);
-    ai1.propertiesByColor[black.index].properties.push(gareDeMontparnasse);
+    ai1.propertiesByColor[brown.index].properties.push(belleville);
+    ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines);
 
 
-    ai1.monopolies = 7;
-
-    ai1.monopoliesArray = [orange, red, darkBlue, green, yellow, brown, purple];
+    ai2.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
+    ai2.propertiesByColor[green.index].properties.push( avenueDeBreteuil);
 
   
-    boulevardSaintMichel.landLord = ai1;
-    boulevardSaintMichel.mortgaged = true;
-    ai1.mortgages.push(boulevardSaintMichel);
-    
-    
-    boulevardSaintMichel.landLord = ai1;
-    boulevardSaintMichel.mortgaged = true;
-    ai1.mortgages.push(placePigalle);
 
-    
-    bdDesCapucines.landLord = ai1;
-    bdDesCapucines.mortgaged = true;
-    ai2.mortgages.push(bdDesCapucines);
-    
-    
-    avenueFoch.landLord = ai1;
-    avenueFoch.mortgaged = true;
-    ai2.mortgages.push(avenueFoch);
+
 
        
 }
@@ -185,7 +167,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-   //setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
 
 }
 

@@ -139,13 +139,6 @@ function movePiece(){
 
 
       
-      //AIs rethink about building
-
-
-      ai1.willingnessToBuild = true;
-
-      ai2.willingnessToBuild = true;
-
 
   }
 

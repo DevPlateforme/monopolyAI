@@ -29,7 +29,8 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.mortgagesClosed = [];
 
-
+	this.indirectMonopOpportunity = none;
+	
 
 
 }
@@ -48,6 +49,9 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 	this.gainValueForTheOtherPlayer = gainValueForTheOtherPlayer;
 	
 	this.mortgagesClosed = [];
+
+	this.indirectMonopOpportunity = none;
+
 
 
 }
@@ -77,7 +81,7 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 
 
 
-function tryToCreateProposition(thinker,  gainType , propositionMaterial){
+function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick){
 
 
 
@@ -314,8 +318,11 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
 
 
+						 proposition.trick = trick;
+
+						 
 						 			
-						 if(profitableTrade(offerer,  proposition , false , gainType ) == true){
+						 if(profitableTrade(offerer,  proposition , trick , gainType ) == true){
 
 
 							if(thinker == offerer){
@@ -550,7 +557,24 @@ function profitableTrade(thinker, proposition , trick , gainType){
 	offererScore -= offer.lossValueForTheOwner;
 	offererScore -= offer.cash;
 
-	offererScore += counterPartAsked.gainValueForTheOtherPlayer;
+	if(trick == false){
+		
+   	     offererScore += counterPartAsked.gainValueForTheOtherPlayer;
+
+	} else {
+
+		//AI TRIES TO TRICK THE OPPONENT
+
+		let gainedSets = divideArrayInSets(counterPartAsked.array);
+
+		for(var i=0; i < gainedSets.length; i++){
+
+			offererScore += getArrayGainValueForPlayer(offerer, gainedSets[i]);
+
+		}
+				
+	}
+
 	offererScore += counterPartAsked.cash;
 
 	answererScore -= counterPartAsked.lossValueForTheOwner;
@@ -601,6 +625,8 @@ function profitableTrade(thinker, proposition , trick , gainType){
 	}
 
 	//BEHAVIOUR OF THE AI
+
+
 
 
 
@@ -981,8 +1007,9 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
  
     		} else {
 
-
 				tradeObject.gainValueForTheOtherPlayer -= staticGain;
+
+				tradeObject.indirectMonopOpportunity = set.proposition;
 
 
 				//console.log('gain removed==>' + tradeObject.gainValueForTheOtherPlayer );

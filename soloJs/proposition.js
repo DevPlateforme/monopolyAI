@@ -28,8 +28,10 @@ function makeProposition(proposition){
 
 
     if(proposition.answerer == humanPlayer){	 
-        
-           displayHumanAnswerInterface(proposition);
+    
+           displayHumanAnswerInterface(proposition , proposition.counterPartAsked.indirectMonopOpportunity);
+
+           return;
         
     } else {
  
@@ -379,7 +381,7 @@ function searchForAlternatives(proposition , answerer, offerer){
  
          //alert('SEARCHING FOR ALTERNATIVES');
 
-	   		 let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial);
+	   		 let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial , false);
 
 			
 

@@ -24,6 +24,7 @@ function searchForTradesOpportunities(activePlayer){
       let counterPartAsked;
       let propositionMaterial;
       let foundProposition;
+      let trick;
 
       //('moves generated...');
 
@@ -56,7 +57,26 @@ function searchForTradesOpportunities(activePlayer){
                 continue;
             }
 
-    
+
+            if(otherPlayer == humanPlayer){
+                if(activePlayer.humanPerception == regular){
+
+                    let randomTrick = Math.floor(Math.random()*5)+1;
+
+                    if(randomTrick == 5){
+                        trick = true;
+                       } else {
+                       trick = false;
+                      }
+
+                } else {
+
+                    trick = true;
+                }
+            } else {
+                trick = false;
+            }
+
     
     
 
@@ -66,36 +86,28 @@ function searchForTradesOpportunities(activePlayer){
 
             counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, 0, 0);           
             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);       
-            foundProposition = tryToCreateProposition(activePlayer, indirectGain, propositionMaterial); 
+            foundProposition = tryToCreateProposition(activePlayer, indirectGain, propositionMaterial , trick ); 
 
             //If a proposition was found , add it to the propositionList of that search
 
             if(foundProposition.proposition != none){
 
                 /*
-
                     //alert('here is the best proposition we found for this counterpart!' );
-                
-                    //alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );
-                    
+                    //alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );               
                     //alert('Other player score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
-
 					//alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
-
                     //alert('here is the offer : ');
 					
 					 for(i=0; i < foundProposition.proposition.offer.array.length; i++){	
- 
                         //alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
-     
                        }
      
                          //alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
                          //alert('here is the counterpart : ');
      
      
-                         for(i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){
-                         
+                         for(i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){          
                             //alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
                         
                        }
@@ -193,11 +205,6 @@ function searchForTradesOpportunities(activePlayer){
 var nodes = 0;
 
  
-function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actionsArray){
-  
-
-
- }
 
 
 
@@ -261,61 +268,6 @@ function bestBuildingConfigDFS(monopolies ,  propertyCount , virtualCash , actio
  }
 
  
-
-
-
-
-function calculateExpectedCurrentRevenue(player, propertiesByColor){
-        
-       let expectedCurrentRevenue = 0;
-       
-       let monopolies = getMonopolies(player, propertiesByColor);
-
-       //////alert('here are the monopolies => ' + monopolies.length);
-
-
-       for(i=0; i < monopolies.length ; i++){
-
-            //////alert('monopoly the monopoly ' + i + ' has properties => ' + monopolies[i].properties.length);
-
-       }
-
-
-
-    
-
-       //extract monopolies (plus trains and public services ), and get the sum of expected revenues for each
-       
-       //For the rest , dont interest in it, as it has an expected revenue of 0
-
-       /*
-       
-
-       for(i=0; i < monopolies.length ; i++){
-           
-
-          for(y=0 ; y < monopolies[i].properties.length ; y++){   
-               
-               expectedCurrentRevenue += expectedPropertyRevenue(monopolies[i].properties[y]);
-           
-          }
-
-          
-
-
-       }
-
-       */
-
-
-     //////alert('expected revenues => ' + expectedCurrentRevenue);
-
-
-     return expectedCurrentRevenue;
-}
-
-
-
 
 
 
@@ -438,8 +390,7 @@ function getBetterPositionedMonopoly(ai){
       }
 
 
-
-    }
+   }
 
 
 
@@ -482,3 +433,67 @@ function buildOnNextAvailableSlot(){
 
 
 }
+
+
+
+function findCash(){
+
+    //Mortgage nonMonopolyProperties
+
+    //Target the monopoly the less ranked :
+
+
+
+}
+
+
+
+
+ function monopolyCheck(player , color){
+
+
+    let properties = player.propertiesByColor[color.index].properties;
+
+
+    if(properties[0].type == rentalProperty){
+        
+       if(color == darkBlue || color == brown){
+
+
+          if(properties.length == 2){
+
+            return true;
+
+         }
+
+        } else if( properties.length == 3) {
+
+
+            return true;
+
+       }
+
+    }
+
+ }
+
+
+
+
+
+function newMonopoly(player , color){
+
+    //extract monopoly properties from nonMonopoly array
+
+
+    for(var i=0 ; i < player.propertiesByColor.length ; i++){
+
+
+    }
+
+}
+
+
+
+
+
