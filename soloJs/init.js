@@ -88,21 +88,39 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-
     //Human player
+    ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel, placePigalle, avenueMozart);
+    ai1.propertiesByColor[red.index].properties.push(avenueHenriMartin, avenueMatignon, bdMalesherbes);    
+    ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines, avenueDeBreteuil);
+    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse, rueLaFayette, faubourgSaintHonore);
+    ai1.propertiesByColor[brown.index].properties.push(belleville, rueLecourbe);
+    ai1.propertiesByColor[purple.index].properties.push(avenueDeNeuilly, rueDuParadis, bdDeLaVillette);
+    ai1.propertiesByColor[black.index].properties.push(gareDeMontparnasse);
 
-    ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
-     
-    
+
+    ai1.monopolies = 7;
+
+    ai1.monopoliesArray = [orange, red, darkBlue, green, yellow, brown, purple];
+
+  
     boulevardSaintMichel.landLord = ai1;
     boulevardSaintMichel.mortgaged = true;
     ai1.mortgages.push(boulevardSaintMichel);
-
+    
+    
+    boulevardSaintMichel.landLord = ai1;
+    boulevardSaintMichel.mortgaged = true;
+    ai1.mortgages.push(placePigalle);
 
     
-    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin , bdMalesherbes, bdMalesherbes);
-
-
+    bdDesCapucines.landLord = ai1;
+    bdDesCapucines.mortgaged = true;
+    ai2.mortgages.push(bdDesCapucines);
+    
+    
+    avenueFoch.landLord = ai1;
+    avenueFoch.mortgaged = true;
+    ai2.mortgages.push(avenueFoch);
 
        
 }
@@ -167,7 +185,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
+   //setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
 
 }
 

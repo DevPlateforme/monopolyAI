@@ -151,23 +151,37 @@ function searchForTradesOpportunities(activePlayer){
 
  function checkForBuildingOpportunities(ai){
 
-
      //Determine where there is danger for the other players. Build there.
-
-
-
      //Where is the closest building ? Take the average number of points.
-
      //Simply add probabilities, and build at the next available slot.
+
+
+     if(ai.willingnessToBuild == false){
+
+        return;
+
+     } else {
+        ai.willingnessToBuild = false;
+
+
+        setTimeout(function(){
+
+            ai.willingnessToBuild = true;
+
+
+        }, 10000)
+
+     }
+
+
 
 
      if(ai.monopolies == 0){
 
         return;
-
      }
 
-     getBetterPositionedMonopoly(ai);
+     //getBetterPositionedMonopoly(ai);
      
 
  }
@@ -301,80 +315,35 @@ function calculateExpectedCurrentRevenue(player, propertiesByColor){
 }
 
 
-var probabilitiesByNumber = [6/36 , 5/36 ];
-
-
-
-
-function expectedPropertyRevenue(property){ 
-    
-    let expectedCurrentRevenue = 0;
-
-    let opponentsCount = 0;
-
-     //for 7 , 8 , 6 , 5 , 4 ... 
-
-     for(i=0 ; i < dicesNumbersByProba.length; i++){
-
-
-         //whats there seven squares behind       
-         
-       let opponentsOnSquares = opponentsOnSquareBehind(property, dicesNumbersByProba[i]);
-
-
-            
-        if(opponentsCount >= ( (playersArray.length) - 1)){
-
-            //stop looping on this property, because all the opponents were checked
-
-            break;
-
-        }
-
-        
-
-     }
-
-
-     return expectedCurrentRevenue;
-
-}
 
 
 
 
 
-function sortPropositionList(){
-
-
-     //QuickSort
-
-     
-
-
-
-}
 
 
 
 function opponentsOnSquareBehind( property, number) {
 
+    alert('number is ' + number);
+
     
     let otherPlayers = [ai2, humanPlayer]; //getOtherPlayersArray(property.landLord);
-
 
     let playersCount = 0;
         
        //if there are players
 
-    let square = simulateBackwardMovement( property.square , number);
+    let square = simulateBackwardMovement( property.square , 7);
 
 
 
          //count the number of players there
 
 
-     for(i=0 ; i < otherPlayers.length ; i++){
+     for(var i=0 ; i < otherPlayers.length ; i++){
+
+        alert('num' + number + ',' + 'square=>' +  square  + ' , op square =>' + otherPlayers[i].position  )
 
          if(otherPlayers[i].position == square){
 
@@ -444,6 +413,7 @@ function getBetterPositionedMonopoly(ai){
 
      let bestMonopColor = none;
      let bestScore = 0;
+     let property;
 
 
     for(var i=0 ; i < ai.monopoliesArray.length ; i++){
@@ -451,20 +421,23 @@ function getBetterPositionedMonopoly(ai){
         let monopColor = ai.monopoliesArray[i];
         let monopScore = 0;
 
-        for(var y = 0; ai.propertiesByColor[monopColor.index]; y++){
+        for(var y = 0; y < ai.propertiesByColor[monopColor.index].properties.length ; y++){
 
-           bestMonopColor = monopColor;
+           property = ai.propertiesByColor[monopColor.index].properties[y];
+
            monopScore += getPositionScore(property);
 
-        }
+           
+            if(monopScore > bestScore){
+
+               bestMonopColor = monopColor;
+               bestScore = monopScore;
+   
+            }
+
+      }
 
 
-        if(monopScore > bestScore){
-
-            bpMonopoly = monopColor;
-            bestScore = monopScore;
-
-        }
 
     }
 
@@ -487,11 +460,14 @@ function getPositionScore(property){
     let score = 0;
       
      
-    for(var i=0; i < probasFro10to4.length ; i++){
+    for(var i=0; i < dicesNumbersByProba.length ; i++){
+        
 
-       score += opponentsOnSquareBehind( simulateBackwardMovement(property.position , probasFro10to4[i]) ) * probasFro10to4[i];
+       score += opponentsOnSquareBehind( simulateBackwardMovement(property.position , dicesNumbersByProba[i]) ) * probasFrom10to4[i];
         
     }
+
+    alert('score=>' + score);
 
 
     return score; 

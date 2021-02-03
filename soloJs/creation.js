@@ -242,15 +242,8 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 				 for(var offerIndex=0; offerIndex < offerArray[0].length; offerIndex++){
 
 
-					alert('CHECKING');
-
-
-
 				  
 					if(offerArray[0][offerIndex].mortgaged == true){
-
-						alert('Yes, I have a mortgaged property I would like to offer you');
-
 
 
 						if((refundableMortgageBeforeOffer(offerer, offerArray[0][offerIndex] ) == true)){
@@ -634,7 +627,7 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 		 
 
-	 if(thinkerScore > (-thinkerLoss * 1.3)){
+	 if(thinkerScore > (-thinkerLoss * 3)){
 
 
 
