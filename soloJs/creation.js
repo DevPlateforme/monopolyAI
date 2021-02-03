@@ -193,6 +193,10 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 
 
 
+	////console.log('here is the proposition material we are actually trying inside the function!!!');
+
+	
+
 
 	let answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
 	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
@@ -233,27 +237,29 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 				 offerArray = [propertiesArray[propertyIndex]];
 
 
-
 				  //IF YOU CAN BUY BACK THE MORTGAGE OF THE ELEMENT YOU OFFER, DO IT. ELSE, OFFER IT THAT WAY.
 
-				 for(var offerIndex=0; offerIndex < offerArray.length; offerIndex++){
+				 for(var offerIndex=0; offerIndex < offerArray[0].length; offerIndex++){
 
 
-					alert('looping=>' + offerArray.length);
+					alert('CHECKING');
 
-					alert('offering=>' + offerArray[0].name);
+
 
 				  
-					if(offerArray[offerIndex].mortgaged == true){
+					if(offerArray[0][offerIndex].mortgaged == true){
+
+						alert('Yes, I have a mortgaged property I would like to offer you');
 
 
-						if((refundableMortgageBeforeOffer(proposition.offerer, offerArray[offerIndex] ) == true)){
+
+						if((refundableMortgageBeforeOffer(offerer, offerArray[0][offerIndex] ) == true)){
 							 
 							
 
-							closeMortgage(offerArray[offerIndex] );
+							closeMortgage(offerArray[0][offerIndex] );
 
-							offerMortgagesToClose.push(offerArray[offerIndex]);
+							offerMortgagesToClose.push(offerArray[0][offerIndex]);
                                                      
 						};
 
@@ -281,9 +287,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial){
 		                 offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
  
 					 }
-
-
-					 alert('offer array===>' +  offerArray[0].name)
 
 
 

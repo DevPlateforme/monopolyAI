@@ -91,16 +91,16 @@ function setColorScores(){
 
     //Human player
 
-    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
-    ai1.propertiesByColor[red.index].properties.push(avenueMatignon);          
-
-    rueDuParadis.landLord = ai1;
-    rueDuParadis.mortgaged = true;
-    ai1.mortgages.push(rueDuParadis);
+    ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
+     
+    
+    boulevardSaintMichel.landLord = ai1;
+    boulevardSaintMichel.mortgaged = true;
+    ai1.mortgages.push(boulevardSaintMichel);
 
 
     
-    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin , bdMalesherbes);
+    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin , bdMalesherbes, bdMalesherbes);
 
 
 

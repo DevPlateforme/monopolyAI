@@ -114,6 +114,9 @@ function makeProposition(proposition){
 
    if(counterPartAsked.mortgagesClosed.length > 0){
 
+
+        alert('lets close down the mortgage closing we asked you first');
+
        for(var i=0; i < counterPartAsked.mortgagesClosed.length; i++){
 
          closeMortgage(counterPartAsked.mortgagesClosed[i]);
