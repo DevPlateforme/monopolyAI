@@ -9,7 +9,7 @@ function launchDices(){
     
     //update the diceLauncher index
 
-    if(nextDiceLauncherIndex == 2){
+    if(nextDiceLauncherIndex == 3){
 
         nextDiceLauncherIndex = 0;
     } else {

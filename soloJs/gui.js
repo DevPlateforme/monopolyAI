@@ -667,14 +667,14 @@ function closeAvailablePropertyInterface(){
 
  function displayCommunityChestSquareInterface(){
 
-     document.getElementById('communityChestSquareInterface').style.zIndex = 3;
+     document.getElementById('communityChestSquareInterface').style.zIndex = 5;
      document.getElementById('communityChestSquareInterface').style.opacity = 1;
 
  }
 
  function displayChanceSquareInterface(){
     
-     document.getElementById('chanceSquareInterface').style.zIndex = 3;
+     document.getElementById('chanceSquareInterface').style.zIndex = 5;
      document.getElementById('chanceSquareInterface').style.opacity = 1;
 }
 
@@ -903,7 +903,7 @@ function displayPropositionInterface(){
 
 
      document.getElementById('propositionInterface').style.opacity = 1;
-     document.getElementById('propositionInterface').style.zIndex = 3;
+     document.getElementById('propositionInterface').style.zIndex = 5;
 
 
 

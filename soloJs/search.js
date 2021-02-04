@@ -32,7 +32,7 @@ function searchForTradesOpportunities(activePlayer){
         otherPlayersArray = [humanPlayer, ai2];
     } else if (activePlayer == ai2){
         otherPlayersArray = [humanPlayer, ai1];
-    }
+    } 
     
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     
@@ -59,22 +59,7 @@ function searchForTradesOpportunities(activePlayer){
 
 
             if(otherPlayer == humanPlayer){
-                if(activePlayer.humanPerception == regular){
-
-                    let randomTrick = Math.floor(Math.random()*5)+1;
-
-                    if(randomTrick == 5){
-                        trick = true;
-                       } else {
-                       trick = false;
-                      }
-
-                } else {
-
-                    trick = true;
-                }
-            } else {
-                trick = false;
+                trick = true;
             }
 
     
@@ -280,7 +265,7 @@ function opponentsOnSquareBehind( property, number) {
     alert('number is ' + number);
 
     
-    let otherPlayers = [ai2, humanPlayer]; //getOtherPlayersArray(property.landLord);
+    let otherPlayers = [ai2, humanPlayer, ai3]; //getOtherPlayersArray(property.landLord);
 
     let playersCount = 0;
         

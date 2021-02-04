@@ -143,6 +143,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	
 	    for(var cpaIndex = 0 ; cpaIndex < counterPartAsked.array.length; cpaIndex++){
 
+
 				  
 	  	  if(counterPartAsked.array[cpaIndex].mortgaged == true){
 
@@ -550,16 +551,18 @@ function profitableTrade(thinker, proposition , trick , gainType){
 	let answerer = proposition.answerer;
 	let offererScore = 0;
 	let answererScore = 0;
-
-
+	let minimumThinkerGain;
+	let apparentScore = 0;
 	
 
+	offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 	offererScore -= offer.lossValueForTheOwner;
 	offererScore -= offer.cash;
 
 	if(trick == false){
 		
-   	     offererScore += counterPartAsked.gainValueForTheOtherPlayer;
+			answererScore -= counterPartAsked.lossValueForTheOwner;
+
 
 	} else {
 
@@ -569,21 +572,19 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 		for(var i=0; i < gainedSets.length; i++){
 
-			offererScore += getArrayGainValueForPlayer(offerer, gainedSets[i]);
+			apparentScore += getArrayGainValueForPlayer(offerer, gainedSets[i]);
+			apparentScore += counterPartAsked.cash;
+
+			answererScore -= getArrayLossValueForPlayer(answerer, gainedSets[i]);
 
 		}
 				
 	}
 
 	offererScore += counterPartAsked.cash;
-
-	answererScore -= counterPartAsked.lossValueForTheOwner;
 	answererScore -= counterPartAsked.cash;
-
 	answererScore += offer.gainValueForTheOtherPlayer;
 	answererScore += offer.cash;
-
-
 
    
 	//SITUATION FRAGILITY (INFLUENCING CASH VALUE)
@@ -628,6 +629,14 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 
 
+	if(trick == true){
+
+		thinkerScore = apparentScore;
+
+	}
+
+
+
 
 
 
@@ -651,10 +660,21 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
    }
 
+
+   minimumThinkerGain = (-thinkerLoss * 4);
+
+
+	 
+   if(thinker == offerer &&  trick == true && counterPartAsked.indirectMonopOpportunity != none ){
+
+	minimumThinkerGain = 0;
+
+   }
+
+
 		 
 
-	 if(thinkerScore > (-thinkerLoss * 3)){
-
+	 if(thinkerScore >  minimumThinkerGain){
 
 
 		//determine a certain range
@@ -695,14 +715,7 @@ function profitableTrade(thinker, proposition , trick , gainType){
 				  
 			  }
 
-				 
-			   /*
-			   // /!\ IMPORTANT!! IF THE THINKER IS THE OFFERER, THE POINT IS TO GENERATE A 
-			   REASONABLE OFFER, AND NOT TO GET TOO MUCH VALUE OUT OF IT (NOT TO RISK REFUSAL)
-			   THE ANSWERER ONLY LOOK FOR PROFITABILITY
-				
-			   */
-			   
+	
 			   
 
 		   if(thinker == offerer){	
@@ -740,33 +753,34 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 			  if(gainType == indirectGain){
 
-				
+				if(answerer == humanPlayer){
 
-				 console.log("cette proposition est raisonnable (thinker: " + thinker.name + ')');
-				 console.log('the thinker perceived a value of ' + thinkerScore );
-				 console.log('the other player perceived a value of ' + interlocutorScore );
-				 console.log('here is the offer : ');
+	
+
+				 //alert("cette proposition est raisonnable (thinker: " + thinker.name + ')');
+				 //alert('the thinker perceived a value of ' + thinkerScore );
+				 //alert('the other player perceived a value of ' + interlocutorScore );
+				 //alert('here is the offer : ');
  
  
-				for(i=0; i < offer.array.length; i++){	
-					 console.log('offer element ' + i + ' ' + offer.array[i].name);
+				for(var i=0; i < offer.array.length; i++){	
+					 //alert('offer element ' + i + ' ' + offer.array[i].name);
 				}
  
-					console.log('and, here is the cash in the offer :' + offer.cash);				
-					console.log('here is the counterpart : ');
+					//alert('and, here is the cash in the offer :' + offer.cash);				
+					//alert('here is the counterpart : ');
  
  
-				for(i=0; i < counterPartAsked.array.length; i++){
+				for (var i=0; i < counterPartAsked.array.length; i++){
 					
-				   console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
-			
-		   
-
 
 			  }
+			
+			}
 
 				return true;
 
@@ -775,31 +789,45 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 
 				if(gainType == indirectGain){
-				
+
+
+					if(answerer == humanPlayer){
+
+						//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+
+						//alert('the thinker perceived a value of ' + thinkerScore );
+						//alert('the other player perceived a value of ' + interlocutorScore );
+	  
+						//alert('here is the offer : ');
+	  
+	  
+						for(var i=0; i < offer.array.length; i++){	
+							 //alert('offer element ' + i + ' ' + offer.array[i].name);
+					   }
+	  
+						 //alert('and, here is the cash in the offer :' + offer.cash);				
+						 //alert('here is the counterpart : ');
+	  
+	  
+					 for(var i=0; i < counterPartAsked.array.length; i++){
+						 
+						//alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+						
+					 }
+
+
+
+					}
+
+
+
 					
-			      ////alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
-
-			      ////alert('the thinker perceived a value of ' + thinkerScore );
-			      ////alert('the other player perceived a value of ' + interlocutorScore );
-
-			       console.log('here is the offer : ');
+			
 
 
-			      for(i=0; i < offer.array.length; i++){	
-			   		console.log('offer element ' + i + ' ' + offer.array[i].name);
-			     }
+		}
 
-				   console.log('and, here is the cash in the offer :' + offer.cash);				
-				   console.log('here is the counterpart : ');
-
-
-			   for(i=0; i < counterPartAsked.array.length; i++){
-				   
-				  console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
-				  
-			   }
-
-			}
+			
 
 
 				 //console.log('and, here is the cash asked :' + counterPartAsked.cash);
@@ -817,39 +845,40 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 		} else {
 
-		if(gainType == indirectGain){
+			if(gainType == indirectGain){
+
+							
+			//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+
+			//alert('the thinker perceived a value of ' + thinkerScore );
+			//alert('the other player perceived a value of ' + interlocutorScore );
+
+			//alert('here is the offer : ');
+
+			
+
+			for(var i=0; i < offer.array.length; i++){	
+				//alert('offer element ' + i + ' ' + offer.array[i].name);
+		  }
+
+			//alert('and, here is the cash in the offer :' + offer.cash);				
+			//alert('here is the counterpart : ');
 
 
-			   ////alert('proposition refusée imediatement !! thinkerScore => ' + thinkerScore + ' interlocutor score => ' + interlocutorScore + ' offerer gain ' + counterPartAsked.gainValueForTheOtherPlayer + ' offerer loss ' + offer.lossValueForTheOwner +  ' answerer gain =>' + offer.gainValueForTheOtherPlayer + ' answerer loss => ' + counterPartAsked.lossValueForTheOwner  );
-
-			   ////alert("thinker: " + thinker.name + ')');
-
-			   ////alert("op: " + answerer.name + ')');
-
-			   		
-			   ////alert('the thinker perceived a value of ' + thinkerScore );
-			   ////alert('the other player perceived a value of ' + interlocutorScore );
-
-			   console.log('here is the offer : ');
+	    	for(var i=0; i < counterPartAsked.array.length; i++){
+			
+		     //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+		     
+	  	  }
 
 
-			   for(i=0; i < offer.array.length; i++){	
-					console.log('offer element ' + i + ' ' + offer.array[i].name);
-			   }
 
-				   console.log('and, here is the cash in the offer :' + offer.cash);				
-				   console.log('here is the counterpart : ');
+			}
+				
+		
 
 
-			   for(i=0; i < counterPartAsked.array.length; i++){
-				   
-				  console.log('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
-				  
-			   }
-
-		}
-
-	   
+	
 		   return false;
 
 
@@ -960,19 +989,6 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 		   tradeObject.lossValueForTheOwner += staticLoss;
 		   tradeObject.gainValueForTheOtherPlayer += staticGain;
 
-  /*
-
-			  if(tradeArray[tradeSetIndex][0].color == brown){
-
-	
-				//console.log('new val=> ' + getArrayGainValueForPlayer(otherPlayer,tradeArray[tradeSetIndex]) );
-
-
-				//console.log('gain val=>' +  tradeObject.gainValueForTheOtherPlayer);
-	
-			 }
-
- */
 
 			  //if an element brings a direct monopoly, break there.
 
@@ -982,8 +998,6 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 				console.log('direct monopoly detected!! full set =>' + staticGain);
 
-
-
 			
 				continue;
 
@@ -991,29 +1005,19 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 			  }
 
 
-			  
-
-    
- 
-
 		   let set = getSetValueAtDepth2(otherPlayer, owner, tradeArray[tradeSetIndex]);
 				
 			
 		   if(set.monopolyOpportunity == false){
  
 			//nothing
-
-			//console.log("no future opportunity");
  
     		} else {
+
 
 				tradeObject.gainValueForTheOtherPlayer -= staticGain;
 
 				tradeObject.indirectMonopOpportunity = set.proposition;
-
-
-				//console.log('gain removed==>' + tradeObject.gainValueForTheOtherPlayer );
-
  
 		    	//compute a synergetic cost for the player loosing the array 
 			
@@ -1028,16 +1032,7 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 	}
 
 	//handle collision => if two element receive the same monopoly, only select the better gain
-	
-/*
 
-	if(tradeArray[0][0].color == brown){
-
-		//console.log('obj gain =>' +  tradeObject.gainValueForTheOtherPlayer);
-
-	 }
-
-*/
 
 	return tradeObject;
 
@@ -1052,7 +1047,7 @@ function getSetValueAtDepth2(playerA , playerB , array){
 
 	
 
-	let obj = { monopolyOpportunity: false , gainValue: 0 };
+	let obj = { monopolyOpportunity: false , gainValue: 0 , proposition: none };
 
 	let nonTradingPlayers = getNonTradingPlayersArray(playerA, playerB);
 
@@ -1101,7 +1096,11 @@ function getSetValueAtDepth2(playerA , playerB , array){
 				
 					obj.gainValue = bestProposition.proposition.answererScore ;
 
+					obj.proposition = bestProposition.proposition;
+
 					obj.monopolyOpportunity = true;
+
+
 					
 
 			   }
@@ -1295,7 +1294,7 @@ function addElementsToPlayer(player, array){
 function refundableMortgageBeforeOffer(player, element){
 
 
-	if(player.cash >= (element.mortgageValue * 2)){
+	if(player.cash >= (element.mortgageValue * 1.5)){
 
 
 		return true;

@@ -79,30 +79,29 @@ function setColorScores(){
     console.log(colorArray[8].name + ' : ' + colorArray[8].growthScore);
 
 
-  
   }
   
   
 
-  
 
   function givePlayersPropertiesForDemo(){
 
-    humanPlayer.propertiesByColor[brown.index].properties.push(rueLecourbe);
-    humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
+    humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
+    humanPlayer.propertiesByColor[red.index].properties.push(avenueMatignon);
 
 
     //Human player
+    ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
+    ai1.propertiesByColor[red.index].properties.push(bdMalesherbes);
     ai1.propertiesByColor[brown.index].properties.push(belleville);
-    ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines);
 
 
-    ai2.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
-    ai2.propertiesByColor[green.index].properties.push( avenueDeBreteuil);
-
-  
+    belleville.mortgaged = true;
+    ai1.mortgages += 1;
 
 
+    ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
+    ai2.propertiesByColor[brown.index].properties.push(rueLecourbe);
 
        
 }
@@ -167,7 +166,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
+    //setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
 
 }
 

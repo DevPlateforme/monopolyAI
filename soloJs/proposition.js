@@ -76,7 +76,7 @@ function makeProposition(proposition){
  
               //the trade is refused
 
-              //alert(proposition.answerer.name + ' refused the offer!');
+              alert(proposition.answerer.name + ' refused the offer!');
 
 
               
@@ -108,11 +108,29 @@ function makeProposition(proposition){
      let answerer = proposition.answerer;
 
 
-     console.log('***********************************************proposition accepted!!');
+     alert('***********************************************proposition accepted!!');
+
+
+     for(var i=0; i < offer.array.length; i++){
+
+         alert('offer element => ' + offer.array[i].name)
+
+
+     }
+
+     
+     for(var i=0; i < counterPartAsked.array.length; i++){
+
+      alert('cpa element => ' + counterPartAsked.array[i].name)
+
+
+  }
+
 
 
 
      //if one or both players needed to close mortgage before making the trade, close them
+
 
    if(counterPartAsked.mortgagesClosed.length > 0){
 
@@ -125,6 +143,7 @@ function makeProposition(proposition){
 
 
    }
+   
 
 
 
