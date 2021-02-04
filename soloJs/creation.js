@@ -204,8 +204,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 
 	let answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
-	let offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
-
+	let offererCashSlices;
 
 
     //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
@@ -230,7 +229,17 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		//SO , IF THE ANSWERER CASH SLICE IS AT THE INDEX 0 :
 
 
-	    if(answererCashSliceIndex == 0 ){		
+	    if(answererCashSliceIndex == 0 ){
+			
+			
+			offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 , offerer.cash * 0.5 ];
+
+		} else {
+
+
+			offererCashSlices = [0];
+
+		}
 			   
 					
 			//FOR EACH PROPERTIES THAN CAN BE OFFERED
@@ -265,7 +274,9 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 				 }
 				 				 
-		     	 //DIVIDE THIS ARRAY IN SETS
+				  //DIVIDE THIS ARRAY IN SETS
+				  
+				  
 			
 
 				
@@ -377,7 +388,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 				
 	        }
 
-	  }
+	  
    }
 
 	
@@ -632,7 +643,7 @@ function profitableTrade(thinker, proposition , trick , gainType){
 	if(trick == true){
 
 		thinkerScore = apparentScore;
-
+		
 	}
 
 
@@ -757,23 +768,23 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 	
 
-				 //alert("cette proposition est raisonnable (thinker: " + thinker.name + ')');
-				 //alert('the thinker perceived a value of ' + thinkerScore );
-				 //alert('the other player perceived a value of ' + interlocutorScore );
-				 //alert('here is the offer : ');
+				 alert("cette proposition est raisonnable (thinker: " + thinker.name + ')');
+				 alert('the thinker perceived a value of ' + thinkerScore );
+				 alert('the other player perceived a value of ' + interlocutorScore );
+				 alert('here is the offer : ');
  
  
 				for(var i=0; i < offer.array.length; i++){	
-					 //alert('offer element ' + i + ' ' + offer.array[i].name);
+					 alert('offer element ' + i + ' ' + offer.array[i].name);
 				}
  
-					//alert('and, here is the cash in the offer :' + offer.cash);				
-					//alert('here is the counterpart : ');
+					alert('and, here is the cash in the offer :' + offer.cash);				
+					alert('here is the counterpart : ');
  
  
 				for (var i=0; i < counterPartAsked.array.length; i++){
 					
-				   //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
@@ -793,25 +804,25 @@ function profitableTrade(thinker, proposition , trick , gainType){
 
 					if(answerer == humanPlayer){
 
-						//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+						alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-						//alert('the thinker perceived a value of ' + thinkerScore );
-						//alert('the other player perceived a value of ' + interlocutorScore );
+						alert('the thinker perceived a value of ' + thinkerScore );
+						alert('the other player perceived a value of ' + interlocutorScore );
 	  
-						//alert('here is the offer : ');
+						alert('here is the offer : ');
 	  
 	  
 						for(var i=0; i < offer.array.length; i++){	
-							 //alert('offer element ' + i + ' ' + offer.array[i].name);
+							 alert('offer element ' + i + ' ' + offer.array[i].name);
 					   }
 	  
-						 //alert('and, here is the cash in the offer :' + offer.cash);				
-						 //alert('here is the counterpart : ');
+						 alert('and, here is the cash in the offer :' + offer.cash);				
+						 alert('here is the counterpart : ');
 	  
 	  
 					 for(var i=0; i < counterPartAsked.array.length; i++){
 						 
-						//alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+						alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 						
 					 }
 
@@ -848,26 +859,26 @@ function profitableTrade(thinker, proposition , trick , gainType){
 			if(gainType == indirectGain){
 
 							
-			//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+			alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-			//alert('the thinker perceived a value of ' + thinkerScore );
-			//alert('the other player perceived a value of ' + interlocutorScore );
+			alert('the thinker perceived a value of ' + thinkerScore );
+			alert('the other player perceived a value of ' + interlocutorScore );
 
-			//alert('here is the offer : ');
+			alert('here is the offer : ');
 
 			
 
 			for(var i=0; i < offer.array.length; i++){	
-				//alert('offer element ' + i + ' ' + offer.array[i].name);
+				alert('offer element ' + i + ' ' + offer.array[i].name);
 		  }
 
-			//alert('and, here is the cash in the offer :' + offer.cash);				
-			//alert('here is the counterpart : ');
+			alert('and, here is the cash in the offer :' + offer.cash);				
+			alert('here is the counterpart : ');
 
 
 	    	for(var i=0; i < counterPartAsked.array.length; i++){
 			
-		     //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+		     alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 		     
 	  	  }
 

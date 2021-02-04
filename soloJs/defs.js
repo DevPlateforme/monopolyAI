@@ -125,11 +125,11 @@ function calculateStepVariable(setArray){
 
           } else if (setArray.length == 2){
 
-            return 0.25;
+            return 0.1;
 
           } else if (setArray.length == 1){
 
-            return 0.12;
+            return 0.05;
 
           }
 

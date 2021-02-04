@@ -91,6 +91,7 @@ function setColorScores(){
 
 
     //Human player
+    
     ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
     ai1.propertiesByColor[red.index].properties.push(bdMalesherbes);
     ai1.propertiesByColor[brown.index].properties.push(belleville);
