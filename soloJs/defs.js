@@ -1,5 +1,5 @@
 
-function calculateSetValue(setArray){
+function calculateSetValue(player, setArray){
 
 
      if(setArray.length != 0){
@@ -12,7 +12,7 @@ function calculateSetValue(setArray){
 
     //multiply the sum of prperty values by the according color score
 
-        let stepVar = calculateStepVariable(setArray);
+        let stepVar = calculateStepVariable(player, setArray);
     
 
     //THIS VARIABLE REPRESENTS THE POSSIBLE ROI OF A SET, WHEN FULLY DEVELOPPED (FOR PROPERTIES, IF THERE ARE HOTELS ON EACH SQUARE OF THE SET. FOR TRAINS, IF THE 4 TRAIN STATIONS ARE OWNED)
@@ -103,12 +103,122 @@ function createPostLossSet(currentSet, lossArray){
 
 
 
-function calculateStepVariable(setArray){
+function calculateStepVariable(player, setArray){
 
 
     let color = setArray[0].color;
 
 
+    if(player == humanPlayer){
+
+      if(setArray.length != 0){
+
+         if(color == black){
+          //Train stations
+
+            if(setArray.length == 4){
+
+              return 1;
+
+            } else if (setArray.length == 3){
+  
+              return 0.5;
+  
+            } else if (setArray.length == 2){
+  
+              return 0.25;
+  
+            } else if (setArray.length == 1){
+  
+              return 0.125;
+  
+            }
+  
+      } else if(color == publicServicesColor){
+  
+  
+  
+              //FOR PUBLIC SERVICES, FROM 1 PROPERTY TO TWO, THE AVERAGE REVENUES IS MULTIPLIED BY 3
+  
+  
+  
+          if(setArray.length == 1){
+  
+              return 0.35;
+  
+          } else if(setArray.length == 2) {
+  
+              return 0.85;
+  
+          }
+  
+      } else if( color == darkBlue || color == brown ){
+  
+  
+          if(setArray.length == 1){
+  
+  
+              return 0.06;
+  
+  
+  
+          } else if(setArray.length == 2) {
+  
+  
+              return 1;
+  
+  
+          }
+  
+      } else {   
+          
+          if(setArray.length == 1){
+  
+             return 0.025;
+  
+         } else if(setArray.length == 2) {
+  
+              return 0.06;
+  
+         } else if(setArray.length == 3){
+  
+               return 1;
+  
+  
+        }
+  
+  
+  
+      }
+  
+  
+  
+  
+  
+      //IF SET ARRAY LENGTH IS EQUAL TO 0
+  
+  
+  
+    } else { 
+  
+  
+  
+       return 0;
+  
+  
+  
+    }
+  
+
+      
+
+
+
+    } else {
+
+
+
+      
     if(setArray.length != 0){
 
        if(color == black){
@@ -125,11 +235,11 @@ function calculateStepVariable(setArray){
 
           } else if (setArray.length == 2){
 
-            return 0.1;
+            return 0.25;
 
           } else if (setArray.length == 1){
 
-            return 0.05;
+            return 0.125;
 
           }
 
@@ -143,7 +253,7 @@ function calculateStepVariable(setArray){
 
         if(setArray.length == 1){
 
-            return 0.33;
+            return 0.5;
 
         } else if(setArray.length == 2) {
 
@@ -157,7 +267,7 @@ function calculateStepVariable(setArray){
         if(setArray.length == 1){
 
 
-            return 0.05;
+            return 0.1;
 
 
 
@@ -169,21 +279,17 @@ function calculateStepVariable(setArray){
 
         }
 
-
     } else {   
-        
         
         if(setArray.length == 1){
 
-           return 0.02;
+           return 0.03;
 
        } else if(setArray.length == 2) {
 
             return 0.1;
 
-
        } else if(setArray.length == 3){
-
 
              return 1;
 
@@ -211,6 +317,12 @@ function calculateStepVariable(setArray){
 
 
   }
+
+
+
+
+}
+
 
 
 

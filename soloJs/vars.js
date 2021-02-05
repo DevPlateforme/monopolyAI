@@ -1,22 +1,17 @@
-   
-   //console.log('vars...');
-
-
    //COLORS
 
    //ROIs AT : 30 DICE LAUNCHES, 50 DICE LAUNCHES, 100 DICE LAUNCHES, 200 DICE LAUNCHES
 
-   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 9300};
-   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 9500};
-   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 9500};
-   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 10000};
-   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 9800};
-   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 9700} ;
-   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 9700} ;
-   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 9600};
-   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 8800};
-   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 1000};
-
+   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 3000};
+   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 3500};
+   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 3500};
+   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 4000};
+   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 3800};
+   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 3700} ;
+   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 3700} ;
+   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 3600};
+   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 2400};
+   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 300};
 
 
 
@@ -50,22 +45,19 @@
  var twoTwoLvl = 0.8;
 
 
+ var playerNum = 4;
 
+ var noMove = 'NM';
 
+ var none = 'NONE';
 
-var playerNum = 4;
+ var off = 'off';
 
-var noMove = 'NM';
+ var available = 'available';
 
-var none = 'NONE';
+ var busy = 'busy';
 
-var off = 'off';
-
-var available = 'available';
-
-var busy = 'busy';
-
-var noCash = 'no cash';
+ var noCash = 'no cash';
 
 
 
@@ -89,10 +81,10 @@ var downgrade = 'downgrade';
 
 
 
-var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500 , humanPerception: naive} , trickRefusalsCount: 0}
-var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500 , humanPerception: naive} , trickRefusalsCount: 0}
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild: true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500 , humanPerception: naive} , trickRefusalsCount: 0}
-var ai3 = {playerIndex: 3 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true , bestCounterOffer : {offererScore: -infinite} , bestConfig : { config: [0,0,0,0,0,0,0,0,0,0,0] , expectedRevenue: 0 , cashLeft: 1500 , humanPerception: naive} , trickRefusalsCount: 0}
+var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
+var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals:0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild: true ,  trickRefusalsCount: 0 , fairPropositionRefusals:0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
+var ai3 = {playerIndex: 3 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false,  properties : [ ]}, { color: lightBlue, monopoly: false, housesBuilt: false, properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, properties : [ ]} ] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals:0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
 
 var playersArray = [ai1, ai2, humanPlayer];
 
@@ -215,7 +207,7 @@ var avenueDeBreteuil = { name: 'Avenue de Breteuil',  square:31 , value: 300, re
 var avenueFoch = { name: 'Avenue Foch' ,  square:32 , value: 300, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: rentalProperty , color: green , landLord: none  , elementIndex : 23 , mortgaged: false ,  mortgageValue: 200, house: 0 , houseValue: 50 };
 var communityChestSquare3 = {name: 'communityChest', square:33, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , house: 0 , houseValue: 50};
 var bdDesCapucines = { name:'Boulevard des capucines' , square:34 , value: 320, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: rentalProperty , color: green , landLord: none  , elementIndex : 24 , mortgaged: false ,  mortgageValue: 200 , house: 0 , houseValue: 50};
-var GareSaintLazarre = {name: 'Gare Saint Lazarre' ,  square:35 , value: 200, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black , landLord: none  , elementIndex : 25 , mortgaged: false ,  mortgageValue: 200 , house: 0 , houseValue: 50} ;
+var gareSaintLazarre = {name: 'Gare Saint Lazarre' ,  square:35 , value: 200, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black , landLord: none  , elementIndex : 25 , mortgaged: false ,  mortgageValue: 200 , house: 0 , houseValue: 50} ;
 var luckSquare3 = {name: 'Luck', square: 36 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , house: 0 , houseValue: 50};
 var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , square: 37 , value: 350, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: darkBlue , landLord: none, elementIndex : 26 ,  mortgaged: false,  mortgageValue: 200 , house: 0 , houseValue: 50};
 var luxuryTax = {name: 'Taxe de luxe' , square: 38, value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: tax , color: none , landLord: none , mortgaged: false , house: 0 , houseValue: 50};
@@ -224,7 +216,7 @@ var rueDeLaPaix = { name : 'Rue de la paix' , square: 39, value: 400, rent: 0 , 
 
 
 
-var propertiesList = [belleville, rueLecourbe , gareDeMontparnasse, rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, boulevardSaintMichel, placePigalle, avenueMatignon,  bdMalesherbes , avenueHenriMartin , gareDuNord , faubourgSaintHonore , placeDeLaBourse , publicServiceWater, rueLaFayette , avenueDeBreteuil , avenueFoch , bdDesCapucines , GareSaintLazarre, avenueDesChampsElysees , rueDeLaPaix];
+var propertiesList = [belleville, rueLecourbe , gareDeMontparnasse, rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, boulevardSaintMichel, placePigalle, avenueMatignon,  bdMalesherbes , avenueHenriMartin , gareDuNord , faubourgSaintHonore , placeDeLaBourse , publicServiceWater, rueLaFayette , avenueDeBreteuil , avenueFoch , bdDesCapucines , gareSaintLazarre, avenueDesChampsElysees , rueDeLaPaix];
 
 
 var squaresProbabilities = [0 , 0.16 , 0.32, 0.48, 0.64, 0.8, 1, 0.8 , 0.64 , 0.48, 0.32,0.16 ];
@@ -233,7 +225,7 @@ var squaresProbabilities = [0 , 0.16 , 0.32, 0.48, 0.64, 0.8, 1, 0.8 , 0.64 , 0.
 
 
 
-var squaresArray = [departure, belleville, communityChestSquare1 , rueLecourbe, revenueTax, gareDeMontparnasse, rueDeVaugirard, luckSquare1, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChestSquare2, boulevardSaintMichel, placePigalle, freeParc, avenueMatignon, luckSquare2, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChestSquare3, bdDesCapucines, GareSaintLazarre, luckSquare3, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
+var squaresArray = [departure, belleville, communityChestSquare1 , rueLecourbe, revenueTax, gareDeMontparnasse, rueDeVaugirard, luckSquare1, rueDeCourcelles, avenueDeLaRepublique, jailVisit, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, communityChestSquare2, boulevardSaintMichel, placePigalle, freeParc, avenueMatignon, luckSquare2, bdMalesherbes, avenueHenriMartin, gareDuNord, faubourgSaintHonore, placeDeLaBourse, publicServiceWater, rueLaFayette, jail, avenueDeBreteuil, avenueFoch, communityChestSquare3, bdDesCapucines, gareSaintLazarre, luckSquare3, avenueDesChampsElysees, luxuryTax, rueDeLaPaix];
 
 
 

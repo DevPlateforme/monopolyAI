@@ -522,7 +522,12 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
      if(proposition.counterPartAsked.cash != 0){
 
-          humanAnswerInterfaceCounterPart.innerHTML += 'cash :' + proposition.counterPartAsked.cash;
+          humanAnswerInterfaceCounterPart.innerHTML += ' cash asked :' + proposition.counterPartAsked.cash;
+
+     } else {
+
+          humanAnswerInterfaceCounterPart.innerHTML += 'no cash was asked'
+
 
      }
 
@@ -537,16 +542,19 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 function refusePropositionFromInterface(){
 
+     let offerer = humanPlayer.propositionToAnswer.offerer;
+
      //alert('vous avez refusé cette proposition!!');
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
 
-      //perceptionCheck(humanPlayer.propositionToAnswer.offerer.name);
+     if(offerer.humanPerception == regular){
+
+        perceptionCheck(offerer , humanPlayer.propositionToAnswer );
+
+     }
 
       humanPlayer.propositionToAnswer = none;
-
-      
-
 
 }
 
@@ -1448,7 +1456,7 @@ function sendProposition(){
 
             //now, simply use the function : profitable proposition, to check if it is.
 
-            if(profitableTrade(answerer, proposition , false , indirectGain) == true){   
+            if(profitableTrade(answerer, proposition , false , regular , indirectGain) == true){   
                  
                let alternatives = searchForAlternatives(proposition , proposition.answerer, proposition.offerer);
 
@@ -1490,17 +1498,13 @@ function sendProposition(){
 
                alert('proposition refused');
 
+               alert('offererscore=>' + proposition.offererScore);
+
+               alert('answererscore=>' + proposition.answererScore);
 
 
 
-               //makeCounterOffer(upgrade, answerer , proposition);
-
-
-               //alert('proposition refusée!!!');
-
-                
-                //If the thinker score was higher than 0 => Then, make a counterOffer => how to get the thinkerScore
-
+     
 
             };
 
@@ -1591,25 +1595,56 @@ function initHumanAnswerInterface(){
 
 function perceptionCheck(ai, proposition){
 
-     if(proposition.trick == true){
+     alert('name=>' + ai.name);
+     alert('count=>' + ai.unfairPropositionsRefusals);
 
-         //if 3 trick refusals , the AI interacts with the human as an AI
+     if(proposition.unfair == true){
 
-         ai.trickRefusalsCount++;
+          alert('unfair offer refused')
 
-         if(ai.trickRefusalsCount >= 3){
+         if(ai.unfairPropositionsRefusals== 3){
 
-          alert(ai.name + 'now perceives you as a regular player');
+          alert('after 4 unfaire trick refusals, the AI becomes aggressive');
+             ai.humanPerception = uncooperative;
 
-             ai.humanPerception = regular; 
+             setTimeout(function(){
 
+               alert('the AI calmed down!');
+
+               ai.humanPerception = regular;
+
+             }, 120000);
+
+         } else {
+
+              ai.unfairPropositionsRefusals+= 1;
+
+              alert('the AI knows , deep down , that it made an unfair offer to you , but noted that you refused ');
          }
-
+ 
      } else {
 
-          alert(ai.name + 'now perceives you as being uncooperaitive');
+          alert('fair offer refused')
 
-          ai.humanPerception = uncooperative; 
+          if(ai.unfairPropositionRefusals == 1){
+
+               ai.humanPerception = uncooperative;
+
+               setTimeout(function(){
+
+                    ai.humanPerception = regular;
+
+               }, 120000);
+
+              alert('after 2 fair trick refusals, the AI becomes aggressive');
+               
+           } else {
+  
+               ai.fairPropositionRefusals += 1;
+             
+               alert('The AI noted that you made a refusal to a fair offer');
+  
+           }
 
      }
 

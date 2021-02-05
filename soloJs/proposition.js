@@ -34,8 +34,8 @@ function makeProposition(proposition){
            return;
         
     } else {
- 
-        if(profitableTrade(proposition.answerer, proposition , false , indirectGain ) == true){
+
+        if(profitableTrade(proposition.answerer, proposition , false , regular , indirectGain ) == true){
 
           let alternatives = searchForAlternatives(proposition , proposition.answerer, proposition.offerer);
 
@@ -78,6 +78,16 @@ function makeProposition(proposition){
 
               alert(proposition.answerer.name + ' refused the offer!');
 
+              
+
+     alert('-->-->-->-->-->-->proposition refused!!');
+
+     alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
+
+     alert('-->-->-->-->-->-->answerer score => ' + proposition.answererScore);
+
+
+
 
               
                if(proposition.offerer == humanPlayer){
@@ -109,6 +119,12 @@ function makeProposition(proposition){
 
 
      alert('***********************************************proposition accepted!!');
+
+     alert('********offerer score => ' + proposition.offererScore);
+
+     alert('********answerer score => ' + proposition.answererScore);
+
+
 
 
      for(var i=0; i < offer.array.length; i++){
@@ -297,12 +313,7 @@ function makeProposition(proposition){
 
 
 
-   function makeCounterOffer(type, thinker, proposition){
-
-    
-
-   }
-
+ 
 
 
    function invertProposition(proposition){
@@ -467,13 +478,3 @@ function searchForAlternatives(proposition , answerer, offerer){
 
 
 
-function counterOffer(proposition){
- 
-     
-  //Genereate counter offers
-
-
-
-
-
-}

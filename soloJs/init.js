@@ -86,29 +86,13 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-    humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
-    humanPlayer.propertiesByColor[red.index].properties.push(avenueMatignon);
+    humanPlayer.propertiesByColor[black.index].properties.push(placeDeLaBourse, faubourgSaintHonore , rueLaFayette);    
 
 
-    //Human player
-    
-    ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
-    ai1.propertiesByColor[red.index].properties.push(bdMalesherbes);
-    ai1.propertiesByColor[brown.index].properties.push(belleville);
 
+    ai1.propertiesByColor[green.index].properties.push(avenueFoch);
 
-    belleville.mortgaged = true;
-    ai1.mortgages += 1;
-
-
-    ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
-    ai2.propertiesByColor[brown.index].properties.push(rueLecourbe);
-
-       
 }
-
-
-
 
 
 function createTheCommunityChestDeck(){
