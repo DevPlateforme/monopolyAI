@@ -643,7 +643,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * 0.8) ){
 
 
-			alert('the tricked player felt that this offer was not acceptable');
+			//alert('the tricked player felt that this offer was not acceptable');
 
 
 			return false;
@@ -651,7 +651,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 		 } 
 
-		 alert('the tricked player felt that this offer was acceptable');
+		 //alert('the tricked player felt that this offer was acceptable');
 
 
 
@@ -660,7 +660,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	 }
 
 
-	 alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+	 //alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
 
@@ -669,26 +669,13 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	
 
-	alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+	//alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
 	answererScore -= counterPartAsked.lossValueForTheOwner;
 
 
-	if(trick == true){
-		
-		//AI TRIES TO TRICK THE OPPONENT
 
-		let gainedSets = divideArrayInSets(counterPartAsked.array);
-
-		for(var i=0; i < gainedSets.length; i++){
-
-			apparentScore += getArrayGainValueForPlayer(offerer, gainedSets[i]);
-			apparentScore += counterPartAsked.cash;
-
-		}
-				
-	}
 
 	offererScore += counterPartAsked.cash;
 
@@ -700,7 +687,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	answererScore += offer.cash;
 
 	
-	alert('the answererScore before =>' + answererScore);
+	//alert('the answererScore before =>' + answererScore);
 
 
 
@@ -738,8 +725,6 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	if(trick == true){
 
-		thinkerScore = apparentScore;
-
 		if(counterPartAsked.indirectMonopOpportunity != none){
 			
 	      	 proposition.unfair = true;
@@ -749,19 +734,23 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	}
 
 	
+   
+	if(thinker == offerer){
+
+		minimumThinkerGain = (-thinkerLoss * 3);
+
+	} else {
+
+		minimumThinkerGain = 0;
+	}
 
 
-   minimumThinkerGain = (-thinkerLoss * 3);
 
-
-   if(thinker == offerer &&  trick == true && counterPartAsked.indirectMonopOpportunity != none && offer.array[0].type != counterPartAsked.array[0].type ){
-
-	 minimumThinkerGain = 0;
-
-   }
 	 
 
 	 if(thinkerScore >  minimumThinkerGain){
+
+		//alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
 
 		//determine a certain range
 		//IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
@@ -827,23 +816,23 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 				if(answerer == humanPlayer){
 
 
-				 alert("cette proposition est raisonnable (thinker: " + thinker.name + ')');
-				 alert('the thinker perceived a value of ' + thinkerScore );
-				 alert('the other player perceived a value of ' + interlocutorScore );
-				 //alert('here is the offer : ');
+				 //alert("cette proposition est raisonnable (thinker: " + thinker.name + ')');
+				 //alert('the thinker perceived a value of ' + thinkerScore );
+				 //alert('the other player perceived a value of ' + interlocutorScore );
+				 ////alert('here is the offer : ');
  
  
 				for(var i=0; i < offer.array.length; i++){	
-					 //alert('offer element ' + i + ' ' + offer.array[i].name);
+					 ////alert('offer element ' + i + ' ' + offer.array[i].name);
 				}
  
-					//alert('and, here is the cash in the offer :' + offer.cash);				
-					//alert('here is the counterpart : ');
+					////alert('and, here is the cash in the offer :' + offer.cash);				
+					////alert('here is the counterpart : ');
  
  
 				for (var i=0; i < counterPartAsked.array.length; i++){
 					
-				   //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				   ////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				   
 				}
 
@@ -863,25 +852,25 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 					if(answerer == humanPlayer){
 
-						//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+						////alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-						//alert('the thinker perceived a value of ' + thinkerScore );
-						//alert('the other player perceived a value of ' + interlocutorScore );
+						////alert('the thinker perceived a value of ' + thinkerScore );
+						////alert('the other player perceived a value of ' + interlocutorScore );
 	  
-						//alert('here is the offer : ');
+						////alert('here is the offer : ');
 	  
 	  
 						for(var i=0; i < offer.array.length; i++){	
-							 //alert('offer element ' + i + ' ' + offer.array[i].name);
+							 ////alert('offer element ' + i + ' ' + offer.array[i].name);
 					   }
 	  
-						 //alert('and, here is the cash in the offer :' + offer.cash);				
-						 //alert('here is the counterpart : ');
+						 ////alert('and, here is the cash in the offer :' + offer.cash);				
+						 ////alert('here is the counterpart : ');
 	  
 	  
 					 for(var i=0; i < counterPartAsked.array.length; i++){
 						 
-						//alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+						////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 						
 					 }
 
@@ -915,29 +904,33 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 		} else {
 
+
 			if(gainType == indirectGain){
 
+				//alert('the thinkerscore of ' + thinkerScore + ' is below 0' );
+
+
 							
-			//alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
+			////alert("cette proposition n'est pas raisonnable (thinker: " + thinker.name + ')');
 
-			//alert('the thinker perceived a value of ' + thinkerScore );
-			//alert('the other player perceived a value of ' + interlocutorScore );
+			////alert('the thinker perceived a value of ' + thinkerScore );
+			////alert('the other player perceived a value of ' + interlocutorScore );
 
-			//alert('here is the offer : ');
+			////alert('here is the offer : ');
 
 			
 
 			for(var i=0; i < offer.array.length; i++){	
-				//alert('offer element ' + i + ' ' + offer.array[i].name);
+				////alert('offer element ' + i + ' ' + offer.array[i].name);
 		  }
 
-			//alert('and, here is the cash in the offer :' + offer.cash);				
-			//alert('here is the counterpart : ');
+			////alert('and, here is the cash in the offer :' + offer.cash);				
+			////alert('here is the counterpart : ');
 
 
 	    	for(var i=0; i < counterPartAsked.array.length; i++){
 			
-		     //alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+		     ////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 		     
 	  	  }
 

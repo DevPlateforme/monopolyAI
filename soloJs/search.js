@@ -52,8 +52,8 @@ function searchForTradesOpportunities(activePlayer){
 
             let otherPlayerPropertiesArrayForThisColor = otherPlayer.propertiesByColor[colorIndex].properties.slice(0);
           
-            if(otherPlayerPropertiesArrayForThisColor.length == 0){
-                //break if the other players array is empty
+            if(otherPlayerPropertiesArrayForThisColor.length == 0 || colorArray[colorIndex] == black  || colorArray[colorIndex] == publicServicesColor ){
+                //break if the other players array is empty , or if it loops on public services and train arrays
                 continue;
             }
 

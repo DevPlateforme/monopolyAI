@@ -13,11 +13,11 @@ function init(){
 
     //setColorScores();
 
-    givePlayersPropertiesForDemo();
+    //givePlayersPropertiesForDemo();
 
     initPawnsPositions();
 
-    //wakeUpAis();
+    wakeUpAis();
 
 
   }
@@ -85,9 +85,17 @@ function setColorScores(){
 
 
   function givePlayersPropertiesForDemo(){
+    
+    ai1.propertiesByColor[green.index].properties.push(avenueFoch, avenueDeBreteuil);
 
-    ai1.propertiesByColor[black.index].properties.push(gareDeLyon, gareDeMontparnasse , gareDuNord, gareSaintLazarre);    
-    humanPlayer.propertiesByColor[green.index].properties.push(avenueFoch);
+    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse, faubourgSaintHonore);
+
+    ai1.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
+
+
+
+
+    humanPlayer.propertiesByColor[black.index].properties.push(gareDeLyon, gareDeMontparnasse, gareSaintLazarre);    
 
 }
 
@@ -148,7 +156,7 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    //setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
 
 }
 
