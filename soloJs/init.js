@@ -17,7 +17,7 @@ function init(){
 
     initPawnsPositions();
 
-    wakeUpAis();
+    //wakeUpAis();
 
 
   }
@@ -86,11 +86,8 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-    humanPlayer.propertiesByColor[black.index].properties.push(placeDeLaBourse, faubourgSaintHonore , rueLaFayette);    
-
-
-
-    ai1.propertiesByColor[green.index].properties.push(avenueFoch);
+    ai1.propertiesByColor[black.index].properties.push(gareDeLyon, gareDeMontparnasse , gareDuNord, gareSaintLazarre);    
+    humanPlayer.propertiesByColor[green.index].properties.push(avenueFoch);
 
 }
 

@@ -1483,28 +1483,41 @@ function sendProposition(){
                    alert(proposition.answerer.name + ' accepted the offer!');
      
                    acceptProposition(proposition);
-     
+
      
                  }
      
      
                }
       
-      
-
+     
 
             } else {
-               
 
                alert('proposition refused');
-
                alert('offererscore=>' + proposition.offererScore);
-
                alert('answererscore=>' + proposition.answererScore);
+               
+               alert('we talk about the proposition with this offer ');
 
 
+               for(var i=0; i < proposition.offer.array.length ; i++){
 
-     
+                    alert(proposition.offer.array[i].name);
+
+               }
+
+
+               alert('we talk about the proposition with this cpa ');
+
+
+               for(var i=0; i < proposition.counterPartAsked.array.length ; i++){
+
+                    alert(proposition.counterPartAsked.array[i].name);
+
+               }
+
+
 
             };
 

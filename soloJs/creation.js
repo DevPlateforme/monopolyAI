@@ -579,7 +579,9 @@ function getArrayLossValueForPlayer(player, array){
 	let newSetValue = calculateSetValue(player, newSet);
 
 
-	return (newSetValue - currentSetValue);
+
+
+	return (currentSetValue - newSetValue);
 }
 
 
@@ -658,10 +660,17 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	 }
 
 
+	 alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+
+
 
 	offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 	offererScore -= offer.lossValueForTheOwner;
-	offererScore -= offer.cash;
+
+	
+
+	alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+
 
 	answererScore -= counterPartAsked.lossValueForTheOwner;
 
@@ -682,9 +691,18 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	}
 
 	offererScore += counterPartAsked.cash;
+
+	
+
+
 	answererScore -= counterPartAsked.cash;
 	answererScore += offer.gainValueForTheOtherPlayer;
 	answererScore += offer.cash;
+
+	
+	alert('the answererScore before =>' + answererScore);
+
+
 
    
 
