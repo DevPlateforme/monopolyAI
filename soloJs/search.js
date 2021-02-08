@@ -29,7 +29,7 @@ function searchForTradesOpportunities(activePlayer){
       //('moves generated...');
 
     if(activePlayer == ai1){
-        otherPlayersArray = [humanPlayer, ai2];
+        otherPlayersArray = [ai2];
     } else if (activePlayer == ai2){
         otherPlayersArray = [humanPlayer, ai1];
     } 
@@ -76,30 +76,62 @@ function searchForTradesOpportunities(activePlayer){
             //If a proposition was found , add it to the propositionList of that search
 
             if(foundProposition.proposition != none){
+               /*
 
-                /*
-                    //alert('here is the best proposition we found for this counterpart!' );
-                    //alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' thinker loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );               
-                    //alert('Other player score => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
-					//alert('cette proposition est raisonnable (thinker: ' + foundProposition.proposition.offerer.name);
-                    //alert('here is the offer : ');
+
+                    alert('here is the best proposition we found! thiker =>' + activePlayer.name + ' , OP => ' + otherPlayer.name );
+                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + 'offerer loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );               
+                    alert('Other player score => ' + + foundProposition.proposition.answererScore + ', gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
+
+                    alert('here is the offer : ');
+
+
+                    alert('indirect monop for the offerer , yes or no : ');
+
+                    if( foundProposition.proposition.counterPartAsked.indirectMonopOpportunity != none ){
+
+                        alert('yes, indirect monop for the offerer : ');
+
+                    } else {
+
+                        alert(' no indirect monop for the offerer : ');
+
+                    }
+
+
+
+                    alert('indirect monop for the answerer , yes or no : ');
+
+                    if( foundProposition.proposition.offer.indirectMonopOpportunity != none ){
+
+                        alert('yes, indirect monop for the answerer : ');
+
+                    } else {
+
+                        alert(' no indirect monop for the answerer : ');
+
+                    }
+                    
+                    
 					
-					 for(i=0; i < foundProposition.proposition.offer.array.length; i++){	
-                        //alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
+					 for(var i=0; i < foundProposition.proposition.offer.array.length; i++){	
+                        alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
                        }
      
-                         //alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
-                         //alert('here is the counterpart : ');
+                         alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
+                         alert('here is the counterpart : ');
      
      
-                         for(i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){          
-                            //alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
+                         for(var i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){          
+                            alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
                         
                        }
 
-
-
                        */
+
+
+
+                       
      
 
 
@@ -115,13 +147,17 @@ function searchForTradesOpportunities(activePlayer){
 
        if(propositionList.length != 0){      
                       
-          makeProposition( getBestProposition(propositionList));
+          makeProposition(getBestProposition(propositionList));
   
 
         }
 
 
         propositionList = [];
+
+
+        return;
+
 
 
     //END OF FUNCTION
@@ -265,7 +301,7 @@ function opponentsOnSquareBehind( property, number) {
     alert('number is ' + number);
 
     
-    let otherPlayers = [ai2, humanPlayer, ai3]; //getOtherPlayersArray(property.landLord);
+    let otherPlayers = [ai2, humanPlayer]; //getOtherPlayersArray(property.landLord);
 
     let playersCount = 0;
         
@@ -434,49 +470,8 @@ function findCash(){
 
 
 
- function monopolyCheck(player , color){
 
 
-    let properties = player.propertiesByColor[color.index].properties;
-
-
-    if(properties[0].type == rentalProperty){
-        
-       if(color == darkBlue || color == brown){
-
-
-          if(properties.length == 2){
-
-            return true;
-
-         }
-
-        } else if( properties.length == 3) {
-
-
-            return true;
-
-       }
-
-    }
-
- }
-
-
-
-
-
-function newMonopoly(player , color){
-
-    //extract monopoly properties from nonMonopoly array
-
-
-    for(var i=0 ; i < player.propertiesByColor.length ; i++){
-
-
-    }
-
-}
 
 
 

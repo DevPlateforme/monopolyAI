@@ -263,7 +263,7 @@ function movePiece(){
               }
     
 
-               communityChestCardsList.splice(0,1);
+               //communityChestCardsList.splice(0,1);
 
 
               
@@ -320,7 +320,7 @@ function movePiece(){
 
           }
 
-          chanceCardsList.splice(0,1);
+          //chanceCardsList.splice(0,1);
          
        } else {
 
@@ -460,23 +460,6 @@ function clearInsufficientFundsForBuyingTimeout(){
 
 
 
-
-function addPropertyToPlayerWallet(player, property){
-
-
-  ////alert('element added to the wallet!!')
-
-
-    let propertyColor = property.color;
-    
-    player.propertiesByColor[propertyColor.index].properties.push(property); 
-
-    player.propertiesArray.push(property); 
-
-    property.landLord = player;
-
-
-}
 
 
 

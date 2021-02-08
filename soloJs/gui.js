@@ -474,6 +474,10 @@ function displayDiceLaunchButton(){
 
 function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
+
+     humanThinking = true;
+
+
      humanAnswerInterface.style.opacity = 1;
      humanAnswerInterface.style.zIndex = 5;
 
@@ -542,17 +546,30 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 function refusePropositionFromInterface(){
 
+     humanThinking = false;
+
      let offerer = humanPlayer.propositionToAnswer.offerer;
+
+     alert('the offerer was =>' + offerer.name)
+
+
+     hashAndStore(humanPlayer.propositionToAnswer);
+
 
      //alert('vous avez refusé cette proposition!!');
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
+
+
+     
 
      if(offerer.humanPerception == regular){
 
         perceptionCheck(offerer , humanPlayer.propositionToAnswer );
 
      }
+
+     
 
       humanPlayer.propositionToAnswer = none;
 
@@ -1495,6 +1512,9 @@ function sendProposition(){
             } else {
 
                alert('proposition refused');
+      
+               /*
+               
                alert('offererscore=>' + proposition.offererScore);
                alert('answererscore=>' + proposition.answererScore);
                
@@ -1516,6 +1536,10 @@ function sendProposition(){
                     alert(proposition.counterPartAsked.array[i].name);
 
                }
+
+               
+            */
+
 
 
 
@@ -1570,7 +1594,8 @@ function initPropositionInterface(){
 
 
 function acceptPropositionFromInterface(){
-     
+
+     humanThinking = false;
 
      //alert('you accepted the offer!!congrats!!');
 

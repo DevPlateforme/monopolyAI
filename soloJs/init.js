@@ -13,7 +13,7 @@ function init(){
 
     //setColorScores();
 
-    //givePlayersPropertiesForDemo();
+    givePlayersPropertiesForDemo();
 
     initPawnsPositions();
 
@@ -86,19 +86,32 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
     
-    ai1.propertiesByColor[green.index].properties.push(avenueFoch, avenueDeBreteuil);
-
-    ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse, faubourgSaintHonore);
-
-    ai1.propertiesByColor[darkBlue.index].properties.push(avenueDesChampsElysees);
-
-
+    humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);   
+    humanPlayer.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
+    humanPlayer.propertiesByColor[black.index].properties.push(gareDeLyon);
+    humanPlayer.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
+    humanPlayer.propertiesByColor[brown.index].properties.push(rueLecourbe);
 
 
-    humanPlayer.propertiesByColor[black.index].properties.push(gareDeLyon, gareDeMontparnasse, gareSaintLazarre);    
+    //ai1.nonMonopolyProperties.push(placePigalle, rueLecourbe);
+
+    ai1.propertiesByColor[red.index].properties.push(avenueMatignon,bdMalesherbes); 
+    ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
+    ai1.propertiesByColor[black.index].properties.push(gareDeMontparnasse);
+    ai1.propertiesByColor[green.index].properties.push(bdDesCapucines);
+
+
+    //ai2.nonMonopolyProperties.push(avenueMozart, boulevardSaintMichel, belleville);
+
+    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin); 
+    ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
+    ai2.propertiesByColor[black.index].properties.push(gareDuNord);
+    ai2.propertiesByColor[brown.index].properties.push(belleville);
+    ai2.propertiesByColor[green.index].properties.push(avenueFoch);
+
+
 
 }
-
 
 function createTheCommunityChestDeck(){
 
@@ -162,11 +175,15 @@ function wakeUpAis(){
 
 
 
+var humanThinking = false;
+var AiThinking = false;
+
+
 
 function aiReflects(ai){
 
 
-     if(AiThinking == false){
+     if(AiThinking == false && humanThinking == false){
 
          aiSearch(ai);
 

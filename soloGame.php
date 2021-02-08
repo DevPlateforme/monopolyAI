@@ -392,6 +392,7 @@
 <script src='soloJs/classes.js'></script>
 <script src='soloJs/vars.js'></script>
 <script src='soloJs/defs.js'></script>
+<script src='soloJs/hash.js'></script>
 <script src='soloJs/creation.js'></script>
 <script src='soloJs/board.js'></script>
 <script src='soloJs/gui.js'></script>

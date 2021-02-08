@@ -120,9 +120,14 @@ function makeProposition(proposition){
 
      alert('***********************************************proposition accepted!!');
 
+     alert('***********************************************offerer=>' + offerer.name);
+
+
      alert('********offerer score => ' + proposition.offererScore);
 
      alert('********answerer score => ' + proposition.answererScore);
+
+     alert('here are the offer elements : ');
 
 
 

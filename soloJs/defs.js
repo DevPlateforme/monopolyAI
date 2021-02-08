@@ -912,7 +912,119 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 
 
+//new property to wallet
 
 
 
 
+
+function addPropertyToPlayerWallet(player, property){
+
+  ////alert('element added to the wallet!!')
+
+    let propertyColor = property.color;
+    
+    player.propertiesByColor[propertyColor.index].properties.push(property); 
+
+    player.nonMonopolyProperties.push(property);
+    
+    property.landLord = player;
+
+    //check if the current property resulted in a monopoly
+
+    /*
+
+    if(monopolyCheck(player, propertyColor) == true){
+
+        newMonopoly(player, propertyColor);
+
+    };
+
+    */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//new monopoly
+
+
+/*
+
+
+function newMonopoly(player , color){
+
+  //extract monopoly properties from nonMonopoly array
+
+  for(var i=0 ; i < player.nonMonopolyProperties.length; i++){
+
+      if(player.nonMonopolyProperties[i].color == color){
+
+          player.monopoliesArray[color.index].push(player.nonMonopolyProperties[i]);
+
+          player.nonMonopolyProperties.splice(i,1);
+
+          i--;
+
+      }
+
+
+  }
+
+
+
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+function monopolyCheck(player , color){
+
+
+  let properties = player.propertiesByColor[color.index].properties;
+
+
+  if(properties[0].type == rentalProperty){
+      
+     if(color == darkBlue || color == brown){
+
+
+        if(properties.length == 2){
+
+          return true;
+
+       }
+
+      } else if( properties.length == 3) {
+
+
+          return true;
+
+     }
+
+  }
+
+
+  //else
+
+  return false;
+
+}

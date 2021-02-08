@@ -69,11 +69,12 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 	this.offererScore = 0;
 	this.answererScore = 0;
 	this.trick = false;
+	this.trickedPlayerScore = 0;
+	this.trickedPlayerOpponentScore = 0;
 	this.indirect = false;
 	this.unfair = false;
 
 }
-
 
 
 
@@ -91,7 +92,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let answerer = propositionMaterial.answerer;
 	let offer; //VARIABLE WE LL USE FOR THE OFFER OBJECTS WE'LL GENERATE
 	let counterPartAsked = propositionMaterial.counterPartAsked;
-	let bestProposition = {thinkerScore: -infinite , proposition: none};
 	let newCounterPartAsked;
 	let cpaofferMortgagesToClose = [];
 	let offerMortgagesToClose = [];
@@ -103,6 +103,10 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let answerersPerception = regular;
 
 
+	var bestProposition = {thinkerScore: -infinite , proposition: none};
+
+
+
 
 
 	if(gainType == indirectGain){
@@ -110,6 +114,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		if(answerer == humanPlayer){
 
 			answerersPerception = thinker.humanPerception;
+
 
 		}
 
@@ -233,7 +238,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	if(answerer.cash > 1200){
 		
-	    answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3, answerer.cash * 0.3];
+	    answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3, answerer.cash * 0.4 , answerer.cash * 0.45];
 	
 
 	} else {
@@ -270,7 +275,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			 if(offerer.cash > 500){
 				
-			      offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4];
+			      offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 ];
 
 			 }
 			
@@ -365,10 +370,72 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
 
 
+
+
+
+
+
+						 //IF THIS PROPOSITION WAS REFUSED , UPGRADE OR DOWNGRADE ACCORDING TO SITUATIONS
+
+					
+
+
+
+
 						 proposition.trick = trick;
 
 						 			
 						 if(profitableTrade(offerer,  proposition , trick , answerersPerception , gainType ) == true){
+
+
+
+							if( declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES] != undefined){
+                              
+								let hashedProposition = declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES];
+  
+  
+							   if(hashedProposition.trickedPlayerScore <  (1.2 * hashedProposition.trickedPlayerOpponentScore) ){  
+									  
+  
+								  //alert('we found out this offer was refused while it was fair, we wont do it again');
+  
+								  if((hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore )<= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
+									  
+									alert('we notice that we downgraded the offer, so no');
+
+									
+										   continue;
+  
+  
+								  }
+  
+									//upgrade
+  
+							   } else {
+  
+								  
+  
+								  //alert('we found out this offer was refused, but were willing to offer more , we wont do it again');
+  
+								  if( (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) >= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
+									alert('we notice that we upgraded the offer, so no');
+
+									   continue;
+
+
+						           }  
+								  
+								  //downgrade
+  
+  
+							   }
+  
+  
+  
+						   }
+  
+  
+  
 
 
 							if(thinker == offerer){
@@ -606,6 +673,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 		 let trickedPlayer = answerer;	
 		 let trickedPlayerOpponent = offerer;	
+
+
 	 	 let offerSets = divideArrayInSets(offer.array);
 		 let counterPartAskedSets = divideArrayInSets(counterPartAsked.array);
 
@@ -632,6 +701,11 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		 }
 
 
+		 proposition.trickedPlayerScore = trickedPlayerScore;
+		 proposition.trickedPlayerOpponentScore =  trickedPlayerOpponentScore ;
+
+
+
 
 
 
@@ -640,10 +714,24 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 
-		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * 0.8) ){
+		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * 1.05) ){
+
+			
+				// for(var i=0; i < offer.array.length; i++){	
+					//alert('offer element ' + i + ' ' + offer.array[i].name);
+			   //}
+
+				   ////alert('and, here is the cash in the offer :' + offer.cash);				
+				   ////alert('here is the counterpart : ');
 
 
-			//alert('the tricked player felt that this offer was not acceptable');
+			   //for (var i=0; i < counterPartAsked.array.length; i++){
+				   
+				 // alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				  
+			   //}
+
+			
 
 
 			return false;
@@ -661,7 +749,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 	 //alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+     
 
+	 
 
 
 	offererScore += counterPartAsked.gainValueForTheOtherPlayer;
@@ -737,7 +827,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
    
 	if(thinker == offerer){
 
-		minimumThinkerGain = (-thinkerLoss * 3);
+		minimumThinkerGain = (thinkerLoss * 3);
+
 
 	} else {
 
@@ -748,7 +839,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	 
 
-	 if(thinkerScore >  minimumThinkerGain){
+	 if(Number(thinkerScore) > Number(minimumThinkerGain)){
+
+	
 
 		//alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
 
@@ -1132,11 +1225,11 @@ function getSetValueAtDepth2(playerA , playerB , array){
 		    let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , playerA, counterPartAsked );
 
 		   //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
-
+       
 		   
 			
 
-			let bestProposition = tryToCreateProposition(playerA, directGain, propositionMaterial);
+			let bestProposition = tryToCreateProposition(playerA, directGain, propositionMaterial, false);
 
 			
 
