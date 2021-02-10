@@ -4,6 +4,7 @@ window.onload = function(){
 }
 
 
+var breakVar = false;
 
 
 function init(){
@@ -18,6 +19,7 @@ function init(){
     initPawnsPositions();
 
     wakeUpAis();
+
 
 
   }

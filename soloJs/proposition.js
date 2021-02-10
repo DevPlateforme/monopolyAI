@@ -117,11 +117,7 @@ function makeProposition(proposition){
      let offerer = proposition.offerer;
      let answerer = proposition.answerer;
 
-
-     alert('***********************************************proposition accepted!!');
-
-     alert('***********************************************offerer=>' + offerer.name);
-
+/*
 
      alert('********offerer score => ' + proposition.offererScore);
 
@@ -147,7 +143,7 @@ function makeProposition(proposition){
 
   }
 
-
+*/
 
 
      //if one or both players needed to close mortgage before making the trade, close them
@@ -324,8 +320,6 @@ function makeProposition(proposition){
    function invertProposition(proposition){
 
          //realize a deep clone of the proposition , and invert it
-
-    
 
         let newProposition = JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
 

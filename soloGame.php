@@ -151,7 +151,7 @@
 
        <h5 id='availablePropertyPriceHTML'></h5>
 
-       <button onclick='buyAvailableProperty()'>Oui</button>
+       <button onclick='/*buyAvailableProperty() */ tryToBuyAvailableProperty(lastDiceLauncher, squaresArray[lastDiceLauncher.position])'>Oui</button>
 
        <button onclick='dontBuyAvailableProperty()'>Non</button>
 

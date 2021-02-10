@@ -556,34 +556,15 @@ function gameOver(){
 
 
 
-function getMortgage(player){
-
-
-       //The player making a mortgage :
-
-       //the property in question will have a property => mortgage
-
-       //when a property has a value => mortgaged => prix de groupe cassé
-
-  
-
-}
-
-
-
-function payMortgage(){
-
-
-
-}
 
 
 
 
 function buildHouse(property){
 
+     property.landLord.propertiesByColor[property.color.index].houses += 1;
 
-     property.house += 1;
+     property.houses += 1;
 
      //THIS FUNCTION IS ONLY AVAILABLE (THROUGH)
 
@@ -640,14 +621,7 @@ function getRent(property){
 
       if(property.type == rentalProperty){
 
-    
 
-        if(propertiesArray[property.elementIndex].monopoly == false){
-
-          return 0;
-
-        }
- 
 
           if(property.houses == 0){
 
@@ -920,56 +894,48 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 function addPropertyToPlayerWallet(player, property){
 
+
   ////alert('element added to the wallet!!')
 
     let propertyColor = property.color;
     
     player.propertiesByColor[propertyColor.index].properties.push(property); 
+    
+    insertNonMonopolyProperty(player, property);
 
-    player.nonMonopolyProperties.push(property);
+    //player.nonMonopolyProperties.push(property);
     
     property.landLord = player;
 
     //check if the current property resulted in a monopoly
 
-    /*
 
     if(monopolyCheck(player, propertyColor) == true){
 
         newMonopoly(player, propertyColor);
 
+        alert('ok, monopoly trade computed');
+
+
     };
 
-    */
-
-
+   
 }
-
-
-
-
-
-
-
-
 
 
 
 //new monopoly
 
 
-/*
 
 
 function newMonopoly(player , color){
 
   //extract monopoly properties from nonMonopoly array
 
-  for(var i=0 ; i < player.nonMonopolyProperties.length; i++){
+  for(var i=0 ; i < player.nonMonopolyProperties.length ; i++){
 
       if(player.nonMonopolyProperties[i].color == color){
-
-          player.monopoliesArray[color.index].push(player.nonMonopolyProperties[i]);
 
           player.nonMonopolyProperties.splice(i,1);
 
@@ -977,19 +943,17 @@ function newMonopoly(player , color){
 
       }
 
-
   }
+
+
+   //insert the monopoly , bubble up
+
+   insertMonopoly(player, color);
+   
 
 
 
 }
-
-
-
-*/
-
-
-
 
 
 
@@ -1028,3 +992,119 @@ function monopolyCheck(player , color){
   return false;
 
 }
+
+
+
+
+function insertNonMonopolyProperty(player, property){
+  
+  //insert the element at the end
+ 
+  player.nonMonopolyProperties.push(property);
+
+
+  if(player.nonMonopolyProperties.length == 1){
+
+     //No need to bubble sort, if the array was initially empty
+
+      return;
+
+  } else {
+    
+     //initial position : last position
+
+     let propertyPosition = player.nonMonopolyProperties.length - 1;
+
+     let nextBlockProperty;
+
+     //bubble up
+  
+     for(var i = (player.nonMonopolyProperties.length - 2) ; i >= 0 ; i--){
+
+         if(player.nonMonopolyProperties[propertyPosition].rent > player.nonMonopolyProperties[i].rent){
+             
+            //swap
+          
+            nextBlockProperty = player.nonMonopolyProperties[i];
+
+            player.nonMonopolyProperties[propertyPosition] = nextBlockProperty;
+
+            player.nonMonopolyProperties[i] = property;
+
+          } else {
+
+             break;
+          }
+
+      }
+
+       return;
+
+     }
+
+
+}
+
+
+
+
+function insertMonopoly(player , color){
+
+    let property = player.propertiesByColor[color.index].properties;
+
+     //sort by color value
+
+     player.monopoliesArray.push(property);
+
+
+  if(player.monopoliesArray.length == 1){
+
+    //No need to bubble sort, if the array was initially empty
+
+     return;
+
+ } else {
+   
+    //initial position : last position
+
+    let propertyPosition = player.monopoliesArray.length - 1;
+
+    let nextBlockProperty;
+
+    //bubble up
+ 
+    for( var i = (player.monopoliesArray.length - 2) ; i >= 0 ; i-- ) {
+
+        if(player.monopoliesArray[propertyPosition][0].color.finishedSetValue > player.monopoliesArray[i][0].color.finishedSetValue){
+            
+           //swap
+
+           nextBlockProperty = player.monopoliesArray[i];
+           player.monopoliesArray[propertyPosition] = nextBlockProperty;
+           player.monopoliesArray[i] = property;
+           
+           
+          } else {
+  
+             break;
+ 
+          }
+
+       }
+
+      return;
+
+    }
+
+}
+
+
+
+function getMortgage(property){
+
+        property.mortgage = true ;
+
+        property.landLord.cash -= property.mortgageValue ;
+
+}
+

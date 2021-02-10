@@ -1597,17 +1597,12 @@ function acceptPropositionFromInterface(){
 
      humanThinking = false;
 
-     //alert('you accepted the offer!!congrats!!');
-
      initHumanAnswerInterface();
 
      acceptProposition(humanPlayer.propositionToAnswer);
 
 
-
      //The AI will adopt a different behavior regarding what the proposition was
-
-
 
      //init the property
 
@@ -1621,9 +1616,8 @@ function initHumanAnswerInterface(){
      humanAnswerInterface.style.opacity = 0;
      humanAnswerInterface.style.zIndex = 1;
      humanAnswerInterfaceBody.innerHTML = '';
-     humanAnswerInterfaceOffer = '';
-     humanAnswerInterfaceCounterPart = '';
-     humanAnswerInterfaceBtn = '';          
+     humanAnswerInterfaceOffer.innerHTML = '';
+     humanAnswerInterfaceCounterPart.innerHTML = '';
 
 }
 

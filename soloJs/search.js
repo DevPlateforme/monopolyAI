@@ -16,6 +16,8 @@ function searchForTradesOpportunities(activePlayer){
 
        let propositionList = [];
 
+
+
             //POINT OF THIS FUNCTION : SPLITTING THE OTHER PLAYERS ARRAYS INTO SETS OF INTEREST. FOR EACH OF THOSE SETS, BY PRIORITIZING WHAT OUR GAINS WOULD BE. WE THEN CALCULATE WHAT THE OTHER PLAYER LOSS WOULD BE FOR THAT ARRAY, ALLOWING US TO GENERATE PROPOSITIONS, IF THERE ARE SOME SUITABLE ONES.
  
       let otherPlayer;
@@ -29,9 +31,9 @@ function searchForTradesOpportunities(activePlayer){
       //('moves generated...');
 
     if(activePlayer == ai1){
-        otherPlayersArray = [ai2];
+        otherPlayersArray = [ai2 , humanPlayer];
     } else if (activePlayer == ai2){
-        otherPlayersArray = [humanPlayer, ai1];
+        otherPlayersArray = [ai1 , humanPlayer];
     } 
     
 
@@ -72,12 +74,13 @@ function searchForTradesOpportunities(activePlayer){
             counterPartAsked =  new CounterPartAsked( otherPlayerPropertiesArrayForThisColor, 0, 0);           
             propositionMaterial = new PropositionMaterial(offerer, answerer, counterPartAsked);       
             foundProposition = tryToCreateProposition(activePlayer, indirectGain, propositionMaterial , trick ); 
-
+             
             //If a proposition was found , add it to the propositionList of that search
 
             if(foundProposition.proposition != none){
-               /*
 
+
+               /*
 
                     alert('here is the best proposition we found! thiker =>' + activePlayer.name + ' , OP => ' + otherPlayer.name );
                     alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + 'offerer loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );               
@@ -130,12 +133,9 @@ function searchForTradesOpportunities(activePlayer){
                        */
 
 
-
-                       
-     
-
-
               propositionList.push(foundProposition.proposition);
+
+
             }
         
         }
@@ -145,12 +145,20 @@ function searchForTradesOpportunities(activePlayer){
        }
 
 
+
+
+
        if(propositionList.length != 0){      
+
+         //console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
                       
           makeProposition(getBestProposition(propositionList));
   
 
         }
+
+
+        
 
 
         propositionList = [];
@@ -448,20 +456,119 @@ function getPositionScore(property){
 }
 
 
-function buildOnNextAvailableSlot(){
+function buildOnNextAvailableSlot(player, color){
+
+    // 0 , 1 , 2 ...
+
+    monopolyCheck.nextAvailableSlot = 3;
 
 
-
+    //When a player loses a monopoly, it first sells all its houses
 
 }
 
 
 
-function findCash(){
+function findCash(player , goal){
 
     //Mortgage nonMonopolyProperties
 
-    //Target the monopoly the less ranked :
+    if(findCashWithNonMonopolyProperties(player , goal) == true){
+
+          return true;
+    }
+
+
+
+    if(findCashWithMonopolyProperties(player , goal) == true){
+
+        return true;
+    }
+
+
+    return false;
+
+    //Target the monopoly the less rank
+}
+
+
+
+
+
+function findCashWithNonMonopolyProperties(player, goal){
+
+
+    for(var i=0 ; i < player.nonMonopolyProperties.length; i++){
+         
+        getMortgage(player.nonMonopolyProperties[i]);
+
+        if(player.cash >= goal){
+
+            return true;
+
+        }
+
+
+    }
+
+
+    
+    return false;
+
+
+}
+
+
+
+function findCashWithMonopolyProperties(player, goal){
+
+     //target the less developed monopoly (with the less houses)
+
+     for(var i = player.monopoliesArray.length - 1 ; i >= 0 ; i--){
+
+
+            for(var y = 0 ; y < 15 ; y++){
+
+                //At each iteration, check again if there are houses left
+
+                if(player.monopoliesArray[i].houses > 0){  
+                    
+                    sellHouse(getNextHouseSlotToSell(player, player.monopoliesArray[i][0].color));
+
+                    if(player.cash > goal){
+   
+                       return true;
+   
+                    }
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+           //if selling all the houses of this property didn't managed to reach the goal , get cash from the property mortgage    
+         
+
+           
+            getMortgage(property);
+
+
+            if(player.cash > goal){
+
+                return true;
+
+             }
+         
+     }
+
+
+     //else
+
+
+     return false;
 
 
 
@@ -473,7 +580,69 @@ function findCash(){
 
 
 
+function getNextHouseSlotToBuild(player, color){
+
+     let selectedProperty = {houses: infinite};
+
+    //get the / one of the house with the more houses on it
+
+     for(var i = 0 ; i < player.monopoliesArray[color.index].length; i++){
+
+         if(player.monopoliesArray[color.index][i].houses < selectedProperty.houses ){
+                
+            selectedProperty = player.monopoliesArray[color.index][i];
+
+         }
+
+     }
+
+
+     return selectedProperty;
+
+}
 
 
 
 
+function getNextHouseSlotToSell(player, color){
+
+    
+    let selectedProperty = {houses: -infinite};
+   
+
+    //get the / one of the house with the more houses on it
+
+     for(var i = 0 ; i < player.monopoliesArray[color.index].length; i++){
+
+         if(player.monopoliesArray[color.index][i].houses > selectedProperty.houses ){
+                
+            selectedProperty = player.monopoliesArray[color.index][i];
+
+         }
+
+     }
+
+
+     return selectedProperty;
+
+
+
+}
+
+
+
+
+
+function sellHouse(property){
+
+
+   if(property.houses > 1){
+
+      property.houses -= 1;
+
+      property.landLord.cash += (property.houseValue/2);
+
+   }
+ 
+
+}

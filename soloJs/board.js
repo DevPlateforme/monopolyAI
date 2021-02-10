@@ -191,6 +191,7 @@ function movePiece(){
 
              } else {
 
+
                ////alert('vous n avez pas assez de cash pour acheter cette propriété!');
 
              }
@@ -503,4 +504,44 @@ function acceptTrade(proposition){
 
   }
 
+
+
+
+
+  function tryToBuyAvailableProperty(player, property){
+
+     
+     if(player.cash < property.houseValue ){
+
+        alert('the player is looking to find some cash...');
+             
+        if(findCash(player, property) == false){
+
+
+          alert('...unfortunately, we couldnt find the cash needed');
+
+            return false;
+
+        }
+
+     }
+
+
+     
+
+
+     addPropertyToPlayerWallet(player, property);
+
+
+     closeAvailablePropertyInterface();
+
+
+     alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
+
+
+
+     return true;
+
+
+  }
 
