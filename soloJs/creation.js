@@ -237,13 +237,12 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let answererCashSlices;
 
 	if(answerer.cash > 1200){
-		
-	    answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3];
 	
-
+		answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.225 ];
+		
 	} else {
 		
-	     answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.2 , answerer.cash * 0.3 , answerer.cash * 0.4 , answerer.cash * 0.5 ];
+		answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, naswerer.cash * 0.175 ,  answerer.cash * 0.225 , answerer.cash * 0.25 , answerer.cash * 0.3 , answerer.cash * 0.35 , answerer.cash * 0.4 ];
 
 	}
 
@@ -275,7 +274,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			 if(offerer.cash > 500){
 				
-			      offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.2 , offerer.cash * 0.3 , offerer.cash * 0.4 ];
+			      offererCashSlices = [0, offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 , offerer.cash * 0.2 , offerer.cash * 0.225];
 
 			 }
 			
@@ -788,41 +787,39 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 
-		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * 0.85) ){
+		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * 0.95) ){
+  
 
+			        
 			
-				// for(var i=0; i < offer.array.length; i++){	
-					//////alert('offer element ' + i + ' ' + offer.array[i].name);
-			   //}
+				for(var i=0; i < offer.array.length; i++){	
+					alert('offer element ' + i + ' ' + offer.array[i].name);
+			    }
 
-				   ////////alert('and, here is the cash in the offer :' + offer.cash);				
-				   ////////alert('here is the counterpart : ');
+				  alert('and, here is the cash in the offer :' + offer.cash);				
+				  alert('here is the counterpart : ');
 
 
-			   //for (var i=0; i < counterPartAsked.array.length; i++){
+			   for (var i=0; i < counterPartAsked.array.length; i++){
 				   
-				 // ////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+				  alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 				  
-			   //}
+			   }
 
 			
-
 
 			return false;
 
 
 		 } 
 
-		 //////alert('the tricked player felt that this offer was acceptable');
-
-
-
+		 alert('the tricked player felt that this offer was acceptable');
 
 
 	 }
 
 
-	 //////alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+	 alert('offererScore before =>' + offererScore + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
      
 
 	 

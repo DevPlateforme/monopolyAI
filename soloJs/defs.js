@@ -144,11 +144,11 @@ function calculateStepVariable(player, setArray){
   
           if(setArray.length == 1){
   
-              return 0.35;
+              return 0.125;
   
           } else if(setArray.length == 2) {
   
-              return 0.85;
+              return 0.25;
   
           }
   
@@ -235,11 +235,11 @@ function calculateStepVariable(player, setArray){
 
           } else if (setArray.length == 2){
 
-            return 0.25;
+            return 0.07;
 
           } else if (setArray.length == 1){
 
-            return 0.125;
+            return 0.035;
 
           }
 
@@ -253,11 +253,11 @@ function calculateStepVariable(player, setArray){
 
         if(setArray.length == 1){
 
-            return 0.5;
+            return 0.03;
 
         } else if(setArray.length == 2) {
 
-            return 1;
+            return 0.07;
 
         }
 
@@ -267,7 +267,7 @@ function calculateStepVariable(player, setArray){
         if(setArray.length == 1){
 
 
-            return 0.1;
+            return 0.2;
 
 
 
@@ -283,7 +283,7 @@ function calculateStepVariable(player, setArray){
         
         if(setArray.length == 1){
 
-           return 0.05;
+           return 0.002;
 
        } else if(setArray.length == 2) {
 

@@ -87,30 +87,23 @@ function setColorScores(){
   function givePlayersPropertiesForDemo(){
     
 
-
-      humanPlayer.propertiesByColor[red.index].properties.push(bdMalesherbes);
-
-      humanPlayer.propertiesByColor[yellow.index].properties.push(rueLaFayette);
-
+      humanPlayer.propertiesByColor[green.index].properties.push(bdDesCapucines);
 
 
       ai1.propertiesByColor[red.index].properties.push(avenueMatignon);
     
       ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
-      
+
+
+
+
+      ai2.propertiesByColor[green.index].properties.push(avenueFoch);
     
-
-    
-
-
-    //ai1.nonMonopolyProperties.push(placePigalle, rueLecourbe);
+      ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore);
 
 
 
-    //ai2.nonMonopolyProperties.push(avenueMozart, boulevardSaintMichel, belleville);
-
-
-
+  
 
 }
 
