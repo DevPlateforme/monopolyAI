@@ -1,7 +1,7 @@
 
 function makeProposition(proposition){
 
-  //////alert(proposition.offerer.name + ' made an offer!=>Offer:' );
+  alert(proposition.offerer.name + ' made an offer!=>Offer:' );
 
 
 
@@ -9,11 +9,11 @@ function makeProposition(proposition){
        
     let element = proposition.offer.array[i];
 
-    //////alert('offer element ' + i + element.name);
+     alert('offer element ' + i + element.name);
 
   }
 
-  ////alert(proposition.offerer.name + ' =>counterpart:' );
+   alert(proposition.offerer.name + ' =>counterpart:' );
 
 
   
@@ -21,9 +21,17 @@ function makeProposition(proposition){
        
     let element = proposition.counterPartAsked.array[i];
 
-    //////alert('counterPart element ' + i + element.name);
+    alert('counterPart element ' + i + element.name);
 
   }
+
+
+  
+    alert('cash offered => ' + proposition.offer.cash);
+
+
+    alert('cash asked => ' + proposition.counterPartAsked.cash);
+
 
 
 
@@ -44,7 +52,7 @@ function makeProposition(proposition){
           
               //if no alternatives found 
 
-              //alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+              alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
 
 
                acceptProposition(proposition);
@@ -53,9 +61,8 @@ function makeProposition(proposition){
 
             if(proposition.answererScore < (0.9 * alternatives.gainValue)){
 
-                 //alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                 alert(proposition.answerer.name + 'found a better alternative, and refused !');
 
-                 //alert(proposition.answerer.name + 'is preparing a counter offer');
 
 
             } else {

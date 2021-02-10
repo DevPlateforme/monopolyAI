@@ -145,7 +145,7 @@ function searchForTradesOpportunities(activePlayer){
        }
 
 
-
+       console.log('proposition list => ' + propositionList.length);
 
 
        if(propositionList.length != 0){      
@@ -202,13 +202,16 @@ function searchForTradesOpportunities(activePlayer){
         return;
 
      } else {
+
         ai.willingnessToBuild = false;
 
+       
+        //getBetterPositionedMonopoly(ai);
+        
 
         setTimeout(function(){
 
             ai.willingnessToBuild = true;
-
 
         }, 10000)
 
@@ -222,7 +225,6 @@ function searchForTradesOpportunities(activePlayer){
         return;
      }
 
-     //getBetterPositionedMonopoly(ai);
      
 
  }

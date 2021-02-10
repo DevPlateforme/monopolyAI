@@ -16,8 +16,6 @@ function init(){
 
     givePlayersPropertiesForDemo();
 
-    initPawnsPositions();
-
     wakeUpAis();
 
 
@@ -88,28 +86,29 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
     
-    humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);   
-    humanPlayer.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
-    humanPlayer.propertiesByColor[black.index].properties.push(gareDeLyon);
-    humanPlayer.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
-    humanPlayer.propertiesByColor[brown.index].properties.push(rueLecourbe);
+
+
+      humanPlayer.propertiesByColor[red.index].properties.push(bdMalesherbes);
+
+      humanPlayer.propertiesByColor[yellow.index].properties.push(rueLaFayette);
+
+
+
+      ai1.propertiesByColor[red.index].properties.push(avenueMatignon);
+    
+      ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
+      
+    
+
+    
 
 
     //ai1.nonMonopolyProperties.push(placePigalle, rueLecourbe);
 
-    ai1.propertiesByColor[red.index].properties.push(avenueMatignon,bdMalesherbes); 
-    ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
-    ai1.propertiesByColor[black.index].properties.push(gareDeMontparnasse);
-    ai1.propertiesByColor[green.index].properties.push(bdDesCapucines);
 
 
     //ai2.nonMonopolyProperties.push(avenueMozart, boulevardSaintMichel, belleville);
 
-    ai2.propertiesByColor[red.index].properties.push(avenueHenriMartin); 
-    ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
-    ai2.propertiesByColor[black.index].properties.push(gareDuNord);
-    ai2.propertiesByColor[brown.index].properties.push(belleville);
-    ai2.propertiesByColor[green.index].properties.push(avenueFoch);
 
 
 

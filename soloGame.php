@@ -215,16 +215,6 @@
 
 
 
-<div id='moodButtons' style='position:absolute; z-index: 6'>
-
-   <button onclick='naive()'>Naive</button>
-   <button onclick='regular()'>Regular</button>
-   <button onclick='uncooperative()'>Uncooperative</button>
-
-
-</div>
-
-
 
 
 

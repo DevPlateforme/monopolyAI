@@ -23,7 +23,7 @@ NAV BAR
 
     width: 100%;
 
-    background : grey;
+    background : lightblue;
 
     display: flex;
 
@@ -40,7 +40,7 @@ NAV BAR
 
     width: 10%;
 
-    background : grey;
+    background : lightblue;
 
 }
 
@@ -111,7 +111,7 @@ NAV BAR
 
     width: 100%;
 
-    background: red;
+    background: blue;
 
     overflow: hidden;
 
@@ -133,7 +133,7 @@ NAV BAR
 
     width: 100%;
 
-    background: brown;
+    background: blue;
 
     display: flex;
 
@@ -166,7 +166,7 @@ NAV BAR
 
     width: 100%;
 
-    background: brown;
+    background: blue;
 
     overflow: hidden;
     
@@ -188,7 +188,7 @@ NAV BAR
 
     width: 100%;
 
-    background: red;
+    background: blue;
 
     overflow: hidden;
 
@@ -209,7 +209,7 @@ NAV BAR
 
     width: 100%;
 
-    background: brown;
+    background: blue;
 
     display: flex;
 
@@ -242,7 +242,7 @@ NAV BAR
     
     width : 75%;
 
-    background: green;
+    background: darkblue;
 
     display: flex;
 
@@ -257,7 +257,7 @@ NAV BAR
 
     width : 10%;
 
-    background: grey;
+    background: lightblue;
 
     display: flex;
 }
@@ -268,7 +268,7 @@ NAV BAR
     
     width : 20%;
 
-    background: orange;
+    background: lightblue;
 
     display: flex;
 
@@ -282,7 +282,7 @@ NAV BAR
 
     width: 40%;
 
-    background: purple;
+    background: blue;
 
     display: flex;
 }
@@ -293,7 +293,7 @@ NAV BAR
 
     width: 65%; 
 
-    background: purple;
+    background: blue;
 
     display: flex;
 
@@ -354,7 +354,7 @@ BOARD
 
     width: 100%;
 
-    background: red;
+    background: blue;
 
     display: flex;
 
@@ -379,7 +379,7 @@ BOARD
 
     width: 100%;
 
-    background: purple;
+    background: blue;
 
     display: flex;
 
@@ -406,7 +406,7 @@ BOARD
 
     width: 100%;
 
-    background: green;
+    background: darkblue;
 
     display: flex;
 
@@ -425,7 +425,7 @@ BOARD
 
     width: 9.09%;
 
-    background: yellow;
+    background: blue;
 
     display: flex;
 
@@ -436,7 +436,7 @@ BOARD
 
     width: 9.09%;
 
-    background: yellow;
+    background: blue;
 
     display: flex;
 
@@ -447,7 +447,7 @@ BOARD
     height: 100%;
     width: 30%;
 
-    background: purple;
+    background: lightblue;
 
     display: flex;
 
@@ -578,7 +578,7 @@ Proposition interface
 
     height: 100%;
 
-    background : orange;
+    background : darkblue;
 
     display: flex;
 
@@ -627,7 +627,7 @@ Proposition interface
 
     height: 100%;
 
-    background: red;
+    background: blue;
 
 
     display: flex;
@@ -710,7 +710,7 @@ proposition interface left nav buttons
 
     flex-direction: column;
 
-    background: purple;
+    background: darkblue;
 
     justify-content: space-around;
     
@@ -930,7 +930,7 @@ proposition buttons
 
     justify-content: space-around;
 
-    background: red;
+    background: blue;
 
 }
 
