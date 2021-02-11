@@ -23,12 +23,6 @@ var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
 
 
 
-
-
-
-
-
-
 //VARS USED TO CREATE PAWN CONTAINERS
 
 var ai1PawnContainer;
@@ -1073,8 +1067,16 @@ function sendProposition(){
      
                
                    //if no alternatives found 
+
+                   
+              
+                  alert('offerer score =>' + proposition.offererScore);
+                  alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer + ', 1/3 => ' + ( 0.002 * orange.finishedSetValue ) );
+
+                  alert('answerer score =>' + proposition.answererScore);
+              
      
-                   alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
      
                     acceptProposition(proposition);
@@ -1105,7 +1107,7 @@ function sendProposition(){
 
                alert('proposition refused');
       
-               /*
+               
                
                alert('offererscore=>' + proposition.offererScore);
                alert('answererscore=>' + proposition.answererScore);
@@ -1130,7 +1132,7 @@ function sendProposition(){
                }
 
                
-            */
+            
 
 
 

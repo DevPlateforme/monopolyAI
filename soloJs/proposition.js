@@ -52,9 +52,13 @@ function makeProposition(proposition){
           
               //if no alternatives found 
 
-              alert(proposition.answerer.name + 'didnt found a better a better alternative and accepted the offer!');
+              
+              alert('offerer score =>' + proposition.offererScore);
+              alert('answerer score =>' + proposition.answererScore);
+              
 
-
+              alert(proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
+            
                acceptProposition(proposition);
 
           } else {
@@ -404,7 +408,11 @@ function searchForAlternatives(proposition , answerer, offerer){
 	for(var i=0; i < nonTradingPlayers.length ; i++){
 
 
-    for(var y = 0; y < sets.length; y++){
+    if(nonTradingPlayers[i].propertiesCount > 0 ){
+
+
+      
+     for(var y = 0; y < sets.length; y++){
 
       //alert('name: ' + sets[y][0].name)
 
@@ -453,6 +461,9 @@ function searchForAlternatives(proposition , answerer, offerer){
        }	
        
     }
+
+
+   } 
 
   
   }

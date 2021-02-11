@@ -1,5 +1,5 @@
 
-function calculateSetValue(player, setArray){
+function calculateSetValue(thinker, setArray){
 
 
      if(setArray.length != 0){
@@ -12,13 +12,15 @@ function calculateSetValue(player, setArray){
 
     //multiply the sum of prperty values by the according color score
 
-        let stepVar = calculateStepVariable(player, setArray);
+        let stepVar = calculateStepVariable(thinker, setArray);
     
 
     //THIS VARIABLE REPRESENTS THE POSSIBLE ROI OF A SET, WHEN FULLY DEVELOPPED (FOR PROPERTIES, IF THERE ARE HOTELS ON EACH SQUARE OF THE SET. FOR TRAINS, IF THE 4 TRAIN STATIONS ARE OWNED)
 
 
        let finishedSetValue = color.finishedSetValue;
+
+
 
   
        return ( stepVar * finishedSetValue * colorGrowthScore);
@@ -158,7 +160,7 @@ function calculateStepVariable(player, setArray){
           if(setArray.length == 1){
   
   
-              return 0.06;
+              return 0.125;
   
   
   
@@ -174,11 +176,11 @@ function calculateStepVariable(player, setArray){
           
           if(setArray.length == 1){
   
-             return 0.025;
+             return 0.9;
   
          } else if(setArray.length == 2) {
   
-              return 0.06;
+              return 0.125;
   
          } else if(setArray.length == 3){
   

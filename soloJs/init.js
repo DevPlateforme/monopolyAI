@@ -9,16 +9,13 @@ var breakVar = false;
 
 function init(){
   
-     
     console.log('game starting...');
 
     //setColorScores();
 
-    givePlayersPropertiesForDemo();
+    //givePlayersPropertiesForDemo();
 
     wakeUpAis();
-
-
 
   }
 
@@ -85,25 +82,17 @@ function setColorScores(){
 
 
   function givePlayersPropertiesForDemo(){
+
+      humanPlayer.propertiesByColor[orange.index].properties.push(avenueMozart);
+      humanPlayer.propertiesByColor[red.index].properties.push(bdMalesherbes);
+      humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
+
+      humanPlayer.propertiesCount += 3;
+
     
+      ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
 
-      humanPlayer.propertiesByColor[green.index].properties.push(bdDesCapucines);
-
-
-      ai1.propertiesByColor[red.index].properties.push(avenueMatignon);
-    
-      ai1.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
-
-
-
-
-      ai2.propertiesByColor[green.index].properties.push(avenueFoch);
-    
-      ai2.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore);
-
-
-
-  
+      ai1.propertiesCount += 1;
 
 }
 
