@@ -13,7 +13,7 @@ function init(){
 
     //setColorScores();
 
-    //givePlayersPropertiesForDemo();
+    givePlayersPropertiesForDemo();
 
     wakeUpAis();
 
@@ -83,14 +83,12 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-      humanPlayer.propertiesByColor[orange.index].properties.push(avenueMozart);
-      humanPlayer.propertiesByColor[red.index].properties.push(bdMalesherbes);
-      humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
+      humanPlayer.propertiesByColor[orange.index].properties.push(avenueMozart , boulevardSaintMichel);
+      
+      humanPlayer.propertiesCount += 2;
 
-      humanPlayer.propertiesCount += 3;
 
-    
-      ai1.propertiesByColor[orange.index].properties.push(boulevardSaintMichel);
+      ai1.propertiesByColor[publicServicesColor.index].properties.push(publicServiceWater);
 
       ai1.propertiesCount += 1;
 

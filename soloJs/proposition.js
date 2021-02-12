@@ -332,7 +332,7 @@ function makeProposition(proposition){
 
          //realize a deep clone of the proposition , and invert it
 
-        let newProposition = JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
+        //let newProposition = JSON.parse(JSON.stringify(proposition, getCircularReplacer()));
 
         //used for counter offers => the offer becomes the counterpartasked, and same goes the other way around
 

@@ -138,19 +138,15 @@ function calculateStepVariable(player, setArray){
   
       } else if(color == publicServicesColor){
   
-  
-  
               //FOR PUBLIC SERVICES, FROM 1 PROPERTY TO TWO, THE AVERAGE REVENUES IS MULTIPLIED BY 3
-  
-  
-  
+
           if(setArray.length == 1){
   
-              return 0.125;
+              return 0.6;
   
           } else if(setArray.length == 2) {
   
-              return 0.25;
+              return 1;
   
           }
   
@@ -176,7 +172,7 @@ function calculateStepVariable(player, setArray){
           
           if(setArray.length == 1){
   
-             return 0.9;
+             return 0.05;
   
          } else if(setArray.length == 2) {
   
@@ -208,8 +204,8 @@ function calculateStepVariable(player, setArray){
        return 0;
   
   
-  
-    }
+   
+     }
   
 
       
@@ -219,111 +215,111 @@ function calculateStepVariable(player, setArray){
     } else {
 
 
-
       
-    if(setArray.length != 0){
+      if(setArray.length != 0){
 
-       if(color == black){
+        if(color == black){
+         //Train stations
 
-        //Train stations
+           if(setArray.length == 4){
 
-          if(setArray.length == 4){
+             return 0.98;
 
-            return 1;
+           } else if (setArray.length == 3){
+ 
+             return 0.33;
+ 
+           } else if (setArray.length == 2){
+ 
+             return 0.15;
+ 
+           } else if (setArray.length == 1){
+ 
+             return 0.075;
+ 
+           }
+ 
+     } else if(color == publicServicesColor){
+ 
+             //FOR PUBLIC SERVICES, FROM 1 PROPERTY TO TWO, THE AVERAGE REVENUES IS MULTIPLIED BY 3
 
-          } else if (setArray.length == 3){
-
-            return 0.5;
-
-          } else if (setArray.length == 2){
-
-            return 0.07;
-
-          } else if (setArray.length == 1){
-
-            return 0.035;
-
-          }
-
-    } else if(color == publicServicesColor){
-
-
-
-            //FOR PUBLIC SERVICES, FROM 1 PROPERTY TO TWO, THE AVERAGE REVENUES IS MULTIPLIED BY 3
-
-
-
-        if(setArray.length == 1){
-
-            return 0.03;
-
-        } else if(setArray.length == 2) {
-
-            return 0.07;
-
-        }
-
-    } else if( color == darkBlue || color == brown ){
-
-
-        if(setArray.length == 1){
-
-
-            return 0.2;
-
-
-
-        } else if(setArray.length == 2) {
-
-
-            return 1;
-
-
-        }
-
-    } else {   
-        
-        if(setArray.length == 1){
-
-           return 0.002;
-
-       } else if(setArray.length == 2) {
-
-            return 0.2;
-
-       } else if(setArray.length == 3){
-
+         if(setArray.length == 1){
+ 
+             return 0.27;
+ 
+         } else if(setArray.length == 2) {
+ 
+             return 0.5;
+ 
+         }
+ 
+     } else if( color == darkBlue || color == brown ){
+ 
+ 
+         if(setArray.length == 1){
+ 
+ 
+             return 0.125;
+ 
+ 
+ 
+         } else if(setArray.length == 2) {
+ 
+ 
              return 1;
+ 
+ 
+         }
+ 
+     } else {   
+         
+         if(setArray.length == 1){
+ 
+            return 0.05;
+ 
+        } else if(setArray.length == 2) {
+ 
+             return 0.125;
+ 
+        } else if(setArray.length == 3){
+ 
+              return 1;
+ 
+ 
+       }
+ 
+ 
+ 
+     }
+ 
+ 
+ 
+ 
+ 
+     //IF SET ARRAY LENGTH IS EQUAL TO 0
+ 
+ 
+ 
+   } else { 
+ 
+ 
+ 
+      return 0;
+ 
+ 
+  
+    }
+ 
+
+     
 
 
-      }
+
+
 
 
 
     }
-
-
-
-
-
-    //IF SET ARRAY LENGTH IS EQUAL TO 0
-
-
-
-  } else { 
-
-
-
-     return 0;
-
-
-
-  }
-
-
-
-
-}
 
 
 
