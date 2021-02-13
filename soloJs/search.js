@@ -31,9 +31,9 @@ function searchForTradesOpportunities(activePlayer){
       //('moves generated...');
 
     if(activePlayer == ai1){
-        otherPlayersArray = [ai2 , humanPlayer];
+        otherPlayersArray = [ai2 , ai3 , humanPlayer];
     } else if (activePlayer == ai2){
-        otherPlayersArray = [ai1 , humanPlayer];
+        otherPlayersArray = [ai1 , ai3 , humanPlayer];
     } 
     
 
@@ -241,9 +241,9 @@ var nodes = 0;
 
         console.log(ai.name + ' finished its search!');
 
-        console.log('removed=>' + elementsRemoved);
+        console.log(ai.name  + ' removed=>' + elementsRemoved);
 
-        console.log('added=>' + elementsAdded);
+        console.log(ai.name  + ' added=>' + elementsAdded);
 
  }
 

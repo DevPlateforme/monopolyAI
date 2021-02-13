@@ -88,7 +88,7 @@ var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'human player'
 var ai3 = {playerIndex: 3 , key : 0,  position: 0 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
 
 
-var playersArray = [ai1, ai2 , humanPlayer];
+var playersArray = [ai1, ai2 , humanPlayer , ai3];
 
 
 
@@ -136,7 +136,7 @@ var postDicesLaunchAction = 'PDA';
 var game_posKey = 0;
 
 
-var nextProposerArray = [ai1, ai2, humanPlayer];
+var nextProposerArray = [ai1, ai2, ai3, humanPlayer];
 
 var nextTradeProposerIndex = 0;
 
