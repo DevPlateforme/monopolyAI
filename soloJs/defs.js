@@ -136,27 +136,27 @@ function calculateStepVariable(player, setArray){
   
             }
   
-      } else if(color == publicServicesColor){
+        } else if(color == publicServicesColor){
   
               //FOR PUBLIC SERVICES, FROM 1 PROPERTY TO TWO, THE AVERAGE REVENUES IS MULTIPLIED BY 3
 
-          if(setArray.length == 1){
+           if(setArray.length == 1){
   
               return 0.6;
   
-          } else if(setArray.length == 2) {
+           } else if(setArray.length == 2) {
   
               return 1;
   
           }
   
-      } else if( color == darkBlue || color == brown ){
+       } else if( color == darkBlue || color == brown ){
   
   
           if(setArray.length == 1){
   
   
-              return 0.125;
+              return 0.165;
   
   
   
@@ -176,7 +176,7 @@ function calculateStepVariable(player, setArray){
   
          } else if(setArray.length == 2) {
   
-              return 0.125;
+              return 0.165;
   
          } else if(setArray.length == 3){
   
@@ -245,7 +245,7 @@ function calculateStepVariable(player, setArray){
 
          if(setArray.length == 1){
  
-             return 0.27;
+             return 0.29;
  
          } else if(setArray.length == 2) {
  
@@ -259,7 +259,7 @@ function calculateStepVariable(player, setArray){
          if(setArray.length == 1){
  
  
-             return 0.125;
+             return 0.165;
  
  
  
@@ -275,16 +275,15 @@ function calculateStepVariable(player, setArray){
          
          if(setArray.length == 1){
  
-            return 0.05;
+            return 0.035;
  
         } else if(setArray.length == 2) {
  
-             return 0.125;
+             return 0.165;
  
         } else if(setArray.length == 3){
  
               return 1;
- 
  
        }
  
@@ -910,7 +909,7 @@ function addPropertyToPlayerWallet(player, property){
 
     if(monopolyCheck(player, propertyColor) == true){
 
-        newMonopoly(player, propertyColor);
+        //newMonopoly(player, propertyColor);
 
         alert('ok, monopoly trade computed');
 
@@ -928,7 +927,7 @@ function addPropertyToPlayerWallet(player, property){
 
 
 function newMonopoly(player , color){
-
+  
   //extract monopoly properties from nonMonopoly array
 
   for(var i=0 ; i < player.nonMonopolyProperties.length ; i++){
@@ -936,6 +935,14 @@ function newMonopoly(player , color){
       if(player.nonMonopolyProperties[i].color == color){
 
           player.nonMonopolyProperties.splice(i,1);
+
+          //if it's mortgaged , store it in the mortgagedMonopolyProperties list 
+
+          if(player.nonMonopolyProperties[i].mortgaged == true){
+
+              insertMortgagedMonopolyProperty( player , player.nonMonopolyProperties[i]);
+
+          }
 
           i--;
 
@@ -1102,7 +1109,85 @@ function getMortgage(property){
 
         property.mortgage = true ;
 
-        property.landLord.cash -= property.mortgageValue ;
+        property.landLord.cash += property.mortgageValue ;
+
 
 }
 
+
+
+
+function insertMortgagedMonopolyProperty(player , property){
+
+
+
+  //sort by color value
+
+  player.monopoliesArray.push(property);
+
+  
+
+      
+  player.mortgagedMonopolyProperties.push(property);
+
+
+
+   if(player.mortgagedMonopolyProperties.length == 1){
+
+      //No need to bubble sort, if the array was initially empty
+
+       return;
+
+    } else {
+
+       //initial position : last position
+
+     let propertyPosition = player.mortgagedMonopolyProperties.length - 1;
+
+     let nextBlockProperty;
+
+     //bubble up
+
+    for( var i = (player.mortgagedMonopolyProperties.length - 2) ; i >= 0 ; i-- ) {
+
+        if(player.mortgagedMonopolyProperties[propertyPosition].mortgageValue > player.mortgagedMonopolyProperties[i].mortgageValue){
+         
+         //swap
+
+          nextBlockProperty = player.mortgagedMonopolyProperties[i];
+          player.mortgagedMonopolyProperties[propertyPosition] = nextBlockProperty;
+          player.mortgagedMonopolyProperties[i] = property;
+        
+        
+       } else {
+
+          break;
+
+       }
+
+    }
+
+   return;
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

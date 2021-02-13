@@ -1067,19 +1067,17 @@ function sendProposition(){
      
                
                    //if no alternatives found 
-
-                   
               
-                  alert('offerer score =>' + proposition.offererScore);
-                  alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer + ', 1/3 => ' + ( 0.002 * orange.finishedSetValue ) );
+                    alert('offerer score =>' + proposition.offererScore);
 
-                  alert('answerer score =>' + proposition.answererScore);
-              
-     
+                    alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+
+                    alert('answerer score =>' + proposition.answererScore);
+          
                     alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
-     
                     acceptProposition(proposition);
+                    
      
                } else {
      

@@ -17,6 +17,8 @@
 //2 (indirect monop trade for the AI , trick giving a 2/3 )
 
 
+
+
 //3 (indirect monop trade for the AI , trick giving a train station + cash )
 
 
@@ -54,6 +56,10 @@
 
 
 //15 (1ps , the AI requests a 1/3 , plus cash ,  resulting in a 2/3);
+
+
+//16 (indirect 2/3);
+
 
 
 

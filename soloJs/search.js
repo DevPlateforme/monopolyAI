@@ -80,58 +80,7 @@ function searchForTradesOpportunities(activePlayer){
             if(foundProposition.proposition != none){
 
 
-               /*
-
-                    alert('here is the best proposition we found! thiker =>' + activePlayer.name + ' , OP => ' + otherPlayer.name );
-                    alert('Here is the offererScore => ' + foundProposition.proposition.offererScore + ' , offerer gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + 'offerer loss => ' + foundProposition.proposition.offer.lossValueForTheOwner + ' , cash ' + foundProposition.proposition.counterPartAsked.cash );               
-                    alert('Other player score => ' + + foundProposition.proposition.answererScore + ', gain => ' + foundProposition.proposition.offer.gainValueForTheOtherPlayer + ' , Other player loss => ' + foundProposition.proposition.counterPartAsked.lossValueForTheOwner);
-
-                    alert('here is the offer : ');
-
-
-                    alert('indirect monop for the offerer , yes or no : ');
-
-                    if( foundProposition.proposition.counterPartAsked.indirectMonopOpportunity != none ){
-
-                        alert('yes, indirect monop for the offerer : ');
-
-                    } else {
-
-                        alert(' no indirect monop for the offerer : ');
-
-                    }
-
-
-
-                    alert('indirect monop for the answerer , yes or no : ');
-
-                    if( foundProposition.proposition.offer.indirectMonopOpportunity != none ){
-
-                        alert('yes, indirect monop for the answerer : ');
-
-                    } else {
-
-                        alert(' no indirect monop for the answerer : ');
-
-                    }
-                    
-                    
-					
-					 for(var i=0; i < foundProposition.proposition.offer.array.length; i++){	
-                        alert('offer element ' + i + ' ' + foundProposition.proposition.offer.array[i].name);
-                       }
-     
-                         alert('and, here is the cash in the offer :' + foundProposition.proposition.offer.cash);				
-                         alert('here is the counterpart : ');
-     
-     
-                         for(var i=0; i < foundProposition.proposition.counterPartAsked.array.length; i++){          
-                            alert('counterpart asked ' + i + ' ' + foundProposition.proposition.counterPartAsked.array[i].name);
-                        
-                       }
-
-                       */
-
+        
 
               propositionList.push(foundProposition.proposition);
 
@@ -241,6 +190,36 @@ var nodes = 0;
 
  function checkForMortgageBuying(ai){
 
+    //Store the monopoly properties . When the function newMonopoly is triggered :
+
+
+    if(ai.mortgagedMonopolyProperties.length > 0){
+
+        for(var i=0; i < ai.mortgagedMonopolyProperties.length ; i++){
+
+            if(ai.cash >= player.mortgagedMonopolyProperties[i].mortgageValue){
+
+                closeMortgage(player.nonMonopolyProperties[i]);
+
+                ai.mortgagedMonopolyProperties.splice(i,1);
+
+                if(ai.mortgagedMonopolyProperties.length > 0){
+
+                    break;
+                }
+
+                i--;
+                
+            } else {
+
+                break;
+            }
+
+        }
+
+    }
+
+
   }
 
 
@@ -251,10 +230,11 @@ var nodes = 0;
 
     //can I build a dangerous house? (may require mortgage buying)
 
+        
+        checkForMortgageBuying(ai);
+     
         checkForBuildingOpportunities(ai);
 
-        checkForMortgageBuying(ai);
- 
         searchForTradesOpportunities(ai);
 
         AiThinking = false;
@@ -433,6 +413,9 @@ function findCash(player , goal){
 
     if(findCashWithNonMonopolyProperties(player , goal) == true){
 
+
+        alert('we found the cash!!')
+
           return true;
     }
 
@@ -442,6 +425,9 @@ function findCash(player , goal){
 
         return true;
     }
+
+
+    alert('there is no cash to find!!');
 
 
     return false;
@@ -457,9 +443,10 @@ function findCashWithNonMonopolyProperties(player, goal){
 
 
     for(var i=0 ; i < player.nonMonopolyProperties.length; i++){
-         
+
         getMortgage(player.nonMonopolyProperties[i]);
 
+        
         if(player.cash >= goal){
 
             return true;
@@ -470,9 +457,7 @@ function findCashWithNonMonopolyProperties(player, goal){
     }
 
 
-    
     return false;
-
 
 }
 
