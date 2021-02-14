@@ -83,21 +83,46 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
+     humanPlayer.propertiesByColor[brown.index].properties.push(belleville);
+     humanPlayer.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
+     humanPlayer.propertiesByColor[lightBlue.index].properties.push(avenueDeLaRepublique);
+     humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
+     humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
 
-      ai1.propertiesByColor[green.index].properties.push(avenueFoch);
+     humanPlayer.propertiesCount += 1;
 
-      ai1.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore , rueLaFayette);
-
-      ai1.propertiesCount += 1;
-
-      
-      ai3.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
-
-      ai3.propertiesByColor[green.index].properties.push(avenueDeBreteuil, bdDesCapucines);
-
-      ai3.propertiesCount += 1;
+     humanPlayer.mortgages += 1;
 
 
+
+     ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
+     ai1.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore, rueLaFayette);
+     ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
+     ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines);
+     ai1.propertiesByColor[orange.index].properties.push(placePigalle);
+
+
+
+
+     ai1.propertiesCount += 1;
+     
+
+     ai2.propertiesByColor[red.index].properties.push(avenueMatignon);
+     ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
+     ai2.propertiesByColor[yellow.index].properties.push(avenueDesChampsElysees);     
+     ai2.propertiesByColor[publicServicesColor.index].properties.push(publicServiceElectricity);
+
+
+     ai2.propertiesCount += 1;
+
+     
+     ai3.propertiesByColor[red.index].properties.push(bdMalesherbes);
+     ai3.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard);
+     ai3.propertiesByColor[orange.index].properties.push(avenueMozart, boulevardSaintMichel);
+     ai3.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
+
+
+     ai3.propertiesCount += 1;
 
 }
 

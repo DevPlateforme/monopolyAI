@@ -421,7 +421,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 								let hashedProposition = declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES];
   
   
-							   if(hashedProposition.trickedPlayerScore <  ( hashedProposition.trickedPlayerOpponentScore) ){  
+							   if(hashedProposition.trickedPlayerScore <  ( 1.2 * hashedProposition.trickedPlayerOpponentScore) ){  
 									  
   
 								  //////////////////////////////////////alert('we found out this offer was refused while it was fair, we wont do it again');
@@ -784,10 +784,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	let offererScore = 0;
 	let answererScore = 0;
 
-     //compute score according to a tricked player (not an advanced AI) => The player cant think at depth+1
-    
-	 
+	let thinkerScoreWithoutCash;
 
+     //compute score according to a tricked player (not an advanced AI) => The player cant think at depth+1
 
 	 if(trick == true){
 
@@ -965,12 +964,15 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	   thinkerScore = offererScore;
 	   thinkerLoss =  offer.lossValueForTheOwner + offer.cash;
 	   interlocutorScore = answererScore;
+	   thinkerScoreWithoutCash = counterPartAsked.gainValueForTheOtherPlayer - offer.lossValueForTheOwner;
 
 	} else {	 
 
 	   thinkerScore = answererScore;
 	   thinkerLoss =  counterPartAsked.lossValueForTheOwner + counterPartAsked.cash;
 	   interlocutorScore = offererScore;
+	   thinkerScoreWithoutCash = offer.gainValueForTheOtherPlayer - counterPartAsked.lossValueForTheOwner;
+
 
 	}
 
@@ -989,15 +991,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
     
 
 
+    
 
-    if(answerer == humanPlayer || offerer == humanPlayer){
-
-		offererScoreWithoutCash = offererScore;
-
-		answererScoreWithoutCash = answererScore;
-
-	}
-	
 
 
 
@@ -1014,8 +1009,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 			 let topLimit;
 			 let bottomLimit;
 
-			 if(perception == regular){	 
-				 
+			 
 				    //top limit : value between 1 and 1.5	   
 			        //topLimit =  interlocutorScore * (1 + (Math.random()/2));		   
 				    //THE AI1 wants to have a better situation than the other player
@@ -1026,12 +1020,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					bottomLimit = interlocutorScore * 0.8;
 	   
 
-			 } else {
-
-			        topLimit =  interlocutorScore * 1.6;		   
-			        bottomLimit = interlocutorScore * 1.1;
-	
-			 }
+			
 
 
 
@@ -1059,7 +1048,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 				profitableProposition = true;
 	    	 } else{
 
-				 ////alert('false2')
+				
 				 profitableProposition = false;
 		       }
 
@@ -1458,6 +1447,8 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 
 		       let set = getSetValueAtDepth2(otherPlayer, owner, tradeArray[tradeSetIndex]);
+
+			   //let set = { opportunity: false}
                 
 			   ////////////////alert(set.opportunity);
 
@@ -1512,12 +1503,15 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 
 
+var cnt = 0;
 
 
 
 function getSetValueAtDepth2(playerA , playerB , array){
 
+	let arrayCnt = 0;
 	
+		
 
 	let obj = { opportunity: false , gainValue: 0 , proposition: none , offeredElements : none };
 
@@ -1538,9 +1532,10 @@ function getSetValueAtDepth2(playerA , playerB , array){
 
 
 
+
 	for(var i=0; i < nonTradingPlayers.length ; i++){
 
-
+		
 
 		   if(nonTradingPlayers[i].propertiesCount > 0 ){
 
@@ -1548,10 +1543,13 @@ function getSetValueAtDepth2(playerA , playerB , array){
 			   //temporarily add the properties virtually acquired
 
 
-			    addElementsToPlayer(playerA, array)
+			    addElementsToPlayer(playerA, array);
+
+
+
 
 			
-		    	let newSet = playerA.propertiesByColor[array[i].color.index].properties;
+		    	let newSet = playerA.propertiesByColor[array[0].color.index].properties;
 			  
 		        let lossValueForTheOwner = calculateSetValue(thinker, newSet); 
 		 

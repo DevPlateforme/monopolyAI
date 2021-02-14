@@ -31,10 +31,13 @@ function searchForTradesOpportunities(activePlayer){
       //('moves generated...');
 
     if(activePlayer == ai1){
-        otherPlayersArray = [ai2 , ai3 , humanPlayer];
+        otherPlayersArray = [ai2 ,  ai3  , humanPlayer];
     } else if (activePlayer == ai2){
         otherPlayersArray = [ai1 , ai3 , humanPlayer];
-    } 
+    } else {
+        otherPlayersArray = [ai1 , ai2 , humanPlayer];
+
+    }
     
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     

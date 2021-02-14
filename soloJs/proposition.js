@@ -160,8 +160,9 @@ function makeProposition(proposition){
      //if one or both players needed to close mortgage before making the trade, close them
 
 
-   if(counterPartAsked.mortgagesClosed.length > 0){
 
+   if(counterPartAsked.mortgagesClosed.length > 0){
+     
 
        for(var i=0; i < counterPartAsked.mortgagesClosed.length; i++){
 
@@ -176,6 +177,7 @@ function makeProposition(proposition){
 
 
    if(offer.mortgagesClosed.length > 0){
+
 
      for(var i=0; i < offer.mortgagesClosed.length; i++){
 

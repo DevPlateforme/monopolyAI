@@ -526,6 +526,9 @@ function closeMortgage(property){
 
      property.landLord.cash -= property.mortgageValue;
 
+     property.landLord.mortgages -= 1;
+
+
 
 }
 
@@ -780,7 +783,6 @@ function divideArrayInSets(elementsArray){
 
         if(setsArray[i].length == 0){
 
-    
                setsArray.splice(i, 1);
 
                i--;
@@ -847,6 +849,7 @@ function getNonTradingPlayersArray(playerA, playerB){
    let ntpArray = playersArray.slice(0);
 
 
+   
     for(i=0; i < ntpArray.length; i++){
 
       if(ntpArray[i] == playerA || ntpArray[i] == playerB ){
@@ -858,9 +861,8 @@ function getNonTradingPlayersArray(playerA, playerB){
 
       }
 
-
-
     }
+  
 
 
 
@@ -1110,6 +1112,9 @@ function getMortgage(property){
         property.mortgage = true ;
 
         property.landLord.cash += property.mortgageValue ;
+
+        property.landLord.mortgages += 1;
+
 
 
 }

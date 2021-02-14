@@ -52,6 +52,9 @@
                   <button onclick='observeAi(ai1)'>P-45</button>
      
                   <button onclick='observeAi(ai2)'>V-18</button>
+
+                  <button onclick='observeAi(ai3)'>ULTRON</button>
+
     
               </div>
 
