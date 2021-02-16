@@ -310,13 +310,7 @@ function calculateStepVariable(player, setArray){
     }
  
 
-     
-
-
-
-
-
-
+    
 
     }
 
@@ -339,7 +333,6 @@ function checkGlobalDanger(player){
 
 
      let oPArray =  getOtherPlayersArray(player);
-
 
 
 				  //LOOP ON THE ARRAY, AND GET THE SUM OF OTHER PLAYERS RENTS
@@ -474,23 +467,21 @@ function checkGlobalDanger(player){
        }
 
       return oPArray;
+      
 }
 
 
 
 
 function checkForBankruptcy(player){
-       
-    if(player.cash + getPotentialMortgagesValue(player) <= 0){
+    
+     if(player.cash < 0){
 
-        gameOver();
-        
+        playerInBankruptcy(player);
 
-    } else {
+     }
 
-      //alert(player.name + ' isnt in bankruptcy!!');
-    }
-          
+
 }
 
 
@@ -547,13 +538,6 @@ function reverseMortgageClosing(property){
 }
 
 
-function gameOver(){
-       
-     //alert("the game is over");
-
-}
-
-
 
 
 
@@ -570,26 +554,11 @@ function buildHouse(property){
 
      property.landLord.cash -= property.houseValue;
 
-     //alert(property.landLord.name + ' just built a house!!');
+     ////alert(property.landLord.name + ' just built a house!!');
 
+    //alert('house built on ' + property.name);
 }
 
-
-
-
-
-
-
-function playerInBankruptcy(player){
-
-    
-     player.bankruptcy = true;
-
-
-     //if the answerer is in bankruptcy, the value of the cash is multiplied by 5
-
-
-}
 
 
 
@@ -647,7 +616,7 @@ function getRent(property){
 
           //depending of the number of train stations owned by the landlord
 
-          let numOfStationsOwned = landLord.propertiesByColor[black.index].length;
+          let numOfStationsOwned = property.landLord.propertiesByColor[black.index].properties.length;
 
           return 50 * numOfStationsOwned;
 
@@ -873,13 +842,6 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 
 
-
-
-
-
-
-
-
 //Perceptions
 
 
@@ -889,32 +851,21 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 
 
-
-
 function addPropertyToPlayerWallet(player, property){
-
-
-  ////alert('element added to the wallet!!')
 
     let propertyColor = property.color;
     
     player.propertiesByColor[propertyColor.index].properties.push(property); 
     
     insertNonMonopolyProperty(player, property);
-
-    //player.nonMonopolyProperties.push(property);
     
     property.landLord = player;
 
     //check if the current property resulted in a monopoly
 
-
     if(monopolyCheck(player, propertyColor) == true){
 
-        //newMonopoly(player, propertyColor);
-
-        alert('ok, monopoly trade computed');
-
+        newMonopoly(player, propertyColor);
 
     };
 
@@ -927,7 +878,6 @@ function addPropertyToPlayerWallet(player, property){
 
 
 
-
 function newMonopoly(player , color){
   
   //extract monopoly properties from nonMonopoly array
@@ -936,7 +886,6 @@ function newMonopoly(player , color){
 
       if(player.nonMonopolyProperties[i].color == color){
 
-          player.nonMonopolyProperties.splice(i,1);
 
           //if it's mortgaged , store it in the mortgagedMonopolyProperties list 
 
@@ -945,6 +894,10 @@ function newMonopoly(player , color){
               insertMortgagedMonopolyProperty( player , player.nonMonopolyProperties[i]);
 
           }
+
+
+          player.nonMonopolyProperties.splice(i,1);
+
 
           i--;
 
@@ -1008,6 +961,7 @@ function insertNonMonopolyProperty(player, property){
   //insert the element at the end
  
   player.nonMonopolyProperties.push(property);
+
 
 
   if(player.nonMonopolyProperties.length == 1){
@@ -1111,32 +1065,31 @@ function getMortgage(property){
 
         property.mortgage = true ;
 
+  
         property.landLord.cash += property.mortgageValue ;
+
 
         property.landLord.mortgages += 1;
 
+        if(monopolyCheck(property.landLord, property.color) == true){
 
+              insertMortgagedMonopolyProperty(property.landLord, property);
 
-}
+        }        
 
+  }
 
 
 
 function insertMortgagedMonopolyProperty(player , property){
 
-
-
   //sort by color value
-
-  player.monopoliesArray.push(property);
-
-  
-
       
   player.mortgagedMonopolyProperties.push(property);
+  
+  //alert('player mortgaged monopoly inserted');
 
-
-
+  
    if(player.mortgagedMonopolyProperties.length == 1){
 
       //No need to bubble sort, if the array was initially empty
@@ -1178,6 +1131,7 @@ function insertMortgagedMonopolyProperty(player , property){
 
 
 
+}
 
 
 
@@ -1185,14 +1139,56 @@ function insertMortgagedMonopolyProperty(player , property){
 
 
 
+function playerInBankruptcy(player){
+
+  if(player.bankruptcy == false){
+    
+     player.bankruptcy = true;
+
+
+    let bankruptcyTimeout; 
+  
+   let bankruptcyInterval;
+
+
+   bankruptcyInterval = setInterval(
+
+    function(){
+
+       if(player.cash > 0 ){
+
+        clearTimeout(bankruptcyTimeout);
+
+        clearInterval(bankruptcyInterval);
+
+        alert(' the player ' + player.name + ' went out from bankruptcy');
+        
+       }
+
+     } , 500);
+
+
+     alert(' bankruptcy timeout launched for ' + player.name);
+
+ 
+    bankruptcyTimeout = setTimeout(function(){
+
+    gameOver(player);
+
+   } , 45000);
+
+
+  }
+
+  
+}
 
 
 
+function gameOver(player){
 
-
-
-
-
-
+   alert(player.name + ' was defeated!!')
+     
+  //delete the player from the players array , delete the player from the dice launchers array
 
 }

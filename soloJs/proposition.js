@@ -71,7 +71,7 @@ function makeProposition(proposition){
 
             } else {
 
-              //alert(proposition.answerer.name + ' accepted the offer!');
+              alert(proposition.answerer.name + ' accepted the offer!');
 
               acceptProposition(proposition);
 
@@ -130,18 +130,18 @@ function makeProposition(proposition){
 
 /*
 
-     alert('********offerer score => ' + proposition.offererScore);
+     //alert('********offerer score => ' + proposition.offererScore);
 
-     alert('********answerer score => ' + proposition.answererScore);
+     //alert('********answerer score => ' + proposition.answererScore);
 
-     alert('here are the offer elements : ');
+     //alert('here are the offer elements : ');
 
 
 
 
      for(var i=0; i < offer.array.length; i++){
 
-         alert('offer element => ' + offer.array[i].name)
+         //alert('offer element => ' + offer.array[i].name)
 
 
      }
@@ -149,7 +149,7 @@ function makeProposition(proposition){
      
      for(var i=0; i < counterPartAsked.array.length; i++){
 
-      alert('cpa element => ' + counterPartAsked.array[i].name)
+      //alert('cpa element => ' + counterPartAsked.array[i].name)
 
 
   }
@@ -217,7 +217,7 @@ function makeProposition(proposition){
 
                          offerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                         ////alert('element deleted from the properties by color')
+                         //////alert('element deleted from the properties by color')
 
                          break;
 
@@ -233,7 +233,7 @@ function makeProposition(proposition){
 
                        offerer.propertiesArray.splice(n,1);
 
-                       ////alert('element deleted from the properties array');
+                       //////alert('element deleted from the properties array');
 
                        break;
 
@@ -265,7 +265,7 @@ function makeProposition(proposition){
 
                        answerer.propertiesByColor[color.index].properties.splice(n,1);
 
-                       ////alert('element deleted from the answerers properties by color')
+                       //////alert('element deleted from the answerers properties by color')
 
                        break;
 
@@ -282,7 +282,7 @@ function makeProposition(proposition){
 
                      answerer.propertiesArray.splice(n,1);
 
-                     ////alert('element deleted from the properties array');
+                     //////alert('element deleted from the properties array');
 
                      break;
 
@@ -348,7 +348,7 @@ function makeProposition(proposition){
         newProposition.counterPartAsked = proposition.offer;
 
 
-        ////alert('proposition inverted!!');
+        //////alert('proposition inverted!!');
 
 
         return newProposition;
@@ -365,7 +365,7 @@ function makeProposition(proposition){
 
    function updgradeOffer(proposition , unusedAnswererAssets, depth){
 
-     ////alert('an upgraded counter offer was made ');
+     //////alert('an upgraded counter offer was made ');
 
   }
 
@@ -391,7 +391,7 @@ function makeProposition(proposition){
 function searchForAlternatives(proposition , answerer, offerer){
 
 
-  //alert('searching for alternatives');
+  ////alert('searching for alternatives');
 
 	
 
@@ -416,7 +416,7 @@ function searchForAlternatives(proposition , answerer, offerer){
       
      for(var y = 0; y < sets.length; y++){
 
-      //alert('name: ' + sets[y][0].name)
+      ////alert('name: ' + sets[y][0].name)
 
 
          let counterPartAsked = new CounterPartAsked(sets[y] , 0 , 0);
@@ -425,7 +425,7 @@ function searchForAlternatives(proposition , answerer, offerer){
 
 		       //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
  
-         //alert('SEARCHING FOR ALTERNATIVES');
+         ////alert('SEARCHING FOR ALTERNATIVES');
 
 	   		 let bestProposition = tryToCreateProposition(answerer, directGain, propositionMaterial , false);
 
@@ -452,7 +452,7 @@ function searchForAlternatives(proposition , answerer, offerer){
              //remove the element taken from the offerer, store it in 
 
             
-            //alert('MONOPOLY ALTERNATIVE FOUND!');
+            ////alert('MONOPOLY ALTERNATIVE FOUND!');
 				
 				  	obj.gainValue += bestProposition.proposition.answererScore ;
 

@@ -20,6 +20,7 @@ var humanAnswerInterfaceOffer = document.getElementById('humanAnswerInterfaceOff
 var humanAnswerInterfaceCounterPart = document.getElementById('humanAnswerInterfaceCounterPart');
 var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
 
+var launchBtn = document.getElementById('launchBtn');
 
 
 
@@ -40,21 +41,17 @@ var player2PawnContainer;
 function displayDiceLaunchButton(){
 
 
-     let main = $('#main');
-      
-     let diceButton = document.createElement('button');
-
-     diceButton.setAttribute('id', 'diceLaunchButton');
-
-
-     diceButton.innerHTML = 'lancer les dés';
-
-
-     main.append(diceButton)
-
+     launchBtn.style.display = 'block';
 
 }
 
+
+function hideDiceLaunchButton(){
+
+
+     launchBtn.style.display = 'none';
+
+}
 
 
 
@@ -136,13 +133,13 @@ function refusePropositionFromInterface(){
 
      let offerer = humanPlayer.propositionToAnswer.offerer;
 
-     alert('the offerer was =>' + offerer.name)
+     //alert('the offerer was =>' + offerer.name)
 
 
      hashAndStore(humanPlayer.propositionToAnswer);
 
 
-     //alert('vous avez refusé cette proposition!!');
+     ////alert('vous avez refusé cette proposition!!');
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
 
@@ -229,7 +226,8 @@ function displayPropertiesManagementInterface(){
 
 
 function closePropertiesManagementInterface(){
-
+     
+     humanThinking = false;
 
      document.getElementById('playerPropertiesManagementInterface').style.opacity = 0;
      
@@ -266,6 +264,8 @@ function displayAvailablePropertyInterface(square){
  
 function closeAvailablePropertyInterface(){
 
+         humanThinking = false;
+
          availablePropertyInterface.style.opacity = 0;
 
          availablePropertyInterface.style.zIndex = 1;
@@ -294,6 +294,7 @@ function closeAvailablePropertyInterface(){
 
 function closeCommunityChestSquareInterface(){
 
+     humanThinking = false;
 
      document.getElementById('communityChestSquareInterface').style.opacity = 0;
      document.getElementById('communityChestSquareInterface').style.zIndex = 1;
@@ -303,6 +304,8 @@ function closeCommunityChestSquareInterface(){
 
 
  function closeChanceSquareInterface(){
+
+     humanThinking = false;
 
      document.getElementById('chanceSquareInterface').style.opacity = 0;
      document.getElementById('chanceSquareInterface').style.zIndex = 1;
@@ -895,7 +898,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
      } else {
 
 
-          //alert('veuillez séléctionner un joueur');
+          ////alert('veuillez séléctionner un joueur');
 
 
      }
@@ -970,7 +973,7 @@ function sendProposition(){
 
      if(IbProposition == none){
 
-          //alert('vous n avez pas crée d offre!');
+          ////alert('vous n avez pas crée d offre!');
 
      } else{
 
@@ -982,11 +985,11 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-          //alert('vous n avez rien offert!');
+          ////alert('vous n avez rien offert!');
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-          //alert('vous n avez demandé aucun élément!');
+          ////alert('vous n avez demandé aucun élément!');
 
           //ELSE, VALID PROPOSITION
 
@@ -994,7 +997,7 @@ function sendProposition(){
          } else {
 
 
-          //alert('proposition sent!');
+          ////alert('proposition sent!');
 
 
           //DID THE PROPERTIES HASHKEY CHANGE?
@@ -1068,13 +1071,13 @@ function sendProposition(){
                
                    //if no alternatives found 
               
-                    alert('offerer score =>' + proposition.offererScore);
+                    //alert('offerer score =>' + proposition.offererScore);
 
-                    alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+                    //alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
 
-                    alert('answerer score =>' + proposition.answererScore);
+                    //alert('answerer score =>' + proposition.answererScore);
           
-                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
+                    //alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
                     acceptProposition(proposition);
                     
@@ -1083,13 +1086,13 @@ function sendProposition(){
      
                  if(proposition.answererScore < (0.9 * alternatives.gainValue)){
      
-                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                      //alert(proposition.answerer.name + 'found a better alternative, and refused !');
      
      
      
                  } else {
      
-                   alert(proposition.answerer.name + ' accepted the offer!');
+                   //alert(proposition.answerer.name + ' accepted the offer!');
      
                    acceptProposition(proposition);
 
@@ -1103,29 +1106,29 @@ function sendProposition(){
 
             } else {
 
-               alert('proposition refused');
+               //alert('proposition refused');
       
                
                
-               alert('offererscore=>' + proposition.offererScore);
-               alert('answererscore=>' + proposition.answererScore);
+               //alert('offererscore=>' + proposition.offererScore);
+               //alert('answererscore=>' + proposition.answererScore);
                
-               alert('we talk about the proposition with this offer ');
+               //alert('we talk about the proposition with this offer ');
 
 
                for(var i=0; i < proposition.offer.array.length ; i++){
 
-                    alert(proposition.offer.array[i].name);
+                    //alert(proposition.offer.array[i].name);
 
                }
 
 
-               alert('we talk about the proposition with this cpa ');
+               //alert('we talk about the proposition with this cpa ');
 
 
                for(var i=0; i < proposition.counterPartAsked.array.length ; i++){
 
-                    alert(proposition.counterPartAsked.array[i].name);
+                    //alert(proposition.counterPartAsked.array[i].name);
 
                }
 
@@ -1219,21 +1222,21 @@ function initHumanAnswerInterface(){
 
 function perceptionCheck(ai, proposition){
 
-     alert('name=>' + ai.name);
-     alert('count=>' + ai.unfairPropositionsRefusals);
+     //alert('name=>' + ai.name);
+     //alert('count=>' + ai.unfairPropositionsRefusals);
 
      if(proposition.unfair == true){
 
-          alert('unfair offer refused')
+          //alert('unfair offer refused')
 
          if(ai.unfairPropositionsRefusals== 3){
 
-          alert('after 4 unfaire trick refusals, the AI becomes aggressive');
+          //alert('after 4 unfaire trick refusals, the AI becomes aggressive');
              ai.humanPerception = uncooperative;
 
              setTimeout(function(){
 
-               alert('the AI calmed down!');
+               //alert('the AI calmed down!');
 
                ai.humanPerception = regular;
 
@@ -1243,12 +1246,12 @@ function perceptionCheck(ai, proposition){
 
               ai.unfairPropositionsRefusals+= 1;
 
-              alert('the AI knows , deep down , that it made an unfair offer to you , but noted that you refused ');
+              //alert('the AI knows , deep down , that it made an unfair offer to you , but noted that you refused ');
          }
  
      } else {
 
-          alert('fair offer refused')
+          //alert('fair offer refused')
 
           if(ai.unfairPropositionRefusals == 1){
 
@@ -1260,16 +1263,25 @@ function perceptionCheck(ai, proposition){
 
                }, 120000);
 
-              alert('after 2 fair trick refusals, the AI becomes aggressive');
+              //alert('after 2 fair trick refusals, the AI becomes aggressive');
                
            } else {
   
                ai.fairPropositionRefusals += 1;
              
-               alert('The AI noted that you made a refusal to a fair offer');
+               //alert('The AI noted that you made a refusal to a fair offer');
   
            }
 
      }
+
+}
+
+
+
+
+
+function displayBankruptcyInterface(){
+
 
 }

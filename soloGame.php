@@ -154,7 +154,7 @@
 
        <h5 id='availablePropertyPriceHTML'></h5>
 
-       <button onclick='/*buyAvailableProperty() */ tryToBuyAvailableProperty(lastDiceLauncher, squaresArray[lastDiceLauncher.position])'>Oui</button>
+       <button onclick='tryToBuyAvailableProperty(lastDiceLauncher, squaresArray[lastDiceLauncher.position])'>Oui</button>
 
        <button onclick='dontBuyAvailableProperty()'>Non</button>
 
@@ -351,7 +351,7 @@
 
         <div id='managementDiv'>
 
-              <div><button onclick='launchDicesAndMovePieces()'>Lancer</button></div>
+              <div><button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button></div>
 
               <div> <button onclick = 'displayPropertiesManagementInterface()'>Gérer</button></div>
 

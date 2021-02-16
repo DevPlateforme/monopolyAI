@@ -52,7 +52,7 @@ function hashAndStore(proposition){
     declinedPropositionsHashTable[hash % HASHENTRIES] = proposition ;
 
 
-    alert('hashed refusal =>' + (hash % HASHENTRIES) );
+    //alert('hashed refusal =>' + (hash % HASHENTRIES) );
 
     
     setTimeout(function(){

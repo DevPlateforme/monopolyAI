@@ -16,6 +16,7 @@ function init(){
     givePlayersPropertiesForDemo();
 
     wakeUpAis();
+    
 
   }
 
@@ -83,50 +84,61 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     humanPlayer.propertiesByColor[brown.index].properties.push(belleville);
-     humanPlayer.propertiesByColor[yellow.index].properties.push(placeDeLaBourse);
-     humanPlayer.propertiesByColor[lightBlue.index].properties.push(avenueDeLaRepublique);
-     humanPlayer.propertiesByColor[purple.index].properties.push(avenueDeNeuilly);
-     humanPlayer.propertiesByColor[darkBlue.index].properties.push(rueDeLaPaix);
-
-     humanPlayer.propertiesCount += 1;
-
-     humanPlayer.mortgages += 1;
+     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
+     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
+     addPropertyToPlayerWallet(humanPlayer , avenueDeNeuilly);
+     addPropertyToPlayerWallet(humanPlayer , rueDuParadis);
+     addPropertyToPlayerWallet(humanPlayer , avenueMozart);
+     addPropertyToPlayerWallet(humanPlayer , avenueDeBreteuil);
 
 
 
-     ai1.propertiesByColor[brown.index].properties.push(rueLecourbe);
-     ai1.propertiesByColor[yellow.index].properties.push(faubourgSaintHonore, rueLaFayette);
-     ai1.propertiesByColor[purple.index].properties.push(bdDeLaVillette);
-     ai1.propertiesByColor[green.index].properties.push(avenueFoch, bdDesCapucines);
-     ai1.propertiesByColor[orange.index].properties.push(placePigalle);
-
-
-
-
-     ai1.propertiesCount += 1;
-     
-
-     ai2.propertiesByColor[red.index].properties.push(avenueMatignon);
-     ai2.propertiesByColor[purple.index].properties.push(rueDuParadis);
-     ai2.propertiesByColor[yellow.index].properties.push(avenueDesChampsElysees);     
-     ai2.propertiesByColor[publicServicesColor.index].properties.push(publicServiceElectricity);
-
-
-     ai2.propertiesCount += 1;
 
      
-     ai3.propertiesByColor[red.index].properties.push(bdMalesherbes);
-     ai3.propertiesByColor[lightBlue.index].properties.push(rueDeVaugirard);
-     ai3.propertiesByColor[orange.index].properties.push(avenueMozart, boulevardSaintMichel);
-     ai3.propertiesByColor[green.index].properties.push(avenueDeBreteuil);
+     humanPlayer.propertiesCount += 3;
+
+     addPropertyToPlayerWallet(ai1 , faubourgSaintHonore);
+     addPropertyToPlayerWallet(ai1 , rueLaFayette);
+     addPropertyToPlayerWallet(ai1 , placeDeLaBourse);
+     addPropertyToPlayerWallet(ai1 , avenueHenriMartin);
+     addPropertyToPlayerWallet(ai1 , avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai1 , publicServiceWater);
 
 
-     ai3.propertiesCount += 1;
+
+   
+  
+     ai1.propertiesCount += 3;
+
+       
+     addPropertyToPlayerWallet(ai2 , rueDeCourcelles);
+     addPropertyToPlayerWallet(ai2 , avenueFoch);
+     addPropertyToPlayerWallet(ai2 , boulevardSaintMichel);
+     addPropertyToPlayerWallet(ai2 , placePigalle);
+     addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
+     addPropertyToPlayerWallet(ai2 , publicServiceElectricity);
+     addPropertyToPlayerWallet(ai2 , gareDeMontparnasse);
+
+
+     ai2.propertiesCount += 2;
+
+     
+     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
+     addPropertyToPlayerWallet(ai3 , avenueMatignon);
+     addPropertyToPlayerWallet(ai3 , belleville);
+     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
+     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
+     addPropertyToPlayerWallet(ai3 , bdDesCapucines);
+     addPropertyToPlayerWallet(ai3 , gareDuNord);
+
+
+
+
+
+
+     ai3.propertiesCount += 3;
 
 }
-
-
 
 
 
@@ -186,15 +198,16 @@ function wakeUpAis(){
 
     setTimeout(function(){ aiReflects(ai1)}, 5000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 10000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 7000 ) ;
 
-    setTimeout(function(){ aiReflects(ai3)}, 15000 ) ;
+    setTimeout(function(){ aiReflects(ai3)}, 9000 ) ;
 
 }
 
 
 
 var humanThinking = false;
+
 var AiThinking = false;
 
 
@@ -208,7 +221,7 @@ function aiReflects(ai){
 
      } else {
 
-        ////alert('an AI is already thinking!');
+        //////alert('an AI is already thinking!');
 
 
      }
@@ -217,7 +230,7 @@ function aiReflects(ai){
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
            
-       setTimeout(function(){ aiReflects(ai) }, 5000 );  
+       setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
 
 }
 

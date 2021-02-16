@@ -1,6 +1,8 @@
 
 
 function launchDices(){
+
+
      
     //because Math.random() is a number below 1, the max number that be obtained by this operation would be 11, if we didn't add 1
       
@@ -9,12 +11,19 @@ function launchDices(){
     
     //update the diceLauncher index
 
-    if(nextDiceLauncherIndex == 3){
+    if(nextDiceLauncherIndex == (playersArray.length - 1)){
 
         nextDiceLauncherIndex = 0;
+
     } else {
+
         nextDiceLauncherIndex++;
+
     }
+
+
+    nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+
 
 
     return diceResult;
@@ -29,17 +38,17 @@ function movePiece(){
 
     if(nextDiceLauncherIndex == 0){
 
-         lastDiceLauncher = playersArray[2];
+         lastDiceLauncher = playersArray[playersArray.length - 1];
 
     } else {
 
         lastDiceLauncher = playersArray[nextDiceLauncherIndex - 1];
+        
     }
 
 
     //using the dice result function launched just before
     
-    let oldPosition = lastDiceLauncher.position;
 
 
     let updatedPosition  = lastDiceLauncher.position + diceResult;
@@ -55,8 +64,10 @@ function movePiece(){
 
      lastDiceLauncher.position = updatedPosition;
 
+    
+
       
-     ////alert(' le joueur ' + lastDiceLauncher.name + ' est passé de la case ' + oldPosition + ' à la position ' + updatedPosition + ' ce qui correspond à la case ' + squaresArray[updatedPosition].name);
+     alert(' le joueur ' + lastDiceLauncher.name + ' est à présent sur la case ' + squaresArray[updatedPosition].name);
 
 
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
@@ -98,28 +109,80 @@ function movePiece(){
 
    function launchDicesAndMovePieces(){
 
+      let nextDiceLauncheInterval;
+ 
+      hideDiceLaunchButton();
+
 
        //MAKE ALL THE OTHER INTEFACES DISAPPEAR
 
-    
       launchDices();
 
       movePiece();
+
+      console.log( lastDiceLauncher.name + ' just launched dices!!');
 
       launchPLProcess();
       
         //FOR AIS, NO NEED TO EXECUTE THIS PART
 
         //WAIT FOR THE PLAYER TO MAKE ITS POST LAUNCH MOVE, WHICH WILL FILL THE VARIABLE POSTLAUNCH DECISION
-                
-
+                        
         postLaunchMoveCheckInterval = setInterval( function(){
+
+             if(postLaunchDecision != done){
+
+              console.log('*****************************************no decisions were taken yet');
+
+             }
         
               if(postLaunchDecision == done){
 
-                  clearTimeout(postLaunchMoveCheckTimeout);
+                 AiThinking = false;
 
-                   //GO ON
+                 console.log('**************time for the next player to launch');
+
+
+                   //NEXT PLAYER
+
+                   setTimeout(
+
+
+                     function(){
+
+                      nextDiceLauncheInterval = setInterval(function(){
+
+                        if(AiThinking == false && humanThinking == false){
+
+                          alert(nextDiceLauncher.name + ' will launch dices!!');
+
+                          AiThinking = true;
+
+                          clearInterval(nextDiceLauncheInterval)
+
+
+                          if(nextDiceLauncher == humanPlayer){
+                     
+                            displayDiceLaunchButton();
+  
+                          } else {
+
+                            console.log('*******the next dice launcher isnt the human!!')
+  
+                            launchDicesAndMovePieces();
+   
+                          }
+
+
+                        }
+
+                      }, 500);
+                      
+
+                     } , 5000);
+
+                     clearTimeout(postLaunchMoveCheckInterval);
+
 
                }  
           
@@ -132,13 +195,34 @@ function movePiece(){
 
            //BREAK       
 
-          }
+             alert('the player took too much time to play!!');
 
-      }, 500)
+             if(lastDiceLauncher == humanPlayer){
+
+                 if(humanPlayer.propositionToAnswer != none){
+
+                    refusePropositionFromInterface();
+
+                 } else {
+
+                    closeAvailablePropertyInterface();
+
+                    closeChanceSquareInterface();
+ 
+                    closeCommunityChestSquareInterface();
+
+                }
+ 
+             }
+
+             postLaunchDecision = done;
+
+            }
+
+         }, 60000) ;
 
 
 
-      
 
   }
 
@@ -147,12 +231,15 @@ function movePiece(){
 
    function launchPLProcess(){ 
 
+      
+
 
        let currentSquare = squaresArray[lastDiceLauncher.position];
 
+       let missingCash;
+
 
      //ACTIONS WERE THE PLAYER HAS NO CHOICES (DONE AUTOMATICALLY)
-
 
      
          //IF CURRENT SQUARE == OWNED
@@ -166,15 +253,6 @@ function movePiece(){
                      
                //IF PARC : NOTHING
 
-
-
-
-
-          
-
-   //ACTIONS WERE THERE IS A CHOICE OR ACTION TO DO.
-
-
               
    //IF CURRENT SQUARE ISNT OWNED : INTERFACE -->DO YOU WANT TO BUY?
 
@@ -187,49 +265,133 @@ function movePiece(){
 
              if(lastDiceLauncher.cash > currentSquare.value){
 
-                   displayAvailablePropertyInterface(currentSquare);
+                  if(lastDiceLauncher == humanPlayer){
+
+                      displayAvailablePropertyInterface(currentSquare);
+
+                  } else {
+
+                     console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
+
+                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+                     
+                  }
 
              } else {
 
+              if(lastDiceLauncher == humanPlayer){
 
-               ////alert('vous n avez pas assez de cash pour acheter cette propriété!');
+
+              } else {
+                           
+
+                 if(lastDiceLauncher.cash < 0){
+
+                      missingCash = (-lastDiceLauncher.cash ) + currentSquare.value;
+
+                 } else {
+
+                     missingCash = currentSquare.value - lastDiceLauncher.cash;
+
+                 }
+
+
+                 if(findCashWithNonMonopolyProperties(lastDiceLauncher , missingCash) == true){
+
+                     console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
+
+                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+
+                } else {
+
+                    console.log(lastDiceLauncher.name + ' tried to find cash , but couldnt');
+
+                }
 
              }
+               alert('vous n avez pas assez de cash pour acheter cette propriété!');
+         }
 
          
-          } else {
+      } else {
 
-            ////alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+            alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
              lastDiceLauncher.cash -= getRent(currentSquare);
 
-             ////alert('vous payez la somme de ' + getRent(currentSquare));
+             
+             if(lastDiceLauncher.cash < 0){
 
-             ////alert('indeed, the number of houses on this property is ' + currentSquare.houses);
+                //missing cash ==> distance from 0
 
-             checkForBankruptcy(lastDiceLauncher);
-       
+                missingCash = -lastDiceLauncher.cash;
+
+                 playerInBankruptcy(lastDiceLauncher);
+                 
+                if(lastDiceLauncher == humanPlayer){
+
+                  displayBankruptcyInterface();
+                
+                } else {
+                  
+                  findCash(lastDiceLauncher , missingCash);
+
+                }
+
+             }
+
+
+             postLaunchDecision = done ;
+
+      
         }
 
+
        } else if (currentSquare.type == communityChest){
-         
-           displayCommunityChestSquareInterface();
+
+          if(lastDiceLauncher == humanPlayer){
+
+              displayCommunityChestSquareInterface();
+
+          } else {
+
+             drawCommunityChestCardAndExecuteAction()
+
+
+          }
 
        } else if (currentSquare.type == luck){
-           
-           displayChanceSquareInterface();
+  
+          if(lastDiceLauncher == humanPlayer){
+
+              displayChanceSquareInterface();
+
+         } else {
+
+             drawChanceCardAndExecuteAction()
+
+         }
+             
+      }
+
+      
+      if(lastDiceLauncher != humanPlayer){
+
+          alert('ok , post launch decision done!!')
+
+             postLaunchDecision = done;
 
       }
-  
-    
 
-         
+    
     }
 
     
 
 
    function drawCommunityChestCardAndExecuteAction(){
+
+      let missingCash;
        
         //THIS ACTION IS AUTOMATIC
 
@@ -240,24 +402,43 @@ function movePiece(){
 
                let card = communityChestCardsList[0];
                
-               ////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
+               //////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
 
                if(card.type == 'collection'){
 
-                ////alert('vous recevez la somme de ' + card.collection + ' dollars' );
+                //////alert('vous recevez la somme de ' + card.collection + ' dollars' );
     
               } else if(card.type == 'payment'){
     
-                    ////alert('vous payez la somme de ' + card.fee + ' dollars' );
+                    //////alert('vous payez la somme de ' + card.fee + ' dollars' );
     
                     lastDiceLauncher.cash -= card.fee;
     
-                    checkForBankruptcy(lastDiceLauncher);
+                           
+                if(lastDiceLauncher.cash < 0){
+
+                       //missing cash ==> distance from 0
+
+                     missingCash = -lastDiceLauncher.cash;
+
+                    playerInBankruptcy(lastDiceLauncher);
+               
+                if(lastDiceLauncher == humanPlayer){
+
+                   displayBankruptcyInterface();
+              
+               } else {
+                
+                  findCash(lastDiceLauncher , missingCash);
+
+              }
+
+           }
     
     
-              } else if (card.type == 'movement'){
+         } else if (card.type == 'movement'){
     
-                ////alert('vous vous déplacez jusque ' + card.destination.name);
+                //////alert('vous vous déplacez jusque ' + card.destination.name);
 
                 
     
@@ -271,7 +452,7 @@ function movePiece(){
             } else {
 
 
-               ////alert('il n y a plus de cartes dans le paquet!');
+               //////alert('il n y a plus de cartes dans le paquet!');
 
 
             }
@@ -283,7 +464,13 @@ function movePiece(){
         //IF MOVEMENT, MOVE
 
          
-        setTimeout( function(){ closeCommunityChestSquareInterface()}, 1500);
+        setTimeout( function(){ 
+
+          postLaunchDecision = done;
+          
+          closeCommunityChestSquareInterface() ;
+        
+        }, 1500);
 
                  
       }
@@ -299,16 +486,16 @@ function movePiece(){
 
               let card =  chanceCardsList[0];
               
-          ////alert('vous avez piochés la carte chance :  ' + card.description);
+          //////alert('vous avez piochés la carte chance :  ' + card.description);
 
 
           if(card.type == 'collection'){
 
-            ////alert('vous recevez la somme de ' + card.collection + ' dollars' );
+            //////alert('vous recevez la somme de ' + card.collection + ' dollars' );
 
           } else if(card.type == 'payment'){
 
-                ////alert('vous payés la somme de ' + card.fee + ' dollars' );
+                //////alert('vous payés la somme de ' + card.fee + ' dollars' );
 
                lastDiceLauncher.cash -= card.fee;
 
@@ -317,7 +504,7 @@ function movePiece(){
 
           } else if (card.type == 'movement'){
 
-            ////alert('vous vous déplacez jusque ' + card.destination.name);
+            //////alert('vous vous déplacez jusque ' + card.destination.name);
 
           }
 
@@ -325,11 +512,14 @@ function movePiece(){
          
        } else {
 
-          ////alert('il n y a plus de cartes dans le paquet!')
+          //////alert('il n y a plus de cartes dans le paquet!')
        }
 
 
-          setTimeout( function(){ closeChanceSquareInterface()}, 1500);
+          setTimeout( function(){ 
+            
+            postLaunchDecision = done;            
+            closeChanceSquareInterface()}, 1500);
 
    }
 
@@ -423,7 +613,7 @@ function buyAvailableProperty(){
 
 function dontBuyAvailableProperty(){
 
-
+    postLaunchDecision = done;
     closeAvailablePropertyInterface();  
 
 }
@@ -478,7 +668,7 @@ function setPostLaunchActionToDone(){
 
 function playerPaymentToTheBank(player, amount){
 
-     ////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
+     //////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }
 
@@ -513,16 +703,21 @@ function acceptTrade(proposition){
      
      if(player.cash < property.houseValue ){
 
-        alert('the player is looking to find some cash...');
-             
-        if(findCash(player, property) == false){
+        alert('you dont have enough cash...!!');
+     
+     } else {
+       
+       addPropertyToPlayerWallet(player, property);
+ 
+
+       closeAvailablePropertyInterface();
+
+     
+       //alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
+
+       postLaunchDecision = done;
 
 
-          alert('...unfortunately, we couldnt find the cash needed');
-
-            return false;
-
-        }
 
      }
 
@@ -530,13 +725,6 @@ function acceptTrade(proposition){
      
 
 
-     addPropertyToPlayerWallet(player, property);
-
-
-     closeAvailablePropertyInterface();
-
-
-     alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
 
 
 

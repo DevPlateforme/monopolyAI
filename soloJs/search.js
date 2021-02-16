@@ -195,20 +195,22 @@ var nodes = 0;
 
     //Store the monopoly properties . When the function newMonopoly is triggered :
 
-
     if(ai.mortgagedMonopolyProperties.length > 0){
+
 
         for(var i=0; i < ai.mortgagedMonopolyProperties.length ; i++){
 
-            if(ai.cash >= player.mortgagedMonopolyProperties[i].mortgageValue){
+            if(ai.cash >= ai.mortgagedMonopolyProperties[i].mortgageValue){
 
-                closeMortgage(player.nonMonopolyProperties[i]);
+                closeMortgage(ai.mortgagedMonopolyProperties[i]);
+
 
                 ai.mortgagedMonopolyProperties.splice(i,1);
 
-                if(ai.mortgagedMonopolyProperties.length > 0){
+                if(ai.mortgagedMonopolyProperties.length == 0 || ai.mortgages == 0 ){
 
                     break;
+
                 }
 
                 i--;
@@ -220,7 +222,9 @@ var nodes = 0;
 
         }
 
-    }
+     //alert('mortgage buying check done');     
+
+   }
 
 
   }
@@ -232,7 +236,6 @@ var nodes = 0;
         AiThinking = true;
 
     //can I build a dangerous house? (may require mortgage buying)
-
         
         checkForMortgageBuying(ai);
      
@@ -243,10 +246,6 @@ var nodes = 0;
         AiThinking = false;
 
         console.log(ai.name + ' finished its search!');
-
-        console.log(ai.name  + ' removed=>' + elementsRemoved);
-
-        console.log(ai.name  + ' added=>' + elementsAdded);
 
  }
 
@@ -291,16 +290,14 @@ var nodes = 0;
 
 function opponentsOnSquareBehind( property, number) {
 
-    alert('number is ' + number);
-
     
-    let otherPlayers = [ai2, humanPlayer]; //getOtherPlayersArray(property.landLord);
+    let otherPlayers = [ai2, ai3, humanPlayer]; //getOtherPlayersArray(property.landLord);
 
     let playersCount = 0;
         
        //if there are players
 
-    let square = simulateBackwardMovement( property.square , 7);
+    let square = simulateBackwardMovement( property.square , number);
 
 
 
@@ -309,15 +306,17 @@ function opponentsOnSquareBehind( property, number) {
 
      for(var i=0 ; i < otherPlayers.length ; i++){
 
-        alert('num' + number + ',' + 'square=>' +  square  + ' , op square =>' + otherPlayers[i].position  )
-
          if(otherPlayers[i].position == square){
-
              playersCount += 1;
-
          }
 
      }
+
+
+
+
+     //alert('players count =>' + playersCount);
+
 
 
   return playersCount;
@@ -364,7 +363,7 @@ function getBetterPositionedMonopoly(ai){
 
 
 
-    alert('best monop color ==> ' + bestMonopColor);
+    //alert('best monop color ==> ' + bestMonopColor);
 
 
     return bestMonopColor;
@@ -382,13 +381,12 @@ function getPositionScore(property){
       
      
     for(var i=0; i < dicesNumbersByProba.length ; i++){
-        
 
-       score += opponentsOnSquareBehind( simulateBackwardMovement(property.position , dicesNumbersByProba[i]) ) * probasFrom10to4[i];
-        
+        score += opponentsOnSquareBehind(property , dicesNumbersByProba[i] ) * probasFrom10to4[i];
+
     }
 
-    alert('score=>' + score);
+    //alert('score calc ******************* =>' + score);
 
 
     return score; 
@@ -400,11 +398,11 @@ function getPositionScore(property){
 function buildOnNextAvailableSlot(player, color){
 
     // 0 , 1 , 2 ...
+    //find the property with the less properties, build on it.
+     
+    let smallestSlot = getSmallestSlot(player, color);
 
-    monopolyCheck.nextAvailableSlot = 3;
-
-
-    //When a player loses a monopoly, it first sells all its houses
+    buildHouse(smallestSlot);
 
 }
 
@@ -417,20 +415,20 @@ function findCash(player , goal){
     if(findCashWithNonMonopolyProperties(player , goal) == true){
 
 
-        alert('we found the cash!!')
-
           return true;
     }
-
+ 
+    //alert('after mortgaging our non monopoly properties , we still dont have enough cash');
 
 
     if(findCashWithMonopolyProperties(player , goal) == true){
+
 
         return true;
     }
 
 
-    alert('there is no cash to find!!');
+    //alert('there is no cash to find!!');
 
 
     return false;
@@ -471,15 +469,16 @@ function findCashWithMonopolyProperties(player, goal){
      //target the less developed monopoly (with the less houses)
 
      for(var i = player.monopoliesArray.length - 1 ; i >= 0 ; i--){
-
+          
+           let color = player.monopoliesArray[i][0].color;
 
             for(var y = 0 ; y < 15 ; y++){
 
                 //At each iteration, check again if there are houses left
 
-                if(player.monopoliesArray[i].houses > 0){  
+                if(player.propertiesByColor[color.index].houses > 0){  
                     
-                    sellHouse(getNextHouseSlotToSell(player, player.monopoliesArray[i][0].color));
+                    sellHouse(getNextHouseSlotToSell(player, color));
 
                     if(player.cash > goal){
    
@@ -497,16 +496,25 @@ function findCashWithMonopolyProperties(player, goal){
 
            //if selling all the houses of this property didn't managed to reach the goal , get cash from the property mortgage    
          
+          
+           for(var y=0 ; y < player.monopoliesArray[i].length; y++){
 
-           
-            getMortgage(property);
+            
+               getMortgage(player.monopoliesArray[i][y]);
 
-
-            if(player.cash > goal){
+               if(player.cash > goal){
 
                 return true;
 
-             }
+            }
+
+
+
+        }
+
+           
+
+           
          
      }
 
@@ -558,15 +566,17 @@ function getNextHouseSlotToSell(player, color){
 
     //get the / one of the house with the more houses on it
 
-     for(var i = 0 ; i < player.monopoliesArray[color.index].length; i++){
+     for(var i = 0 ; i < player.propertiesByColor[color.index].properties.length; i++){
 
-         if(player.monopoliesArray[color.index][i].houses > selectedProperty.houses ){
+         if(player.propertiesByColor[color.index].properties[i].houses > selectedProperty.houses ){
                 
-            selectedProperty = player.monopoliesArray[color.index][i];
+            selectedProperty = player.propertiesByColor[color.index].properties[i];
 
          }
 
      }
+      
+     //alert(selectedProperty.name + ' selected !');
 
 
      return selectedProperty;
@@ -582,13 +592,40 @@ function getNextHouseSlotToSell(player, color){
 function sellHouse(property){
 
 
-   if(property.houses > 1){
+   if(property.houses > 0){
+
+      property.landLord.propertiesByColor[property.color.index].houses -= 1;
 
       property.houses -= 1;
 
       property.landLord.cash += (property.houseValue/2);
 
+      alert('value==>' + property.houseValue/2)
+
+      alert('house sold on =>' + property.name + ' ! ');
+
    }
  
+}
 
+
+
+
+function getSmallestSlot(player , color){
+
+    let smallestSlot = {houses: infinite};
+
+    for(var i=0 ; i < player.propertiesByColor[color.index].properties.length ; i++){ 
+            
+         if( player.propertiesByColor[color.index].properties[i].houses < smallestSlot.houses ){
+
+             smallestSlot = player.propertiesByColor[color.index].properties[i];
+
+         }
+         
+    }
+
+    //When a player loses a monopoly, it first sells all its houses
+
+    return smallestSlot;
 }

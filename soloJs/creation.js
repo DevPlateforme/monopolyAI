@@ -414,7 +414,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 							if( declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES] != undefined){
                                     							
 
-								////////////////////////////////////alert('we noticed that we already made this proposition, it was refused');
+								//////////////////////////////////////alert('we noticed that we already made this proposition, it was refused');
 
 
                               
@@ -424,11 +424,11 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 							   if(hashedProposition.trickedPlayerScore <  ( 1.2 * hashedProposition.trickedPlayerOpponentScore) ){  
 									  
   
-								  //////////////////////////////////////alert('we found out this offer was refused while it was fair, we wont do it again');
+								  ////////////////////////////////////////alert('we found out this offer was refused while it was fair, we wont do it again');
   
 								  if((hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore)<= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
 									  
-									//////////////////alert('we notice that we downgraded the offer, so no');
+									////////////////////alert('we notice that we downgraded the offer, so no');
 
 									continue;
 
@@ -437,13 +437,13 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 								  
 								  
 
-								  ////////////////////////////////////alert('we managed to downgrade the offer!');
+								  //////////////////////////////////////alert('we managed to downgrade the offer!');
 
-								  ////////////////////////////////////alert('indeed, the ratio was => ' + (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) + ' , and is now =>' + (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) )
+								  //////////////////////////////////////alert('indeed, the ratio was => ' + (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) + ' , and is now =>' + (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) )
 
-								  ////////////////////////////////////alert('indeed, here is the cash in the offer =>' + proposition.offer.cash + ', and in the CPA =>' + proposition.counterPartAsked.cash );
+								  //////////////////////////////////////alert('indeed, here is the cash in the offer =>' + proposition.offer.cash + ', and in the CPA =>' + proposition.counterPartAsked.cash );
 								  
-								  ////////////////////////////////////alert('while, it was , offer =>' + hashedProposition.offer.cash + ', and in the CPA =>' + hashedProposition.counterPartAsked.cash );
+								  //////////////////////////////////////alert('while, it was , offer =>' + hashedProposition.offer.cash + ', and in the CPA =>' + hashedProposition.counterPartAsked.cash );
 
                                   
   
@@ -453,12 +453,12 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
   
 								  
   
-								  //////////////////////////////////////alert('we found out this offer was refused, but were willing to offer more , we wont do it again');
+								  ////////////////////////////////////////alert('we found out this offer was refused, but were willing to offer more , we wont do it again');
   
 								  if( (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) >= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
 									
 									
-									////alert('we notice that we upgraded the offer, so no');
+									//////alert('we notice that we upgraded the offer, so no');
 
 									   continue;
 
@@ -469,13 +469,13 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 							     
 
-								  ////////////////////////////////////alert('we managed to upgrade the offer!');
+								  //////////////////////////////////////alert('we managed to upgrade the offer!');
 
-								  ////////////////////////////////////alert('indeed, the ratio was => ' + (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) + ' , and is now =>' + (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) )
+								  //////////////////////////////////////alert('indeed, the ratio was => ' + (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) + ' , and is now =>' + (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) )
 
-								  ////////////////////////////////////alert('indeed, here is the cash in the offer =>' + proposition.offer.cash + ', and in the CPA =>' + proposition.counterPartAsked.cash );
+								  //////////////////////////////////////alert('indeed, here is the cash in the offer =>' + proposition.offer.cash + ', and in the CPA =>' + proposition.counterPartAsked.cash );
 								  
-								  ////////////////////////////////////alert('while, it was , offer =>' + hashedProposition.offer.cash + ', and in the CPA =>' + hashedProposition.counterPartAsked.cash );
+								  //////////////////////////////////////alert('while, it was , offer =>' + hashedProposition.offer.cash + ', and in the CPA =>' + hashedProposition.counterPartAsked.cash );
 
                                      
 								  
@@ -698,7 +698,7 @@ function getArrayGainValueForPlayer(thinker, player, array){
       
 	 if(color == orange){
 
-		//////////////////////alert(newSetValue);
+		////////////////////////alert(newSetValue);
 	 }
 
 	  return (newSetValue - currentSetValue);
@@ -837,24 +837,24 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * (0.85 + (Math.random()/4) )) ){
   
 
-	    	 //////////////////alert('the tricked player felt that this offer was not acceptable => TP =>' + trickedPlayerScore + ' OS => ' + trickedPlayerOpponentScore);
+	    	 ////////////////////alert('the tricked player felt that this offer was not acceptable => TP =>' + trickedPlayerScore + ' OS => ' + trickedPlayerOpponentScore);
 
 			
-	        //////////////////alert('calculation of the AI => 1PS => ' + ( 0.27 * publicServicesColor.finishedSetValue) + '2 PS => ' + ( 0.5 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.075 * black.finishedSetValue) +   ' ,  2 t => ' + (0.15 * black.finishedSetValue) + ' 2 orange => ' + ' 1P => ' + (0.05 * orange.finishedSetValue) + '3t =>' + (0.33 * black.finishedSetValue))
+	        ////////////////////alert('calculation of the AI => 1PS => ' + ( 0.27 * publicServicesColor.finishedSetValue) + '2 PS => ' + ( 0.5 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.075 * black.finishedSetValue) +   ' ,  2 t => ' + (0.15 * black.finishedSetValue) + ' 2 orange => ' + ' 1P => ' + (0.05 * orange.finishedSetValue) + '3t =>' + (0.33 * black.finishedSetValue))
 
-	        //////////////////alert('calculation of the human =>' + '1 PS => ' + ( 0.6 * publicServicesColor.finishedSetValue) + ', 2 PS => ' + ( 1 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) + ' ,  2 t => ' + (0.25 * black.finishedSetValue) + ' 2 orange => ' + (0.125 * orange.finishedSetValue)  + '3t =>' + (0.5 * black.finishedSetValue) + ' 1P => ' + (0.05 * orange.finishedSetValue));
+	        ////////////////////alert('calculation of the human =>' + '1 PS => ' + ( 0.6 * publicServicesColor.finishedSetValue) + ', 2 PS => ' + ( 1 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) + ' ,  2 t => ' + (0.25 * black.finishedSetValue) + ' 2 orange => ' + (0.125 * orange.finishedSetValue)  + '3t =>' + (0.5 * black.finishedSetValue) + ' 1P => ' + (0.05 * orange.finishedSetValue));
 
 		     for(var i=0; i < offer.array.length; i++){	
-			  //////////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
+			  ////////////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
 		    }
 
-		   //////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
-		   //////////////////////alert('here is the counterpart : ');
+		   ////////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
+		   ////////////////////////alert('here is the counterpart : ');
 
 
 	    for (var i=0; i < counterPartAsked.array.length; i++){
 		   
-		   //////////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+		   ////////////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 		  
 	    }
 
@@ -867,44 +867,44 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
             
 		 
 
-	//////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+	////////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
 	
-	//////////////////////////////////////alert('the answererScore before =>' + answererScore);
+	////////////////////////////////////////alert('the answererScore before =>' + answererScore);
 	
 	
 
-	////////////alert('the tricked player felt that this offer was acceptable => TP =>' + trickedPlayerScore + ' OS => ' + trickedPlayerOpponentScore);
+	//////////////alert('the tricked player felt that this offer was acceptable => TP =>' + trickedPlayerScore + ' OS => ' + trickedPlayerOpponentScore);
 
-	//////////////////alert('calculation of the AI => 1PS => ' + ( 0.45 * publicServicesColor.finishedSetValue) + '2 PS => ' + ( 0.7 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) +   ' ,  2 t => ' + (0.12 * black.finishedSetValue) + ' 2 orange => ' + ' 1P => ' + (0.05 * orange.finishedSetValue) + '3t =>' + (0.33 * black.finishedSetValue))
+	////////////////////alert('calculation of the AI => 1PS => ' + ( 0.45 * publicServicesColor.finishedSetValue) + '2 PS => ' + ( 0.7 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) +   ' ,  2 t => ' + (0.12 * black.finishedSetValue) + ' 2 orange => ' + ' 1P => ' + (0.05 * orange.finishedSetValue) + '3t =>' + (0.33 * black.finishedSetValue))
 
-	//////////////////alert('calculation of the human =>' + '1 PS => ' + ( 0.6 * publicServicesColor.finishedSetValue) + ', 2 PS => ' + ( 1 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) + ' ,  2 t => ' + (0.25 * black.finishedSetValue) + ' 2 orange => ' + (0.125 * orange.finishedSetValue)  + '3t =>' + (0.5 * black.finishedSetValue) + ' 1P => ' + (0.05 * orange.finishedSetValue));
+	////////////////////alert('calculation of the human =>' + '1 PS => ' + ( 0.6 * publicServicesColor.finishedSetValue) + ', 2 PS => ' + ( 1 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) + ' ,  2 t => ' + (0.25 * black.finishedSetValue) + ' 2 orange => ' + (0.125 * orange.finishedSetValue)  + '3t =>' + (0.5 * black.finishedSetValue) + ' 1P => ' + (0.05 * orange.finishedSetValue));
 
 
-	////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
+	//////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
 
-	////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
+	//////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
 	
 
 	for(var i=0; i < offer.array.length; i++){	
-	   //////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
+	   ////////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
    }
 
-	 //////////////////alert('and, here is the cash in the offer :' + offer.cash);				
-	//////////////////alert('here is the counterpart : ');
+	 ////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
+	////////////////////alert('here is the counterpart : ');
 
 
   for (var i=0; i < counterPartAsked.array.length; i++){
 	  
-	//////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+	////////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 
 
 	 
   }
 
 
-  //////////////////alert('cash asked ' + counterPartAsked.cash);
+  ////////////////////alert('cash asked ' + counterPartAsked.cash);
 
 
 }
@@ -916,9 +916,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	if(gainType == indirectGain){
 		
-    	//alert('loss for the offerer ===> ' + offer.lossValueForTheOwner);
+    	////alert('loss for the offerer ===> ' + offer.lossValueForTheOwner);
 
-	    //alert('gain for the offerer ===> ' + counterPartAsked.gainValueForTheOtherPlayer);
+	    ////alert('gain for the offerer ===> ' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
 
@@ -929,7 +929,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 
-//////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
+////////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
      answererScore -= counterPartAsked.lossValueForTheOwner;
@@ -996,11 +996,11 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 
-	 if(Number(thinkerScore) > 0){
+	 if(Number(thinkerScoreWithoutCash) > 0){
 
 
 
-		//////////////////////////////////////alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
+		////////////////////////////////////////alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
 
 		//determine a certain range
 		//IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)
@@ -1015,9 +1015,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 				    //THE AI1 wants to have a better situation than the other player
 			        //bottomLimit = interlocutorScore * ((Math.random()/5) + 0.5);
 
-					topLimit = interlocutorScore * 1.3;
+					topLimit = interlocutorScore * 1.25;
 
-					bottomLimit = interlocutorScore * 0.8;
+					bottomLimit = interlocutorScore * 0.75;
 	   
 
 			
@@ -1039,7 +1039,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
  
 				}
  
-		 } else {
+		    } else {
 
 			 //IF THE OTHER PLAYER IS NOT AN ADVANCED AI , THEN THE AI WILL ONLY MAKE PROPOSITIONS, NOT REACHING A CERTAIN LIMIT (ACCORDING TO ITW OWN POINT OF VIEW)
 
@@ -1072,52 +1072,52 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					if(offer.array[0] == avenueMatignon && counterPartAsked.array[0] == avenueFoch ){ 
 						
 						
-					////alert("cette proposition est raisonnable!!!!!!!!!!!!!!!!!!!! (offerer: " + offerer.name + ')');
+					//////alert("cette proposition est raisonnable!!!!!!!!!!!!!!!!!!!! (offerer: " + offerer.name + ')');
 
-					////alert(' Answerer: ' + answerer.name + ')');
+					//////alert(' Answerer: ' + answerer.name + ')');
    
-					////alert('The offerer perceived a value of ' + offererScore );
+					//////alert('The offerer perceived a value of ' + offererScore );
 
-					////alert(' Offerer gain => ' + counterPartAsked.gainValueForTheOtherPlayer);
+					//////alert(' Offerer gain => ' + counterPartAsked.gainValueForTheOtherPlayer);
 
-					////alert(' Offerer loss => ' + offer.lossValueForTheOwner);
-
-					
-					////alert(' answerer gain => ' + offer.gainValueForTheOtherPlayer);
-
-					////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);
+					//////alert(' Offerer loss => ' + offer.lossValueForTheOwner);
 
 					
+					//////alert(' answerer gain => ' + offer.gainValueForTheOtherPlayer);
 
-
+					//////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);
 
 					
 
+
+
+					
+
    
-					//////alert('the answerer perceived a value of ' + answererScore );
-					//////alert('offerer gain value => ' + (counterPartAsked.gainValueForTheOtherPlayer - offer.cash));	
+					////////alert('the answerer perceived a value of ' + answererScore );
+					////////alert('offerer gain value => ' + (counterPartAsked.gainValueForTheOtherPlayer - offer.cash));	
 					
 					
-					//////////alert('2 reds =>' + (0.13 * red.finishedSetValue));
+					////////////alert('2 reds =>' + (0.13 * red.finishedSetValue));
    
-					//////////alert('2 oranges =>' + (0.13 * orange.finishedSetValue));
+					////////////alert('2 oranges =>' + (0.13 * orange.finishedSetValue));
    
    
    
-					////////////////////////////////////////alert('here is the offer : ');
+					//////////////////////////////////////////alert('here is the offer : ');
 	
 	
 				   for(var i=0; i < offer.array.length; i++){	
-						////////alert('offer element ' + i + ' ' + offer.array[i].name);
+						//////////alert('offer element ' + i + ' ' + offer.array[i].name);
 				   }
 	
-					   ////////////////////////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
-					   ////////////////////////////////////////alert('here is the counterpart : ');
+					   //////////////////////////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
+					   //////////////////////////////////////////alert('here is the counterpart : ');
 	
 	
 				   for (var i=0; i < counterPartAsked.array.length; i++){
 					   
-					 ////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+					 //////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 					  
 				   }
    
@@ -1132,7 +1132,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 			
 			}
 
-			//////////////////////////////alert('true...')
+			////////////////////////////////alert('true...')
 
 
 				return true;
@@ -1148,63 +1148,63 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
 
-						////alert("cette proposition n'est pas raisonnable (offerer : " + offerer.name + ' , answerer =>' + answerer.name +')');
+						//////alert("cette proposition n'est pas raisonnable (offerer : " + offerer.name + ' , answerer =>' + answerer.name +')');
 
-						////alert('offererScore =>' + offererScore );
+						//////alert('offererScore =>' + offererScore );
 
 
-						////alert('answererScore =>' + answererScore );
+						//////alert('answererScore =>' + answererScore );
 						
 	
-						////alert(' Offerer gain => ' + counterPartAsked.gainValueForTheOtherPlayer);
+						//////alert(' Offerer gain => ' + counterPartAsked.gainValueForTheOtherPlayer);
 	
-						////alert(' Offerer loss => ' + offer.lossValueForTheOwner);
-	
-						
-						////alert(' answerer gain => ' + offer.gainValueForTheOtherPlayer);
-	
-						////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);
+						//////alert(' Offerer loss => ' + offer.lossValueForTheOwner);
 	
 						
+						//////alert(' answerer gain => ' + offer.gainValueForTheOtherPlayer);
 	
-						//////alert('the answerer perceived a value of ' + answererScore );
+						//////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);
+	
+						
+	
+						////////alert('the answerer perceived a value of ' + answererScore );
 
 						
-			         	//////alert('offerer gain value => ' + counterPartAsked.gainValueForTheOtherPlayer);
+			         	////////alert('offerer gain value => ' + counterPartAsked.gainValueForTheOtherPlayer);
 
 						 
-						//////alert('answerer gain value => ' + offer.gainValueForTheOtherPlayer);
+						////////alert('answerer gain value => ' + offer.gainValueForTheOtherPlayer);
 
 						 
 						
-			         	////////////alert('offerer loss value => ' + offer.lossValueForTheOwner);
+			         	//////////////alert('offerer loss value => ' + offer.lossValueForTheOwner);
 
 						 
-						////////////alert('answerer loss value => ' + counterPartAsked.lossValueForTheOwner);
+						//////////////alert('answerer loss value => ' + counterPartAsked.lossValueForTheOwner);
 
 
 
 
-			         	//////////////alert('answerer current red length => ' + answerer.propertiesByColor[red.index].properties.length);
+			         	////////////////alert('answerer current red length => ' + answerer.propertiesByColor[red.index].properties.length);
 
 						 
-			         	//////////////alert('offerer current orange length => ' + offerer.propertiesByColor[orange.index].properties.length);
+			         	////////////////alert('offerer current orange length => ' + offerer.propertiesByColor[orange.index].properties.length);
 
 	  
-						//////////////alert('here is the offer : ');
+						////////////////alert('here is the offer : ');
 	  
 	  
 						for(var i=0; i < offer.array.length; i++){	
-							 //////////////alert('offer element ' + i + ' ' + offer.array[i].name);
+							 ////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
 					   }
 	  
-						 //////////////alert('and, here is the cash in the offer :' + offer.cash);				
-						 //////////////alert('here is the counterpart : ');
+						 ////////////////alert('and, here is the cash in the offer :' + offer.cash);				
+						 ////////////////alert('here is the counterpart : ');
 	  
 	  
 					 for(var i=0; i < counterPartAsked.array.length; i++){
 						 
-						 //////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+						 ////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 						
 					 }
 
@@ -1223,7 +1223,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 				 //console.log('and, here is the cash asked :' + counterPartAsked.cash);
 
-				 //////////////////////////////alert('false...')
+				 ////////////////////////////////alert('false...')
 
 
 				 return false;
@@ -1246,48 +1246,48 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					
 
 
-					////alert("cette proposition n'est pas raisonnable (offerer : " + offerer.name + ' , answerer =>' + answerer.name +')');
+					//////alert("cette proposition n'est pas raisonnable (offerer : " + offerer.name + ' , answerer =>' + answerer.name +')');
 
-					////alert('offerer score => ' + offererScore);
+					//////alert('offerer score => ' + offererScore);
 
-					////alert('answerer score => ' + answererScore);
+					//////alert('answerer score => ' + answererScore);
 
 					
-					 ////alert('offerer gain value => ' + counterPartAsked.gainValueForTheOtherPlayer);
+					 //////alert('offerer gain value => ' + counterPartAsked.gainValueForTheOtherPlayer);
 
 					 
-					 ////alert('answerer gain value => ' + offer.gainValueForTheOtherPlayer);
+					 //////alert('answerer gain value => ' + offer.gainValueForTheOtherPlayer);
 
 					 
 					
-					 ////alert('offerer loss value => ' + offer.lossValueForTheOwner);
+					 //////alert('offerer loss value => ' + offer.lossValueForTheOwner);
 
 					 
-					 ////alert('answerer loss value => ' + counterPartAsked.lossValueForTheOwner);
+					 //////alert('answerer loss value => ' + counterPartAsked.lossValueForTheOwner);
 
 
 
 
-					////////alert('answerer current red length => ' + answerer.propertiesByColor[red.index].properties.length);
+					//////////alert('answerer current red length => ' + answerer.propertiesByColor[red.index].properties.length);
 
 					 
-					 //////////////alert('offerer current orange length => ' + offerer.propertiesByColor[orange.index].properties.length);
+					 ////////////////alert('offerer current orange length => ' + offerer.propertiesByColor[orange.index].properties.length);
 
   
-					//////////////alert('here is the offer : ');
+					////////////////alert('here is the offer : ');
   
   
 					for(var i=0; i < offer.array.length; i++){	
-						 //////////////alert('offer element ' + i + ' ' + offer.array[i].name);
+						 ////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
 				   }
   
-					 //////////////alert('and, here is the cash in the offer :' + offer.cash);				
-					 //////////////alert('here is the counterpart : ');
+					 ////////////////alert('and, here is the cash in the offer :' + offer.cash);				
+					 ////////////////alert('here is the counterpart : ');
   
   
 				 for(var i=0; i < counterPartAsked.array.length; i++){
 					 
-					 //////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
+					 ////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
 					
 				 }
 
@@ -1304,7 +1304,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		
 
 
-		   //////////////////////////////alert('false...')
+		   ////////////////////////////////alert('false...')
   
 	
 		   return false;
@@ -1450,11 +1450,11 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 			   //let set = { opportunity: false}
                 
-			   ////////////////alert(set.opportunity);
+			   //////////////////alert(set.opportunity);
 
 			   if(set.opportunity == true){
 
-				   ////////////////alert('an indirect opportunity was detected!')
+				   //////////////////alert('an indirect opportunity was detected!')
 
 				   //To avoid collision, the elements offered by a "non trading player " were removed temporarily in getSetValueAtDepth2() . Store those objects, to add them back at the end of the iteration.
                    
@@ -1700,8 +1700,6 @@ function monopolyGain(player, sets){
 
 
 
-var elementsRemoved = 0;
-
 
 function removeElementsFromPlayer(player, elementsArray){
 
@@ -1728,8 +1726,6 @@ function removeElementsFromPlayer(player, elementsArray){
 				  
 				  
 
-	            elementsRemoved++;
-
 
 			  }
 
@@ -1742,7 +1738,6 @@ function removeElementsFromPlayer(player, elementsArray){
 }
 
 
-var elementsAdded = 0;
 
 function addElementsToPlayer(player, array){
 
@@ -1758,9 +1753,6 @@ function addElementsToPlayer(player, array){
 		player.propertiesByColor[elementColor.index].properties.push(array[i]);
 
 		
-
-	  elementsAdded++;
-
 
 
 	}

@@ -12,7 +12,6 @@ function squareElement(name, type, color, value, landLord){
 
     this.landLord = landLord;
 
-    this.landLord = landLord;
 }
 
 
