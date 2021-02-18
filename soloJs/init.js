@@ -15,7 +15,7 @@ function init(){
 
     givePlayersPropertiesForDemo();
 
-    wakeUpAis();
+    //wakeUpAis();
 
 
   }
@@ -84,29 +84,13 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai1 , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(ai1 , rueDeCourcelles);
-     addPropertyToPlayerWallet(ai1 , rueDeVaugirard);     
-
-     getMortgage(avenueDeLaRepublique);
-
-     getMortgage(rueDeCourcelles);
+     addPropertyToPlayerWallet(humanPlayer , avenueDeLaRepublique);
+     addPropertyToPlayerWallet(humanPlayer , rueDeCourcelles);
+     addPropertyToPlayerWallet(humanPlayer , rueDeVaugirard);     
     
-     addPropertyToPlayerWallet(ai2, avenueMozart);
-     addPropertyToPlayerWallet(ai2 , boulevardSaintMichel);
-     addPropertyToPlayerWallet(ai2 , placePigalle);
-
-     getMortgage(placePigalle);
-
-
-     addPropertyToPlayerWallet(ai3 , bdDeLaVillette);
-     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai3 , rueDuParadis);
-
-     getMortgage(rueDuParadis);
-
-
-     ai2.propertiesCount += 6;
+     addPropertyToPlayerWallet(humanPlayer, avenueMozart);
+     addPropertyToPlayerWallet(humanPlayer , boulevardSaintMichel);
+     addPropertyToPlayerWallet(humanPlayer , placePigalle);
 
 
 }

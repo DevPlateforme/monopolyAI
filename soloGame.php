@@ -98,29 +98,9 @@
 
         <div id='playerPropertiesDiv'>
 
-          <div>
 
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
 
-          </div>
-
-             <div>
-
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
-
-           </div>
-
-             <div>
-
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
-             <div>rue de Courcelles</div>
-
-          </div>
+      
 
 
 
@@ -133,9 +113,9 @@
 
 
 
-           <div id='propertyManagementTop'></div>
+           <div id='propertyManagementTop'>Mortgaged properties</div>
 
-           <div id='propertyManagementBottom'></div>  
+           <div id='propertyManagementBottom'>Cash</div>  
       
 
 
@@ -353,7 +333,7 @@
 
               <div><button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button></div>
 
-              <div> <button onclick = 'displayPropertiesManagementInterface()'>Gérer</button></div>
+              <div> <button onclick = 'displayPM()'>Gérer</button></div>
 
               <div><button onclick = 'displayPropositionInterface()'>Trade</button></div>
 

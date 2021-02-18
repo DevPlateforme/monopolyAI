@@ -568,12 +568,7 @@ function getNextHouseSlotToSell(player, color){
 
      }
       
-     //alert(selectedProperty.name + ' selected !');
-
-
      return selectedProperty;
-
-
 
 }
 
@@ -583,6 +578,7 @@ function getNextHouseSlotToSell(player, color){
 
 function sellHouse(property){
 
+    alert('property houses ==> ' + property.houses);
 
    if(property.houses > 0){
 
@@ -591,10 +587,6 @@ function sellHouse(property){
       property.houses -= 1;
 
       property.landLord.cash += (property.houseValue/2);
-
-      alert('value==>' + property.houseValue/2)
-
-      alert('house sold on =>' + property.name + ' ! ');
 
    }
  

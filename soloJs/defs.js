@@ -865,6 +865,8 @@ function addPropertyToPlayerWallet(player, property){
 
         newMonopoly(player, propertyColor);
 
+        alert('monopoly trade computed');
+
     };
 
    
@@ -1061,11 +1063,9 @@ function insertMonopoly(player , color){
 
 function getMortgage(property){
 
-        property.mortgage = true ;
+        property.mortgaged = true ;
 
-  
         property.landLord.cash += property.mortgageValue ;
-
 
         property.landLord.mortgages += 1;
 
@@ -1074,6 +1074,10 @@ function getMortgage(property){
               insertMortgagedMonopolyProperty(property.landLord, property);
 
         }        
+
+
+        alert(property.name + ' mortgaged!');
+
 
   }
 

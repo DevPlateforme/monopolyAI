@@ -22,6 +22,8 @@ var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
 
 var launchBtn = document.getElementById('launchBtn');
 
+var pmHumanPropertiesDiv = document.getElementById('playerPropertiesDiv');
+
 
 
 //VARS USED TO CREATE PAWN CONTAINERS
@@ -234,6 +236,9 @@ function closePropertiesManagementInterface(){
      
 
      document.getElementById('playerPropertiesManagementInterface').style.zIndex = 1;
+
+     initPropertiesManagementInterface();
+
 
 }
 
@@ -537,35 +542,6 @@ function displayPropositionInterface(){
 
 
      displayOffererDiv();
-
-
-     //ONE DIV PER PLAYER
-
-
-     //FOR EACH PLAYER DIV : 
-
-
-         
-
-          //CREATE A COPY OF THE PLAYER PROPERTIES. FOR EACH SET, IF A SET IS EMPTY, SPLICE IS FROM THIS ARRAY.
-
-
-          //THEN, FOR EACH ELEMENT OF THE PROPERTIES BY ARRAY COPY,
-
-          //CREATE A DIV SET
-
-
-         //THEN, FOR EACH ELEMENT OF THIS DIV, ADD AN <A>. FOR EACH ELEMENT OF THIS <A> : THERE IS AN ONCLICK FUNCTION "HUMAN ADD ELEMENT TO PROPOSITION".
-
-         //THEN, IF THIS FUNCTION IS PRESSED , THE HUMAN'S PROPERTY PROPOSITIONMADE WILL  = { offer : [ ] , counterPart : [ ] }; IT WILL ADD A DIV FOR THIS ELEMENT , WITH TWO DIVS INSIDE. ONE WITH THE NAME OF THE ELEMENT , THE OTHER WITH A LOGO WITH THE FUNCTION 'DELETE ELEMENT'.
-         
-         //IT CAN DELETE ELEMENTS FROM THE HUMAN.PROPOSITIONMADE.OFFER OR COUNTERPART.
-
-         //THEN, WHEN DONE : WHEN THE PROPOSITION IS SUBMITTED, A PROPOSITION OBJECT IS CREATED, WITH THE TWO PLAYERS, THE COUNTERPART ARRAY (new counterpart asked()) then, the offer (new OFFER())
-
-
-
-         //THE STYLING IS ALREADY DONE.
 
 
       }   
@@ -1296,3 +1272,135 @@ function displayBankruptcyInterface(){
 
 
 }
+
+
+
+
+
+function displayPM(){
+
+     humanThinking = true;
+
+     document.getElementById('playerPropertiesManagementInterface').style.opacity = 1;
+     
+     document.getElementById('playerPropertiesManagementInterface').style.zIndex = 3;
+
+     
+     let propertiesArray = humanPlayer.propertiesByColor;
+
+
+     for(var setIndex = 0; setIndex < propertiesArray.length; setIndex++){
+
+
+          if(propertiesArray[setIndex].properties.length != 0){
+
+               let color = propertiesArray[setIndex].properties[0].color;
+
+               let colorSetDiv = document.createElement('div');
+
+               let buildHouseButton =  document.createElement('button');
+
+               buildHouseButton.setAttribute('onclick' , 'buildHouseFromInterface(' + color.index + ')');
+
+               let sellHouseButton = document.createElement('button');
+
+               sellHouseButton.setAttribute('onclick' , 'sellHouseFromInterface(' + color.index + ')');
+
+
+               buildHouseButton.innerHTML = 'Build a house';
+               sellHouseButton.innerHTML = 'Sell a house';
+
+
+               colorSetDiv.append(buildHouseButton);
+               colorSetDiv.append(sellHouseButton);
+
+               
+                     //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
+
+
+                     for(var propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
+
+                         
+                             let property = propertiesArray[setIndex].properties[propertyIndex];
+
+                             let propertyDiv = document.createElement('div');
+
+                             propertyDiv.setAttribute('id' , property.elementIndex);
+
+
+                           //ADD 2 DIVS IN THE PROPERTY DIV
+
+                            let propertyNameDiv = document.createElement('div');
+
+                            propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+                           
+                            let mortgagePropertyButton =  document.createElement('button');
+
+                            mortgagePropertyButton.setAttribute("onclick" , "getMortgageFromInterface(" +  property.elementIndex + ")");
+
+
+                            //FUNCTION WORKING IN CONSTANT TIME : 
+
+
+                            mortgagePropertyButton.innerHTML = 'mortgage';
+
+                         
+                     //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
+
+
+                          propertyDiv.append(propertyNameDiv);
+ 
+                          propertyDiv.append(mortgagePropertyButton);
+
+
+
+                   //APPEND THIS DIV THE COLOR SET DIV
+
+                          colorSetDiv.append(propertyDiv);
+
+                     }
+
+          
+                     pmHumanPropertiesDiv.append(colorSetDiv);
+
+          }
+               
+     }
+    
+}
+
+
+
+function getMortgageFromInterface(elementIndex){
+
+     let property = propertiesList[elementIndex];
+
+     getMortgage(property);
+
+}
+
+
+
+
+function initPropertiesManagementInterface(){
+
+     pmHumanPropertiesDiv.innerHTML = '';
+
+}
+
+
+
+function buildHouseFromInterface(colorIndex){
+     
+    buildHouse(getNextHouseSlotToBuild(humanPlayer , colorArray[colorIndex]));
+
+}
+
+
+
+function sellHouseFromInterface(colorIndex){
+     
+     sellHouse(getNextHouseSlotToSell(humanPlayer , colorArray[colorIndex]));
+ 
+ }
+ 
