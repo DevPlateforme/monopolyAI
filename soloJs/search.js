@@ -149,48 +149,43 @@ function searchForTradesOpportunities(activePlayer){
      //Simply add probabilities, and build at the next available slot.
 
 
-     if(ai.willingnessToBuild == false){
+     if(ai.monopoliesArray.length > 0){
 
-        return;
+        
+         if(ai.willingnessToBuild == false){
 
-     } else {
+           return;
 
-        ai.willingnessToBuild = false;
+        } else {
+
+           ai.willingnessToBuild = false;
+
+           let betterPositionedMonopoly = getBetterPositionedMonopoly(ai);
 
        
-        //getBetterPositionedMonopoly(ai);
+          if (betterPositionedMonopoly != none){
+               buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+           };
         
 
-        setTimeout(function(){
+          setTimeout(function(){
 
             ai.willingnessToBuild = true;
 
-        }, 10000)
+          }, 5000)
 
-     }
+      }
 
+   }
 
-
-
-     if(ai.monopolies == 0){
-
-        return;
-     }
-
-     
 
  }
 
 
-
-
-
+ 
 var nodes = 0;
 
  
-
-
-
  function checkForMortgageBuying(ai){
 
     //Store the monopoly properties . When the function newMonopoly is triggered :
@@ -203,6 +198,8 @@ var nodes = 0;
             if(ai.cash >= ai.mortgagedMonopolyProperties[i].mortgageValue){
 
                 closeMortgage(ai.mortgagedMonopolyProperties[i]);
+
+                alert('monopoly property freed ====>' + ai.mortgagedMonopolyProperties[i].name);
 
 
                 ai.mortgagedMonopolyProperties.splice(i,1);
@@ -245,8 +242,6 @@ var nodes = 0;
 
         AiThinking = false;
 
-        console.log(ai.name + ' finished its search!');
-
  }
 
 
@@ -257,15 +252,11 @@ var nodes = 0;
 
  function getBestProposition(propositionList){
 
-
     //Select sort
-
 
     let bestProposition = propositionList[0];
 
-
      for(var i=1 ; i < propositionList.length; i++){
-
 
           if(propositionList[i].offererScore > bestProposition.offererScore ){
 
@@ -331,7 +322,6 @@ function opponentsOnSquareBehind( property, number) {
 
 function getBetterPositionedMonopoly(ai){
 
-
      let bestMonopColor = none;
      let bestScore = 0;
      let property;
@@ -339,31 +329,33 @@ function getBetterPositionedMonopoly(ai){
 
     for(var i=0 ; i < ai.monopoliesArray.length ; i++){
 
-        let monopColor = ai.monopoliesArray[i];
+        let monopColor = ai.monopoliesArray[i][0].color;
         let monopScore = 0;
 
-        for(var y = 0; y < ai.propertiesByColor[monopColor.index].properties.length ; y++){
+        
+           //if player cash > getMonopolyHouseValue(ai.monopoliesArray) and if all the houses are unmortgaged 
 
-           property = ai.propertiesByColor[monopColor.index].properties[y];
+           if(ai.cash >= ai.monopoliesArray[i][0].houseValue && checkForMortgageInMonopoly(ai.monopoliesArray) == false){
 
-           monopScore += getPositionScore(property);
+               for(var y = 0; y < ai.monopoliesArray[i].length ; y++){
+  
+                  property = ai.monopoliesArray[i][y];
+ 
+                  monopScore += getPositionScore(property);
+ 
+              }
 
-           
-            if(monopScore > bestScore){
+              if(monopScore > bestScore){
+ 
+                bestMonopColor = monopColor;
+                bestScore = monopScore;
 
-               bestMonopColor = monopColor;
-               bestScore = monopScore;
-   
-            }
+             }
 
-      }
+          }
 
+      } 
 
-   }
-
-
-
-    //alert('best monop color ==> ' + bestMonopColor);
 
 
     return bestMonopColor;

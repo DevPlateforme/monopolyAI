@@ -179,7 +179,7 @@ function movePiece(){
                       }, 500);
                       
 
-                     } , 5000);
+                     } , 1000);
 
                      clearTimeout(postLaunchMoveCheckInterval);
 
@@ -372,6 +372,10 @@ function movePiece(){
 
          }
              
+      } else if(currentSquare == jailVisit || currentSquare == luxuryTax || currentSquare == revenueTax){
+
+             postLaunchDecision = done;
+
       }
 
       

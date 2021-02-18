@@ -65,6 +65,9 @@ function makeProposition(proposition){
 
             if(proposition.answererScore < (0.9 * alternatives.gainValue)){
 
+                 hashAndStore(proposition);
+
+
                  alert(proposition.answerer.name + 'found a better alternative, and refused !');
 
 
@@ -89,13 +92,15 @@ function makeProposition(proposition){
 
               alert(proposition.answerer.name + ' refused the offer!');
 
+              hashAndStore(proposition);
+
+
               
+               alert('-->-->-->-->-->-->proposition refused!!');
 
-     alert('-->-->-->-->-->-->proposition refused!!');
+               alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
 
-     alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
-
-     alert('-->-->-->-->-->-->answerer score => ' + proposition.answererScore);
+               alert('-->-->-->-->-->-->answerer score => ' + proposition.answererScore);
 
 
 

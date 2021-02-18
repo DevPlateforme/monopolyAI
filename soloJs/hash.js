@@ -49,7 +49,16 @@ function hashAndStore(proposition){
 
     let hash = hashProposition(proposition);
 
-    declinedPropositionsHashTable[hash % HASHENTRIES] = proposition ;
+
+    if(declinedPropositionsHashTable[hash % HASHENTRIES] == undefined ){
+
+        declinedPropositionsHashTable[hash % HASHENTRIES] = {proposition: proposition , count : 1 } ;
+
+    } else {
+
+        declinedPropositionsHashTable[hash % HASHENTRIES].count++ ;
+
+    }
 
 
     //alert('hashed refusal =>' + (hash % HASHENTRIES) );

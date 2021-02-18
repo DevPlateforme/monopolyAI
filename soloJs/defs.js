@@ -550,13 +550,11 @@ function buildHouse(property){
 
      property.houses += 1;
 
-     //THIS FUNCTION IS ONLY AVAILABLE (THROUGH)
 
      property.landLord.cash -= property.houseValue;
 
-     ////alert(property.landLord.name + ' just built a house!!');
+     alert(property.landLord.name + ' just built a house on ' + property.name);
 
-    //alert('house built on ' + property.name);
 }
 
 
@@ -1190,5 +1188,30 @@ function gameOver(player){
    alert(player.name + ' was defeated!!')
      
   //delete the player from the players array , delete the player from the dice launchers array
+
+}
+
+
+
+
+
+
+
+
+
+function checkForMortgageInMonopoly(monopoly){
+
+
+   for(var i=0; i < monopoly.length ; i++){
+
+      if(monopoly[i].mortgaged == true){
+
+         return true;
+
+      }
+   }
+
+
+    return false;
 
 }

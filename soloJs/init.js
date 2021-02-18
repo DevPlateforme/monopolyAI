@@ -16,7 +16,7 @@ function init(){
     givePlayersPropertiesForDemo();
 
     wakeUpAis();
-    
+
 
   }
 
@@ -84,59 +84,30 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
-     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
-     addPropertyToPlayerWallet(humanPlayer , avenueDeNeuilly);
-     addPropertyToPlayerWallet(humanPlayer , rueDuParadis);
-     addPropertyToPlayerWallet(humanPlayer , avenueMozart);
-     addPropertyToPlayerWallet(humanPlayer , avenueDeBreteuil);
-
-
-
-
-     
-     humanPlayer.propertiesCount += 3;
-
-     addPropertyToPlayerWallet(ai1 , faubourgSaintHonore);
-     addPropertyToPlayerWallet(ai1 , rueLaFayette);
-     addPropertyToPlayerWallet(ai1 , placeDeLaBourse);
-     addPropertyToPlayerWallet(ai1 , avenueHenriMartin);
      addPropertyToPlayerWallet(ai1 , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(ai1 , publicServiceWater);
+     addPropertyToPlayerWallet(ai1 , rueDeCourcelles);
+     addPropertyToPlayerWallet(ai1 , rueDeVaugirard);     
 
+     getMortgage(avenueDeLaRepublique);
 
-
-   
-  
-     ai1.propertiesCount += 3;
-
-       
-     addPropertyToPlayerWallet(ai2 , rueDeCourcelles);
-     addPropertyToPlayerWallet(ai2 , avenueFoch);
+     getMortgage(rueDeCourcelles);
+    
+     addPropertyToPlayerWallet(ai2, avenueMozart);
      addPropertyToPlayerWallet(ai2 , boulevardSaintMichel);
      addPropertyToPlayerWallet(ai2 , placePigalle);
-     addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
-     addPropertyToPlayerWallet(ai2 , publicServiceElectricity);
-     addPropertyToPlayerWallet(ai2 , gareDeMontparnasse);
+
+     getMortgage(placePigalle);
 
 
-     ai2.propertiesCount += 2;
+     addPropertyToPlayerWallet(ai3 , bdDeLaVillette);
+     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai3 , rueDuParadis);
 
-     
-     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
-     addPropertyToPlayerWallet(ai3 , avenueMatignon);
-     addPropertyToPlayerWallet(ai3 , belleville);
-     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
-     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
-     addPropertyToPlayerWallet(ai3 , bdDesCapucines);
-     addPropertyToPlayerWallet(ai3 , gareDuNord);
+     getMortgage(rueDuParadis);
 
 
+     ai2.propertiesCount += 6;
 
-
-
-
-     ai3.propertiesCount += 3;
 
 }
 
@@ -196,11 +167,11 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, 5000);
+    setTimeout(function(){ aiReflects(ai1)}, 3000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 7000 ) ;
+    setTimeout(function(){ aiReflects(ai2)}, 5000 ) ;
 
-    setTimeout(function(){ aiReflects(ai3)}, 9000 ) ;
+    setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
 
 }
 
@@ -216,6 +187,7 @@ function aiReflects(ai){
 
 
      if(AiThinking == false && humanThinking == false){
+       
 
          aiSearch(ai);
 

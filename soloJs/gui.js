@@ -59,7 +59,7 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 
      humanThinking = true;
-
+     
 
      humanAnswerInterface.style.opacity = 1;
      humanAnswerInterface.style.zIndex = 5;
@@ -210,6 +210,7 @@ function removeDiceLaunchButton(){
 
 function displayPropertiesManagementInterface(){
 
+     humanThinking = true;
 
 
      document.getElementById('playerPropertiesManagementInterface').style.opacity = 1;
@@ -239,6 +240,9 @@ function closePropertiesManagementInterface(){
 
 
 function displayAvailablePropertyInterface(square){
+
+     humanThinking = true;
+
 
      if(lastDiceLauncher.cash >= square.value){
 
@@ -278,12 +282,18 @@ function closeAvailablePropertyInterface(){
 
  function displayCommunityChestSquareInterface(){
 
+     humanThinking = true;
+
+
      document.getElementById('communityChestSquareInterface').style.zIndex = 5;
      document.getElementById('communityChestSquareInterface').style.opacity = 1;
 
  }
 
  function displayChanceSquareInterface(){
+
+     humanThinking = true;
+
     
      document.getElementById('chanceSquareInterface').style.zIndex = 5;
      document.getElementById('chanceSquareInterface').style.opacity = 1;
@@ -514,7 +524,7 @@ function observeAi(ai){
 
 function displayPropositionInterface(){
 
-
+     humanThinking = true;
 
      document.getElementById('propositionInterface').style.opacity = 1;
      document.getElementById('propositionInterface').style.zIndex = 5;
@@ -567,6 +577,7 @@ function displayPropositionInterface(){
 
 function closePropositionInterface(){
 
+     humanThinking = false;
 
      document.getElementById('propositionInterface').style.opacity = 0;
 
@@ -1107,13 +1118,13 @@ function sendProposition(){
             } else {
 
                //alert('proposition refused');
-      
-               
                
                //alert('offererscore=>' + proposition.offererScore);
                //alert('answererscore=>' + proposition.answererScore);
                
                //alert('we talk about the proposition with this offer ');
+
+               hashAndStore(proposition);
 
 
                for(var i=0; i < proposition.offer.array.length ; i++){
