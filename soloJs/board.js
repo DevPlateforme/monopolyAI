@@ -53,7 +53,7 @@ function movePiece(){
 
     let updatedPosition  = lastDiceLauncher.position + diceResult;
       
-     if(updatedPosition > 40){
+     if(updatedPosition >= 40){
 
         //IF THE PLAYER MADE A COMPLETE TURN, TAKE IT INTO ACCOUNT
         
@@ -64,7 +64,11 @@ function movePiece(){
 
      lastDiceLauncher.position = updatedPosition;
 
-    
+
+     console.log('******updatedPosition ' + squaresArray[updatedPosition] )
+
+
+     console.log('******square ' + squaresArray[updatedPosition] )
 
       
      alert(' le joueur ' + lastDiceLauncher.name + ' est à présent sur la case ' + squaresArray[updatedPosition].name);
@@ -300,7 +304,7 @@ function movePiece(){
 
                      console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
-                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+                     //addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
                 } else {
 
@@ -313,7 +317,7 @@ function movePiece(){
          }
 
          
-      } else {
+      } else if( currentSquare.landLord != lastDiceLauncher) {
 
             alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
@@ -610,6 +614,9 @@ function buyAvailableProperty(){
       addPropertyToPlayerWallet(lastDiceLauncher, property);
 
       closeAvailablePropertyInterface();
+
+      postLaunchDecision = done;
+
 
 }
 

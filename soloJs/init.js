@@ -84,14 +84,12 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(humanPlayer , rueDeCourcelles);
-     addPropertyToPlayerWallet(humanPlayer , rueDeVaugirard);     
+     addPropertyToPlayerWallet(ai1 , avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai1 , rueDeCourcelles);
+  
     
-     addPropertyToPlayerWallet(humanPlayer, avenueMozart);
-     addPropertyToPlayerWallet(humanPlayer , boulevardSaintMichel);
- 
-
+     addPropertyToPlayerWallet(ai3 , gareDuNord);
+  
 
 }
 

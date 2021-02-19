@@ -102,6 +102,9 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let propertiesAskedPlusCash;
 	let answerersPerception = regular;
 
+	let lossValueForTheAnswerer = getArrayLossValueForPlayer(answerer, answerer , counterPartAsked.array);
+
+   
 
 	let bestProposition = {thinkerScore: -infinite , proposition: none};
 
@@ -230,9 +233,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	if(publicServices.length > 1){
 
-		//EX: IF THERE ARE THREE TRAINS, WE WILL GENERATE 3 DIFFERENT PROPOSITIONS
-		//(ARRAY = [TRAIN,TRAIN,TRAIN])
-
+		//EX: IF THERE ARE 2 PS, WE WILL GENERATE 2 DIFFERENT PROPOSITIONS
 		//PS
 		//PS PS
 	
@@ -249,12 +250,8 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	}
 
 
-	
-
 
 	propertiesArray = removeColorDuplicates(propertiesArray, counterPartAsked.array);
-
-
 
 	
 	//CASH
@@ -274,16 +271,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	
 	let offererCashSlices;
-
-
-
-    //FIRST, GET THE VALUE OF THE COUNTERPART ASKED
-	//THEN, TRY TO ADD POSSIBLE PROPOSITIONS TO THE MOVELIST
-
-
-	//1 ELEMENTS PROPOSITIONS
-
-		 //FOR EACH ANSWERER CASH SLICES
 
 	 
      for(var answererCashSliceIndex = 0; answererCashSliceIndex < answererCashSlices.length; answererCashSliceIndex++){
@@ -357,7 +344,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 						   
 	                 } else {
 
-		                 offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
+		                   offer = createIndirectTradeObject(offerObject, offerer, answerer, offerArray);
  
 					 }
 
@@ -377,7 +364,9 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 						propertiesAskedPlusCash = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);			 
 						addElementsToPlayer(offerer, offer.array);
 
-					
+						propertiesAskedPlusCash.lossValueForTheOwner = lossValueForTheAnswerer;
+
+
 					} else {
 						propertiesAskedPlusCash = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
 					 }
@@ -591,8 +580,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 function createTradeObject( type , offerer, answerer, tradeArray ){
 
-	//tradeArray => (offer) [rueDeCourcelles, avenueDeLaRepublique]
-
 
     let lossValueForTheOwner = 0 ;
     let gainValueForTheOtherPlayer = 0;
@@ -741,19 +728,13 @@ function getArrayLossValueForPlayer(thinker, player, array){
 		 }
 
 
-   
 
 
 
 	let newSet = createPostLossSet(currentSet,array);
 	let newSetValue = calculateSetValue(thinker, newSet);
 
-  
-	if(color == orange){
-
-		
-
-	}
+  	
 
 	return (currentSetValue - newSetValue);
 
@@ -855,41 +836,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
             
 		 
 
-	////////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
-
 
 	
-	////////////////////////////////////////alert('the answererScore before =>' + answererScore);
-	
-	
 
-	//////////////alert('the tricked player felt that this offer was acceptable => TP =>' + trickedPlayerScore + ' OS => ' + trickedPlayerOpponentScore);
-
-	////////////////////alert('calculation of the AI => 1PS => ' + ( 0.45 * publicServicesColor.finishedSetValue) + '2 PS => ' + ( 0.7 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) +   ' ,  2 t => ' + (0.12 * black.finishedSetValue) + ' 2 orange => ' + ' 1P => ' + (0.05 * orange.finishedSetValue) + '3t =>' + (0.33 * black.finishedSetValue))
-
-	////////////////////alert('calculation of the human =>' + '1 PS => ' + ( 0.6 * publicServicesColor.finishedSetValue) + ', 2 PS => ' + ( 1 * publicServicesColor.finishedSetValue) + ' ,  1 t => ' + (0.125 * black.finishedSetValue) + ' ,  2 t => ' + (0.25 * black.finishedSetValue) + ' 2 orange => ' + (0.125 * orange.finishedSetValue)  + '3t =>' + (0.5 * black.finishedSetValue) + ' 1P => ' + (0.05 * orange.finishedSetValue));
-
-
-	//////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
-
-	//////////////alert('OS=> ' + offererScore + ', AS =>' + answererScore);
-	
-
-	for(var i=0; i < offer.array.length; i++){	
-	   ////////////////////alert('offer element ' + i + ' ' + offer.array[i].name);
-   }
-
-	 ////////////////////alert('and, here is the cash in the offer :' + offer.cash);				
-	////////////////////alert('here is the counterpart : ');
-
-
-  for (var i=0; i < counterPartAsked.array.length; i++){
-	  
-	////////////////////alert('counterpart asked ' + i + ' ' + counterPartAsked.array[i].name);
-
-
-	 
-  }
 
 
   ////////////////////alert('cash asked ' + counterPartAsked.cash);
@@ -902,15 +851,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
     offererScore += counterPartAsked.gainValueForTheOtherPlayer;
 
-	if(gainType == indirectGain){
-		
-    	////alert('loss for the offerer ===> ' + offer.lossValueForTheOwner);
 
-	    ////alert('gain for the offerer ===> ' + counterPartAsked.gainValueForTheOtherPlayer);
-
-
-
-	}
 
 
     offererScore -= offer.lossValueForTheOwner;
@@ -921,6 +862,15 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
      answererScore -= counterPartAsked.lossValueForTheOwner;
+
+
+	 if(thinker == answerer){
+
+		if(gainType == indirectGain){
+
+			alert('answerer loss is ==> ' + counterPartAsked.lossValueForTheOwner);
+		}
+	 }
 
      offererScore += counterPartAsked.cash;
 
@@ -976,9 +926,6 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		}
 		
 	}
-    
-
-
     
 
 

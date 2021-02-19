@@ -54,9 +54,12 @@ function makeProposition(proposition){
 
               
               alert('offerer score =>' + proposition.offererScore);
-              alert('answerer score =>' + proposition.answererScore);
-              
+              alert('offerer loss =>' + proposition.offer.lossValueForTheOwner);
 
+              alert('answerer score =>' + proposition.answererScore);
+              alert('answerer loss =>' + proposition.counterPartAsked.lossValueForTheOwner);
+
+              
               alert(proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
             
                acceptProposition(proposition);
