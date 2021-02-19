@@ -847,26 +847,42 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 //new property to wallet
 
-
+var addcount = 0;
 
 function addPropertyToPlayerWallet(player, property){
 
+  addcount++;
+
+  alert(player.name + ' added =>' + property.name + ' cnt =>' + addcount);
+
     let propertyColor = property.color;
+
     
-    player.propertiesByColor[propertyColor.index].properties.push(property); 
-    
-    insertNonMonopolyProperty(player, property);
-    
+    player.propertiesByColor[propertyColor.index].properties.push(property);
+
     property.landLord = player;
 
-    //check if the current property resulted in a monopoly
+    player.cash -= property.value;
 
-    if(monopolyCheck(player, propertyColor) == true){
+    
+    if(property.type == rentalProperty){
 
-        newMonopoly(player, propertyColor);
+      
+       insertNonMonopolyProperty(player, property);
+    
+      //check if the current property resulted in a monopoly
+
+       if(monopolyCheck(player, propertyColor) == true){
+
+           newMonopoly(player, propertyColor);
         
+       };
 
-    };
+
+
+    }
+
+    
 
    
 }

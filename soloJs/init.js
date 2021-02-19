@@ -13,9 +13,9 @@ function init(){
 
     //setColorScores();
 
-    givePlayersPropertiesForDemo();
+    //givePlayersPropertiesForDemo();
 
-    //wakeUpAis();
+    wakeUpAis();
 
 
   }

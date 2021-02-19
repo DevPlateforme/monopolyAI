@@ -279,6 +279,7 @@ function movePiece(){
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
                      
+                     
                   }
 
              } else {
@@ -304,7 +305,7 @@ function movePiece(){
 
                      console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
-                     //addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
                 } else {
 
@@ -607,16 +608,14 @@ function playerLeavesTheGame(player){
 
 function buyAvailableProperty(){
 
-      let property = squaresArray[lastDiceLauncher.position];
 
-      playerPaymentToTheBank(lastDiceLauncher, property.value);
+      let property = squaresArray[humanPlayer.position];
 
-      addPropertyToPlayerWallet(lastDiceLauncher, property);
-
-      closeAvailablePropertyInterface();
+      addPropertyToPlayerWallet(humanPlayer, property);
 
       postLaunchDecision = done;
 
+      closeAvailablePropertyInterface();
 
 }
 

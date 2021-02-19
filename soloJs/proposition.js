@@ -202,7 +202,7 @@ function makeProposition(proposition){
      //REMOVE ELEMENTS FROM THE OFFERER
 
 
-     for(i = 0 ; i < offer.array.length ; i++){
+     for(var i = 0 ; i < offer.array.length ; i++){
 
         let offerElement;
 
@@ -218,7 +218,7 @@ function makeProposition(proposition){
 
              //delete the element from the propertiesByColor
 
-             for(n=0; n < offerer.propertiesByColor[color.index].properties.length ; n++){  
+             for(var n=0; n < offerer.propertiesByColor[color.index].properties.length ; n++){  
                
                
                     if(offerer.propertiesByColor[color.index].properties[n] == offerElement ){
@@ -235,7 +235,7 @@ function makeProposition(proposition){
                 //delete the element from the propertiesArray
 
 
-              for(n=0; n < offerer.propertiesArray.length ; n++){   
+              for(var n=0; n < offerer.propertiesArray.length ; n++){   
                
                   if(offerer.propertiesArray[n] == offerElement ){
 
@@ -256,7 +256,7 @@ function makeProposition(proposition){
      //REMOVE ELEMENTS FROM THE ANSWERER
 
 
-     for(i = 0 ; i < counterPartAsked.array.length ; i++){
+     for(var i = 0 ; i < counterPartAsked.array.length ; i++){
  
            let offerElement;
            let color;
@@ -266,7 +266,7 @@ function makeProposition(proposition){
 
            //delete the element from the propertiesByColor
 
-           for(n=0; n < answerer.propertiesByColor[color.index].properties.length ; n++){  
+           for(var n=0; n < answerer.propertiesByColor[color.index].properties.length ; n++){  
              
              
                   if(answerer.propertiesByColor[color.index].properties[n] == answerElement ){
@@ -284,7 +284,7 @@ function makeProposition(proposition){
               //delete the element from the propertiesArray
 
 
-            for(n=0; n < answerer.propertiesArray.length ; n++){   
+            for(var n=0; n < answerer.propertiesArray.length ; n++){   
              
                 if(answerer.propertiesArray[n] == offerElement ){
 
@@ -306,7 +306,7 @@ function makeProposition(proposition){
         //ADD ELEMENTS TO THE OFFERER
 
 
-     for(i = 0 ; i < counterPartAsked.array.length ; i++){
+     for(var i = 0 ; i < counterPartAsked.array.length ; i++){
 
       let property = counterPartAsked.array[i];
 
@@ -319,7 +319,7 @@ function makeProposition(proposition){
        
         
 
-    for(i = 0 ; i < offer.array.length ; i++){
+    for(var i = 0 ; i < offer.array.length ; i++){
 
       let property = offer.array[i];
       

@@ -81,8 +81,6 @@ function searchForTradesOpportunities(activePlayer){
             //If a proposition was found , add it to the propositionList of that search
 
             if(foundProposition.proposition != none){
-
-
         
 
               propositionList.push(foundProposition.proposition);
