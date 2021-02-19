@@ -532,15 +532,15 @@ function getNextHouseSlotToBuild(player, color){
 
     //get the / one of the house with the more houses on it
 
-     for(var i = 0 ; i < player.monopoliesArray[color.index].length; i++){
+    for(var i = 0 ; i < player.propertiesByColor[color.index].properties.length; i++){
 
-         if(player.monopoliesArray[color.index][i].houses < selectedProperty.houses ){
-                
-            selectedProperty = player.monopoliesArray[color.index][i];
+        if(player.propertiesByColor[color.index].properties[i].houses < selectedProperty.houses ){
+               
+           selectedProperty = player.propertiesByColor[color.index].properties[i];
 
-         }
+        }
 
-     }
+    }
 
 
      return selectedProperty;
@@ -578,7 +578,6 @@ function getNextHouseSlotToSell(player, color){
 
 function sellHouse(property){
 
-    alert('property houses ==> ' + property.houses);
 
    if(property.houses > 0){
 
@@ -587,6 +586,10 @@ function sellHouse(property){
       property.houses -= 1;
 
       property.landLord.cash += (property.houseValue/2);
+
+
+      alert(property.landLord.name + ' just sold a house on ' + property.name);
+
 
    }
  

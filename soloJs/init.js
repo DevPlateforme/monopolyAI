@@ -90,7 +90,7 @@ function setColorScores(){
     
      addPropertyToPlayerWallet(humanPlayer, avenueMozart);
      addPropertyToPlayerWallet(humanPlayer , boulevardSaintMichel);
-     addPropertyToPlayerWallet(humanPlayer , placePigalle);
+ 
 
 
 }

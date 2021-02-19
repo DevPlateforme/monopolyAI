@@ -864,8 +864,7 @@ function addPropertyToPlayerWallet(player, property){
     if(monopolyCheck(player, propertyColor) == true){
 
         newMonopoly(player, propertyColor);
-
-        alert('monopoly trade computed');
+        
 
     };
 

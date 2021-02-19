@@ -226,8 +226,6 @@ function displayPropertiesManagementInterface(){
 
 
 
-
-
 function closePropertiesManagementInterface(){
      
      humanThinking = false;
@@ -1298,21 +1296,34 @@ function displayPM(){
 
                let colorSetDiv = document.createElement('div');
 
-               let buildHouseButton =  document.createElement('button');
-
-               buildHouseButton.setAttribute('onclick' , 'buildHouseFromInterface(' + color.index + ')');
-
-               let sellHouseButton = document.createElement('button');
-
-               sellHouseButton.setAttribute('onclick' , 'sellHouseFromInterface(' + color.index + ')');
 
 
-               buildHouseButton.innerHTML = 'Build a house';
-               sellHouseButton.innerHTML = 'Sell a house';
 
 
-               colorSetDiv.append(buildHouseButton);
-               colorSetDiv.append(sellHouseButton);
+               if(monopolyCheck(humanPlayer, color) == true){
+
+
+                    
+                  let buildHouseButton =  document.createElement('button');
+
+                  buildHouseButton.setAttribute('onclick' , 'buildHouseFromInterface(' + color.index + ')');
+
+                  let sellHouseButton = document.createElement('button');
+
+                  sellHouseButton.setAttribute('onclick' , 'sellHouseFromInterface(' + color.index + ')');
+
+
+                  buildHouseButton.innerHTML = 'Build a house';
+                  sellHouseButton.innerHTML = 'Sell a house';
+
+
+                  colorSetDiv.append(buildHouseButton);
+                  colorSetDiv.append(sellHouseButton);
+
+
+
+               }
+
 
                
                      //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
@@ -1391,7 +1402,7 @@ function initPropertiesManagementInterface(){
 
 
 function buildHouseFromInterface(colorIndex){
-     
+
     buildHouse(getNextHouseSlotToBuild(humanPlayer , colorArray[colorIndex]));
 
 }
