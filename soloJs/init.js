@@ -13,10 +13,9 @@ function init(){
 
     //setColorScores();
 
-    //givePlayersPropertiesForDemo();
+    givePlayersPropertiesForDemo();
 
-    wakeUpAis();
-
+    //wakeUpAis();
 
   }
 
@@ -84,12 +83,40 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai1 , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(ai1 , rueDeCourcelles);
-  
+     addPropertyToPlayerWallet(humanPlayer , rueDeLaPaix);
+     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
+
+    
+
+     addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai1 , rueLecourbe);
+     addPropertyToPlayerWallet(ai1 , placeDeLaBourse);
+     addPropertyToPlayerWallet(ai1 , publicServiceElectricity);
+     addPropertyToPlayerWallet(ai1 , gareDeLyon);
+     addPropertyToPlayerWallet(ai1 , avenueHenriMartin);
+     addPropertyToPlayerWallet(ai1 , avenueMatignon);
+
+
+
+     addPropertyToPlayerWallet(ai2 , rueDuParadis);
+     addPropertyToPlayerWallet(ai2, faubourgSaintHonore)
+     addPropertyToPlayerWallet(ai2 , avenueFoch);
+     addPropertyToPlayerWallet(ai2 , avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai2 , publicServiceWater);
+     addPropertyToPlayerWallet(ai2 , gareSaintLazarre);
+
+
+
+
     
      addPropertyToPlayerWallet(ai3 , gareDuNord);
-  
+     addPropertyToPlayerWallet(ai3 , rueDeCourcelles);
+     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
+     addPropertyToPlayerWallet(ai3 , belleville);
+     addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
+     addPropertyToPlayerWallet(ai3 , bdDesCapucines);
+     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
+
 
 }
 

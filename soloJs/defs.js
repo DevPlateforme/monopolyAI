@@ -847,13 +847,9 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 //new property to wallet
 
-var addcount = 0;
 
 function addPropertyToPlayerWallet(player, property){
 
-  addcount++;
-
-  alert(player.name + ' added =>' + property.name + ' cnt =>' + addcount);
 
     let propertyColor = property.color;
 
@@ -1090,8 +1086,6 @@ function getMortgage(property){
 
         }        
 
-
-        alert(property.name + ' mortgaged!');
 
 
   }

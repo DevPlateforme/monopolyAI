@@ -1403,7 +1403,7 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 			
 			      //Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
 				 
-			       tradeObject.lossValueForTheOwner += (0.25 * set.gainValue);
+			       tradeObject.lossValueForTheOwner += (0.15 * set.gainValue);
 
 			       tradeObject.gainValueForTheOtherPlayer += (0.75 * set.gainValue);
 

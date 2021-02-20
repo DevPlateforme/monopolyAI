@@ -21,9 +21,9 @@ var humanAnswerInterfaceCounterPart = document.getElementById('humanAnswerInterf
 var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
 
 var launchBtn = document.getElementById('launchBtn');
-
 var pmHumanPropertiesDiv = document.getElementById('playerPropertiesDiv');
 
+var interfacesPanel = document.getElementById('interfacesPanel');
 
 
 //VARS USED TO CREATE PAWN CONTAINERS
@@ -1344,16 +1344,41 @@ function displayPM(){
                             let propertyNameDiv = document.createElement('div');
 
                             propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+
+
+                            if(property.mortgaged == false){
+
                            
-                            let mortgagePropertyButton =  document.createElement('button');
+                                 let mortgagePropertyButton = document.createElement('button');
 
-                            mortgagePropertyButton.setAttribute("onclick" , "getMortgageFromInterface(" +  property.elementIndex + ")");
+                                 mortgagePropertyButton.setAttribute("onclick" , "getMortgageFromInterface(" +  property.elementIndex + ")");
+
+                           
+                               //FUNCTION WORKING IN CONSTANT TIME : 
 
 
-                            //FUNCTION WORKING IN CONSTANT TIME : 
+                                mortgagePropertyButton.innerHTML = 'mortgage';
+                                propertyDiv.append(mortgagePropertyButton);
 
 
-                            mortgagePropertyButton.innerHTML = 'mortgage';
+                              
+                            } else {
+
+                              let closeMortgageButton = document.createElement('button');
+
+                              closeMortgageButton.setAttribute("onclick" , "closeMortgageFromInterface(" +  property.elementIndex + ")");
+
+                        
+                        //FUNCTION WORKING IN CONSTANT TIME : 
+ 
+
+                             closeMortgageButton.innerHTML = 'close mortgage';
+                             propertyDiv.append(closeMortgageButton);
+                              
+                            }
+
+
+
 
                          
                      //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
@@ -1361,7 +1386,6 @@ function displayPM(){
 
                           propertyDiv.append(propertyNameDiv);
  
-                          propertyDiv.append(mortgagePropertyButton);
 
 
 
@@ -1388,8 +1412,27 @@ function getMortgageFromInterface(elementIndex){
 
      getMortgage(property);
 
+     
+     initPropertiesManagementInterface();
+
+     displayPM();
+
 }
 
+
+
+
+function closeMortgageFromInterface(elementIndex){
+
+     let property = propertiesList[elementIndex];
+
+     closeMortgage(property);
+     
+     initPropertiesManagementInterface();
+
+     displayPM();
+
+}
 
 
 
@@ -1397,6 +1440,15 @@ function initPropertiesManagementInterface(){
 
      pmHumanPropertiesDiv.innerHTML = '';
 
+}
+
+
+
+
+function displayInterfaces(){
+
+     interfacesPanel.style.display = 'block';
+     
 }
 
 

@@ -213,8 +213,27 @@ NAV BAR
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
+#interfacesPanel{
+
+    height: 7%;
+
+    width: 100%;
+
+    background: red;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    display: none;
+
+}
+
+
+
 
 #propertiesCountDiv{
 
@@ -341,8 +360,6 @@ BOARD
     display: flex;
 
     flex-direction: column;
-
-    opacity: 0;
     
 }
 
@@ -396,6 +413,7 @@ BOARD
     width: 9.09%;
 
     border : 1px solid;
+
 
 }
 

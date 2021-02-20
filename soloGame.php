@@ -254,13 +254,60 @@
 
 
     <div id="board">
-          <div id="topEdge"></div>
-          <div id="boardDiv2">
-             <div id='leftEdge'></div>
-             <div id='boardJournal'></div>
-            <div id='rightEdge'></div>
+          <div id="topEdge">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>          
           </div>
-        <div id="bottomEdge"></div>
+          <div id="boardDiv2">
+             <div id='leftEdge'>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+             </div>
+
+             <div id='boardJournal'></div>
+
+               <div id='rightEdge'>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+
+          </div>
+
+        <div id="bottomEdge">
+
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+    
+        </div>
+
     </div>
   
 
@@ -301,65 +348,21 @@
 
    <div id='humanBoard'>
 
+        <div> <button onclick = 'displayInterfaces()'>interfaces</button></div>
 
-        <div id='propertiesCountDiv'>
+        <div><button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button></div>
 
-
-              <div id='rentalPropertiesCount'>
-        
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-
-             </div>
+    </div>
 
 
-             <div id='trainsAndPublicServicesCount'>
- 
-                <div></div>
-                <div></div>
+    <div id='interfacesPanel'>
+     
+       <div><button onclick = 'displayPM()'>Gérer</button></div> 
+       <div><button onclick = 'displayPropositionInterface()'>Trade</button></div>
 
-             </div>
-
-        </div>
+     </div>
 
 
-        <div id='managementDiv'>
-
-              <div><button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button></div>
-
-              <div> <button onclick = 'displayPM()'>Gérer</button></div>
-
-              <div><button onclick = 'displayPropositionInterface()'>Trade</button></div>
-
-        </div>
-
-
-
-   </div>
-
-
-
-
-  
-
-</div>
-
-
-
-
-<div>Introduction div :
-
-
-
-
-
-</div>
 
 <script src='soloJs/jquery.js'></script>
 <script src='soloJs/classes.js'></script>
