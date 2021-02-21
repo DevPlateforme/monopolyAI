@@ -48,7 +48,10 @@ function movePiece(){
 
 
     //using the dice result function launched just before
+
+    let oldPosition = lastDiceLauncher.position;
     
+    alert('dice result =>' + diceResult + 'from =>' + squaresArray[oldPosition].name);
 
 
     let updatedPosition  = lastDiceLauncher.position + diceResult;
@@ -63,6 +66,9 @@ function movePiece(){
 
 
      lastDiceLauncher.position = updatedPosition;
+
+
+     movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
 
      console.log('******updatedPosition ' + squaresArray[updatedPosition] )

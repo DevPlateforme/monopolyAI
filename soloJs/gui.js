@@ -1467,3 +1467,26 @@ function sellHouseFromInterface(colorIndex){
  
  }
  
+
+
+ function movePieceOnGui(player, from, to){
+
+      //clear "from square"
+
+      
+      alert('from ===> ' + 'square' + from + 'Player'+ player.playerIndex + 'Pawn' )
+      alert('to ===> ' + 'square' + to + 'Player'+ player.playerIndex + 'Pawn , id ===>')
+
+      alert('id======>square' + to + 'Player'+ player.playerIndex + 'Pawn')
+
+
+      document.getElementById('square' + from + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML ='x';
+
+      //move pawn towards "to square"
+
+
+      document.getElementById('square' + to + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML = player.playerIndex.toString();
+
+
+ }
+
