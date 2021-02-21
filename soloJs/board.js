@@ -51,7 +51,6 @@ function movePiece(){
 
     let oldPosition = lastDiceLauncher.position;
     
-    alert('dice result =>' + diceResult + 'from =>' + squaresArray[oldPosition].name);
 
 
     let updatedPosition  = lastDiceLauncher.position + diceResult;
@@ -77,8 +76,6 @@ function movePiece(){
      console.log('******square ' + squaresArray[updatedPosition] )
 
       
-     alert(' le joueur ' + lastDiceLauncher.name + ' est à présent sur la case ' + squaresArray[updatedPosition].name);
-
 
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
 
@@ -164,7 +161,9 @@ function movePiece(){
 
                         if(AiThinking == false && humanThinking == false){
 
-                          alert(nextDiceLauncher.name + ' will launch dices!!');
+                        //  alert(nextDiceLauncher.name + ' will launch dices!!');
+
+                          boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
 
                           AiThinking = true;
 
@@ -205,7 +204,10 @@ function movePiece(){
 
            //BREAK       
 
-             alert('the player took too much time to play!!');
+             //alert('the player took too much time to play!!');
+
+             boardJournal.innerHTML += ('the player took too much time to play!!');
+             
 
              if(lastDiceLauncher == humanPlayer){
 
@@ -326,7 +328,10 @@ function movePiece(){
          
       } else if( currentSquare.landLord != lastDiceLauncher) {
 
-            alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+            //alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+
+            boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + currentSquare.landLord.name);
+
 
              lastDiceLauncher.cash -= getRent(currentSquare);
 
@@ -392,7 +397,7 @@ function movePiece(){
       
       if(lastDiceLauncher != humanPlayer){
 
-          alert('ok , post launch decision done!!')
+          //alert('ok , post launch decision done!!')
 
              postLaunchDecision = done;
 

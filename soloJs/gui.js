@@ -26,6 +26,10 @@ var pmHumanPropertiesDiv = document.getElementById('playerPropertiesDiv');
 var interfacesPanel = document.getElementById('interfacesPanel');
 
 
+var boardJournal = document.getElementById('boardJournal');
+
+
+
 //VARS USED TO CREATE PAWN CONTAINERS
 
 var ai1PawnContainer;
@@ -680,9 +684,7 @@ function displayOffererDiv(){
 function addCounterPartAskedElementToProposition(event, offererIndex, answererIndex, elementIndex){
 
 
-
      let offerer = playersArray[offererIndex];
-
 
 
      let answerer = playersArray[answererIndex];
@@ -739,7 +741,7 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
 
 
-     ////console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
+     //alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
 
 
 
@@ -791,7 +793,7 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = undefined;
 
 
-     ////console.log( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
+     //alert( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
 
 
 
@@ -864,7 +866,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
                offerer.inBuildingProposition.offer[elementIndex] = property;
      
      
-               ////console.log(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
+               //alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
      
      
      
@@ -923,7 +925,7 @@ function removeOfferElement(event, offererIndex, elementIndex){
          offerer.inBuildingProposition.offer[elementIndex] = undefined;
 
 
-         ////console.log(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
+         //alert(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
 
 
           //REDUCE THE COUNT BY 1
@@ -958,7 +960,7 @@ function sendProposition(){
 
      if(IbProposition == none){
 
-          ////alert('vous n avez pas crée d offre!');
+          alert('vous n avez pas crée d offre!');
 
      } else{
 
@@ -970,11 +972,11 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-          ////alert('vous n avez rien offert!');
+          alert('vous n avez rien offert!');
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-          ////alert('vous n avez demandé aucun élément!');
+          alert('vous n avez demandé aucun élément!');
 
           //ELSE, VALID PROPOSITION
 
@@ -1037,9 +1039,23 @@ function sendProposition(){
           
           let offer = createIndirectTradeObject(offerObject, offerer, answerer, divideArrayInSets(offerArray));
 
+          //ADD CASH COMING FROM THE INPUT
+          if(document.getElementById('cashOffered').value.length > 0){
+
+               offer.cash = parseInt(document.getElementById('cashOffered').value );
+
+          }
+
           let counterPartAsked = createIndirectTradeObject(counterPartAskedObject, offerer, answerer , divideArrayInSets(counterPartAskedArray));
-          
+         
+           if(document.getElementById('cashAsked').value.length > 0){
+               counterPartAsked.cash = parseInt(document.getElementById('cashAsked').value);
+           }
+
           let proposition = new Proposition(offerer, answerer, offer, counterPartAsked );
+
+
+
 
           
           ////console.log(proposition);
@@ -1062,7 +1078,7 @@ function sendProposition(){
 
                     //alert('answerer score =>' + proposition.answererScore);
           
-                    //alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
+                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
                     acceptProposition(proposition);
                     
@@ -1071,13 +1087,13 @@ function sendProposition(){
      
                  if(proposition.answererScore < (0.9 * alternatives.gainValue)){
      
-                      //alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
      
      
      
                  } else {
      
-                   //alert(proposition.answerer.name + ' accepted the offer!');
+                   alert(proposition.answerer.name + ' accepted the offer!');
      
                    acceptProposition(proposition);
 
@@ -1091,7 +1107,7 @@ function sendProposition(){
 
             } else {
 
-               //alert('proposition refused');
+                alert('proposition refused');
                
                //alert('offererscore=>' + proposition.offererScore);
                //alert('answererscore=>' + proposition.answererScore);
@@ -1133,27 +1149,6 @@ function sendProposition(){
     }
 }
 
-
-
-
-function sendPropositionToHuman(offerer, proposition){
-
-
-    //THE PROPOSITION INTERFACE HAPPENS : YOU RECEIVED A PROPOSITION FROM  offerer.name
-
-    //HERE IS THE PROPOSITION : YOU WERE OFFERED PROPOSITION.OFFER.ARRAY. FOR EACH ELEMENT OF THE ARRAY, ADD A DIV.
-
-    //SAME FOR THE COUNTERPART.
-
-
-    //IF THE PLAYER ACCEPTS : THE PLAYER TRIGGERS THE FUNCTION ACCEPT PROPOSITION
-
-    //BUT, HOW IS THE PROPOSITION PASSED
-
-    //ACTUALLY, WHEN A PLAYER IS PROPOSED SOMETHING : THE PROPOSITION FILLS A PROPERTY OF THE PLAYER OBJECT IS JS
-
-
-}
 
 
 
@@ -1447,6 +1442,8 @@ function initPropertiesManagementInterface(){
 
 function displayInterfaces(){
 
+     humanThinking = true;
+
      interfacesPanel.style.display = 'block';
      
 }
@@ -1473,11 +1470,6 @@ function sellHouseFromInterface(colorIndex){
 
       //clear "from square"
 
-      
-      alert('from ===> ' + 'square' + from + 'Player'+ player.playerIndex + 'Pawn' )
-      alert('to ===> ' + 'square' + to + 'Player'+ player.playerIndex + 'Pawn , id ===>')
-
-      alert('id======>square' + to + 'Player'+ player.playerIndex + 'Pawn')
 
 
       document.getElementById('square' + from + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML ='x';
@@ -1486,6 +1478,29 @@ function sellHouseFromInterface(colorIndex){
 
 
       document.getElementById('square' + to + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML = player.playerIndex.toString();
+
+
+ }
+
+
+
+ function buildHouseOnGui(property){
+
+     //add the last house built
+
+     document.getElementById('square' + property.square + 'House' + property.houses).innerHTML = 'B';
+    
+
+ }
+
+
+ 
+ function removeHouseOnGui(property){
+
+     //add the last house built
+
+     document.getElementById('square' + property.square + 'House' + property.houses).innerHTML = 'h';
+    
 
 
  }

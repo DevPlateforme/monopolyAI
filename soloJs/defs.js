@@ -227,7 +227,7 @@ function calculateStepVariable(player, setArray){
 
            } else if (setArray.length == 3){
  
-             return 0.33;
+             return 0.5;
  
            } else if (setArray.length == 2){
  
@@ -520,6 +520,8 @@ function closeMortgage(property){
      property.landLord.mortgages -= 1;
 
 
+     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just close the mortgage for the property ' + property.name);
+
 
 }
 
@@ -550,10 +552,17 @@ function buildHouse(property){
 
      property.houses += 1;
 
-
      property.landLord.cash -= property.houseValue;
 
-     alert(property.landLord.name + ' just built a house on ' + property.name);
+     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
+
+
+     //alert(property.landLord.name + ' just built a house on ' + property.name);
+
+     buildHouseOnGui(property);
+
+     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on the property ' + property.name);
+
 
 }
 
@@ -879,6 +888,8 @@ function addPropertyToPlayerWallet(player, property){
     }
 
     
+    boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
+
 
    
 }
@@ -920,9 +931,9 @@ function newMonopoly(player , color){
    //insert the monopoly , bubble up
 
    insertMonopoly(player, color);
+
+   boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')';
    
-
-
 
 }
 
@@ -1087,6 +1098,8 @@ function getMortgage(property){
         }        
 
 
+        boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
+
 
   }
 
@@ -1172,14 +1185,18 @@ function playerInBankruptcy(player){
 
         clearInterval(bankruptcyInterval);
 
-        alert(' the player ' + player.name + ' went out from bankruptcy');
+        //alert(' the player ' + player.name + ' went out from bankruptcy');
+
+        boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
         
        }
 
      } , 500);
 
 
-     alert(' bankruptcy timeout launched for ' + player.name);
+     //alert(' bankruptcy timeout launched for ' + player.name);
+
+     boardJournal.innerHTML += ( player.name + ' went out from bankruptcy');
 
  
     bankruptcyTimeout = setTimeout(function(){

@@ -12,10 +12,10 @@ function init(){
     console.log('game starting...');
 
     //setColorScores();
+   
+   //givePlayersPropertiesForDemo();
 
-    givePlayersPropertiesForDemo();
-
-    //wakeUpAis();
+    wakeUpAis();
 
   }
 
@@ -85,11 +85,13 @@ function setColorScores(){
 
      addPropertyToPlayerWallet(humanPlayer , rueDeLaPaix);
      addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
+     addPropertyToPlayerWallet(humanPlayer , belleville);
+     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
+
 
     
 
      addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai1 , rueLecourbe);
      addPropertyToPlayerWallet(ai1 , placeDeLaBourse);
      addPropertyToPlayerWallet(ai1 , publicServiceElectricity);
      addPropertyToPlayerWallet(ai1 , gareDeLyon);
@@ -106,13 +108,10 @@ function setColorScores(){
      addPropertyToPlayerWallet(ai2 , gareSaintLazarre);
 
 
-
-
     
      addPropertyToPlayerWallet(ai3 , gareDuNord);
      addPropertyToPlayerWallet(ai3 , rueDeCourcelles);
      addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
-     addPropertyToPlayerWallet(ai3 , belleville);
      addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
      addPropertyToPlayerWallet(ai3 , bdDesCapucines);
      addPropertyToPlayerWallet(ai3 , bdMalesherbes);

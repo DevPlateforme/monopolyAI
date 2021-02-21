@@ -579,15 +579,18 @@ function sellHouse(property){
 
    if(property.houses > 0){
 
-      property.landLord.propertiesByColor[property.color.index].houses -= 1;
+      removeHouseOnGui(property);
 
+
+      property.landLord.propertiesByColor[property.color.index].houses -= 1;
       property.houses -= 1;
 
       property.landLord.cash += (property.houseValue/2);
 
 
-      alert(property.landLord.name + ' just sold a house on ' + property.name);
+      //alert(property.landLord.name + ' just sold a house on ' + property.name);
 
+      boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just sold a house on the property ' + property.name);
 
    }
  

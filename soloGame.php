@@ -72,10 +72,11 @@
     </div>
 
 
-
     
      <div id='bottomDiv'>
 
+     <input type="text" placeholder='cash offered' id='cashOffered'>
+     <input type="text" placeholder = 'cash asked' id='cashAsked'>
 
 
      <button id='sendPropositionButton' onclick = 'sendProposition()'>Envoyer cette proposition</button>
@@ -586,7 +587,7 @@
            
              </div>
 
-             <div id='boardJournal'></div>
+             <div id='boardJournal'>Waiting for players...</div>
 
                <div id='rightEdge'>
 
@@ -596,11 +597,11 @@
                  <span id ='square21Player3Pawn'>x</span>
                  <span id ='square21Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square21house1'>h</span>
-                 <span clas= 'house2' id='square21house2'>h</span>
-                 <span class='house3' id='square21house3'>h</span>
-                 <span class='house4' id='square21house4'>h</span>
-                 <span class='house4' id='square21house5'>h</span>                    
+                 <span class='house1' id='square21House1'>h</span>
+                 <span clas= 'house2' id='square21House2'>h</span>
+                 <span class='house3' id='square21House3'>h</span>
+                 <span class='house4' id='square21House4'>h</span>
+                 <span class='house4' id='square21House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
               </div>
@@ -611,11 +612,10 @@
                  <span id ='square22Player3Pawn'>x</span>
                  <span id ='square22Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square22house1'>h</span>
-                 <span clas= 'house2' id='square22house2'>h</span>
-                 <span class='house3' id='square22house3'>h</span>
-                 <span class='house4' id='square22house4'>h</span>
-                 <span class='house4' id='square22house5'>h</span>                    
+                 <span class='house1' id='square22House1'>h</span>
+                 <span clas= 'house2' id='square22House2'>h</span>
+                 <span class='house3' id='square22House3'>h</span>
+                 <span class='house4' id='square22House4'>h</span>
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -626,11 +626,10 @@
                  <span id ='square23Player3Pawn'>x</span>
                  <span id ='square23Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square23house1'>h</span>
-                 <span clas= 'house2' id='square23house2'>h</span>
-                 <span class='house3' id='square23house3'>h</span>
-                 <span class='house4' id='square23house4'>h</span>
-                 <span class='house4' id='square23house5'>h</span>                    
+                 <span class='house1' id='square23House1'>h</span>
+                 <span clas= 'house2' id='square23House2'>h</span>
+                 <span class='house3' id='square23House3'>h</span>
+                 <span class='house4' id='square23House4'>h</span>
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -641,11 +640,10 @@
                  <span id ='square24Player3Pawn'>x</span>
                  <span id ='square24Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square24house1'>h</span>
-                 <span clas= 'house2' id='square24house2'>h</span>
-                 <span class='house3' id='square24house3'>h</span>
-                 <span class='house4' id='square24house4'>h</span>
-                 <span class='house4' id='square24house5'>h</span>                    
+                 <span class='house1' id='square24House1'>h</span>
+                 <span clas= 'house2' id='square24House2'>h</span>
+                 <span class='house3' id='square24House3'>h</span>
+                 <span class='house4' id='square24House4'>h</span>
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -657,11 +655,11 @@
                  <span id ='square25Player3Pawn'>x</span>
                  <span id ='square25Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square25house1'>h</span>
-                 <span clas= 'house2' id='square25house2'>h</span>
-                 <span class='house3' id='square25house3'>h</span>
-                 <span class='house4' id='square25house4'>h</span>
-                 <span class='house4' id='square25house5'>h</span>                    
+                 <span class='house1' id='square25House1'>h</span>
+                 <span clas= 'house2' id='square25House2'>h</span>
+                 <span class='house3' id='square25House3'>h</span>
+                 <span class='house4' id='square25House4'>h</span>
+                 <span class='house4' id='square25House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -674,11 +672,11 @@
                  <span id ='square26Player3Pawn'>x</span>
                  <span id ='square26Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square26house1'>h</span>
-                 <span clas= 'house2' id='square26house2'>h</span>
-                 <span class='house3' id='square26house3'>h</span>
-                 <span class='house4' id='square26house4'>h</span>
-                 <span class='house4' id='square26house5'>h</span>                    
+                 <span class='house1' id='square26House1'>h</span>
+                 <span clas= 'house2' id='square26House2'>h</span>
+                 <span class='house3' id='square26House3'>h</span>
+                 <span class='house4' id='square26House4'>h</span>
+                 <span class='house4' id='square26House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -689,11 +687,11 @@
                  <span id ='square27Player3Pawn'>x</span>
                  <span id ='square27Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square27house1'>h</span>
-                 <span clas= 'house2' id='square27house2'>h</span>
-                 <span class='house3' id='square27house3'>h</span>
-                 <span class='house4' id='square27house4'>h</span>
-                 <span class='house4' id='square27house5'>h</span>                    
+                 <span class='house1' id='square27House1'>h</span>
+                 <span clas= 'house2' id='square27House2'>h</span>
+                 <span class='house3' id='square27House3'>h</span>
+                 <span class='house4' id='square27House4'>h</span>
+                 <span class='house4' id='square27House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -705,11 +703,11 @@
                  <span id ='square28Player3Pawn'>x</span>
                  <span id ='square28Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square28house1'>h</span>
-                 <span clas= 'house2' id='square28house2'>h</span>
-                 <span class='house3' id='square28house3'>h</span>
-                 <span class='house4' id='square28house4'>h</span>
-                 <span class='house4' id='square28house5'>h</span>                    
+                 <span class='house1' id='square28House1'>h</span>
+                 <span clas= 'house2' id='square28House2'>h</span>
+                 <span class='house3' id='square28House3'>h</span>
+                 <span class='house4' id='square28House4'>h</span>
+                 <span class='house4' id='square28House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -723,11 +721,11 @@
                  <span id ='square29Player3Pawn'>x</span>
                  <span id ='square29Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square29house1'>h</span>
-                 <span clas= 'house2' id='square29house2'>h</span>
-                 <span class='house3' id='square29house3'>h</span>
-                 <span class='house4' id='square29house4'>h</span>
-                 <span class='house4' id='square29house5'>h</span>                    
+                 <span class='house1' id='square29House1'>h</span>
+                 <span clas= 'house2' id='square29House2'>h</span>
+                 <span class='house3' id='square29House3'>h</span>
+                 <span class='house4' id='square29House4'>h</span>
+                 <span class='house4' id='square29House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -756,11 +754,11 @@
                  <span id ='square39Player3Pawn'>x</span>
                  <span id ='square39Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square39house1'>h</span>
-                 <span clas= 'house2' id='square39house2'>h</span>
-                 <span class='house3' id='square39house3'>h</span>
-                 <span class='house4' id='square39house4'>h</span>
-                 <span class='house4' id='square39house5'>h</span>                    
+                 <span class='house1' id='square39House1'>h</span>
+                 <span clas= 'house2' id='square39House2'>h</span>
+                 <span class='house3' id='square39House3'>h</span>
+                 <span class='house4' id='square39House4'>h</span>
+                 <span class='house4' id='square39House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -774,11 +772,11 @@
                  <span id ='square38Player3Pawn'>x</span>
                  <span id ='square38Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square38house1'>h</span>
-                 <span clas= 'house2' id='square38house2'>h</span>
-                 <span class='house3' id='square38house3'>h</span>
-                 <span class='house4' id='square38house4'>h</span>
-                 <span class='house4' id='square38house5'>h</span>                    
+                 <span class='house1' id='square38House1'>h</span>
+                 <span clas= 'house2' id='square38House2'>h</span>
+                 <span class='house3' id='square38House3'>h</span>
+                 <span class='house4' id='square38House4'>h</span>
+                 <span class='house4' id='square38House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -789,11 +787,11 @@
                  <span id ='square37Player3Pawn'>x</span>
                  <span id ='square37Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square37house1'>h</span>
-                 <span clas= 'house2' id='square37house2'>h</span>
-                 <span class='house3' id='square37house3'>h</span>
-                 <span class='house4' id='square37house4'>h</span>
-                 <span class='house4' id='square37house5'>h</span>                    
+                 <span class='house1' id='square37House1'>h</span>
+                 <span clas= 'house2' id='square37House2'>h</span>
+                 <span class='house3' id='square37House3'>h</span>
+                 <span class='house4' id='square37House4'>h</span>
+                 <span class='house4' id='square37House5'>h</span>                    
                  <br>
                  <span class ='squareName'>avenueDesChamps elysees</span>
 
@@ -806,11 +804,11 @@
                  <span id ='square36Player3Pawn'>x</span>
                  <span id ='square36Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square36house1'>h</span>
-                 <span clas= 'house2' id='square36house2'>h</span>
-                 <span class='house3' id='square36house3'>h</span>
-                 <span class='house4' id='square36house4'>h</span>
-                 <span class='house4' id='square36house5'>h</span>                    
+                 <span class='house1' id='square36House1'>h</span>
+                 <span clas= 'house2' id='square36House2'>h</span>
+                 <span class='house3' id='square36House3'>h</span>
+                 <span class='house4' id='square36House4'>h</span>
+                 <span class='house4' id='square36House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -821,11 +819,11 @@
                  <span id ='square35Player3Pawn'>x</span>
                  <span id ='square35Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square35house1'>h</span>
-                 <span clas= 'house2' id='square35house2'>h</span>
-                 <span class='house3' id='square35house3'>h</span>
-                 <span class='house4' id='square35house4'>h</span>
-                 <span class='house4' id='square35house5'>h</span>                    
+                 <span class='house1' id='square35House1'>h</span>
+                 <span clas= 'house2' id='square35House2'>h</span>
+                 <span class='house3' id='square35House3'>h</span>
+                 <span class='house4' id='square35House4'>h</span>
+                 <span class='house4' id='square35House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -836,11 +834,11 @@
                  <span id ='square34Player3Pawn'>x</span>
                  <span id ='square34Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square34house1'>h</span>
-                 <span clas= 'house2' id='square34house2'>h</span>
-                 <span class='house3' id='square34house3'>h</span>
-                 <span class='house4' id='square34house4'>h</span>
-                 <span class='house4' id='square34house5'>h</span>                    
+                 <span class='house1' id='square34House1'>h</span>
+                 <span clas= 'house2' id='square34House2'>h</span>
+                 <span class='house3' id='square34House3'>h</span>
+                 <span class='house4' id='square34House4'>h</span>
+                 <span class='house4' id='square34House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -851,7 +849,7 @@
                  <span id ='square33Player3Pawn'>x</span>
                  <span id ='square33Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square33house1'>h</span>
+                 <span class='house1' id='square33House1'>h</span>
                  <span clas= 'house2' id='square33house2'>h</span>
                  <span class='house3' id='square33house3'>h</span>
                  <span class='house4' id='square33house4'>h</span>
@@ -866,11 +864,11 @@
                  <span id ='square32Player3Pawn'>x</span>
                  <span id ='square32Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square32house1'>h</span>
-                 <span clas= 'house2' id='square32house2'>h</span>
-                 <span class='house3' id='square32house3'>h</span>
-                 <span class='house4' id='square32house4'>h</span>
-                 <span class='house4' id='square32house5'>h</span>                    
+                 <span class='house1' id='square32House1'>h</span>
+                 <span clas= 'house2' id='square32House2'>h</span>
+                 <span class='house3' id='square32House3'>h</span>
+                 <span class='house4' id='square32House4'>h</span>
+                 <span class='house4' id='square32House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -881,11 +879,11 @@
                  <span id ='square31Player3Pawn'>x</span>
                  <span id ='square31Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square31house1'>h</span>
-                 <span clas= 'house2' id='square31house2'>h</span>
-                 <span class='house3' id='square31house3'>h</span>
-                 <span class='house4' id='square31house4'>h</span>
-                 <span class='house4' id='square31house5'>h</span>                    
+                 <span class='house1' id='square31House1'>h</span>
+                 <span clas= 'house2' id='square31House2'>h</span>
+                 <span class='house3' id='square31House3'>h</span>
+                 <span class='house4' id='square31House4'>h</span>
+                 <span class='house4' id='square31House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 
@@ -896,11 +894,11 @@
                  <span id ='square30Player3Pawn'>x</span>
                  <span id ='square30Player0Pawn'>x</span>
                  <br>
-                 <span class='house1' id='square30house1'>h</span>
-                 <span clas= 'house2' id='square30house2'>h</span>
-                 <span class='house3' id='square30house3'>h</span>
-                 <span class='house4' id='square30house4'>h</span>
-                 <span class='house4' id='square30house5'>h</span>                    
+                 <span class='house1' id='square30House1'>h</span>
+                 <span clas= 'house2' id='square30House2'>h</span>
+                 <span class='house3' id='square30House3'>h</span>
+                 <span class='house4' id='square30House4'>h</span>
+                 <span class='house4' id='square30House5'>h</span>                    
                  <br>
                  <span class ='squareName'>Rdlp</span>
 

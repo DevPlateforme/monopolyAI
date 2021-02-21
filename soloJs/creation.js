@@ -864,14 +864,6 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
      answererScore -= counterPartAsked.lossValueForTheOwner;
 
 
-	 if(thinker == answerer){
-
-		if(gainType == indirectGain){
-
-			alert('answerer loss is ==> ' + counterPartAsked.lossValueForTheOwner);
-		}
-	 }
-
      offererScore += counterPartAsked.cash;
 
 
