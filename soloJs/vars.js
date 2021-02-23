@@ -138,9 +138,24 @@ var postDicesLaunchAction = 'PDA';
 var game_posKey = 0;
 
 
+
+//journal
+
+
+var stringToInsert;
+
+
+//thinking animation
+
+var nodes = 0;
+
+var ai1ThinkingInterval;
+var ai2ThinkingInterval;
+var ai3ThinkingInterval;
 var nextProposerArray = [ai1, ai2, ai3, humanPlayer];
 
 var nextTradeProposerIndex = 0;
+
 
 
 

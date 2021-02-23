@@ -12,7 +12,7 @@ function searchForTradesOpportunities(activePlayer){
    if(activePlayer != undefined){
 
 
-    console.log(activePlayer.name + 'starts its search');
+    //console.log(activePlayer.name + 'starts its search');
 
        let propositionList = [];
 
@@ -95,12 +95,12 @@ function searchForTradesOpportunities(activePlayer){
        }
 
 
-       console.log('proposition list => ' + propositionList.length);
+       //console.log('proposition list => ' + propositionList.length);
 
 
        if(propositionList.length != 0){      
 
-         //console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
+         ////console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
                       
           makeProposition(getBestProposition(propositionList));
   
@@ -197,7 +197,7 @@ var nodes = 0;
 
                 closeMortgage(ai.mortgagedMonopolyProperties[i]);
 
-                alert('monopoly property freed ====>' + ai.mortgagedMonopolyProperties[i].name);
+                //alert('monopoly property freed ====>' + ai.mortgagedMonopolyProperties[i].name);
 
 
                 ai.mortgagedMonopolyProperties.splice(i,1);
@@ -217,7 +217,7 @@ var nodes = 0;
 
         }
 
-     //alert('mortgage buying check done');     
+     ////alert('mortgage buying check done');     
 
    }
 
@@ -239,6 +239,7 @@ var nodes = 0;
         searchForTradesOpportunities(ai);
 
         AiThinking = false;
+    
 
  }
 
@@ -304,7 +305,7 @@ function opponentsOnSquareBehind( property, number) {
 
 
 
-     //alert('players count =>' + playersCount);
+     ////alert('players count =>' + playersCount);
 
 
 
@@ -376,7 +377,7 @@ function getPositionScore(property){
 
     }
 
-    //alert('score calc ******************* =>' + score);
+    ////alert('score calc ******************* =>' + score);
 
 
     return score; 
@@ -408,7 +409,7 @@ function findCash(player , goal){
           return true;
     }
  
-    //alert('after mortgaging our non monopoly properties , we still dont have enough cash');
+    ////alert('after mortgaging our non monopoly properties , we still dont have enough cash');
 
 
     if(findCashWithMonopolyProperties(player , goal) == true){
@@ -418,7 +419,7 @@ function findCash(player , goal){
     }
 
 
-    //alert('there is no cash to find!!');
+    ////alert('there is no cash to find!!');
 
 
     return false;
@@ -588,7 +589,7 @@ function sellHouse(property){
       property.landLord.cash += (property.houseValue/2);
 
 
-      //alert(property.landLord.name + ' just sold a house on ' + property.name);
+      ////alert(property.landLord.name + ' just sold a house on ' + property.name);
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just sold a house on the property ' + property.name);
 

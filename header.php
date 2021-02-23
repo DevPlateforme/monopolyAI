@@ -9,35 +9,12 @@
 
 <link rel='stylesheet' href='style/style.css'>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 </head>
 
 <body>
     
     <main id='main'>
 
-        <div id='navBar'>
-
-          <div id='logoImg'></div>
-        
-           <div id='mainMenu'>Revenir au salon</div>
-
-
-           <?php
-
-              //ACCORDING TO WHETHER OR NOT THE USER IS LOGGED IN 
-                 
-                 if(session_status() == PHP_SESSION_NONE){
-
-                      echo '<a href="login.php"><button>login</button></a>';
-
-                 } else {
-
-                       echo '<button>login</button>';
-
-                 }
-           
-        
-           ?>
-           
-
-        </div>
+      

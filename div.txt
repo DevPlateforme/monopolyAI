@@ -1,0 +1,42 @@
+
+When a player makes a proposition, the interval is cleared.
+
+
+
+
+wonderful Board :
+
+   disconnect squares 
+
+       So , the color point :
+    
+      the house line 1
+ 
+      the name
+
+     pieces on the bottom
+
+
+   4divs
+
+   So, now :
+
+
+
+
+
+              <div class='boardSquare' id='square20'>
+                 <span id ='square20Player1Pawn'>x</span>
+                 <span id = 'square20Player2Pawn'>x</span>
+                 <span id ='square20Player3Pawn'>x</span>
+                 <span id ='square20Player0Pawn'>x</span>
+                 <br>
+                 <span id ='square10House1'>h</span>
+                 <span id = 'square10House2'>h</span>
+                 <span id ='square10House3'>h</span>
+                 <span id ='square10House4'>h</span>   
+                 <br>
+                 <span class ='squareName'>n : </span>
+                 <span class='housesCount'>m : </span>
+                 <span class='housesCount'>r : </span>
+              </div>

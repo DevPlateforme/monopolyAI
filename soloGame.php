@@ -6,19 +6,12 @@
 
 
 
+<canvas id="myChart"></canvas>
 
 
-<h3 id='ThinkingAiDiv'>L'IA réfléchit...</h3>
-
-<h3 id='diceDiv'>Lancer de dés en attente...</h3>
 
 
-<h1 id='playerDiv'>
-    <h3>Propriétés: </h3>
-    <h3>cash: </h3>
-</h1>
-
-
+<div id='notificationsDiv' style='position:absolute; display:none; right: 20vw; top: 10vh; z-index: 10; background: white; border: solid 1px; border-radius: 12px; height: 15vh; width: 15vw'></div>
 
 
 
@@ -97,30 +90,59 @@
 
         <button class='closeInterfaceBtn' onclick='closePropertiesManagementInterface()'>X</button>
 
-        <div id='playerPropertiesDiv'>
+          
+        <div id='propertiesManagementInterfaceLeft'>
 
+           <div>waiting for card information...</div>
+           <div></div>
 
-
-      
-
-
-
-        
         </div>
+
+           
+         <div id='propertiesManagementInterfaceCenter'>
+
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%' class='managementPropertyLine1'>
+                 </div>
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                    
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
+           </div>     
+           
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%' class='managementPropertyLine1'>
+                 </div>
+                 <div style='height:100%; width:22%' class='managementPropertyLine2'></div>
+           </div>     
+        
+  
+         </div>
 
     
 
-        <div id = 'propertyManagementDiv'>
+     
+        <div id='propertiesManagementInterfaceRight'>
 
+            <div id='propertiesManagementInterfaceRight1'></div>
+            <div id='propertiesManagementInterfaceRight2'></div>
+            <div id='propertiesManagementInterfaceRight3'></div>
 
-
-           <div id='propertyManagementTop'>Mortgaged properties</div>
-
-           <div id='propertyManagementBottom'>Cash</div>  
-      
-
-
-         </div>
+        </div>
 
  </div>
 
@@ -213,7 +235,7 @@
 
             <div id='ai1Div'>
 
-              <div id='ai1Properties' style='height: 60%'>
+              <div id='ai1Properties' style='height: 60%; border-radius: 12px'>
 
                 <div>Rue de La Paix</div> <br>   
 
@@ -221,7 +243,6 @@
               </div>
 
               <div  id='ai1ThinkingDiv' style='height: 20%'>
-                   Parsing of the information... <br>
                    Parsing of the information... 
               </div>
 
@@ -249,663 +270,135 @@
 
 
     <div id="board">
-          <div id="topEdge">
-  
-              <div class='boardSquare' id='square10'>
-                 <span id ='square10Player1Pawn'>x</span>
-                 <span id = 'square10Player2Pawn'>x</span>
-                 <span id ='square10Player3Pawn'>x</span>
-                 <span id ='square10Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square10House1'>h</span>
-                 <span id = 'square10House2'>h</span>
-                 <span id ='square10House3'>h</span>
-                 <span id ='square10House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
 
-              </div>
-              <div class='boardSquare' id='square11'>
-                 <span id ='square11Player1Pawn'>x</span>
-                 <span id = 'square11Player2Pawn'>x</span>
-                 <span id ='square11Player3Pawn'>x</span>
-                 <span id ='square11Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square11House1'>h</span>
-                 <span id = 'square11House2'>h</span>
-                 <span id ='square11House3'>h</span>
-                 <span id ='square11House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+      <div id="topEdge" style='height:9.09%; display: flex; flex-direction: row'>
+                <div id='square10' class='topAndBottomSquares' style='background:green; height:100%; width:9.09%; display:flex; flex-direction: row; justify-content:space-around; align-items:center'></div>                
+                <div id='square11' class='topAndBottomSquares' style='background:green; height:100%; width:9.09%; display:flex; flex-direction: row; justify-content:space-around; align-items:center'>
+                  
+                   <div style='height: 100% ; width: 15% ; background:purple ; display:flex; flex-direction:column; justify-content:space-around; align-items:center'>
+                       <div style='height: 20% ; width: 80% ; background:grey'></div>
+                       <div style='height: 20% ; width: 80% ; background:grey'></div>
+                       <div style='height: 20% ; width: 80% ; background:grey'></div>
+                       <div style='height: 20% ; width: 80% ; background:grey'></div>
+                   </div>
 
-              </div>
-              <div class='boardSquare' id='square12'>
-                 <span id ='square12Player1Pawn'>x</span>
-                 <span id = 'square12Player2Pawn'>x</span>
-                 <span id ='square12Player3Pawn'>x</span>
-                 <span id ='square12Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square12House1'>h</span>
-                 <span id = 'square12House2'>h</span>
-                 <span id ='square12House3'>h</span>
-                 <span id ='square12House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+                   <div style='height: 100% ; width: 80% ; background:red; display:flex; flex-direction:column; justify-content: space-around ; align-items: center'>
+                        <div style='height: 12.5% ; width: 100%; background:green; display:flex; justify-content:center; align-items:center'>
+                                  <div style='height: 60%; width: 10% ; background: red'></div>
+                        </div>
+                        <div style='height: 25% ; width: 100%; background:green; display:flex; flex-direction:row; justify-content: space-around ; align-items:center'>
 
-              </div>
-              <div class='boardSquare' id='square13'>
-                 <span id ='square13Player1Pawn'>x</span>
-                 <span id = 'square13Player2Pawn'>x</span>
-                 <span id ='square13Player3Pawn'>x</span>
-                 <span id ='square13Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square13House1'>h</span>
-                 <span id = 'square13House2'>h</span>
-                 <span id ='square13House3'>h</span>
-                 <span id ='square13House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+                           <div style='height:80%; width:15% ; background: red'></div>
+                           <div style='height:80%; width:15% ; background: red' ></div>
+                           <div style='height:80%; width:15% ; background: red' ></div>
+                           <div style='height:80%; width:15% ; background: red' ></div>
+                           <div style='height:80%; width:15% ; background: red' ></div>
+                                         
+                        </div>
+                        <div style='height: 25% ; width: 100%; background:green; display:flex; justify-content:space-around; align-items:center'>
+                                 
+                            <div style='height:70%; width: 35% ;background: black'></div>
+                    
+                        </div>
+                        <div style='height: 25% ; width: 100%; background:green'></div>
+                    </div>
+            
+                </div>
+                <div id='square12' class='topAndBottomSquares' style='background:red; height:100%; width:9.09%'></div>
+                <div id='square13' class='topAndBottomSquares' style='background:yellow; height:100%; width:9.09%'></div>
+                <div id='square14' class='topAndBottomSquares' style='background:purple; height:100%; width:9.09%'></div>
+                <div id='square15' class='topAndBottomSquares' style='background:blue; height:100%; width:9.09%'></div>
+                <div id='square16' class='topAndBottomSquares' style='background:brown; height:100%; width:9.09%'></div>
+                <div id='square17' class='topAndBottomSquares' style='background:red; height:100%; width:9.09%'></div>
+                <div id='square18' class='topAndBottomSquares' style='background:yellow; height:100%; width:9.09%'></div>
+                <div id='square19' class='topAndBottomSquares' style='background:red; height:100%; width:9.09%'></div>
+                <div id='square20' class='topAndBottomSquares' style='background:purple; height:100%; width:9.09%'></div>
+               </div>
 
-              </div>
-              <div class='boardSquare' id='square14'>
-                 <span id ='square14Player1Pawn'>x</span>
-                 <span id = 'square14Player2Pawn'>x</span>
-                 <span id ='square14Player3Pawn'>x</span>
-                 <span id ='square14Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square14House1'>h</span>
-                 <span id = 'square14House2'>h</span>
-                 <span id ='square14House3'>h</span>
-                 <span id ='square14House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+       <div id="middleDiv" style='height:81.86%; background: purple; display: flex; flex-direction: row'>
+                <div id='leftEdge' style='height:100%; width:9.09%; background:black; display: flex; flex-direction:column; justify-content: space-around'>
+                    <div id='9' style='background:red; height:11.11%; width:100%'></div>
+                    <div id='8' style='background:brown; height:11.11%; width:100%'></div>
+                    <div id='7' style='background:yellow; height:11.11%; width:100%'></div>
+                    <div id='6' style='background:blue; height:11.11%; width:100%'></div>
+                    <div id='5' style='background:brown; height: 11.11%; width:100%'></div>
+                    <div id='4' style='background:purple; height: 11.11%; width:100%'></div>
+                    <div id='3' style='background:brown; height: 11.11%; width:100%'></div>
+                    <div id='2' style='background:green; height: 11.11%; width:100%'></div>
+                    <div id='1' style='background:brown; height: 11.11%; width:100%'></div>
+                </div>
 
-              </div>
-              <div class='boardSquare' id='square15'>
-                 <span id ='square15Player1Pawn'>x</span>
-                 <span id = 'square15Player2Pawn'>x</span>
-                 <span id ='square15Player3Pawn'>x</span>
-                 <span id ='square15Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square15House1'>h</span>
-                 <span id = 'square15House2'>h</span>
-                 <span id ='square15House3'>h</span>
-                 <span id ='square15House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+              <div id='centerDiv' style='height:100%; width:81.86%;display: flex; flex-direction: row'>
 
-              </div>
-              <div class='boardSquare' id='square16'>
-                 <span id ='square16Player1Pawn'>x</span>
-                 <span id = 'square16Player2Pawn'>x</span>
-                 <span id ='square16Player3Pawn'>x</span>
-                 <span id ='square16Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square16House1'>h</span>
-                 <span id = 'square16House2'>h</span>
-                 <span id ='square16House3'>h</span>
-                 <span id ='square16House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+                    <div style='height:100%; width:33.33%; background:blue; display:flex; flex-direction:column; justify-content: space-around ; align-items: center'>
+                         
+                        <div id='graph1' style='height: 30%; width: 100%'>
+                             <canvas id='tradeCountCanvas'>
+                            
+                            </canvas>                         
+                         </div>
 
-              </div>
-              <div class='boardSquare' id='square17'>
-                 <span id ='square17Player1Pawn'>x</span>
-                 <span id = 'square17Player2Pawn'>x</span>
-                 <span id ='square17Player3Pawn'>x</span>
-                 <span id ='square17Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square17House1'>h</span>
-                 <span id = 'square17House2'>h</span>
-                 <span id ='square17House3'>h</span>
-                 <span id ='square17House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+                         <div id='graph2' style='height: 30%; width: 100%'>
 
-              </div>
-              <div class='boardSquare' id='square18'>
-                 <span id ='square10Player1Pawn'>x</span>
-                 <span id = 'square10Player2Pawn'>x</span>
-                 <span id ='square10Player3Pawn'>x</span>
-                 <span id ='square10Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square10House1'>h</span>
-                 <span id = 'square10House2'>h</span>
-                 <span id ='square10House3'>h</span>
-                 <span id ='square10House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
+                                <canvas id='situationsCanvas'>
+                                
+                                </canvas> 
+                         
+                         </div>
+                    
+                    </div>
+
+                    <div style='height:100%; width:33.33%; background:purple; display:flex; justify-content: center; align-items: center'>
+                              
+                              <div id='boardJournal' style='height:80%; width:80%; background: blue'>waiting for actions...</div>
+
+                    </div>
+
+                    <div style='height:100%; width:33.33%; background:blue; display:flex; flex-direction:column; justify-content: space-around ; align-items: center'>
+                          
+                          <div id='tradeJournal' style='height: 30%; width: 80%'></div>
+                          
+                          <div  style='height: 30%; width: 100%'>
+                          
+                              <canvas id='cashCollectedCanvas'></canvas>
+                          
+                          </div>
+                    
+                    </div>
+       
               </div>
 
-              <div class='boardSquare' id='square19'>
-                 <span id ='square19Player1Pawn'>x</span>
-                 <span id = 'square19Player2Pawn'>x</span>
-                 <span id ='square19Player3Pawn'>x</span>
-                 <span id ='square19Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square19House1'>h</span>
-                 <span id = 'square19House2'>h</span>
-                 <span id ='square19House3'>h</span>
-                 <span id ='square19House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-              </div>
-
-              <div class='boardSquare' id='square20'>
-                 <span id ='square20Player1Pawn'>x</span>
-                 <span id = 'square20Player2Pawn'>x</span>
-                 <span id ='square20Player3Pawn'>x</span>
-                 <span id ='square20Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square10House1'>h</span>
-                 <span id = 'square10House2'>h</span>
-                 <span id ='square10House3'>h</span>
-                 <span id ='square10House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-              </div>
-          </div>
-          <div id="boardDiv2">
-             <div id='leftEdge'>
-
-             <div class='boardSquare' id='square9'>
-                 <span id ='square9Player1Pawn'>x</span>
-                 <span id = 'square9Player2Pawn'>x</span>
-                 <span id ='square9Player3Pawn'>x</span>
-                 <span id ='square9Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square9House1'>h</span>
-                 <span id = 'square9House2'>h</span>
-                 <span id ='square9House3'>h</span>
-                 <span id ='square9House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-              </div>
-             
-             <div class='boardSquare' id='square8'>
-                 <span id ='square8Player1Pawn'>x</span>
-                 <span id = 'square8Player2Pawn'>x</span>
-                 <span id ='square8Player3Pawn'>x</span>
-                 <span id ='square8Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square8House1'>h</span>
-                 <span id = 'square8House2'>h</span>
-                 <span id ='square8House3'>h</span>
-                 <span id ='square8House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-              </div>
-              <div class='boardSquare' id='square7'>
-                 <span id ='square7Player1Pawn'>x</span>
-                 <span id = 'square7Player2Pawn'>x</span>
-                 <span id ='square7Player3Pawn'>x</span>
-                 <span id ='square7Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square7House1'>h</span>
-                 <span id = 'square7House2'>h</span>
-                 <span id ='square7House3'>h</span>
-                 <span id ='square7House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-              <div class='boardSquare' id='square6'>
-                 <span id ='square6Player1Pawn'>x</span>
-                 <span id = 'square6Player2Pawn'>x</span>
-                 <span id ='square6Player3Pawn'>x</span>
-                 <span id ='square6Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square6House1'>h</span>
-                 <span id = 'square6House2'>h</span>
-                 <span id ='square6House3'>h</span>
-                 <span id ='square6House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-              <div class='boardSquare' id='square5'>
-                 <span id ='square5Player1Pawn'>x</span>
-                 <span id = 'square5Player2Pawn'>x</span>
-                 <span id ='square5Player3Pawn'>x</span>
-                 <span id ='square5Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square5House1'>h</span>
-                 <span id = 'square5House2'>h</span>
-                 <span id ='square5House3'>h</span>
-                 <span id ='square5House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-              <div class='boardSquare' id='square4'>
-                 <span id ='square4Player1Pawn'>x</span>
-                 <span id = 'square4Player2Pawn'>x</span>
-                 <span id ='square4Player3Pawn'>x</span>
-                 <span id ='square4Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square4House1'>h</span>
-                 <span id = 'square4House2'>h</span>
-                 <span id ='square4House3'>h</span>
-                 <span id ='square4House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-              <div class='boardSquare' id='square3'>
-                 <span id ='square3Player1Pawn'>x</span>
-                 <span id = 'square3Player2Pawn'>x</span>
-                 <span id ='square3Player3Pawn'>x</span>
-                 <span id ='square3Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square3House1'>h</span>
-                 <span id = 'square3House2'>h</span>
-                 <span id ='square3House3'>h</span>
-                 <span id ='square3House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-              <div class='boardSquare' id='square2'>
-                 <span id ='square2Player1Pawn'>x</span>
-                 <span id = 'square2Player2Pawn'>x</span>
-                 <span id ='square2Player3Pawn'>x</span>
-                 <span id ='square2Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square2House1'>h</span>
-                 <span id = 'square2House2'>h</span>
-                 <span id ='square2House3'>h</span>
-                 <span id ='square2House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-
-              <div class='boardSquare' id='square1'>
-                 <span id ='square1Player1Pawn'>x</span>
-                 <span id = 'square1Player2Pawn'>x</span>
-                 <span id ='square1Player3Pawn'>x</span>
-                 <span id ='square1Player0Pawn'>x</span>
-                 <br>
-                 <span id ='square1House1'>h</span>
-                 <span id = 'square1House2'>h</span>
-                 <span id ='square1House3'>h</span>
-                 <span id ='square1House4'>h</span>   
-                 <br>
-                 <span class ='squareName'>n : </span>
-                 <span class='housesCount'>m : </span>
-                 <span class='housesCount'>r : </span>
-
-
-              </div>
-           
-           
-             </div>
-
-             <div id='boardJournal'>Waiting for players...</div>
-
-               <div id='rightEdge'>
-
-               <div class='boardSquare' id='square21'>
-                 <span id ='square21Player1Pawn'>x</span>
-                 <span id = 'square21Player2Pawn'>x</span>
-                 <span id ='square21Player3Pawn'>x</span>
-                 <span id ='square21Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square21House1'>h</span>
-                 <span clas= 'house2' id='square21House2'>h</span>
-                 <span class='house3' id='square21House3'>h</span>
-                 <span class='house4' id='square21House4'>h</span>
-                 <span class='house4' id='square21House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-              </div>
-
-              <div class='boardSquare' id='square22'>
-                 <span id ='square22Player1Pawn'>x</span>
-                 <span id = 'square22Player2Pawn'>x</span>
-                 <span id ='square22Player3Pawn'>x</span>
-                 <span id ='square22Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square22House1'>h</span>
-                 <span clas= 'house2' id='square22House2'>h</span>
-                 <span class='house3' id='square22House3'>h</span>
-                 <span class='house4' id='square22House4'>h</span>
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square23'>
-                 <span id ='square23Player1Pawn'>x</span>
-                 <span id = 'square23Player2Pawn'>x</span>
-                 <span id ='square23Player3Pawn'>x</span>
-                 <span id ='square23Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square23House1'>h</span>
-                 <span clas= 'house2' id='square23House2'>h</span>
-                 <span class='house3' id='square23House3'>h</span>
-                 <span class='house4' id='square23House4'>h</span>
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square24'>
-                 <span id ='square24Player1Pawn'>x</span>
-                 <span id = 'square24Player2Pawn'>x</span>
-                 <span id ='square24Player3Pawn'>x</span>
-                 <span id ='square24Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square24House1'>h</span>
-                 <span clas= 'house2' id='square24House2'>h</span>
-                 <span class='house3' id='square24House3'>h</span>
-                 <span class='house4' id='square24House4'>h</span>
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-
-              <div class='boardSquare' id='square25'>
-                 <span id ='square25Player1Pawn'>x</span>
-                 <span id = 'square25Player2Pawn'>x</span>
-                 <span id ='square25Player3Pawn'>x</span>
-                 <span id ='square25Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square25House1'>h</span>
-                 <span clas= 'house2' id='square25House2'>h</span>
-                 <span class='house3' id='square25House3'>h</span>
-                 <span class='house4' id='square25House4'>h</span>
-                 <span class='house4' id='square25House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-
-              
-              <div class='boardSquare' id='square26'>
-                 <span id ='square26Player1Pawn'>x</span>
-                 <span id = 'square26Player2Pawn'>x</span>
-                 <span id ='square26Player3Pawn'>x</span>
-                 <span id ='square26Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square26House1'>h</span>
-                 <span clas= 'house2' id='square26House2'>h</span>
-                 <span class='house3' id='square26House3'>h</span>
-                 <span class='house4' id='square26House4'>h</span>
-                 <span class='house4' id='square26House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square27'>
-                 <span id ='square27Player1Pawn'>x</span>
-                 <span id = 'square27Player2Pawn'>x</span>
-                 <span id ='square27Player3Pawn'>x</span>
-                 <span id ='square27Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square27House1'>h</span>
-                 <span clas= 'house2' id='square27House2'>h</span>
-                 <span class='house3' id='square27House3'>h</span>
-                 <span class='house4' id='square27House4'>h</span>
-                 <span class='house4' id='square27House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-
-              <div class='boardSquare' id='square28'>
-                 <span id ='square28Player1Pawn'>x</span>
-                 <span id = 'square28Player2Pawn'>x</span>
-                 <span id ='square28Player3Pawn'>x</span>
-                 <span id ='square28Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square28House1'>h</span>
-                 <span clas= 'house2' id='square28House2'>h</span>
-                 <span class='house3' id='square28House3'>h</span>
-                 <span class='house4' id='square28House4'>h</span>
-                 <span class='house4' id='square28House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-
-
-
-              <div class='boardSquare' id='square29'>
-                 <span id ='square29Player1Pawn'>x</span>
-                 <span id = 'square29Player2Pawn'>x</span>
-                 <span id ='square29Player3Pawn'>x</span>
-                 <span id ='square29Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square29House1'>h</span>
-                 <span clas= 'house2' id='square29House2'>h</span>
-                 <span class='house3' id='square29House3'>h</span>
-                 <span class='house4' id='square29House4'>h</span>
-                 <span class='house4' id='square29House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-
+            <div id='rightEdge' style='height:100%; width:9.09%; background:black; display: flex; flex-direction:column; justify-content: space-around'>
+                <div id='21' style='background:red; height:11.11%; width:100%'></div>
+                <div id='22' style='background:green; height:11.11%; width:100%'></div>
+                <div id='23' style='background:brown; height:11.11%; width:100%'></div>
+                <div id='24' style='background:yellow; height:11.11%; width:100%'></div>
+                <div id='25' style='background:blue; height:11.11%; width:100%'></div>
+                <div id='26' style='background:brown; height: 11.11%; width:100%'></div>
+                <div id='27' style='background:purple; height: 11.11%; width:100%'></div>
+                <div id='28' style='background:brown; height: 11.11%; width:100%'></div>
+                <div id='29' style='background:green; height: 11.11%; width:100%'></div>
            </div>
 
-          </div>
-
-        <div id="bottomEdge">
+       </div>
  
-              <div class='boardSquare' id='square0'>
-                 <span id ='square0Player1Pawn'>1</span>
-                 <span id = 'square0Player2Pawn'>2</span>
-                 <span id ='square0Player3Pawn'>3</span>
-                 <span id ='square0Player0Pawn'>0</span>
-                 <br>
-            
-                 <span class ='squareName'>Departure </span>
-             
+      <div id="bottomEdge" style='height:9.09%; display: flex; flex-direction: row'>
 
-              </div>
-              <div class='boardSquare' id='square39'>
-                 <span id ='square39Player1Pawn'>x</span>
-                 <span id = 'square39Player2Pawn'>x</span>
-                 <span id ='square39Player3Pawn'>x</span>
-                 <span id ='square39Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square39House1'>h</span>
-                 <span clas= 'house2' id='square39House2'>h</span>
-                 <span class='house3' id='square39House3'>h</span>
-                 <span class='house4' id='square39House4'>h</span>
-                 <span class='house4' id='square39House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
+                <div id='0' style='background:purple; height:100%; width:9.09%'></div>
+                <div id='39' style='background:red; height:100%; width:9.09%'></div>
+                <div id='38' style='background:yellow; height:100%; width:9.09%'></div>
+                <div id='37' style='background:blue; height:100%; width:9.09%'></div>
+                <div id='36' style='background:brown; height:100%; width:9.09%'></div>
+                <div id='35' style='background:red; height:100%; width:9.09%'></div>
+                <div id='34' style='background:yellow; height:100%; width:9.09%'></div>
+                <div id='33' style='background:red; height:100%; width:9.09%'></div>
+                <div id='32' style='background:purple; height:100%; width:9.09%'></div>
+                <div id='31' style='background:blue; height:100%; width:9.09%'></div>
+                <div id='30' style='background:red; height:100%; width:9.09%'></div>
+      
+      </div>
 
-                 <span>(i)</span>
-
-
-              </div>
-              <div class='boardSquare' id='square38'>
-                 <span id ='square38Player1Pawn'>x</span>
-                 <span id = 'square38Player2Pawn'>x</span>
-                 <span id ='square38Player3Pawn'>x</span>
-                 <span id ='square38Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square38House1'>h</span>
-                 <span clas= 'house2' id='square38House2'>h</span>
-                 <span class='house3' id='square38House3'>h</span>
-                 <span class='house4' id='square38House4'>h</span>
-                 <span class='house4' id='square38House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square37'>
-                 <span id ='square37Player1Pawn'>x</span>
-                 <span id = 'square37Player2Pawn'>x</span>
-                 <span id ='square37Player3Pawn'>x</span>
-                 <span id ='square37Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square37House1'>h</span>
-                 <span clas= 'house2' id='square37House2'>h</span>
-                 <span class='house3' id='square37House3'>h</span>
-                 <span class='house4' id='square37House4'>h</span>
-                 <span class='house4' id='square37House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>avenueDesChamps elysees</span>
-
-              </div>
-
-
-              <div class='boardSquare' id='square36'>
-                 <span id ='square36Player1Pawn'>x</span>
-                 <span id = 'square36Player2Pawn'>x</span>
-                 <span id ='square36Player3Pawn'>x</span>
-                 <span id ='square36Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square36House1'>h</span>
-                 <span clas= 'house2' id='square36House2'>h</span>
-                 <span class='house3' id='square36House3'>h</span>
-                 <span class='house4' id='square36House4'>h</span>
-                 <span class='house4' id='square36House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square35'>
-                 <span id ='square35Player1Pawn'>x</span>
-                 <span id = 'square35Player2Pawn'>x</span>
-                 <span id ='square35Player3Pawn'>x</span>
-                 <span id ='square35Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square35House1'>h</span>
-                 <span clas= 'house2' id='square35House2'>h</span>
-                 <span class='house3' id='square35House3'>h</span>
-                 <span class='house4' id='square35House4'>h</span>
-                 <span class='house4' id='square35House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square34'>
-                 <span id ='square34Player1Pawn'>x</span>
-                 <span id = 'square34Player2Pawn'>x</span>
-                 <span id ='square34Player3Pawn'>x</span>
-                 <span id ='square34Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square34House1'>h</span>
-                 <span clas= 'house2' id='square34House2'>h</span>
-                 <span class='house3' id='square34House3'>h</span>
-                 <span class='house4' id='square34House4'>h</span>
-                 <span class='house4' id='square34House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square33'>
-                 <span id ='square33Player1Pawn'>x</span>
-                 <span id = 'square33Player2Pawn'>x</span>
-                 <span id ='square33Player3Pawn'>x</span>
-                 <span id ='square33Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square33House1'>h</span>
-                 <span clas= 'house2' id='square33house2'>h</span>
-                 <span class='house3' id='square33house3'>h</span>
-                 <span class='house4' id='square33house4'>h</span>
-                 <span class='house4' id='square33house5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square32'>
-                 <span id ='square32Player1Pawn'>x</span>
-                 <span id = 'square32Player2Pawn'>x</span>
-                 <span id ='square32Player3Pawn'>x</span>
-                 <span id ='square32Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square32House1'>h</span>
-                 <span clas= 'house2' id='square32House2'>h</span>
-                 <span class='house3' id='square32House3'>h</span>
-                 <span class='house4' id='square32House4'>h</span>
-                 <span class='house4' id='square32House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square31'>
-                 <span id ='square31Player1Pawn'>x</span>
-                 <span id = 'square31Player2Pawn'>x</span>
-                 <span id ='square31Player3Pawn'>x</span>
-                 <span id ='square31Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square31House1'>h</span>
-                 <span clas= 'house2' id='square31House2'>h</span>
-                 <span class='house3' id='square31House3'>h</span>
-                 <span class='house4' id='square31House4'>h</span>
-                 <span class='house4' id='square31House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-              <div class='boardSquare' id='square30'>
-                 <span id ='square30Player1Pawn'>x</span>
-                 <span id = 'square30Player2Pawn'>x</span>
-                 <span id ='square30Player3Pawn'>x</span>
-                 <span id ='square30Player0Pawn'>x</span>
-                 <br>
-                 <span class='house1' id='square30House1'>h</span>
-                 <span clas= 'house2' id='square30House2'>h</span>
-                 <span class='house3' id='square30House3'>h</span>
-                 <span class='house4' id='square30House4'>h</span>
-                 <span class='house4' id='square30House5'>h</span>                    
-                 <br>
-                 <span class ='squareName'>Rdlp</span>
-
-              </div>
-    
-        </div>
-
+       
     </div>
   
 
@@ -921,13 +414,8 @@
 
                   <div id='ai2Thinking' style='height : 20%' >
 
-                     Parsing the information... <br>
-                     Parsing the information... <br>
-                     
-                     Parsing the information... <br>
-                     Parsing the information... <br>
-                     Parsing the information... <br>
-                     Parsing the information... <br>
+                     Parsing the information... 
+                    
                   </div>
 
             </div>
@@ -942,8 +430,7 @@
 
                   <div id='ai3Thinking' style='height : 20%' >
 
-                     Parsing the information... <br>
-                     Parsing the information...
+                     Parsing the information... 
                   </div>
 
             </div>
@@ -954,21 +441,38 @@
    </div>
 
 
-   <div id='humanBoard'>
 
-        <div> <button onclick = 'displayInterfaces()'>interfaces</button></div>
+   <div id='rentalPropertiesCard'>
 
-        <div><button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button></div>
 
-    </div>
+   </div>
+
+   
+   <div id='trainsCard'>
+
+
+   </div>
+
+     
+   <div id='specialSquaresCard'>
+
+
+   </div>
+
+
+
+   <button id = 'displayInterfacesButton' onclick='displayInterfaces()'>show</button>
 
 
     <div id='interfacesPanel'>
-     
-       <div><button onclick = 'displayPM()'>Gérer</button></div> 
-       <div><button onclick = 'displayPropositionInterface()'>Trade</button></div>
+          
+          <button onclick='displayPM()'>handle</button>
 
-     </div>
+          <button onclick='displayPropositionInterface()'>trade</button>    
+    
+    </div>
+
+
 
 
 

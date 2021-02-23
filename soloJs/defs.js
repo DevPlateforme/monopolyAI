@@ -351,12 +351,12 @@ function checkGlobalDanger(player){
 
 				 if(player.cash < otherPlayersRents){
 
-          console.log( player.name + ' is potentially in danger...');
+          //console.log( player.name + ' is potentially in danger...');
           
 
 				 } else {
 
-					console.log( player.name + ' is not in danger right now...');
+					//console.log( player.name + ' is not in danger right now...');
 
          }
          
@@ -432,12 +432,12 @@ function checkGlobalDanger(player){
         if(potentielPayments > player.cash){
 
                
-             console.log( player.name + ' est en très grand danger ');
+             //console.log( player.name + ' est en très grand danger ');
             
         } else {
 
 
-             console.log( player.name + "n'est pas en grand danger direct ");
+             //console.log( player.name + "n'est pas en grand danger direct ");
 
 
         }
@@ -557,7 +557,7 @@ function buildHouse(property){
      boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
 
 
-     //alert(property.landLord.name + ' just built a house on ' + property.name);
+     ////alert(property.landLord.name + ' just built a house on ' + property.name);
 
      buildHouseOnGui(property);
 
@@ -932,7 +932,7 @@ function newMonopoly(player , color){
 
    insertMonopoly(player, color);
 
-   boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')';
+   boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')');
    
 
 }
@@ -1111,7 +1111,7 @@ function insertMortgagedMonopolyProperty(player , property){
       
   player.mortgagedMonopolyProperties.push(property);
   
-  //alert('player mortgaged monopoly inserted');
+  ////alert('player mortgaged monopoly inserted');
 
   
    if(player.mortgagedMonopolyProperties.length == 1){
@@ -1185,7 +1185,7 @@ function playerInBankruptcy(player){
 
         clearInterval(bankruptcyInterval);
 
-        //alert(' the player ' + player.name + ' went out from bankruptcy');
+        ////alert(' the player ' + player.name + ' went out from bankruptcy');
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
         
@@ -1194,7 +1194,7 @@ function playerInBankruptcy(player){
      } , 500);
 
 
-     //alert(' bankruptcy timeout launched for ' + player.name);
+     ////alert(' bankruptcy timeout launched for ' + player.name);
 
      boardJournal.innerHTML += ( player.name + ' went out from bankruptcy');
 
@@ -1215,7 +1215,7 @@ function playerInBankruptcy(player){
 
 function gameOver(player){
 
-   alert(player.name + ' was defeated!!')
+   //alert(player.name + ' was defeated!!')
      
   //delete the player from the players array , delete the player from the dice launchers array
 

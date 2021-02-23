@@ -61,7 +61,7 @@ function hashAndStore(proposition){
     }
 
 
-    //alert('hashed refusal =>' + (hash % HASHENTRIES) );
+    ////alert('hashed refusal =>' + (hash % HASHENTRIES) );
 
     
     setTimeout(function(){

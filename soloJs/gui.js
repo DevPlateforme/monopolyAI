@@ -1,19 +1,18 @@
 //Create the GUI
 
-var topEdge = $('#topEdge');
-var bottomEdge = $('#bottomEdge');
-var rightEdge = $('#rightEdge');
-var leftEdge = $('#leftEdge');
+
+var leftEdge = document.getElementById('leftEdge');
+var rightEdge = document.getElementById('rightEdge');
+var topEdge = document.getElementById('topEdge'); 
+var bottomEdge = document.getElementById('bottomEdge'); 
 
 
-
-
+var mainDivs = document.getElementById('mainDivs');
+var aisAndBoardDiv = document.getElementById('aisAndBoard');
 var availablePropertyInterface = document.getElementById('availablePropertyInterface');
 var availablePropertyPriceHTML = document.getElementById('availablePropertyPriceHTML');
 var unavailableFundInterface = document.getElementById('unavailableFundInterface');
 var offererDiv = document.getElementById('offererDiv');  
-
-
 var humanAnswerInterface = document.getElementById('humanAnswerInterface');
 var humanAnswerInterfaceBody = document.getElementById('humanAnswerInterfaceBody');
 var humanAnswerInterfaceOffer = document.getElementById('humanAnswerInterfaceOffer');
@@ -27,6 +26,8 @@ var interfacesPanel = document.getElementById('interfacesPanel');
 
 
 var boardJournal = document.getElementById('boardJournal');
+
+var tradeJournal = document.getElementById('tradeJournal');
 
 
 
@@ -139,13 +140,13 @@ function refusePropositionFromInterface(){
 
      let offerer = humanPlayer.propositionToAnswer.offerer;
 
-     //alert('the offerer was =>' + offerer.name)
+     ////alert('the offerer was =>' + offerer.name)
 
 
      hashAndStore(humanPlayer.propositionToAnswer);
 
 
-     ////alert('vous avez refusé cette proposition!!');
+     //////alert('vous avez refusé cette proposition!!');
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
 
@@ -426,7 +427,7 @@ function observeAi(ai){
           let propertiesArray = ai.propertiesByColor;
 
 
-          ////console.log('here is the original array length:' + ai1.propertiesByColor.length );
+          //////console.log('here is the original array length:' + ai1.propertiesByColor.length );
 
 
 
@@ -609,6 +610,26 @@ function displayOffererDiv(){
 
                let colorSetDiv = document.createElement('div');
 
+               colorSetDiv.setAttribute("class" , "colorSetDiv");
+
+               let propertiesDiv = document.createElement('div');
+
+               propertiesDiv.setAttribute("class" , "propertiesDiv")
+               
+               let developmentDiv = document.createElement('div');
+
+               developmentDiv.setAttribute("class" , "developmentDiv");
+
+
+
+               let developmentCanvas = document.createElement('canvas');
+
+               developmentCanvas.setAttribute("canvas","developmentCanvas");
+
+               developmentDiv.append(developmentCanvas);
+
+                
+
 
                      //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
 
@@ -620,14 +641,21 @@ function displayOffererDiv(){
                              let property = propertiesArray[setIndex].properties[propertyIndex];
 
                              let propertyDiv = document.createElement('div');
+                             
                              propertyDiv.setAttribute('id' , property.elementIndex);
+
+                             
+                             let leftPropertyDiv = document.createElement('div');
+                             let middlePropertyDiv = document.createElement('div') ;
+                             let rightPropertyDiv = document.createElement('div');
 
 
                            //ADD 2 DIVS IN THE PROPERTY DIV
 
-                            let propertyNameDiv = document.createElement('div');
 
-                            propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+                             let propertyNameDiv = document.createElement('div');
+
+                             propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
 
                            
                             let addPropertyButtonDiv =  document.createElement('button');
@@ -646,23 +674,32 @@ function displayOffererDiv(){
                          
 
                      //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
+                        
+                         middlePropertyDiv.append(propertyNameDiv);
+
+                         rightPropertyDiv.append(addPropertyButtonDiv)
+                         
 
 
-                          propertyDiv.append(propertyNameDiv);
+                          propertyDiv.append(leftPropertyDiv);
+                          propertyDiv.append(middlePropertyDiv);
+                          propertyDiv.append(rightPropertyDiv);
+
  
-                          propertyDiv.append(addPropertyButtonDiv);
 
-
-
-
-                  
 
                    //APPEND THIS DIV THE COLOR SET DIV
 
+                          propertiesDiv.append(propertyDiv);
                           colorSetDiv.append(propertyDiv);
+
 
                          
                      }
+
+                     
+               colorSetDiv.append(developmentDiv);
+
 
           
                offererDiv.append(colorSetDiv);
@@ -741,7 +778,7 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
 
 
-     //alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
+     ////alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
 
 
 
@@ -793,7 +830,7 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = undefined;
 
 
-     //alert( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
+     ////alert( propertiesList[elementIndex].name + 'removed in constant time ! undefined element now : ' + offerer.inBuildingProposition.counterPartAsked[elementIndex]);
 
 
 
@@ -866,7 +903,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
                offerer.inBuildingProposition.offer[elementIndex] = property;
      
      
-               //alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
+               ////alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.offer[elementIndex].name);
      
      
      
@@ -885,7 +922,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
      } else {
 
 
-          ////alert('veuillez séléctionner un joueur');
+          //////alert('veuillez séléctionner un joueur');
 
 
      }
@@ -925,7 +962,7 @@ function removeOfferElement(event, offererIndex, elementIndex){
          offerer.inBuildingProposition.offer[elementIndex] = undefined;
 
 
-         //alert(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
+         ////alert(propertiesList[elementIndex] + 'removed in constant time ! There is now an undefined element : ' + offerer.inBuildingProposition.offer[elementIndex]);
 
 
           //REDUCE THE COUNT BY 1
@@ -960,7 +997,7 @@ function sendProposition(){
 
      if(IbProposition == none){
 
-          alert('vous n avez pas crée d offre!');
+          //alert('vous n avez pas crée d offre!');
 
      } else{
 
@@ -972,11 +1009,11 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-          alert('vous n avez rien offert!');
+          //alert('vous n avez rien offert!');
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-          alert('vous n avez demandé aucun élément!');
+          //alert('vous n avez demandé aucun élément!');
 
           //ELSE, VALID PROPOSITION
 
@@ -984,7 +1021,7 @@ function sendProposition(){
          } else {
 
 
-          ////alert('proposition sent!');
+          //////alert('proposition sent!');
 
 
           //DID THE PROPERTIES HASHKEY CHANGE?
@@ -1058,7 +1095,7 @@ function sendProposition(){
 
 
           
-          ////console.log(proposition);
+          //////console.log(proposition);
 
 
             //now, simply use the function : profitable proposition, to check if it is.
@@ -1072,13 +1109,13 @@ function sendProposition(){
                
                    //if no alternatives found 
               
-                    //alert('offerer score =>' + proposition.offererScore);
+                    ////alert('offerer score =>' + proposition.offererScore);
 
-                    //alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
+                    ////alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
 
-                    //alert('answerer score =>' + proposition.answererScore);
+                    ////alert('answerer score =>' + proposition.answererScore);
           
-                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
+                    //alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
                     acceptProposition(proposition);
                     
@@ -1087,13 +1124,13 @@ function sendProposition(){
      
                  if(proposition.answererScore < (0.9 * alternatives.gainValue)){
      
-                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                      //alert(proposition.answerer.name + 'found a better alternative, and refused !');
      
      
      
                  } else {
      
-                   alert(proposition.answerer.name + ' accepted the offer!');
+                   //alert(proposition.answerer.name + ' accepted the offer!');
      
                    acceptProposition(proposition);
 
@@ -1107,29 +1144,29 @@ function sendProposition(){
 
             } else {
 
-                alert('proposition refused');
+                //alert('proposition refused');
                
-               //alert('offererscore=>' + proposition.offererScore);
-               //alert('answererscore=>' + proposition.answererScore);
+               ////alert('offererscore=>' + proposition.offererScore);
+               ////alert('answererscore=>' + proposition.answererScore);
                
-               //alert('we talk about the proposition with this offer ');
+               ////alert('we talk about the proposition with this offer ');
 
                hashAndStore(proposition);
 
 
                for(var i=0; i < proposition.offer.array.length ; i++){
 
-                    //alert(proposition.offer.array[i].name);
+                    ////alert(proposition.offer.array[i].name);
 
                }
 
 
-               //alert('we talk about the proposition with this cpa ');
+               ////alert('we talk about the proposition with this cpa ');
 
 
                for(var i=0; i < proposition.counterPartAsked.array.length ; i++){
 
-                    //alert(proposition.counterPartAsked.array[i].name);
+                    ////alert(proposition.counterPartAsked.array[i].name);
 
                }
 
@@ -1202,21 +1239,21 @@ function initHumanAnswerInterface(){
 
 function perceptionCheck(ai, proposition){
 
-     //alert('name=>' + ai.name);
-     //alert('count=>' + ai.unfairPropositionsRefusals);
+     ////alert('name=>' + ai.name);
+     ////alert('count=>' + ai.unfairPropositionsRefusals);
 
      if(proposition.unfair == true){
 
-          //alert('unfair offer refused')
+          ////alert('unfair offer refused')
 
          if(ai.unfairPropositionsRefusals== 3){
 
-          //alert('after 4 unfaire trick refusals, the AI becomes aggressive');
+          ////alert('after 4 unfaire trick refusals, the AI becomes aggressive');
              ai.humanPerception = uncooperative;
 
              setTimeout(function(){
 
-               //alert('the AI calmed down!');
+               ////alert('the AI calmed down!');
 
                ai.humanPerception = regular;
 
@@ -1226,12 +1263,12 @@ function perceptionCheck(ai, proposition){
 
               ai.unfairPropositionsRefusals+= 1;
 
-              //alert('the AI knows , deep down , that it made an unfair offer to you , but noted that you refused ');
+              ////alert('the AI knows , deep down , that it made an unfair offer to you , but noted that you refused ');
          }
  
      } else {
 
-          //alert('fair offer refused')
+          ////alert('fair offer refused')
 
           if(ai.unfairPropositionRefusals == 1){
 
@@ -1243,13 +1280,13 @@ function perceptionCheck(ai, proposition){
 
                }, 120000);
 
-              //alert('after 2 fair trick refusals, the AI becomes aggressive');
+              ////alert('after 2 fair trick refusals, the AI becomes aggressive');
                
            } else {
   
                ai.fairPropositionRefusals += 1;
              
-               //alert('The AI noted that you made a refusal to a fair offer');
+               ////alert('The AI noted that you made a refusal to a fair offer');
   
            }
 
@@ -1268,8 +1305,6 @@ function displayBankruptcyInterface(){
 
 
 
-
-
 function displayPM(){
 
      humanThinking = true;
@@ -1278,125 +1313,11 @@ function displayPM(){
      
      document.getElementById('playerPropertiesManagementInterface').style.zIndex = 3;
 
-     
      let propertiesArray = humanPlayer.propertiesByColor;
 
 
-     for(var setIndex = 0; setIndex < propertiesArray.length; setIndex++){
+     
 
-
-          if(propertiesArray[setIndex].properties.length != 0){
-
-               let color = propertiesArray[setIndex].properties[0].color;
-
-               let colorSetDiv = document.createElement('div');
-
-
-
-
-
-               if(monopolyCheck(humanPlayer, color) == true){
-
-
-                    
-                  let buildHouseButton =  document.createElement('button');
-
-                  buildHouseButton.setAttribute('onclick' , 'buildHouseFromInterface(' + color.index + ')');
-
-                  let sellHouseButton = document.createElement('button');
-
-                  sellHouseButton.setAttribute('onclick' , 'sellHouseFromInterface(' + color.index + ')');
-
-
-                  buildHouseButton.innerHTML = 'Build a house';
-                  sellHouseButton.innerHTML = 'Sell a house';
-
-
-                  colorSetDiv.append(buildHouseButton);
-                  colorSetDiv.append(sellHouseButton);
-
-
-
-               }
-
-
-               
-                     //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
-
-
-                     for(var propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
-
-                         
-                             let property = propertiesArray[setIndex].properties[propertyIndex];
-
-                             let propertyDiv = document.createElement('div');
-
-                             propertyDiv.setAttribute('id' , property.elementIndex);
-
-
-                           //ADD 2 DIVS IN THE PROPERTY DIV
-
-                            let propertyNameDiv = document.createElement('div');
-
-                            propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
-
-
-                            if(property.mortgaged == false){
-
-                           
-                                 let mortgagePropertyButton = document.createElement('button');
-
-                                 mortgagePropertyButton.setAttribute("onclick" , "getMortgageFromInterface(" +  property.elementIndex + ")");
-
-                           
-                               //FUNCTION WORKING IN CONSTANT TIME : 
-
-
-                                mortgagePropertyButton.innerHTML = 'mortgage';
-                                propertyDiv.append(mortgagePropertyButton);
-
-
-                              
-                            } else {
-
-                              let closeMortgageButton = document.createElement('button');
-
-                              closeMortgageButton.setAttribute("onclick" , "closeMortgageFromInterface(" +  property.elementIndex + ")");
-
-                        
-                        //FUNCTION WORKING IN CONSTANT TIME : 
- 
-
-                             closeMortgageButton.innerHTML = 'close mortgage';
-                             propertyDiv.append(closeMortgageButton);
-                              
-                            }
-
-
-
-
-                         
-                     //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
-
-
-                          propertyDiv.append(propertyNameDiv);
- 
-
-
-
-                   //APPEND THIS DIV THE COLOR SET DIV
-
-                          colorSetDiv.append(propertyDiv);
-
-                     }
-
-          
-                     pmHumanPropertiesDiv.append(colorSetDiv);
-
-          }
-               
-     }
-    
 }
 
 
@@ -1444,7 +1365,10 @@ function displayInterfaces(){
 
      humanThinking = true;
 
-     interfacesPanel.style.display = 'block';
+     aisAndBoardDiv.style.opacity = 0.4;
+
+     interfacesPanel.style.opacity = 1;
+
      
 }
 
@@ -1505,3 +1429,256 @@ function sellHouseFromInterface(colorIndex){
 
  }
 
+
+
+ function insertTextInJournal(text){
+
+
+ }
+
+
+
+
+
+
+
+ //Graphs
+
+
+
+ 
+
+ 
+var ctx1 = document.getElementById('tradeCountCanvas').getContext('2d');
+var ctx2 = document.getElementById('situationsCanvas').getContext('2d');
+var ctx3 = document.getElementById('cashCollectedCanvas').getContext('2d');
+
+
+
+var myChart = new Chart(ctx1, {
+    type: 'horizontalBar',
+    data: {
+        labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
+        datasets: [{
+            label: 'Players situations evaluations',
+            data: [15,25,10,40],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+         animation: {
+
+            duration: 2000
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+var myChart2 = new Chart(ctx2, {
+     type: 'horizontalBar',
+     data: {
+         labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
+         datasets: [{
+             label: 'Players situations evaluations',
+             data: [15,25,10,40],
+             backgroundColor: [
+                 'rgba(255, 99, 132, 0.2)',
+                 'rgba(54, 162, 235, 0.2)',
+                 'rgba(255, 206, 86, 0.2)',
+                 'rgba(75, 192, 192, 0.2)',
+                 'rgba(153, 102, 255, 0.2)',
+                 'rgba(255, 159, 64, 0.2)'
+             ],
+             borderColor: [
+                 'rgba(255, 99, 132, 1)',
+                 'rgba(54, 162, 235, 1)',
+                 'rgba(255, 206, 86, 1)',
+                 'rgba(75, 192, 192, 1)',
+                 'rgba(153, 102, 255, 1)',
+                 'rgba(255, 159, 64, 1)'
+             ],
+             borderWidth: 1
+         }]
+     },
+     options: {
+          animation: {
+ 
+             duration: 2000
+         },
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero: true
+                 }
+             }]
+         }
+     }
+ });
+ 
+
+ 
+var myChart3 = new Chart(ctx3, {
+     type: 'horizontalBar',
+     data: {
+         labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
+         datasets: [{
+             label: 'Players situations evaluations',
+             data: [15,25,10,40],
+             backgroundColor: [
+                 'rgba(255, 99, 132, 0.2)',
+                 'rgba(54, 162, 235, 0.2)',
+                 'rgba(255, 206, 86, 0.2)',
+                 'rgba(75, 192, 192, 0.2)',
+                 'rgba(153, 102, 255, 0.2)',
+                 'rgba(255, 159, 64, 0.2)'
+             ],
+             borderColor: [
+                 'rgba(255, 99, 132, 1)',
+                 'rgba(54, 162, 235, 1)',
+                 'rgba(255, 206, 86, 1)',
+                 'rgba(75, 192, 192, 1)',
+                 'rgba(153, 102, 255, 1)',
+                 'rgba(255, 159, 64, 1)'
+             ],
+             borderWidth: 1
+         }]
+     },
+     options: {
+          animation: {
+ 
+             duration: 2000
+         },
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero: true
+                 }
+             }]
+         }
+     }
+ });
+
+
+
+
+
+
+ function insertTextIntoBoardJournal(text){
+
+
+      if( (boardJournal.length + text.length) >= 800){
+
+           boardJournal.innerHTML = '';
+      }
+
+
+ }
+
+
+ 
+
+ function insertStringIntoTradesJournal(text){
+
+     
+     if((tradeJournal.length + text.length) >= 400){
+
+          tradeJournal.innerHTML = '';
+     }
+
+}
+
+
+
+
+function launchThinkingAnimation(ai){
+
+     let thinkingInterval;
+
+     if(ai == ai1){
+          thinkingInterval = ai1ThinkingInterval;
+     } else if( ai == ai2){
+          thinkingInterval = ai2ThinkingInterval;       
+     } else {
+          thinkingInterval = ai3ThinkingInterval;
+     }
+     
+
+
+     let thinkingDiv = document.getElementById(ai.name + 'Thinking');
+
+     let lineCount = 0;
+
+     let displayedLineCount = 0;
+
+     let thinkingMessagesArray = [
+
+          'parsing the information...' , ' thinking at depth + 2...' , 'evaluating opponents...' ,
+          'evaluating direct trades...' , ' evaluating possible offers...' , 'virtually deleting requested elements...' ,
+          'virtually adding requested elements...' , ' thinking at depth + 2...' , 'evaluating opponents...' ,
+          'checking for monopoly trades...' , 'evaluating interlocutor stats...' , 'evaluating interlocutor finances...' ,
+          'checking for synergetic opportunity...' , ' computing synergetic costs...' , 'parsing the information at depth + 1...' ,
+          'evaluation of opportunity costs...' ,    'adding cash slice in the offer...' , 'adding cash slice in the counterPartAsked...' ,
+          'virtually closing mortgages...' , 'checking for future monopoly windows...' , 'computing set calculation...' ,
+          'splitting train sets...' , ' checking for color duplicates...' , 'splitting public services sets...' ,
+          'computing opponent costs...' , ' checking the hash table...' , 'evaluating opponents situations...' ,
+
+
+     ]
+
+     thinkingAiInterval = setInterval(
+
+      
+          function(){
+               
+               displayedLineCount++;
+      
+               if(lineCount >= 26){
+
+                    lineCount = 0;
+
+               } else {
+                    lineCount++;
+               }
+
+
+               if(displayedLineCount <= 3){
+
+                    thinkingDiv.innerHTML += '<br>' + thinkingMessagesArray[lineCount];
+
+               } else {
+
+                    thinkingDiv.innerHTML = '';
+
+                    displayedLineCount = 0;
+               }
+
+          } , 10
+
+     )
+
+
+}

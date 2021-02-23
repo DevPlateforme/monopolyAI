@@ -19,6 +19,41 @@ NAV BAR
 
 
 
+body{
+
+    background: blue;
+}
+
+
+canvas{
+
+    height: 50% !important;
+
+    width: 60% !important;
+    
+}
+
+
+#notificationsDiv{
+
+    position: absolute;
+
+    right: 15vw;
+
+    top : 10vh;
+
+    height: 10vh;
+
+    width: 10vw;
+
+    z-index: 10;
+
+    background: red;
+
+
+}
+
+
 #navBar{
 
     height: 10vh;
@@ -55,23 +90,25 @@ NAV BAR
     
     position: fixed;
 
-    top: 14vh;
+    top: 10vh;
 
     left: 0px;
 
-    height: 85vh;
+    height: 80%;
 
     width: 95vw;
 
     margin-left: 2.5vw;
-
-
+    
     display: flex;
 
     justify-content: space-between;
 
     flex-direction: column;
-    
+
+    align-items: center;
+
+
  }
 
 
@@ -128,7 +165,7 @@ NAV BAR
 
  #aisAndBoard{
 
-    height: 83%;
+    height: 100%;
 
     width: 100%;
 
@@ -144,6 +181,9 @@ NAV BAR
     height: 100%;
 
  }
+
+
+
 
 
  #ai1DivAndStats{
@@ -163,8 +203,6 @@ NAV BAR
     height: 40%;
 
     width: 100%;
-
-    background: red;
 
     overflow: hidden;
 
@@ -299,6 +337,10 @@ NAV BAR
 
 #interfacesPanel{
 
+    position: fixed;
+
+    bottom:0px;
+
     height: 7%;
 
     width: 100%;
@@ -309,10 +351,21 @@ NAV BAR
 
     justify-content: space-around;
 
-    display: none;
+    flex-direction: row;
+
+    z-index: 3;
+
+    opacity: 0;
 
 }
 
+#interfacesPanel div{
+   
+    height: 70%;
+
+    width: 40%;
+
+}
 
 
 
@@ -434,7 +487,7 @@ BOARD
 
     height: 100%;
 
-    width: 60%;
+    width: 85vh;
 
     background: blue;
 
@@ -446,127 +499,20 @@ BOARD
 
 
 
-#topEdge{
 
-    height: 9.09%;
+#middleDiv{
 
+    height: 100%;
+    
     width: 100%;
-
-    background: blue;
-
-    display: flex;
-
-    flex-direction: row;
-}
-
-
-#topEdge div{
-
-    height: 100%;
-
-    width: 10%;
-
-    border : 1px solid;
-
-}
-
-
-#bottomEdge{
-
-    height: 9.09%;
-
-    width: 100%;
-
-    background: blue;
-
-    display: flex;
-
-    flex-direction: row;
-
-}
-
-
-
-#bottomEdge div{
-
-    height: 100%;
-
-    width: 9.09%;
-
-    border : 1px solid;
-
-
-}
-
-
-#boardDiv2{
-
-    height: 81.82%;
-
-    width: 100%;
-
-    background: darkblue;
-
-    display: flex;
-
-    justify-content: space-between;
-}
-
-
-#boardDiv2 div{
-
-    height: 100%;
- 
-}
-
-
-#leftEdge{
-
-    width: 9.09%;
-
-    background: blue;
-
-    display: flex;
-
-    flex-direction: column;
-}
-
-#rightEdge{
-
-    width: 9.09%;
-
-    background: blue;
-
-    display: flex;
-
-    flex-direction: column;
-}
-#boardJournal{
-
-    height: 100%;
-    width: 30%;
 
     background: lightblue;
 
-    display: flex;
-
-    flex-direction: column;
+    
 }
 
 
 
-
-
-
-
-#boardDiv2 div div{
-
-    height: 11.11%;
-    width: 100%;
-    border: 1px solid;
-
-
-}
 
 
 
@@ -589,6 +535,15 @@ BOARD
 }
 
 
+
+.boardSquare{
+
+    background:green; 
+    display:flex; 
+    flex-direction: column; 
+    justify-content: space-around ; 
+    align-items: center;
+}
 
 
 #diceLaunchButton{
@@ -703,6 +658,8 @@ Proposition interface
 
     justify-content: space-around;
 
+    align-items: center;
+
     background : green;
 
 }
@@ -711,13 +668,48 @@ Proposition interface
 
 #offererDiv div div {
 
-    width: 20%;
+    width: 30%;
 
-    height: 100%;
+    height: 80%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    background: red;
 
 }
 
 
+
+
+
+
+.PMpropertiesDiv{
+    
+    display: flex;
+
+    justify-content: space-around;
+
+    height: 80%;
+
+    width : 40%; 
+}
+
+
+
+
+
+.developmentDiv{
+    
+    width:20%;
+    
+    background: yellow;
+}
 
 
 #answererDiv{
@@ -734,8 +726,6 @@ Proposition interface
     flex-direction: row;
 
 }
-
-
 
 
 #bottomDiv{
@@ -953,115 +943,225 @@ proposition buttons
 
     height: 80%;
 
-    width: 60%;
+    width: 80%;
 
     top: 10%;
 
-    left: 30%;
+    left: 10%;
 
     display: flex;
 
     flex-direction: row;
 
-    justify-content: space-around;
+    justify-content: space-between;
 
     align-items: center;
 
     border: solid 1px;
 
     opacity: 0;
+
 }
 
-#playerPropertiesManagementInterface div{
 
 
-    height: 85%;
 
-    width: 45%;
-
-    background: blue;
+#managementPropertiesDiv{
 
     display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    height:10%;
     
+}
+
+
+
+
+#playerPropertiesDiv{
+
+    height: 100%;
+
+    width: 80%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+}
+
+
+
+.PMpropertiesDiv{
+
+    width: 75%;
+
+    background: purple;
+}
+
+
+.monopolyPmDiv{
+    
+    width: 20%;
+
+    background: yellow;
+}
+
+
+
+#playerPropertiesManagementInterface #propertiesManagementInterfaceLeft{
+   
+    height:100%;
+
+    width: 20%;
+
+    background:red;
+
+    display:flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+#playerPropertiesManagementInterface #propertiesManagementInterfaceLeft div{
+
+
+    height: 48% ;
+
+    width: 100%;
+
+    background: purple;
+     
+}
+
+
+  #playerPropertiesManagementInterface #propertiesManagementInterfaceCenter{
+
+     display: flex;
+
+     flex-direction: column;
+
+     justify-content: space-around;
+
+     background: red;
+
+     height: 100%;
+
+     width : 55%;
+
+  }
+
+
+#playerPropertiesManagementInterface #propertiesManagementInterfaceRight{
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-around;
+
+    background: red;
+
+    height: 100%;
+
+    width : 20%;
+
+}
+
+#playerPropertiesManagementInterface #propertiesManagementInterfaceRight{
+
+    display:flex;
+
     flex-direction: column;
 
     align-items: center;
 
     justify-content: space-around;
 
+
+}
+
+#playerPropertiesManagementInterface #propertiesManagementInterfaceRight div{
+
+    height: 25%;
+
+    width: 80%; 
+
+    background: purple;
+
 }
 
 
+#playerPropertiesManagementInterface #propertiesManagementInterfaceCenter div{
+ 
+    height:9%;
 
-#playerPropertiesDiv div{
+    width:100%;
 
+    background: yellow;
 
-    height: 12.5%;
-
-    width: 100%;
-
-    display: flex;
+    display:flex;
 
     flex-direction: row;
 
-    justify-content: space-around;
+    justify-content: space-between;
 
-
-
-}
-
-
-#playerPropertiesDiv div div{
-
-    height: 100%;
-
-    width: 20%;
+    align-items: center;
 
 }
 
 
-#playerPropertiesManagementInterface #propertyManagementDiv{
 
+#playerPropertiesManagementInterface #propertiesManagementInterfaceCenter div div{
+
+  background: blue;
+  
+}
+
+.managementPropertyLine2{
 
     display: flex;
 
-    flex-direction: column;
-
     justify-content: space-around;
 
-    background: blue;
+    align-items: center;
+
+}
+
+.managementPropertyLine2 div{
+
+    background: black;
+
 
 }
 
 
+.managementPropertyLine2A{
 
-#playerPropertiesManagementInterface #propertyManagementDiv #propertyManagementTop{
+    height:80%;
 
-
-    height: 10%;
-
-    width: 100%;
-
-    background : purple;
-
+    width: 40%;
 }
 
 
-#playerPropertiesManagementInterface #propertyManagementDiv #propertyManagementBottom{
+.managementPropertyLine2B{
 
+    height:80%;
 
-    height: 80%;
-
-    width: 100%;
-
-    background : yellow;
-
+    width: 40%;
 }
-
-
-
-
-
 
 #unavailableFundInterface{
 
@@ -1070,9 +1170,7 @@ proposition buttons
 
     top: 20%;
 
-
     left: 30%;
-
 
     height: 30%;
 
@@ -1088,6 +1186,32 @@ proposition buttons
  }
 
 
+
+
+ /*
+
+    cards
+
+*/
+
+
+#rentalPropertiesCard{
+
+     position: absolute;
+
+     top: 20vh;
+
+     height: 38vh;
+
+     width: 12vw;
+
+     background : red;
+
+     z-index: 9;
+
+     opacity: 0;
+    
+}
 
 
 
@@ -1229,4 +1353,55 @@ div[id*="PawnContainer"] {
 
    
 
-   
+   #board{
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      align-items:center;
+
+      background: black;
+
+
+   }
+
+
+   #board div{
+
+    width: 100%;
+
+    height:20%;
+
+   }
+
+
+
+
+
+
+   #displayInterfacesButton{
+
+     position: fixed;
+
+     left: 6vw;
+
+     bottom: 5vh;
+
+     z-index:5;
+
+   }
+
+
+
+   /*
+
+   board squares
+ 
+
+   */
+
+
+ 

@@ -1,0 +1,37 @@
+
+
+middle div :
+
+
+
+           <div id='middleDivLeft' style='height:100%; width:30%; background: red ; display:flex; flex-direction: column ; justify-content: space-around; align-items: center'>
+
+                 <div id='topStats' style='background:purple ; height: 35%; width: 70%'>
+                    <canvas id='tradeCountCanvas'></canvas>
+                 </div>
+
+                 <div id='bottomStats' style='background:purple ; height: 35%; width: 70%'>
+                    <canvas id='situationsCanvas'></canvas>
+                 </div>
+               
+               </div>
+
+                <div id='middleDivCenter' style=' height:100%; width:30%; background: red ; display: flex; flex-direction: row ; justify-content: center; align-items: center'>
+
+                      <div id='boardJournal' style=' width: 80%; height: 65%'>Waiting for players...</div>
+
+                </div>
+
+
+                <div id='middleDivRight' style=' height:100%; width:30%; background: red ; display: flex; flex-direction: column; align-items: center; justify-content: space-around '>
+
+                  <div style='width:80%; height:30% ; background: purple' id='tradeJournal'> Waiting for trades...</div>
+ 
+                  <div style='width:80%; height:40% ; background: purple'>
+               
+                       <canvas id='cashCollectedCanvas'></canvas>
+ 
+                 </div>
+
+
+               </div>

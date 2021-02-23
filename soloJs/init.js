@@ -8,16 +8,16 @@ var breakVar = false;
 
 
 function init(){
-  
-    console.log('game starting...');
 
+     //buildBoard();
+  
     //setColorScores();
    
-   //givePlayersPropertiesForDemo();
+    givePlayersPropertiesForDemo();
 
-    wakeUpAis();
+    //wakeUpAis();
 
-  }
+}
 
 
 
@@ -68,12 +68,12 @@ function setColorScores(){
       color.growthScore = color.growthScore.toFixed(2)
 
 
-      console.log(color.name + ' : ' + color.growthScore)
+      //console.log(color.name + ' : ' + color.growthScore)
   
     
     }
   
-    console.log(colorArray[8].name + ' : ' + colorArray[8].growthScore);
+    //console.log(colorArray[8].name + ' : ' + colorArray[8].growthScore);
 
 
   }
@@ -84,38 +84,7 @@ function setColorScores(){
   function givePlayersPropertiesForDemo(){
 
      addPropertyToPlayerWallet(humanPlayer , rueDeLaPaix);
-     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
-     addPropertyToPlayerWallet(humanPlayer , belleville);
-     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
-
-
-    
-
-     addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai1 , placeDeLaBourse);
-     addPropertyToPlayerWallet(ai1 , publicServiceElectricity);
-     addPropertyToPlayerWallet(ai1 , gareDeLyon);
-     addPropertyToPlayerWallet(ai1 , avenueHenriMartin);
-     addPropertyToPlayerWallet(ai1 , avenueMatignon);
-
-
-
-     addPropertyToPlayerWallet(ai2 , rueDuParadis);
-     addPropertyToPlayerWallet(ai2, faubourgSaintHonore)
-     addPropertyToPlayerWallet(ai2 , avenueFoch);
-     addPropertyToPlayerWallet(ai2 , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(ai2 , publicServiceWater);
-     addPropertyToPlayerWallet(ai2 , gareSaintLazarre);
-
-
-    
-     addPropertyToPlayerWallet(ai3 , gareDuNord);
-     addPropertyToPlayerWallet(ai3 , rueDeCourcelles);
-     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
-     addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
-     addPropertyToPlayerWallet(ai3 , bdDesCapucines);
-     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
-
+ 
 
 }
 
@@ -138,7 +107,7 @@ function createTheCommunityChestDeck(){
    }
 
 
-     console.log(communityChestDeck);
+     //console.log(communityChestDeck);
 
   }
 
@@ -166,7 +135,7 @@ function createTheChanceDeck(){
 
    }
 
-      console.log(chanceDeck);
+      //console.log(chanceDeck);
 
 }
 
@@ -201,7 +170,7 @@ function aiReflects(ai){
 
      } else {
 
-        //////alert('an AI is already thinking!');
+        ////////alert('an AI is already thinking!');
 
 
      }

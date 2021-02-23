@@ -70,10 +70,10 @@ function movePiece(){
      movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
 
-     console.log('******updatedPosition ' + squaresArray[updatedPosition] )
+     //console.log('******updatedPosition ' + squaresArray[updatedPosition] )
 
 
-     console.log('******square ' + squaresArray[updatedPosition] )
+     //console.log('******square ' + squaresArray[updatedPosition] )
 
       
 
@@ -94,7 +94,7 @@ function movePiece(){
    function moveGuiPiece(){
 
 
-    ////console.log('moving the piece...');
+    //////console.log('moving the piece...');
 
        
 
@@ -104,7 +104,7 @@ function movePiece(){
    function makePostLaunchMove(){
      
 
-     ////console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
+     //////console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
 
 
 
@@ -127,7 +127,7 @@ function movePiece(){
 
       movePiece();
 
-      console.log( lastDiceLauncher.name + ' just launched dices!!');
+      //console.log( lastDiceLauncher.name + ' just launched dices!!');
 
       launchPLProcess();
       
@@ -139,7 +139,7 @@ function movePiece(){
 
              if(postLaunchDecision != done){
 
-              console.log('*****************************************no decisions were taken yet');
+              //console.log('*****************************************no decisions were taken yet');
 
              }
         
@@ -147,7 +147,7 @@ function movePiece(){
 
                  AiThinking = false;
 
-                 console.log('**************time for the next player to launch');
+                 //console.log('**************time for the next player to launch');
 
 
                    //NEXT PLAYER
@@ -161,7 +161,7 @@ function movePiece(){
 
                         if(AiThinking == false && humanThinking == false){
 
-                        //  alert(nextDiceLauncher.name + ' will launch dices!!');
+                        //  //alert(nextDiceLauncher.name + ' will launch dices!!');
 
                           boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
 
@@ -176,7 +176,7 @@ function movePiece(){
   
                           } else {
 
-                            console.log('*******the next dice launcher isnt the human!!')
+                            //console.log('*******the next dice launcher isnt the human!!')
   
                             launchDicesAndMovePieces();
    
@@ -204,7 +204,7 @@ function movePiece(){
 
            //BREAK       
 
-             //alert('the player took too much time to play!!');
+             ////alert('the player took too much time to play!!');
 
              boardJournal.innerHTML += ('the player took too much time to play!!');
              
@@ -283,7 +283,7 @@ function movePiece(){
 
                   } else {
 
-                     console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
+                     //console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
                      
@@ -311,24 +311,24 @@ function movePiece(){
 
                  if(findCashWithNonMonopolyProperties(lastDiceLauncher , missingCash) == true){
 
-                     console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
+                     //console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
                 } else {
 
-                    console.log(lastDiceLauncher.name + ' tried to find cash , but couldnt');
+                    //console.log(lastDiceLauncher.name + ' tried to find cash , but couldnt');
 
                 }
 
              }
-               alert('vous n avez pas assez de cash pour acheter cette propriété!');
+               //alert('vous n avez pas assez de cash pour acheter cette propriété!');
          }
 
          
       } else if( currentSquare.landLord != lastDiceLauncher) {
 
-            //alert('cette propriété est détenue par ' + currentSquare.landLord.name);
+            ////alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
             boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + currentSquare.landLord.name);
 
@@ -397,7 +397,7 @@ function movePiece(){
       
       if(lastDiceLauncher != humanPlayer){
 
-          //alert('ok , post launch decision done!!')
+          ////alert('ok , post launch decision done!!')
 
              postLaunchDecision = done;
 
@@ -422,15 +422,15 @@ function movePiece(){
 
                let card = communityChestCardsList[0];
                
-               //////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
+               ////////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
 
                if(card.type == 'collection'){
 
-                //////alert('vous recevez la somme de ' + card.collection + ' dollars' );
+                ////////alert('vous recevez la somme de ' + card.collection + ' dollars' );
     
               } else if(card.type == 'payment'){
     
-                    //////alert('vous payez la somme de ' + card.fee + ' dollars' );
+                    ////////alert('vous payez la somme de ' + card.fee + ' dollars' );
     
                     lastDiceLauncher.cash -= card.fee;
     
@@ -458,7 +458,7 @@ function movePiece(){
     
          } else if (card.type == 'movement'){
     
-                //////alert('vous vous déplacez jusque ' + card.destination.name);
+                ////////alert('vous vous déplacez jusque ' + card.destination.name);
 
                 
     
@@ -472,7 +472,7 @@ function movePiece(){
             } else {
 
 
-               //////alert('il n y a plus de cartes dans le paquet!');
+               ////////alert('il n y a plus de cartes dans le paquet!');
 
 
             }
@@ -506,16 +506,16 @@ function movePiece(){
 
               let card =  chanceCardsList[0];
               
-          //////alert('vous avez piochés la carte chance :  ' + card.description);
+          ////////alert('vous avez piochés la carte chance :  ' + card.description);
 
 
           if(card.type == 'collection'){
 
-            //////alert('vous recevez la somme de ' + card.collection + ' dollars' );
+            ////////alert('vous recevez la somme de ' + card.collection + ' dollars' );
 
           } else if(card.type == 'payment'){
 
-                //////alert('vous payés la somme de ' + card.fee + ' dollars' );
+                ////////alert('vous payés la somme de ' + card.fee + ' dollars' );
 
                lastDiceLauncher.cash -= card.fee;
 
@@ -524,7 +524,7 @@ function movePiece(){
 
           } else if (card.type == 'movement'){
 
-            //////alert('vous vous déplacez jusque ' + card.destination.name);
+            ////////alert('vous vous déplacez jusque ' + card.destination.name);
 
           }
 
@@ -532,7 +532,7 @@ function movePiece(){
          
        } else {
 
-          //////alert('il n y a plus de cartes dans le paquet!')
+          ////////alert('il n y a plus de cartes dans le paquet!')
        }
 
 
@@ -689,7 +689,7 @@ function setPostLaunchActionToDone(){
 
 function playerPaymentToTheBank(player, amount){
 
-     //////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
+     ////////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }
 
@@ -724,7 +724,7 @@ function acceptTrade(proposition){
      
      if(player.cash < property.houseValue ){
 
-        alert('you dont have enough cash...!!');
+        //alert('you dont have enough cash...!!');
      
      } else {
        
@@ -734,7 +734,7 @@ function acceptTrade(proposition){
        closeAvailablePropertyInterface();
 
      
-       //alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
+       ////alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
 
        postLaunchDecision = done;
 
