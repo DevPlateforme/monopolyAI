@@ -94,7 +94,6 @@
         <div id='propertiesManagementInterfaceLeft'>
 
            <div>waiting for card information...</div>
-           <div></div>
 
         </div>
 
@@ -102,12 +101,48 @@
          <div id='propertiesManagementInterfaceCenter'>
 
            <div class='managementPropertyLine'>
-                 <div style='height:100%; width:75%' class='managementPropertyLine1'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
                  </div>
+
                  <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
 
                        <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
-                    
+                             <canvas id='propertyCanvas'></canvas>
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
+           </div>     
+           
+         
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
+                 </div>
+
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                             <canvas id='propertyCanvas'></canvas>
                        </div>
 
                        <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
@@ -125,11 +160,121 @@
            </div>     
            
            <div class='managementPropertyLine'>
-                 <div style='height:100%; width:75%' class='managementPropertyLine1'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
                  </div>
-                 <div style='height:100%; width:22%' class='managementPropertyLine2'></div>
+
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                             <canvas id='propertyCanvas'></canvas>
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
            </div>     
-        
+           
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
+                 </div>
+
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                             <canvas id='propertyCanvas'></canvas>
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
+           </div>     
+           
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
+                 </div>
+
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                             <canvas id='propertyCanvas'></canvas>
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
+           </div>     
+           
+           <div class='managementPropertyLine'>
+                 <div style='height:100%; width:75%; display:flex; flex-direction:row; justify-content:space-around; align-items:center' class='managementPropertyLine1'>
+
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+                        <div style='height:80%; width:25%; background: purple; border-radius:10px'></div>
+
+                 </div>
+
+                 <div style='height:100%; width:22%' class='managementPropertyLine2' style='display:flex; justify-content:space-around'>
+
+                       <div style='background:black; height:80%; width:40%' class='managementPropertyLine2A'>
+                             <canvas id='propertyCanvas'></canvas>
+                       </div>
+
+                       <div style='background:black; height:80%; width: 40%; display:flex; flex-direction:column; justify-content:space-around; align-items:center' class='managementPropertyLine2B'>
+                             <div style='height:10%;width:100%; background: purple; display:flex; display:flex; justify-content:center; align-items:center'>
+                                 <div style='background:red; height:30%; width:20%'></div>
+                            </div>
+                             <div style='height:70%;width:100%; background: pink; display:flex; justify-content: space-around; align-items:center'>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                                  <div style='background:red; height: 40%; width:20%'></div>
+                            </div>
+                       </div>
+
+                
+                </div>
+           </div>     
+           
   
          </div>
 
