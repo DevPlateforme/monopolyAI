@@ -93,7 +93,80 @@
           
         <div id='propertiesManagementInterfaceLeft'>
 
-           <div>waiting for card information...</div>
+           <div style='display:flex; flex-direction:column;'>
+
+              <div style='background:red; height:50%;width:100%; display:flex; flex-direction:column;bakcground:purple'>
+                   <div style='background:purple; height:25%; width:100%; display:flex; align-items:flex-start'>
+                     <div style='background:brown; height:100%; width: 80%; display:flex; flex-direction:column; justify-content:space-around'>
+                            <div style='background:red; height:40%;width:80%; border-radius: 15px'></div>
+                            <div style='background:black; height:40%;width:80%; border-radius: 15px'></div>
+                     </div>
+                   </div>
+
+                   <div style='background:green; height:75%; width:100%; display:flex; justify-content:center; align-items:center'>
+
+                         <div style='background:black; height: 85%; width:35%; border-radius:35px'>
+                         
+                         </div>
+                        
+                   </div>
+              </div>
+              <div style='background:yellow; height:50%;width:100%;display:flex; flex-direction:row; justify-content:space-around'>
+                   <div style='background:brown; height:100%; width: 45%; display:flex; flex-direction:column; justify-content:space-around'>
+                       <div style='background:blue; height:15%; width:100%; display:flex; flex-direction:row; justify-content: space-between; align-items:center'>
+                             <div style='background:black; height:100%; width:20%'></div>
+                             <div style='background:yellow; height:100%; width:95%'></div>
+                       </div>
+                       <div style='background:blue; height:15%; width:100%; display:flex; flex-direction:row; justify-content: space-between; align-items:center'>
+                             <div style='background:black; height:100%; width:20%'></div>
+                             <div style='background:yellow; height:100%; width:95%'></div>
+                       </div>                
+                       <div style='background:blue; height:15%; width:100%; display:flex; flex-direction:row; justify-content: space-between; align-items:center'>
+                             <div style='background:black; height:100%; width:20%'></div>
+                             <div style='background:yellow; height:100%; width:95%'></div>
+                       </div>
+                       <div style='background:blue; height:15%; width:100%; display:flex; flex-direction:row; justify-content: space-between; align-items:center'>
+                             <div style='background:black; height:100%; width:20%'></div>
+                             <div style='background:yellow; height:100%; width:95%'></div>
+                       </div>
+                       <div style='background:blue; height:15%; width:100%; display:flex; flex-direction:row; justify-content: space-between; align-items:center'>
+                             <div style='background:black; height:100%; width:20%'></div>
+                             <div style='background:yellow; height:100%; width:95%'></div>
+                       </div>
+                       
+                   </div>
+                   <div style='background:purple; height:100%; width:45%; display:flex; flex-direction:column; align-items: center; justify-content:space-around'>
+                     
+                        <div style='height: 60%; width:90%; background: green; display:flex; flex-direction:column; justify-content:space-around;'>
+                            <div style='height:20%; width:100%; background:yellow; display:flex; justify-content:center; align-items:center'>
+                               <div style='background:red; height:90%; width:22%; border-radius:20px'></div>
+                            </div>    
+                            <div style='height:80%; width:100%; background:red; display:flex; flex-direction:column; justify-content:space-around'>
+                                   <div style='background: brown; height:40%; width:100%; display:flex; justify-content:space-around; align-items:center'>
+
+                                       <div style='height:90%; width:20%; background:black'></div>
+
+                                       <div style='height:90%; width:70%; background:red'></div>
+                                   
+                                   </div>
+
+                                   <div style='background: brown; height:40%; width:100%; display:flex; justify-content:space-around; align-items:center'>
+
+                                       <div style='height:90%; width:70%; background:red'></div>
+
+                                       <div style='height:90%; width:20%; background:black'></div>
+                                   
+                                   </div>                       
+                             </div>               
+                        </div>
+                        <div style='height: 30%; width:90%; background: red; border-radius:8px'>
+                            
+                        </div>
+
+                   </div>
+              </div>
+      
+           </div>
 
         </div>
 
