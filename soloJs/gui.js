@@ -459,8 +459,10 @@ function observeAi(ai){
                                 //ADD 2 DIVS IN THE PROPERTY DIV
      
                                      let propertyNameDiv = document.createElement('div');
+
+                                     propertyNameDiv.setAttribute("class", "propertyName");
      
-                                      propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+                                     propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
      
                                 
                                       let addPropertyButtonDiv =  document.createElement('button');
@@ -604,10 +606,6 @@ function displayOffererDiv(){
 
      for( setIndex = 0; setIndex < propertiesArray.length; setIndex++){
 
-
-          if(propertiesArray[setIndex].properties.length != 0){
-
-
                let colorSetDiv = document.createElement('div');
 
                colorSetDiv.setAttribute("class" , "colorSetDiv");
@@ -637,7 +635,6 @@ function displayOffererDiv(){
                      for(propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
 
 
-                         
                              let property = propertiesArray[setIndex].properties[propertyIndex];
 
                              let propertyDiv = document.createElement('div');
@@ -648,6 +645,18 @@ function displayOffererDiv(){
                              let leftPropertyDiv = document.createElement('div');
                              let middlePropertyDiv = document.createElement('div') ;
                              let rightPropertyDiv = document.createElement('div');
+
+
+                             let cardSphere = document.createElement('div');
+
+                             cardSphere.setAttribute("class" , "cardSphere");
+
+
+                             //add the "card sphere"
+
+                            leftPropertyDiv.append(cardSphere); 
+
+                            leftPropertyDiv.setAttribute("class" , "colorSetLeftProperty")
 
 
                            //ADD 2 DIVS IN THE PROPERTY DIV
@@ -685,14 +694,11 @@ function displayOffererDiv(){
                           propertyDiv.append(middlePropertyDiv);
                           propertyDiv.append(rightPropertyDiv);
 
- 
-
 
                    //APPEND THIS DIV THE COLOR SET DIV
 
                           propertiesDiv.append(propertyDiv);
-                          colorSetDiv.append(propertyDiv);
-
+                          colorSetDiv.append(propertiesDiv);
 
                          
                      }
@@ -700,12 +706,10 @@ function displayOffererDiv(){
                      
                colorSetDiv.append(developmentDiv);
 
-
-          
                offererDiv.append(colorSetDiv);
 
 
-          }
+          
 
 
                
@@ -1305,6 +1309,16 @@ function displayBankruptcyInterface(){
 
 
 
+
+function displayPlayersWallets(){
+
+
+}
+
+
+
+
+
 function displayPM(){
 
      humanThinking = true;
@@ -1315,8 +1329,6 @@ function displayPM(){
 
      let propertiesArray = humanPlayer.propertiesByColor;
 
-
-     
 
 }
 

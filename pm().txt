@@ -1,0 +1,148 @@
+
+
+
+function displayPM(){
+
+     humanThinking = true;
+
+     document.getElementById('playerPropertiesManagementInterface').style.opacity = 1;
+     
+     document.getElementById('playerPropertiesManagementInterface').style.zIndex = 3;
+
+     
+     let propertiesArray = humanPlayer.propertiesByColor;
+
+
+     for(var setIndex = 0; setIndex < propertiesArray.length; setIndex++){
+
+
+          if(propertiesArray[setIndex].properties.length != 0){
+
+               let color = propertiesArray[setIndex].properties[0].color;
+
+               let colorSetDiv = document.createElement('div');
+
+               colorSetDiv.setAttribute("class" , "PMcolorSetDiv");
+
+               //left div
+
+               let propertiesDiv =  document.createElement('div');
+
+               propertiesDiv.setAttribute("class" , "PMpropertiesDiv");
+
+
+               //right div
+
+               let monopolyPmDiv = document.createElement('div');
+
+               monopolyPmDiv.setAttribute("class" , "monopolyPmDiv");
+
+               /*
+
+               if(monopolyCheck(humanPlayer, color) == true){
+                    
+                  let buildHouseButton =  document.createElement('button');
+
+                  buildHouseButton.setAttribute('onclick' , 'buildHouseFromInterface(' + color.index + ')');
+
+                  let sellHouseButton = document.createElement('button');
+
+                  sellHouseButton.setAttribute('onclick' , 'sellHouseFromInterface(' + color.index + ')');
+
+
+                  buildHouseButton.innerHTML = 'Build a house';
+                  sellHouseButton.innerHTML = 'Sell a house';
+
+
+                  colorSetDiv.append(buildHouseButton);
+                  colorSetDiv.append(sellHouseButton);
+
+
+
+               }
+
+               */
+
+
+               
+                     //APPEND ONE DIV PER ELEMENT IN THIS SET DIV. THEN, APPEND THE DIV TO THE ANSWERER'S PROPERTIES.
+
+
+                     for(var propertyIndex=0; propertyIndex < propertiesArray[setIndex].properties.length; propertyIndex++){
+
+                         
+                             let property = propertiesArray[setIndex].properties[propertyIndex];
+
+                             let propertyDiv = document.createElement('div');
+
+                             propertyDiv.setAttribute('id' , property.elementIndex);
+
+
+                           //ADD 2 DIVS IN THE PROPERTY DIV
+
+                            let propertyNameDiv = document.createElement('div');
+
+                            propertyNameDiv.innerHTML = '<h5>' + property.name + '</h5>';
+
+
+                            if(property.mortgaged == false){
+
+                           
+                                 let mortgagePropertyButton = document.createElement('button');
+
+                                 mortgagePropertyButton.setAttribute("onclick" , "getMortgageFromInterface(" +  property.elementIndex + ")");
+
+                           
+                               //FUNCTION WORKING IN CONSTANT TIME : 
+
+
+                                mortgagePropertyButton.innerHTML = 'mortgage';
+                                propertyDiv.append(mortgagePropertyButton);
+
+
+                              
+                            } else {
+
+                              let closeMortgageButton = document.createElement('button');
+
+                              closeMortgageButton.setAttribute("onclick" , "closeMortgageFromInterface(" +  property.elementIndex + ")");
+
+                        
+                        //FUNCTION WORKING IN CONSTANT TIME : 
+ 
+
+                             closeMortgageButton.innerHTML = 'close mortgage';
+                             propertyDiv.append(closeMortgageButton);
+                              
+                            }
+
+
+
+
+                         
+                     //APPEND THE NAME OF THE PROPERTY AND THE ADD PROPERTY BUTTON TO A DIV
+
+
+                          propertyDiv.append(propertyNameDiv);
+ 
+
+
+                   //APPEND THIS DIV THE COLOR SET DIV
+
+                           propertiesDiv.append(propertyDiv);
+
+                     }
+
+
+
+                      colorSetDiv.append(propertiesDiv);
+
+                      colorSetDiv.append(monopolyPmDiv);
+
+                      pmHumanPropertiesDiv.append(colorSetDiv);
+
+          }
+               
+     }
+    
+}

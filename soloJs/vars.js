@@ -2,16 +2,16 @@
 
    //ROIs AT : 30 DICE LAUNCHES, 50 DICE LAUNCHES, 100 DICE LAUNCHES, 200 DICE LAUNCHES
 
-   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 9200};
-   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 9600};
-   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 9900};
-   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 11400};
-   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 11150};
-   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 11000} ;
-   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 11000} ;
-   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 9900};
-   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 8000};
-   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 1800};
+   var brown = {index: 0, name: 'brown' ,  ROIS: [-193.88, 90.2, 800.4 , 2220.79 ], growthScore : 1 , finishedSetValue: 9200 , units : 2};
+   var lightBlue = {index: 1, name: 'lightBlue' , ROIS: [34.43, 770.71, 2611.42, 6292.84], growthScore : 1 , finishedSetValue: 9600 , units : 3};
+   var purple = {index: 2, name: 'purple' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77], growthScore : 1 , finishedSetValue: 9900 , units : 3};
+   var orange = {index: 3, name: 'orange' ,  ROIS: [350.57, 1957.61, 5975.22, 14010.44] , growthScore : 1 , finishedSetValue: 11400 , units : 3};
+   var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 11150 , units : 3};
+   var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 11000 , units : 3} ;
+   var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 11000 , units : 3} ;
+   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 9900 , units : 2};
+   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 8000 , units : 4};
+   var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 1800 , units : 2 };
 
 
 
@@ -231,9 +231,9 @@ var communityChestSquare3 = {name: 'communityChest', square:33, value: none, ren
 var bdDesCapucines = { name:'Boulevard des capucines' , square:34 , value: 320, rent: 28 , rentHouse1: 150, rentHouse2: 450, rentHouse3: 1000, rentHouse4: 1200 ,  rentHotel: 1400 , type: rentalProperty , color: green , landLord: none  , elementIndex : 24 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var gareSaintLazarre = {name: 'Gare Saint Lazarre' ,  square:35 , value: 200, rent: 5 , rentHouse1: 10 , rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black , landLord: none  , elementIndex : 25 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50} ;
 var luckSquare3 = {name: 'Luck', square: 36 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
-var avenueDesChampsElysees = {name: 'Avenue des champs elyzees' , square: 37 , value: 350, rent: 35 , rentHouse1: 175, rentHouse2: 500 , rentHouse3: 1100 , rentHouse4: 1300 ,  rentHotel: 1500 , type: trainStation , color: darkBlue , landLord: none, elementIndex : 26 ,  mortgaged: false,  mortgageValue: 200 , houses: 0 , houseValue: 50};
+var avenueDesChampsElysees = {name: 'Av.des chps elyzees' , square: 37 , value: 350, rent: 35 , rentHouse1: 175, rentHouse2: 500 , rentHouse3: 1100 , rentHouse4: 1300 ,  rentHotel: 1500 , type: trainStation , color: darkBlue , landLord: none, elementIndex : 26 ,  mortgaged: false,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var luxuryTax = {name: 'Taxe de luxe' , square: 38, value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: tax , color: none , landLord: none , mortgaged: false , houses: 0 , houseValue: 50};
-var rueDeLaPaix = { name : 'Rue de la paix' , square: 39, value: 400, rent: 50 , rentHouse1: 200, rentHouse2: 600, rentHouse3: 1400, rentHouse4: 1700 ,  rentHotel: 2000 , type: rentalProperty , color: darkBlue , landLord: none, elementIndex : 27 , mortgaged: false, mortgageValue: 200, houses: 0 , houseValue: 50};
+var rueDeLaPaix = { name : 'R.de la paix' , square: 39, value: 400, rent: 50 , rentHouse1: 200, rentHouse2: 600, rentHouse3: 1400, rentHouse4: 1700 ,  rentHotel: 2000 , type: rentalProperty , color: darkBlue , landLord: none, elementIndex : 27 , mortgaged: false, mortgageValue: 200, houses: 0 , houseValue: 50};
 
 
 

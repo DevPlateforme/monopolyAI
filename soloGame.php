@@ -380,10 +380,25 @@
 
             <div id='ai1Div'>
 
-              <div id='ai1Properties' style='height: 60%; border-radius: 12px'>
+              <div id='ai1Properties' style='height: 60%; border-radius: 12px; display:flex; flex-direction:column; justify-content:space-around: align-items:center'>
 
-                <div>Rue de La Paix</div> <br>   
+                      <div style='width:100%; height:9.5%; display:flex; justify-content:space-between ;align-items:center'>
 
+                         <div style='height: 80%; width: 5%; background: red'></div>
+                         <div style='height: 80%; width: 80%; background: blue; display:flex;justify-content:space-around;align-items:center'>
+                         <div style='height:80%; width: 28%; background: brown; display:flex; justify-content:center; align-items:center' >
+                                     <div style='background:orange; height:80%; width: 30%; border-radius:15px'></div>
+                              </div>                             <div style='height:80%; width: 28%; background: brown; display:flex; justify-content:center; align-items:center' >
+                                     <div style='background:orange; height:80%; width: 30%; border-radius:15px'></div>
+                              </div>
+                              <div style='height:80%; width: 28%; background: brown; display:flex; justify-content:center; align-items:center' >
+                                     <div style='background:orange; height:80%; width: 30%; border-radius:15px'></div>
+                              </div>                         </div>
+                         <div style='height: 80%; width: 10%; background: yellow'></div>
+                      
+                      
+                      </div>
+                      
               
               </div>
 
@@ -495,13 +510,123 @@
 
                     <div style='height:100%; width:33.33%; background:purple; display:flex; justify-content: center; align-items: center'>
                               
-                              <div id='boardJournal' style='height:80%; width:80%; background: blue'>waiting for actions...</div>
+                              <div id='boardJournal' style='height:80%; width:90%; background: blue'>waiting for actions...</div>
 
                     </div>
 
                     <div style='height:100%; width:33.33%; background:blue; display:flex; flex-direction:column; justify-content: space-around ; align-items: center'>
                           
-                          <div id='tradeJournal' style='height: 30%; width: 80%'></div>
+                          <div id='tradeJournal' style='height: 60%; width: 90%; background: grey; display:flex; flex-direction:column; justify-content:space-around; align-items:center '>
+
+                              <div  style='background:red; height: 10%; width:100%; display:flex; justify-content:center; align-items:center'>
+                                  <div style='background:pink; height: 80%; width:15%; border-radius: 10px'></div>
+                              </div>
+
+                              <div style='background:purple; height: 90%; width:100%; display:flex; flex-direction:column;  align-items:center; justify-content: space-around'>
+
+                                 <div style='background:green; width: 95%; height: 47%; display:flex; flex-direction:row; justify-content: space-around'>
+                                       <div style='background:yellow; width: 70%; height: 100%; display:flex; flex-direction:column'>
+
+                                             <div style='background:black; width: 100%; height: 15%; display:flex; justify-content:flex-start'>
+                                                <div style='width:20%; height:90%; background:yellow; border-radius:13px'>
+                                                
+                                                </div>
+                                             </div>  
+                                             <div style='background:red; width: 100%; height: 85%; display:flex; flex-direction: column; justify-content: space-around'>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>                                             
+                                       
+                                             </div>  
+               
+                                       </div> 
+                                       <div style='background: blue; width: 25%; height: 100%; display:flex; flex-direction:column; align-items:center; justify-content:center'>
+                                             <div style='background:black; height:15%; width:70%'></div> 
+                                       </div> 
+                                 </div>
+
+                                 <div style='background:green; width: 95%; height: 47%; display:flex; flex-direction:row; justify-content: space-around'>
+                                       <div style='background: blue; width: 25%; height: 100%; display:flex; flex-direction:column; align-items:center; justify-content:center'>
+                                             <div style='background:black; height:15%; width:70%'></div> 
+                                       </div> 
+                                 
+                                 
+                                       <div style='background:yellow; width: 70%; height: 100%; display:flex; flex-direction:column'>
+
+                                             <div style='background:black; width: 100%; height: 15%; display:flex; justify-content:flex-end'>
+                                                <div style='width:20%; height:90%; background:yellow; border-radius:13px'>
+                                                
+                                                </div>
+                                             </div>  
+                                             <div style='background:red; width: 100%; height: 85%; display:flex; flex-direction: column; justify-content: space-around'>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>
+                                             <div style='background:green; width: 100%; height: 7%; display:flex; flex-direction: row; justify-content: space-between'>
+                                                 <div style='background:purple; width:20%; height:100%; display:flex; justify-content:center; align-items:center'>
+                                                         <div style='background:brown; height: 80%; width:80%; border-radius:15px'></div> 
+                                                 </div>
+                                                 <div style='background:blue; width:100%; height:100%'></div>
+                                             
+                                             </div>                                             
+                                       
+                                             </div>  
+               
+                                       </div> 
+                                   
+                                 </div>
+
+                              
+                              </div>
+                                 
+
+                        
+                           </div>
                           
                           <div  style='height: 30%; width: 100%'>
                           
