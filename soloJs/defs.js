@@ -559,7 +559,7 @@ function buildHouse(property){
 
      ////alert(property.landLord.name + ' just built a house on ' + property.name);
 
-     buildHouseOnGui(property);
+     //buildHouseOnGui(property);
 
      boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on the property ' + property.name);
 
@@ -858,6 +858,8 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 
 function addPropertyToPlayerWallet(player, property){
+
+    document.getElementById('tradeInterface_'+ player.name + '_property_' + property.elementIndex).style.display = 'flex';
 
 
     let propertyColor = property.color;

@@ -15,7 +15,12 @@ function init(){
    
     givePlayersPropertiesForDemo();
 
-    //wakeUpAis();
+    wakeUpAis();
+
+    observedPlayer = ai3;
+
+
+    buildPresentationBar(humanPlayer , red , boardGraph)
 
 }
 
@@ -83,18 +88,24 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-    addPropertyToPlayerWallet(humanPlayer , placeDeLaBourse);
+    addPropertyToPlayerWallet(humanPlayer , avenueHenriMartin);
      addPropertyToPlayerWallet(humanPlayer , rueLaFayette);
      addPropertyToPlayerWallet(humanPlayer , faubourgSaintHonore);
      addPropertyToPlayerWallet(humanPlayer , rueDeLaPaix);
+     addPropertyToPlayerWallet(humanPlayer , avenueMozart);
 
 
 
-     addPropertyToPlayerWallet(ai1 ,rueDuParadis);
+
+     addPropertyToPlayerWallet(ai3 ,rueDuParadis);
+     addPropertyToPlayerWallet(ai3 ,avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai3 ,gareDuNord);
+     addPropertyToPlayerWallet(ai3 , belleville);
+
      
-     addPropertyToPlayerWallet(humanPlayer, boulevardSaintMichel);
-     addPropertyToPlayerWallet(humanPlayer , placePigalle);
-     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
+     addPropertyToPlayerWallet(ai3, boulevardSaintMichel);
+     addPropertyToPlayerWallet(ai3 , placePigalle);
+     addPropertyToPlayerWallet(ai3 , avenueDesChampsElysees);
 
      
 

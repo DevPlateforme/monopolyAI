@@ -1,13 +1,7 @@
 //Create the GUI
 
 
-var leftEdge = document.getElementById('leftEdge');
-var rightEdge = document.getElementById('rightEdge');
-var topEdge = document.getElementById('topEdge'); 
-var bottomEdge = document.getElementById('bottomEdge'); 
-
-
-var mainDivs = document.getElementById('mainDivs');
+var gameBoard = document.getElementById('monopolyBoard');
 var aisAndBoardDiv = document.getElementById('aisAndBoard');
 var availablePropertyInterface = document.getElementById('availablePropertyInterface');
 var availablePropertyPriceHTML = document.getElementById('availablePropertyPriceHTML');
@@ -18,15 +12,10 @@ var humanAnswerInterfaceBody = document.getElementById('humanAnswerInterfaceBody
 var humanAnswerInterfaceOffer = document.getElementById('humanAnswerInterfaceOffer');
 var humanAnswerInterfaceCounterPart = document.getElementById('humanAnswerInterfaceCounterPart');
 var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
-
 var launchBtn = document.getElementById('launchBtn');
 var pmHumanPropertiesDiv = document.getElementById('playerPropertiesDiv');
-
 var interfacesPanel = document.getElementById('interfacesPanel');
-
-
 var boardJournal = document.getElementById('boardJournal');
-
 var tradeJournal = document.getElementById('tradeJournal');
 
 
@@ -34,11 +23,8 @@ var tradeJournal = document.getElementById('tradeJournal');
 //VARS USED TO CREATE PAWN CONTAINERS
 
 var ai1PawnContainer;
-
 var ai2PawnContainer;
-
 var player1PawnContainer;
-
 var player2PawnContainer;
 
 
@@ -46,10 +32,7 @@ var player2PawnContainer;
 
 
 function displayDiceLaunchButton(){
-
-
      launchBtn.style.display = 'block';
-
 }
 
 
@@ -370,8 +353,7 @@ var answererPropertiesDiv = document.getElementById('answererProperties');
 
 
 
-
-
+observedPlayer = ai1;
 
 
 function observeAi(ai){           
@@ -391,14 +373,6 @@ function observeAi(ai){
           observedPlayer = ai;
 
 
-
-          //SET SEND PROPOSITION BUTTON
-
-
-
-          //IF A PLAYER WAS ALREADY SELECTED
-
-
           if(observedPlayer != none ){
 
                //BEFORE SWITCHING TO ANOTHER PLAYER, CLEAR THE BUILDING PROPOSITION OBJECT.
@@ -411,7 +385,7 @@ function observeAi(ai){
 
                offererDiv.innerHTML = '';
 
-               displayOffererDiv();
+               //displayOffererDiv();
 
 
                //CLEAR THE PREVIOUS SEND PROPOSITION BUTTON 
@@ -536,22 +510,19 @@ function displayPropositionInterface(){
 
      humanThinking = true;
 
-     document.getElementById('propositionInterface').style.opacity = 1;
-     document.getElementById('propositionInterface').style.zIndex = 5;
+     //document.getElementById('propositionInterface').style.opacity = 1;
+     //document.getElementById('propositionInterface').style.zIndex = 5;
+
+     document.getElementById('tradeInterfaceDiv').style.display = 'flex';
+
+       //FOR EACH PROPERTY
 
 
 
-
-    //FOR EACH PROPERTY
-
+     //displayOffererDiv();
 
 
-     displayOffererDiv();
-
-
-      }   
-
-
+  }   
 
 
 
@@ -820,7 +791,6 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
 
       //GET THE INDEX OF THE PROPERTY FOR THE PROPOSITION OBJECT PROTOTYPE. IT IS PASSED AS AN ID WHEN EACH PROPERTY DIV IS CREATED ('DISPLAY' FUCNCTION)
 
-
       //OK. SO, THERE
 
      removeButton.setAttribute("onclick", "addOfferElement(event , " + humanPlayer.playerIndex + "," + elementIndex + ")");
@@ -853,9 +823,10 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
 
 function addOfferElement(event, offererIndex, elementIndex ){
 
+     
+      alert('element added!');
 
      //FIRST , MAKE SURE ANOTHER PLAYER WAS SELECTED
-      
 
 
 
@@ -926,7 +897,7 @@ function addOfferElement(event, offererIndex, elementIndex ){
      } else {
 
 
-          //////alert('veuillez séléctionner un joueur');
+          alert('veuillez séléctionner un joueur');
 
 
      }
@@ -1119,7 +1090,7 @@ function sendProposition(){
 
                     ////alert('answerer score =>' + proposition.answererScore);
           
-                    //alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
+                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
                     acceptProposition(proposition);
                     
@@ -1128,27 +1099,23 @@ function sendProposition(){
      
                  if(proposition.answererScore < (0.9 * alternatives.gainValue)){
      
-                      //alert(proposition.answerer.name + 'found a better alternative, and refused !');
-     
-     
+                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
      
                  } else {
      
-                   //alert(proposition.answerer.name + ' accepted the offer!');
+                   alert(proposition.answerer.name + ' accepted the offer!');
      
                    acceptProposition(proposition);
 
-     
                  }
      
      
                }
-      
-     
+          
 
             } else {
 
-                //alert('proposition refused');
+                alert('proposition refused');
                
                ////alert('offererscore=>' + proposition.offererScore);
                ////alert('answererscore=>' + proposition.answererScore);
@@ -1248,7 +1215,7 @@ function perceptionCheck(ai, proposition){
 
      if(proposition.unfair == true){
 
-          ////alert('unfair offer refused')
+          alert('unfair offer refused')
 
          if(ai.unfairPropositionsRefusals== 3){
 
@@ -1272,7 +1239,7 @@ function perceptionCheck(ai, proposition){
  
      } else {
 
-          ////alert('fair offer refused')
+          alert('fair offer refused')
 
           if(ai.unfairPropositionRefusals == 1){
 
@@ -1320,6 +1287,8 @@ function displayPlayersWallets(){
 
 
 function displayPM(){
+
+     document.getElementById('projectBody').style.background='#B0C4DE';
 
      humanThinking = true;
 
@@ -1377,7 +1346,7 @@ function displayInterfaces(){
 
      humanThinking = true;
 
-     aisAndBoardDiv.style.opacity = 0.4;
+     monopolyBoard.style.opacity = 0.15;
 
      interfacesPanel.style.opacity = 1;
 
@@ -1459,143 +1428,6 @@ function sellHouseFromInterface(colorIndex){
 
 
  
-
- 
-var ctx1 = document.getElementById('tradeCountCanvas').getContext('2d');
-var ctx2 = document.getElementById('situationsCanvas').getContext('2d');
-var ctx3 = document.getElementById('cashCollectedCanvas').getContext('2d');
-
-
-
-var myChart = new Chart(ctx1, {
-    type: 'horizontalBar',
-    data: {
-        labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
-        datasets: [{
-            label: 'Players situations evaluations',
-            data: [15,25,10,40],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-         animation: {
-
-            duration: 2000
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-
-
-
-var myChart2 = new Chart(ctx2, {
-     type: 'horizontalBar',
-     data: {
-         labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
-         datasets: [{
-             label: 'Players situations evaluations',
-             data: [15,25,10,40],
-             backgroundColor: [
-                 'rgba(255, 99, 132, 0.2)',
-                 'rgba(54, 162, 235, 0.2)',
-                 'rgba(255, 206, 86, 0.2)',
-                 'rgba(75, 192, 192, 0.2)',
-                 'rgba(153, 102, 255, 0.2)',
-                 'rgba(255, 159, 64, 0.2)'
-             ],
-             borderColor: [
-                 'rgba(255, 99, 132, 1)',
-                 'rgba(54, 162, 235, 1)',
-                 'rgba(255, 206, 86, 1)',
-                 'rgba(75, 192, 192, 1)',
-                 'rgba(153, 102, 255, 1)',
-                 'rgba(255, 159, 64, 1)'
-             ],
-             borderWidth: 1
-         }]
-     },
-     options: {
-          animation: {
- 
-             duration: 2000
-         },
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true
-                 }
-             }]
-         }
-     }
- });
- 
-
- 
-var myChart3 = new Chart(ctx3, {
-     type: 'horizontalBar',
-     data: {
-         labels: ['your score', 'ai1' , 'ai2' , 'ai3'],
-         datasets: [{
-             label: 'Players situations evaluations',
-             data: [15,25,10,40],
-             backgroundColor: [
-                 'rgba(255, 99, 132, 0.2)',
-                 'rgba(54, 162, 235, 0.2)',
-                 'rgba(255, 206, 86, 0.2)',
-                 'rgba(75, 192, 192, 0.2)',
-                 'rgba(153, 102, 255, 0.2)',
-                 'rgba(255, 159, 64, 0.2)'
-             ],
-             borderColor: [
-                 'rgba(255, 99, 132, 1)',
-                 'rgba(54, 162, 235, 1)',
-                 'rgba(255, 206, 86, 1)',
-                 'rgba(75, 192, 192, 1)',
-                 'rgba(153, 102, 255, 1)',
-                 'rgba(255, 159, 64, 1)'
-             ],
-             borderWidth: 1
-         }]
-     },
-     options: {
-          animation: {
- 
-             duration: 2000
-         },
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true
-                 }
-             }]
-         }
-     }
- });
-
-
-
 
 
 
@@ -1694,3 +1526,124 @@ function launchThinkingAnimation(ai){
 
 
 }
+
+
+
+
+
+
+function displayNextPmColor(){
+
+     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'none';
+
+
+     if(displayedPmColor == 9){
+          displayedPmColor = 0;
+     } else {
+          displayedPmColor++;
+     }
+
+     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'flex';
+
+
+}
+
+
+function displayPreviousPmColor(){
+
+     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'none';
+
+
+     if(displayedPmColor == 0){
+          displayedPmColor = 9;
+     } else {
+          displayedPmColor--;
+     }
+
+     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'flex';
+
+
+}
+
+
+
+
+function displayNextTradeOffererColor(){
+   
+     document.getElementById('tradeOffererDiv_' + colorArray[displayedOffererColor].name).style.display = 'none';
+
+     if(displayedOffererColor == 9){
+          displayedOffererColor = 0;
+     } else {
+
+          displayedOffererColor++;
+     }
+
+     document.getElementById('tradeOffererDiv_' + colorArray[displayedOffererColor].name).style.display = 'flex';
+
+}
+
+
+function displayPreviousTradeOffererColor(){
+
+     document.getElementById('tradeInterface_humanPlayer_' + colorArray[displayedOffererColor].name).style.display='none';
+
+
+     if(displayedOffererColor == 0){
+          displayedOffererColor = 9;
+     } else {
+
+          displayedOffererColor--;
+     }
+     
+     document.getElementById('tradeInterface_humanPlayer_' + colorArray[displayedOffererColor].name).style.display='flex';
+
+}
+
+
+
+function displayNextTradeAnswererColor(){
+
+     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='none';
+
+     if(displayedAnswererColor == 9){
+
+          displayedAnswererColor = 0;
+     
+     } else {
+
+          displayedAnswererColor++;
+     }
+     
+     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='flex';
+
+
+}
+
+
+function displayPreviousTradeAnswererColor(){
+     
+     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='none';
+
+     if(displayedAnswererColor == 0){
+          displayedAnswererColor = 9;
+     } else {
+
+          displayedAnswererColor--;
+     }
+     
+     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='flex';
+
+
+
+     
+}
+
+
+
+
+
+
+
+
+

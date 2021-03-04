@@ -76,7 +76,7 @@ function makeProposition(proposition){
            
                acceptProposition(proposition);
 
-              ////alert(proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
+              alert(proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
 
                boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
 
@@ -87,14 +87,14 @@ function makeProposition(proposition){
 
                  hashAndStore(proposition);
 
-                 ////alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                 alert(proposition.answerer.name + 'found a better alternative, and refused !');
 
                  boardJournal.innerHTML += ('<br>' + proposition.answerer.name + 'found a better alternative, and refused !');
 
 
             } else {
 
-              ////alert(proposition.answerer.name + ' accepted the offer!');
+              alert(proposition.answerer.name + ' accepted the offer!');
 
 
               acceptProposition(proposition);
@@ -121,12 +121,12 @@ function makeProposition(proposition){
 
 
 
-              ////alert(proposition.answerer.name + ' refused the offer!');
+              alert(proposition.answerer.name + ' refused the offer!');
 
 
 
               
-               ////alert('-->-->-->-->-->-->proposition refused!!');
+               alert('-->-->-->-->-->-->proposition refused!!');
 
                ////alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
 
@@ -236,6 +236,16 @@ function makeProposition(proposition){
 
              offerElement = offer.array[i];
 
+
+
+
+             document.getElementById('tradeInterface_'+ offerer.name + '_property_' + offerElement.elementIndex).style.display = 'none';
+
+
+
+
+
+
              color = offerElement.color;
 
 
@@ -284,9 +294,22 @@ function makeProposition(proposition){
  
            let offerElement;
            let color;
+
+           let answerElement;
       
            answerElement = counterPartAsked.array[i];
            color = answerElement.color;
+
+
+
+           document.getElementById('tradeInterface_'+ answerer.name + '_property_' + answerElement.elementIndex).style.display = 'none';
+
+
+
+           
+   
+
+
 
            //delete the element from the propertiesByColor
 

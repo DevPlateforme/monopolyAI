@@ -580,7 +580,7 @@ function sellHouse(property){
 
    if(property.houses > 0){
 
-      removeHouseOnGui(property);
+      //removeHouseOnGui(property);
 
 
       property.landLord.propertiesByColor[property.color.index].houses -= 1;
