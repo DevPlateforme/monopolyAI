@@ -95,12 +95,9 @@ function searchForTradesOpportunities(activePlayer){
        }
 
 
-       //console.log('proposition list => ' + propositionList.length);
-
-
        if(propositionList.length != 0){      
 
-         ////console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
+         console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
                       
           makeProposition(getBestProposition(propositionList));
   

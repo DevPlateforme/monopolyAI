@@ -5,6 +5,8 @@ function makeProposition(proposition){
 
   boardJournal.innerHTML += ( '<br>' + proposition.offerer.name + ' made an offer!=>Offer:');
 
+  addNotif('<br>' + proposition.offerer.name + ' made an offer!=>Offer:');
+
 
   for(i=0; i < proposition.offer.array.length; i++){
        
@@ -15,11 +17,15 @@ function makeProposition(proposition){
      boardJournal.innerHTML += ('<br>offer element ' + i + element.name);
 
 
+
+
   }
 
    ////alert(proposition.offerer.name + ' =>counterpart:' );
 
    boardJournal.innerHTML += ('<br>' + proposition.offerer.name + ' =>counterpart:' );
+
+
 
   
   for(i=0; i < proposition.counterPartAsked.array.length; i++){
@@ -29,6 +35,9 @@ function makeProposition(proposition){
     ////alert('counterPart element ' + i + element.name);
 
     boardJournal.innerHTML += ('<br>counterPart element ' + i + element.name);
+
+
+    
 
     
 
@@ -41,9 +50,13 @@ function makeProposition(proposition){
     boardJournal.innerHTML += ('<br>cash offered => ' + proposition.offer.cash);
 
 
+    
+
+
     ////alert('cash asked => ' + proposition.counterPartAsked.cash);
 
     boardJournal.innerHTML += ('<br>cash asked => ' + proposition.counterPartAsked.cash);
+
 
 
 
@@ -76,9 +89,10 @@ function makeProposition(proposition){
            
                acceptProposition(proposition);
 
-              alert(proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
 
                boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
+
+               addNotif('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
 
 
           } else {
@@ -87,19 +101,21 @@ function makeProposition(proposition){
 
                  hashAndStore(proposition);
 
-                 alert(proposition.answerer.name + 'found a better alternative, and refused !');
 
                  boardJournal.innerHTML += ('<br>' + proposition.answerer.name + 'found a better alternative, and refused !');
 
+                 addNotif('<br>' + proposition.answerer.name + 'found a better alternative, and refused !')
+
 
             } else {
-
-              alert(proposition.answerer.name + ' accepted the offer!');
 
 
               acceptProposition(proposition);
 
               boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' accepted the offer!');
+
+              addNotif('<br>' + proposition.answerer.name + ' accepted the offer!')
+
 
 
 
@@ -117,16 +133,14 @@ function makeProposition(proposition){
 
               hashAndStore(proposition);
 
-              boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' refused the offer!');
+              boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' refused an offer!');
+
+              addNotif('<br>' + proposition.answerer.name + ' refused an offer!');
 
 
 
-              alert(proposition.answerer.name + ' refused the offer!');
 
 
-
-              
-               alert('-->-->-->-->-->-->proposition refused!!');
 
                ////alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
 
@@ -159,34 +173,6 @@ function makeProposition(proposition){
      let counterPartAsked = proposition.counterPartAsked;
      let offerer = proposition.offerer;
      let answerer = proposition.answerer;
-
-/*
-
-     ////alert('********offerer score => ' + proposition.offererScore);
-
-     ////alert('********answerer score => ' + proposition.answererScore);
-
-     ////alert('here are the offer elements : ');
-
-
-
-
-     for(var i=0; i < offer.array.length; i++){
-
-         ////alert('offer element => ' + offer.array[i].name)
-
-
-     }
-
-     
-     for(var i=0; i < counterPartAsked.array.length; i++){
-
-      ////alert('cpa element => ' + counterPartAsked.array[i].name)
-
-
-  }
-
-*/
 
 
      //if one or both players needed to close mortgage before making the trade, close them
@@ -228,21 +214,17 @@ function makeProposition(proposition){
 
      for(var i = 0 ; i < offer.array.length ; i++){
 
-        let offerElement;
+           let offerElement;
 
-        let color;
+            let color;
+
+
+            offerer.propertiesCount -= 1;
+
 
         
 
              offerElement = offer.array[i];
-
-
-
-
-             document.getElementById('tradeInterface_'+ offerer.name + '_property_' + offerElement.elementIndex).style.display = 'none';
-
-
-
 
 
 
@@ -291,6 +273,10 @@ function makeProposition(proposition){
 
 
      for(var i = 0 ; i < counterPartAsked.array.length ; i++){
+
+
+          answerer.propertiesCount -= 1;
+
  
            let offerElement;
            let color;
@@ -301,8 +287,6 @@ function makeProposition(proposition){
            color = answerElement.color;
 
 
-
-           document.getElementById('tradeInterface_'+ answerer.name + '_property_' + answerElement.elementIndex).style.display = 'none';
 
 
 
@@ -358,6 +342,8 @@ function makeProposition(proposition){
       let property = counterPartAsked.array[i];
 
       addPropertyToPlayerWallet(offerer, property);
+
+
      
     }
 
@@ -366,13 +352,22 @@ function makeProposition(proposition){
        
         
 
-    for(var i = 0 ; i < offer.array.length ; i++){
+        for(var i = 0 ; i < offer.array.length ; i++){
 
-      let property = offer.array[i];
-      
-      addPropertyToPlayerWallet(answerer, property);
+          let property = offer.array[i];
+       
+          addPropertyToPlayerWallet(answerer, property);
      
-    }
+       }
+
+
+
+
+       updateBoardGraphs(offerer);
+
+       updateBoardGraphs(answerer);
+
+
 
 
      

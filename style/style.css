@@ -13,44 +13,421 @@ NAV BAR
 
 
 
+
 body{
 
     background: darkblue;
 
     font-size: 13px;
 
-    transition: all 1s ease;
+    transition: all 1.5s ease;
+
+    font-size: 0.8vw;
+
+    color: rgb(0,255,0, 0.7);
+
 }
 
 
-canvas{
 
-    height: 50% !important;
+  
+.mobilePresentationsContainer{
+  display: none;
+}
 
-    width: 60% !important;
+
+
+/*  Proposition popup  */
+
+
+.propPopup{
+  background: rgb(255,255,255,0.2);
+  height: 70vh;
+  width: 50vw;
+  position: absolute;
+  top: 15vh;
+  left: 25vw;
+  border-radius: 10px;
+  display:none;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.8vw;
+
+  z-index:8;
+
+}
+
+
+.propPopupTop{
+  height:8%;
+  width:90%;
+  border-radius: 5px;
+  background: rgb(255,255,255,0.15);
+}
+
+
+.propPopupBottom{
+  height:80%;
+  width:95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.propPopupButtons{
+    height: 8%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items:center;
+    background:rgb(255,255,255,0.1);
+    border-radius:5px;
+ }
+
+  .propPopupButtonsA{ 
+
+     height:80%;
+     width:30%;
+     display:flex;
+     justify-content: space-around;
+     align-items: center;
+     color:rgb(0,255,0,0.75);
+     font-size: 1.3vw;
+  }
+
+
+  .propPopupButtonsAA{
+
+     height:80%;
+     width:30%;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+     background:rgb(255,255,255,0.1);
+     border-radius: 6px;
+  }
+
+
+  .propPopupButtonsAB{
+     height:80%;
+     width:30%;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+     background:rgb(255,255,255,0.1);
+     border-radius: 6px;
+  }
+
+  .propPopupButtonsB{ 
+     height:80%;
+     width:40%;
+     display:flex;
+     align-items:center;
+  }
+
+.propPopupA{
+  height:45%;
+  width:95%;
+  border-radius: 10px;
+  background: rgb(255,255,255,0.1);
+  display:flex;
+  flex-direction:row; 
+  justify-content: space-around;
+  color: green;
+}
+
+.propPopupAA{
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.propPopupAAA{
+  height:100%;
+  width:30%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+
+.propPopupAAAA{
+   height:30%;
+   width:100%;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+}
+
+
+.propPopupAAAB{
+
+   height: 60%;
+   width: 100%;
+}
+
+
+.propPopupAAB{
+  height: 100%;
+  width: 60%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+}
+
+.propPopupAABA{
+  height:15%;
+  width: 100%;
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-direction: row;
+  margin-top:3%;
+}
+
+.propPopupAABAA{
+  height:80%;
+  width:5%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  opacity: 0.8;
+}
+
+.propPopupAABAAA{
+  height:70%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+
+
+
+
+.colorSquare{
+  height:50%;
+  width:70%;
+  background: rgb(255,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.propPopupAABAAB{
+  height:20%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items:center;
+  font-size: 0.7vw;
+}
+
+.propPopupAABAABA{
+  height: 20%; 
+  width: 100%;
+  font-size: 0.5vw;
+  color:rgb(0,255,0,0.75);
+}
+
+
+
+.propPopupAABAB{
+  height: 100%;
+  width: 55%;
+  display:flex;
+  align-items:center;
+  justify-content: flex-start;
+  color: rgb(0,255,0,0.9)
+}
+
+
+
+.propPopupAABBA{
+  height: 100%;
+  width: 20%;
+}
+
+
+.propPopupAABBB{
+  height: 100%;
+  width: 80%;
+
+}
+
+
+.propPopupAABCA{
+  background: purple;
+  height: 100%;
+  width: 20%;
+}
+
+
+.propPopupAABCB{
+  height: 100%;
+  width: 80%;
+
+}
+
+
+
+.propPopupAABDA{
+  background: purple;
+  height: 100%;
+  width: 20%;
+}
+
+
+.propPopupAABDB{
+  height: 100%;
+  width: 80%;
+
+}
+
+
+
+
+
+
+.propPopupAABB{
+  height:20%;
+  width: 100%;
+}
+
+
+
+.propPopupAABBA{
+
+
+}
+
+..propPopupAABBB{
+
+
+}
+
+
+.propPopupAABC{
+  height:20%;
+  width: 100%;
+}
+
+
+.propPopupAABD{
+  height:20%;
+  width: 100%;
+}
+
+
+
+
+.propPopupAB{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.propPopupABA{
+
+  height: 15%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.propPopupB{
+  height: 45%;
+  width: 95%;
+  background: rgb(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/*    
+  notif 
+*/
+
+
+#notifContainer{
+
+  position:absolute;
+
+  top:4vh;
+
+  right:20vw;
+
+  height: 80vh;
+
+  width:20vw;
+
+  z-index:6;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content: flex-start;
+
+  align-items:center;
+
+  color: black;
+}
+
+
+.notifDiv{
     
+    background:white;
+
+    height:10%;
+
+    width: 80%;
+
+    margin-top:2%;
+
+    border-radius: 5px;
+
+    border: 1px solid;
+
+    display: flex;
+
+    justify-content: flex-wrap;
+
+    font-size: 1vw;
+
+    padding-left: 5%;
+
+    padding-top:5%;
+
+
+
+
 }
-
-
-#notificationsDiv{
-
-    position: absolute;
-
-    right: 15vw;
-
-    top : 10vh;
-
-    height: 10vh;
-
-    width: 10vw;
-
-    z-index: 10;
-
-    background: red;
-
-
-}
-
 
 #navBar{
 
@@ -699,7 +1076,6 @@ Proposition interface
     height: 80%;
     width : 80%; 
     background: purple;
-
     font-size : 5px;
 
 
@@ -1107,15 +1483,6 @@ proposition buttons
 
 
  
-
-div[id*="PawnContainer"] {
-    
-    height: 10%;
-
-    width : 10%;
-   }
-
-
    
 
    #board{
@@ -1145,19 +1512,6 @@ div[id*="PawnContainer"] {
 
 
 
-
-
-   #displayInterfacesButton{
-
-     position: fixed;
-
-     left: 6vw;
-
-     bottom: 5vh;
-
-     z-index:5;
-
-   }
 
 
 
@@ -1225,10 +1579,49 @@ div[id*="PawnContainer"] {
     width: 100%;
     display: flex;
     flex-direction: column;
-
     justify-content: space-around;
-
     align-items: center;
+}
+
+.digitalContainerAAInt{
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+.digitalContainerAAA{
+
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80.5%;
+  width:82.5%;
+  background: rgb(0,0,0,0.1);
+  border-radius: 5px;
+
+}
+
+
+.digitalContainerAAAInt{
+
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80.5%;
+  width:95.5%;
+  background: rgb(0,0,0,0.1);
+  border-radius: 5px;
+
+  
+
 
 }
 
@@ -1244,44 +1637,246 @@ presentation of properties
 */
 
 
-.homePropertyDiv{
 
-    height: 80.5%;
+.legendsDiv{
+   height:100%;
+   width:40%;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-around;
+   align-items:center;
+   font-size: 0.5vw;
+}
 
-    width: 82.5%;
+.idDiv{
+  height:30%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 
-    background: rgb(0,0,0, 0.1);
+.idDivA{
+  height:50%;
+  width:100%;
+  display:flex;
+  justify-content:center; 
+  align-items:center;
 
-    display: flex;
+}
 
-    flex-direction: column;
 
+.idDivAA{
+   height:2.25vw;
+   width:2.25vw;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   background:rgb(0 ,255 , 0 , 0.7);
+   border-radius: 30px;
+
+}
+
+
+.idDivB{
+
+  height:40%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items:flex-start;
+  margin-left:5%;
+
+}
+
+
+.idDivBA{
+
+  height:20%;
+  width:80%;
+ 
+}
+
+
+
+
+.legendsDivA{
+
+  height: 70%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+
+
+}
+
+
+
+.legendsDivAA{
+
+    height:70%;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     justify-content: space-around;
 
+  }
+
+  .legendsDivAAA{
+
+    height:20%;
+    width: 80%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .legendsDivAAAA{
+    height:100%;
+    width: 35%;
+    background:red;
+  }
+
+  .legendsDivAAAB{
+    height:100%;
+    width: 65%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+.legendsDivInt{
+
+  height:20%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+}
+
+.propertyPresentationInt{
+
+
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+
+}
+
+
+
+/*
+
+
+*/
+
+
+
+
+.idDivInt{
+  height:30%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.idDivAInt{
+  height:50%;
+  width:100%;
+  display:flex;
+  justify-content:center; 
+  align-items:center;
+
+}
+
+
+.idDivAAInt{
+   height:3vw;
+   width:3vw;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   background:rgb(0 ,255 , 0 , 0.7);
+   border-radius: 35px;
+
+}
+
+
+.idDivBInt{
+
+  height:40%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items:flex-start;
+  margin-left:5%;
+  font-size: 0.7vw;
+
+}
+
+
+.idDivBAInt{
+
+  height:20%;
+  width:80%;
+ 
+}
+
+
+
+.homePropertyDiv{
+    
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: flex-end;
-
-    border-radius: 5px;
-
-
 }
 
 .homePropertyDivA{
 
     background: rgb(0,0,0,0.15);
-
     height: 7.5%;
-
-    width: 60%;
-
+    width: 100%;
     margin-right: 5%;
-
     display: flex;
-
     flex-direction: row;
-
     align-items: center;
-
     justify-content: space-between;
+}
+
+.homePropertyDivAInt{
+
+
+  background: rgb(0,0,0,0.15);
+    height: 7.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+
+
 }
 
 
@@ -1300,8 +1895,6 @@ presentation of properties
 
 
 .homePropertyDivAA{
-    justify-content: space-between;
-
     height: 99%;
 
     width: 35%;
@@ -1310,6 +1903,24 @@ presentation of properties
 
     display: flex;
 
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.homePropertyDivAAA{
+
+  height: 100%;
+
+  width:45%;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
 }
 
 
@@ -1434,7 +2045,83 @@ board
     height:15%;
     width:82.5%;
     background:rgb(0,0,0,0.1);
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+
 }
+
+.digitalContainerAABA{
+
+   height:85%;
+   width: 20%;
+   display:flex;
+
+}
+
+.jailAndBankruptcyInt{
+
+   height:85%;
+   width: 20%;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:space-between;
+
+}
+
+
+.jailAndBankruptcyIntA{
+
+  height:55%;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.jailAndBankruptcyIntAA{ 
+   height:80%;
+   width:30%;
+   display:flex;
+
+}
+
+.jailImg{
+
+  height: 90%;
+  width: auto;
+  opacity: 0.3;
+}
+
+.bankruptcyImg{
+
+  height:100%;
+  width: auto;
+  opacity: 0.3;
+}
+
+.jailAndBankruptcyIntB{
+
+  
+  height:30%;
+  width:100%;
+  background:rgb(255,255,255,0.05);
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+
+  
+}
+
+
 
 .digitalContainerAB{
     height: 50%;
@@ -1488,8 +2175,15 @@ flex-direction: column;
   height:11.11%;
   width:100%;
   display: flex;
+  flex-direction:row;
   justify-content: center;
   align-items: center;
+
+  background: rgb(255,255,255,0.15);
+
+  border-radius:10px;
+
+  position:relative;
 
 }
 
@@ -1502,15 +2196,59 @@ flex-direction: column;
 }
 
 
+.pawnContainer{
+
+  position:absolute;
+  height:85%;
+  width:25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top:7.5%;
+  right:7%;
+
+}
+
+
+.pawnContainer0{
+
+  height:20%;
+  width:90%;
+
+}
+
+
+.pawnContainer1{
+
+   height:20%;
+   width:90%;
+}
+
+
+.pawnContainer2{
+
+  height:20%;
+  width:90%;
+}
+
+
+.pawnContainer3{
+
+  height:20%;
+  width:90%;
+
+}
+
+
+
 .rpSquare{
 height: 97%;
-width: 97%;
-background: rgb(255,255,255,0.15);
+width: 80%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
-border-radius: 10px;
 color: rgb(0,255,0);
 }
 
@@ -1527,15 +2265,14 @@ border-radius: 15px;
 
 .rpSquareB{
 
-   height: 50%;
-
-   width: 100%;
-
-   display: flex;
-
-   justify-content: center;
-
-   align-items: center;
+   width: 40%; 
+   height:30%;
+   display:flex; 
+   flex-direction: row; 
+   align-items:flex-end; 
+   justify-content:space-around; 
+   opacity:0.6;
+   padding-top:5%
 
 
 }
@@ -1552,7 +2289,7 @@ flex-direction: column;
 
 justify-content: space-around;
 
-margin-bottom: 15%;
+margin-bottom: 7.5%;
 
 
 }
@@ -1644,157 +2381,197 @@ justify-content: space-around;
 }
 
 .digitalContainerBBBAA{
-height:30%;
-width:75%;
-background:rgb(0,0,0,0.2);
-display:flex;
-justify-content:center;
-align-items:center;
+ height:30%;
+ width:75%;
+ background:rgb(0,0,0,0.2);
+ display:flex; 
+ justify-content:center;
+ align-items:center;
+ position:relative;
+}
+
+.digitalContainerBBBAAA{
+  height:20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.graph1Header{
+   position:absolute;
+   bottom:0px;
+   height:10%;
+   width:100%;
+   background:green;
 }
 
 .digitalContainerBBBAB{
-height:30%;
-width:75%;
-background:rgb(0,0,0,0.2);
-display:flex;
-justify-content:center;
-align-items:center;
+  height:30%;
+  width:75%;
+  background:rgb(0,0,0,0.2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+
 }
 
 .digitalContainerBBBAC{
-height:30%;
-width:75%;
-background:rgb(0,0,0,0.2);
-display:flex;
-justify-content:center;
-align-items:center;
+  height:30%;
+  width:75%;
+  background:rgb(0,0,0,0.2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+
 }
 
 
 
 .digitalContainerBBBB{
-height: 100%;
-width: 40%;
-display:flex;
-flex-direction:column;
-justify-content: center;
-align-items:center;
+  height: 100%;
+  width: 40%;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
 }
 
 .digitalContainerBBBBA{
 
-height:55%;
-width:90%;
-background:rgb(255,255,255,0.3);
-border-radius: 7px;
+  height:55%;
+  width:90%;
+  background:rgb(255,255,255,0.1);
+  border-radius: 7px;
 
 }
 
 
 .digitalContainerBBBC{
-height:100%;
-width:33.33%;
-display:flex;
-flex-direction:column;
-justify-content:space-around;
-align-items:center;
+  height:100%;
+  width:33.33%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
 }
 
 
 .tradeScreen{
-background: rgb(255,255,255,0.6);
-height:55%;
-width:90%;
-border-radius:10px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content: space-around;
+  background: rgb(255,255,255,0.125);
+  height:55%;
+  width:90%;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: space-around;
+  opacity:0.55; 
 }
 
 
 .tradeScreenTop{
-height:8%;
-width:90%;
-border-radius: 5px;
-background: rgb(255,255,255,0.5);
+  height:8%;
+  width:90%;
+  border-radius: 5px;
+  background: rgb(255,255,255,0.05);
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.tradeScreenTopA{
+  
+    height:90%;
+    width:20%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+
+
 }
 
 
 .tradeScreenBottom{
-height:85%;
-width:95%;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-justify-content: space-around;
+   height:85%;
+   width:95%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
 }
 
 
 .tradeScreenA{
-height: 45%;
-width: 95%;
-border-radius: 10px;
-background: rgb(255,255,255,0.25);
-display: flex;
-flex-direction:row; 
-justify-content: space-around;
-
-color: rgb(0,225,0);
+  height: 45%;
+  width: 95%;
+  border-radius: 10px;
+  background: rgb(255,255,255,0.05);
+  display: flex;
+  flex-direction:row; 
+  justify-content: space-around;
 
 }
 
 .tradeScreenAA{
-height: 100%;
-width: 75%;
-display: flex;
-flex-direction:column;
-align-items: center;
-justify-content: space-around;
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .tradeScreenAAA{
-height: 25%;
-width: 100%;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .tradeScreenAAAA{
-height: 100%;
-width: 20%;
-display: flex;
-justify-content: center;
-align-items: center;
-opacity: 0.7;
+  height:1.25vw;
+  width:1.25vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:rgb(0 ,255 , 0 , 0.7);
+  border-radius: 30px;
+
 }
+
+
 
 
 .tradeScreenAAAB{
-height: 100%;
-width: 80%;
-
-
+  height: 100%;
+  width: 80%;
 }
 
 .tradeScreenAAB{
-height: 65%;
-width: 100%;
-display:flex;
-flex-direction: column;
-justify-content: space-around;
-align-items:center;
+  height: 65%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
 }
 
 .tradeScreenAABA{
-height:20%;
-width: 100%;
-display:flex;
-justify-content:space-around;
-align-items: center;
-flex-direction: row;
+  height:20%;
+  width: 100%;
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-direction: row;
 }
 
 .tradeScreenAABAA{
@@ -1816,19 +2593,27 @@ opacity: 0.35;
 
 
 .tradeScreenAABAB{
-height: 100%;
-width: 85%;
-display:flex;
-align-items:center;
-justify-content: flex-start;
-font-size: 0.45vw;
+   height: 100%;
+   width: 85%;
+   display:flex;
+   align-items:center;
+   justify-content: flex-start;
+   font-size: 0.45vw;
+}
+
+.tradeScreenAABAB_bottom{
+   height:100%;
+   width:85%;
+   display:flex;
+   align-items:center;
+   justify-content: flex-end;
+   font-size: 0.45vw;
 }
 
 
-
 .tradeScreenAABBA{
-height: 100%;
-width: 20%;
+  height: 100%;
+  width: 20%;
 }
 
 
@@ -1840,24 +2625,24 @@ width: 80%;
 
 
 .tradeScreenAABCA{
-background: purple;
-height: 100%;
-width: 20%;
+  background: purple;
+  height: 100%;
+  width: 20%;
 }
 
 
 .tradeScreenAABCB{
-height: 100%;
-width: 80%;
+  height: 100%;
+  width: 80%;
 
 }
 
 
 
 .tradeScreenAABDA{
-background: purple;
-height: 100%;
-width: 20%;
+  background: purple;
+  height: 100%;
+  width: 20%;
 }
 
 
@@ -1920,18 +2705,11 @@ width: 70%;
 
 
 .tradeScreenB{
-height: 45%;
-width: 95%;
-background: rgb(255,255,255,0.3);
-border-radius: 10px;
+  height: 45%;
+  width: 95%;
+  background: rgb(255,255,255,0.05);
+  border-radius: 10px;
 }
-
-
-
-
-
-
-
 
 
 
@@ -1942,11 +2720,57 @@ border-radius: 10px;
 
 .digitalContainerBBBCB{
 
-height:25%;
-width:90%;
-background:rgb(0,0,0,0.2);
+  height:20%;
+  width:90%;
+  background:rgb(0,0,0,0.2);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
 
 }
+
+
+.digitalContainerBBBCBA{
+
+  height:20%;
+  width:100%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+.digitalContainerBBBCBAA{
+
+  height:100%;
+  width:20%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.digitalContainerBBBCBAAA{
+    
+  height:30%;
+  width:30%;
+
+
+}
+
+
+.digitalContainerBBBCBAB{
+
+  height:100%;
+  width:60%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 
 
 .digitalContainerBBC{
@@ -1979,6 +2803,7 @@ background: yellow;
   width: 97%;
   background: rgb(255,255,255,0.15);
   border-radius: 5px;
+  position:relative;
 }
 
 
@@ -1991,6 +2816,17 @@ background: yellow;
 
 
 
+.specialSquare{
+ 
+  height: 97%;
+  width: 97%;
+  background: rgb(255,255,255,0.15);
+  border-radius: 5px;
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 #boardJournal{
@@ -1998,6 +2834,7 @@ background: yellow;
     color: rgb(0,225,0, 0.8);
     overflow: hidden;
     font-size: 0.7vw;
+    
 
 }
 
@@ -2064,6 +2901,20 @@ Property management interface
     align-items: center;
     background: rgba(117, 190, 218, 0.2);
     border-radius: 7px;
+}
+
+
+.pmHouseGraph{
+
+  height:100%; 
+  width: 100%; 
+  display:flex; 
+  flex-direction: row; 
+  align-items:flex-end; 
+  justify-content:space-around; 
+  opacity:0.6;
+
+
 }
 
 
@@ -2165,7 +3016,6 @@ Property management interface
 
 
  .pManagementInterfaceABB{
-
     height: 37.5%;
     width: 92.5%;
     display: flex;
@@ -2174,21 +3024,44 @@ Property management interface
     align-items: center;
     border-radius: 5px;
     background: rgba(117, 190, 218, 0.25);
-
  }
 
 
 .pManagementInterfaceABBA{
-
-    height: 85%;
-    width: 60%; 
-    border-radius: 10px;
+    height:85%;
+    width:60%; 
+    border-radius:10px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction:row;
+    justify-content:space-around;
     align-items:center;
     background: rgb(255,255,255, 0.15);
-}
+
+  }
+
+  .pManagementInterfaceABBAA{
+    
+    height:20%;
+    width: 100%;
+
+  }
+
+  .pManagementInterfaceABBAA{
+    
+    height:60%;
+    width: 100%;
+;
+  }
+
+  .pManagementInterfaceABBAA{
+    
+    height:20%;
+    width: 100%;
+
+  }
+
+
+
 
 
   .pManagementInterfaceABBB{
@@ -2225,12 +3098,28 @@ Property management interface
      align-items: center;
   }
 
+  .houseBuildingDivBWrapper{
+
+    height:80%;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction: column ;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
   .houseBuildingDivB{
-     height:80%;
+     height:50%;
      width:100%;
      display: flex;
+     flex-direction:row;
      justify-content: space-around;
-     align-items: center;
+     align-items: flex-end;
   }
 
 
@@ -2248,12 +3137,12 @@ Property management interface
       width:42.5%;
       display:flex;
       flex-direction:column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
   }
 
   .houseBuildingDivBBA{
-    height:40%;
+    height:90%;
     width:100%;
     display: flex;
     flex-direction: row;
@@ -2357,7 +3246,7 @@ Property management interface
     width: 13%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     background: rgba(117, 190, 218, 0.2);
     border-radius: 7px;
@@ -2427,7 +3316,6 @@ Property management interface
          display: flex;
          flex-direction: column;
          background: rgb(255,255,255, 0.15);
-         color:rgb(0,255,0,0.8);
          font-size: 0.8vw;
      }
 
@@ -2524,6 +3412,7 @@ Property management interface
      }
 
       .squareCardAACA{
+        
         height:100%;
         width:90%;
 
@@ -2535,8 +3424,11 @@ Property management interface
      }
 
       .squareCardAACB{
-        height:100%;
-        width:30%;
+         height:100%;
+         width:30%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
      }
 
 
@@ -2556,7 +3448,7 @@ Property management interface
 
      .squareCardABA{
 
-        height: 30%;
+        height: 28%;
 
         width: 100%;
 
@@ -2579,6 +3471,7 @@ Property management interface
 
        height: 100%;
        width: 10%;
+       background:red;
 
      }
 
@@ -2589,26 +3482,21 @@ Property management interface
        justify-content: flex-start;
        align-items: center;
        font-size: 0.45vw;
+       color:rgb(0 , 255 ,0 , 0.5);
 
      }
 
      .squareCardABB{
 
-
         height: 30%;
-
         width: 100%;
-
 
      }
 
      .squareCardABC{
 
-
         height: 30%;
-
         width: 100%;
-
 
      }
 
@@ -2617,11 +3505,8 @@ Property management interface
       .squareCardB{
 
         height: 30%;
-
         width: 100%;
-
         display: flex;
-
         flex-direction: row;
 
      }
@@ -2686,32 +3571,24 @@ Property management interface
      .squareCardBB{
 
       height: 100%;
-
       width: 50%;
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
 
      }
 
      .squareCardBBA{
 
-      background: rgb(255,255,255,0.15);
+        background: rgb(255,255,255,0.2);
+        height: 50%;
+        width: 70%;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
 
-      height: 50%;
-
-      width: 70%;
-
-      border-radius: 4px;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
 
      }
 
@@ -2739,14 +3616,40 @@ Property management interface
     #houseLogo{
 
         height: 40%;
-
         width: auto; 
 
+    }
+
+   
+
+
+
+    .cardGraphContainer{
+
+       height:100%;
+       width: 42.5%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-left:15%;
 
 
     }
 
 
+    
+
+    .locationContainer{
+
+       height: 100%;
+       width: 30%; 
+       display:flex;
+       border-radius:5px;
+       justify-content: center;
+       align-items: center;
+       margin-left: 20%;
+
+    }
 
 
 
@@ -2823,7 +3726,7 @@ Property management interface
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background: rgba(117, 190, 218, 0.5);
+    background: rgba(117, 190, 218, 0.15);
 
 }
 
@@ -2835,8 +3738,19 @@ Property management interface
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-    background: rgba(117, 190, 218, 0.3);
+    background: rgba(117, 190, 218, 0.125);
  }
+
+ .tradeInterfaceABA{
+
+  display: none;
+
+ }
+
+
+
+
+
 
 .tradeInterfaceABAA{
     height:92.5%;
@@ -2859,6 +3773,9 @@ Property management interface
     width:20%;
     display: flex;
     flex-direction: column;
+    position:relative;
+    justify-content: center;
+    align-items:center;
 }
 
 
@@ -2869,6 +3786,9 @@ Property management interface
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    position:absolute;
+    top:0px;
+    right:0px;
 
  }
 
@@ -2877,20 +3797,88 @@ Property management interface
     width: 100%;
     display:flex;
     flex-direction:row;
-    justify-content: space-between;
+    justify-content: center;
  }
 
 
   .tradeInterfaceABABB{
 
-     height: 75%;
+     margin-top:10%;
+
+     height: 55%;
      width: 100%;
      display: flex;
      flex-direction: column;
-     justify-content: flex-end;
+     justify-content: space-around;
      align-items: center;
 
  }
+ 
+
+
+
+ .tradeInterfaceABABBA{
+
+    height:60%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ 
+ .tradeInterfaceABABBB{
+   
+     height: 30%;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-around;
+   
+  }
+
+  .tradeInterfaceABABBBA{
+    height:20%;
+    width: 100%;
+     font-size:0.7vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+  }
+
+
+  .tradeInterfaceABABBBAA{
+    height:100%;
+    width:5%;
+    background:yellow;
+  }
+
+  
+  .tradeInterfaceABABBBAB{
+      height:100%;
+      width:40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+  }
+
+
+
+
+
+
+  .tradeInterfaceABABBBB{
+    font-size: 0.5vw;
+
+  }
+
+
+
+
+
 
 
 
@@ -2902,10 +3890,532 @@ Property management interface
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: rgba(117, 190, 218, 0.5);
+    background: rgba(117, 190, 218, 0.15);
     border-radius: 7px;
 
 }
+
+
+
+/*
+
+
+*/
+
+
+ 
+.detailPropertyCard{
+  margin-top:5%;
+  height: 80%;
+  width: 90%;
+  background: rgb(255,255,255,0.12);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:center; 
+ font-size: 0.7vw;
+ border-radius: 7px;
+ color:rgb(0,255,0,0.8);
+}		
+
+.detailPropertyCardA{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detailPropertyCardAA{
+  height:35%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detailPropertyCardAAA{
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detailPropertyCardAAAA{
+  height: 95%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailPropertyCardAAAB{
+  height: 95%;
+  width: 40%;
+  display: flex;
+  justify-content:center;
+  align-items: center; 
+}
+
+.detailPropertyCardAAABA{
+  height:30%;
+  width:100%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.detailPropertyCardAAB{
+  height: 40%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailPropertyCardAB{
+   height:35%;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-end;
+   background: rgb(255 , 255 , 255, 0.03);
+}
+
+.detailPropertyCardAC{
+     height:20%;
+     width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+
+.detailPropertyCardACA{
+    height:60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; 
+    background: rgb(255,255,255,0.02)
+}
+
+.detailPropertyCardACAA{
+    height:25%;
+    width:85%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.detailPropertyCardACB{
+    height:60%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.detailPropertyCardABA{
+   height:30%;
+   width:100%;
+   display:flex;
+   flex-direction:row;
+   align-items:center;
+   justify-content:center;
+}
+
+.detailPropertyCardABAA{
+
+  height: 20%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+
+
+.detailPropertyCardABB{
+   height:70%;
+   width:100%;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:space-around;
+}
+
+.detailPropertyCardABBA{
+
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.detailPropertyCardABBAA{
+
+     height: 15%;
+     width:100%;
+     display:flex;
+     flex-direction:row;
+     align-items:center;
+     justify-content:space-between;
+     font-size: 0.5vw;
+}
+
+.detailPropertyCardABBAAA{
+
+   height:100%;
+   width: 80%;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+
+}
+
+  .detailPropertyCardABBAAB{
+
+     height:100%;
+     width: 20%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 0.5vw;
+
+}
+
+
+
+
+.detailPropertyCardB{
+  height: 100%;
+  width: 50%;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+}
+
+
+.detailPropertyCardBA{
+   height:35%;
+   width:90%;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-around;
+   align-items:center;
+}
+
+
+.detailPropertyCardBAA{
+
+    height:20%;
+    width:85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.locationCardLegend{
+
+   height:50%;
+   width:15%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+
+}
+
+.detailPropertyCardBAAA{
+
+   height:50%;
+   width:15%;
+   background: blue;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+}
+
+  .detailPropertyCardBAAB{
+
+   height:100%;
+   width:70%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+
+
+
+
+.detailPropertyCardBAB{
+
+    height:20%;
+    width:85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.detailPropertyCardBABA{
+
+    height:50%;
+    width:15%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+  }
+
+ .detailPropertyCardBABB{
+     height:100%;
+     width:70%;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+  }
+
+.detailPropertyCardBB{
+    height:35%;
+    width:90%;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.detailPropertyCardBBHeader{
+
+     height:20%;
+     width:90%;
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-start;
+     align-items: center;
+}
+
+.detailPropertyCardBBHeaderA{
+     
+     height: 20%;
+     width: 20%;
+     font-size: 0.5vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+}
+
+
+
+
+.detailPropertyCardBBBottom{
+      height:80%;
+      width:90%;
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-around;
+
+      align-items: center;
+
+}
+
+
+
+.detailPropertyCardBBA{
+
+    height: 30%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.detailPropertyCardBBAA{
+
+    height: 70%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.detailPropertyCardBBAB{
+
+    height: 90%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+.detailPropertyCardBC{
+   height:20%;
+   width:90%;
+   display:flex;
+   flex-direction:column;
+   justify-content:flex-end;
+   align-items:center;
+
+}
+
+
+.detailPropertyCardBCA{
+    height:40%;
+    width:60%;
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(255,255,255,0.05)
+
+}
+
+
+.detailPropertyCardBCAA{
+
+   height: 90%;
+   width: 20%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.detailPropertyCardBCAB{
+
+   height: 90%;
+   width: 70%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+
+.locationCardImg{
+
+     height: 30%;
+     width: auto;
+}
+
+.dollarCardImg{
+     height: 60%;
+     width: auto;
+     opacity:0.8;
+}
+
+
+.mortgageCardImg{
+
+    height: 40%;
+
+    width: auto;
+}
+
+
+.cardHouseHeader{
+     
+     height: 100%;
+     width: auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2916,7 +4426,6 @@ Property management interface
         width: 100%;
         border-radius: 15px;
         font-size: 1vw;
-        color:rgb(0,255,0,0.7);
         display:flex;
         flex-direction: column;
         align-items: center;
@@ -2929,6 +4438,8 @@ Property management interface
            width: 100%;
            display: flex;
            flex-direction: row;
+           justify-content: space-between;
+           align-items: center;
       }
 
       .tradeInterfaceBAA{
@@ -3021,7 +4532,7 @@ Property management interface
          width: 90%;
          background: none;
          border:none;
-         border-shadow:none;
+         box-shadow:none;
 
 
        }
@@ -3039,8 +4550,6 @@ Property management interface
 
         font-size: 0.8vw;
 
-        color:rgb(0,255,0,0.8);
-
 
 
       }
@@ -3057,10 +4566,12 @@ Property management interface
          height:85%;
          width:24%; 
          border-radius:10px; 
-         background:rgb(255,255,255, 0.15);
+         background:rgb(255,255,255, 0.07);
          color:rgb(0,255,0,0.8);
          font-size: 0.8vw;
      }
+
+     
 
 
      .squareCardContent{
@@ -3161,12 +4672,10 @@ Property management interface
       .squareCardAACA{
         height:100%;
         width:90%;
-
         display: flex;
-
         flex-direction: row;
-
         justify-content: flex-start;
+        align-items: center;
      }
 
       .squareCardAACB{
@@ -3332,24 +4841,7 @@ Property management interface
 
      }
 
-     .squareCardBBA{
-
-      background: rgb(255,255,255,0.15);
-
-      height: 50%;
-
-      width: 70%;
-
-      border-radius: 4px;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-     }
-
+ 
 
      #colorInfoContainer{
        display:flex;
@@ -3439,6 +4931,536 @@ Property management interface
 
       border:none;
      }
+
+
+
+
+     /* available property */
+
+
+
+     .landDiv{
+
+      opacity: 1;
+      position:absolute;
+      top:20vh;
+      left:20vw;
+      height:65vh;
+      width:20vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background: rgb(255,255,255,0.1);
+      font-size: 0.7vw;
+      z-index: 6;
+
+      }
+
+
+   .landDivA{
+
+     height:15%;
+     width: 100%;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+
+   }  
+
+
+ .landDivAA{
+
+   height: 50%;
+   width: 60%;
+   margin-left:5%;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+ }
+
+ .landDivB{
+
+   height:70%;
+   width: 100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+   
+ }
+
+ .landDivC{
+   height:15%;
+   width:100%;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+ }
+
+ 
+
+
+.landDivCA{
+
+   height:80%;
+   width: 60%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+
+}
+
+.landDivCAA{
+
+   height:80%;
+   width: 30%;
+   background: rgb(255,255,255,0.1);
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 0.9vw;
+   border-radius:2px;
+
+}
+
+
+
+
+
+/*
+
+check 
+
+*/
+
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark {
+  display:none;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #7ac142;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 2s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+
+
+
+
+     /*mobile version */
+
+  
+
+
+@media all and (max-width: 800px){
+
+  
+
+
+
+
+  .rpSquareCA{
+     
+    font-size: 0.5vw;
+
+  }
+
+
+  .rpSquareCB{
+
+    font-size: 0.5vw;
+
+
+  }
+
+  .rpSquareCC{
+
+
+    font-size: 0.5vw;
+
+
+
+  }
+
+
+
+   .digitalContainer{
+
+      flex-direction: column;
+
+      align-items: center;
+
+   }
+
+
+
+    .digitalContainerA{
+      display: none;
+    }
+
+    .digitalContainerB{
+
+      height:70%;
+      width:90%;
+
+
+    }
+
+
+    .digitalContainerC{
+
+      display: none;
+
+    }
+
+
+    
+
+    
+
+
+   
+  .mobilePresentationsContainer{
+
+    display: flex;
+    height: 30%;
+    width:100%;
+    flex-direction: row;
+   
+   }
+
+   .mobilePresentationsContainerA{
+
+      height:100%;
+      width: 50%;
+
+      display:flex;
+
+      flex-direction: column;
+
+      justify-content: space-around;
+
+      align-items: center;
+
+
+   }
+
+
+   .mobilePresentationsContainerAA{
+
+     height:40%;
+     width: 90%;
+     display:flex;
+     flex-direction: column;
+     align-items: center;
+     background:purple;
+
+ }
+
+ .mobilePresentationsContainerAB{
+
+   height:40%;
+   width: 90%;
+   display:flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+   background:purple;
+
+
+
+}
+
+   .mobilePresentationsContainerB{
+
+    height:100%;
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+
+
+  }
+
+
+  .mobilePresentationsContainerBA{
+
+    height:40%;
+    width: 90%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background:purple;
+
+ }
+
+ 
+ .mobilePresentationsContainerBB{
+
+   height:40%;
+   width: 90%;
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   background:purple;
+
+}
+
+
+
+
+
+
+
+
+
+
+.pManagementInterfaceA{
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+.pManagementInterfaceAA{
+
+    display:none;
+
+}
+
+.pManagementInterfaceAC{
+
+  display:none;
+
+}
+
+
+
+
+
+
+
+.pManagementInterfaceAA{
+
+  display:none;
+
+}
+
+.pManagementInterfaceAC{
+
+  display:none;
+
+}
+
+
+
+
+
+.pManagementInterfaceAB{
+
+   width: 95%;
+
+
+
+}
+
+
+
+.pManagementInterfaceABBA{
+
+  display:none;
+
+
+ }
+
+
+
+
+
+ .pManagementInterfaceMiddle{
+
+      width: 90%;
+
+ }
+
+
+
+ .pManagementInterfaceABAA{
+
+     width: 95%;
+ }
+
+
+
+ .pManagementInterfaceABAB{
+
+    display: none;
+ }
+
+
+
+
+ 
+
+
+
+
+ .houseBuildingDiv{
+
+  width: 97%;
+ }
+
+
+  
+.tradeInterfaceAA{
+
+  display:none;
+
+}
+
+
+
+
+.tradeInterfaceAC{
+
+  display:none;
+
+}
+
+
+.tradeInterfaceCenterA{
+   
+  width:95%;
+
+
+}
+
+
+.tradeInterfaceABA{
+
+     height: 30%;
+
+}
+
+
+.tradeInterfaceABAB{
+  display: none;
+}
+
+
+
+.tradeInterfaceABAA{ 
+
+  width:95%;
+
+
+
+}
+
+
+
+   #boardJournal{
+
+     font-size: 1vw;
+
+   }
+
+
+
+
+   .squareCardAABB{
+
+    font-size: 1vw;
+
+   }
+
+
+   .squareCardABAAB{
+
+    font-size: 1vw;
+
+   }
+
+   .squareCardAAAB{
+
+    font-size: 1vw;
+
+   }
+
+
+   .squareCardBAAB{
+
+    font-size: 1vw;
+
+   }
+
+
+   .squareCardBAAC{
+
+    font-size: 1vw;
+   }
+
+
+   .squareCardBAAD{
+
+    font-size: 1vw;
+   }
+
+
+   
+
+
+}
 
 
 

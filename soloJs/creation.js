@@ -84,8 +84,7 @@ function Proposition(offerer, answerer, offer, counterPartAsked ) {
 
 
 function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick){
-
-
+	
 	//THE AI TRIES TO GENERATE REASONABLE PROPOSITIONS, USING A "PROPOSITION MATERIAL" OBJECT
 
 	let offerer = propositionMaterial.offerer;
@@ -102,31 +101,9 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let propertiesAskedPlusCash;
 	let answerersPerception = regular;
 
+
 	let lossValueForTheAnswerer = getArrayLossValueForPlayer(answerer, answerer , counterPartAsked.array);
-
-   
-
 	let bestProposition = {thinkerScore: -infinite , proposition: none};
-
-
-
-
-
-	if(gainType == indirectGain){
-
-		if(answerer == humanPlayer){
-
-			answerersPerception = thinker.humanPerception;
-
-
-		}
-
-
-	}
-
-
-
-
 
 
 
@@ -260,11 +237,11 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	if(answerer.cash > 1200){
 	
-		answererCashSlices = [0  , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2];
+		answererCashSlices = [0  , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2 ,];
 		
 	} else {
 		
-	answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2 ];
+	answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2 , answerer.cash * 0.25 , answerer.cash * 0.3 , answerer.cash * 0.35, answerer.cash * 0.4];
 
 	}
 
@@ -286,8 +263,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			 if(offerer.cash > 500){
 				
-			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ];
-
+			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25,  offerer.cash * 0.3 ,  offerer.cash * 0.35 ,  offerer.cash * 0.4];
 			 }
 			
 			
@@ -312,8 +288,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 
 						if((refundableMortgageBeforeOffer(offerer, offerArray[0][offerIndex] ) == true)){
-							 
-							
 
 							closeMortgage(offerArray[0][offerIndex] );
 
@@ -360,16 +334,21 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 
 					 if(gainType == indirectGain){
+
 						removeElementsFromPlayer(offerer, offer.array);
-						propertiesAskedPlusCash = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);			 
+
+						propertiesAskedPlusCash = createIndirectTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
+
 						addElementsToPlayer(offerer, offer.array);
 
 						propertiesAskedPlusCash.lossValueForTheOwner = lossValueForTheAnswerer;
 
 
 					} else {
+
 						propertiesAskedPlusCash = createTradeObject(counterPartAskedObject, offerer, answerer, [counterPartAsked.array]);
-					 }
+					 
+					}
 
 
 					 propertiesAskedPlusCash.mortgagesClosed = cpaofferMortgagesToClose;
@@ -377,7 +356,10 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 					 propertiesAskedPlusCash.cash = answererCashSlices[answererCashSliceIndex];
 		
 						
-		        		 //RETURN AN OFFER OBJECT
+		        		
+					 
+					 
+					 //RETURN AN OFFER OBJECT
 				      
 
 						 proposition = new Proposition(offerer, answerer, offer ,  propertiesAskedPlusCash);
@@ -554,12 +536,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 
 
-
-
-
-
-
-
 	if(gainType == indirectGain){
 
 		addElementsToPlayer(answerer, counterPartAsked.array);
@@ -580,8 +556,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 function createTradeObject( type , offerer, answerer, tradeArray ){
 	
-	alert('nodes added=>' + nodes);
-
 
 
     let lossValueForTheOwner = 0 ;
@@ -748,6 +722,9 @@ function getArrayLossValueForPlayer(thinker, player, array){
 
 function profitableTrade(thinker, proposition , trick , perception , gainType){
 
+
+	
+
     
 	let offer = proposition.offer;
 	let counterPartAsked = proposition.counterPartAsked;
@@ -756,6 +733,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	let offererScore = 0;
 	let answererScore = 0;
 
+	
 	let thinkerScoreWithoutCash;
 
      //compute score according to a tricked player (not an advanced AI) => The player cant think at depth+1
@@ -921,9 +899,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		}
 		
 	}
+
     
-
-
 
 
 	 if(Number(thinkerScoreWithoutCash) > 0){
@@ -996,44 +973,18 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 			  if(gainType == indirectGain){
 
 				if(answerer != humanPlayer){
-
-
-
-					if(offer.array[0] == avenueMatignon && counterPartAsked.array[0] == avenueFoch ){ 
-						
-						
+											
 					////////alert("cette proposition est raisonnable!!!!!!!!!!!!!!!!!!!! (offerer: " + offerer.name + ')');
-
 					////////alert(' Answerer: ' + answerer.name + ')');
-   
 					////////alert('The offerer perceived a value of ' + offererScore );
-
 					////////alert(' Offerer gain => ' + counterPartAsked.gainValueForTheOtherPlayer);
-
 					////////alert(' Offerer loss => ' + offer.lossValueForTheOwner);
-
-					
 					////////alert(' answerer gain => ' + offer.gainValueForTheOtherPlayer);
-
-					////////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);
-
-					
-
-
-
-					
-
-   
+					////////alert(' answerer loss => ' + counterPartAsked.lossValueForTheOwner);   
 					//////////alert('the answerer perceived a value of ' + answererScore );
-					//////////alert('offerer gain value => ' + (counterPartAsked.gainValueForTheOtherPlayer - offer.cash));	
-					
-					
+					//////////alert('offerer gain value => ' + (counterPartAsked.gainValueForTheOtherPlayer - offer.cash));						
 					//////////////alert('2 reds =>' + (0.13 * red.finishedSetValue));
-   
 					//////////////alert('2 oranges =>' + (0.13 * orange.finishedSetValue));
-   
-   
-   
 					////////////////////////////////////////////alert('here is the offer : ');
 	
 	
@@ -1051,18 +1002,13 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					  
 				   }
    
-   
-				 }
-
 
 			  }
 
 
-				
-			
+						
 			}
 
-			//////////////////////////////////alert('true...')
 
 
 				return true;
@@ -1074,7 +1020,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 				if(gainType == indirectGain){
 
 
-					if(offer.array[0] == avenueMatignon && counterPartAsked.array[0] == avenueFoch ){ 
+
+              						////alert('checking!!!!!!')
 
 
 
@@ -1143,7 +1090,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					
 
 
-					}
+			
 
 
 		}
@@ -1380,23 +1327,28 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 			   //let set = { opportunity: false}
                 
-			   ////////////////////alert(set.opportunity);
 
 			   if(set.opportunity == true){
 
-				   ////////////////////alert('an indirect opportunity was detected!')
+				   //alert('an indirect opportunity was detected!')
+
 
 				   //To avoid collision, the elements offered by a "non trading player " were removed temporarily in getSetValueAtDepth2() . Store those objects, to add them back at the end of the iteration.
                    
+
+
 				   offeredElements.push(set.offeredElements);
 				
 			   	   tradeObject.gainValueForTheOtherPlayer -= staticGain;
  
 				   tradeObject.indirectMonopOpportunity = set.proposition;
+
  
 		    	   //compute a synergetic cost for the player loosing the array 
 			
 			      //Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
+
+
 				 
 			       tradeObject.lossValueForTheOwner += (0.15 * set.gainValue);
 
@@ -1439,10 +1391,9 @@ var cnt = 0;
 
 function getSetValueAtDepth2(playerA , playerB , array){
 
-	let arrayCnt = 0;
-	
-		
 
+	let arrayCnt = 0;
+		
 	let obj = { opportunity: false , gainValue: 0 , proposition: none , offeredElements : none };
 
 	let nonTradingPlayers = getNonTradingPlayersArray(playerA, playerB);
@@ -1456,7 +1407,6 @@ function getSetValueAtDepth2(playerA , playerB , array){
 	} else {
 
 		thinker = playerB;
-
     
 	}
 
@@ -1465,10 +1415,8 @@ function getSetValueAtDepth2(playerA , playerB , array){
 
 	for(var i=0; i < nonTradingPlayers.length ; i++){
 
-		
 
 		   if(nonTradingPlayers[i].propertiesCount > 0 ){
-
 
 			   //temporarily add the properties virtually acquired
 
@@ -1476,39 +1424,32 @@ function getSetValueAtDepth2(playerA , playerB , array){
 			    addElementsToPlayer(playerA, array);
 
 
-
-
 			
 		    	let newSet = playerA.propertiesByColor[array[0].color.index].properties;
-			  
-		        let lossValueForTheOwner = calculateSetValue(thinker, newSet); 
-		 
+		        let lossValueForTheOwner = calculateSetValue(thinker, newSet); 	 
 		        let gainValueForTheOtherPlayer = getArrayGainValueForPlayer(thinker, nonTradingPlayers[i] , newSet);
-		
 	 	        let counterPartAsked = new CounterPartAsked(newSet , lossValueForTheOwner, gainValueForTheOtherPlayer );
-			 
 		        let propositionMaterial = new PropositionMaterial(nonTradingPlayers[i] , playerA, counterPartAsked );
-    
+
+
 		        //Whats the biggest offer (so, direct gain for the answerer ) , a nonTradingPlayer could do.
        
 
 			     let bestProposition = tryToCreateProposition(playerA, directGain, propositionMaterial, false);
 
 
+
+
 				 removeElementsFromPlayer(playerA, array);
 
 
-
-
 				 //remove the element
-
 			     //for each proposition :
+
 	
   			    if(bestProposition.proposition != none){
  
-				     //if(monopolyGain(playerA, divideArrayInSets(bestProposition.proposition.offer.array)) == true){ 
-					  
-					 
+				     //if(monopolyGain(playerA, divideArrayInSets(bestProposition.proposition.offer.array)) == true){ 	 
 					 
 					    removeElementsFromPlayer(nonTradingPlayers[i], bestProposition.proposition.offer.array);
  
@@ -1632,6 +1573,9 @@ function monopolyGain(player, sets){
 
 
 function removeElementsFromPlayer(player, elementsArray){
+
+
+
 
 	
 	for(var i=0; i < elementsArray.length ; i++){

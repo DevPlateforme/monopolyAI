@@ -125,6 +125,19 @@ var tradeAnswer = {tradeProposition: none};
 
 
 
+/*
+
+graph types 
+
+
+*/
+
+
+
+var boardGraph = 'boardGraph';
+var pmGraph = 'pmGraph';
+
+
 
 
 

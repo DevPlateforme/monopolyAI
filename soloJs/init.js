@@ -9,18 +9,48 @@ var breakVar = false;
 
 function init(){
 
-     //buildBoard();
-  
-    //setColorScores();
-   
-    givePlayersPropertiesForDemo();
+     //buildBoard();  
+     //setColorScores();
+
 
     wakeUpAis();
 
     observedPlayer = ai3;
 
 
-    buildPresentationBar(humanPlayer , red , boardGraph)
+    setInterval(
+        function(){
+          
+          boardJournal.innerHTML = ''}, 5000
+          
+      );
+      
+
+
+      boardGraph1();  
+      boardGraph2();  
+      boardGraph3();  
+
+
+      buildBoardPresentationCircles(ai1)
+      buildBoardPresentationBars(ai1)
+
+      
+      buildBoardPresentationCircles(humanPlayer)
+      buildBoardPresentationBars(humanPlayer)
+  
+    
+      buildBoardPresentationCircles(ai2)
+      buildBoardPresentationBars(ai2)
+  
+      buildBoardPresentationCircles(ai3)
+      buildBoardPresentationBars(ai3)
+      
+      
+     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex' },2000)     
+
+      
+  
 
 }
 
@@ -88,26 +118,29 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-    addPropertyToPlayerWallet(humanPlayer , avenueHenriMartin);
-     addPropertyToPlayerWallet(humanPlayer , rueLaFayette);
-     addPropertyToPlayerWallet(humanPlayer , faubourgSaintHonore);
-     addPropertyToPlayerWallet(humanPlayer , rueDeLaPaix);
-     addPropertyToPlayerWallet(humanPlayer , avenueMozart);
+    addPropertyToPlayerWallet(humanPlayer , bdMalesherbes);
+    addPropertyToPlayerWallet(humanPlayer , faubourgSaintHonore);
+    addPropertyToPlayerWallet(humanPlayer, avenueDesChampsElysees);
+    addPropertyToPlayerWallet(humanPlayer, belleville);
+
+
+    addPropertyToPlayerWallet(ai1, placePigalle);
+    addPropertyToPlayerWallet(ai1, avenueDeNeuilly);
+    addPropertyToPlayerWallet(ai1, gareDuNord);
 
 
 
+    addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
+    addPropertyToPlayerWallet(ai2 , rueLaFayette);
 
-     addPropertyToPlayerWallet(ai3 ,rueDuParadis);
-     addPropertyToPlayerWallet(ai3 ,avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai3 ,gareDuNord);
-     addPropertyToPlayerWallet(ai3 , belleville);
 
-     
-     addPropertyToPlayerWallet(ai3, boulevardSaintMichel);
-     addPropertyToPlayerWallet(ai3 , placePigalle);
-     addPropertyToPlayerWallet(ai3 , avenueDesChampsElysees);
+    
 
-     
+    addPropertyToPlayerWallet(ai2 ,avenueHenriMartin);
+    addPropertyToPlayerWallet(ai2 , rueDeLaPaix);
+    addPropertyToPlayerWallet(ai2 , rueLecourbe);
+
+
 
 
  

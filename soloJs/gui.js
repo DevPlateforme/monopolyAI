@@ -45,14 +45,19 @@ function hideDiceLaunchButton(){
 
 
 
+
+
 function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 
-     humanThinking = true;
-     
+     monopolyBoard.style.opacity = 0.05;
 
-     humanAnswerInterface.style.opacity = 1;
-     humanAnswerInterface.style.zIndex = 5;
+
+     document.getElementById('propositionPopup').style.display = 'flex';
+
+
+
+     humanThinking = true;
 
      
      humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
@@ -65,7 +70,8 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
      for(i=0; i < proposition.offer.array.length; i++){  
 
                humanAnswerInterfaceOffer.innerHTML += '' + proposition.offer.array[i].color.name +' : ' + proposition.offer.array[i].name + '</br>'; 
-       
+               
+               addOfferLine(proposition.offer.array[i]);
 
      }
 
@@ -92,7 +98,9 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
      for(i=0; i < proposition.counterPartAsked.array.length; i++){  
 
                humanAnswerInterfaceCounterPart.innerHTML += '' + proposition.counterPartAsked.array[i].color.name +' :' + proposition.counterPartAsked.array[i].name + ' </br>'; 
-       
+
+               addCounterPartAskedLine(proposition.counterPartAsked.array[i]);
+
      }
 
      //add cash
@@ -117,19 +125,29 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 
 
+
 function refusePropositionFromInterface(){
+
+
+     addNotif('you refused a proposition!!')
 
      humanThinking = false;
 
      let offerer = humanPlayer.propositionToAnswer.offerer;
 
-     ////alert('the offerer was =>' + offerer.name)
+     document.getElementById('propositionPopup').style.display = 'none';
+     monopolyBoard.style.opacity = 1;
+     document.getElementById('propertyLineContainer1').innerHTML = '';
+     document.getElementById('propertyLineContainer2').innerHTML = '';
+
+
+     //////alert('the offerer was =>' + offerer.name)
 
 
      hashAndStore(humanPlayer.propositionToAnswer);
 
 
-     //////alert('vous avez refusé cette proposition!!');
+     ////////alert('vous avez refusé cette proposition!!');
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
 
@@ -824,7 +842,7 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
 function addOfferElement(event, offererIndex, elementIndex ){
 
      
-      alert('element added!');
+      //alert('element added!');
 
      //FIRST , MAKE SURE ANOTHER PLAYER WAS SELECTED
 
@@ -1175,12 +1193,17 @@ function initPropositionInterface(){
 
 
 
-
 function acceptPropositionFromInterface(){
 
      humanThinking = false;
 
      initHumanAnswerInterface();
+
+     document.getElementById('propositionPopup').style.display = 'none';
+     monopolyBoard.style.opacity = 1;
+     document.getElementById('propertyLineContainer1').innerHTML = '';
+     document.getElementById('propertyLineContainer2').innerHTML = '';
+
 
      acceptProposition(humanPlayer.propositionToAnswer);
 
@@ -1192,8 +1215,6 @@ function acceptPropositionFromInterface(){
      humanPlayer.propositionToAnswer = none;
 
 }
-
-
 function initHumanAnswerInterface(){
 
      humanAnswerInterface.style.opacity = 0;
@@ -1349,6 +1370,17 @@ function displayInterfaces(){
      monopolyBoard.style.opacity = 0.15;
 
      interfacesPanel.style.opacity = 1;
+
+     document.getElementById('tradeScreen').style.opacity = 0.8;
+
+     
+
+     
+
+     buildMortgageCanvas1(mortgageCanvas2);
+
+
+     buildMortgageCanvas2(mortgageCanvas1);
 
      
 }
@@ -1643,6 +1675,155 @@ function displayPreviousTradeAnswererColor(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+function addOfferLine(property){
+
+     let color = property.color;
+
+    let propertyLine = document.createElement('div');
+    propertyLine.setAttribute('class' , 'propPopupAABA');
+
+
+
+   //build the color square
+
+      let colorContainer =document.createElement('div');
+
+      colorContainer.setAttribute('class' , 'propPopupAABAA')
+
+
+
+      let colorSquare = document.createElement('div');
+
+
+      colorSquare.setAttribute('class' , 'colorSquare');
+
+      colorSquare.style.background = color.name ;
+
+      colorContainer.append(colorSquare);
+
+  
+
+
+
+      
+
+      let propertyName = document.createElement('div');
+
+      propertyName.setAttribute('class' , 'propPopupAABAB');
+
+      propertyName.innerHTML = property.name;
+
+      propertyLine.append(colorContainer);
+
+      propertyLine.append(propertyName);
+
+      document.getElementById('propertyLineContainer1').append(propertyLine)
+
+
+
+      
+}
+
+
+
+
+
+
+function addCounterPartAskedLine(property){
+
+     let color = property.color;
+
+     let propertyLine = document.createElement('div');
+     propertyLine.setAttribute('class' , 'propPopupAABA');
+ 
+ 
+ 
+    //build the color square
+ 
+       let colorContainer =document.createElement('div');
+ 
+       colorContainer.setAttribute('class' , 'propPopupAABAA')
+ 
+ 
+ 
+       let colorSquare = document.createElement('div');
+ 
+ 
+       colorSquare.setAttribute('class' , 'colorSquare');
+ 
+       colorSquare.style.background = color.name ;
+ 
+       colorContainer.append(colorSquare);
+ 
+   
+ 
+ 
+ 
+       
+ 
+       let propertyName = document.createElement('div');
+ 
+       propertyName.setAttribute('class' , 'propPopupAABAB');
+ 
+       propertyName.innerHTML = property.name;
+ 
+       propertyLine.append(colorContainer);
+ 
+       propertyLine.append(propertyName);
+ 
+       document.getElementById('propertyLineContainer2').append(propertyLine)
+ 
+ 
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function addNotif(content){
+
+
+     let notif = document.createElement('div');
+
+     notif.setAttribute('class', 'notifDiv');
+     notif.innerHTML = content;
+
+
+     notifContainer.append(notif);
+
+
+
+     setTimeout(
+
+          function(){
+
+               notifContainer.removeChild(notif);
+
+          }, 1500);
+
+
+}
 
 
 

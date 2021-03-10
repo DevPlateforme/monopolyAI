@@ -520,7 +520,7 @@ function closeMortgage(property){
      property.landLord.mortgages -= 1;
 
 
-     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just close the mortgage for the property ' + property.name);
+     //boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just close the mortgage for the property ' + property.name);
 
 
 }
@@ -561,7 +561,8 @@ function buildHouse(property){
 
      //buildHouseOnGui(property);
 
-     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on the property ' + property.name);
+     addNotif('<br>' + property.landLord.name + ' just built a house on the property ' + property.name);
+
 
 
 }
@@ -859,10 +860,13 @@ function getNonTradingPlayersArray(playerA, playerB){
 
 function addPropertyToPlayerWallet(player, property){
 
-    document.getElementById('tradeInterface_'+ player.name + '_property_' + property.elementIndex).style.display = 'flex';
 
 
     let propertyColor = property.color;
+
+
+    player.propertiesCount += 1;
+
 
     
     player.propertiesByColor[propertyColor.index].properties.push(property);
@@ -889,8 +893,13 @@ function addPropertyToPlayerWallet(player, property){
 
     }
 
+    updateBoardGraphs(player)
+
     
     boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
+
+    addNotif(' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
+
 
 
    
@@ -935,6 +944,8 @@ function newMonopoly(player , color){
    insertMonopoly(player, color);
 
    boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')');
+
+   addNotif('<br>' + player.name + ' has a monopoly!! (' + color.name + ')')
    
 
 }
@@ -1102,6 +1113,8 @@ function getMortgage(property){
 
         boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
 
+        addNotif('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
+
 
   }
 
@@ -1190,6 +1203,9 @@ function playerInBankruptcy(player){
         ////alert(' the player ' + player.name + ' went out from bankruptcy');
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
+
+        addNotif('<br> the player ' + player.name + ' went out from bankruptcy');
+
         
        }
 
@@ -1198,7 +1214,6 @@ function playerInBankruptcy(player){
 
      ////alert(' bankruptcy timeout launched for ' + player.name);
 
-     boardJournal.innerHTML += ( player.name + ' went out from bankruptcy');
 
  
     bankruptcyTimeout = setTimeout(function(){
@@ -1246,4 +1261,13 @@ function checkForMortgageInMonopoly(monopoly){
 
     return false;
 
+}
+
+
+
+
+function updateBoardGraphs(player){
+  
+  buildBoardPresentationCircles(player)
+  buildBoardPresentationBars(player)
 }

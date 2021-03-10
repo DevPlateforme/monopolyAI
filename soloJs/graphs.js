@@ -427,15 +427,15 @@ function buildPmPresentationCircles(player){
 
  function buildBoardPresentationBars(player){
 
-    bbuildPresentationBar(player,black, boardGraph);
     buildPresentationBar(player,red , boardGraph);
+    buildPresentationBar(player,black, boardGraph);
     buildPresentationBar(player,green, boardGraph);
     buildPresentationBar(player,yellow , boardGraph);
     buildPresentationBar(player,brown , boardGraph);
     buildPresentationBar(player,purple, boardGraph);
     buildPresentationBar(player,publicServicesColor , boardGraph);
     buildPresentationBar(player,darkBlue , boardGraph);
-    buildPresentationBar(player,lightBlue , boardGraph);
+    buildPresentationBar(player,lightBlue , boardGraph); 
     buildPresentationBar(player,orange , boardGraph);
  
  }
@@ -485,7 +485,21 @@ function buildPresentationCircle(player,color,type){
 
     let context;
 
+    let circleBackgroundColor;
+
+    let circleColor;
+
+
      context = document.getElementById(player.name + '_' + type + '_presentationCircle_' + color.name );
+
+     
+        
+     circleBackgroundColor = 'red';
+     circleColor = 'rgb(0 , 0 , 255 , 0.8)';
+
+
+
+    
 
 
     let chart = new Chart(context , {
@@ -497,9 +511,9 @@ function buildPresentationCircle(player,color,type){
             labels: ['' , ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,255,0,0.9)", "rgb(255,0,0,0.7)"],
-                borderColor: 'rgb(255,0,0)',
-                data: [10,100]
+                backgroundColor: [ circleBackgroundColor ],
+                borderColor: circleColor,
+                data: [50,100]
             }]
         },
         
@@ -535,31 +549,30 @@ function buildPresentationCircle(player,color,type){
 
 
 
-function BuildPresentationCircleLegend(){
+function buildPresentationCircleLegend(player,type){
     
 
     let context;
 
-     context = document.getElementById(player.name + '_' + type + '_presentationCircleLegend_' + color.name );
+     context = document.getElementById(player.name + '_' + type + '_presentationCircleLegend').getContext('2d');
 
-
-    let chart = new Chart(context , {
+     var chart = new Chart(context, {
         // The type of chart we want to create
         type: 'doughnut',
-        
+    
         // The data for our dataset
         data: {
-            labels: ['' , ''],
+            labels: ['' , 'May'],
             datasets: [{
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,255,0,0.9)", "rgb(255,0,0,0.7)"],
-                borderColor: 'rgb(255,0,0)',
-                data: [10,100]
+                borderColor: 'pink',
+                data: [40,100]
             }]
         },
-        
+    
         // Configuration options go here
-        options: {
+       options: {
         legend: {
             display: false
         },
@@ -569,21 +582,18 @@ function BuildPresentationCircleLegend(){
                       return tooltipItem.yLabel;
                }
             }
-        }
-        }, 
-        scales: {
+         }
+      }, 
+       scales: {
            xAxes: [{
             ticks: {
                    display: false
             }
-
           }]
-
         }
-
-      }
-
-    );
+       }
+     );
+        
 
 }
   
@@ -601,30 +611,28 @@ function buildPresentationBar(player , color , type){
 
     let colorBar;
 
-    colorBar = document.getElementById('ai1_boardGraph_colorBar_red');
+    colorBar = document.getElementById(player.name + '_' + type + '_colorBar_' + color.name);
+
 
     let ownedElements = player.propertiesByColor[color.index].properties.length;
     let colorMax = color.units;
     let barWidth = Math.floor( (ownedElements/colorMax) * 100);
 
-
-
-     
      //interval
 
     //change the inner div width (div with a background color)
 
-    let currentWidth = parseInt(window.getComputedStyle(colorBar).getPropertyValue('width'));
+    let currentWidth = 0;
 
     let barColorInterval = setInterval(function(){
 
-          if(currentWidth == barWidth){
+          if(currentWidth >= barWidth){
 
             clearInterval(barColorInterval);
 
           } else {
 
-            currentWidth += 1;
+            currentWidth += 3.5;
             colorBar.style.width = currentWidth + '%';
 
           }
@@ -691,42 +699,6 @@ function buildHouseVerticalBars(player,color,type){
 
 
 
-function buildPmGraph1(color){
-
-
-
-
-
-}
-
-
-function buildPmGraph2(color){
-
-
-
-
-
-}
-
-
-function buildPmGraph3(color){
-
-
-
-
-}
-
-
-function buildPmGraph4(color){
-
-
-
-
-}
-
-
-
-
 
 
 
@@ -772,3 +744,704 @@ function buildCardGraph5(type, elementIndex){
 
 
 
+function addPropertyPoint(player, color , type){
+    //property length + 1.opacity + 1
+
+    let propertiesLength = player.propertiesByColor[color.index].properties.length; 
+    document.getElementById(player.name + '_propertyPoint_' + type + '_' + color.name + '_property_' + (propertiesLength) ).style.opacity = 1;
+
+}
+
+
+
+function removePropertyPoint(player, color , type){
+
+    //init all the divs to opacity 0
+
+    let propertiesLength = player.propertiesByColor[color.index].properties.length; 
+
+    document.getElementById(player.name + '_propertyPoint_' + type + '_' + color.name + '_property_' + (propertiesLength) ).style.opacity = 0.2;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function buildPmGraph1(color, data1 , data2){
+
+    let context = document.getElementById(color.name+'_pmGraph1').getContext('2d');
+
+    
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'bar',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
+                borderColor: 'rgb(255,0,0)',
+                data: [1,data1,data2]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+
+
+
+}
+
+
+
+
+
+
+function buildPmGraph2(color, data1 , data2){
+
+    let context = document.getElementById(color.name+'_pmGraph2').getContext('2d');
+
+    
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'line',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
+                borderColor: 'rgb(255,0,0)',
+                data: [1,data1, data2]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+function buildPmGraph3(color, data1 , data2){
+
+    let context = document.getElementById(color.name+'_pmGraph3').getContext('2d');
+
+    
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'doughnut',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
+                borderColor: 'rgb(255,0,0)',
+                data: [1,data1,data2]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function buildTradeCardHouseCost(){
+
+    let context = document.getElementById("ai2_tradeCardGraph_brown_property_0_graph_houseCost").getContext('2d');
+     
+    let circleBackgroundColor;
+
+    let circleColor;
+
+        
+     circleBackgroundColor = 'red';
+     circleColor = 'rgb(0 , 0 , 255 , 0.8)';
+
+
+
+
+    let chart = new Chart(context , {
+        // The type of chart we want to create
+        type: 'doughnut',
+        
+        // The data for our dataset
+        data: {
+            labels: ['' , ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: [ circleBackgroundColor ],
+                borderColor: circleColor,
+                data: [50,100]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+
+          }]
+
+        }
+
+      }
+
+    );
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function buildTradeCardGraphMaxRent(){
+
+    let context = document.getElementById("ai2_tradeCardGraph_brown_property_0_graph_maxRent").getContext('2d');
+
+
+    let circleBackgroundColor;
+
+    let circleColor;
+
+        
+     circleBackgroundColor = 'red';
+     circleColor = 'pink';
+
+
+
+
+    let chart = new Chart(context , {
+        // The type of chart we want to create
+        type: 'doughnut',
+        
+        // The data for our dataset
+        data: {
+            labels: ['' , ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: [ circleBackgroundColor ],
+                borderColor: circleColor,
+                data: [50,100]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+
+          }]
+
+        }
+
+      }
+
+    );
+
+
+    
+
+
+}
+
+
+
+
+
+
+function buildRightColorGraph(color, data1 , data2){
+   
+    let context = document.getElementById('ai2_rightTradeGraph_brown').getContext('2d');
+
+
+     
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'bar',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
+                borderColor: 'rgb(255,0,0)',
+                data: [1,data1,data2]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+    
+    
+    
+  }
+
+
+
+
+
+
+
+
+  function boardGraph1(){
+
+     
+    let context = document.getElementById('boardGraph1').getContext('2d');
+
+     
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'bar',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "yellow", "purple"],
+                borderColor: 'rgb(255,0,0)',
+                data: [15,15,20,40,1]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+
+
+  }
+
+
+  
+
+
+
+
+  function boardGraph2(){
+
+     
+     
+    let context = document.getElementById('boardGraph2').getContext('2d');
+
+     
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'bar',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "yellow", "purple"],
+                borderColor: 'rgb(255,0,0)',
+                data: [15,15,20,40,1]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+
+  }
+
+
+
+
+
+
+  
+
+  function boardGraph3(){
+
+          
+    let context = document.getElementById('boardGraph3').getContext('2d');
+
+     
+    let chart = new Chart(context, {
+
+        // The type of chart we want to create
+        
+        type: 'horizontalBar',
+        
+         // The data for our dataset
+         data: {
+            labels: ['', '', '', ''],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "yellow", "purple"],
+                borderColor: 'rgb(255,0,0)',
+                data: [5,25,10,4,1]
+            }]
+        },
+        
+        // Configuration options go here
+        options: {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            callbacks: {
+               label: function(tooltipItem) {
+                      return tooltipItem.yLabel;
+               }
+            }
+        }
+        }, 
+        scales: {
+           xAxes: [{
+            ticks: {
+                   display: false
+            }
+          }]
+        }
+        }
+   );
+        
+
+
+  }
+
+
+
+
+
+  /*
+
+
+  */
+
+
+
+
+
+ var mortgageCanvas1 = document.getElementById('mortgageCanvas1').getContext('2d');   
+
+
+ var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
+
+
+
+ function buildMortgageCanvas1(context){
+
+
+   
+   let chart = new Chart(context, {
+
+       // The type of chart we want to create
+       
+       type: 'doughnut',
+       
+        // The data for our dataset
+        data: {
+           labels: ['', '', ''],
+           datasets: [{
+               label: 'My First dataset',
+               backgroundColor: ["rgb(0,0,255,0.7)", "green", "rgb(255,0,0,0.7)"],
+               borderColor: 'rgb(255,0,0, 0.85)',
+               data: [1,10,30]
+           }]
+       },
+       
+       // Configuration options go here
+       options: {
+       legend: {
+           display: false
+       },
+       tooltips: {
+           callbacks: {
+              label: function(tooltipItem) {
+                     return tooltipItem.yLabel;
+              }
+           }
+       }
+       }, 
+       scales: {
+          xAxes: [{
+           ticks: {
+                  display: false
+           }
+         }]
+       }
+       }
+  );
+       
+
+
+
+
+ }
+
+
+
+ 
+ var mortgageCanvas1 = document.getElementById('mortgageCanvas1').getContext('2d');   
+
+
+ var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
+
+
+
+ function buildMortgageCanvas2(context){
+
+
+   
+   let chart = new Chart(context, {
+
+       // The type of chart we want to create
+       
+       type: 'doughnut',
+       
+        // The data for our dataset
+        data: {
+           labels: ['', '', ''],
+           datasets: [{
+               label: 'My First dataset',
+               backgroundColor: ["rgb(0,0,255,0.7)", "green",  "rgb(0,255,0,0.7)"],
+               borderColor: 'rgb(0,255,0, 0.85)',
+               data: [1,10,30]
+           }]
+       },
+       
+       // Configuration options go here
+       options: {
+       legend: {
+           display: false
+       },
+       tooltips: {
+           callbacks: {
+              label: function(tooltipItem) {
+                     return tooltipItem.yLabel;
+              }
+           }
+       }
+       }, 
+       scales: {
+          xAxes: [{
+           ticks: {
+                  display: false
+           }
+         }]
+       }
+       }
+  );
+       
+
+
+
+
+ }
