@@ -100,23 +100,15 @@ function makeProposition(proposition){
             if(proposition.answererScore < (0.9 * alternatives.gainValue)){
 
                  hashAndStore(proposition);
-
-
                  boardJournal.innerHTML += ('<br>' + proposition.answerer.name + 'found a better alternative, and refused !');
-
                  addNotif('<br>' + proposition.answerer.name + 'found a better alternative, and refused !')
 
 
             } else {
 
-
               acceptProposition(proposition);
-
               boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' accepted the offer!');
-
               addNotif('<br>' + proposition.answerer.name + ' accepted the offer!')
-
-
 
 
             }
@@ -130,20 +122,13 @@ function makeProposition(proposition){
  
               //the trade is refused
 
-
               hashAndStore(proposition);
 
               boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' refused an offer!');
-
-              addNotif('<br>' + proposition.answerer.name + ' refused an offer!');
-
-
-
-
-
+  
+               addNotif('<br>' + proposition.answerer.name + ' refused an offer!');
 
                ////alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
-
                ////alert('-->-->-->-->-->-->answerer score => ' + proposition.answererScore);
 
               
@@ -168,7 +153,6 @@ function makeProposition(proposition){
 
  function acceptProposition(proposition){
 
-
      let offer = proposition.offer;
      let counterPartAsked = proposition.counterPartAsked;
      let offerer = proposition.offerer;
@@ -178,10 +162,8 @@ function makeProposition(proposition){
      //if one or both players needed to close mortgage before making the trade, close them
 
 
-
    if(counterPartAsked.mortgagesClosed.length > 0){
      
-
        for(var i=0; i < counterPartAsked.mortgagesClosed.length; i++){
 
          closeMortgage(counterPartAsked.mortgagesClosed[i]);

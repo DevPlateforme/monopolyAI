@@ -30,19 +30,11 @@ function searchForTradesOpportunities(activePlayer){
 
       //('moves generated...');
 
-    if(activePlayer == ai1){
-        otherPlayersArray = [ai2 ,  ai3  , humanPlayer];
-    } else if (activePlayer == ai2){
-        otherPlayersArray = [ai1 , ai3 , humanPlayer];
-    } else {
-        otherPlayersArray = [ai1 , ai2 , humanPlayer];
-
-    }
+    otherPlayersArray = getOtherPlayersArray(activePlayer);
     
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     
 
-         //(' color.........................' + colorIndex);      
 
         //FOR EACH COLOR
 
@@ -96,8 +88,6 @@ function searchForTradesOpportunities(activePlayer){
 
 
        if(propositionList.length != 0){      
-
-         console.log('List ***********************************************' + JSON.stringify(propositionList , getCircularReplacer()));
                       
           makeProposition(getBestProposition(propositionList));
   
@@ -278,7 +268,9 @@ var nodes = 0;
 function opponentsOnSquareBehind( property, number) {
 
     
-    let otherPlayers = [ai2, ai3, humanPlayer]; //getOtherPlayersArray(property.landLord);
+    //let otherPlayers = [ai2, ai3, humanPlayer]; 
+    
+    let otherPlayers = getOtherPlayersArray(property.landLord);
 
     let playersCount = 0;
         

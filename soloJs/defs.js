@@ -325,146 +325,14 @@ function calculateStepVariable(player, setArray){
 
 
 
-function checkGlobalDanger(player){
-
-
-      //get a list of the "other players" for each player.
-      
-
-
-     let oPArray =  getOtherPlayersArray(player);
-
-
-				  //LOOP ON THE ARRAY, AND GET THE SUM OF OTHER PLAYERS RENTS
-				  
-
-				  let otherPlayersRents = 0;
-
-
-				 for(opIndex = 0; opIndex < oPArray.length; opIndex++){
-
-					    otherPlayersRents +=  oPArray[opIndex].rents;
-
-         }
-         
-
-
-				 if(player.cash < otherPlayersRents){
-
-          //console.log( player.name + ' is potentially in danger...');
-          
-
-				 } else {
-
-					//console.log( player.name + ' is not in danger right now...');
-
-         }
-         
-
-
-
-      }
-
-
-  
-      function checkDirectDanger(player){
-
-
-        //NOW , CHECK THE NEXT 12 SQUARES
-
-        //WE START AT 1 (INDEX 2 OF THE DICES NUMBERS) , BECAUSE THE DICES RESULTS CAN'T BE SMALLER THAN 
-
-
-
-        let potentielPayments = 0;
-
-
-        for(sqIndex=1; sqIndex < 12; sqIndex++){
-
-
-         let proba = squaresProbabilities[sqIndex];
-
-
-         
-
-
-           //THE PROBABILITY TO LAND ON EACH WILL DIFFER OF THEIR DISTANCE FROM THE PLAYER
-                  
-                                  
-                                              //7
-                                       //6         //8
-                                  //5                    //9
-                           //4                                //10
-                   //3                                              //11
-            // 2                                                         //12
-
-            
-            //KNOWING THAT THE PROBABILITY TO GET A 7 IS 6/36 (6 different possible combinations), we created a ratio based on the 7.
-
-
-            //Each potential threat (rent ) in the next 12 squares will be multiplied by this index. If the sum of those values is higher than the current assets of the player, the player is in high danger.
-
-
-
-
-
-
-
-           //WE ADD 1 TO THE INDEX, BECAUSE THE INDEX 0 STARTING AT 0, INDEX 1 REPRESENTS THE 2
-
-           let checkedSquare = squaresArray[player.position + (sqIndex + 1)];
-
-           if(checkedSquare.type == rentalProperty || checkedSquare.type == trainStation || checkedSquare.type == publicService){
-
-               if(checkedSquare.landLord != none || checkedSquare.landLord != player){
-
-                     potentielPayments += (checkedSquare.rent * proba);
-
-               }
-
-             
-           }
-
-
-        }
-
-
-        if(potentielPayments > player.cash){
-
-               
-             //console.log( player.name + ' est en très grand danger ');
-            
-        } else {
-
-
-             //console.log( player.name + "n'est pas en grand danger direct ");
-
-
-        }
-
-
-
-
-
-      }
-
 
 
      function getOtherPlayersArray(player){
 
        let oPArray = playersArray.slice(0);
 
-       for(i=0 ; i < oPArray; i++){
-                
-           if(oPArray == player){
+       oPArray.splice(player.playerIndex , 1);
 
-             oPArray.splice(i,1);
-
-             break;
-
-            }
-
-       }
 
       return oPArray;
       
@@ -1220,7 +1088,7 @@ function playerInBankruptcy(player){
 
     gameOver(player);
 
-   } , 45000);
+   } , 15000);
 
 
   }
@@ -1232,11 +1100,54 @@ function playerInBankruptcy(player){
 
 function gameOver(player){
 
-   //alert(player.name + ' was defeated!!')
-     
+   alert(player.name + ' was defeated!!');
+
+   removePlayer(player);
+
+   if(playersArray.length == 1){
+
+    alert(playersArray[0].name + 'won!!');
+   }
+
   //delete the player from the players array , delete the player from the dice launchers array
 
 }
+
+
+function removePlayer(player){
+
+  let playerIndex = player.playerIndex;
+
+
+  playersArray.splice(playerIndex, 1);
+
+
+  removePlayerOnGui(player);
+
+
+    //update remaining players indexes
+
+  for(var i=0; i < playersArray.length; i++){
+
+     
+     if(playersArray[i].playerIndex > playerIndex){
+
+        playersArray[i].playerIndex -= 1;
+    
+      }
+     
+  }
+
+
+  if(displayedLaunchBtn = true){
+
+       launchDicesAndMovePieces();
+    
+  }
+
+
+}
+
 
 
 

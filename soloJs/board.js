@@ -3,15 +3,13 @@
 function launchDices(){
 
 
-     
-    //because Math.random() is a number below 1, the max number that be obtained by this operation would be 11, if we didn't add 1
-      
-    //WE ADD 1 TO OUR CALCULATION, IN THE CASE THE NUMBER ARRIVES AT 0, AND BECAUSE THE MAXIMUM NUMBER THERE WOULD BE 11.
+
     diceResult = Math.floor(Math.random() * (diceEdges)) + 2 ;
     
     //update the diceLauncher index
 
-    if(nextDiceLauncherIndex == (playersArray.length - 1)){
+
+    if(nextDiceLauncherIndex >= (playersArray.length - 1)){
 
         nextDiceLauncherIndex = 0;
 
@@ -22,7 +20,9 @@ function launchDices(){
     }
 
 
+
     nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+
 
 
 
@@ -52,7 +52,6 @@ function movePiece(){
     let oldPosition = lastDiceLauncher.position;
     
 
-
     let updatedPosition  = lastDiceLauncher.position + diceResult;
       
      if(updatedPosition >= 40){
@@ -69,13 +68,7 @@ function movePiece(){
 
      //movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
-
-     //console.log('******updatedPosition ' + squaresArray[updatedPosition] )
-
-
-     //console.log('******square ' + squaresArray[updatedPosition] )
-
-      
+     //console.log('******square ' + squaresArray[updatedPosition] )      
 
      //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
 
@@ -115,6 +108,7 @@ function movePiece(){
 
 
    function launchDicesAndMovePieces(){
+
 
       let nextDiceLauncheInterval;
  
@@ -251,24 +245,6 @@ function movePiece(){
        let missingCash;
 
 
-     //ACTIONS WERE THE PLAYER HAS NO CHOICES (DONE AUTOMATICALLY)
-
-     
-         //IF CURRENT SQUARE == OWNED
-
-               //PAY RENT
-
-
-      //IF CURRENT SQUARE IS SPECIAL
-
-                //IF TAX : PAY
-                     
-               //IF PARC : NOTHING
-
-              
-   //IF CURRENT SQUARE ISNT OWNED : INTERFACE -->DO YOU WANT TO BUY?
-
-
 
 
       if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){          
@@ -311,13 +287,13 @@ function movePiece(){
 
                  if(findCashWithNonMonopolyProperties(lastDiceLauncher , missingCash) == true){
 
-                     //console.log(lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
+                  boardJournal.innerHTML += (lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
                 } else {
 
-                    //console.log(lastDiceLauncher.name + ' tried to find cash , but couldnt');
+                  boardJournal.innerHTML += (lastDiceLauncher.name + ' tried to find cash to buy this property , but couldnt');
 
                 }
 
@@ -326,14 +302,18 @@ function movePiece(){
          }
 
          
-      } else if( currentSquare.landLord != lastDiceLauncher) {
+      } else if (currentSquare.landLord != lastDiceLauncher) {
 
             ////alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
             boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + currentSquare.landLord.name);
+             
+            let rentToPay = getRent(currentSquare);
+
+             lastDiceLauncher.cash -= rentToPay;
 
 
-             lastDiceLauncher.cash -= getRent(currentSquare);
+             boardJournal.innerHTML += (lastDiceLauncher.name + ' paid ' + rentToPay);
 
              
              if(lastDiceLauncher.cash < 0){
@@ -360,6 +340,12 @@ function movePiece(){
              postLaunchDecision = done ;
 
       
+        } else {
+
+            postLaunchDecision = done ;
+
+
+
         }
 
 
@@ -388,7 +374,7 @@ function movePiece(){
 
          }
              
-      } else if(currentSquare == jailVisit || currentSquare == luxuryTax || currentSquare == revenueTax){
+      } else {
 
              postLaunchDecision = done;
 
@@ -401,7 +387,9 @@ function movePiece(){
 
              postLaunchDecision = done;
 
-      }
+       }
+
+
 
     
     }
@@ -483,14 +471,16 @@ function movePiece(){
 
         //IF MOVEMENT, MOVE
 
-         
-        setTimeout( function(){ 
-
+        if(lastDiceLauncher == humanPlayer){
+                 
+          setTimeout( function(){ 
           postLaunchDecision = done;
-          
           closeCommunityChestSquareInterface() ;
         
         }, 1500);
+
+
+        }
 
                  
       }

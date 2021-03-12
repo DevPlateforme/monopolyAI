@@ -475,6 +475,21 @@ function buildPmPresentationCircles(player){
 
 
 
+  function buildPmGraphs(color){
+
+
+    setTimeout(function(){
+    
+      buildPmGraph1(color);
+      buildPmGraph2(color);
+      buildPmGraph3(color);
+
+      
+    },150)
+
+
+  } 
+  
 
 
 
@@ -702,6 +717,7 @@ function buildHouseVerticalBars(player,color,type){
 
 
 
+
 function buildCardGraph1(type, elementIndex){
 
 
@@ -774,9 +790,9 @@ function removePropertyPoint(player, color , type){
 
 
 
-function buildPmGraph1(color, data1 , data2){
+function buildPmGraph1(color){
 
-    let context = document.getElementById(color.name+'_pmGraph1').getContext('2d');
+    let context = document.getElementById('pmBottom_pmGraph1').getContext('2d');
 
     
     let chart = new Chart(context, {
@@ -792,7 +808,7 @@ function buildPmGraph1(color, data1 , data2){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,data1,data2]
+                data: [1,15,45]  
             }]
         },
         
@@ -831,9 +847,9 @@ function buildPmGraph1(color, data1 , data2){
 
 
 
-function buildPmGraph2(color, data1 , data2){
+function buildPmGraph2(color){
 
-    let context = document.getElementById(color.name+'_pmGraph2').getContext('2d');
+    let context = document.getElementById('pmBottom_pmGraph2').getContext('2d');
 
     
     let chart = new Chart(context, {
@@ -849,7 +865,7 @@ function buildPmGraph2(color, data1 , data2){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,data1, data2]
+                data: [1,10, 30]
             }]
         },
         
@@ -892,9 +908,9 @@ function buildPmGraph2(color, data1 , data2){
 
 
 
-function buildPmGraph3(color, data1 , data2){
+function buildPmGraph3(color){
 
-    let context = document.getElementById(color.name+'_pmGraph3').getContext('2d');
+    let context = document.getElementById('pmBottom_pmGraph3').getContext('2d');
 
     
     let chart = new Chart(context, {
@@ -910,7 +926,7 @@ function buildPmGraph3(color, data1 , data2){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,data1,data2]
+                data: [1,20,50]
             }]
         },
         
@@ -950,19 +966,16 @@ function buildPmGraph3(color, data1 , data2){
 
 
 
-function buildTradeCardHouseCost(){
+function buildTradeCardHouseCostGraph(type,color,propertyNum){
 
-    let context = document.getElementById("ai2_tradeCardGraph_brown_property_0_graph_houseCost").getContext('2d');
-     
-    let circleBackgroundColor;
 
-    let circleColor;
+      let context = document.getElementById(type + 'Div_propertyTemplate_' + color.units + '_property_' + propertyNum.toString() +'_canvas1').getContext('2d'); 
+      let circleBackgroundColor;
+      let circleColor;
 
         
      circleBackgroundColor = 'red';
      circleColor = 'rgb(0 , 0 , 255 , 0.8)';
-
-
 
 
     let chart = new Chart(context , {
@@ -1020,20 +1033,19 @@ function buildTradeCardHouseCost(){
 
 
 
-function buildTradeCardGraphMaxRent(){
+function buildTradeCardGraphMaxRent(type,player,color,propertyNum){
 
-    let context = document.getElementById("ai2_tradeCardGraph_brown_property_0_graph_maxRent").getContext('2d');
+    let context = document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + propertyNum + '_canvas2').getContext('2d'); 
 
 
     let circleBackgroundColor;
 
+
     let circleColor;
 
-        
+    
      circleBackgroundColor = 'red';
      circleColor = 'pink';
-
-
 
 
     let chart = new Chart(context , {
@@ -1089,11 +1101,9 @@ function buildTradeCardGraphMaxRent(){
 
 
 
-function buildRightColorGraph(color, data1 , data2){
+function buildRightColorGraph(type , player, color){
    
-    let context = document.getElementById('ai2_rightTradeGraph_brown').getContext('2d');
-
-
+    let context = document.getElementById(type+'Div_propertyTemplate_' + color.units + '_rightGraph').getContext('2d');
      
     let chart = new Chart(context, {
 
@@ -1108,7 +1118,7 @@ function buildRightColorGraph(color, data1 , data2){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,data1,data2]
+                data: [1,25, 40]
             }]
         },
         
@@ -1327,12 +1337,10 @@ function buildRightColorGraph(color, data1 , data2){
 
 
 
-
-
  var mortgageCanvas1 = document.getElementById('mortgageCanvas1').getContext('2d');   
 
-
  var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
+
 
 
 
@@ -1386,13 +1394,6 @@ function buildRightColorGraph(color, data1 , data2){
 
  }
 
-
-
- 
- var mortgageCanvas1 = document.getElementById('mortgageCanvas1').getContext('2d');   
-
-
- var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
 
 
 

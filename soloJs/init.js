@@ -1,5 +1,5 @@
 window.onload = function(){
-
+ 
     init();
 }
 
@@ -12,10 +12,10 @@ function init(){
      //buildBoard();  
      //setColorScores();
 
+     givePlayersPropertiesForDemo()
 
-    wakeUpAis();
+     wakeUpAis();
 
-    observedPlayer = ai3;
 
 
     setInterval(
@@ -26,28 +26,54 @@ function init(){
       );
       
 
+      //givePlayersPropertiesForDemo()
 
+
+         
       boardGraph1();  
       boardGraph2();  
       boardGraph3();  
-
-
-      buildBoardPresentationCircles(ai1)
-      buildBoardPresentationBars(ai1)
-
+       
+      setTimeout(function(){
       
-      buildBoardPresentationCircles(humanPlayer)
-      buildBoardPresentationBars(humanPlayer)
+       buildBoardPresentationCircles(ai1)
+       buildBoardPresentationBars(ai1)
+      
   
-    
-      buildBoardPresentationCircles(ai2)
-      buildBoardPresentationBars(ai2)
+      },300);
+
+      setTimeout(function(){
+
+      
+         buildBoardPresentationCircles(humanPlayer)
+         buildBoardPresentationBars(humanPlayer)
+      
+   
+       },500);
+
+       setTimeout(function(){
+
+      
+   
+        buildBoardPresentationCircles(ai2)
+        buildBoardPresentationBars(ai2)
+   
+     
   
-      buildBoardPresentationCircles(ai3)
-      buildBoardPresentationBars(ai3)
+      },700);
+     
+      setTimeout(function(){
+
       
+        buildBoardPresentationCircles(ai3)
+        buildBoardPresentationBars(ai3)
+  
+      },900);
+     
       
-     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex' },2000)     
+     //givePlayersPropertiesForDemo();
+     
+     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex'},3000)     
 
       
   
@@ -118,36 +144,33 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-    addPropertyToPlayerWallet(humanPlayer , bdMalesherbes);
-    addPropertyToPlayerWallet(humanPlayer , faubourgSaintHonore);
-    addPropertyToPlayerWallet(humanPlayer, avenueDesChampsElysees);
-    addPropertyToPlayerWallet(humanPlayer, belleville);
-
-
-    addPropertyToPlayerWallet(ai1, placePigalle);
-    addPropertyToPlayerWallet(ai1, avenueDeNeuilly);
-    addPropertyToPlayerWallet(ai1, gareDuNord);
-
-
-
-    addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
-    addPropertyToPlayerWallet(ai2 , rueLaFayette);
-
+     addPropertyToPlayerWallet(ai3, belleville);
+     addPropertyToPlayerWallet(ai3 , avenueDesChampsElysees);
+     
+     addPropertyToPlayerWallet(ai3, rueDeCourcelles);
+     addPropertyToPlayerWallet(ai3 , avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
 
     
+     addPropertyToPlayerWallet(ai3, bdDeLaVillette);
+     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai3 , rueDuParadis);
+    
+     addPropertyToPlayerWallet(ai3, placePigalle);
+     addPropertyToPlayerWallet(ai3 , boulevardSaintMichel);
+     addPropertyToPlayerWallet(ai3 , avenueMozart);
 
-    addPropertyToPlayerWallet(ai2 ,avenueHenriMartin);
-    addPropertyToPlayerWallet(ai2 , rueDeLaPaix);
-    addPropertyToPlayerWallet(ai2 , rueLecourbe);
+     
+     addPropertyToPlayerWallet(ai3, avenueHenriMartin);
+     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
+     addPropertyToPlayerWallet(ai3 , avenueMatignon);
+     
+     
+     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
+     addPropertyToPlayerWallet(ai3 , rueLecourbe);
 
 
-
-
- 
-
-}
-
-
+  }
 
 function createTheCommunityChestDeck(){
 
@@ -237,8 +260,11 @@ function aiReflects(ai){
 
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
+
+         if(playersArray.length > 2){
+              setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
+         }
            
-       setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
 
 }
 
