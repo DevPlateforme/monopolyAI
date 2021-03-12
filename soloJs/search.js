@@ -223,7 +223,9 @@ var nodes = 0;
      
         checkForBuildingOpportunities(ai);
 
-        searchForTradesOpportunities(ai);
+              if(playersArray.length > 2){
+                    searchForTradesOpportunities(ai);
+              }
 
         AiThinking = false;
     

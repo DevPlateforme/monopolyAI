@@ -12,7 +12,7 @@ function init(){
      //buildBoard();  
      //setColorScores();
 
-     givePlayersPropertiesForDemo()
+     //givePlayersPropertiesForDemo()
 
      wakeUpAis();
 
@@ -261,9 +261,7 @@ function aiReflects(ai){
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
 
-         if(playersArray.length > 2){
-              setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
-         }
+    setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
            
 
 }

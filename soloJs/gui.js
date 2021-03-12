@@ -294,10 +294,7 @@ function closeAvailablePropertyInterface(){
  function displayCommunityChestSquareInterface(){
 
      humanThinking = true;
-
-
-     document.getElementById('communityChestSquareInterface').style.zIndex = 5;
-     document.getElementById('communityChestSquareInterface').style.opacity = 1;
+     document.getElementById('communityChestSquareInterface').style.display = 'flex';
 
  }
 
@@ -305,9 +302,7 @@ function closeAvailablePropertyInterface(){
 
      humanThinking = true;
 
-    
-     document.getElementById('chanceSquareInterface').style.zIndex = 5;
-     document.getElementById('chanceSquareInterface').style.opacity = 1;
+     document.getElementById('chanceSquareInterface').style.display = 'flex';
 }
 
 
@@ -317,9 +312,7 @@ function closeCommunityChestSquareInterface(){
 
      humanThinking = false;
 
-     document.getElementById('communityChestSquareInterface').style.opacity = 0;
-     document.getElementById('communityChestSquareInterface').style.zIndex = 1;
-
+     document.getElementById('communityChestSquareInterface').style.display = 'false';
 
  }
 
@@ -328,22 +321,11 @@ function closeCommunityChestSquareInterface(){
 
      humanThinking = false;
 
-     document.getElementById('chanceSquareInterface').style.opacity = 0;
-     document.getElementById('chanceSquareInterface').style.zIndex = 1;
+     document.getElementById('chanceSquareInterface').style.display = 'false';
+
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -18,6 +18,55 @@
 </h1>
 
 
+
+  <div class='drawCardPopup' id='chanceSquareInterface'>
+
+      <div class='drawCardLeftDiv'>
+        <div class='drawCardLeftDivA'>position: n°32</div>
+        <div class='drawCardLeftDivA'>type:card</div>
+        <div class='drawCardLeftDivA'>id n°32334 P45</div>
+      </div>
+
+     <div class='drawCardPopupA'>
+         <div class='drawCardPopupAA'>
+
+           <img src="./img/luck.png" class='luckLogoPopup'>
+          
+
+         </div>
+
+     </div>
+
+
+     <div class='drawCardPopupB'>
+      <div class='drawCardPopupBA'>
+        <div class='drawCardPopupBAA'>
+          You landed on a luck square
+        </div>
+      </div>
+      <div class='drawCardPopupBB'>
+
+        <div class='drawCardPopupBBB'>
+             <div class='drawCardPopupBBBA'>
+                 <img src="./img/paper.png" class='stackButton'>    
+             </div>
+
+             <button class='drawCrdBtn' onclick='drawChanceCardAndExecuteAction()'>btn</button>
+
+        </div>
+
+
+      </div>
+
+     </div>
+
+  </div>
+
+
+
+
+
+
 <button id='closeInterfaceBtn' onclick='closeInterfaces()'>X</button>
 
 
@@ -200,65 +249,6 @@
   </div>
 
 
-
-
-
-<div id='propositionInterface'>
-
-
-   <button class='closeInterfaceBtn'  onclick='closePropositionInterface()'>X</button>
-
-
-
-   <div id='topDiv'>
-
-        
-         <div id='offererDiv'>
-
-         </div>
-
-
-         <div id='answererDiv'>   
-             
-                <div id='leftNav'>
-
-                  <button onclick='observeAi(ai1)'>P-45</button>
-     
-                  <button onclick='observeAi(ai2)'>V-18</button>
-
-                  <button onclick='observeAi(ai3)'>ULTRON</button>
-
-    
-              </div>
-
-
-             <div id='answererProperties'> 
-
-                <h4>Veuillez sélectionner un joueur</h4>
-       
-            </div>
-      
-         </div>
-
-
-
-    </div>
-
-
-    
-     <div id='bottomDiv'>
-
-     <input type="text" placeholder='cash offered' id='cashOffered'>
-     <input type="text" placeholder = 'cash asked' id='cashAsked'>
-
-
-     <button id='sendPropositionButton' onclick = 'sendProposition()'>Envoyer cette proposition</button>
-
-
-     </div>
-
-
- </div>
 
 
 
@@ -5855,14 +5845,6 @@
 
 
 
-<div id='chanceSquareInterface'> 
-
-    <h3>Tu as atteri sur une case 'carte chance'</h3>
-    <button onclick='drawChanceCardAndExecuteAction()'>Pioche une carte</button>
-    
-</div>
-
-
 
 <div id='humanAnswerInterface'> 
       
@@ -6095,8 +6077,6 @@
 <div class="homePropertyDivAAA">
 
      <canvas id="ai1_boardGraph_presentationCircle_red" width="100" height="100"></canvas>     		
-
-
 
 </div>
 
@@ -6859,345 +6839,399 @@
 
 
 
-      <div class='mobilePresentationsContainer'>
 
-         <div class='mobilePresentationsContainerA'>
+    <div class='mobilePresentationsContainer'>
 
-              <div class='mobilePresentationsContainerAA'></div>
+<div class='mobilePresentationsContainerA'>
 
-              <div class='mobilePresentationsContainerAB'></div>
+     <div class='mobilePresentationsContainerAA'></div>
 
-         </div>
+     <div class='mobilePresentationsContainerAB'></div>
+
+</div>
 
 
 
-         <div class='mobilePresentationsContainerB'>
-             <div class='mobilePresentationsContainerBA'></div>
-              <div class='mobilePresentationsContainerBB'></div>
-         </div>
-      
-      
-      </div>
+<div class='mobilePresentationsContainerB'>
+    <div class='mobilePresentationsContainerBA'></div>
+     <div class='mobilePresentationsContainerBB'></div>
+</div>
+
+
+</div>
 
 		 <div class='digitalContainerB'>
 
      <div class="digitalContainerBC">
 
                
-     <div class="digitalContainerBCA">
+     <div class="digitalContainerBCA" >
 
-<div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/parc.png">
+      <div class="specialSquare">
+            <img style='height: 40%;width: auto'  src="./img/public.png">
               
-  <div class='pawnContainer'>
+      <div class='pawnContainer'>
 
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
-
-
-<div class="digitalContainerBCA">
-            
-        <div class="digitalContainerBCAA">
-  
-  
-  
-     <div class='pawnContainer'>
-
-        <div class='pawnContainer0'></div>
-        <div class='pawnContainer1'></div>
-        <div class='pawnContainer2'></div>
+         <div class='pawnContainer0'></div>
+         <div class='pawnContainer1'></div>
+         <div class='pawnContainer2'></div>
         <div class='pawnContainer3'></div>
 
     </div>
-                         
-    <div class='rpSquare' style='position:relative'>
-
-
-        <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-    
-
-      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-
-          <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-          <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-          <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-          <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-          <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-          
-      </div>
-
-      <div class='rpSquareC'>
-
-          <div class='rpSquareCA'>Republic Av.</div>
-
-          <div class='rpSquareCB'>landlord : none</div>
-
-          <div class='rpSquareCC'>
-              <div class='rpSquareCCA'>$100</div> 
-              <div class='rpSquareCCB' ></div> 
-          </div>
-          
-
-      </div>
-
-
-      
-
- </div>
-
- <div>
-  
-
- </div>
-          
-</div>
-
-
-
-</div>
-
-<div class="digitalContainerBCA">
-
-<div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/public.png">
-              
-  <div class='pawnContainer'>
-
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
-
-
-
- <div class="digitalContainerBCA">
-            
-            <div class="digitalContainerBCAA">
-      
-      
-      
-         <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
-    
-        </div>
-                             
-        <div class='rpSquare' style='position:relative'>
-  
-  
-            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-        
-  
-          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-  
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-              
-          </div>
-  
-          <div class='rpSquareC'>
-  
-              <div class='rpSquareCA'>Republic Av.</div>
-  
-              <div class='rpSquareCB'>landlord : none</div>
-  
-              <div class='rpSquareCC'>
-                  <div class='rpSquareCCA'>$100</div> 
-                  <div class='rpSquareCCB' ></div> 
-              </div>
-              
-  
-          </div>
-  
-  
-          
-  
-     </div>
-  
-     <div>
-      
-  
-     </div>
-              
-    </div>
-
-
-
-   </div>
-
-
-      
-
- <div class="digitalContainerBCA">
-            
-            <div class="digitalContainerBCAA">
-      
-      
-      
-         <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
-    
-        </div>
-                             
-        <div class='rpSquare' style='position:relative'>
-  
-  
-            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-        
-  
-          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-  
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-              
-          </div>
-  
-          <div class='rpSquareC'>
-  
-              <div class='rpSquareCA'>Republic Av.</div>
-  
-              <div class='rpSquareCB'>landlord : none</div>
-  
-              <div class='rpSquareCC'>
-                  <div class='rpSquareCCA'>$100</div> 
-                  <div class='rpSquareCCB' ></div> 
-              </div>
-              
-  
-          </div>
-  
-  
-          
-  
-     </div>
-  
-     <div>
-      
-  
-     </div>
-              
-    </div>
-
-
-
-   </div>
-
-   
-   <div class="digitalContainerBCA">
-
-<div class="specialSquare">
-          <img style='height: 40%;width: 40%;'  src="./img/train.png">
-            
-<div class='pawnContainer'>
-
-   <div class='pawnContainer0'></div>
-   <div class='pawnContainer1'></div>
-   <div class='pawnContainer2'></div>
-   <div class='pawnContainer3'></div>
 
   </div>
 
+
+
 </div>
 
 
 
-</div>
 
 
 
- <div class="digitalContainerBCA">
-            
-            <div class="digitalContainerBCAA">
-      
-      
-      
-         <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
-    
-        </div>
-                             
-        <div class='rpSquare' style='position:relative'>
-  
-  
-            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-        
-  
-          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-  
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-              
-          </div>
-  
-          <div class='rpSquareC'>
-  
-              <div class='rpSquareCA'>Republic Av.</div>
-  
-              <div class='rpSquareCB'>landlord : none</div>
-  
-              <div class='rpSquareCC'>
-                  <div class='rpSquareCCA'>$100</div> 
-                  <div class='rpSquareCCB' ></div> 
-              </div>
-              
-  
-          </div>
-  
-  
+  <div class="digitalContainerBCA">  
+                     
+                     <div class="digitalContainerBCAA">
+               
+                 
+                    <div class='pawnContainer'>
           
-  
-     </div>
-  
-     <div>
-      
-  
-     </div>
+                     <div id='square11_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square11_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square11_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square11_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+           
+                         
+                       <div class='rpSquareBA1' id='square11_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Bd.de La Villette</div>
+           
+                       <div id='square11_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$350</div> 
+                           <div class='rpSquareCCB' style='background:rgb(255,0,255)' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+               
+
+   
+<div class="digitalContainerBCA" >
+
+<div class="specialSquare">
+            <img style='height: 40%;width: auto;'  src="./img/public.png">
               
+  <div class='pawnContainer'>
+
+
+      <div id='square12_pawnContainer0' class='pawnContainer0'></div>
+      <div id='square12_pawnContainer1' class='pawnContainer1'></div>
+      <div id='square12_pawnContainer2' class='pawnContainer2'></div>
+      <div id='square12_pawnContainer3' class='pawnContainer3'></div>
+
     </div>
 
+</div>
 
 
-   </div>
+
+</div>
 
 
+<div class="digitalContainerBCA">
+                     
+                     <div class="digitalContainerBCAA">
+               
+                 
+                    <div class='pawnContainer'>
+          
+                     <div id='square13_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square13_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square13_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square13_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+           
+                     
+                       <div class='rpSquareBA1' id='square13_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Neuilly Av.</div>
+           
+                       <div id='square13_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$140</div> 
+                           <div class='rpSquareCCB' style='background:rgb(255,0,255)' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+               
+
+   
+
+<div class="digitalContainerBCA">
+                     
+                     <div class="digitalContainerBCAA">
+               
+                 
+                    <div class='pawnContainer'>
+          
+                     <div id='square14_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square14_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square14_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square14_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+           
+                       <div class='rpSquareBA1' id='square14_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Paradise St.</div>
+           
+                       <div id='square14_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$140</div> 
+                           <div class='rpSquareCCB' style='background:rgb(255,0,255)' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+               
+
+    
+   
+   
+<div class="digitalContainerBCA">
+                     
+                     <div class="digitalContainerBCAA">
+               
+               
+               
+                  <div class='pawnContainer'>
+           
+                     <div id='square15_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square15_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square15_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square15_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                   <div class='rpSquareB' style='width: 65%; height:50%;display:flex; flex-direction: center; align-items:center; justify-content:space-around; '>
+
+                          <img class='trainImg' src="./img/train.png" >      
+                       
+                   </div>
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Lyon stat.</div>
+           
+                       <div id='square15_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$300</div> 
+                           <div class='rpSquareCCB' style='background:rgb(0,0,0,0.25)' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+
+
+
+<div class="digitalContainerBCA">
+         
+         <div class="digitalContainerBCAA">
+   
+     
+        <div class='pawnContainer'>
+
+         <div id='square16_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square16_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square16_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square16_pawnContainer3' class='pawnContainer3'></div>
+ 
+     </div>
+                          
+     <div class='rpSquare' style='position:relative'>
+
+
+         <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+     
+
+         <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+
+           <div class='rpSquareBA1' id='square16_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
+           
+       </div>
+
+
+       <div class='rpSquareC'>
+
+           <div class='rpSquareCA'>Mozart Av.</div>
+
+           <div id='square16_landLord' class='rpSquareCB'>landlord : none</div>
+
+           <div class='rpSquareCC'>
+               <div class='rpSquareCCA'>$180</div> 
+               <div class='rpSquareCCB' style='background: rgb(255,140,0)' ></div> 
+           </div>
+           
+
+       </div>
+
+
+       
+
+  </div>
+
+  <div>
+   
+
+  </div>
+           
+ </div>
+
+
+
+</div>
+
+
+   
 
 
  <div class="digitalContainerBCA">
@@ -7206,11 +7240,11 @@
                    <img style='height: 40%;width: 40%;'  src="./img/chest.png">
                      
          <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
+        
+            <div id='square17_pawnContainer0' class='pawnContainer0'></div>
+            <div id='square17_pawnContainer1' class='pawnContainer1'></div>
+            <div id='square17_pawnContainer2' class='pawnContainer2'></div>
+            <div id='square17_pawnContainer3' class='pawnContainer3'></div>
 
            </div>
       
@@ -7221,143 +7255,150 @@
    </div>
 
 
+
+
    <div class="digitalContainerBCA">
-            
-            <div class="digitalContainerBCAA">
-      
-      
-      
-         <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
-    
-        </div>
-                             
-        <div class='rpSquare' style='position:relative'>
-  
-  
-            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-        
-  
-          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-  
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-              
-          </div>
-  
-          <div class='rpSquareC'>
-  
-              <div class='rpSquareCA'>Republic Av.</div>
-  
-              <div class='rpSquareCB'>landlord : none</div>
-  
-              <div class='rpSquareCC'>
-                  <div class='rpSquareCCA'>$100</div> 
-                  <div class='rpSquareCCB' ></div> 
-              </div>
-              
-  
-          </div>
-  
-  
-          
-  
-     </div>
-  
-     <div>
-      
-  
-     </div>
-              
-    </div>
-
-
-
-   </div>
-
-
+         
+         <div class="digitalContainerBCAA">
+   
      
- <div class="digitalContainerBCA">
-            
-            <div class="digitalContainerBCAA">
-      
-      
-      
-         <div class='pawnContainer'>
-  
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
-    
-        </div>
-                             
-        <div class='rpSquare' style='position:relative'>
-  
-  
-            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-        
-  
-          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-  
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-              <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-              
-          </div>
-  
-          <div class='rpSquareC'>
-  
-              <div class='rpSquareCA'>Republic Av.</div>
-  
-              <div class='rpSquareCB'>landlord : none</div>
-  
-              <div class='rpSquareCC'>
-                  <div class='rpSquareCCA'>$100</div> 
-                  <div class='rpSquareCCB' ></div> 
-              </div>
-              
-  
-          </div>
-  
-  
-          
-  
+        <div class='pawnContainer'>
+
+         <div id='square18_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square18_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square18_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square18_pawnContainer3' class='pawnContainer3'></div>
+ 
      </div>
-  
-     <div>
-      
-  
+                          
+     <div class='rpSquare' style='position:relative'>
+
+
+         <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+     
+
+         <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+
+           <div class='rpSquareBA1' id='square18_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
+           
+       </div>
+
+
+       <div class='rpSquareC'>
+
+           <div class='rpSquareCA'>St. Michel Bd.</div>
+
+           <div id='square18_landLord' class='rpSquareCB'>landlord : none</div>
+
+           <div class='rpSquareCC'>
+               <div class='rpSquareCCA'>$180</div> 
+               <div class='rpSquareCCB' style='background: rgb(255,140,0)' ></div> 
+           </div>
+           
+
+       </div>
+
+
+       
+
+  </div>
+
+  <div>
+   
+
+  </div>
+           
+ </div>
+
+
+
+</div>
+
+
+   
+
+
+<div class="digitalContainerBCA">
+         
+         <div class="digitalContainerBCAA">
+   
+     
+        <div class='pawnContainer'>
+
+         <div id='square18_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square18_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square18_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square18_pawnContainer3' class='pawnContainer3'></div>
+ 
      </div>
-              
-    </div>
+                          
+     <div class='rpSquare' style='position:relative'>
+
+
+         <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+     
+
+         <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+
+           <div class='rpSquareBA1' id='square18_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
+           
+       </div>
+
+
+       <div class='rpSquareC'>
+
+           <div class='rpSquareCA'>Pigalle </div>
+
+           <div id='square18_landLord' class='rpSquareCB'>landlord : none</div>
+
+           <div class='rpSquareCC'>
+               <div class='rpSquareCCA'>$200</div> 
+               <div class='rpSquareCCB' style='background: rgb(255,140,0)' ></div> 
+           </div>
+           
+
+       </div>
+
+
+       
+
+  </div>
+
+  <div>
+   
+
+  </div>
+           
+ </div>
 
 
 
-   </div>
+</div>
+
+
 
 
 
    <div class="digitalContainerBCA">
 
 <div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/parc.png">
+            <img style='height: 40%;width: auto;'  src="./img/parking.png">
               
   <div class='pawnContainer'>
 
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
+
+         <div id='square20_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square20_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square20_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square20_pawnContainer3' class='pawnContainer3'></div>
 
     </div>
 
@@ -7374,16 +7415,16 @@
 
 		 		<div class="digitalContainerBBA"> 
 		 		
-		 			<div class="digitalContainerBBAA">
-           
+	<div class="digitalContainerBBAA">
+          
            
            
     <div class='pawnContainer'>
 
-        <div class='pawnContainer0'></div>
-        <div class='pawnContainer1'></div>
-        <div class='pawnContainer2'></div>
-        <div class='pawnContainer3'></div>
+         <div id='square9_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square9_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square9_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square9_pawnContainer3' class='pawnContainer3'></div>
 
     </div>
                            
@@ -7397,11 +7438,11 @@
 
         <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
 
-            <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
             
         </div>
 
@@ -7409,7 +7450,7 @@
 
             <div class='rpSquareCA'>Republic Av.</div>
 
-            <div class='rpSquareCB'>landlord : none</div>
+            <div id='square9_landLord'  class='rpSquareCB'>landlord : none</div>
 
             <div class='rpSquareCC'>
                 <div class='rpSquareCCA'>$100</div> 
@@ -7430,17 +7471,17 @@
    </div>
             
   </div>
-
+		 		
   <div class="digitalContainerBBAA">
            
            
            
            <div class='pawnContainer'>
        
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
+                <div id='square8_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square8_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square8_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square8_pawnContainer3' class='pawnContainer3'></div>
        
            </div>
                                   
@@ -7454,19 +7495,19 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
                    
                </div>
        
                <div class='rpSquareC'>
        
-                   <div class='rpSquareCA'>Republic Av.</div>
+                   <div class='rpSquareCA'>Vaugirard St.</div>
        
-                   <div class='rpSquareCB'>landlord : none</div>
+                   <div id='square_landLord'  class='rpSquareCB'>landlord : none</div>
        
                    <div class='rpSquareCC'>
                        <div class='rpSquareCCA'>$100</div> 
@@ -7487,110 +7528,150 @@
           </div>
                    
          </div>
-
+       
 
 		 			<div class="digitalContainerBBAA">
                      
                <div class='specialSquare'>
                   <img style='height: 30%;width: 30%;'  src="./img/luck.png">
+
+                      <div class='pawnContainer'>
+
+                        <div id='square7_pawnContainer0' class='pawnContainer0'></div>
+                        <div id='square7_pawnContainer1' class='pawnContainer1'></div>
+                        <div id='square7_pawnContainer2' class='pawnContainer2'></div>
+                        <div id='square7_pawnContainer3' class='pawnContainer3'></div>
+
+                     </div>
               </div>          
           </div>
 
 
-<div class="digitalContainerBBAA">
+          <div class="digitalContainerBBAA">
            
            
            
-    <div class='pawnContainer'>
-
-        <div class='pawnContainer0'></div>
-        <div class='pawnContainer1'></div>
-        <div class='pawnContainer2'></div>
-        <div class='pawnContainer3'></div>
-
-    </div>
-                           
-    <div class='rpSquare' style='position:relative'>
-
-
-    <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-
-
-      
-
-        <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-
-            <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-            <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-            
-        </div>
-
-        <div class='rpSquareC'>
-
-            <div class='rpSquareCA'>Republic Av.</div>
-
-            <div class='rpSquareCB'>landlord : none</div>
-
-            <div class='rpSquareCC'>
-                <div class='rpSquareCCA'>$100</div> 
-                <div class='rpSquareCCB' ></div> 
-            </div>
-            
-
-        </div>
-
-
-        
-
-   </div>
-
-   <div>
-    
-
-   </div>
-            
-  </div>
-
-
+           <div class='pawnContainer'>
+       
+                <div id='square6_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square6_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square6_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square6_pawnContainer3' class='pawnContainer3'></div>
+       
+           </div>
+                                  
+           <div class='rpSquare' style='position:relative'>
+       
+       
+           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+       
+       
+             
+       
+               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+       
+                   <div class='rpSquareBA1' id='square6_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
+                   
+               </div>
+       
+               <div class='rpSquareC'>
+       
+                   <div class='rpSquareCA'>Courcelles St.</div>
+       
+                   <div id='square_landLord'  class='rpSquareCB'>landlord : none</div>
+       
+                   <div class='rpSquareCC'>
+                       <div class='rpSquareCCA'>$100</div> 
+                       <div class='rpSquareCCB' ></div> 
+                   </div>
+                   
+       
+               </div>
+       
+       
+               
+       
+          </div>
+       
+          <div>
+           
+       
+          </div>
+                   
+         </div>
+       
  
 
-  <div class="digitalContainerBBAA">
 
-<div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/train.png">
-              
-  <div class='pawnContainer'>
+ <div class="digitalContainerBBAA">
+           
+           
+           
+           <div class='pawnContainer'>
+       
+                <div id='square5_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square5_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square5_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square5_pawnContainer3' class='pawnContainer3'></div>
+       
+           </div>
+                                  
+           <div class='rpSquare' style='position:relative'>
+       
+       
+           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+       
+            
+                   <div class='rpSquareB' style='width: 65%; height:50%;display:flex; flex-direction: center; align-items:center; justify-content:space-around; '>
 
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
+                          <img class='trainImg' src="./img/train.png" >      
+                       
+                   </div>
+           
+       
+               <div class='rpSquareC'>
+       
+                   <div class='rpSquareCA'>Montparnasse Stat.</div>
+       
+                   <div id='square_landLord'  class='rpSquareCB'>landlord : none</div>
+       
+                   <div class='rpSquareCC'>
+                       <div class='rpSquareCCA'>$200</div> 
+                       <div class='rpSquareCCB' ></div> 
+                   </div>
+                   
+       
+               </div>
+       
+       
+               
+       
+          </div>
+       
+          <div>
+           
+       
+          </div>
+                   
+         </div>
+       
 
 
 
    <div class="digitalContainerBBAA">
 
 <div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/cash.png">
+            <img style='height: 55%;width: auto;'  src="./img/dollar.png">
               
   <div class='pawnContainer'>
-
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
+         <div id='square4_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square4_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square4_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square4_pawnContainer3' class='pawnContainer3'></div>
     </div>
 
 </div>
@@ -7600,17 +7681,15 @@
 </div>
 
 
-
-         <div class="digitalContainerBBAA">
-           
-           
+    <div class="digitalContainerBBAA">
+                  
            
            <div class='pawnContainer'>
        
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
+                <div id='square3_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square3_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square3_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square3_pawnContainer3' class='pawnContainer3'></div>
        
            </div>
                                   
@@ -7623,24 +7702,25 @@
              
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
+      
+                      
+                       <div class='rpSquareBA1' id='square3_houseBar_1' style='background:rgb(139,69,19); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_2' style='background:rgb(139,69,19); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_3' style='background:rgb(165,42,42, 0.45; height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_4' style='background:rgb(165,42,42, 0.45); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1'  id='square3_houseBar_5' style='background:rgb(165,42,42, 0.45); height:95%; width:12.5%'></div>
+                          
                </div>
        
                <div class='rpSquareC'>
        
-                   <div class='rpSquareCA'>Republic Av.</div>
+                   <div class='rpSquareCA'>Lecourbe St.</div>
        
-                   <div class='rpSquareCB'>landlord : none</div>
+                   <div id='square_landLord'  class='rpSquareCB'>landlord : none</div>
        
                    <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
+                       <div class='rpSquareCCA'>$60</div> 
+                       <div class='rpSquareCCB' style='background:rgb(165,42,42, 0.45)' ></div> 
                    </div>
                    
        
@@ -7657,87 +7737,94 @@
           </div>
                    
          </div>
+
 
          
-  <div class="digitalContainerBBAA">
+            <div class="digitalContainerBBAA">
 
-    <div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/chest.png">
+               <div class="specialSquare">
+                   <img style='height: 40%;width: 40%;'  src="./img/chest.png">
               
-    <div class='pawnContainer'>
-
-      <div class='pawnContainer0'></div>
-      <div class='pawnContainer1'></div>
-      <div class='pawnContainer2'></div>
-      <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
-
-		 	
-
-
-        <div class="digitalContainerBBAA">
+                   <div class='pawnContainer'>
            
-           
-           
-           <div class='pawnContainer'>
-       
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
-       
+                    <div id='square2_pawnContainer0' class='pawnContainer0'></div>
+                    <div id='square2_pawnContainer1' class='pawnContainer1'></div>
+                    <div id='square2_pawnContainer2' class='pawnContainer2'></div>
+                    <div id='square2_pawnContainer3' class='pawnContainer3'></div>
+   
+                 </div>
+
            </div>
-                                  
-           <div class='rpSquare' style='position:relative'>
+
+
+       </div>
+
        
-       
-           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-       
-       
+ 
+
+      
+   
+      
+      
+                <div class="digitalContainerBBAA">
+                 
+                 
+                 
+                 <div class='pawnContainer'>
+             
+                      <div id='square1_pawnContainer0' class='pawnContainer0'></div>
+                      <div id='square1_pawnContainer1' class='pawnContainer1'></div>
+                      <div id='square1_pawnContainer2' class='pawnContainer2'></div>
+                      <div id='square1_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                        
+                 <div class='rpSquare' style='position:relative'>
+             
+             
+                 <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+             
+             
+                   
+             
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+             
+                      
+                       <div class='rpSquareBA1' id='square1_houseBar_1' style='background:rgb(139,69,19); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_2' style='background:rgb(139,69,19); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_3' style='background:rgb(165,42,42, 0.45; height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_4' style='background:rgb(165,42,42, 0.45); height:70%; width:12.5%'></div>
+                      <div class='rpSquareBA1'  id='square1_houseBar_5' style='background:rgb(165,42,42, 0.45); height:95%; width:12.5%'></div>
+                         
+                     </div>
+             
+                     <div class='rpSquareC'>
+             
+                         <div class='rpSquareCA'>Belleville</div>
+             
+                         <div id='square_landLord'  class='rpSquareCB'>landlord : none</div>
+             
+                         <div class='rpSquareCC'>
+                             <div class='rpSquareCCA'>$60</div> 
+                             <div class='rpSquareCCB' style='background:rgb(165,42,42)' ></div> 
+                         </div>
+                         
+             
+                     </div>
+             
+             
+                     
+             
+                </div>
+             
+                <div>
+                 
+             
+                </div>
+                         
+               </div>
              
        
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
-       
-               <div class='rpSquareC'>
-       
-                   <div class='rpSquareCA'>Republic Av.</div>
-       
-                   <div class='rpSquareCB'>landlord : none</div>
-       
-                   <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
-                   </div>
-                   
-       
-               </div>
-       
-       
-               
-       
-          </div>
-       
-          <div>
-           
-       
-          </div>
-                   
-         </div>
 
 		 			
 		 		</div>
@@ -8025,20 +8112,17 @@
 		</div>
 
 		 		
-                <div class="digitalContainerBBA"> 
+        <div class="digitalContainerBBA"> 
                 
-                <div class="digitalContainerBBAA">
+          <div class="digitalContainerBBAA">
 
-                
-           
-           
-           
+                 
            <div class='pawnContainer'>
        
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
+                <div id='square21_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square21_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square21_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square21_pawnContainer3' class='pawnContainer3'></div>
        
            </div>
                                   
@@ -8052,23 +8136,23 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
                    
                </div>
        
                <div class='rpSquareC'>
        
-                   <div class='rpSquareCA'>Republic Av.</div>
+                   <div class='rpSquareCA'>Matignon Av.</div>
        
-                   <div class='rpSquareCB'>landlord : none</div>
+                   <div id='square_21_landLord'  class='rpSquareCB'>landlord : none</div>
        
                    <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
+                       <div class='rpSquareCCA'>$320</div> 
+                       <div class='rpSquareCCB' style='background:rgb(255,0,0)' ></div> 
                    </div>
                    
        
@@ -8084,26 +8168,38 @@
        
           </div>
                    
+
+                
+           
          </div>
-                    <div class="digitalContainerBBAA">
+
+
+
+             <div class="digitalContainerBBAA">
                           <div class="specialSquare">
 
                           <img style='height: 40%;width: 40%;'  src="./img/luck.png">
 
+                     <div class='pawnContainer'>
+           
+                          <div id='square22_pawnContainer0' class='pawnContainer0'></div>
+                          <div id='square22_pawnContainer1' class='pawnContainer1'></div>
+                          <div id='square22_pawnContainer2' class='pawnContainer2'></div>
+                         <div id='square22_pawnContainer3' class='pawnContainer3'></div>
+       
+                     </div>
+
                                
-                           </div>  
-                    </div>
+                </div>  
+         </div>
                     
-                    <div class="digitalContainerBBAA">
+      <div class="digitalContainerBBAA">
            
-           
-           
-           <div class='pawnContainer'>
-       
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
+            <div class='pawnContainer'>
+                   <div id='square23_pawnContainer0' class='pawnContainer0'></div>
+                   <div id='square23_pawnContainer1' class='pawnContainer1'></div>
+                   <div id='square23_pawnContainer2' class='pawnContainer2'></div>
+                  <div id='square23_pawnContainer3' class='pawnContainer3'></div>
        
            </div>
                                   
@@ -8117,23 +8213,23 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
                    
                </div>
        
                <div class='rpSquareC'>
        
-                   <div class='rpSquareCA'>Republic Av.</div>
+                   <div id='square23_landLord' class='rpSquareCA'>Malesherbes Bd.</div>
        
                    <div class='rpSquareCB'>landlord : none</div>
        
                    <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
+                       <div class='rpSquareCCA'>$320</div> 
+                       <div class='rpSquareCCB' style='background:rgb(255,0,0)' ></div> 
                    </div>
                    
        
@@ -8150,98 +8246,74 @@
           </div>
                    
          </div>
+
          <div class="digitalContainerBBAA">
            
-           
-           
            <div class='pawnContainer'>
-       
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
-       
-           </div>
-                                  
-           <div class='rpSquare' style='position:relative'>
-       
-       
-           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-       
-       
-             
-       
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
-       
-               <div class='rpSquareC'>
-       
-                   <div class='rpSquareCA'>Republic Av.</div>
-       
-                   <div class='rpSquareCB'>landlord : none</div>
-       
-                   <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
-                   </div>
-                   
-       
-               </div>
-       
-       
-               
-       
+                  <div id='square24_pawnContainer0' class='pawnContainer0'></div>
+                  <div id='square24_pawnContainer1' class='pawnContainer1'></div>
+                  <div id='square24_pawnContainer2' class='pawnContainer2'></div>
+                 <div id='square24_pawnContainer3' class='pawnContainer3'></div>
+      
           </div>
-       
-          <div>
-           
-       
-          </div>
-                   
-         </div>
-
-
-        
-
-  <div class="digitalContainerBBAA">
-
-  <div class="specialSquare">
-            <img style='height: 40%;width: 40%;'  src="./img/train.png">
+                                 
+          <div class='rpSquare' style='position:relative'>
+      
+      
+          <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+      
+      
+            
+      
+              <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+      
+                  <div class='rpSquareBA1' id='square24_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
+                  
+              </div>
+      
+              <div class='rpSquareC'>
+      
+                  <div id='square24_landLord' class='rpSquareCA'>Henri Martin Av.</div>
+      
+                  <div class='rpSquareCB'>landlord : none</div>
+      
+                  <div class='rpSquareCC'>
+                      <div class='rpSquareCCA'>$320</div> 
+                      <div class='rpSquareCCB' style='background:rgb(255,0,0)' ></div> 
+                  </div>
+                  
+      
+              </div>
+      
+      
               
-  <div class='pawnContainer'>
-
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
-
-
-
-         <div class="digitalContainerBBAA">
-           
+      
+         </div>
+      
+         <div>
           
+      
+         </div>
+                  
+        </div>
+
+          
+
+
+ <div class="digitalContainerBBAA">
+           
+           
            
            <div class='pawnContainer'>
        
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
+                <div id='square25_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square25_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square25_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square25_pawnContainer3' class='pawnContainer3'></div>
        
            </div>
                                   
@@ -8250,28 +8322,23 @@
        
            <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
        
-       
-             
-       
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
+            
+                   <div class='rpSquareB' style='width: 65%; height:50%;display:flex; flex-direction: center; align-items:center; justify-content:space-around; '>
+
+                          <img class='trainImg' src="./img/train.png" >      
+                       
+                   </div>
+           
        
                <div class='rpSquareC'>
        
-                   <div class='rpSquareCA'>Republic Av.</div>
+                   <div class='rpSquareCA'>North stat.</div>
        
-                   <div class='rpSquareCB'>landlord : none</div>
+                   <div id='square25_landLord'  class='rpSquareCB'>landlord : none</div>
        
                    <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
+                       <div class='rpSquareCCA'>$200</div> 
+                       <div class='rpSquareCCB' style='background:rgb(0,0,0)' ></div> 
                    </div>
                    
        
@@ -8288,73 +8355,134 @@
           </div>
                    
          </div>
+       
+
+
+
          <div class="digitalContainerBBAA">
            
-           
+           <div class='pawnContainer'>
+                  <div id='square26_pawnContainer0' class='pawnContainer0'></div>
+                  <div id='square26_pawnContainer1' class='pawnContainer1'></div>
+                  <div id='square26_pawnContainer2' class='pawnContainer2'></div>
+                 <div id='square26_pawnContainer3' class='pawnContainer3'></div>
+      
+          </div>
+                                 
+          <div class='rpSquare' style='position:relative'>
+      
+      
+          <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+      
+      
+            
+      
+              <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+      
+                  <div class='rpSquareBA1' id='square26_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
+                  
+              </div>
+      
+              <div class='rpSquareC'>
+      
+                  <div id='square26_landLord' class='rpSquareCA'>St.Honore Fb.</div>
+      
+                  <div class='rpSquareCB'>landlord : none</div>
+      
+                  <div class='rpSquareCC'>
+                      <div class='rpSquareCCA'>$320</div> 
+                      <div class='rpSquareCCB' style='background:yellow' ></div> 
+                  </div>
+                  
+      
+              </div>
+      
+      
+              
+      
+         </div>
+      
+         <div>
+          
+      
+         </div>
+                  
+        </div>
+
+          
+
+
+         <div class="digitalContainerBBAA">
            
            <div class='pawnContainer'>
-       
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
-       
-           </div>
-                                  
-           <div class='rpSquare' style='position:relative'>
-       
-       
-           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-       
-       
-             
-       
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
-       
-               <div class='rpSquareC'>
-       
-                   <div class='rpSquareCA'>Republic Av.</div>
-       
-                   <div class='rpSquareCB'>landlord : none</div>
-       
-                   <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
-                   </div>
-                   
-       
-               </div>
-       
-       
-               
-       
+                  <div id='square27_pawnContainer0' class='pawnContainer0'></div>
+                  <div id='square27_pawnContainer1' class='pawnContainer1'></div>
+                  <div id='square27_pawnContainer2' class='pawnContainer2'></div>
+                 <div id='square27_pawnContainer3' class='pawnContainer3'></div>
+      
           </div>
-       
-          <div>
-           
-       
-          </div>
-                   
+                                 
+          <div class='rpSquare' style='position:relative'>
+      
+      
+          <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+      
+      
+            
+      
+              <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+      
+                  <div class='rpSquareBA1' id='square27_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
+                  
+              </div>
+      
+              <div class='rpSquareC'>
+      
+                  <div id='square28_landLord' class='rpSquareCA'>Bourse Pl.</div>
+      
+                  <div class='rpSquareCB'>landlord : none</div>
+      
+                  <div class='rpSquareCC'>
+                      <div class='rpSquareCCA'>$320</div> 
+                      <div class='rpSquareCCB' style='background:yellow' ></div> 
+                  </div>
+                  
+      
+              </div>
+      
+      
+              
+      
          </div>
+      
+         <div>
+          
+      
+         </div>
+                  
+        </div>
+
+          
+
          <div class="digitalContainerBBAA">
 
        <div class="specialSquare">
-                   <img style='height: 40%;width: 40%;'  src="./img/public.png">
+                   <img style='height: 40%;width: auto;'  src="./img/public.png">
                      
          <div class='pawnContainer'>
   
-            <div class='pawnContainer0'></div>
-            <div class='pawnContainer1'></div>
-            <div class='pawnContainer2'></div>
-            <div class='pawnContainer3'></div>
+                  <div id='square28_pawnContainer0' class='pawnContainer0'></div>
+                  <div id='square28_pawnContainer1' class='pawnContainer1'></div>
+                  <div id='square28_pawnContainer2' class='pawnContainer2'></div>
+                 <div id='square28_pawnContainer3' class='pawnContainer3'></div>
 
            </div>
       
@@ -8364,66 +8492,66 @@
 
    </div>
 
-         <div class="digitalContainerBBAA">
-           
-           
+   <div class="digitalContainerBBAA">
            
            <div class='pawnContainer'>
-       
-               <div class='pawnContainer0'></div>
-               <div class='pawnContainer1'></div>
-               <div class='pawnContainer2'></div>
-               <div class='pawnContainer3'></div>
-       
-           </div>
-                                  
-           <div class='rpSquare' style='position:relative'>
-       
-       
-           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-       
-       
-             
-       
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
-       
-               <div class='rpSquareC'>
-       
-                   <div class='rpSquareCA'>Republic Av.</div>
-       
-                   <div class='rpSquareCB'>landlord : none</div>
-       
-                   <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
-                   </div>
-                   
-       
-               </div>
-       
-       
-               
-       
+                  <div id='square29_pawnContainer0' class='pawnContainer0'></div>
+                  <div id='square29_pawnContainer1' class='pawnContainer1'></div>
+                  <div id='square29_pawnContainer2' class='pawnContainer2'></div>
+                 <div id='square29_pawnContainer3' class='pawnContainer3'></div>
+      
           </div>
-       
-          <div>
-           
-       
-          </div>
-                   
+                                 
+          <div class='rpSquare' style='position:relative'>
+      
+      
+          <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+      
+      
+            
+      
+              <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+      
+                  <div class='rpSquareBA1' id='square29_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
+                  
+              </div>
+      
+              <div class='rpSquareC'>
+      
+                  <div id='square29_landLord' class='rpSquareCA'>Lafayette</div>
+      
+                  <div class='rpSquareCB'>landlord : none</div>
+      
+                  <div class='rpSquareCC'>
+                      <div class='rpSquareCCA'>$320</div> 
+                      <div class='rpSquareCCB' style='background:yellow' ></div> 
+                  </div>
+                  
+      
+              </div>
+      
+      
+              
+      
          </div>
+      
+         <div>
+          
+      
+         </div>
+                  
+        </div>
 
-                    
        </div>
-		 		
+
+
+
+       
+       	
 		 	</div>
 
 		 	<div class="digitalContainerBC">
@@ -8451,67 +8579,71 @@
 </div>
 
 
-
-        <div class="digitalContainerBCA">
+           <div class="digitalContainerBCA">
                      
-                 <div class="digitalContainerBCAA">
-           
-           
-           
-              <div class='pawnContainer'>
-       
-                 <div class='pawnContainer0'></div>
-                 <div class='pawnContainer1'></div>
-                 <div class='pawnContainer2'></div>
-                 <div class='pawnContainer3'></div>
-         
-             </div>
-                                  
-             <div class='rpSquare' style='position:relative'>
-       
-       
-                 <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-             
-       
-               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-       
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                   <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                   
-               </div>
-       
-               <div class='rpSquareC'>
-       
-                   <div class='rpSquareCA'>Republic Av.</div>
-       
-                   <div class='rpSquareCB'>landlord : none</div>
-       
-                   <div class='rpSquareCC'>
-                       <div class='rpSquareCCA'>$100</div> 
-                       <div class='rpSquareCCB' ></div> 
-                   </div>
-                   
-       
-               </div>
-       
-       
+                     <div class="digitalContainerBCAA">
                
-       
-          </div>
-       
-          <div>
+                 
+                    <div class='pawnContainer'>
+          
+                     <div id='square39_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square39_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square39_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square39_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
            
-       
-          </div>
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+           
+                       <div class='rpSquareBA1' id='square39_houseBar_1' style='background:rgb(0,0,100); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_2' style='background:rgb(0,0,100); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_3' style='background:rgb(0,0,139,0.4); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_4' style='background:rgb(0,0,139,0.4); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_5' style='background:rgb(0,0,139,0.4); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Paix st.</div>
+           
+                       <div id='square39_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$400</div> 
+                           <div class='rpSquareCCB' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
                    
-         </div>
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
 
 
 
-        </div>
+
+
 
         <div class="digitalContainerBCA">
 
@@ -8524,14 +8656,13 @@
                      
                      <div class="digitalContainerBCAA">
                
-               
-               
-                  <div class='pawnContainer'>
-           
-                     <div class='pawnContainer0'></div>
-                     <div class='pawnContainer1'></div>
-                     <div class='pawnContainer2'></div>
-                     <div class='pawnContainer3'></div>
+                 
+                    <div class='pawnContainer'>
+          
+                     <div id='square37_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square37_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square37_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square37_pawnContainer3' class='pawnContainer3'></div>
              
                  </div>
                                       
@@ -8541,24 +8672,25 @@
                      <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
                  
            
-                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+                     <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_1' style='background:rgb(0,0,139); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_2' style='background:rgb(0,0,139); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_3' style='background:rgb(0,0,139,0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_4' style='background:rgb(0,0,139,0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_5' style='background:rgb(0,0,139,0.3); height:95%; width:12.5%'></div>
                        
                    </div>
            
+           
                    <div class='rpSquareC'>
            
-                       <div class='rpSquareCA'>Republic Av.</div>
+                       <div class='rpSquareCA'>Chps elysees Av.</div>
            
-                       <div class='rpSquareCB'>landlord : none</div>
+                       <div id='square37_landLord' class='rpSquareCB'>landlord : none</div>
            
                        <div class='rpSquareCC'>
-                           <div class='rpSquareCCA'>$100</div> 
+                           <div class='rpSquareCCA'>$350</div> 
                            <div class='rpSquareCCB' ></div> 
                        </div>
                        
@@ -8591,41 +8723,20 @@
        </div>
 
               
-       <div class="digitalContainerBCA">
-
-<div class="specialSquare">
-          <img style='height: 40%;width: 40%;'  src="./img/train.png">
-            
-<div class='pawnContainer'>
-
-   <div class='pawnContainer0'></div>
-   <div class='pawnContainer1'></div>
-   <div class='pawnContainer2'></div>
-   <div class='pawnContainer3'></div>
-
-  </div>
-
-</div>
 
 
 
-</div>
-
-
-               
-
-                <div class="digitalContainerBCA">
+<div class="digitalContainerBCA">
                      
-                     <div class="digitalContainerBCAA">
-               
-               
+             <div class="digitalContainerBCAA">
+                    
                
                   <div class='pawnContainer'>
            
-                     <div class='pawnContainer0'></div>
-                     <div class='pawnContainer1'></div>
-                     <div class='pawnContainer2'></div>
-                     <div class='pawnContainer3'></div>
+                     <div id='square35_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square35_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square35_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square35_pawnContainer3' class='pawnContainer3'></div>
              
                  </div>
                                       
@@ -8635,24 +8746,20 @@
                      <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
                  
            
-                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-           
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                   <div class='rpSquareB' style='width: 65%; height:50%;display:flex; flex-direction: center; align-items:center; justify-content:space-around; '>
+
+                          <img class='trainImg' src="./img/train.png" >      
                        
                    </div>
            
                    <div class='rpSquareC'>
            
-                       <div class='rpSquareCA'>Republic Av.</div>
+                       <div class='rpSquareCA'>St.Lazarre stat.</div>
            
-                       <div class='rpSquareCB'>landlord : none</div>
+                       <div id='square34_landLord' class='rpSquareCB'>landlord : none</div>
            
                        <div class='rpSquareCC'>
-                           <div class='rpSquareCCA'>$100</div> 
+                           <div class='rpSquareCCA'>$300</div> 
                            <div class='rpSquareCCB' ></div> 
                        </div>
                        
@@ -8674,19 +8781,91 @@
     
     
             </div>
+
+
+
+
+               
+
+
+
+<div class="digitalContainerBCA">
+                     
+                     <div class="digitalContainerBCAA">
+               
+               
+               
+                  <div class='pawnContainer'>
+           
+                     <div id='square34_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square34_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square34_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square34_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
+           
+                       <div class='rpSquareBA1' id='square34_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Capicines Bd.</div>
+           
+                       <div id='square34_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$300</div> 
+                           <div class='rpSquareCCB' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+
+
+
             <div class="digitalContainerBCA">
 
                <div class="specialSquare">
                    <img style='height: 40%;width: 40%;'  src="./img/chest.png">
               
-            <div class='pawnContainer'>
-
-                 <div class='pawnContainer0'></div>
-                 <div class='pawnContainer1'></div>
-                 <div class='pawnContainer2'></div>
-                 <div class='pawnContainer3'></div>
-
-            </div>
+                   <div class='pawnContainer'>
+           
+                    <div id='square33_pawnContainer0' class='pawnContainer0'></div>
+                    <div id='square33_pawnContainer1' class='pawnContainer1'></div>
+                    <div id='square33_pawnContainer2' class='pawnContainer2'></div>
+                    <div id='square33_pawnContainer3' class='pawnContainer3'></div>
+   
+                 </div>
 
          </div>
 
@@ -8696,8 +8875,7 @@
 
 
 
-
-                <div class="digitalContainerBCA">
+   <div class="digitalContainerBCA">
                      
                      <div class="digitalContainerBCAA">
                
@@ -8705,10 +8883,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div class='pawnContainer0'></div>
-                     <div class='pawnContainer1'></div>
-                     <div class='pawnContainer2'></div>
-                     <div class='pawnContainer3'></div>
+                     <div id='square32_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square32_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square32_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square32_pawnContainer3' class='pawnContainer3'></div>
              
                  </div>
                                       
@@ -8718,84 +8896,24 @@
                      <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
                  
            
-                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>
                        
                    </div>
            
                    <div class='rpSquareC'>
            
-                       <div class='rpSquareCA'>Republic Av.</div>
+                       <div class='rpSquareCA'>Foch Av.</div>
            
-                       <div class='rpSquareCB'>landlord : none</div>
-           
-                       <div class='rpSquareCC'>
-                           <div class='rpSquareCCA'>$100</div> 
-                           <div class='rpSquareCCB' ></div> 
-                       </div>
-                       
-           
-                   </div>
-           
-           
-                   
-           
-              </div>
-           
-              <div>
-               
-           
-              </div>
-                       
-             </div>
-    
-    
-    
-            </div>
-            <div class="digitalContainerBCA">
-                     
-                     <div class="digitalContainerBCAA">
-               
-               
-               
-                  <div class='pawnContainer'>
-           
-                     <div class='pawnContainer0'></div>
-                     <div class='pawnContainer1'></div>
-                     <div class='pawnContainer2'></div>
-                     <div class='pawnContainer3'></div>
-             
-                 </div>
-                                      
-                 <div class='rpSquare' style='position:relative'>
-           
-           
-                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
-                 
-           
-                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
-           
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:95%; width:12.5%'></div>
-                       
-                   </div>
-           
-                   <div class='rpSquareC'>
-           
-                       <div class='rpSquareCA'>Republic Av.</div>
-           
-                       <div class='rpSquareCB'>landlord : none</div>
+                       <div id='square32_landLord' class='rpSquareCB'>landlord : none</div>
            
                        <div class='rpSquareCC'>
-                           <div class='rpSquareCCA'>$100</div> 
+                           <div class='rpSquareCCA'>$300</div> 
                            <div class='rpSquareCCB' ></div> 
                        </div>
                        
@@ -8819,12 +8937,89 @@
             </div>
 
 
-            <div class="digitalContainerBCA">
 
-         <div class='specialSquare'>
-            jail
-          </div>
-       </div>
+            <div class="digitalContainerBCA">
+                     
+                     <div class="digitalContainerBCAA">
+               
+               
+               
+                  <div class='pawnContainer'>
+           
+                     <div id='square31_pawnContainer0' class='pawnContainer0'></div>
+                     <div id='square31_pawnContainer1' class='pawnContainer1'></div>
+                     <div id='square31_pawnContainer2' class='pawnContainer2'></div>
+                     <div id='square31_pawnContainer3' class='pawnContainer3'></div>
+             
+                 </div>
+                                      
+                 <div class='rpSquare' style='position:relative'>
+           
+           
+                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displaySquareDetail()'>button</button>
+                 
+           
+                   <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
+           
+                       <div class='rpSquareBA1' id='square31_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>
+                       
+                   </div>
+           
+                   <div class='rpSquareC'>
+           
+                       <div class='rpSquareCA'>Breteuil Av.</div>
+           
+                       <div id='square31_landLord' class='rpSquareCB'>landlord : none</div>
+           
+                       <div class='rpSquareCC'>
+                           <div class='rpSquareCCA'>$300</div> 
+                           <div class='rpSquareCCB' ></div> 
+                       </div>
+                       
+           
+                   </div>
+           
+           
+                   
+           
+              </div>
+           
+              <div>
+               
+           
+              </div>
+                       
+             </div>
+    
+    
+    
+            </div>
+
+
+                       
+     <div class="digitalContainerBCA">
+
+      <div class="specialSquare">
+            <img style='height: 30%;width: auto'  src="./img/gotojail.png">
+              
+      <div class='pawnContainer'>
+
+     <div class='pawnContainer0'></div>
+     <div class='pawnContainer1'></div>
+     <div class='pawnContainer2'></div>
+     <div class='pawnContainer3'></div>
+
+    </div>
+
+</div>
+
+
+
+</div>
 
 		 		
 		 	</div>

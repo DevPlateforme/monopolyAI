@@ -41,6 +41,186 @@ body{
   display: none;
 }
 
+/*
+
+drawCardContainer
+
+*/
+
+
+.drawCardPopup{
+
+  position: absolute;
+  top: 15vh;
+  left: 30vw;
+  height: 30vh;
+  width: 30vw;
+  background:rgb(255,255,255,0.075);
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.75vw;
+  border-radius: 8px;
+  color: rgb(0,255,0,0.8);
+}
+
+.drawCardLeftDiv{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 30%;
+width: 35%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+font-size: 0.75vw;
+
+}
+
+
+.drawCardLeftDivA{
+width:70%;
+height:20%;
+margin-left: 3%;
+}
+
+
+
+
+.drawCardPopupA{
+height: 35%;
+width: 90%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.drawCardPopupAA{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.drawCardPopupB{
+
+height:50%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+
+}
+
+
+.drawCardPopupBA{
+height: 35%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.drawCardPopupBAA{
+
+height: 80%;
+width: 60%;
+margin-left: 5%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+font-size: 1.5vw;
+}
+
+
+.drawCardPopupBB{
+height:65%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+align-items:center;
+}
+
+
+.drawCardPopupAA{
+height:70%;
+width:30%;
+display: flex;
+justify-content: center;
+
+}
+
+.drawCardPopupBBA{
+margin-top: 7%;
+height: 40%;
+width: 90%;
+}
+
+
+.drawCardPopupBBB{
+height: 60%;
+width: 90%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+.drawCardPopupBBBA{
+
+background: rgb(0,255,0,0.8);
+height: 2.1vw;
+width: 2.1vw;
+border-radius: 30px;
+display: flex;
+cursor: pointer;
+justify-content: center;
+align-items: center;
+position:relative;
+
+
+}
+
+
+.drawCardBtn{
+   position:absolute;
+   left:0px;
+   top:0px;
+   height:100%;
+   width:100%;
+   cursor:pointer;
+   
+}
+
+
+
+
+.luckLogoPopup{
+
+height: 90%;
+width: auto;
+
+
+}
+
+.stackButton{
+
+
+height: 50%;
+
+width: auto;
+}
+
+
+
+
+
+
 
 #closeInterfaceBtn{
 
@@ -847,6 +1027,22 @@ body{
 }
 
 
+.trainImg{
+
+  width:100%;
+  height:auto;
+
+}
+
+
+.psImg{
+
+  height:70%;
+
+  width:auto;
+}
+
+
 
 /*
 
@@ -1375,41 +1571,14 @@ proposition buttons
 
     border: solid 1px;
 
-    z-index: 1;
+    z-index: 5;
 
-    opacity: 0;
+    display:none;
 
 
  }
 
 
-
-
- /* chance square interface */
-
-
-
- #chanceSquareInterface{
-
-    position: absolute;
-
-    top: 20%;
-
-    left: 30%;
-
-    height: 30%;
-
-    width: 50%;
-
-    background: white;
-
-    border: solid 1px;
-
-    z-index: 1;
-
-    opacity: 0;
-
- }
 
 
 
@@ -2176,11 +2345,8 @@ flex-direction: column;
   flex-direction:row;
   justify-content: center;
   align-items: center;
-
-  background: rgb(255,255,255,0.15);
-
+  background: rgb(255,255,255,0.03);
   border-radius:10px;
-
   position:relative;
 
 }
@@ -2189,7 +2355,7 @@ flex-direction: column;
 
   height: 97%;
   width: 97%;
-  background: rgb(255,255,255,0.15);
+  background: rgb(255,255,255,0.03);
   border-radius: 5px;
 }
 
@@ -2242,7 +2408,7 @@ flex-direction: column;
 
 .rpSquare{
 height: 97%;
-width: 80%;
+width: 95%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -2784,6 +2950,7 @@ background: yellow;
    width: 100%;
    display: flex;
    flex-direction: row;
+   
 }
 
 .digitalContainerBCA{
@@ -2793,15 +2960,16 @@ background: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(255,255,255,0.03);
+
 }
 
 .digitalContainerBCAA{
 
   height: 97%;
   width: 97%;
-  background: rgb(255,255,255,0.15);
+  background: rgb(255,255,255,0.03);
   border-radius: 5px;
-  position:relative;
 }
 
 
@@ -2818,12 +2986,12 @@ background: yellow;
  
   height: 97%;
   width: 97%;
-  background: rgb(255,255,255,0.15);
   border-radius: 5px;
   position:relative;
   display:flex;
   justify-content: center;
   align-items: center;
+  background:rgb(255,255,255, 0.03);
 }
 
 
@@ -4316,7 +4484,7 @@ Property management interface
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(255,255,255,0.05)
+    background: rgb(255,255,255,0.1)
 
 }
 
