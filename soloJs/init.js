@@ -155,6 +155,8 @@ function setColorScores(){
 
      addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
      addPropertyToPlayerWallet(ai3 , rueLecourbe);
+     addPropertyToPlayerWallet(ai3 , placeDeLaBourse);
+     addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
 
 
   }

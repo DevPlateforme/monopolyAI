@@ -475,7 +475,7 @@ function movePiece(){
                  
           setTimeout( function(){ 
           postLaunchDecision = done;
-          closeCommunityChestSquareInterface() ;
+          closeDrawCardInterface();
         
         }, 1500);
 
@@ -529,7 +529,7 @@ function movePiece(){
           setTimeout( function(){ 
             
             postLaunchDecision = done;            
-            closeChanceSquareInterface()}, 1500);
+            closeDrawCardInterface()}, 1500);
 
    }
 

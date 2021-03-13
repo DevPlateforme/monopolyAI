@@ -72,7 +72,7 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
                humanAnswerInterfaceOffer.innerHTML += '' + proposition.offer.array[i].color.name +' : ' + proposition.offer.array[i].name + '</br>'; 
                
-               addOfferLine(proposition.offer.array[i]);
+               addOfferLine(proposition,proposition.offer.array[i]);
 
      }
 
@@ -100,7 +100,7 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
                humanAnswerInterfaceCounterPart.innerHTML += '' + proposition.counterPartAsked.array[i].color.name +' :' + proposition.counterPartAsked.array[i].name + ' </br>'; 
 
-               addCounterPartAskedLine(proposition.counterPartAsked.array[i]);
+               addCounterPartAskedLine(proposition,proposition.counterPartAsked.array[i]);
 
      }
 
@@ -271,9 +271,6 @@ function displayAvailablePropertyInterface(square){
      }
  }
 
-
-
-
  
 
 
@@ -286,27 +283,29 @@ function closeAvailablePropertyInterface(){
 
          monopolyBoard.style.opacity = 1;
 
-
-
  }
  
-
-
 
 
  function displayCommunityChestSquareInterface(){
 
      humanThinking = true;
-
      document.getElementById('chanceSquareInterface').style.display = 'flex';
+
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawCommunityChestCardAndExecuteAction()")
+     
 
  }
 
  function displayChanceSquareInterface(){
 
      humanThinking = true;
-
      document.getElementById('chanceSquareInterface').style.display = 'flex';
+
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawChanceCardAndExecuteAction()")
+
+     //add an invisible button
+
 }
 
 
@@ -1638,7 +1637,7 @@ function displayPreviousTradeOffererColor(){
 function displayNextTradeAnswererColor(){
 
 
-     clearTradeColor(tradeAnswerer, colorArray[displayeAnswererColor].units);
+     clearTradeColor(tradeAnswerer, colorArray[displayedAnswererColor].units);
 
      if(displayedAnswererColor == 9){
           displayedAnswererColor = 0;
@@ -1647,7 +1646,7 @@ function displayNextTradeAnswererColor(){
           displayedAnswererColor++;
      }
 
-     displayTradeDiv(tradeAnswer, observedPlayer , colorArray[displayeAnswererColor]);
+     displayTradeDiv(tradeAnswerer, observedPlayer , colorArray[displayedAnswererColor]);
 
 }
 
@@ -1685,7 +1684,7 @@ function displayPreviousTradeAnswererColor(){
 
 
 
-function addOfferLine(property){
+function addOfferLine(proposition, property){
 
      let color = property.color;
 
@@ -1713,15 +1712,46 @@ function addOfferLine(property){
 
   
 
-
-
-      
-
       let propertyName = document.createElement('div');
+
+      let propertyToUnmortgage = false;
 
       propertyName.setAttribute('class' , 'propPopupAABAB');
 
       propertyName.innerHTML = property.name;
+
+      
+      if(proposition.offer.mortgagesClosed.length > 0){
+
+
+         for(var i=0; i < proposition.offer.mortgagesClosed.length; i++){
+
+           if(proposition.offer.mortgagesClosed[i] == property){
+
+               propertyName.innerHTML += '(u)';
+
+           }
+
+         }
+
+     }
+
+
+     if(property.mortgaged == true){
+
+          if(propertyToUnmortgage == false){
+
+               propertyName.innerHTML +='(m)';
+
+
+          }
+
+
+      }
+ 
+
+
+   
 
       propertyLine.append(colorContainer);
 
@@ -1739,7 +1769,7 @@ function addOfferLine(property){
 
 
 
-function addCounterPartAskedLine(property){
+function addCounterPartAskedLine(proposition, property){
 
      let color = property.color;
 
@@ -1765,10 +1795,6 @@ function addCounterPartAskedLine(property){
  
        colorContainer.append(colorSquare);
  
-   
- 
- 
- 
        
  
        let propertyName = document.createElement('div');
@@ -1776,6 +1802,45 @@ function addCounterPartAskedLine(property){
        propertyName.setAttribute('class' , 'propPopupAABAB');
  
        propertyName.innerHTML = property.name;
+
+
+       let propertyToUnmortgage = false;
+
+
+             
+      if(proposition.counterPartAsked.mortgagesClosed.length > 0){
+
+
+          for(var i=0; i < proposition.counterPartAsked.mortgagesClosed.length; i++){
+ 
+            if(proposition.counterPartAsked.mortgagesClosed[i] == property){
+ 
+                propertyName.innerHTML += '(u)';
+
+                propertyToUnmortgage = true;
+ 
+            }
+ 
+          }
+          
+      }
+
+
+      if(property.mortgaged == true){
+
+          if(propertyToUnmortgage == false){
+
+               propertyName.innerHTML +='(m)';
+
+
+          }
+
+
+      }
+ 
+
+
+
  
        propertyLine.append(colorContainer);
  
@@ -1877,11 +1942,8 @@ function displayTradeDiv(type,player,color){
 
 
 
-
-
-
-
           document.getElementById(type + 'Div_propertyTemplate_' + color.units + '_property_' + i + '_container').style.display = 'flex';
+          
 
 
        }
@@ -1898,12 +1960,10 @@ function displayTradeDiv(type,player,color){
             }
 
             buildRightColorGraph(type , player, color);
-               
+            
        },100);
        
-
        document.getElementById(type+'Div_propertyTemplate_' + color.units).style.display = 'flex';
-       
        
 }
 
@@ -2121,5 +2181,16 @@ function displayAvailablePropertyPopup(square){
 
      }
 
+
+}
+
+
+
+
+function closeDrawCardInterface(){
+
+     document.getElementById('chanceSquareInterface').style.display = 'none';
+     
+     humanThinking = false;
 
 }
