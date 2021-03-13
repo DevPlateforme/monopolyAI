@@ -1342,6 +1342,12 @@ function buildRightColorGraph(type , player, color){
  var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
 
 
+ var availablePropertyMortgageCanvas1 = document.getElementById('availableProperty_mortgageCanvas1').getContext('2d');
+
+ var availablePropertyMortgageCanvas2 = document.getElementById('availableProperty_mortgageCanvas2').getContext('2d');
+
+
+
 
 
  function buildMortgageCanvas1(context){

@@ -5,7 +5,26 @@ function makeProposition(proposition){
 
   boardJournal.innerHTML += ( '<br>' + proposition.offerer.name + ' made an offer!=>Offer:');
 
+    
+  if(declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES] != undefined){
+
+    addNotif('<br>' + proposition.offerer.name + ' made a counter offer! <br>');
+
+    if(declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count > 1){
+         
+       addNotif(proposition.offerer.name + ' made ' + declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count + ' counter offers before , and will do maximum 3');
+
+    }
+
+
+} else {
+
   addNotif('<br>' + proposition.offerer.name + ' made an offer!=>Offer:');
+
+
+}
+      
+
 
 
   for(i=0; i < proposition.offer.array.length; i++){
@@ -61,9 +80,9 @@ function makeProposition(proposition){
 
 
 
-    if(proposition.answerer == humanPlayer){	 
+    if(proposition.answerer == humanPlayer){ 
     
-           displayHumanAnswerInterface(proposition , proposition.counterPartAsked.indirectMonopOpportunity);
+           displayHumanAnswerInterface(proposition , proposition.offer.indirectMonopOpportunity);
 
            return;
         

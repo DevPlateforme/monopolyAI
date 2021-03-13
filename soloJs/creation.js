@@ -237,7 +237,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	if(answerer.cash > 1200){
 	
-		answererCashSlices = [0  , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2 ,];
+		answererCashSlices = [0  , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2,  answerer.cash * 0.25, answerer.cash * 0.3, answerer.cash * 0.35 ];
 		
 	} else {
 		
@@ -264,6 +264,12 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 			 if(offerer.cash > 500){
 				
 			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25,  offerer.cash * 0.3 ,  offerer.cash * 0.35 ,  offerer.cash * 0.4];
+			 } else {
+
+				offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25,  offerer.cash * 0.3 ,  offerer.cash * 0.35 ,  offerer.cash * 0.4];
+
+
+
 			 }
 			
 			
@@ -381,7 +387,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 
 
-
 							if( declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES] != undefined){
                                     							
 
@@ -394,21 +399,17 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 								let hashedProposition = declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].proposition;
   
   
-							   if(hashedProposition.trickedPlayerScore <  ( 1.2 * hashedProposition.trickedPlayerOpponentScore) ){  
+							   if(hashedProposition.trickedPlayerScore <   hashedProposition.trickedPlayerOpponentScore ){  
 									  
-  
-								  //////////////////////////////////////////alert('we found out this offer was refused while it was fair, we wont do it again');
-  
+    
 								  if((hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore)<= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
-									  
-									//////////////////////alert('we notice that we downgraded the offer, so no');
+                                    
 
 									continue;
 
-  
+
 								  }
-								  
-								
+
   
 									//upgrade
   
@@ -417,25 +418,12 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 								  
   
 								  if( (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) >= (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) ){
-									
+																		
 									
 									   continue;
 
 
 						           }  
-								  
-								  //downgrade
-
-							     
-
-								  ////////////////////////////////////////alert('we managed to upgrade the offer!');
-
-								  ////////////////////////////////////////alert('indeed, the ratio was => ' + (hashedProposition.trickedPlayerScore/hashedProposition.trickedPlayerOpponentScore) + ' , and is now =>' + (proposition.trickedPlayerScore/proposition.trickedPlayerOpponentScore) )
-
-								  ////////////////////////////////////////alert('indeed, here is the cash in the offer =>' + proposition.offer.cash + ', and in the CPA =>' + proposition.counterPartAsked.cash );
-								  
-								  ////////////////////////////////////////alert('while, it was , offer =>' + hashedProposition.offer.cash + ', and in the CPA =>' + hashedProposition.counterPartAsked.cash );
-
                                      
 								  
 							   } 

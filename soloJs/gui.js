@@ -50,8 +50,7 @@ function hideDiceLaunchButton(){
 
 
 function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
-
-
+   
      monopolyBoard.style.opacity = 0.05;
 
 
@@ -240,7 +239,6 @@ function closePropertiesManagementInterface(){
 
      document.getElementById('playerPropertiesManagementInterface').style.opacity = 0;
      
-
      document.getElementById('playerPropertiesManagementInterface').style.zIndex = 1;
 
      initPropertiesManagementInterface();
@@ -254,15 +252,13 @@ function displayAvailablePropertyInterface(square){
 
      humanThinking = true;
 
-
      if(lastDiceLauncher.cash >= square.value){
 
          availablePropertyInterface.style.zIndex = 3;
          availablePropertyInterface.style.opacity = 1;
 
 
-         availablePropertyInterfaceText.innerHTML = 'La propriété ' + square.name + ' est disponible. Souhaitez vous l acheter?';
- 
+         availablePropertyInterfaceText.innerHTML = 'La propriété ' + square.name + ' est disponible. Souhaitez vous l acheter?'; 
          availablePropertyPriceHTML.innerHTML = 'Prix : ' + square.value;
        
      } else {
@@ -271,8 +267,13 @@ function displayAvailablePropertyInterface(square){
        //unavailableFundInterface.style.opacity = 1;
 
        availablePropertyInterface.style.zIndex = 3;
+
      }
  }
+
+
+
+
  
 
 
@@ -281,9 +282,11 @@ function closeAvailablePropertyInterface(){
 
          humanThinking = false;
 
-         availablePropertyInterface.style.opacity = 0;
+         document.getElementById('availablePropertyInt').style.display = 'none';
 
-         availablePropertyInterface.style.zIndex = 1;
+         monopolyBoard.style.opacity = 1;
+
+
 
  }
  
@@ -294,7 +297,8 @@ function closeAvailablePropertyInterface(){
  function displayCommunityChestSquareInterface(){
 
      humanThinking = true;
-     document.getElementById('communityChestSquareInterface').style.display = 'flex';
+
+     document.getElementById('chanceSquareInterface').style.display = 'flex';
 
  }
 
@@ -1203,7 +1207,6 @@ function perceptionCheck(ai, proposition){
 
      if(proposition.unfair == true){
 
-          alert('unfair offer refused')
 
          if(ai.unfairPropositionsRefusals== 3){
 
@@ -1226,8 +1229,6 @@ function perceptionCheck(ai, proposition){
          }
  
      } else {
-
-          alert('fair offer refused')
 
           if(ai.unfairPropositionRefusals == 1){
 
@@ -1988,4 +1989,137 @@ function removePlayerOnGui(player){
 
 
      document.getElementById(player.name+'BoardPresentation').style.opacity = 0.2;
+}
+
+
+
+
+function addCashLine(){
+
+
+     
+}
+
+
+
+function displayAvailablePropertyPopup(square){
+
+     humanThinking = true;
+
+     monopolyBoard.style.opacity = 0.15;
+
+
+     if(lastDiceLauncher.cash >= square.value){
+
+          document.getElementById('availablePropertyLocation').innerHTML = 'n°' + square.square;
+          document.getElementById('availableProperty_name').innerHTML = 'name:' + square.name;
+
+   
+
+
+
+
+          if(square.type == rentalProperty){
+
+               document.getElementById('availableProperty_minRent').innerHTML = '$' + square.rent;
+
+               document.getElementById('availablePropertyBar1').style.opacity = 1;
+               document.getElementById('availablePropertyBar1').style.background = square.color.name;
+               document.getElementById('availableProperty_house1').innerHTML = square.rentHouse1;
+
+               document.getElementById('availablePropertyBar2').style.opacity = 1;
+               document.getElementById('availablePropertyBar2').style.background = square.color.name;
+
+               document.getElementById('availableProperty_house2').innerHTML = square.rentHouse2;
+
+               document.getElementById('availablePropertyBar3').style.opacity = 1;
+               document.getElementById('availablePropertyBar3').style.background = square.color.name;
+               document.getElementById('availableProperty_house3').innerHTML  = square.rentHouse3;
+               
+               document.getElementById('availablePropertyBar4').style.opacity = 1;
+               document.getElementById('availablePropertyBar4').style.background = square.color.name;
+               document.getElementById('availableProperty_house4').innerHTML  = square.rentHouse4;
+
+               document.getElementById('availablePropertyBar5').style.opacity = 1;
+               document.getElementById('availablePropertyBar5').style.background = square.color.name;
+               document.getElementById('availableProperty_house5').innerHTML  = square.rentHouse5;
+
+
+          } else if(square.type == trainStation){
+
+               document.getElementById('availableProperty_minRent').innerHTML = '$25';
+               
+               document.getElementById('availablePropertyBar1').style.opacity = 1;
+               document.getElementById('availablePropertyBar1').style.background = square.color.name;
+               document.getElementById('availableProperty_house1').innerHTML = '$25';
+
+               document.getElementById('availablePropertyBar2').style.opacity = 1;
+               document.getElementById('availablePropertyBar2').style.background = square.color.name;
+
+               document.getElementById('availableProperty_house2').innerHTML = '$50';
+
+               document.getElementById('availablePropertyBar3').style.opacity = 1;
+               document.getElementById('availablePropertyBar3').style.background = square.color.name;
+               document.getElementById('availableProperty_house3').innerHTML  = '$100';
+               
+               document.getElementById('availablePropertyBar4').style.opacity = 1;
+               document.getElementById('availablePropertyBar4').style.background = square.color.name;
+               document.getElementById('availableProperty_house4').innerHTML  = '$200';
+               
+               document.getElementById('availablePropertyBar5').style.opacity = 0;
+               document.getElementById('availableProperty_house5').innerHTML  = '';
+
+
+
+          } else {
+
+               document.getElementById('availableProperty_name').innerHTML = 'name: ps.';
+
+
+               document.getElementById('availableProperty_minRent').innerHTML = '$10';
+
+               document.getElementById('availablePropertyBar1').style.opacity = 0;
+               document.getElementById('availableProperty_house1').innerHTML = '';
+
+               document.getElementById('availablePropertyBar2').style.opacity = 1;
+               document.getElementById('availablePropertyBar2').style.background = 'grey';
+               document.getElementById('availableProperty_house2').innerHTML = 'X5';
+
+               document.getElementById('availablePropertyBar3').style.opacity = 1;
+               document.getElementById('availablePropertyBar3').style.background = 'grey';
+               document.getElementById('availableProperty_house3').innerHTML = 'X10';
+               
+               document.getElementById('availablePropertyBar4').style.opacity = 0;
+               document.getElementById('availableProperty_house4').innerHTML = '';
+
+               document.getElementById('availablePropertyBar5').style.opacity = 0;
+               document.getElementById('availableProperty_house5').innerHTML = '';
+
+
+
+          }
+
+
+
+          document.getElementById('availableProperty_color').innerHTML = 'color:' + square.color.name;
+
+
+          document.getElementById('availableProperty_squareValue').innerHTML = '$' + square.value;
+          document.getElementById('availablePropertyInt').style.display = 'flex';
+
+
+
+          buildMortgageCanvas1(availablePropertyMortgageCanvas1);
+          buildMortgageCanvas2(availablePropertyMortgageCanvas2);
+
+
+       
+     } else {
+       
+       //unavailableFundInterface.style.zIndex = 3;
+       //unavailableFundInterface.style.opacity = 1;
+
+     }
+
+
 }

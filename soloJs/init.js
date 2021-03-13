@@ -144,28 +144,15 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai3, belleville);
-     addPropertyToPlayerWallet(ai3 , avenueDesChampsElysees);
-     
-     addPropertyToPlayerWallet(ai3, rueDeCourcelles);
-     addPropertyToPlayerWallet(ai3 , avenueDeLaRepublique);
-     addPropertyToPlayerWallet(ai3 , rueDeVaugirard);
-
-    
-     addPropertyToPlayerWallet(ai3, bdDeLaVillette);
-     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai3 , rueDuParadis);
-    
-     addPropertyToPlayerWallet(ai3, placePigalle);
-     addPropertyToPlayerWallet(ai3 , boulevardSaintMichel);
-     addPropertyToPlayerWallet(ai3 , avenueMozart);
+     addPropertyToPlayerWallet(humanPlayer, bdDeLaVillette);
+     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
 
      
-     addPropertyToPlayerWallet(ai3, avenueHenriMartin);
-     addPropertyToPlayerWallet(ai3 , bdMalesherbes);
-     addPropertyToPlayerWallet(ai3 , avenueMatignon);
-     
-     
+     addPropertyToPlayerWallet(ai1, rueDuParadis);
+     addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);     
+     addPropertyToPlayerWallet(ai1, belleville);
+
+
      addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
      addPropertyToPlayerWallet(ai3 , rueLecourbe);
 

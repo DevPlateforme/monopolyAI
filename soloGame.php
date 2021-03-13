@@ -31,8 +31,7 @@
          <div class='drawCardPopupAA'>
 
            <img src="./img/luck.png" class='luckLogoPopup'>
-          
-
+    
          </div>
 
      </div>
@@ -51,7 +50,6 @@
                  <img src="./img/paper.png" class='stackButton'>    
              </div>
 
-             <button class='drawCrdBtn' onclick='drawChanceCardAndExecuteAction()'>btn</button>
 
         </div>
 
@@ -70,7 +68,7 @@
 <button id='closeInterfaceBtn' onclick='closeInterfaces()'>X</button>
 
 
-<div class='landDiv' style='display:none'>
+<div class='landDiv' id='availablePropertyInt' style='display:none'>
 
   <div class='landDivA'>
     <div class='landDivAA'>You landed on an available property</div>
@@ -84,7 +82,7 @@
                      <img class="locationCardImg" src="./img/location.png">
 								</div>
 					<div class="detailPropertyCardAAAB">
-						<div class="detailPropertyCardAAABA">
+						<div class="detailPropertyCardAAABA" id='availablePropertyLocation'>
 							 n°34
 						</div>
 					</div>
@@ -95,7 +93,7 @@
                             <img class="dollarCardImg" src="./img/dollar.png">
                         </div>
                     <div class="detailPropertyCardAAAB">
-                        <div class="detailPropertyCardAAABA">
+                        <div class="detailPropertyCardAAABA" id='availableProperty_minRent'> 
                            $30
                         </div>
                     </div>
@@ -116,35 +114,34 @@
                              
                               <div class="detailPropertyCardABBAA">
                                     <div class="detailPropertyCardABBAAA">
-                                        <div class="detailPropertyCardABBAAAA" style="height:95%;width:15%;background:red"></div>
+                                        <div class="detailPropertyCardABBAAAA"  id='availablePropertyBar1' style="height:95%;width:15%;background:red"></div>
                                     </div>
-                                    <div class="detailPropertyCardABBAAB">$50</div>
+                                    <div class="detailPropertyCardABBAAB" id='availableProperty_house1'>$50</div>
                               </div> 
                               <div class="detailPropertyCardABBAA">
                                     <div class="detailPropertyCardABBAAA">
-                                        <div class="detailPropertyCardABBAAAA" style="height:95%;width:35%;background:red"></div>
+                                        <div class="detailPropertyCardABBAAAA"  id='availablePropertyBar2' style="height:95%;width:35%;background:red"></div>
                                     </div>
-                                    <div class="detailPropertyCardABBAAB">$200</div>
+                                    <div class="detailPropertyCardABBAAB" id='availableProperty_house2'>$200</div>
                               </div> 
                               <div class="detailPropertyCardABBAA">
                                  <div class="detailPropertyCardABBAAA">
-                                       <div class="detailPropertyCardABBAAAA" style="height:95%;width:55%;background:red"></div>
+                                       <div class="detailPropertyCardABBAAAA"  id='availablePropertyBar3' style="height:95%;width:55%;background:red"></div>
 
                                  </div>
-                                 <div class="detailPropertyCardABBAAB">$350</div>
+                                 <div class="detailPropertyCardABBAAB" id='availableProperty_house3'>$350</div>
                               </div> 
                               <div class="detailPropertyCardABBAA">
                                     <div class="detailPropertyCardABBAAA">
-                                        <div class="detailPropertyCardABBAAAA" style="height:95%;width:75%;background:red"></div>
+                                        <div class="detailPropertyCardABBAAAA" id='availablePropertyBar4' style="height:95%;width:75%;background:red"></div>
                                     </div>
-                                    <div class="detailPropertyCardABBAAB">$400</div>
+                                    <div class="detailPropertyCardABBAAB" id='availableProperty_house4'>$400</div>
                               </div> 
                               <div class="detailPropertyCardABBAA">
                                    <div class="detailPropertyCardABBAAA">
-                                          <div class="detailPropertyCardABBAAAA" style="height:95%;width:95%;background:red"></div>
-
+                                          <div class="detailPropertyCardABBAAAA" id='availablePropertyBar5'style="height:95%;width:95%;background:red"></div>
                                    </div>
-                                   <div class="detailPropertyCardABBAAB">$800</div>
+                                   <div class="detailPropertyCardABBAAB" id='availableProperty_house5'>$800</div>
                               </div> 
 
                         </div>
@@ -157,9 +154,9 @@
 			<div class="detailPropertyCardAC">
      
             <div class="detailPropertyCardACA">
-                <div class="detailPropertyCardACAA">color:green</div>
+                <div class="detailPropertyCardACAA" id='availableProperty_color'>color:green</div>
                 <div class="detailPropertyCardACAA">landlord:none</div>
-                <div class="detailPropertyCardACAA">R.de la paix</div>
+                <div class="detailPropertyCardACAA" id='availableProperty_name'>R.de la paix</div>
             </div>
       
       </div>
@@ -200,7 +197,7 @@
 
              <div class="detailPropertyCardBBA">
                  <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                     <canvas id="mortgageCanvas1" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
+                     <canvas id="availableProperty_mortgageCanvas1" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
                  </div>
                  <div class="detailPropertyCardBBAB">
                     $300
@@ -211,7 +208,7 @@
                     $300 
                  </div>
                   <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                     <canvas id="mortgageCanvas2" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
+                     <canvas id="availableProperty_mortgageCanvas2" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
                  </div>
                 
              </div>
@@ -226,7 +223,7 @@
            
              <div class="detailPropertyCardBCA">
                 <div class="detailPropertyCardBCAA">$</div>
-                <div class="detailPropertyCardBCAB">400</div>
+                <div class="detailPropertyCardBCAB" id='availableProperty_squareValue'>400</div>
 
              </div>
        
@@ -240,8 +237,8 @@
     </div>
     <div class='landDivC'>
        <div class='landDivCA'>
-         <div class='landDivCAA'>X</div>
-         <div class='landDivCAA'>V</div>
+         <div class='landDivCAA'><button style='height:100%; color:rgb(0,255,0,0.8); width:100%; border:none;  outline:none;  background:rgb(255,255,255,0.02);border-radius:15px' onclick='dontBuyAvailableProperty()'>X</button></div>
+         <div class='landDivCAA'><button style='height:100%; color:rgb(0,255,0,0.8);width:100%; border:none; outline:none; background:rgb(255,255,255,0.02);border-radius:15px' onclick='buyAvailableProperty()'>V</button></div>
        </div>
     </div>
 
@@ -5599,16 +5596,9 @@
          
          
          
+               
          
-         
-         
-         
-         
-         
-         
-         
-         
-         </div>
+   </div>
 
         
       
@@ -5909,17 +5899,18 @@
       <div id='propertyLineContainer1' class='propPopupAAB'>
 
 
-         
-
-         
-
+      
          
       </div>
    </div>
 
-   <div class='propPopupAB'>
+   <div class='propPopupAB'style='background:rgb(255,255,255,0.02); border-radius:5px'>
       <div class='propPopupABA'>
-      </div>        
+             future opportunity : false
+      </div>     
+
+       <div class='propPopupABA'>
+      </div>       
    </div>
 
 </div>
@@ -5987,7 +5978,7 @@
        X</div>
       <div class='propPopupButtonsAB'>
      
-        <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='acceptPropositionFromInterface()'></button>
+        <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='refusePropositionFromInterface()'></button>
      
         V</div>
    </div>
@@ -5995,13 +5986,6 @@
 </div>
 
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -8558,25 +8542,27 @@
 
                
 
-       <div class="digitalContainerBCA">
+            
 
-<div class="specialSquare">
-            <img style='height: 25%;width: 25%;'  src="./img/go.png">
+          <div class="digitalContainerBCA">
               
-  <div class='pawnContainer'>
-
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
-
-</div>
-
-
-
-</div>
+              
+              <div class="specialSquare">
+                  <img style='height: 55%;width: auto;'  src="./img/chest.png">
+                    
+              <div class='pawnContainer'>
+                <div id='square0_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square0_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square0_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square0_pawnContainer3' class='pawnContainer3'></div>
+              </div>
+      
+            </div>
+      
+      
+      
+          
+         </div>
 
 
            <div class="digitalContainerBCA">
@@ -8645,13 +8631,26 @@
 
 
 
-        <div class="digitalContainerBCA">
-
-            <div class='specialSquare'>
-             <img style='height: 40%;width: 40%;'  src="./img/cash.png">
+            <div class="digitalContainerBCA">
+              
+              
+              <div class="specialSquare">
+                  <img style='height: 55%;width: auto;'  src="./img/dollar.png">
+                    
+              <div class='pawnContainer'>
+                <div id='square38_pawnContainer0' class='pawnContainer0'></div>
+                <div id='square38_pawnContainer1' class='pawnContainer1'></div>
+                <div id='square38_pawnContainer2' class='pawnContainer2'></div>
+                <div id='square38_pawnContainer3' class='pawnContainer3'></div>
+              </div>
+      
             </div>
-         </div>
-
+      
+      
+      
+          
+             </div>
+      
           <div class="digitalContainerBCA">
                      
                      <div class="digitalContainerBCAA">
@@ -8716,10 +8715,23 @@
 
                
         <div class="digitalContainerBCA">
-
-         <div class='specialSquare'>
-            <img style='height: 30%;width: 30%;'  src="./img/luck.png">
+              
+              
+        <div class="specialSquare">
+            <img style='height: 55%;width: auto;'  src="./img/luck.png">
+              
+        <div class='pawnContainer'>
+          <div id='square36_pawnContainer0' class='pawnContainer0'></div>
+          <div id='square36_pawnContainer1' class='pawnContainer1'></div>
+          <div id='square36_pawnContainer2' class='pawnContainer2'></div>
+          <div id='square36_pawnContainer3' class='pawnContainer3'></div>
         </div>
+
+      </div>
+
+
+
+    
        </div>
 
               

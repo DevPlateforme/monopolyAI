@@ -255,8 +255,8 @@ function movePiece(){
 
                   if(lastDiceLauncher == humanPlayer){
 
-                      displayAvailablePropertyInterface(currentSquare);
-
+                    displayAvailablePropertyPopup(currentSquare);
+                    
                   } else {
 
                      //console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
