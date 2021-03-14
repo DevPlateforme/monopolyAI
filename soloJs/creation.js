@@ -888,14 +888,24 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		
 	}
 
-    
+	let threshold;
+
+	    
+	if(offerer == humanPlayer){
+
+		threshold = thinkerScore;
+	}else {
+
+		threshold = thinkerScoreWithoutCash;
+	}
 
 
-	 if(Number(thinkerScoreWithoutCash) > 0){
+
+	 if(Number(threshold) > 0){
 
 
 
-		//////////////////////////////////////////alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
+	    //alert('the thinkerscore of ' + thinkerScore + ' is higher than 0 ');
 
 		//determine a certain range
 		//IF THINKERSCORE IS higher than otherplayer score * (entre 0.90 et 1.20)

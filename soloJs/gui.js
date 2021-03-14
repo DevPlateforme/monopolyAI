@@ -519,27 +519,27 @@ function closePropositionInterface(){
 
      humanThinking = false;
 
-     document.getElementById('propositionInterface').style.opacity = 0;
-
-     document.getElementById('propositionInterface').style.zIndex = 1;
-
-
-
-
      //INIT PROPOSITION INTERFACE
-
-
-
-     initPropositionInterface();
-
-
 
      //IF THERE IS A BUILDING PROPOSITION , REMOVE IT
 
+     observedPlayer = none;
 
+     
      clearInBuildingProposition();
 
-     observedPlayer = none;
+     document.getElementById('tradeInterfaceDiv').style.display = 'none';
+
+     monopolyBoard.style.opacity = 1;
+
+     clearTradeColor(tradeOfferer, colorArray[displayedOffererColor].units);
+
+     clearTradeColor(tradeAnswerer, colorArray[displayedAnswererColor].units);
+
+     displayedOffererColor = 0;
+
+     displayedAnswererColor = 0;
+
 
 }
 
@@ -686,7 +686,6 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
 
      let offerer = playersArray[offererIndex];
 
-
      let answerer = playersArray[answererIndex];
 
      let property = propertiesList[elementIndex];
@@ -709,10 +708,6 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
       //GET THE INDEX OF THE PROPERTY FOR THE PROPOSITION OBJECT PROTOTYPE. IT IS PASSED AS AN ID WHEN EACH PROPERTY DIV IS CREATED ('DISPLAY' FUCNCTION)
 
 
-     propertyDiv.setAttribute('onclick', 'removeCounterPartAskedFromProposition(event , ' + humanPlayer.playerIndex + ',' + elementIndex + ')');
-
-     propertyDiv.innerHTML = '-';
-
 
 
 
@@ -725,15 +720,14 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
 
 
      if( offerer.inBuildingProposition == none){          
+
           
           
           offerer.inBuildingProposition = {offerer: humanPlayer , answerer: answerer , offer: new Array(27) , counterPartAsked: new Array(27) , offerElementsCount : 0, counterPartAskedElementsCount : 0 };
          
 
+
      }
-
-
-
 
 
 
@@ -741,7 +735,6 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
      offerer.inBuildingProposition.counterPartAsked[elementIndex] = property;
 
 
-     ////alert(property.name + 'added in constant time ! You added ' + offerer.inBuildingProposition.counterPartAsked[elementIndex].name);
 
 
 
@@ -750,6 +743,16 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
 
 
      offerer.inBuildingProposition.counterPartAskedElementsCount++;
+
+     alert(humanPlayer.inBuildingProposition.counterPartAskedElementsCount)
+
+
+
+
+
+     propertyDiv.setAttribute('onclick', 'removeCounterPartAskedFromProposition(event , ' + humanPlayer.playerIndex + ',' + elementIndex + ')');
+
+     propertyDiv.innerHTML = '-';
 
 
 
@@ -823,13 +826,6 @@ function addOfferElement(event, offererIndex, elementIndex ){
           //ON THE GUI
      
      
-          let addButton = event.target;
-     
-          addButton.removeAttribute('onclick');
-     
-          addButton.setAttribute('onclick', 'removeOfferElement(event ,' + offererIndex + ',' + elementIndex + ')');
-     
-          addButton.innerHTML = '-';
      
      
      
@@ -877,6 +873,20 @@ function addOfferElement(event, offererIndex, elementIndex ){
      
      
                offerer.inBuildingProposition.offerElementsCount++;
+
+
+
+
+
+
+               let addButton = event.target;
+     
+               addButton.removeAttribute('onclick');
+          
+               addButton.setAttribute('onclick', 'removeOfferElement(event ,' + offererIndex + ',' + elementIndex + ')');
+          
+               addButton.innerHTML = '-';
+          
      
      
           
@@ -960,7 +970,7 @@ function sendProposition(){
 
      if(IbProposition == none){
 
-          //alert('vous n avez pas crée d offre!');
+          alert('vous n avez pas crée d offre!');
 
      } else{
 
@@ -972,11 +982,11 @@ function sendProposition(){
 
         if (IbProposition.offerElementsCount == 0) {
 
-          //alert('vous n avez rien offert!');
+          alert('vous n avez rien offert!');
 
          } else if (IbProposition.counterPartAskedElementsCount == 0){
 
-          //alert('vous n avez demandé aucun élément!');
+          alert('vous n avez demandé aucun élément!');
 
           //ELSE, VALID PROPOSITION
 
@@ -984,7 +994,7 @@ function sendProposition(){
          } else {
 
 
-          //////alert('proposition sent!');
+          alert('proposition sent!');
 
 
           //DID THE PROPERTIES HASHKEY CHANGE?
@@ -1139,6 +1149,8 @@ function sendProposition(){
 
 
             closePropositionInterface();
+
+            
 
 
         }
@@ -1925,11 +1937,12 @@ function displayTradeDiv(type,player,color){
 
           if(type == tradeOfferer){
 
-               addBtn.setAttribute('onclick', 'addOfferElement(event,' + player.playerIndex + ',' + property.elementIndex + ')' );
+               addBtn.setAttribute('onclick', 'addOfferElement(event,' + humanPlayer.playerIndex + ',' + property.elementIndex + ')' );
+
 
           } else {
 
-               addBtn.setAttribute('onclick', 'addCounterPartAskedElementToProposition(event,' + player.playerIndex + ',' + property.elementIndex + ')' );
+               addBtn.setAttribute('onclick', 'addCounterPartAskedElementToProposition(event,' + humanPlayer.playerIndex + ',' + player.playerIndex + ',' + property.elementIndex + ')' ); 
 
           }
 
@@ -1978,6 +1991,8 @@ function observePlayer(player){
 
      observedPlayer = player;
 
+     observeAi(player);
+
 }
 
 
@@ -2004,9 +2019,6 @@ function clearTradeColor(type, templateNum){
 
 
 function clearPmColor(type, template){
-
-
-
 
 
 }
@@ -2194,3 +2206,6 @@ function closeDrawCardInterface(){
      humanThinking = false;
 
 }
+
+
+

@@ -315,6 +315,7 @@ width: auto;
 
   .propPopupButtonsAA{
 
+     position:relative;
      height:80%;
      width:30%;
      display:flex;
@@ -326,6 +327,7 @@ width: auto;
 
 
   .propPopupButtonsAB{
+     position:relative;
      height:80%;
      width:30%;
      display:flex;

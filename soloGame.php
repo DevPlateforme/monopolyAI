@@ -4170,7 +4170,7 @@
                   
                   <div class='tradeInterfaceBBAA'>
 
-                       <input type="text" name="playerCashInput1" class='cashInput'>
+                       <input type="text" id='cashOffered' name="playerCashInput1" class='cashInput'>
 
                   </div>
 
@@ -4221,7 +4221,7 @@
                    
                   <div class='tradeInterfaceBBAA'>
 
-                       <input type="text" name="playerCashInput2" class='cashInput'>
+                       <input type="text" id='cashAsked' name="playerCashInput2" class='cashInput'>
 
 
                   </div>
@@ -5975,7 +5975,7 @@
     </br>
     </br>
     <button id='acceptPropositionBtn' onclick ='acceptPropositionFromInterface()'>Accepter</button>
-    <button onclick='refusePropositionFromInterface()'>Refuser</button>
+    <button onclick='acceptPropositionFromInterface()'>Refuser</button>
     </br>
     </br>
     </br>
@@ -6104,11 +6104,11 @@
    <div class='propPopupButtonsA'>
       
       <div class='propPopupButtonsAA'>
-      <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='refusePropositionFromInterface()'></button>
+           <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0%' onclick='refusePropositionFromInterface()'></button>
        X</div>
       <div class='propPopupButtonsAB'>
      
-        <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='refusePropositionFromInterface()'></button>
+        <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0%' onclick='acceptPropositionFromInterface()'></button>
      
         V</div>
    </div>
