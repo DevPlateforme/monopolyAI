@@ -1563,41 +1563,6 @@ proposition buttons
 
 
 
- /*
-
-    cards
-
-*/
-
-
-#rentalPropertiesCard{
-
-     position: absolute;
-
-     top: 20vh;
-
-     height: 38vh;
-
-     width: 12vw;
-
-     background : red;
-
-     z-index: 9;
-
-     display: flex;
-
-     flex-direction: column;
-
-     justify-content: space-around;
-     
-     opacity:0;
-
-
-
-}
-
-
-
  /* Community chest square interface */
 
 
@@ -3126,10 +3091,32 @@ Property management interface
   align-items:flex-end; 
   justify-content:space-around; 
   opacity:0.6;
-
-
+  position: relative;
 }
 
+#disabledBuildingDiv{
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height:100%;
+  width:100%;
+  
+}
+
+
+#sellHouseBtnContainer{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#buildHouseBtnContainer{  
+  
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
 
 .pManagementInterfaceMiddle{
     height:95%;
@@ -3373,6 +3360,30 @@ Property management interface
     justify-content:center;
     align-items:center;
   }
+
+  .HouseBuildingBtn{
+
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: rgb(0,255,0,0.8);
+  }
+
+  #houseBuildingBtnA{
+
+    font-size: 1.3vw;
+
+  }
+
+  #houseBuildingBtnB{
+
+    font-size: 1vw;
+
+    
+  }
+
+
 
 
   .houseBuildingDivBBAB{

@@ -12,9 +12,7 @@ function init(){
      //buildBoard();  
      //setColorScores();
 
-     //givePlayersPropertiesForDemo()
 
-     //wakeUpAis();
 
 
 
@@ -26,7 +24,7 @@ function init(){
       );
       
 
-      //givePlayersPropertiesForDemo()
+      
 
 
          
@@ -73,7 +71,13 @@ function init(){
       
      //givePlayersPropertiesForDemo();
      
-     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex'},3000)     
+     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex';      wakeUpAis(); givePlayersPropertiesForDemo() },3000)     
+
+
+
+    
+
+    
 
       
   
@@ -144,18 +148,18 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer, bdDeLaVillette);
-     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
-     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
+     addPropertyToPlayerWallet(ai3, bdDeLaVillette);
+     addPropertyToPlayerWallet(humanPlayer, belleville);
+     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
+
+
 
 
      
-     addPropertyToPlayerWallet(ai1, rueDuParadis);
-     addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);     
-     addPropertyToPlayerWallet(ai1, belleville);
+     addPropertyToPlayerWallet(ai3, rueDuParadis);
+     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);     
 
 
-     addPropertyToPlayerWallet(ai3 , rueLecourbe);
      addPropertyToPlayerWallet(ai3 , placeDeLaBourse);
      addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
 

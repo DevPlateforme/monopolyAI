@@ -137,7 +137,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			if((refundableMortgageBeforeOffer(answerer, counterPartAsked.array[cpaIndex] ) == true)){
 
-				closeMortgage(counterPartAsked.array[cpaIndex]);
+				closeMortgageFromThinking(counterPartAsked.array[cpaIndex]);
 
 				cpaofferMortgagesToClose.push(counterPartAsked.array[cpaIndex]);
 										 
@@ -295,7 +295,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 						if((refundableMortgageBeforeOffer(offerer, offerArray[0][offerIndex] ) == true)){
 
-							closeMortgage(offerArray[0][offerIndex] );
+							closeMortgageFromThinking(offerArray[0][offerIndex] );
 
 							offerMortgagesToClose.push(offerArray[0][offerIndex]);
                                                      

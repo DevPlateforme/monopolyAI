@@ -4573,7 +4573,7 @@
          <div class='squareCardAAAA'>
 
          <div class="cardGraphContainer">
-           <canvas id="pmTopDiv_propertyTemplate_2_property_0_canvas1" width="100" height="100"></canvas>  
+           <canvas id="pmTopDiv_propertyTemplate_3_property_0_canvas1" width="100" height="100"></canvas>  
          </div>
                   
       
@@ -5511,7 +5511,7 @@
                    <div class='pManagementInterfaceABBA'>
 
 
-                       <div class='pManagementInterfaceABBAA' style='width:33%; height:100%; display:flex; flex-direction:column'>
+                       <div class='pManagementInterfaceABBAA' style='width:33%; height:100%; display:flex; flex-direction:column; align-items:center;justify-content:space-between'>
 
                               <div class='pManagementInterfaceABBAAA' style='height:20%;width:100%; display:flex; flex-direction:row; justify-content: space-around'> 
 
@@ -5562,7 +5562,7 @@
                             </div>
 
                               </div>
-                               <div class='pManagementInterfaceABBAAB' id='pmGraphContainer1' style='height:60%;width:100%; display:flex; flex-direction:column; align-items:center'>
+                               <div class='pManagementInterfaceABBAAB' id='pmGraphContainer1' style='height:60%;width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center'>
 
                                     <canvas id='pmBottom_pmGraph1' width="100" height="100"></canvas>
 
@@ -5577,20 +5577,18 @@
 
 
 
-                              <div  class='pManagementInterfaceABBABB' id='pmGraphContainer2'  style=' height:60%; width: 100%;display:flex; flex; flex-direction:row; justify-content:flex-end; align-items:center'>
+                              <div  class='pManagementInterfaceABBABB' id='pmGraphContainer2'  style=' height:60%; width: 100%;display:flex; flex; flex-direction:row; justify-content:center; align-items:center'>
                                             <canvas id='pmBottom_pmGraph2' width="100" height="100"></canvas>
-
-
 
                               </div>
                       
                        </div>
 
-                       <div class='pManagementInterfaceABBAC' style='width:33%; height:100%; display:flex; flex-direction:column'>
+                       <div class='pManagementInterfaceABBAC' style='width:33%; height:100%; display:flex; flex-direction:column; align-items:center;justify-content:flex-start'>
 
                              <div class='pManagementInterfaceABBACA' style=' height:20%; width: 100%; display:flex;  justify-content:center; align-items:center'>avg.cost</div>
-                             <div class='pManagementInterfaceABBACB'  id='pmGraphContainer' style='height:60%; width: 100%; display:flex;  justify-content:center; align-items:center'>
-                                    <canvas id='pmBottom_pmGraph3' width="100" height="50"></canvas>
+                             <div class='pManagementInterfaceABBACB'  id='pmGraphContainer' style='height:60%; width: 100%; display:flex;  justify-content:center; align-items:center; margin-top:15%'>
+                                    <canvas id='pmBottom_pmGraph3' width="100" height="55"></canvas>
                                  
 
                              </div>
@@ -5599,7 +5597,7 @@
     
                   </div>
   
-                  <div class='houseBuildingDiv'>
+                  <div class='houseBuildingDiv' id='houseBuildingContainer'>
                          <div class='houseBuildingDivA'>
                             <img id='houseLogo' src="./img/redHouse.png">
                          </div>
@@ -5612,14 +5610,16 @@
                             <div class='houseBuildingDivBA' >
 
                               
-                  <div class = 'pmHouseGraph'>
+                  <div class = 'pmHouseGraph' >
+
+                       <div id='disabledBuildingDiv' ></div>
                       
-                      <div class='rpSquareBA1' id='pmHouseGraph_1' style='background:rgb(0,191,255); height:6.8% width:6%'></div>
-                      <div class='rpSquareBA1' id='pmHouseGraph_2' style='background:rgb(0,191,255); height:13.2% width:6%'></div>
-                      <div class='rpSquareBA1' id='pmHouseGraph_3' style='background:rgb(0,191,255); height:19.8%; width:6%'></div>
-                      <div class='rpSquareBA1' id='pmHouseGraph_4' style='background:rgb(0,191,255); height:25.5%; width:6%'></div>
-                      <div class='rpSquareBA1' id='pmHouseGraph_5' style='background:rgb(0,191,255); height:31%; width:6%'></div>
-                      <div class='rpSquareBA1' id='pmHouseGraph_6' style='background:rgb(0,191,255); height:37.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_1' style='background:rgb(128,0,0); height:9%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_2' style='background:rgb(128,0,0); height:15.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_3' style='background:rgb(128,0,0,0.3); height:21.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_4' style='background:rgb(128,0,0,0.3); height:25.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_5' style='background:rgb(128,0,0,0.3); height:31%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_6' style='background:rgb(128,0,0,0.3); height:37.5%; width:6%'></div>
                       <div class='rpSquareBA1' id='pmHouseGraph_7' style='background:rgb(128,0,0, 0.3); height:44.5%; width:6%'></div>
                       <div class='rpSquareBA1' id='pmHouseGraph_8' style='background:rgb(128,0,0, 0.3); height:51.5%; width:6%'></div>
                       <div class='rpSquareBA1' id='pmHouseGraph_9' style='background:rgb(128,0,0, 0.3); height:58%; width:6%'></div>
@@ -5638,8 +5638,8 @@
                             </div>
                             <div class='houseBuildingDivBB'>
                               <div class='houseBuildingDivBBA'>
-                                <div class='houseBuildingDivBBAA'>-</div>
-                                <div class='houseBuildingDivBBAB'>+</div>                               
+                                <div class='houseBuildingDivBBAA'><button id='houseBuildingBtnA' class='HouseBuildingBtn' onclick='sellHouseFromInterface()'>-</button></div>
+                                <div class='houseBuildingDivBBAB'><button id='houseBuildingBtnB' class='HouseBuildingBtn' onclick='buildHouseFromInterface()'>+</button></div>                               
                               </div>
                             </div>
 
@@ -5683,76 +5683,77 @@
         <div class='pManagementInterfaceAC'>
 
                 
-	<div class='detailPropertyCard' id='boardDetailCard'>
-		<div class='detailPropertyCardA'>
-			<div class='detailPropertyCardAA'>
-				<div class='detailPropertyCardAAA'>
-					<div class='detailPropertyCardAAAA'>
-                     <img class='locationCardImg' src="./img/location.png">
+
+
+
+        <div class="detailPropertyCard">
+		<div class="detailPropertyCardA">
+			<div class="detailPropertyCardAA">
+				<div class="detailPropertyCardAAA">
+					<div class="detailPropertyCardAAAA">
+                     <img class="locationCardImg" src="./img/location.png">
 								</div>
-					<div class='detailPropertyCardAAAB'>
-						<div class='detailPropertyCardAAABA'>
+					<div class="detailPropertyCardAAAB">
+						<div class="detailPropertyCardAAABA" id='intCardDetailLocation'>
 							 n°34
 						</div>
 					</div>
 				</div>
 
-               <div class='detailPropertyCardAAA'>
-                        <div class='detailPropertyCardAAAA'>
-                            <img class='dollarCardImg' src="./img/dollar.png">
+               <div class="detailPropertyCardAAA">
+                        <div class="detailPropertyCardAAAA">
+                            <img class="dollarCardImg" src="./img/dollar.png">
                         </div>
-                    <div class='detailPropertyCardAAAB'>
-                        <div class='detailPropertyCardAAABA'>
+                    <div class="detailPropertyCardAAAB">
+                        <div class="detailPropertyCardAAABA" id='intCardDetail_minRent'> 
                            $30
                         </div>
                     </div>
                 </div>				
 			</div>
+			<div class="detailPropertyCardAB">
 
-			<div class='detailPropertyCardAB'>
-
-                 <div class='detailPropertyCardABA'>
-                     <div class='detailPropertyCardABAA'>
-                       <img src="./img/redHouse.png" class='cardHouseHeader'>
+                 <div class="detailPropertyCardABA">
+                     <div class="detailPropertyCardABAA">
+                       <img src="./img/redHouse.png" class="cardHouseHeader">
                      </div>
                  </div>
 
 
-                 <div class='detailPropertyCardABB'>
+                 <div class="detailPropertyCardABB">
 
-                        <div class='detailPropertyCardABBA'>
+                        <div class="detailPropertyCardABBA">
                              
-                              <div class='detailPropertyCardABBAA'>
-                                    <div class='detailPropertyCardABBAAA'>
-                                        <div class='detailPropertyCardABBAAAA' style='height:95%;width:15%;background:red'></div>
+                              <div class="detailPropertyCardABBAA">
+                                    <div class="detailPropertyCardABBAAA">
+                                        <div class="detailPropertyCardABBAAAA"  id='intCardDetailBar1' style="height:95%;width:15%;background:red"></div>
                                     </div>
-                                    <div class='detailPropertyCardABBAAB' >$50</div>
+                                    <div class="detailPropertyCardABBAAB" id='intCardDetail_house1'>$50</div>
                               </div> 
-                              <div class='detailPropertyCardABBAA'>
-                                    <div class='detailPropertyCardABBAAA'>
-                                        <div class='detailPropertyCardABBAAAA' style='height:95%;width:35%;background:red'></div>
+                              <div class="detailPropertyCardABBAA">
+                                    <div class="detailPropertyCardABBAAA">
+                                        <div class="detailPropertyCardABBAAAA"  id='intCardDetailBar2' style="height:95%;width:35%;background:red"></div>
                                     </div>
-                                    <div class='detailPropertyCardABBAAB'>$200</div>
+                                    <div class="detailPropertyCardABBAAB" id='intCardDetail_house2'>$200</div>
                               </div> 
-                              <div class='detailPropertyCardABBAA'>
-                                 <div class='detailPropertyCardABBAAA'>
-                                       <div class='detailPropertyCardABBAAAA' style='height:95%;width:55%;background:red'></div>
+                              <div class="detailPropertyCardABBAA">
+                                 <div class="detailPropertyCardABBAAA">
+                                       <div class="detailPropertyCardABBAAAA"  id='intCardDetailBar3' style="height:95%;width:55%;background:red"></div>
 
                                  </div>
-                                 <div class='detailPropertyCardABBAAB'>$350</div>
+                                 <div class="detailPropertyCardABBAAB" id='intCardDetail_house3'>$350</div>
                               </div> 
-                              <div class='detailPropertyCardABBAA'>
-                                    <div class='detailPropertyCardABBAAA'>
-                                        <div class='detailPropertyCardABBAAAA' style='height:95%;width:75%;background:red'></div>
+                              <div class="detailPropertyCardABBAA">
+                                    <div class="detailPropertyCardABBAAA">
+                                        <div class="detailPropertyCardABBAAAA" id='intCardDetailBar4' style="height:95%;width:75%;background:red"></div>
                                     </div>
-                                    <div class='detailPropertyCardABBAAB'>$400</div>
+                                    <div class="detailPropertyCardABBAAB" id='intCardDetail_house4'>$400</div>
                               </div> 
-                              <div class='detailPropertyCardABBAA'>
-                                   <div class='detailPropertyCardABBAAA'>
-                                          <div class='detailPropertyCardABBAAAA' style='height:95%;width:95%;background:red'></div>
-
+                              <div class="detailPropertyCardABBAA">
+                                   <div class="detailPropertyCardABBAAA">
+                                          <div class="detailPropertyCardABBAAAA" id='intCardDetailBar5'style="height:95%;width:95%;background:red"></div>
                                    </div>
-                                   <div class='detailPropertyCardABBAAB'>$800</div>
+                                   <div class="detailPropertyCardABBAAB" id='intCardDetail_house5'>$800</div>
                               </div> 
 
                         </div>
@@ -5762,64 +5763,64 @@
 
             </div>
 
-			<div class='detailPropertyCardAC'>
+			<div class="detailPropertyCardAC">
      
-            <div class='detailPropertyCardACA'>
-                <div class='detailPropertyCardACAA'>color:green</div>
-                <div class='detailPropertyCardACAA'>landlord:none</div>
-                <div class='detailPropertyCardACAA'>R.de la paix</div>
+            <div class="detailPropertyCardACA">
+                <div class="detailPropertyCardACAA" id='intCardDetail_color'>color:green</div>
+                <div class="detailPropertyCardACAA">landlord:none</div>
+                <div class="detailPropertyCardACAA" id='intCardDetail_name'>R.de la paix</div>
             </div>
       
       </div>
 		  
 		 </div>
 
-		<div class='detailPropertyCardB'>
+		<div class="detailPropertyCardB">
 
-         <div class='detailPropertyCardBA'>
-           <div class='detailPropertyCardBAA'>
-             <div class='locationCardLegend'></div>
-               <div class='detailPropertyCardBAAB'>
+         <div class="detailPropertyCardBA">
+           <div class="detailPropertyCardBAA">
+             <div class="locationCardLegend"></div>
+               <div class="detailPropertyCardBAAB">
                   location
                </div>
            </div>
 
 
-           <div class='detailPropertyCardBAB'>
-                 <div class='detailPropertyCardBABA'></div>
-                 <div class='detailPropertyCardBABB'>min.rent</div>
+           <div class="detailPropertyCardBAB">
+                 <div class="detailPropertyCardBABA"></div>
+                 <div class="detailPropertyCardBABB">min.rent</div>
            </div>
 
 
          </div>
 
 
-         <div class='detailPropertyCardBB'>
+         <div class="detailPropertyCardBB">
 
-           <div class='detailPropertyCardBBHeader'>
+           <div class="detailPropertyCardBBHeader">
 
-               <div class='detailPropertyCardBBHeaderA'>
+               <div class="detailPropertyCardBBHeaderA">
                    mortgage
                </div>
              
            </div>
 
-          <div class='detailPropertyCardBBBottom'>
+          <div class="detailPropertyCardBBBottom">
 
-             <div class='detailPropertyCardBBA'>
-                 <div class='detailPropertyCardBBAA'>
-                     <canvas id='mortgageCanvas1' height='100' width='100'></canvas>
+             <div class="detailPropertyCardBBA">
+                 <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                     <canvas id="intCardDetail_mortgageCanvas1" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
                  </div>
-                 <div class='detailPropertyCardBBAB'>
+                 <div class="detailPropertyCardBBAB">
                     $300
                  </div>
              </div>
-               <div class='detailPropertyCardBBA'>
-                 <div class='detailPropertyCardBBAB'>
+               <div class="detailPropertyCardBBA">
+                 <div class="detailPropertyCardBBAB">
                     $300 
                  </div>
-                  <div class='detailPropertyCardBBAA'>
-                     <canvas id='mortgageCanvas2' height='100' width='100'></canvas>
+                  <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                     <canvas id="intCardDetail_mortgageCanvas2" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
                  </div>
                 
              </div>
@@ -5830,11 +5831,11 @@
 
          </div>
          
-         <div class='detailPropertyCardBC'>
+         <div class="detailPropertyCardBC">
            
-             <div class='detailPropertyCardBCA'>
-                <div class='detailPropertyCardBCAA'>$</div>
-                <div class='detailPropertyCardBCAB'>400</div>
+             <div class="detailPropertyCardBCA">
+                <div class="detailPropertyCardBCAA">$</div>
+                <div class="detailPropertyCardBCAB" id='intCardDetail_squareValue'>400</div>
 
              </div>
        
@@ -5845,13 +5846,10 @@
 		</div>
 
 	</div>
-
-
-
              
 
         </div>
-      </div>
+     </div>
   
       <div class='pManagementInterfaceB'>
   
@@ -9907,60 +9905,6 @@
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <div id='rentalPropertiesCard'>
-
-
-   </div>
-
-   
-   <div id='trainsCard'>
-
-
-   </div>
-
-     
-   <div id='specialSquaresCard'>
-
-
-   </div>
 
 
 

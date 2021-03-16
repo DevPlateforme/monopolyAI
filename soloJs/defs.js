@@ -381,15 +381,31 @@ function getPotentialMortgagesValue(player){
 function closeMortgage(property){
 
 
-     property.mortgaged = false;
+     if(property.landLord.cash >= property.mortgageValue){
 
-     property.landLord.cash -= property.mortgageValue;
+         property.mortgaged = false;
+         property.landLord.cash -= property.mortgageValue;
+         property.landLord.mortgages -= 1;
+         addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name);
 
-     property.landLord.mortgages -= 1;
+     } else {
+
+        
+       alert('you dont have enough cash to close this mortgage!');
+
+     }
 
 
-     //boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just close the mortgage for the property ' + property.name);
+}
 
+
+function closeMortgageFromThinking(property){
+
+  property.mortgaged = false;
+
+  property.landLord.cash -= property.mortgageValue;
+
+  property.landLord.mortgages -= 1;
 
 }
 
@@ -416,20 +432,34 @@ function reverseMortgageClosing(property){
 
 function buildHouse(property){
 
-     property.landLord.propertiesByColor[property.color.index].houses += 1;
-
-     property.houses += 1;
-
-     property.landLord.cash -= property.houseValue;
-
-     boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
+     if(property.houses >= maxHouseNum){
 
 
-     ////alert(property.landLord.name + ' just built a house on ' + property.name);
+         alert('you reached the maximum number of houses on this property');
 
-     //buildHouseOnGui(property);
+         return;
 
-     addNotif('<br>' + property.landLord.name + ' just built a house on the property ' + property.name);
+
+     }
+
+     if(property.mortgaged == true){
+
+      alert('to build a house, you need to unmortgage this property');
+
+     } else {
+
+      property.landLord.propertiesByColor[property.color.index].houses += 1;
+      
+      property.houses += 1;
+
+      property.landLord.cash -= property.houseValue;
+
+      boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
+
+      addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
+ 
+
+     }
 
 
 
@@ -829,7 +859,7 @@ function monopolyCheck(player , color){
   let properties = player.propertiesByColor[color.index].properties;
 
 
-  if(properties[0].type == rentalProperty){
+  if(color != black && color != publicServicesColor){
       
      if(color == darkBlue || color == brown){
 
@@ -981,7 +1011,7 @@ function getMortgage(property){
 
         boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
 
-        addNotif('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
+        addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name);
 
 
   }
@@ -1072,7 +1102,7 @@ function playerInBankruptcy(player){
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
 
-        addNotif('<br> the player ' + player.name + ' went out from bankruptcy');
+        addNotif('<br> the player ' + player.name + ' found enough cash to go out from bankruptcy');
 
         
        }

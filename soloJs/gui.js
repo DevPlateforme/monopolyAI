@@ -1,6 +1,5 @@
 //Create the GUI
 
-
 var gameBoard = document.getElementById('monopolyBoard');
 var aisAndBoardDiv = document.getElementById('aisAndBoard');
 var availablePropertyInterface = document.getElementById('availablePropertyInterface');
@@ -1294,12 +1293,12 @@ function displayPM(){
      humanThinking = true;
 
 
-     buildPmGraphs(brown);
+
+     displayPmBottomDiv();
 
      
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='#6b6df2';
-
      document.getElementById('playerPropertiesManagementInterface').style.display = 'flex';
 
 
@@ -1311,8 +1310,10 @@ function displayPM(){
 
      }, 400);
 
-     
-     displayTradeDiv(pmTop,humanPlayer,brown);
+
+     displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
+
+
 
 }
 
@@ -1322,12 +1323,23 @@ function getMortgageFromInterface(elementIndex){
 
      let property = propertiesList[elementIndex];
 
+     if(monopolyCheck(humanPlayer, colorArray[displayedPmColor]) == true && getNextHouseSlotToSell(humanPlayer, colorArray[displayedPmColor]).houses > 0) {
+
+            alert('You cant receive cash from the mortgage of this property. You need to sell all the houses first');
+
+            return;
+
+     }
+
+    
+
      getMortgage(property);
+
+     clearTradeColor(pmTop, colorArray[displayedPmColor].units);
+
+     displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
      
-     initPropertiesManagementInterface();
-
-     displayPM();
-
+     displayPmBottomDiv();
 }
 
 
@@ -1339,9 +1351,11 @@ function closeMortgageFromInterface(elementIndex){
 
      closeMortgage(property);
      
-     initPropertiesManagementInterface();
+     clearTradeColor(pmTop, colorArray[displayedPmColor].units);
 
-     displayPM();
+     displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
+     
+     displayPmBottomDiv();
 
 }
 
@@ -1410,31 +1424,76 @@ function displayInterfaces(){
      document.getElementById('closeInterfaceBtn').style.display = 'flex';
 
 
-     
-
-     
-
-     buildMortgageCanvas1(mortgageCanvas2);
-
-
-     buildMortgageCanvas2(mortgageCanvas1);
 
      
 }
 
 
 
-function buildHouseFromInterface(colorIndex){
+function buildHouseFromInterface(){
 
-    buildHouse(getNextHouseSlotToBuild(humanPlayer , colorArray[colorIndex]));
+
+      if(monopolyCheck(humanPlayer, colorArray[displayedPmColor]) == false){
+
+          alert("you didnt complete a monopoly for this color");
+
+          return;
+
+      } 
+
+      if(checkForMortgageInMonopoly(humanPlayer.propertiesByColor[displayedPmColor].properties) == true){         
+           
+          
+          alert("you cant build there , you need to close all pending mortgaged for this color");
+          
+          return;
+
+
+      }
+
+
+     
+          
+          buildHouse(getNextHouseSlotToBuild(humanPlayer , colorArray[displayedPmColor]));
+
+          displayPmBottomDiv();
+
+     
 
 }
 
 
 
-function sellHouseFromInterface(colorIndex){
+function sellHouseFromInterface(){  
      
-     sellHouse(getNextHouseSlotToSell(humanPlayer , colorArray[colorIndex]));
+     let nextHouseSlot;
+
+
+     if(monopolyCheck(humanPlayer, colorArray[displayedPmColor]) == true){ 
+
+          
+      nextHouseSlot = getNextHouseSlotToSell(humanPlayer , colorArray[displayedPmColor]);
+
+
+         if(nextHouseSlot.houses != 0){
+             sellHouse(nextHouseSlot);
+             displayPmBottomDiv();
+
+          } else {
+
+             alert ("There are no houses to sell");
+          
+          }
+
+
+     } else {
+
+          alert("You can't sell, you dont have a monopoly");
+     
+     }
+     
+   
+
  
  }
  
@@ -1617,6 +1676,9 @@ function displayNextPmColor(){
 
 
      displayTradeDiv(pmTop,humanPlayer, colorArray[displayedPmColor]);
+
+     displayPmBottomDiv();
+
 
 
 }
@@ -1999,13 +2061,28 @@ function displayTradeDiv(type,player,color){
 
 
                let mortgageBtn = document.createElement('button');
-               mortgageBtn.innerHTML = 'm';
-               mortgageBtn.setAttribute("class", "mortgageBtn");
 
+               if(property.mortgaged == false){
+
+                    
+                    mortgageBtn.innerHTML = 'm';
+                    mortgageBtn.setAttribute("class", "mortgageBtn");
+                    mortgageBtn.setAttribute("onclick" , "getMortgageFromInterface(" + property.elementIndex + ")");
+     
+
+
+               } else {
+
+                    mortgageBtn.innerHTML = 'u';
+                    mortgageBtn.setAttribute("class", "mortgageBtn");
+                    mortgageBtn.setAttribute("onclick" , "closeMortgageFromInterface(" + property.elementIndex + ")");
+
+               }
 
 
                let infoBtn = document.createElement('button');
                infoBtn.setAttribute("class", "infoBtn");
+               infoBtn.setAttribute("onclick" , "displayIntCard(" + property.elementIndex + ")");
                infoBtn.innerHTML = 'i';
 
 
@@ -2036,7 +2113,10 @@ function displayTradeDiv(type,player,color){
                               
             }
 
+            
+
             buildRightColorGraph(type , player, color);
+
             
        },100);
        
@@ -2150,8 +2230,8 @@ function displayAvailablePropertyPopup(square){
            displayDetailCard(availableProperty,square)
 
      
-          buildMortgageCanvas1(availablePropertyMortgageCanvas1);
-          buildMortgageCanvas2(availablePropertyMortgageCanvas2);
+          buildMortgageCanvas1(availableProperty);
+          buildMortgageCanvas2(availableProperty);
 
 
        
@@ -2214,7 +2294,7 @@ function displayDetailCard(type,square){
 
                document.getElementById(type+'Bar5').style.opacity = 1;
                document.getElementById(type+'Bar5').style.background = square.color.name;
-               document.getElementById(type+'_house5').innerHTML  = square.rentHouse5;
+               document.getElementById(type+'_house5').innerHTML  = square.rentHotel;
 
 
           } else if(square.type == trainStation){
@@ -2246,7 +2326,6 @@ function displayDetailCard(type,square){
           } else {
 
                document.getElementById(type+'_name').innerHTML = 'name: ps.';
-
 
                document.getElementById(type+'_minRent').innerHTML = '$10';
 
@@ -2288,9 +2367,72 @@ function displayDetailCard(type,square){
 
 function displayPmBottomDiv(){
 
+     
      //count the number of houses of the displayed color
 
+     let houseCount = 0;
+
+     let properties =  humanPlayer.propertiesByColor[displayedPmColor].properties;
 
 
+     if(colorArray[displayedPmColor] != black && colorArray[displayedPmColor] != publicServicesColor){
+
+          document.getElementById('disabledBuildingDiv').style.display = 'none';
+          document.getElementById('houseBuildingContainer').style.opacity = 1;
+
+
+          for (var i=0; i < properties.length; i++){
+
+               houseCount += properties[i].houses;
+
+          }
      
+          
+          for(var i=1; i < 16 ; i++){
+     
+               document.getElementById('pmHouseGraph_' + i).style.background = colorArray[displayedPmColor].opacityOffCode;
+     
+          }
+     
+     
+          for(var i=1; i < houseCount+1 ; i++){
+     
+               document.getElementById('pmHouseGraph_' + i).style.background = colorArray[displayedPmColor].opacityOnCode;
+     
+          }
+     
+
+
+     } else {
+
+          document.getElementById('disabledBuildingDiv').style.display = 'flex';
+          document.getElementById('houseBuildingContainer').style.opacity = 0.2;
+
+     }
+
+
+     buildPmGraphs(colorArray[displayedPmColor]);
+
+
+
+
+    
+
+}
+
+
+
+
+
+
+
+function displayIntCard(propertyIndex){
+
+
+     let property = propertiesList[propertyIndex];
+
+     displayDetailCard(intCardDetail, property);
+
+
+
 }

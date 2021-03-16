@@ -968,8 +968,8 @@ function buildPmGraph3(color){
 
 function buildTradeCardHouseCostGraph(type,color,propertyNum){
 
-
       let context = document.getElementById(type + 'Div_propertyTemplate_' + color.units + '_property_' + propertyNum.toString() +'_canvas1').getContext('2d'); 
+      
       let circleBackgroundColor;
       let circleColor;
 
@@ -1034,6 +1034,7 @@ function buildTradeCardHouseCostGraph(type,color,propertyNum){
 
 
 function buildTradeCardGraphMaxRent(type,player,color,propertyNum){
+
 
     let context = document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + propertyNum + '_canvas2').getContext('2d'); 
 
@@ -1337,22 +1338,15 @@ function buildRightColorGraph(type , player, color){
 
 
 
- var mortgageCanvas1 = document.getElementById('mortgageCanvas1').getContext('2d');   
-
- var mortgageCanvas2 = document.getElementById('mortgageCanvas2').getContext('2d');
-
-
- var availablePropertyMortgageCanvas1 = document.getElementById('availableProperty_mortgageCanvas1').getContext('2d');
-
- var availablePropertyMortgageCanvas2 = document.getElementById('availableProperty_mortgageCanvas2').getContext('2d');
 
 
 
 
 
- function buildMortgageCanvas1(context){
 
+ function buildMortgageCanvas1(type){
 
+  let context = document.getElementById(type+'_mortgageCanvas1').getContext('2d');
    
    let chart = new Chart(context, {
 
@@ -1403,8 +1397,9 @@ function buildRightColorGraph(type , player, color){
 
 
 
- function buildMortgageCanvas2(context){
+ function buildMortgageCanvas2(type){
 
+  let context = document.getElementById(type+'_mortgageCanvas2').getContext('2d');
 
    
    let chart = new Chart(context, {
