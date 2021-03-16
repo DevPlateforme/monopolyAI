@@ -500,15 +500,17 @@ function observeAi(ai){
 function displayPropositionInterface(){
 
      humanThinking = true;
+     document.getElementById('projectBody').style.transition = 'none';
+     document.getElementById('projectBody').style.background='#6b6df2';
+
+
+
 
      displayTradeDiv(tradeOfferer,humanPlayer,colorArray[displayedOffererColor]);
      document.getElementById('playerChoiceDiv').style.display = 'flex';
      document.getElementById('tradeInterfaceDiv').style.display = 'flex';
 
-     setTimeout(function(){
-          document.getElementById('projectBody').style.background='#6b6df2';
-     },500)
-
+    
 
   }   
 
@@ -523,14 +525,16 @@ function closePropositionInterface(){
 
      //IF THERE IS A BUILDING PROPOSITION , REMOVE IT
 
+     document.getElementById(ai1.name + '_avatar').style.opacity = '0.2';
+     document.getElementById(ai2.name + '_avatar').style.opacity = '0.2';
+     document.getElementById(ai3.name + '_avatar').style.opacity = '0.2';
+
+
+
      observedPlayer = none;
 
      
      clearInBuildingProposition();
-
-     document.getElementById('tradeInterfaceDiv').style.display = 'none';
-
-     monopolyBoard.style.opacity = 1;
 
      clearTradeColor(tradeOfferer, colorArray[displayedOffererColor].units);
 
@@ -1147,9 +1151,7 @@ function sendProposition(){
 
             };
 
-
-            closePropositionInterface();
-
+            closeInterfaces();
             
 
 
@@ -1292,17 +1294,25 @@ function displayPM(){
      humanThinking = true;
 
 
-     document.getElementById('pmTopDiv_propertyTemplate_2_property_0_container').style.display = 'flex';
-     document.getElementById('playerPropertiesManagementInterface').style.display = 'flex';
-     
-     displayTradeDiv(pmTop,humanPlayer,brown);
-
      buildPmGraphs(brown);
+
+     
+     document.getElementById('projectBody').style.transition = 'none';
+     document.getElementById('projectBody').style.background='#6b6df2';
+
+     document.getElementById('playerPropertiesManagementInterface').style.display = 'flex';
 
 
      setTimeout(function(){
-          document.getElementById('projectBody').style.background='#B0C4DE';
-     }, 600)
+          
+       document.getElementById('pmBottom_pmGraph1').style.display = 'flex';
+       document.getElementById('pmBottom_pmGraph2').style.display = 'flex';
+       document.getElementById('pmBottom_pmGraph3').style.display = 'flex';
+
+     }, 400);
+
+     
+     displayTradeDiv(pmTop,humanPlayer,brown);
 
 }
 
@@ -1313,7 +1323,6 @@ function getMortgageFromInterface(elementIndex){
      let property = propertiesList[elementIndex];
 
      getMortgage(property);
-
      
      initPropertiesManagementInterface();
 
@@ -1354,11 +1363,27 @@ function closeInterfaces(){
 
      
      document.getElementById('tradeInterfaceDiv').style.display = 'none';
+     closePropositionInterface();
      document.getElementById('playerPropertiesManagementInterface').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph1').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph2').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph3').style.display = 'none';
+
 
 
      document.getElementById('closeInterfaceBtn').style.display = 'none';
+
+     document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='darkblue';
+
+     setTimeout(function(){
+
+          document.getElementById('projectBody').style.transition = 'all 1s ease';
+
+
+     }, 500);
+
+
 
      //init displayed colors 
 
@@ -1373,6 +1398,8 @@ function closeInterfaces(){
 function displayInterfaces(){
 
      humanThinking = true;
+
+     monopolyBoard.style.transition = 'all 1s ease';
 
      monopolyBoard.style.opacity = 0.15;
 
@@ -1576,15 +1603,20 @@ function launchThinkingAnimation(ai){
 
 function displayNextPmColor(){
 
-     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'none';
+
+     clearTradeColor(pmTop, colorArray[displayedPmColor].units);
+
+     
 
      if(displayedPmColor == 9){
           displayedPmColor = 0;
      } else {
+
           displayedPmColor++;
      }
 
-     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'flex';
+
+     displayTradeDiv(pmTop,humanPlayer, colorArray[displayedPmColor]);
 
 
 }
@@ -1592,16 +1624,19 @@ function displayNextPmColor(){
 
 function displayPreviousPmColor(){
 
-     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'none';
+     clearTradeColor(pmTop, colorArray[displayedOffererColor].units);
 
+     
 
      if(displayedPmColor == 0){
           displayedPmColor = 9;
      } else {
+
           displayedPmColor--;
      }
 
-     document.getElementById('pmTop_' + colorArray[displayedPmColor].name).style.display = 'flex';
+
+     displayTradeDiv(pmTop,humanPlayer, colorArray[displayedOffererColor]);
 
 
 }
@@ -1916,9 +1951,11 @@ function addNotif(content){
 function displayTradeDiv(type,player,color){
 
 
+
      //either , add a square , or add 
 
      let property;
+     
 
 
        for(var i=0; i < player.propertiesByColor[color.index].properties.length ; i++){
@@ -1932,26 +1969,53 @@ function displayTradeDiv(type,player,color){
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_mortgaged').innerHTML = ('mortgaged:' + property.mortgaged);
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_location').innerHTML = ('n°' + property.square);
 
+         
 
-          let addBtn = document.createElement('button');
+           
+          if(type != pmTop){
 
-          if(type == tradeOfferer){
 
-               addBtn.setAttribute('onclick', 'addOfferElement(event,' + humanPlayer.playerIndex + ',' + property.elementIndex + ')' );
+               let addBtn = document.createElement('button');
+     
+               if(type == tradeOfferer){
+     
+                    addBtn.setAttribute('onclick', 'addOfferElement(event,' + humanPlayer.playerIndex + ',' + property.elementIndex + ')' );
+     
+     
+               } else {
+     
+                    addBtn.setAttribute('onclick', 'addCounterPartAskedElementToProposition(event,' + humanPlayer.playerIndex + ',' + player.playerIndex + ',' + property.elementIndex + ')' ); 
+     
+               }
+     
+               addBtn.setAttribute('class' , 'cardBtn');
+     
+               addBtn.innerHTML = '+';
+
+               document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_btnContainer').append(addBtn);
 
 
           } else {
 
-               addBtn.setAttribute('onclick', 'addCounterPartAskedElementToProposition(event,' + humanPlayer.playerIndex + ',' + player.playerIndex + ',' + property.elementIndex + ')' ); 
+
+               let mortgageBtn = document.createElement('button');
+               mortgageBtn.innerHTML = 'm';
+               mortgageBtn.setAttribute("class", "mortgageBtn");
+
+
+
+               let infoBtn = document.createElement('button');
+               infoBtn.setAttribute("class", "infoBtn");
+               infoBtn.innerHTML = 'i';
+
+
+               document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_btnContainer').append(mortgageBtn);
+               document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_btnContainer').append(infoBtn);
+
 
           }
 
-          addBtn.setAttribute('class' , 'cardBtn');
-
-          addBtn.innerHTML = '+';
-
           
-          document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_btnContainer').append(addBtn);
 
 
 
@@ -2083,104 +2147,9 @@ function displayAvailablePropertyPopup(square){
 
      if(lastDiceLauncher.cash >= square.value){
 
-          document.getElementById('availablePropertyLocation').innerHTML = 'n°' + square.square;
-          document.getElementById('availableProperty_name').innerHTML = 'name:' + square.name;
+           displayDetailCard(availableProperty,square)
 
-   
-
-
-
-
-          if(square.type == rentalProperty){
-
-               document.getElementById('availableProperty_minRent').innerHTML = '$' + square.rent;
-
-               document.getElementById('availablePropertyBar1').style.opacity = 1;
-               document.getElementById('availablePropertyBar1').style.background = square.color.name;
-               document.getElementById('availableProperty_house1').innerHTML = square.rentHouse1;
-
-               document.getElementById('availablePropertyBar2').style.opacity = 1;
-               document.getElementById('availablePropertyBar2').style.background = square.color.name;
-
-               document.getElementById('availableProperty_house2').innerHTML = square.rentHouse2;
-
-               document.getElementById('availablePropertyBar3').style.opacity = 1;
-               document.getElementById('availablePropertyBar3').style.background = square.color.name;
-               document.getElementById('availableProperty_house3').innerHTML  = square.rentHouse3;
-               
-               document.getElementById('availablePropertyBar4').style.opacity = 1;
-               document.getElementById('availablePropertyBar4').style.background = square.color.name;
-               document.getElementById('availableProperty_house4').innerHTML  = square.rentHouse4;
-
-               document.getElementById('availablePropertyBar5').style.opacity = 1;
-               document.getElementById('availablePropertyBar5').style.background = square.color.name;
-               document.getElementById('availableProperty_house5').innerHTML  = square.rentHouse5;
-
-
-          } else if(square.type == trainStation){
-
-               document.getElementById('availableProperty_minRent').innerHTML = '$25';
-               
-               document.getElementById('availablePropertyBar1').style.opacity = 1;
-               document.getElementById('availablePropertyBar1').style.background = square.color.name;
-               document.getElementById('availableProperty_house1').innerHTML = '$25';
-
-               document.getElementById('availablePropertyBar2').style.opacity = 1;
-               document.getElementById('availablePropertyBar2').style.background = square.color.name;
-
-               document.getElementById('availableProperty_house2').innerHTML = '$50';
-
-               document.getElementById('availablePropertyBar3').style.opacity = 1;
-               document.getElementById('availablePropertyBar3').style.background = square.color.name;
-               document.getElementById('availableProperty_house3').innerHTML  = '$100';
-               
-               document.getElementById('availablePropertyBar4').style.opacity = 1;
-               document.getElementById('availablePropertyBar4').style.background = square.color.name;
-               document.getElementById('availableProperty_house4').innerHTML  = '$200';
-               
-               document.getElementById('availablePropertyBar5').style.opacity = 0;
-               document.getElementById('availableProperty_house5').innerHTML  = '';
-
-
-
-          } else {
-
-               document.getElementById('availableProperty_name').innerHTML = 'name: ps.';
-
-
-               document.getElementById('availableProperty_minRent').innerHTML = '$10';
-
-               document.getElementById('availablePropertyBar1').style.opacity = 0;
-               document.getElementById('availableProperty_house1').innerHTML = '';
-
-               document.getElementById('availablePropertyBar2').style.opacity = 1;
-               document.getElementById('availablePropertyBar2').style.background = 'grey';
-               document.getElementById('availableProperty_house2').innerHTML = 'X5';
-
-               document.getElementById('availablePropertyBar3').style.opacity = 1;
-               document.getElementById('availablePropertyBar3').style.background = 'grey';
-               document.getElementById('availableProperty_house3').innerHTML = 'X10';
-               
-               document.getElementById('availablePropertyBar4').style.opacity = 0;
-               document.getElementById('availableProperty_house4').innerHTML = '';
-
-               document.getElementById('availablePropertyBar5').style.opacity = 0;
-               document.getElementById('availableProperty_house5').innerHTML = '';
-
-
-
-          }
-
-
-
-          document.getElementById('availableProperty_color').innerHTML = 'color:' + square.color.name;
-
-
-          document.getElementById('availableProperty_squareValue').innerHTML = '$' + square.value;
-          document.getElementById('availablePropertyInt').style.display = 'flex';
-
-
-
+     
           buildMortgageCanvas1(availablePropertyMortgageCanvas1);
           buildMortgageCanvas2(availablePropertyMortgageCanvas2);
 
@@ -2209,3 +2178,119 @@ function closeDrawCardInterface(){
 
 
 
+
+
+
+function displayDetailCard(type,square){
+
+
+
+          document.getElementById(type+'Location').innerHTML = 'n°' + square.square;
+          document.getElementById(type+'_name').innerHTML = 'name:' + square.name;
+
+   
+
+          if(square.type == rentalProperty){
+
+
+               document.getElementById(type+'_minRent').innerHTML = '$' + square.rent;
+
+               document.getElementById(type+'Bar1').style.opacity = 1;
+               document.getElementById(type+'Bar1').style.background = square.color.name;
+               document.getElementById(type+'_house1').innerHTML = square.rentHouse1;
+
+               document.getElementById(type+'Bar2').style.opacity = 1;
+               document.getElementById(type+'Bar2').style.background = square.color.name;
+
+               document.getElementById(type+'_house2').innerHTML = square.rentHouse2;
+
+               document.getElementById(type+'Bar3').style.opacity = 1;
+               document.getElementById(type+'Bar3').style.background = square.color.name;
+               document.getElementById(type+'_house3').innerHTML  = square.rentHouse3;
+               
+               document.getElementById(type+'Bar4').style.opacity = 1;
+               document.getElementById(type+'Bar4').style.background = square.color.name;
+               document.getElementById(type+'_house4').innerHTML  = square.rentHouse4;
+
+               document.getElementById(type+'Bar5').style.opacity = 1;
+               document.getElementById(type+'Bar5').style.background = square.color.name;
+               document.getElementById(type+'_house5').innerHTML  = square.rentHouse5;
+
+
+          } else if(square.type == trainStation){
+
+               document.getElementById(type+'_minRent').innerHTML = '$25';
+               
+               document.getElementById(type+'Bar1').style.opacity = 1;
+               document.getElementById(type+'Bar1').style.background = square.color.name;
+               document.getElementById(type+'_house1').innerHTML = '$25';
+
+               document.getElementById(type+'Bar2').style.opacity = 1;
+               document.getElementById(type+'Bar2').style.background = square.color.name;
+
+               document.getElementById(type+'_house2').innerHTML = '$50';
+
+               document.getElementById(type+'Bar3').style.opacity = 1;
+               document.getElementById(type+'Bar3').style.background = square.color.name;
+               document.getElementById(type+'_house3').innerHTML  = '$100';
+               
+               document.getElementById(type+'Bar4').style.opacity = 1;
+               document.getElementById(type+'Bar4').style.background = square.color.name;
+               document.getElementById(type+'_house4').innerHTML  = '$200';
+               
+               document.getElementById(type+'Bar5').style.opacity = 0;
+               document.getElementById(type+'_house5').innerHTML  = '';
+
+
+
+          } else {
+
+               document.getElementById(type+'_name').innerHTML = 'name: ps.';
+
+
+               document.getElementById(type+'_minRent').innerHTML = '$10';
+
+               document.getElementById(type+'Bar1').style.opacity = 0;
+               document.getElementById(type+'_house1').innerHTML = '';
+
+               document.getElementById(type+'Bar2').style.opacity = 1;
+               document.getElementById(type+'Bar2').style.background = 'grey';
+               document.getElementById(type+'_house2').innerHTML = 'X5';
+
+               document.getElementById(type+'Bar3').style.opacity = 1;
+               document.getElementById(type+'Bar3').style.background = 'grey';
+               document.getElementById(type+'_house3').innerHTML = 'X10';
+               
+               document.getElementById(type+'Bar4').style.opacity = 0;
+               document.getElementById(type+'_house4').innerHTML = '';
+
+               document.getElementById(type+'Bar5').style.opacity = 0;
+               document.getElementById(type+'_house5').innerHTML = '';
+
+
+
+          }
+
+
+
+          document.getElementById(type+'_color').innerHTML = 'color:' + square.color.name;
+          document.getElementById(type+'_squareValue').innerHTML = '$' + square.value;
+          document.getElementById(type+'Int').style.display = 'flex';
+
+
+
+}
+
+
+
+
+
+
+function displayPmBottomDiv(){
+
+     //count the number of houses of the displayed color
+
+
+
+     
+}

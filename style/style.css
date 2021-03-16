@@ -1528,6 +1528,39 @@ proposition buttons
 /* player properties management interface */
 
 
+ .infoBtn{
+
+   border-radius: 5px;
+   background:rgb(0,255,0,0.1);
+   color:rgb(0,255,0,0.8);
+   height: 85%;
+   width: 45%;
+   border:none;
+   outline:none;
+   font-size: 0.55vw;
+
+
+ }
+
+
+  .mortgageBtn{
+
+   border-radius: 5px;
+   background:rgb(0,255,0,0.1);
+   color:rgb(0,255,0,0.8);
+   height: 85%;
+   width: 45%;
+   border:none;
+   outline:none;
+   font-size: 0.55vw;
+
+ }
+
+
+
+
+
+
 
 
  /*
@@ -4850,7 +4883,6 @@ Property management interface
      .squareCardContent{
         height:100%;
         width:100%;
-        display:flex;
         flex-direction:column;
      }
 

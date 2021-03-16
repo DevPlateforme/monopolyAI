@@ -4267,14 +4267,17 @@
       <div class='pManagementInterfaceAB'>
 
           
+
+
   
-<div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_2'>
+   <div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_2' >
 
-   <div class='tradeInterfaceABAA' id='pmTopDiv_DivProperties'>
-               
-    <div class='squareCard'>
+    <div class='tradeInterfaceABAA' id='pmTopDivProperties'>
 
-      <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_2_property_0_container'> 
+       
+<div class='squareCard'>
+
+  <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_2_property_0_container'> 
 
        <div class='squareCardA'>
          <div class='squareCardAA'>
@@ -4282,15 +4285,14 @@
          <div class='squareCardAAAA'>
 
          <div class="cardGraphContainer">
-           <canvas id="pmTopDiv_propertyTemplate_2_property_0_canvas1" width="100" height="100"></canvas>  
-         </div>
+             <canvas id="pmTopDiv_propertyTemplate_2_property_0_canvas1" width="100" height="100"></canvas>  
+       </div>
                   
       
        </div>
 
        <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_2_property_0_houseCost">
-
-       
+      
    </div>
  </div>
 
@@ -4365,6 +4367,7 @@
    <div class='squareCardBAA'>
    
        <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_2_property_0_value">
+         
        </div>
        <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_2_property_0_propertyName">
        </div>
@@ -4378,12 +4381,8 @@
 
 <div  class='squareCardBB'>
 
-   <div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative;  color:rgb(0,255,0,0.7)'>
+   <div  class='squareCardBBA'  id="pmTopDiv_propertyTemplate_2_property_0_btnContainer" style='justify-content:space-around; background:none'>
 
-
-   <button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-   +
 
    </div>
 
@@ -4396,7 +4395,6 @@
 
 
 </div>
-
        
 <div class='squareCard'>
 
@@ -4504,12 +4502,8 @@
 
 <div  class='squareCardBB'>
 
-   <div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
+   <div  class='squareCardBBA'  id="pmTopDiv_propertyTemplate_2_property_1_btnContainer" style='justify-content:space-around; background:none'>
 
-
-   <button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-   +
 
    </div>
 
@@ -4565,253 +4559,363 @@
          </div>
 
       
+<div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_3' >
+
+ <div class='tradeInterfaceABAA' id='pmTopDivProperties'>
+              
+  <div class='squareCard'>
+
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_0_container'> 
+
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
+
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_2_property_0_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_0_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_3_property_0_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_0_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
+   
+        </div>
+
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_0_location">
+     </div> 
+   
+ </div>
+</div>
+<div class="squareCardAB">
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
+
+ </div>            
+
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
+</div>
+</div>
+
+<div  class='squareCardB'>
+
+<div class='squareCardBA'>
+   <div class='squareCardBAA'>
+   
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_0_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_0_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_0_mortgaged">
+       </div>
+      
+   </div>
+   
+   <div class='squareCardBAB'></div>
+
+</div>
+
+<div class='squareCardBB'>
+
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_3_property_0_btnContainer" style='justify-content:space-around; background:none'>
+   
+   </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+       
+<div class='squareCard'>
+
+  <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_1_container'> 
+
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
+
+         <div class="cardGraphContainer">
+             <canvas id="pmTopDiv_propertyTemplate_3_property_1_canvas1" width="100" height="100"></canvas>  
+       </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_1_houseCost">
+      
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_3_property_1_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_1_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
+   
+        </div>
+
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_1_location">
+     </div> 
+   
+ </div>
+</div>
+<div class="squareCardAB">
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
+
+ </div>            
+
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
+</div>
+</div>
+
+<div  class='squareCardB'>
+
+<div class='squareCardBA'>
+   <div class='squareCardBAA'>
+   
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_1_value">
+         
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_1_propertyName">
+       </div>
+       
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_1_mortgaged">
+       </div>
+      
+   </div>
+   <div class='squareCardBAB'></div>
+</div>
+
+<div  class='squareCardBB'>
+
+   <div  class='squareCardBBA'  id="pmTopDiv_propertyTemplate_3_property_1_btnContainer" style='justify-content:space-around; background:none'>
+
+
+   </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
 
 
 
 
-        
-<div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_3'>
-
-<div class='tradeInterfaceABAA' id='pmTopDiv_DivProperties'>
             
- <div class='squareCard'>
+  <div class='squareCard'>
 
-   <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_0_container'> 
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_2_container'> 
 
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
 
-      <div class="cardGraphContainer">
-        <canvas id="pmTopDiv_propertyTemplate_3_property_0_canvas1" width="100" height="100"></canvas>  
-      </div>
-               
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_3_property_2_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_2_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_3_property_2_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_2_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
    
-    </div>
+        </div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_0_houseCost">
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_3_property_0_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_0_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_0_location">
-  </div> 
-
-</div>
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_2_location">
+     </div> 
+   
+ </div>
 </div>
 <div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
 
-</div>            
+ </div>            
 
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
 </div>
 </div>
 
 <div  class='squareCardB'>
 
 <div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_0_value">
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_0_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_0_mortgaged">
-    </div>
+   <div class='squareCardBAA'>
    
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative;  color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-    
-<div class='squareCard'>
-
-<div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_1_container'> 
-
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
-
-      <div class="cardGraphContainer">
-          <canvas id="pmTopDiv_propertyTemplate_3_property_1_canvas1" width="100" height="100"></canvas>  
-    </div>
-               
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_2_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_2_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_2_mortgaged">
+       </div>
+      
+   </div>
    
-    </div>
+   <div class='squareCardBAB'></div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_1_houseCost">
+</div>
+
+<div class='squareCardBB'>
+
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_3_property_2_btnContainer" style='justify-content:space-around; background:none'>
    
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_3_property_1_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_1_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_1_location">
-  </div> 
-
-</div>
-</div>
-<div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
-
-</div>            
-
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
-</div>
-</div>
-
-<div  class='squareCardB'>
-
-<div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_1_value">
-      
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_1_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_1_mortgaged">
-    </div>
-   
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
-
-</div>
+   </div>
 
 </div>
 
@@ -4823,175 +4927,48 @@
 
 </div>
 
-
-
-     
-<div class='squareCard'>
-
-<div class='squareCardContent'  id='pmTopDiv_propertyTemplate_3_property_2_container'> 
-
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
-
-      <div class="cardGraphContainer">
-          <canvas id="pmTopDiv_propertyTemplate_3_property_2_canvas1" width="100" height="100"></canvas>  
-    </div>
-               
-   
-    </div>
-
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_3_property_2_houseCost">
-   
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_3_property_2_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_3_property_2_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_3_property_2_location">
-  </div> 
-
-</div>
-</div>
-<div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
-
-</div>            
-
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
-</div>
-</div>
-
-<div  class='squareCardB'>
-
-<div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_3_property_2_value">
-      
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_3_property_2_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_3_property_2_mortgaged">
-    </div>
-   
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-      </div>
-
-
-         <div class='tradeInterfaceABAB'>
-               <div class='tradeInterfaceABABA'>
-                 <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
-
-                     <div id='colorInfo' style='background: brown'></div>
-                   
-                 </div>
-
-                 <div class='tradeInterfaceABABAA'></div>
-                 <div class='tradeInterfaceABABAA'></div>
-               
-               </div>
-
-                
-
-               <div class='tradeInterfaceABABB'>
-
-                    <div  class='tradeInterfaceABABBA'>
-                              <canvas id='pmTopDiv_propertyTemplate_3_rightGraph' width="100" height="70"></canvas>
-                    </div>
-
-                    <div class='tradeInterfaceABABBB'>
-                         <div class='tradeInterfaceABABBBA'>
-                              <div class='tradeInterfaceABABBBAA'></div>
-                              <div class='tradeInterfaceABABBBAB'>legend1</div>
-                        </div>
-                        <div class='tradeInterfaceABABBBA'>
-                              <div class='tradeInterfaceABABBBAA'></div>
-                              <div class='tradeInterfaceABABBBAB'>legend2</div>
-                        </div>
-                    </div>
-
-
-               </div>
          </div>
 
-      </div>
 
+            <div class='tradeInterfaceABAB'>
+                  <div class='tradeInterfaceABABA'>
+                    <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
+
+                        <div id='colorInfo' style='background: brown'></div>
+                      
+                    </div>
+
+                    <div class='tradeInterfaceABABAA'></div>
+                    <div class='tradeInterfaceABABAA'></div>
+                  
+                  </div>
+
+                   
+
+                  <div class='tradeInterfaceABABB'>
+
+                       <div  class='tradeInterfaceABABBA'>
+                                 <canvas id='pmTopDiv_propertyTemplate_3_rightGraph' width="100" height="70"></canvas>
+                       </div>
+
+                       <div class='tradeInterfaceABABBB'>
+                            <div class='tradeInterfaceABABBBA'>
+                                 <div class='tradeInterfaceABABBBAA'></div>
+                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                           </div>
+                           <div class='tradeInterfaceABABBBA'>
+                                 <div class='tradeInterfaceABABBBAA'></div>
+                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                           </div>
+                       </div>
+
+
+                  </div>
+            </div>
+
+         </div>
+
+      
 
 
 
@@ -5002,512 +4979,483 @@
 
 <div class='tradeInterfaceABAA' id='pmTopDiv_DivProperties'>
             
- <div class='squareCard'>
+             
+  <div class='squareCard'>
 
-   <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_0_container'> 
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_0_container'> 
 
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
 
-      <div class="cardGraphContainer">
-        <canvas id="pmTopDiv_propertyTemplate_4_property_0_canvas1" width="100" height="100"></canvas>  
-      </div>
-               
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_4_property_0_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_0_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_4_property_0_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_0_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
    
-    </div>
+        </div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_0_houseCost">
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_4_property_0_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_0_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_0_location">
-  </div> 
-
-</div>
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_0_location">
+     </div> 
+   
+ </div>
 </div>
 <div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
 
-</div>            
+ </div>            
 
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
 </div>
 </div>
 
 <div  class='squareCardB'>
 
 <div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_0_value">
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_0_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_0_mortgaged">
-    </div>
+   <div class='squareCardBAA'>
    
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative;  color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-    
-<div class='squareCard'>
-
-<div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_1_container'> 
-
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
-
-      <div class="cardGraphContainer">
-          <canvas id="pmTopDiv_propertyTemplate_3_property_1_canvas1" width="100" height="100"></canvas>  
-    </div>
-               
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_0_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_0_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_0_mortgaged">
+       </div>
+      
+   </div>
    
-    </div>
+   <div class='squareCardBAB'></div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_1_houseCost">
+</div>
+
+<div class='squareCardBB'>
+
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_4_property_0_btnContainer" style='justify-content:space-around; background:none'>
    
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_4_property_1_canvas2" width="100" height="100"></canvas>     
-     </div>
+   </div>
 
 </div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_1_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
 
 
 </div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_1_location">
-  </div> 
 
 </div>
+
+
+</div>
+
+                
+  <div class='squareCard'>
+
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_1_container'> 
+
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
+
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_4_property_1_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_1_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_4_property_1_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_1_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
+   
+        </div>
+
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_1_location">
+     </div> 
+   
+ </div>
 </div>
 <div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
 
-</div>            
+ </div>            
 
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
 </div>
 </div>
 
 <div  class='squareCardB'>
 
 <div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_1_value">
+   <div class='squareCardBAA'>
+   
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_1_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_1_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_1_mortgaged">
+       </div>
       
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_1_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_1_mortgaged">
-    </div>
+   </div>
    
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
+   <div class='squareCardBAB'></div>
 
 </div>
 
-</div>
+<div class='squareCardBB'>
 
-
-</div>
-
-</div>
-
-
-</div>
-
-
-
-     
-<div class='squareCard'>
-
-<div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_2_container'> 
-
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
-
-      <div class="cardGraphContainer">
-          <canvas id="pmTopDiv_propertyTemplate_4_property_2_canvas1" width="100" height="100"></canvas>  
-    </div>
-               
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_4_property_1_btnContainer" style='justify-content:space-around; background:none'>
    
-    </div>
+   </div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_2_houseCost">
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+  <div class='squareCard'>
+
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_2_container'> 
+
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
+
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_4_property_2_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
+
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_2_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_4_property_2_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_2_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
    
-</div>
-</div>
+        </div>
 
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_3_property_4_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_2_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_2_location">
-  </div> 
-
-</div>
+   
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_2_location">
+     </div> 
+   
+ </div>
 </div>
 <div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
 
-</div>            
+ </div>            
 
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
 </div>
 </div>
 
 <div  class='squareCardB'>
 
 <div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_2_value">
-      
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_2_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_2_mortgaged">
-    </div>
+   <div class='squareCardBAA'>
    
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-
-</div>
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_2_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_2_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_2_mortgaged">
+       </div>
+      
+   </div>
+   
+   <div class='squareCardBAB'></div>
 
 </div>
 
+<div class='squareCardBB'>
 
-</div>
-
-</div>
-
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_4_property_2_btnContainer" style='justify-content:space-around; background:none'>
+   
+   </div>
 
 </div>
 
 
+</div>
+
+</div>
+
+
+</div>
 
   
+  <div class='squareCard'>
 
-     
-<div class='squareCard'>
+     <div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_3_container'> 
 
-<div class='squareCardContent'  id='pmTopDiv_propertyTemplate_4_property_3_container'> 
+       <div class='squareCardA'>
+         <div class='squareCardAA'>
+         <div class="squareCardAAA">
+         <div class='squareCardAAAA'>
 
-    <div class='squareCardA'>
-      <div class='squareCardAA'>
-      <div class="squareCardAAA">
-      <div class='squareCardAAAA'>
+         <div class="cardGraphContainer">
+           <canvas id="pmTopDiv_propertyTemplate_4_property_3_canvas1" width="100" height="100"></canvas>  
+         </div>
+                  
+      
+       </div>
 
-      <div class="cardGraphContainer">
-          <canvas id="pmTopDiv_propertyTemplate_4_property_3_canvas1" width="100" height="100"></canvas>  
-    </div>
-               
+       <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_3_houseCost">
+   </div>
+ </div>
+
+ <div class="squareCardAAB">
+   <div class="squareCardAABA">
+
+         <div class="cardGraphContainer">   
+               <canvas id="pmTopDiv_propertyTemplate_4_property_3_canvas2" width="100" height="100"></canvas>     
+        </div>
+
+   </div>
+   <div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_3_maxRent">$250</div>
+ </div>
+ <div class="squareCardAAC">
+   <div class="squareCardAACA">
+
+        <div class='locationContainer'>
+
+             <img style='height: 70%;width: auto;'  src="./img/location.png">
    
-    </div>
+        </div>
 
-    <div class='squareCardAAAB' id="pmTopDiv_propertyTemplate_4_property_3_houseCost">
    
-</div>
-</div>
-
-<div class="squareCardAAB">
-<div class="squareCardAABA">
-
-      <div class="cardGraphContainer">   
-            <canvas id="pmTopDiv_propertyTemplate_4_property_3_canvas2" width="100" height="100"></canvas>     
-     </div>
-
-</div>
-<div class="squareCardAABB" id="pmTopDiv_propertyTemplate_4_property_3_maxRent">$250</div>
-</div>
-<div class="squareCardAAC">
-<div class="squareCardAACA">
-
-     <div class='locationContainer'>
-
-          <img style='height: 70%;width: auto;'  src="./img/location.png">
-
-     </div>
-
-
-</div>
-  <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_2_location">
-  </div> 
-
-</div>
+   </div>
+     <div class="squareCardAACB" id="pmTopDiv_propertyTemplate_4_property_3_location">
+     </div> 
+   
+ </div>
 </div>
 <div class="squareCardAB">
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style='background:pink'>
-      
-    </div>
-    <div class="squareCardABAAB">
-         house cost
-    </div>
-    
-  </div>  
-</div>
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background: blue">
-      
-    </div>
-    <div class="squareCardABAAB">
-        max.rent
-    </div>
-    
-  </div>  
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style='background:pink'>
+         
+       </div>
+       <div class="squareCardABAAB">
+            house cost
+       </div>
+       
+     </div>  
+ </div>
+ <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background: blue">
+         
+       </div>
+       <div class="squareCardABAAB">
+           max.rent
+       </div>
+       
+     </div>  
 
-</div>            
+ </div>            
 
-<div class="squareCardABA">
-  <div class="squareCardABAA">
-    <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
-      
-    </div>
-    <div class="squareCardABAAB">
-         square
-    </div>
-    
-  </div>  
-</div>     
+  <div class="squareCardABA">
+     <div class="squareCardABAA">
+       <div class="squareCardABAAA" style="background:rgb(255,0,0,0.8)">
+         
+       </div>
+       <div class="squareCardABAAB">
+            square
+       </div>
+       
+     </div>  
+ </div>     
 </div>
 </div>
 
 <div  class='squareCardB'>
 
 <div class='squareCardBA'>
-<div class='squareCardBAA'>
-
-    <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_2_value">
-      
-    </div>
-    <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_2_propertyName">
-    </div>
-    
-    <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_2_mortgaged">
-    </div>
+   <div class='squareCardBAA'>
    
-</div>
-<div class='squareCardBAB'></div>
-</div>
-
-<div  class='squareCardBB'>
-
-<div  class='squareCardBBA' style='display:flex; justify-content:center; align-items:center; font-size: 1.2vw; position:relative; color:rgb(0,255,0,0.7)'>
-
-
-<button onclick='addCounterPartAskedElementToProposition(event , 2 , 1 , 0  )' style='position:absolute; left:0px; top:0px, height:100%; width:100%; opacity:0; cursor: pointer'>+</button>
-
-+
+       <div class='squareCardBAAC'id="pmTopDiv_propertyTemplate_4_property_3_value">
+       </div>
+       <div class='squareCardBAAD' id="pmTopDiv_propertyTemplate_4_property_3_propertyName">
+       </div>
+       <div class='squareCardBAAB' id="pmTopDiv_propertyTemplate_4_property_3_mortgaged">
+       </div>
+      
+   </div>
+   
+   <div class='squareCardBAB'></div>
 
 </div>
 
+<div class='squareCardBB'>
+
+   <div class='squareCardBBA' id="pmTopDiv_propertyTemplate_4_property_3_btnContainer" style='justify-content:space-around; background:none'>
+   
+   </div>
+
+</div>
+
+
+</div>
+
 </div>
 
 
 </div>
-
-</div>
-
-
-</div>
-
       </div>
 
 
@@ -5614,7 +5562,7 @@
                             </div>
 
                               </div>
-                               <div class='pManagementInterfaceABBAAB' style='height:60%;width:100%; display:flex; flex-direction:column; align-items:center'>
+                               <div class='pManagementInterfaceABBAAB' id='pmGraphContainer1' style='height:60%;width:100%; display:flex; flex-direction:column; align-items:center'>
 
                                     <canvas id='pmBottom_pmGraph1' width="100" height="100"></canvas>
 
@@ -5629,7 +5577,7 @@
 
 
 
-                              <div  class='pManagementInterfaceABBABB'  style=' height:60%; width: 100%;display:flex; flex; flex-direction:row; justify-content:flex-end; align-items:center'>
+                              <div  class='pManagementInterfaceABBABB' id='pmGraphContainer2'  style=' height:60%; width: 100%;display:flex; flex; flex-direction:row; justify-content:flex-end; align-items:center'>
                                             <canvas id='pmBottom_pmGraph2' width="100" height="100"></canvas>
 
 
@@ -5641,7 +5589,7 @@
                        <div class='pManagementInterfaceABBAC' style='width:33%; height:100%; display:flex; flex-direction:column'>
 
                              <div class='pManagementInterfaceABBACA' style=' height:20%; width: 100%; display:flex;  justify-content:center; align-items:center'>avg.cost</div>
-                             <div class='pManagementInterfaceABBACB' style='height:60%; width: 100%; display:flex;  justify-content:center; align-items:center>
+                             <div class='pManagementInterfaceABBACB'  id='pmGraphContainer' style='height:60%; width: 100%; display:flex;  justify-content:center; align-items:center'>
                                     <canvas id='pmBottom_pmGraph3' width="100" height="50"></canvas>
                                  
 
@@ -5666,21 +5614,21 @@
                               
                   <div class = 'pmHouseGraph'>
                       
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:6.8% width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:13.2% width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:19.8%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:25.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:31%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0); height:37.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:44.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:51.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:58%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:65.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:72.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:77.5%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:84%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:90%; width:6%'></div>
-                      <div class='rpSquareBA1' style='background:rgb(255,0,0, 0.3); height:97%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_1' style='background:rgb(0,191,255); height:6.8% width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_2' style='background:rgb(0,191,255); height:13.2% width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_3' style='background:rgb(0,191,255); height:19.8%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_4' style='background:rgb(0,191,255); height:25.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_5' style='background:rgb(0,191,255); height:31%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_6' style='background:rgb(0,191,255); height:37.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_7' style='background:rgb(128,0,0, 0.3); height:44.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_8' style='background:rgb(128,0,0, 0.3); height:51.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_9' style='background:rgb(128,0,0, 0.3); height:58%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_10' style='background:rgb(128,0,0, 0.3); height:65.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_11' style='background:rgb(128,0,0, 0.3); height:72.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_12' style='background:rgb(128,0,0, 0.3); height:77.5%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_13' style='background:rgb(128,0,0, 0.3); height:84%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_14' style='background:rgb(128,0,0, 0.3); height:90%; width:6%'></div>
+                      <div class='rpSquareBA1' id='pmHouseGraph_15' style='background:rgb(128,0,0, 0.3); height:97%; width:6%'></div>
 
 
                   </div>
@@ -6004,7 +5952,7 @@
    <div class='propPopupAA'>
       <div class='propPopupAAA'>
             <div class='propPopupAABAAA'>
-             <img style='height: 95%;width: auto;' class="aiface" src="./img/aiface.png">
+             <img style='height: 70%;width: auto;' class="aiface" src="./img/woman2.png">
             </div>
             <div class='propPopupAABAAB'>
                <div class='propPopupAABAABA'>
@@ -6072,7 +6020,7 @@
 
       <div class='propPopupAAA'>
             <div class='propPopupAABAAA'>
-             <img style='height: 95%;width: auto;' class="aiface" src="./img/aiface.png">
+             <img style='height: 70%;width: auto;opacity:0.7' class="aiface" src="./img/man.png">
             </div>
             <div class='propPopupAABAAB'>
                <div class='propPopupAABAABA'>

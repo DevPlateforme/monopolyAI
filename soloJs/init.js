@@ -12,7 +12,7 @@ function init(){
      //buildBoard();  
      //setColorScores();
 
-     givePlayersPropertiesForDemo()
+     //givePlayersPropertiesForDemo()
 
      //wakeUpAis();
 
@@ -144,12 +144,18 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai3 , avenueDesChampsElysees);
+     addPropertyToPlayerWallet(humanPlayer, bdDeLaVillette);
+     addPropertyToPlayerWallet(humanPlayer , avenueDesChampsElysees);
      addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
-   
-     addPropertyToPlayerWallet(humanPlayer, belleville);
-     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
 
+
+     
+     addPropertyToPlayerWallet(ai1, rueDuParadis);
+     addPropertyToPlayerWallet(ai1 , avenueDeNeuilly);     
+     addPropertyToPlayerWallet(ai1, belleville);
+
+
+     addPropertyToPlayerWallet(ai3 , rueLecourbe);
      addPropertyToPlayerWallet(ai3 , placeDeLaBourse);
      addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
 
