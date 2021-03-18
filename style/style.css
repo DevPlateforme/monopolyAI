@@ -36,10 +36,16 @@ body{
 
 
 
+
+
+
   
 .mobilePresentationsContainer{
   display: none;
 }
+
+
+
 
 /*
 
@@ -147,7 +153,7 @@ font-size: 1.5vw;
 
 
 .drawCardPopupBB{
-height:65%;
+height:70%;
 width:100%;
 display:flex;
 flex-direction: column;
@@ -230,24 +236,11 @@ width: auto;
 
 
 
+.houseImg{
 
-
-
-#closeInterfaceBtn{
-
-   position:fixed;
-   bottom: 3vh;
-   left: 5vw;
-   height:2vh;
-   width: 2vw;
-   z-index:8;
-   cursor:pointer;
-   display:none;
-   justify-content: center;
-   align-items: center;
+  display: none;
 
 }
-
 
 
 /*  Proposition popup  */
@@ -570,8 +563,18 @@ width: auto;
 
 
 
-
-
+.tradeInterfaceHeader{
+  position:absolute;
+  top:0.5%;
+  left:3%; 
+  padding-left:1%; 
+  height:5%;
+  width:20%; 
+  display:flex; 
+  flex-direction:row; 
+  align-items:center; 
+  justify-content:flex-start
+}
 
 
 
@@ -588,7 +591,7 @@ width: auto;
 
   top:4vh;
 
-  right:20vw;
+  right:10vw;
 
   height: 80vh;
 
@@ -886,13 +889,9 @@ width: auto;
     width: 100%;
     background: blue;
     overflow: hidden;
-
     display: flex;
-    
     flex-direction: column;
-
     justify-content: space-around;
-
     
  }
 
@@ -900,41 +899,80 @@ width: auto;
  #ai3Div div{
 
     background : purple;
-
     width: 100%
 }
 
 
 
 #humanBoard{
-
     height: 7%;
-
     width: 100%;
-
-
     display: flex;
-
     justify-content: space-between;
 }
 
-#interfacesPanel{
-
-    position:fixed;
-    bottom:0px;
-    left:0px;
-    height: 7%;
-    width: 100%;
-    background: red;
-    display: none;
-    justify-content: space-around;
-    flex-direction: row;
-    z-index: 3;
+#interfacesPanel {
+  position: fixed;
+  bottom: 2.5vh;
+  left: 20vw;
+  height: 7%;
+  width: 60%;
+  background: rgb(255,255,255,0.9);
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  z-index: 3;
+  border-radius: 35px;
 }
 
-#interfacesPanel div{
-    height: 70%;
-    width: 40%;
+.navBtnContainer{
+
+  height:80%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+
+.interfaceImg{
+  height: 80%;
+  width: auto;
+}
+
+.showImg{  
+  
+  height: 62.5%;
+  width: auto;
+  opacity: 0.635;
+  
+}
+
+.playImg{  
+  
+  height: 57.5%;
+  width: auto;
+  opacity: 0.6;
+
+
+}
+
+
+
+
+
+.navBtn{
+
+  position:absolute;
+  top:0px;
+  left:0px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 8;
 }
 
 
@@ -942,15 +980,10 @@ width: auto;
 #propertiesCountDiv{
 
     height : 100%;
-
     width: 35%; 
-
     background: blue;
-
     display: flex;
-
     flex-direction: row;
-
     justify-content: space-between;
 }
 
@@ -1858,6 +1891,18 @@ presentation of properties
 
 }
 
+.mobileAvatarContainer{   
+  height: 4.5vw;
+  width: 4.5vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:rgb(0 ,255 , 0 , 0.7);
+  border-radius: 30px;
+
+
+}
+
 
 .idDivB{
 
@@ -2238,6 +2283,9 @@ board
    height:85%;
    width: 20%;
    display:flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
 
 }
 
@@ -2275,14 +2323,14 @@ board
 
   height: 90%;
   width: auto;
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
 .bankruptcyImg{
 
   height:100%;
   width: auto;
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
 .jailAndBankruptcyIntB{
@@ -2358,7 +2406,6 @@ flex-direction: column;
   flex-direction:row;
   justify-content: center;
   align-items: center;
-  background: rgb(255,255,255,0.03);
   border-radius:10px;
   position:relative;
 
@@ -2368,7 +2415,6 @@ flex-direction: column;
 
   height: 97%;
   width: 97%;
-  background: rgb(255,255,255,0.03);
   border-radius: 5px;
 }
 
@@ -2427,6 +2473,7 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 color: rgb(0,255,0);
+border-radius: 5px;
 }
 
 
@@ -2625,8 +2672,27 @@ justify-content: space-around;
   width:90%;
   background:rgb(255,255,255,0.1);
   border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
+
+
+#boardJournal{
+
+  height: 92.5%;
+  width: 90.5%;
+  background: rgb(255,255,255,0.027);
+  border-radius: 5px;
+  padding-left: 2.5%;
+  padding-top: 2.5%;
+
+  display:flex;
+  justify-content: flex-wrap;
+  align-items: flex-start;
+}
+
 
 
 .digitalContainerBBBC{
@@ -2738,7 +2804,7 @@ justify-content: space-around;
   width: 100%;
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items:center;
 }
 
@@ -2763,9 +2829,6 @@ justify-content:flex-start;
 
 height: 50%;
 width: 55%;
-border-radius: 30px;
-background: blue;
-opacity: 0.35;
 }
 
 
@@ -2841,15 +2904,6 @@ width: 100%;
 
 
 
-.tradeScreenAABBA{
-
-
-}
-
-..tradeScreenAABBB{
-
-
-}
 
 
 .tradeScreenAABC{
@@ -2889,10 +2943,19 @@ width: 70%;
 }
 
 
+.avatarsDiv{
+  
+  position:absolute; 
+  height:10%;width:30%; 
+  top:45%; 
+  left:5% ;
+  display:flex; 
+  flex-direction:row; 
+  justify-content: flex-start; 
+  align-items: flex-end 
+  
 
-
-
-
+}
 
 
 .digitalContainerBBBCB{
@@ -2963,7 +3026,16 @@ background: yellow;
    width: 100%;
    display: flex;
    flex-direction: row;
+   background: rgba(255, 255, 255, 0.045);
    
+}
+
+
+.digitalContainerBBA{   
+  background: rgba(255, 255, 255, 0.045);
+
+
+
 }
 
 .digitalContainerBCA{
@@ -2973,15 +3045,23 @@ background: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(255,255,255,0.03);
+  border-color: rgb(0,255,0,0.25);
+  border-radius: 5px;
 
+
+}
+
+.digitalContainerBBAA{
+
+  border-color: rgb(0,255,0,0.25);
+
+  
 }
 
 .digitalContainerBCAA{
 
   height: 97%;
   width: 97%;
-  background: rgb(255,255,255,0.03);
   border-radius: 5px;
 }
 
@@ -3004,7 +3084,7 @@ background: yellow;
   display:flex;
   justify-content: center;
   align-items: center;
-  background:rgb(255,255,255, 0.03);
+  
 }
 
 
@@ -3044,7 +3124,7 @@ Property management interface
 .pManagementInterface{
   	
     position: absolute;
-    top: 10vh;
+    bottom: 10vh;
     left:5vw;
     height: 85vh;
     width: 90vw;
@@ -3497,7 +3577,31 @@ Property management interface
 
         height: 90%;
         width: 23%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
       }
+
+      .pManagementInterfaceBAA{
+
+         height: 30%;
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
+      }
+
+      .pManagementInterfaceBAAA{
+
+        font-size: 0.8vw;
+
+      }
+
+
+ 
+
 
       .pManagementInterfaceBB{
 
@@ -3695,7 +3799,8 @@ Property management interface
 
        height: 100%;
        width: 10%;
-       background:red;
+       border-color: pink;
+       border: solid 1px;
 
      }
 
@@ -3703,7 +3808,7 @@ Property management interface
        height: 100%;
        width: 85%;
        display:flex;
-       justify-content: flex-start;
+       justify-content: center;
        align-items: center;
        font-size: 0.45vw;
        color:rgb(0 , 255 ,0 , 0.5);
@@ -3916,7 +4021,7 @@ Property management interface
  .tradeInterface{
   	
     position: absolute;
-    top: 10vh;
+    bottom : 10vh;
     left:5vw;
     height: 85vh;
     width: 90vw;
@@ -4543,7 +4648,7 @@ Property management interface
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(255,255,255,0.1)
+    background: rgb(255,255,255,0.1);
 
 }
 
@@ -5035,19 +5140,12 @@ Property management interface
        justify-content: space-between;
      }
 
-     .squareCardABAAA{
-
-       height: 100%;
-       width: 10%;
-
-     }
+    
 
      .squareCardABAAB{
        height: 100%;
        width: 85%;
        display:flex;
-       justify-content: flex-start;
-       align-items: center;
        font-size: 0.45vw;
 
      }
@@ -5155,6 +5253,12 @@ Property management interface
 
       align-items: center;
 
+     }
+
+     .locationImg{
+
+      height: 75%;
+      width: auto;
      }
 
  
@@ -5345,6 +5449,30 @@ Property management interface
 }
 
 
+.houseCostSpan{
+
+  display: flex;
+
+}
+
+.maxRentSpan{
+
+  display: flex;
+}
+
+.squareSpan{
+  display: flex;
+}
+
+.mobileLocationImg{
+  display: none;
+}
+
+.maxImg{
+
+  display: none;
+}
+
 
 
 
@@ -5411,29 +5539,140 @@ body {
 
 
 
+#mobileBottomNav{
+  display: none;
+}
+
 
      /*mobile version */
 
+
+
+@media all and (max-width: 600px){
+
+  #mobileBottomNav{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    width: 100vw;
+    left: 0px;
+    bottom:1vh;
+    background: rgb(0,0,0,0.1);
+  }
+
+  .mobileBoardAvatar{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+  }
+
+  .avatarImg{
+
+    height: 100%;
+    width: auto;
+  }
+
+
+  .homePropertyDivAB {
+    justify-content: space-between;
+    height: 15%;
+    width: 60%;
+  }
+
+  .homePropertyDivABBA {
+    height: 92.5%;
+    width: 5%;
+  }
+
+  .mobileBoardAvatar{
+    height: 80%;
+    width: 30%;
+  }
+
+
+  .mobilePresentationsContainerAAA{
+
+    justify-content: center;
+    align-items: center;
+  }
+
+
   
+#interfacesPanel {
+  width: 90vw;
+  left: 5vw;
+}
+
+  #bottomPlayImg {
+    height: 70%;
+    width: auto;
+  }
+
+  .showImg {
+    height: 60%;
+    width: auto;
+    opacity: 0.635;
+}
 
 
-@media all and (max-width: 800px){
+  #bottomJailDiv{
+       
+     font-size: 2.25vw;
 
+  }
+
+  #bottomBankruptcyDiv{     
+    
+    font-size: 2.25vw;
+
+  }
+
+  #boardJournal{
+    font-size: 2.25vw;
+  }
+
+
+
+ 
+ .rpSquareCA{
+ 
+
+ font-size: 1.05vw;
+ 
+ 
+ }
+ 
+ .rpSquareCB{
+
+ 
+ font-size: 1.05vw;
+ 
+ }
+ 
+ .rpSquareCC{
+
+ font-size: 1.05vw;
+ }
+ 
+
+ 
   
-
-
 
 
   .rpSquareCA{
      
-    font-size: 0.5vw;
+    font-size: 1.05vw;
 
   }
 
 
   .rpSquareCB{
 
-    font-size: 0.5vw;
+    font-size: 1.05vw;
 
 
   }
@@ -5441,7 +5680,7 @@ body {
   .rpSquareCC{
 
 
-    font-size: 0.5vw;
+    font-size: 1.05vw;
 
 
 
@@ -5455,8 +5694,16 @@ body {
 
       align-items: center;
 
-   }
+      left:0px;
 
+      width: 100vw;
+
+      bottom: 10vh;
+      height: 87vh;
+
+   }
+ 
+ 
 
 
     .digitalContainerA{
@@ -5466,7 +5713,7 @@ body {
     .digitalContainerB{
 
       height:70%;
-      width:90%;
+      width:100%;
 
 
     }
@@ -5479,9 +5726,16 @@ body {
     }
 
 
-    
+   .tradeInterface {
+      bottom: 7vh;
+      left: 0;
+      height: 93vh;
+      width: 100vw;
+      display: flex;
 
-    
+  }
+
+
 
 
    
@@ -5498,13 +5752,9 @@ body {
 
       height:100%;
       width: 50%;
-
       display:flex;
-
       flex-direction: column;
-
       justify-content: space-around;
-
       align-items: center;
 
 
@@ -5514,69 +5764,46 @@ body {
    .mobilePresentationsContainerAA{
 
      height:40%;
-     width: 90%;
+     width: 95%;
      display:flex;
      flex-direction: column;
      align-items: center;
-     background:purple;
-
- }
-
- .mobilePresentationsContainerAB{
-
-   height:40%;
-   width: 90%;
-   display:flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-around;
-   background:purple;
-
-
-
-}
-
-   .mobilePresentationsContainerB{
-
-    height:100%;
-    width: 50%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-
-
-
-  }
-
-
-  .mobilePresentationsContainerBA{
-
-    height:40%;
-    width: 90%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background:purple;
+     background:rgb(0,0,0,0.1);
+     border-radius:10px;
 
  }
 
  
- .mobilePresentationsContainerBB{
+ .mobilePresentationsContainerAAA{
 
-   height:40%;
-   width: 90%;
-   display:flex;
-   flex-direction: column;
-   align-items: center;
-   background:purple;
+    height:25%;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
 
 }
 
+.mobilePresentationsContainerAAB{    
+  
+  height:75%;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.mobilePresentationsContainerAABA{
 
+  height: 90%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
+}
 
 
 
@@ -5706,11 +5933,14 @@ body {
 }
 
 
-.tradeInterfaceABA{
+.tradeInterface{
 
-     height: 30%;
+  top:0;
 
+  bottom:7vh;
 }
+
+
 
 
 .tradeInterfaceABAB{
@@ -5726,7 +5956,11 @@ body {
 
 
 }
+.tradeInterfaceABA {
+  height: 45%;
+}
 
+  
 
 
    #boardJournal{
@@ -5776,14 +6010,440 @@ body {
     font-size: 1vw;
    }
 
+   .digitalContainerBBBA{
 
+    display: none;
+   }
+
+   .digitalContainerBBBCB{
+
+    opacity: 0;
+
+     }
+   .digitalContainerBBBC{
+
+    width: 48%;
+   }
+
+   .digitalContainerBBBB{
+
+    width: 50%;
+   }
+
+
+
+
+
+   .detailPropertyCard{
+
+    font-size: 2vw;
+
+   }
+
+
+   .houseImg{
    
+     height: 100%;
+
+     width: auto;
+
+     display: flex;
+     
+   }
+   
+    .landDiv {
+        top: 12.5vh;
+        left: 5vw;
+        height: 75vh;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        background: rgb(255,255,255,0.1);
+        z-index: 6;
+        font-size: 2.5vw;
+    }
+   
+
+
+   .drawCardPopup {
+      position: absolute;
+      top: 35vh;
+      left: 15vw;
+      height: 30vh;
+      width: 70vw;
+      font-size: 2vw;
+      border-radius: 8px;
+      color: rgb(0,255,0,0.8);
+   }
+
+  .drawCardPopupBBBA {
+     height: 10vw;
+     width: 10vw;
+  }
+
+
+
+  .drawCardPopupBAA{
+    
+    height: 80%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.75vw;
+
+
+  }
+
+
+  .stackButton {
+    height: 40%;
+    width: auto;
+   }
+
+
+   .detailPropertyCardBBHeaderA{
+       font-size: 2.5vw;
+   }
+
+
+   .detailPropertyCardABBAAB{
+     font-size: 2vw;
+   }
+
+
+ .cardGraphContainer{
+
+     display: none;
+
+  }
+
+  .squareCard{
+    font-size: 2vw;
+
+  }
+
+
+
+  .squareCardAAAB{
+
+    font-size: 2vw;
+
+
+  }
+
+.squareCardABAAB {
+  font-size: 1.25vw;
+}
+
+.squareCardBAA{
+
+  font-size: 1.25vw;
+
+}
+
+.squareCardBAAD{
+  
+  font-size: 1.2vw;
+
+
+}
+   
+
+
+.squareCardBAAB {
+  font-size: 1.175vw;
+}
+
+.locationContainer{
+  height: 40%;
+  width: auto;
+}
+
+.squareCardABAA{
+  height:30%;
+  width:80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.squareCardABAAB{
+  font-size: 1.25vw;
+  
+}
+
+.squareCardAABB{
+   font-size: 3vw;
+
+}
+
+.mortgageBtn{
+
+  display: none
 
 
 }
 
 
+.squareCardBAA{
+  font-size: 1.25vw;
+}
+
+
+.squareCardBAAC {
+  font-size: 2vw;
+}
+
+.squareCardBAAD {
+  font-size: 2vw;
+}
+
+
+.squareCardABAAA{
+
+  display: none;
+
+}
+
+ .squareCardBAA{
+
+  height: 90%;
+
+
+ }
+
+ .squareCardAACB{
+   font-size: 2vw;
+ }
+
+
+ .squareCardAACB {
+  font-size: 3.5vw;
+}
+
+.squareCardAAAB {
+  font-size: 3vw;
+
+}
+
+
+.squareCardB {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.squareCardAAAA{
+  display: none;
+}
+
+.squareCardBB {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.squareCardBAAB {
+  display: none;
+}
+
+.locationContainer {
+
+  display: none;
+
+}
+
+.squareCardAAAB {
+  height: 100%;
+  width: 100%;
+
+}.squareCardAABB {
+    font-size: 3vw;
+}
+
+.squareCardAABA {
+  display: none;
+}
+
+
+.squareCardAABB {
+  height: 100%;
+  width: 100%;
+ }
+
+ .squareCardAACA{
+   display: none;
+ }
+
+ .squareCardAACB {
+  height: 100%;
+  width: 100%;
+}
+
+.squareCardBA {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
 
 
+.houseCostSpan{
+
+  display: none;
+
+}
+
+.maxRentSpan{
+
+  display: none;
+
+}
+
+.selectSpan{
+
+  display: none;
+}
+
+.tradeInterfaceBBAB{
+  font-size: 3vw;
+}
+
+.maxImg{
+
+  height: 100%;
+  width: auto;
+  display: flex;
+}
+
+.squareSpan{
+  display: none;
+}
+
+.mobileLocationImg{
+  height: 100%;
+  width: auto;
+  display: flex;
+}
+
+
+
+.squareCardABAA {
+  height: 60%;
+  width: 80%;
+
+
+}
+
+.squareCardBAAC {
+  font-size: 2.5vw;
+}
+
+
+.squareCardBAAD {
+  font-size: 2.75vw;
+}
+
+.squareCardA {
+  height: 60%;
+
+}
+
+
+.squareCardB {
+  height: 40%;
+}
+
+
+.tradeInterfaceHeader{
+  
+  top: 2%;
+  left: 5%;
+  padding-left: 1%;
+  height: 5%;
+  width: 40%;
+
+  font-size: 3.5vw;
+
+
+}
+
+.tradeInterfaceABAA{
+   
+  font-size: 5vw;
+
+}
+
+.avatarsDiv{
+  
+  top: 41.75%;
+
+}
+
+.tradeInterfaceBBABA{
+
+  font-size: 3vw;
+}
+
+
+.selectedPropertiesDivA {
+  width: 50%;
+}
+
+.selectedPropertiesDivB {
+  width: 50%;
+  font-size: 3.75vw;
+}
+
+
+.tradeInterfaceBBB {
+  
+  width: 25%;
+
+}
+
+.tradeInterfaceBBA {
+
+  width: 22.5%;
+
+}
+
+.selectedPropertiesDiv {
+
+  width: 10%;
+
+}
+
+
+.avatarsDiv {
+
+  width: 100%;
+
+}
+
+
+#boardJournal{
+
+  font-size: 1.75vw;
+}
+
+
+#notifContainer{
+
+  display: none;
+}
+
+
+}
 

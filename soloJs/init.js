@@ -13,6 +13,12 @@ function init(){
      //setColorScores();
 
 
+     //addTradeScreenOfferLine(avenueMatignon);
+
+
+      
+
+
 
 
 
@@ -36,6 +42,9 @@ function init(){
       
        buildBoardPresentationCircles(ai1)
        buildBoardPresentationBars(ai1)
+
+       addTradeScreenAnswerLine(avenueDeBreteuil);
+
       
   
       },300);
@@ -45,9 +54,10 @@ function init(){
       
          buildBoardPresentationCircles(humanPlayer)
          buildBoardPresentationBars(humanPlayer)
+
       
    
-       },500);
+       },400);
 
        setTimeout(function(){
 
@@ -55,24 +65,23 @@ function init(){
    
         buildBoardPresentationCircles(ai2)
         buildBoardPresentationBars(ai2)
+
    
      
   
-      },700);
+      },500);
      
       setTimeout(function(){
 
       
         buildBoardPresentationCircles(ai3)
         buildBoardPresentationBars(ai3)
-  
-      },900);
-     
-      
-     //givePlayersPropertiesForDemo();
-     
-     setTimeout(function(){document.getElementById('checkmark').style.display = 'flex';      wakeUpAis(); givePlayersPropertiesForDemo() },3000)     
 
+  
+      },600);
+
+
+           
 
 
     
@@ -148,20 +157,13 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai3, bdDeLaVillette);
-     addPropertyToPlayerWallet(humanPlayer, belleville);
-     addPropertyToPlayerWallet(humanPlayer , rueLecourbe);
-
-
-
-
-     
-     addPropertyToPlayerWallet(ai3, rueDuParadis);
-     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);     
-
-
+     addPropertyToPlayerWallet(ai2, bdDeLaVillette);
+     addPropertyToPlayerWallet(ai3, belleville);
+     addPropertyToPlayerWallet(ai1 , rueLecourbe);
+     addPropertyToPlayerWallet(ai1, rueDuParadis);
+     addPropertyToPlayerWallet(ai2 , avenueDeNeuilly);     
      addPropertyToPlayerWallet(ai3 , placeDeLaBourse);
-     addPropertyToPlayerWallet(ai3 , avenueDeBreteuil);
+     addPropertyToPlayerWallet(ai1 , avenueDeBreteuil);
 
 
   }

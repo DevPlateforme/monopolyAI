@@ -68,7 +68,7 @@ function hashAndStore(proposition){
 
          declinedPropositionsHashTable[hash % HASHENTRIES] = undefined;
 
-    }, 300000)
+    }, 60000)
 
 
 

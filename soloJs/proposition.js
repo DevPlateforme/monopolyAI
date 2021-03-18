@@ -172,6 +172,7 @@ function makeProposition(proposition){
 
  function acceptProposition(proposition){
 
+
      let offer = proposition.offer;
      let counterPartAsked = proposition.counterPartAsked;
      let offerer = proposition.offerer;
@@ -367,6 +368,9 @@ function makeProposition(proposition){
        updateBoardGraphs(offerer);
 
        updateBoardGraphs(answerer);
+
+
+       tradeAnimation(offerer,answerer);
 
 
 

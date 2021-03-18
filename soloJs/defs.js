@@ -388,6 +388,8 @@ function closeMortgage(property){
          property.landLord.mortgages -= 1;
          addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name);
 
+         squareBorderOn(property.square)
+
      } else {
 
         
@@ -446,7 +448,11 @@ function buildHouse(property){
 
       alert('to build a house, you need to unmortgage this property');
 
-     } else {
+     } else {      
+       
+      
+      squareBorderOn(property.square)
+
 
       property.landLord.propertiesByColor[property.color.index].houses += 1;
       
@@ -457,6 +463,9 @@ function buildHouse(property){
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
 
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
+
+
+
  
 
      }
@@ -798,6 +807,9 @@ function addPropertyToPlayerWallet(player, property){
 
     addNotif(' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
 
+    squareBorderOn(property.square);
+
+
 
 
    
@@ -844,6 +856,8 @@ function newMonopoly(player , color){
    boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')');
 
    addNotif('<br>' + player.name + ' has a monopoly!! (' + color.name + ')')
+
+
    
 
 }
@@ -1013,6 +1027,10 @@ function getMortgage(property){
 
         addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name);
 
+        squareBorderOn(property.square)
+
+
+
 
   }
 
@@ -1146,34 +1164,58 @@ function gameOver(player){
 
 function removePlayer(player){
 
-  let playerIndex = player.playerIndex;
+
+   removePlayerInterval = setInterval(function(){  
 
 
-  playersArray.splice(playerIndex, 1);
-
-
-  removePlayerOnGui(player);
-
-
-    //update remaining players indexes
-
-  for(var i=0; i < playersArray.length; i++){
-
-     
-     if(playersArray[i].playerIndex > playerIndex){
-
-        playersArray[i].playerIndex -= 1;
+    if(tradeAnimationOn == false){    
     
+      let playerIndex = player.playerIndex;
+  
+  
+      playersArray.splice(playerIndex, 1);
+    
+    
+      removePlayerOnGui(player);
+
+
+       //set all its properties to available
+
+
+       
+    
+    
+        //update remaining players indexes
+    
+      for(var i=0; i < playersArray.length; i++){
+    
+         
+         if(playersArray[i].playerIndex > playerIndex){
+    
+            playersArray[i].playerIndex -= 1;
+        
+          }
+         
       }
-     
-  }
-
-
-  if(displayedLaunchBtn = true){
-
-       launchDicesAndMovePieces();
     
-  }
+    
+      if(displayedLaunchBtn = true){
+    
+           launchDicesAndMovePieces();
+        
+      }
+
+      clearInterval(removePlayerInterval);
+
+    }
+    
+    
+
+
+
+    
+  },500)
+
 
 
 }

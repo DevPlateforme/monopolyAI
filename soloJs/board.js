@@ -114,10 +114,10 @@ function movePiece(){
  
       hideDiceLaunchButton();
 
-
        //MAKE ALL THE OTHER INTEFACES DISAPPEAR
 
       launchDices();
+
 
       movePiece();
 
@@ -146,6 +146,8 @@ function movePiece(){
 
                    //NEXT PLAYER
 
+                   
+
                    setTimeout(
 
 
@@ -155,17 +157,19 @@ function movePiece(){
 
                         if(AiThinking == false && humanThinking == false){
 
-                        //  //alert(nextDiceLauncher.name + ' will launch dices!!');
 
                           boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
 
                           AiThinking = true;
 
-                          clearInterval(nextDiceLauncheInterval)
+                          clearInterval(nextDiceLauncheInterval);
+                          clearInterval(postLaunchMoveCheckInterval);
+
+
 
 
                           if(nextDiceLauncher == humanPlayer){
-                     
+
                             displayDiceLaunchButton();
   
                           } else {
@@ -173,6 +177,7 @@ function movePiece(){
                             //console.log('*******the next dice launcher isnt the human!!')
   
                             launchDicesAndMovePieces();
+                            
    
                           }
 
@@ -184,7 +189,6 @@ function movePiece(){
 
                      } , 1000);
 
-                     clearTimeout(postLaunchMoveCheckInterval);
 
 
                }  

@@ -19,6 +19,47 @@
 
 
 
+<div  id='mobileBottomNav'>
+
+       <div class='digitalContainerAABA'>   
+
+          <button class='navBtn'  onclick='displayInterfaces()'>show</button>
+
+          <img class="showImg" src="./img/show.png" alt="">
+       </div>
+         <div class='digitalContainerAABA' > 
+              <button id='mobileLaunchBtn' class='navBtn' onclick='launchDicesAndMovePieces()'>Lancer</button>
+              <img class="mobilePlayImg" id='bottomPlayImg' src="./img/play.png" alt="">
+        </div>
+        <div class='jailAndBankruptcyInt'>
+
+             <div class='jailAndBankruptcyIntA'>
+                    <div class='jailAndBankruptcyIntAA'>
+                    <img class = 'jailImg'  src="./img/jail.png">
+
+                    </div>
+
+             </div>
+
+             <div class='jailAndBankruptcyIntB' id='bottomJailDiv'>free</div>
+            
+        </div>
+        <div class='jailAndBankruptcyInt'>
+
+             <div class='jailAndBankruptcyIntA'>
+                     <div class='jailAndBankruptcyIntAA'>
+                           <img class = 'bankruptcyImg'  src="./img/bankruptcy.png">
+
+                     </div>
+
+             </div>
+             <div class='jailAndBankruptcyIntB' id='bottomBankruptcyDiv'>off</div>
+                
+        </div>
+
+     </div>
+
+
   <div class='drawCardPopup' id='chanceSquareInterface' >
 
       <div class='drawCardLeftDiv'>
@@ -70,7 +111,6 @@
 
 
 
-<button id='closeInterfaceBtn' onclick='closeInterfaces()'>X</button>
 
 
 <div class='landDiv' id='availablePropertyInt' style='display:none'>
@@ -202,7 +242,7 @@
 
              <div class="detailPropertyCardBBA">
                  <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                     <canvas id="availableProperty_mortgageCanvas1" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
+                     <canvas id="availableProperty_mortgageCanvas1" height="20" width="20"  class="chartjs-render-monitor"></canvas>
                  </div>
                  <div class="detailPropertyCardBBAB">
                     $300
@@ -213,7 +253,7 @@
                     $300 
                  </div>
                   <div class="detailPropertyCardBBAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                     <canvas id="availableProperty_mortgageCanvas2" height="27" width="27" style="display: block; height: 15px; width: 15px;" class="chartjs-render-monitor"></canvas>
+                     <canvas id="availableProperty_mortgageCanvas2" height="20" width="20" class="chartjs-render-monitor"></canvas>
                  </div>
                 
              </div>
@@ -672,14 +712,14 @@
 
       <div class='tradeInterfaceAB' style='position:relative'>
 
-        <div class='tradeInterfaceHeader' style='  position:absolute;top:0.5%;left:3%; padding-left:1%; height:5%;width:20%; display:flex; flex-direction:row; align-items:center; justify-content:flex-start'>
+        <div class='tradeInterfaceHeader'>
                      
              your wallet :
            
         </div>
 
 
-        <div style='position:absolute; height:10%;width:30%; top:45%; left:5% ;display:flex; flex-direction:row; justify-content: flex-start; align-items: flex-end '>
+        <div class='avatarsDiv'>
 
           <div id='ai1_avatar' style='position:relative; opacity:0.3;  height:30%; width:5%; display:flex; justify-content:center; align-items:center; background:rgb(0,255,0,0.8); border-radius:30px; margin-left:1.5%; cursor:pointer'>
                     <img style='height: 86%;width: 86%;'  src="./img/aiface.png">
@@ -717,7 +757,8 @@
          <div class='squareCardAA'>
          <div class="squareCardAAA">
          <div class='squareCardAAAA'>
-
+          
+         <div></div>
          <div class="cardGraphContainer">
            <canvas id="tradeOffererDiv_propertyTemplate_2_property_0_canvas1" width="100" height="100"></canvas>  
          </div>
@@ -744,7 +785,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg' src="./img/location.png">
    
         </div>
 
@@ -762,7 +803,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -773,7 +814,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -786,7 +827,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -865,7 +906,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -883,7 +924,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -894,7 +935,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg"> 
        </div>
        
      </div>  
@@ -907,7 +948,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1038,7 +1079,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+        <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1056,7 +1097,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1067,7 +1108,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1080,7 +1121,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1161,7 +1202,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1180,7 +1221,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1191,7 +1232,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1204,7 +1245,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1288,7 +1329,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1307,7 +1348,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1318,7 +1359,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1331,7 +1372,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1462,7 +1503,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1480,7 +1521,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1491,7 +1532,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1504,7 +1545,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1584,7 +1625,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1603,7 +1644,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1614,7 +1655,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1627,7 +1668,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1709,7 +1750,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -1728,7 +1769,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -1739,7 +1780,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -1752,7 +1793,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -1837,7 +1878,7 @@
 
       <div class='locationContainer'>
 
-           <img style='height: 70%;width: auto;'  src="./img/location.png">
+           <img class='locationImg'  src="./img/location.png">
  
       </div>
 
@@ -1856,7 +1897,7 @@
        
      </div>
      <div class="squareCardABAAB">
-          house cost
+          <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
      </div>
      
    </div>  
@@ -1867,7 +1908,7 @@
        
      </div>
      <div class="squareCardABAAB">
-         max.rent
+         <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
      </div>
      
    </div>  
@@ -2028,7 +2069,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2046,7 +2087,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2057,7 +2098,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2070,7 +2111,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2150,7 +2191,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2169,7 +2210,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2180,7 +2221,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2193,7 +2234,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2331,7 +2372,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2350,7 +2391,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2361,7 +2402,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2374,7 +2415,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2454,7 +2495,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2473,7 +2514,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2484,7 +2525,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2497,7 +2538,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2578,7 +2619,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2597,7 +2638,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2608,7 +2649,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2621,7 +2662,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2758,7 +2799,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2777,7 +2818,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2788,7 +2829,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2801,7 +2842,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -2882,7 +2923,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -2901,7 +2942,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -2912,7 +2953,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -2925,7 +2966,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -3006,7 +3047,7 @@
 
       <div class='locationContainer'>
 
-           <img style='height: 70%;width: auto;'  src="./img/location.png">
+           <img class='locationImg'  src="./img/location.png">
  
       </div>
 
@@ -3025,7 +3066,7 @@
        
      </div>
      <div class="squareCardABAAB">
-          house cost
+          <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
      </div>
      
    </div>  
@@ -3036,7 +3077,7 @@
        
      </div>
      <div class="squareCardABAAB">
-         max.rent
+         <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
      </div>
      
    </div>  
@@ -3131,7 +3172,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -3150,7 +3191,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -3161,7 +3202,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -3174,7 +3215,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -4194,7 +4235,7 @@
                        <div class='selectedPropertiesDivAA'></div>
 
                  </div>
-                  <div class='selectedPropertiesDivB'>3 properties selected</div>
+                  <div class='selectedPropertiesDivB'>3 <span class='selectSpan'>properties selected</span></div>
 
 
 
@@ -4212,7 +4253,7 @@
                   <div class='selectedPropertiesDivA'>
                         <div class='selectedPropertiesDivAA'></div>
                   </div>
-                  <div class='selectedPropertiesDivB'>6 properties selected</div>
+                  <div class='selectedPropertiesDivB'>6<span class='selectSpan'> properties selected</span></div>
 
 
               </div>
@@ -4311,7 +4352,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -4329,7 +4370,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -4340,7 +4381,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -4353,7 +4394,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -4432,7 +4473,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -4450,7 +4491,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -4461,7 +4502,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -4474,7 +4515,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -4598,7 +4639,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -4616,7 +4657,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -4627,7 +4668,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -4640,7 +4681,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -4719,7 +4760,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -4737,7 +4778,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -4748,7 +4789,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -4761,7 +4802,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -4843,7 +4884,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -4861,7 +4902,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -4872,7 +4913,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -4885,7 +4926,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -5015,7 +5056,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -5033,7 +5074,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -5044,7 +5085,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -5057,7 +5098,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -5135,7 +5176,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -5153,7 +5194,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -5164,7 +5205,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -5177,7 +5218,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -5253,7 +5294,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -5271,7 +5312,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -5282,7 +5323,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -5295,7 +5336,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -5373,7 +5414,7 @@
 
         <div class='locationContainer'>
 
-             <img style='height: 70%;width: auto;'  src="./img/location.png">
+             <img class='locationImg'  src="./img/location.png">
    
         </div>
 
@@ -5391,7 +5432,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            house cost
+            <span class='houseCostSpan'>house cost</span> <img class='houseImg' src='./img/house.png'>
        </div>
        
      </div>  
@@ -5402,7 +5443,7 @@
          
        </div>
        <div class="squareCardABAAB">
-           max.rent
+           <span class="maxRentSpan">max.rent</span> <img src="./img/top.png" class="maxImg">
        </div>
        
      </div>  
@@ -5415,7 +5456,7 @@
          
        </div>
        <div class="squareCardABAAB">
-            square
+            <span class='squareSpan'>square</span><img src="./img/5g.png" class='mobileLocationImg'>
        </div>
        
      </div>  
@@ -5853,7 +5894,15 @@
   
       <div class='pManagementInterfaceB'>
   
-            <div class='pManagementInterfaceBA'></div>
+            <div class='pManagementInterfaceBA'>
+                <div class='pManagementInterfaceBAA'>
+                     <div class='pManagementInterfaceBAAA'>user id n°12144545451214454545</div>
+                     <div class='pManagementInterfaceBAAA'>management interface opened succesfully</div>
+                     <div class='pManagementInterfaceBAAA'>opening access granted...</div>
+                     <div class='pManagementInterfaceBAAA'>parsing the information...</div>
+
+                </div>
+            </div>
             <div class='pManagementInterfaceBB'></div>
             <div class='pManagementInterfaceBC'></div>
             <div class='pManagementInterfaceBD'></div>
@@ -6851,17 +6900,18 @@
 
 
 
+    <div class='digitalContainerAAB' id='humanLeftInterface'>
 
+       <div class='digitalContainerAABA'>   
 
+          <button class='navBtn'  onclick='displayInterfaces()'>show</button>
 
-
-
-     <div class='digitalContainerAAB' id='humanLeftInterface'>
-     <div class='digitalContainerAABA'>   
-          <button id = 'displayInterfacesButton' onclick='displayInterfaces()'>show</button>
+          <img class="showImg" src="./img/show.png" alt="">
        </div>
-         <div class='digitalContainerAABA'> 
-              <button id='launchBtn' onclick='launchDicesAndMovePieces()'>Lancer</button>
+         <div class='digitalContainerAABA' > 
+              <button id='launchBtn' class='navBtn' onclick='launchDicesAndMovePieces()'>Lancer</button>
+              <img class="playImg" id='playImg' src="./img/play.png" alt="">
+
         </div>
         <div class='jailAndBankruptcyInt'>
 
@@ -6898,44 +6948,653 @@
 
 
 
+    <div class="mobilePresentationsContainer">
+
+<div class="mobilePresentationsContainerA">
+
+     <div class="mobilePresentationsContainerAA">
+          <div class="mobilePresentationsContainerAAA">
+                <div class="mobileAvatarContainer">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                </div>
+          </div>
+          <div class="mobilePresentationsContainerAAB">
 
 
-    <div class='mobilePresentationsContainer'>
+              <div class="mobilePresentationsContainerAABA">
 
-<div class='mobilePresentationsContainerA'>
 
-     <div class='mobilePresentationsContainerAA'></div>
 
-     <div class='mobilePresentationsContainerAB'></div>
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+
+              </div>
+              <div class="mobilePresentationsContainerAABA">
+
+              
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+              </div>
+          </div>
+     </div><div class="mobilePresentationsContainerAA">
+          <div class="mobilePresentationsContainerAAA">
+                <div class="mobileAvatarContainer">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                </div>
+          </div>
+          <div class="mobilePresentationsContainerAAB">
+
+
+              <div class="mobilePresentationsContainerAABA">
+
+
+
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+
+              </div>
+              <div class="mobilePresentationsContainerAABA">
+
+              
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+              </div>
+          </div>
+     </div>
+
+     
+
+</div><div class="mobilePresentationsContainerA">
+
+     <div class="mobilePresentationsContainerAA">
+          <div class="mobilePresentationsContainerAAA">
+                <div class="mobileAvatarContainer">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                </div>
+          </div>
+          <div class="mobilePresentationsContainerAAB">
+
+
+              <div class="mobilePresentationsContainerAABA">
+
+
+
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+
+              </div>
+              <div class="mobilePresentationsContainerAABA">
+
+              
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+              </div>
+          </div>
+     </div><div class="mobilePresentationsContainerAA">
+          <div class="mobilePresentationsContainerAAA">
+                <div class="mobileAvatarContainer">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                </div>
+          </div>
+          <div class="mobilePresentationsContainerAAB">
+
+
+              <div class="mobilePresentationsContainerAABA">
+
+
+
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+
+              </div>
+              <div class="mobilePresentationsContainerAABA">
+
+              
+
+
+           <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+          
+          <div class="homePropertyDivAB">
+                   <div class="homePropertyDivABA">
+                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                  </div>
+
+                   <div class="homePropertyDivABB">
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                  </div>
+          </div>
+
+              </div>
+          </div>
+     </div>
+
+     
 
 </div>
 
 
 
-<div class='mobilePresentationsContainerB'>
-    <div class='mobilePresentationsContainerBA'></div>
-     <div class='mobilePresentationsContainerBB'></div>
-</div>
+
+
 
 
 </div>
-
 		 <div class='digitalContainerB'>
 
-     <div class="digitalContainerBC">
+     <div class="digitalContainerBC" id='boardTop'>
 
                
-     <div class="digitalContainerBCA" >
+     <div class="digitalContainerBCA" id='square10_container'>
 
       <div class="specialSquare">
             <img style='height: 40%;width: auto'  src="./img/public.png">
               
       <div class='pawnContainer'>
 
-         <div class='pawnContainer0'></div>
-         <div class='pawnContainer1'></div>
-         <div class='pawnContainer2'></div>
-        <div class='pawnContainer3'></div>
+         <div class='square10_pawnContainer0'></div>
+         <div class='square10_pawnContainer1'></div>
+         <div class='square10_pawnContainer2'></div>
+         <div class='square10_pawnContainer3'></div>
 
     </div>
 
@@ -6950,7 +7609,7 @@
 
 
 
-  <div class="digitalContainerBCA">  
+  <div class="digitalContainerBCA" id='square11_container'>  
                      
                      <div class="digitalContainerBCAA">
                
@@ -7015,7 +7674,7 @@
                
 
    
-<div class="digitalContainerBCA" >
+<div class="digitalContainerBCA" id='square12_container' >
 
 <div class="specialSquare">
             <img style='height: 40%;width: auto;'  src="./img/public.png">
@@ -7037,7 +7696,7 @@
 </div>
 
 
-<div class="digitalContainerBCA">
+<div class="digitalContainerBCA" id='square13_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -7103,7 +7762,7 @@
 
    
 
-<div class="digitalContainerBCA">
+<div class="digitalContainerBCA" id='square14_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -7169,7 +7828,7 @@
     
    
    
-<div class="digitalContainerBCA">
+<div class="digitalContainerBCA" id='square15_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -7229,7 +7888,7 @@
 
 
 
-<div class="digitalContainerBCA">
+<div class="digitalContainerBCA" id='square16_container'>
          
          <div class="digitalContainerBCAA">
    
@@ -7294,7 +7953,7 @@
    
 
 
- <div class="digitalContainerBCA">
+ <div class="digitalContainerBCA" id='square17_container'>
 
        <div class="specialSquare">
                    <img style='height: 40%;width: 40%;'  src="./img/chest.png">
@@ -7317,7 +7976,7 @@
 
 
 
-   <div class="digitalContainerBCA">
+   <div class="digitalContainerBCA" id='square18_container'>
          
          <div class="digitalContainerBCAA">
    
@@ -7382,17 +8041,17 @@
    
 
 
-<div class="digitalContainerBCA">
+<div class="digitalContainerBCA" id='square19_container'>
          
          <div class="digitalContainerBCAA">
    
      
         <div class='pawnContainer'>
 
-         <div id='square18_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square18_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square18_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square18_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square19_pawnContainer0' class='pawnContainer0'></div>
+         <div id='square19_pawnContainer1' class='pawnContainer1'></div>
+         <div id='square19_pawnContainer2' class='pawnContainer2'></div>
+         <div id='square19_pawnContainer3' class='pawnContainer3'></div>
  
      </div>
                           
@@ -7404,11 +8063,11 @@
 
          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
 
-           <div class='rpSquareBA1' id='square18_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square18_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square18_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square18_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square18_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
            
        </div>
 
@@ -7447,7 +8106,7 @@
 
 
 
-   <div class="digitalContainerBCA">
+   <div class="digitalContainerBCA" id='square20_container'>
 
 <div class="specialSquare">
             <img style='height: 40%;width: auto;'  src="./img/parking.png">
@@ -7473,9 +8132,9 @@
 
 		 	<div class="digitalContainerBB">
 
-		 		<div class="digitalContainerBBA"> 
+		 		<div class="digitalContainerBBA" id='boardLeft'> 
 		 		
-	<div class="digitalContainerBBAA">
+	<div class="digitalContainerBBAA" id='square9_container'>
           
            
            
@@ -7508,7 +8167,7 @@
 
         <div class='rpSquareC'>
 
-            <div class='rpSquareCA'>Republic Av.</div>
+            <div class='rpSquareCA'  >Republic Av.</div>
 
             <div id='square9_landLord'  class='rpSquareCB'>landlord : none</div>
 
@@ -7532,7 +8191,7 @@
             
   </div>
 		 		
-  <div class="digitalContainerBBAA">
+  <div class="digitalContainerBBAA" id='square8_container'>
            
            
            
@@ -7590,7 +8249,7 @@
          </div>
        
 
-		 			<div class="digitalContainerBBAA">
+		 			<div class="digitalContainerBBAA" id='square7_container'>
                      
                <div class='specialSquare'>
                   <img style='height: 30%;width: 30%;'  src="./img/luck.png">
@@ -7607,7 +8266,7 @@
           </div>
 
 
-          <div class="digitalContainerBBAA">
+          <div class="digitalContainerBBAA" id='square6_container'>
            
            
            
@@ -7667,7 +8326,7 @@
  
 
 
- <div class="digitalContainerBBAA">
+ <div class="digitalContainerBBAA" id='square5_container'>
            
            
            
@@ -7722,7 +8381,7 @@
 
 
 
-   <div class="digitalContainerBBAA">
+   <div class="digitalContainerBBAA" id='square4_container'>
 
 <div class="specialSquare">
             <img style='height: 55%;width: auto;'  src="./img/dollar.png">
@@ -7741,7 +8400,7 @@
 </div>
 
 
-    <div class="digitalContainerBBAA">
+    <div class="digitalContainerBBAA" id='square3_container'>
                   
            
            <div class='pawnContainer'>
@@ -7800,7 +8459,7 @@
 
 
          
-            <div class="digitalContainerBBAA">
+            <div class="digitalContainerBBAA" id='square2_container'>
 
                <div class="specialSquare">
                    <img style='height: 40%;width: 40%;'  src="./img/chest.png">
@@ -7826,7 +8485,7 @@
    
       
       
-                <div class="digitalContainerBBAA">
+                <div class="digitalContainerBBAA" id='square1_container'>
                  
                  
                  
@@ -7892,19 +8551,19 @@
 		 	    <div class="digitalContainerBBB"> 
            
                     <div class='digitalContainerBBBA'>
-                        <div class='digitalContainerBBBAA'>
+                        <div class='digitalContainerBBBAA' id='boardGraphContainer1'>
 
                            <canvas height='100' width='100' id='boardGraph1'></canvas>
 
                           <div  class='digitalContainerBBBAAA'>situation</div>
                         </div>
-                        <div class='digitalContainerBBBAB'>
+                        <div class='digitalContainerBBBAB' id='boardGraphContainer2'>
                            <canvas height='100' width='100' id='boardGraph2'></canvas>
                            <div  class='digitalContainerBBBAAA'>trades</div>
 
 
                         </div>
-                        <div class='digitalContainerBBBAC'>
+                        <div class='digitalContainerBBBAC' id='boardGraphContainer3'>
                              <canvas height='100' width='100' id='boardGraph3'></canvas>
                              <div  class='digitalContainerBBBAAA'>propositions</div>
 
@@ -7912,7 +8571,12 @@
 
                     </div>
                     <div class='digitalContainerBBBB'>
-                        <div class='digitalContainerBBBBA' id='boardJournal'>
+                        <div class='digitalContainerBBBBA' id='boardJournalContainer'>
+
+                                 <div id='boardJournal' >
+
+
+                                 </div>
                             
                         </div>
                     </div>
@@ -7942,70 +8606,8 @@
                 <div class='tradeScreenAAAB'></div>
             </div>
 
-            <div class='tradeScreenAAB'>
-                <div class='tradeScreenAABA'>
-
-                    <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-                    <div class="tradeScreenAABAB">
-                        R. de la paix
-                    </div>
-
-               </div>
-
-
-                <div class='tradeScreenAABA'>
-
-                    <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-                    <div class="tradeScreenAABAB">
-                        R. de la paix
-                    </div>
-
-               </div>
-
-
-               <div class='tradeScreenAABA'>
-
-                    <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-                    <div class="tradeScreenAABAB">
-                        R. de la paix
-                    </div>
-
-               </div>
-
-
-              <div class='tradeScreenAABA'>
-
-                    <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-                    <div class="tradeScreenAABAB">
-                        R. de la paix
-                    </div>
-
-               </div>
-
+            <div class='tradeScreenAAB' id='tradeScreen_offererContainer'>
+          
             </div>
         </div>
 
@@ -8034,77 +8636,9 @@
                 </div>
             </div>
 
-            <div class='tradeScreenAAB'>
-                <div class='tradeScreenAABA'>
+            <div class='tradeScreenAAB' id='tradescreen_answererContainer'>
+             
 
-                
-                   <div class="tradeScreenAABAB_bottom">
-                        R. de la paix
-                    </div>
-
-                    <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-
-               </div>
-
-
-                <div class='tradeScreenAABA'>
-
-                
-
-                    <div class="tradeScreenAABAB_bottom">
-                        R. de la paix
-                    </div>
-
-                   <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-               </div>
-
-
-               <div class='tradeScreenAABA'>
-
-                   
-
-                    <div class="tradeScreenAABAB_bottom">
-                        R. de la paix
-                    </div>
-
-                     <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-               </div>
-
-
-              <div class='tradeScreenAABA'>
-
-                 
-                    <div class="tradeScreenAABAB_bottom">
-                        R. de la paix
-                    </div>
-
-                       <div class="tradeScreenAABAA">
-
-                        <div class="tradeScreenAABAAA">
-                        
-                        </div>
-                    </div>
-
-
-               </div>
 
             </div>
         </div>
@@ -8115,7 +8649,7 @@
 
  </div>
 
-          <div class='digitalContainerBBBCB'>
+          <div class='digitalContainerBBBCB' id='boardLegendsContainer'>
                 <div class='digitalContainerBBBCBA'>
 
                      <div class='digitalContainerBBBCBAA'>
@@ -8172,9 +8706,9 @@
 		</div>
 
 		 		
-        <div class="digitalContainerBBA"> 
+        <div class="digitalContainerBBA" id="boardRight"> 
                 
-          <div class="digitalContainerBBAA">
+          <div class="digitalContainerBBAA" id='square21_container'>
 
                  
            <div class='pawnContainer'>
@@ -8235,7 +8769,7 @@
 
 
 
-             <div class="digitalContainerBBAA">
+             <div class="digitalContainerBBAA" id='square22_container'>
                           <div class="specialSquare">
 
                           <img style='height: 40%;width: 40%;'  src="./img/luck.png">
@@ -8253,7 +8787,7 @@
                 </div>  
          </div>
                     
-      <div class="digitalContainerBBAA">
+      <div class="digitalContainerBBAA" id='square23_container'>
            
             <div class='pawnContainer'>
                    <div id='square23_pawnContainer0' class='pawnContainer0'></div>
@@ -8307,7 +8841,7 @@
                    
          </div>
 
-         <div class="digitalContainerBBAA">
+         <div class="digitalContainerBBAA" id='square24_container'>
            
            <div class='pawnContainer'>
                   <div id='square24_pawnContainer0' class='pawnContainer0'></div>
@@ -8364,7 +8898,7 @@
           
 
 
- <div class="digitalContainerBBAA">
+ <div class="digitalContainerBBAA" id='square25_container'>
            
            
            
@@ -8419,7 +8953,7 @@
 
 
 
-         <div class="digitalContainerBBAA">
+         <div class="digitalContainerBBAA" id='square26_container'>
            
            <div class='pawnContainer'>
                   <div id='square26_pawnContainer0' class='pawnContainer0'></div>
@@ -8476,7 +9010,7 @@
           
 
 
-         <div class="digitalContainerBBAA">
+         <div class="digitalContainerBBAA" id='square27_container'>
            
            <div class='pawnContainer'>
                   <div id='square27_pawnContainer0' class='pawnContainer0'></div>
@@ -8532,7 +9066,7 @@
 
           
 
-         <div class="digitalContainerBBAA">
+         <div class="digitalContainerBBAA" id='square28_container'>
 
        <div class="specialSquare">
                    <img style='height: 40%;width: auto;'  src="./img/public.png">
@@ -8552,7 +9086,7 @@
 
    </div>
 
-   <div class="digitalContainerBBAA">
+   <div class="digitalContainerBBAA" id='square29_container'>
            
            <div class='pawnContainer'>
                   <div id='square29_pawnContainer0' class='pawnContainer0'></div>
@@ -8614,13 +9148,13 @@
        	
 		 	</div>
 
-		 	<div class="digitalContainerBC">
+		 	<div class="digitalContainerBC" id='boardBottom'>
 
                
 
             
 
-          <div class="digitalContainerBCA">
+          <div class="digitalContainerBCA" id='square0_container'>
               
               
               <div class="specialSquare">
@@ -8641,7 +9175,7 @@
          </div>
 
 
-           <div class="digitalContainerBCA">
+           <div class="digitalContainerBCA" id='square39_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -8707,7 +9241,7 @@
 
 
 
-            <div class="digitalContainerBCA">
+            <div class="digitalContainerBCA" id='square38_container'>
               
               
               <div class="specialSquare">
@@ -8727,7 +9261,7 @@
           
              </div>
       
-          <div class="digitalContainerBCA">
+          <div class="digitalContainerBCA" id='square37_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -8790,7 +9324,7 @@
 
 
                
-        <div class="digitalContainerBCA">
+        <div class="digitalContainerBCA" id='square36_container'>
               
               
         <div class="specialSquare">
@@ -8816,7 +9350,7 @@
 
 <div class="digitalContainerBCA">
                      
-             <div class="digitalContainerBCAA">
+             <div class="digitalContainerBCAA" id='square35_container'>
                     
                
                   <div class='pawnContainer'>
@@ -8879,7 +9413,7 @@
 
 <div class="digitalContainerBCA">
                      
-                     <div class="digitalContainerBCAA">
+                     <div class="digitalContainerBCAA" id='square34_container'>
                
                
                
@@ -8941,7 +9475,7 @@
 
 
 
-            <div class="digitalContainerBCA">
+            <div class="digitalContainerBCA" id='square33_container'>
 
                <div class="specialSquare">
                    <img style='height: 40%;width: 40%;'  src="./img/chest.png">
@@ -8963,7 +9497,7 @@
 
 
 
-   <div class="digitalContainerBCA">
+   <div class="digitalContainerBCA" id='square32_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -9026,7 +9560,7 @@
 
 
 
-            <div class="digitalContainerBCA">
+            <div class="digitalContainerBCA" id='square31_container'>
                      
                      <div class="digitalContainerBCAA">
                
@@ -9089,19 +9623,19 @@
 
 
                        
-     <div class="digitalContainerBCA">
+     <div class="digitalContainerBCA" id='square30_container'>
 
       <div class="specialSquare">
             <img style='height: 30%;width: auto'  src="./img/gotojail.png">
               
-      <div class='pawnContainer'>
-
-     <div class='pawnContainer0'></div>
-     <div class='pawnContainer1'></div>
-     <div class='pawnContainer2'></div>
-     <div class='pawnContainer3'></div>
-
-    </div>
+       <div class='pawnContainer'>
+           
+           <div id='square30_pawnContainer0' class='pawnContainer0'></div>
+           <div id='square30_pawnContainer1' class='pawnContainer1'></div>
+           <div id='square30_pawnContainer2' class='pawnContainer2'></div>
+           <div id='square30_pawnContainer3' class='pawnContainer3'></div>
+   
+       </div>
 
 </div>
 
@@ -9851,15 +10385,7 @@
 
           </div>
 
-
-
-
            
-
-
-
-
-
 
 
         </div>
@@ -9867,34 +10393,11 @@
 
 
 
+    <div class='digitalContainerAAB'></div>
 
-
-
-
-
-
-
-
-
-
-     <div class='digitalContainerAAB'></div>
-
-   </div>
-
-			
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+		
+	</div>
 
 
 
@@ -9906,15 +10409,23 @@
 
 
 
-
-
-
-
     <div id='interfacesPanel'>
-          
-          <button onclick='displayPM()'>handle</button>
 
-          <button onclick='displayPropositionInterface()'>trade</button>    
+      <div class="navBtnContainer">  
+          <button class='navBtn' id='closeInterfaceBtn' onclick='closeInterfaces()'>X</button>
+          <img class='interfaceImg' src="./img/board.png" alt="">
+      </div>
+
+      <div class="navBtnContainer">          
+        <button class="navBtn" onclick='displayPM()'>handle</button>         
+        <img class='interfaceImg' src="./img/pm.png" alt="">
+      </div>
+
+      <div class="navBtnContainer">  
+          <button class="navBtn" onclick='displayPropositionInterface()'>trade</button>   
+          <img class='interfaceImg' src="./img/trade.png" alt="">
+      </div>
+      
     
     </div>
 

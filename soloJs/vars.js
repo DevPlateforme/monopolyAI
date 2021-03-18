@@ -84,7 +84,7 @@ var downgrade = 'downgrade';
 
 var ai1 = {playerIndex: 0 , key : 0,  position: 0 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
 var ai2 = {playerIndex: 1 , key : 0,  position: 0 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'humanPlayer', cash:120, bankruptcy:false, rents: 0 , propertiesCount: 0 ,  propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 0 , name: 'humanPlayer', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 ,  propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
 var ai3 = {playerIndex: 3 , key : 0,  position: 0 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
 
 
@@ -143,7 +143,6 @@ graph types
 
 var boardGraph = 'boardGraph';
 var pmGraph = 'pmGraph';
-
 
 
 
@@ -574,7 +573,6 @@ var indirectGain = 'IG';
 
 
 
-
 var search = 0;
 
 
@@ -584,4 +582,19 @@ var search = 0;
 var all = 'all';
 
 var directMonopolies = 'DMOs';
+
+
+var highlightedSquare = none;
+
+
+var squareTimeout;
+
+//avoid collision when clearing player (gui.js)
+
+var tradeAnimationOn = false;
+
+var tradeAnimationInterval;
+
+
+var removePlayerInterval;
 

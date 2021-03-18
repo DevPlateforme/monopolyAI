@@ -12,6 +12,9 @@ var humanAnswerInterfaceOffer = document.getElementById('humanAnswerInterfaceOff
 var humanAnswerInterfaceCounterPart = document.getElementById('humanAnswerInterfaceCounterPart');
 var humanAnswerInterfaceBtn = document.getElementById('acceptPropositionBtn');
 var launchBtn = document.getElementById('launchBtn');
+var mobileLaunchBtn = document.getElementById('mobileLaunchBtn');
+var playImg = document.getElementById('playImg'); 
+var bottomPlayImg = document.getElementById('bottomPlayImg');
 var pmHumanPropertiesDiv = document.getElementById('playerPropertiesDiv');
 var interfacesPanel = document.getElementById('interfacesPanel');
 var boardJournal = document.getElementById('boardJournal');
@@ -33,15 +36,19 @@ var player2PawnContainer;
 function displayDiceLaunchButton(){
      displayedLaunchBtn = true;
      launchBtn.style.display = 'flex';
+     mobileLaunchBtn.style.display = 'flex';
+     playImg.style.opacity = 0.6;
+     bottomPlayImg.style.opacity = 1;
 }
 
 
 function hideDiceLaunchButton(){
 
      displayedLaunchBtn = false;
-
      launchBtn.style.display = 'none';
-
+     mobileLaunchBtn.style.display = 'none';
+     playImg.style.opacity = 0.1;
+     bottomPlayImg.style.opacity = 0.1;
 }
 
 
@@ -261,6 +268,13 @@ function displayAvailablePropertyInterface(square){
          availablePropertyPriceHTML.innerHTML = 'Prix : ' + square.value;
        
      } else {
+
+          humanThinking = false;
+
+          postLaunchDecision = done;
+
+          alert('the human landed on an available property, but dont have enough cash')
+
        
        //unavailableFundInterface.style.zIndex = 3;
        //unavailableFundInterface.style.opacity = 1;
@@ -747,7 +761,6 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
 
      offerer.inBuildingProposition.counterPartAskedElementsCount++;
 
-     alert(humanPlayer.inBuildingProposition.counterPartAskedElementsCount)
 
 
 
@@ -1082,14 +1095,7 @@ function sendProposition(){
 
                if(alternatives.monopolyOpportunity == false ) {
      
-               
-                   //if no alternatives found 
-              
-                    ////alert('offerer score =>' + proposition.offererScore);
 
-                    ////alert('offerer gain =>' + proposition.counterPartAsked.gainValueForTheOtherPlayer);
-
-                    ////alert('answerer score =>' + proposition.answererScore);
           
                     alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
      
@@ -1289,6 +1295,8 @@ function displayPlayersWallets(){
 
 function displayPM(){
 
+     
+
 
      humanThinking = true;
 
@@ -1375,6 +1383,9 @@ function closeInterfaces(){
      monopolyBoard.style.opacity = 1;
      document.getElementById('projectBody').style.background= darkBlue;
 
+     document.getElementById('mobileBottomNav').style.opacity = '1';
+
+
      
      document.getElementById('tradeInterfaceDiv').style.display = 'none';
      closePropositionInterface();
@@ -1412,6 +1423,8 @@ function closeInterfaces(){
 function displayInterfaces(){
 
      humanThinking = true;
+
+     document.getElementById('mobileBottomNav').style.opacity = '0';
 
      monopolyBoard.style.transition = 'all 1s ease';
 
@@ -1994,7 +2007,7 @@ function addNotif(content){
 
                notifContainer.removeChild(notif);
 
-          }, 1500);
+          }, 1000);
 
 
 }
@@ -2027,7 +2040,7 @@ function displayTradeDiv(type,player,color){
           document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_houseCost').innerHTML = ('$' + property.houseValue);
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_maxRent').innerHTML = ('$' + property.rentHotel);
           document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_value').innerHTML = ('$' + property.value);
-          document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_propertyName').innerHTML = ('$' + property.name);
+          document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_propertyName').innerHTML = (property.name);
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_mortgaged').innerHTML = ('mortgaged:' + property.mortgaged);
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_location').innerHTML = ('n°' + property.square);
 
@@ -2202,7 +2215,6 @@ function displayNewAnswerer(player){
 function removePlayerOnGui(player){
 
      //remove its pawn
-
 
      document.getElementById(player.name+'BoardPresentation').style.opacity = 0.2;
 }
@@ -2424,15 +2436,279 @@ function displayPmBottomDiv(){
 
 
 
-
-
 function displayIntCard(propertyIndex){
 
-
      let property = propertiesList[propertyIndex];
-
      displayDetailCard(intCardDetail, property);
 
+}
 
+
+
+
+function hideBoard(){
+
+     document.getElementById('boardTop').style.opacity = 0.2;
+     document.getElementById('boardBottom').style.opacity = 0.2;
+     document.getElementById('boardLeft').style.opacity = 0.2;
+     document.getElementById('boardRight').style.opacity = 0.2;    
+     document.getElementById('boardGraphContainer1').style.opacity = 0.2;
+     document.getElementById('boardGraphContainer2').style.opacity = 0.2;
+     document.getElementById('boardGraphContainer3').style.opacity = 0.2; 
+     document.getElementById('boardLegendsContainer').style.opacity = 0.2;
+     document.getElementById('boardJournalContainer').style.opacity = 0.2;
+
+}
+
+
+function hidePlayer(player){
+
+      document.getElementById(player.name+'BoardPresentation').style.opacity = 0.2;
+
+}
+
+
+
+
+function tradeAnimation(playerA,playerB){
+
+    let tradeAnimationInterval = setInterval(function(){  
+                   
+       if(tradeAnimationOn == false ){    
+          
+          
+          
+          tradeAnimationOn = true;
+
+          let nonTradingPlayers = getNonTradingPlayersArray(playerA,playerB);
+      
+          hideBoard();
+          
+          for(var i=0; i < nonTradingPlayers.length; i++){
+               
+              hidePlayer(nonTradingPlayers[i]);
+      
+          }
+      
+      
+          document.getElementById('checkmark').style.display = 'flex'; 
+
+          addTradeScreenOfferLine(avenueHenriMartin);
+
+          
+          
+     setTimeout(function(){     addTradeScreenAnswerLine(avenueMatignon);
+     },1000)     
+
+
+      
+      
+      
+          setTimeout(function(){
+      
+             unveilBoard();
+      
+             for(var i=0; i < nonTradingPlayers.length; i++){  
+                
+                  unveilPlayer(nonTradingPlayers[i]);
+        
+            }
+      
+            tradeAnimationOn = false;
+      
+      
+             
+      
+          }, 3000)
+
+
+          clearInterval(tradeAnimationInterval);
+      
+      
+
+
+     }
+
+     },500)
+
+   
+
+ 
+}
+
+
+
+function unveilPlayer(player){      
+     
+     document.getElementById(player.name+'BoardPresentation').style.opacity = 1;
+
+}
+
+
+function unveilBoard(){
+
+     document.getElementById('boardTop').style.opacity = 1;
+     document.getElementById('boardBottom').style.opacity = 1;
+     document.getElementById('boardLeft').style.opacity = 1;
+     document.getElementById('boardRight').style.opacity = 1;    
+     document.getElementById('boardGraphContainer1').style.opacity = 1;
+     document.getElementById('boardGraphContainer2').style.opacity = 1;
+     document.getElementById('boardGraphContainer3').style.opacity = 1; 
+     document.getElementById('boardLegendsContainer').style.opacity = 1;
+     document.getElementById('boardJournalContainer').style.opacity = 1;
+
+}
+
+
+
+
+
+
+
+function squareBorderOn(square){
+
+      if( highlightedSquare != none){
+
+          document.getElementById('square' + highlightedSquare + '_container').style.border = 'none';
+          clearTimeout(squareTimeout);
+
+      } 
+
+      highlightedSquare = square;
+
+
+      setTimeout(function(){
+
+
+
+          document.getElementById('square' + square + '_container').style.border = 'solid 1.5px';
+
+
+          squareTimeout = setTimeout(function(){      
+
+               document.getElementById('square' + square + '_container').style.border = 'none';
+
+               highlightedSquare = none;
+
+          },500)
+      
+
+
+      },100)
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+function fillTradeScreen(proposition){
+
+
+     for(var i=0; i < proposition.offer.array.length; i++){
+
+          addTradeScreenLine();
+
+     }
+
+
+}
+
+
+
+function addTradeScreenOfferLine(property){
+ 
+  let line = document.createElement('div');
+  line.setAttribute("class", "tradeScreenAABA");
+  let colorContainer = document.createElement('div');
+  colorContainer.setAttribute("class", "tradeScreenAABAA");
+  let colorPoint = document.createElement('div');
+  colorPoint.style.background = property.color.opacityOnCode;
+  colorPoint.setAttribute("class", "tradeScreenAABAAA");
+  colorContainer.append(colorPoint);
+  let propertyNameLine = document.createElement("div");
+  propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
+  propertyNameLine.innerHTML = property.name;
+  line.append(colorContainer);
+  line.append(propertyNameLine)
+  document.getElementById('tradeScreen_offererContainer').append(line);
+  opacityTransition(colorPoint);
+
+
+
+}
+
+
+
+function addTradeScreenAnswerLine(property){ 
+
+   let line = document.createElement('div');
+   line.setAttribute("class", "tradeScreenAABA");
+   let colorContainer = document.createElement('div');
+   colorContainer.setAttribute("class", "tradeScreenAABAA");
+   let colorPoint = document.createElement('div');
+   colorPoint.style.background = property.color.opacityOnCode;
+   colorPoint.style.opacity = 0;
+   opacityTransition(colorPoint);
+   colorPoint.setAttribute("class", "tradeScreenAABAAA");
+   colorContainer.append(colorPoint);
+   let propertyNameLine = document.createElement("div");
+   propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+   propertyNameLine.innerHTML = property.name;
+   line.append(propertyNameLine)
+   line.append(colorContainer);
+   document.getElementById('tradescreen_answererContainer').append(line);
+   opacityTransition(colorPoint);
+
+}
+
+
+
+
+
+
+
+
+function clearTradeScreen(){
+
+     document.getElementById('tradescreen_answererContainer').innerHTML = '';
+     document.getElementById('tradeScreen_offererContainer').innerHTML = '';
+
+}
+
+
+
+
+
+
+
+function opacityTransition(element){
+
+     let currentOpacity = 0;
+
+     let opacityInterval = setInterval(
+
+          function(){
+               if( currentOpacity >= 1){
+
+                    clearInterval(opacityInterval);
+                    opacityIntervalOn = false;
+                    return;
+               } 
+
+               currentOpacity += 0.15;
+               element.style.opacity = currentOpacity;
+
+          }, 20);
+
+     document.getElementById(element);
 
 }
