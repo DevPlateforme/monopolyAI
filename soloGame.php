@@ -303,180 +303,55 @@
 
 
 
-<div class='digitalContainerAAInt'>
+<div class="digitalContainerAAInt">
 
-<div class = 'digitalContainerAAAInt'>
+          <div class="digitalContainerAAAInt">
 
+    
+        
+          <div class="idDivInt">
 
-   <div class='legendsDivInt'>  
-    <div class='legendsDivA'>
+       <div class="idDivAInt">
+    
+       <div class="idDivAAInt">
+                 
+            <img src="./img/aiface.png" style="height:92.5%; width:92.5%">
 
-<div class='legendsDivAA'>
-  <div class='legendsDivAAA'></div>
-  <div class='legendsDivAAB'></div>
-</div>
-<div class='legendsDivAA'></div>
-<div class='legendsDivAA'></div>
+       </div>
 
+     </div>
 
-</div>
 
-</div>
+      <div class="idDivBInt">
+       
+      <div class="idDivBAInt">name: pm45</div>
+      <div class="idDivBAInt">position: sq.32</div>
+      <div class="idDivBAInt">cash: $150</div>
 
-
-
-<div class='propertyPresentationInt'>
-
-
-<div id='class="homePropertyDivB'>
-
-
-
-
-</div>
-
-
-<div class='homePropertyDivAInt'>
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA">
-
-
-
-<canvas id="humanPlayer_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
-
-
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_red'></div>
-
-</div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_red_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_red_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA'  id='humanPlayer_propertyPoint_tradeGraph_red_property_2' style="opacity: 0.2"></div>
-
-</div>
-</div>
-
-</div>
-
-
-
-<div class='homePropertyDivAInt'>
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA">
-
-<canvas id="humanPlayer_tradeGraph_presentationCircle_darkBlue" width="100" height="100"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
-
-
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_darkBlue'></div>
-
-</div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_darkBlue_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_darkBlue_property_1' style="opacity: 0.2"></div>
-</div>
-</div>
-
-</div>
-
-
-
-
-<div class='homePropertyDivAInt'>
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA">
-
-<canvas id="humanPlayer_tradeGraph_presentationCircle_black" width="100" height="100"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
-
-
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_black'></div>
-
-</div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_black_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_black_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_black_property_2' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_black_property_3' style="opacity: 0.2"></div>
-
-</div>
-</div>
-
-</div>
-
-
-
-<div class='homePropertyDivAInt'> 
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA">
-
-<canvas id="humanPlayer_tradeGraph_presentationCircle_purple" width="100" height="100"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
-
-
-
-
-
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_purple'></div>
-
-</div>
-   <div class='homePropertyDivABB'>
-    <div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_purple_property_0' style="opacity: 0.2"></div>
-    <div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_purple_property_1' style="opacity: 0.2"></div>
-    <div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_purple_property_2' style="opacity: 0.2"></div>
    </div>
- </div>
+
+
 </div>
 
 
-<div class='homePropertyDivAInt'>
+
+<div class="propertyPresentationInt">
+
+
+<div id="class=&quot;homePropertyDivB">
+
+
+
+</div>
+
+
+<div class="homePropertyDivAInt">
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_orange" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
 
 
 
@@ -485,29 +360,31 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_orange'></div>
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_red"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_2" style="opacity: 0.2"></div>
 
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_orange_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_orange_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_orange_property_2' style="opacity: 0.2"></div>
-</div>
 </div>
 
 </div>
 
 
-<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAInt">
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_publicServicesColor" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_darkBlue" width="100" height="100"></canvas>     		
 
 
 
@@ -516,29 +393,30 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_publicServicesColor'></div>
-
+  <div class="colorBar" id="ai1_tradeGraph_colorBar_darkBlue"></div>
+          
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_2' style="opacity: 0.2"></div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_darkBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_darkBlue_property_1" style="opacity: 0.2"></div>
 </div>
-</div>
-
 </div>
 
+</div>
 
-<div class='homePropertyDivAInt'>
+
+
+
+<div class="homePropertyDivAInt">
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_lightBlue" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_black" width="100" height="100"></canvas>     		
 
 
 
@@ -547,31 +425,32 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_lightBlue'></div>
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_black"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_3" style="opacity: 0.2"></div>
 
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_lightBlue_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_lightBlue_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_lightBlue_property_2' style="opacity: 0.2"></div>
-</div>
 </div>
 
 </div>
 
 
 
-
-<div class='homePropertyDivAInt'>
+<div class="homePropertyDivAInt"> 
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_green" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_purple" width="100" height="100"></canvas>     		
 
 
 
@@ -580,31 +459,30 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_green'></div>
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_purple"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_2" style="opacity: 0.2"></div>
 
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_green_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_green_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_green_property_2' style="opacity: 0.2"></div>
-</div>
 </div>
 
 </div>
 
 
-
-
-<div class='homePropertyDivAInt'>
+<div class="homePropertyDivAInt">
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_yellow" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_orange" width="100" height="100"></canvas>     		
 
 
 
@@ -613,32 +491,29 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_yellow'></div>
-
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_orange"></div>
+          
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_yellow_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_yellow_property_1' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_yellow_property_2' style="opacity: 0.2"></div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_2" style="opacity: 0.2"></div>
 </div>
-</div>
-
 </div>
 
+</div>
 
 
-
-
-<div class='homePropertyDivAInt'>
+<div class="homePropertyDivAInt">
 
 <div class="homePropertyDivAA">
 
 <div class="homePropertyDivAAA">
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_brown" width="100" height="100"></canvas>     		
+<canvas id="ai2_tradeGraph_presentationCircle_publicServicesColor" width="100" height="100"></canvas>     		
 
 
 
@@ -647,51 +522,180 @@
 </div>
 
 <div class="homePropertyDivAB">
-<div class='homePropertyDivABA'>
+<div class="homePropertyDivABA">
 
 
-<div class ='colorBar' id='humanPlayer_tradeGraph_colorBar_brown'></div>
-
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_publicServicesColor"></div>
+          
 </div>
-<div class='homePropertyDivABB'>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_brown_property_0' style="opacity: 0.2"></div>
-<div class='homePropertyDivABBA' id='humanPlayer_propertyPoint_tradeGraph_brown_property_1' style="opacity: 0.2"></div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
-
-</div>
-
-
-
 
 </div>
 
 
+<div class="homePropertyDivAInt">
 
+<div class="homePropertyDivAA">
 
- 
+<div class="homePropertyDivAAA">
 
-
-
-
+<canvas id="ai2_tradeGraph_presentationCircle_lightBlue" width="100" height="100"></canvas>     		
 
 
 
 </div>
 
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
 
 
-
-
-
-
-
-<div class='digitalContainerAAB'></div>
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_lightBlue"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
 
 </div>
 
 
- 
+
+
+<div class="homePropertyDivAInt">
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai2_tradeGraph_presentationCircle_green" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
+
+
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_green"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class="homePropertyDivAInt">
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai2_tradeGraph_presentationCircle_yellow" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
+
+
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_yellow"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<div class="homePropertyDivAInt">
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai2_tradeGraph_presentationCircle_brown" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
+
+
+  <div class="colorBar" id="ai2_tradeGraph_colorBar_brown"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+           
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+       <div class="digitalContainerAAB"></div>
+
+     </div>
 
 
 
@@ -6538,11 +6542,49 @@
                   <div class = 'digitalContainerAAA' id='humanPlayerBoardPresentation' >
 
     
-                   <div class='legendsDiv'>
+                   <div class="legendsDiv">
 
-            
+            <div class="idDiv">
+
+               <div class="idDivA">
+                   
+                      <div class="idDivAA">
+                                
+                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
+
+                      </div>
+
+               </div>
+
+
+               <div class="idDivB">
+                      
+                     <div class="idDivBA">name: pm45</div>
+                     <div class="idDivBA">position: sq.32</div>
+                     <div class="idDivBA">cash: $150</div>
+
+               </div>
+
+              
+          </div>
+
+            <div class="legendsDivA">
+                    <div class="legendsDivAA">
+                            <div class="legendsDivAAA">
+                              <div class="legendsDivAAAA"></div>
+                              <div class="legendsDivAAAB">development</div>
+                            </div>
+
+                            <div class="legendsDivAAA">
+                                 <div class="legendsDivAAAA"></div>
+                                 <div class="legendsDivAAAB">houses</div>
+                            </div>
+
+                    </div>
             </div>
 
+
+       </div>
 
 
           <div class='homePropertyDiv'>
@@ -9660,12 +9702,49 @@
         <div class = 'digitalContainerAAA' id='ai2BoardPresentation' >
 
             
-       <div class='legendsDiv'>
+     <div class="legendsDiv">
 
-  
+            <div class="idDiv">
 
-    </div>
+               <div class="idDivA">
+                   
+                      <div class="idDivAA">
+                                
+                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
 
+                      </div>
+
+               </div>
+
+
+               <div class="idDivB">
+                      
+                     <div class="idDivBA">name: pm45</div>
+                     <div class="idDivBA">position: sq.32</div>
+                     <div class="idDivBA">cash: $150</div>
+
+               </div>
+
+              
+          </div>
+
+            <div class="legendsDivA">
+                    <div class="legendsDivAA">
+                            <div class="legendsDivAAA">
+                              <div class="legendsDivAAAA"></div>
+                              <div class="legendsDivAAAB">development</div>
+                            </div>
+
+                            <div class="legendsDivAAA">
+                                 <div class="legendsDivAAAA"></div>
+                                 <div class="legendsDivAAAB">houses</div>
+                            </div>
+
+                    </div>
+            </div>
+
+
+       </div>
 
 
 <div class='homePropertyDiv'>
@@ -10038,11 +10117,49 @@
                   <div class = 'digitalContainerAAA' id='ai3BoardPresentation' >
 
     
-                   <div class='legendsDiv'>
+                   <div class="legendsDiv">
 
-                  
+            <div class="idDiv">
 
+               <div class="idDivA">
+                   
+                      <div class="idDivAA">
+                                
+                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
+
+                      </div>
+
+               </div>
+
+
+               <div class="idDivB">
+                      
+                     <div class="idDivBA">name: pm45</div>
+                     <div class="idDivBA">position: sq.32</div>
+                     <div class="idDivBA">cash: $150</div>
+
+               </div>
+
+              
+          </div>
+
+            <div class="legendsDivA">
+                    <div class="legendsDivAA">
+                            <div class="legendsDivAAA">
+                              <div class="legendsDivAAAA"></div>
+                              <div class="legendsDivAAAB">development</div>
+                            </div>
+
+                            <div class="legendsDivAAA">
+                                 <div class="legendsDivAAAA"></div>
+                                 <div class="legendsDivAAAB">houses</div>
+                            </div>
+
+                    </div>
             </div>
+
+
+       </div>
 
 
 
