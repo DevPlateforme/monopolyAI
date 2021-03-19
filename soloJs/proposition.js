@@ -366,11 +366,20 @@ function makeProposition(proposition){
 
 
        updateBoardGraphs(offerer);
-
        updateBoardGraphs(answerer);
 
+       buildMobilePresentationBars(ai1);
 
-       tradeAnimation(proposition);
+
+
+
+       if(offerer != humanPlayer && answerer != humanPlayer){       
+         
+             tradeAnimation(proposition);
+
+       }
+
+
 
 
      

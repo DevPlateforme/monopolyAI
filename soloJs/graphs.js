@@ -439,6 +439,23 @@ function buildPmPresentationCircles(player){
     buildPresentationBar(player,orange , boardGraph);
  
  }
+
+ function buildMobilePresentationBars(player){
+
+    buildPresentationBar(player,red , mobileGraph);
+    buildPresentationBar(player,black, mobileGraph);
+    buildPresentationBar(player,green, mobileGraph);
+    buildPresentationBar(player,yellow , mobileGraph);
+    buildPresentationBar(player,brown , mobileGraph);
+    buildPresentationBar(player,purple, mobileGraph);
+    buildPresentationBar(player,publicServicesColor , mobileGraph);
+    buildPresentationBar(player,darkBlue , mobileGraph);
+    buildPresentationBar(player,lightBlue , mobileGraph); 
+    buildPresentationBar(player,orange , mobileGraph);
+ 
+ }
+ 
+ 
  
  
  
@@ -638,6 +655,8 @@ function buildPresentationBar(player , color , type){
     //change the inner div width (div with a background color)
 
     let currentWidth = 0;
+    colorBar.style.width = currentWidth;
+
 
     let barColorInterval = setInterval(function(){
 

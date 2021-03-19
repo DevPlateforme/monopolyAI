@@ -155,7 +155,7 @@ function movePiece(){
 
                       nextDiceLauncheInterval = setInterval(function(){
 
-                        if(AiThinking == false && humanThinking == false){
+                        if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
 
 
                           boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
@@ -170,9 +170,8 @@ function movePiece(){
 
                           if(nextDiceLauncher == humanPlayer){
 
-                            //displayDiceLaunchButton();
+                            displayDiceLaunchButton();
 
-                            launchDicesAndMovePieces();
 
 
   
@@ -270,6 +269,9 @@ function movePiece(){
                      //console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+
+                     updateBoardCashOnGui(lastDiceLauncher)
+
                      
                      
                   }
@@ -298,6 +300,9 @@ function movePiece(){
                   boardJournal.innerHTML += (lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+                     updateBoardCashOnGui(lastDiceLauncher)
+
+                     
 
                 } else {
 
@@ -319,6 +324,8 @@ function movePiece(){
             let rentToPay = getRent(currentSquare);
 
              lastDiceLauncher.cash -= rentToPay;
+
+             updateBoardCashOnGui(lastDiceLauncher)
 
 
              boardJournal.innerHTML += (lastDiceLauncher.name + ' paid ' + rentToPay);
@@ -429,6 +436,9 @@ function movePiece(){
                     ////////alert('vous payez la somme de ' + card.fee + ' dollars' );
     
                     lastDiceLauncher.cash -= card.fee;
+
+                    updateBoardCashOnGui(lastDiceLauncher)
+
     
                            
                 if(lastDiceLauncher.cash < 0){
@@ -516,6 +526,8 @@ function movePiece(){
                 ////////alert('vous payés la somme de ' + card.fee + ' dollars' );
 
                lastDiceLauncher.cash -= card.fee;
+               updateBoardCashOnGui(lastDiceLauncher)
+
 
               checkForBankruptcy(lastDiceLauncher);
 
@@ -621,6 +633,8 @@ function buyAvailableProperty(){
       let property = squaresArray[humanPlayer.position];
 
       addPropertyToPlayerWallet(humanPlayer, property);
+      updateBoardCashOnGui(humanPlayer)
+
 
       postLaunchDecision = done;
 
@@ -727,6 +741,8 @@ function acceptTrade(proposition){
      } else {
        
        addPropertyToPlayerWallet(player, property);
+       updateBoardCashOnGui(player)
+
  
 
        closeAvailablePropertyInterface();

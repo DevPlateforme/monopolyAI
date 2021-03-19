@@ -136,6 +136,7 @@ function searchForTradesOpportunities(activePlayer){
 
      if(ai.monopoliesArray.length > 0){
 
+
         
          if(ai.willingnessToBuild == false){
 
@@ -143,13 +144,37 @@ function searchForTradesOpportunities(activePlayer){
 
         } else {
 
+
+
            ai.willingnessToBuild = false;
 
            let betterPositionedMonopoly = getBetterPositionedMonopoly(ai);
 
+           let cashToFind;
+
        
           if (betterPositionedMonopoly != none){
-               buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+
+
+
+              let houseValue = ai.propertiesByColor[betterPositionedMonopoly.index].properties[0].houseValue;
+
+              if(ai.cash < houseValue){
+
+                cashToFind = ai.cash - houseValue;
+
+                  
+
+                if( findCashWithNonMonopolyProperties(ai, cashToFind ) == true){ 
+                       
+                        buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+
+
+                   }
+              } else {
+                    buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+              }
+              
            };
         
 
@@ -162,6 +187,10 @@ function searchForTradesOpportunities(activePlayer){
       }
 
    }
+
+
+
+
 
 
  }
@@ -325,7 +354,7 @@ function getBetterPositionedMonopoly(ai){
         
            //if player cash > getMonopolyHouseValue(ai.monopoliesArray) and if all the houses are unmortgaged 
 
-           if(ai.cash >= ai.monopoliesArray[i][0].houseValue && checkForMortgageInMonopoly(ai.monopoliesArray) == false){
+           if(checkForMortgageInMonopoly(ai.monopoliesArray) == false){
 
                for(var y = 0; y < ai.monopoliesArray[i].length ; y++){
   
@@ -447,6 +476,7 @@ function findCashWithNonMonopolyProperties(player, goal){
 
 
 function findCashWithMonopolyProperties(player, goal){
+
 
      //target the less developed monopoly (with the less houses)
 
@@ -578,6 +608,9 @@ function sellHouse(property){
       property.houses -= 1;
 
       property.landLord.cash += (property.houseValue/2);
+
+      updateBoardCashOnGui(property.landLord)
+
 
 
       ////alert(property.landLord.name + ' just sold a house on ' + property.name);

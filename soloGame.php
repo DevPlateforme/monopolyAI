@@ -299,15 +299,13 @@
  <div class='tradeInterface' id='tradeInterfaceDiv' style='display:none'>
 	
    <div class='tradeInterfaceA'>
-   <div class='tradeInterfaceAC'> 
+   <div class='tradeInterfaceAC' id='humanPlayer_tradeGraph_presentationContainer'> 
 
 
 
-<div class="digitalContainerAAInt">
+<div class="digitalContainerAAInt" >
 
           <div class="digitalContainerAAAInt">
-
-    
         
           <div class="idDivInt">
 
@@ -324,7 +322,7 @@
 
       <div class="idDivBInt">
        
-      <div class="idDivBAInt">name: pm45</div>
+      <div class="idDivBAInt">name: unknow</div>
       <div class="idDivBAInt">position: sq.32</div>
       <div class="idDivBAInt">cash: $150</div>
 
@@ -338,7 +336,7 @@
 <div class="propertyPresentationInt">
 
 
-<div id="class=&quot;homePropertyDivB">
+<div>
 
 
 
@@ -351,7 +349,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
 
 
 
@@ -363,13 +361,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_red"></div>
+  <div class="colorBar redColorBar" id="humanPlayer_tradeGraph_colorBar_red"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_red_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_2" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -384,7 +382,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_darkBlue" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_darkBlue" width="100" height="100"></canvas>     		
 
 
 
@@ -396,12 +394,12 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai1_tradeGraph_colorBar_darkBlue"></div>
+  <div class="colorBar darkBlueColorBar" id="humanPlayer_tradeGraph_colorBar_darkBlue"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_darkBlue_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_darkBlue_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_darkBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_darkBlue_property_1" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -416,7 +414,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_black" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_black" width="100" height="100"></canvas>     		
 
 
 
@@ -428,14 +426,14 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_black"></div>
+  <div class="colorBar blackColorBar" id="humanPlayer_tradeGraph_colorBar_black"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_2" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_black_property_3" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_3" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -450,7 +448,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_purple" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_purple" width="100" height="100"></canvas>     		
 
 
 
@@ -462,13 +460,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_purple"></div>
+  <div class="colorBar purpleColorBar" id="humanPlayer_tradeGraph_colorBar_purple"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_purple_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_2" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -482,7 +480,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_orange" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_orange" width="100" height="100"></canvas>     		
 
 
 
@@ -494,13 +492,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_orange"></div>
+  <div class="colorBar orangeColorBar" id="humanPlayer_tradeGraph_colorBar_orange"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_orange_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -513,7 +511,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_publicServicesColor" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_publicServicesColor" width="100" height="100"></canvas>     		
 
 
 
@@ -525,13 +523,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_publicServicesColor"></div>
+  <div class="colorBar publicServicesColorBar" id="humanPlayer_tradeGraph_colorBar_publicServicesColor"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_publicServicesColor_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -544,7 +542,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_lightBlue" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_lightBlue" width="100" height="100"></canvas>     		
 
 
 
@@ -556,46 +554,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_lightBlue"></div>
+  <div class="colorBar lightBlueColorBar" id="humanPlayer_tradeGraph_colorBar_lightBlue" style='background:lightBlue'></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_lightBlue_property_2" style="opacity: 0.2"></div>
-</div>
-</div>
-
-</div>
-
-
-
-
-<div class="homePropertyDivAInt">
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA">
-
-<canvas id="ai2_tradeGraph_presentationCircle_green" width="100" height="100"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class="homePropertyDivABA">
-
-
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_green"></div>
-          
-</div>
-<div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_green_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -610,7 +575,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_yellow" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_green" width="100" height="100"></canvas>     		
 
 
 
@@ -622,13 +587,46 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_yellow"></div>
+  <div class="colorBar greenColorBar" id="humanPlayer_tradeGraph_colorBar_green"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_yellow_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class="homePropertyDivAInt">
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="humanPlayer_tradeGraph_presentationCircle_yellow" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
+
+
+  <div class="colorBar yellowColorBar" id="humanPlayer_tradeGraph_colorBar_yellow"  style='background:yellow'></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -644,7 +642,7 @@
 
 <div class="homePropertyDivAAA">
 
-<canvas id="ai2_tradeGraph_presentationCircle_brown" width="100" height="100"></canvas>     		
+<canvas id="humanPlayer_tradeGraph_presentationCircle_brown" width="100" height="100"></canvas>     		
 
 
 
@@ -656,13 +654,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar" id="ai2_tradeGraph_colorBar_brown"></div>
+  <div class="colorBar brownColorBar" id="humanPlayer_tradeGraph_colorBar_brown"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="ai2_propertyPoint_tradeGraph_brown_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -3329,13 +3327,26 @@
 
 
 
+    
+
+    <div class='tradeInterfaceAC' id='chosePlayer_tradeGraph_presentationContainer' style='font-size: 0.5vw'>
+
+       waiting to load player profile...
+    
+    </div>
+
+
+           
+
+
+
 
 
 
 
     
 
-    <div class='tradeInterfaceAC' id='ai2_PresentationPropertiesDivInt'>
+    <div class='tradeInterfaceAC' id='ai1_tradeGraph_presentationContainer'  style='display:none'>
 
 
            
@@ -3391,6 +3402,427 @@
 
 <div class="homePropertyDivAAA">
 
+<canvas id="ai1_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar redColorBar' id='ai1_tradeGraph_colorBar_red'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_red_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_red_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA'  id='ai1_propertyPoint_tradeGraph_red_property_2' style="opacity: 0.2"></div>
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_darkBlue" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar darkBlueColorBar' id='ai1_tradeGraph_colorBar_darkBlue'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_darkBlue_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_darkBlue_property_1' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_black" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar blackColorBar' id='ai1_tradeGraph_colorBar_black'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_black_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_black_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_black_property_2' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_black_property_3' style="opacity: 0.2"></div>
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class='homePropertyDivAInt'> 
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_purple" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar purpleColorBar' id='ai1_tradeGraph_colorBar_purple'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_purple_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_purple_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_purple_property_2' style="opacity: 0.2"></div>
+
+</div>
+</div>
+
+</div>
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_orange" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar orangeColorBar' id='ai1_tradeGraph_colorBar_orange'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_orange_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_orange_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_orange_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_publicServicesColor" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar publicServicesColorBar' id='ai1_tradeGraph_colorBar_publicServicesColor'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_publicServicesColor_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_publicServicesColor_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_publicServicesColor_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_lightBlue" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar lightBlueColorBar' id='ai1_tradeGraph_colorBar_lightBlue' style='background:lightBlue'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_lightBlue_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_lightBlue_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_lightBlue_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_green" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar greenColorBar' id='ai1_tradeGraph_colorBar_green'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_green_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_green_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_green_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_yellow" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar yellowColorBar' id='ai1_tradeGraph_colorBar_yellow'  style='background:yellow'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_yellow_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_yellow_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_yellow_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
+<canvas id="ai1_tradeGraph_presentationCircle_brown" width="100" height="100"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class='homePropertyDivABA'>
+
+
+  <div class ='colorBar brownColorBar' id='ai1_tradeGraph_colorBar_brown'></div>
+          
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_brown_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_brown_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai1_propertyPoint_tradeGraph_brown_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+           
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+       <div class='digitalContainerAAB'></div>
+
+     </div>
+
+    
+           
+    
+  
+    
+  
+    
+    </div>
+
+
+
+
+
+
+
+
+
+    
+
+    <div class='tradeInterfaceAC' id='ai2_tradeGraph_presentationContainer' style='display:none'>
+
+
+           
+
+
+
+
+          <div class='digitalContainerAAInt'>
+
+          <div class = 'digitalContainerAAAInt'>
+
+    
+        
+          <div class='idDivInt'>
+
+       <div class='idDivAInt'>
+    
+       <div class='idDivAAInt'>
+                 
+            <img src="./img/aiface.png" style='height:92.5%; width:92.5%'>
+
+       </div>
+
+     </div>
+
+
+      <div class='idDivBInt'>
+       
+      <div class='idDivBAInt'>name: CU48</div>
+      <div class='idDivBAInt'>position: sq.32</div>
+      <div class='idDivBAInt'>cash: $150</div>
+
+   </div>
+
+
+</div>
+
+
+
+<div class='propertyPresentationInt'>
+
+
+<div id='class="homePropertyDivB'>
+
+
+
+</div>
+
+
+<div class='homePropertyDivAInt'>
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA">
+
 <canvas id="ai2_tradeGraph_presentationCircle_red" width="100" height="100"></canvas>     		
 
 
@@ -3403,7 +3835,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_red'></div>
+  <div class ='colorBar redColorBar' id='ai2_tradeGraph_colorBar_red'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3436,7 +3868,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai1_tradeGraph_colorBar_darkBlue'></div>
+  <div class ='colorBar darkBlueColorBar' id='ai2_tradeGraph_colorBar_darkBlue'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3468,7 +3900,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_black'></div>
+  <div class ='colorBar blackColorBar' id='ai2_tradeGraph_colorBar_black'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3502,7 +3934,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_purple'></div>
+  <div class ='colorBar purpleColorBar' id='ai2_tradeGraph_colorBar_purple'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3534,7 +3966,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_orange'></div>
+  <div class ='colorBar orangeColorBar' id='ai2_tradeGraph_colorBar_orange'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3565,7 +3997,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_publicServicesColor'></div>
+  <div class ='colorBar publicServicesColorBar' id='ai2_tradeGraph_colorBar_publicServicesColor'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3596,7 +4028,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_lightBlue'></div>
+  <div class ='colorBar lightBlueColorBar' id='ai2_tradeGraph_colorBar_lightBlue' style='background:lightBlue'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3629,7 +4061,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_green'></div>
+  <div class ='colorBar greenColorBar' id='ai2_tradeGraph_colorBar_green'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3662,7 +4094,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_yellow'></div>
+  <div class ='colorBar yellowColorBar' id='ai2_tradeGraph_colorBar_yellow'  style='background:yellow'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3696,7 +4128,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai2_tradeGraph_colorBar_brown'></div>
+  <div class ='colorBar brownColorBar' id='ai2_tradeGraph_colorBar_brown'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -3753,10 +4185,7 @@
 
 
 
-
-    
-
-    <div class='tradeInterfaceAC' id='ai3_PresentationPropertiesDivInt' style='display:none'>
+<div class='tradeInterfaceAC' id='ai3_tradeGraph_presentationContainer' style='display:none'>
 
 
            
@@ -3764,27 +4193,33 @@
 
 
 
-          <div class='digitalContainerAAInt'>
+<div class='digitalContainerAAInt'>
 
-          <div class = 'digitalContainerAAAInt'>
-
-    
-           <div class='legendsDivInt'>
-
-          <div class='legendsDivA'>
-
-          ai3
+<div class = 'digitalContainerAAAInt'>
 
 
-         <div class='legendsDivAA'>
-            <div class='legendsDivAAA'></div>
-            <div class='legendsDivAAB'></div>
-         </div>
-         <div class='legendsDivAA'></div>
-         <div class='legendsDivAA'></div>
 
+<div class='idDivInt'>
+
+<div class='idDivAInt'>
+
+<div class='idDivAAInt'>
+       
+  <img src="./img/aiface.png" style='height:92.5%; width:92.5%'>
 
 </div>
+
+</div>
+
+
+<div class='idDivBInt'>
+
+<div class='idDivBAInt'>name: ultron</div>
+<div class='idDivBAInt'>position: sq.32</div>
+<div class='idDivBAInt'>cash: $150</div>
+
+</div>
+
 
 </div>
 
@@ -3818,8 +4253,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_red'></div>
-          
+<div class ='colorBar redColorBar' id='ai3_tradeGraph_colorBar_red'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_red_property_0' style="opacity: 0.2"></div>
@@ -3851,8 +4286,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai1_tradeGraph_colorBar_darkBlue'></div>
-          
+<div class ='colorBar darkBlueColorBar' id='ai3_tradeGraph_colorBar_darkBlue'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_darkBlue_property_0' style="opacity: 0.2"></div>
@@ -3883,8 +4318,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_black'></div>
-          
+<div class ='colorBar blackColorBar' id='ai3_tradeGraph_colorBar_black'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_black_property_0' style="opacity: 0.2"></div>
@@ -3917,8 +4352,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_purple'></div>
-          
+<div class ='colorBar purpleColorBar' id='ai3_tradeGraph_colorBar_purple'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_purple_property_0' style="opacity: 0.2"></div>
@@ -3949,8 +4384,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_orange'></div>
-          
+<div class ='colorBar orangeColorBar' id='ai3_tradeGraph_colorBar_orange'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_orange_property_0' style="opacity: 0.2"></div>
@@ -3980,8 +4415,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_publicServicesColor'></div>
-          
+<div class ='colorBar publicServicesColorBar' id='ai3_tradeGraph_colorBar_publicServicesColor'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_publicServicesColor_property_0' style="opacity: 0.2"></div>
@@ -4011,8 +4446,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai1_tradeGraph_colorBar_lightBlue'></div>
-          
+<div class ='colorBar lightBlueColorBar' id='ai3_tradeGraph_colorBar_lightBlue' style='background:lightBlue'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_lightBlue_property_0' style="opacity: 0.2"></div>
@@ -4044,8 +4479,8 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_green'></div>
-          
+<div class ='colorBar greenColorBar' id='ai3_tradeGraph_colorBar_green'></div>
+
 </div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_green_property_0' style="opacity: 0.2"></div>
@@ -4077,10 +4512,9 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_yellow'></div>
-          
-</div>
+<div class ='colorBar yellowColorBar' id='ai3_tradeGraph_colorBar_yellow' style='background:yellow'></div>
 
+</div>
 <div class='homePropertyDivABB'>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_yellow_property_0' style="opacity: 0.2"></div>
 <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_yellow_property_1' style="opacity: 0.2"></div>
@@ -4112,23 +4546,30 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_tradeGraph_colorBar_brown'></div>
-          
+<div class ='colorBar brownColorBar' id='ai3_tradeGraph_colorBar_brown'></div>
+
+</div>
+<div class='homePropertyDivABB'>
+<div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_0' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_1' style="opacity: 0.2"></div>
+<div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_2' style="opacity: 0.2"></div>
+</div>
+</div>
+
 </div>
 
 
-  <div class='homePropertyDivABB'>
 
-    <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_0' style="opacity: 0.2"></div>
-    <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_1' style="opacity: 0.2"></div>
-    <div class='homePropertyDivABBA' id='ai3_propertyPoint_tradeGraph_brown_property_2' style="opacity: 0.2"></div>
+
+</div>
+
+
+
+
  
-   </div>
 
 
-  </div>
 
- </div>
 
 
 
@@ -4138,21 +4579,35 @@
 
 
 
-          
-
-  </div>
 
 
 
 
+<div class='digitalContainerAAB'></div>
 
-     <div class='digitalContainerAAB'></div>
+</div>
 
 
-     </div>           
+ 
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
     
-     
-    </div>
+
+  
 
 
   </div>
@@ -6145,7 +6600,7 @@
                       
                      <div class='idDivBA'>name: pm45</div>
                      <div class='idDivBA'>position: sq.32</div>
-                     <div class='idDivBA'>cash: $150</div>
+                     <div class='idDivBA' id='ai1BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -6199,7 +6654,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_red' style='background:red'></div>
+          <div class ='colorBar redColorBar' id='ai1_boardGraph_colorBar_red' style='background:red'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6232,7 +6687,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_darkBlue' style='background:darkBlue'></div>
+          <div class ='colorBar darkBlueColor' id='ai1_boardGraph_colorBar_darkBlue' style='background:darkBlue'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6264,7 +6719,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_black' style='background:black'></div>
+          <div class ='colorBar blackColorBar' id='ai1_boardGraph_colorBar_black' style='background:black'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6298,7 +6753,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_purple' style='background:purple'></div>
+          <div class ='colorBar purpleColorBar' id='ai1_boardGraph_colorBar_purple' style='background:purple'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6332,7 +6787,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_orange' style='background:orange'></div>
+          <div class ='colorBar orangeColorBar' id='ai1_boardGraph_colorBar_orange' style='background:orange'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6363,7 +6818,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_publicServicesColor'></div>
+          <div class ='colorBar publicServicesColorBar' id='ai1_boardGraph_colorBar_publicServicesColor'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6394,7 +6849,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_lightBlue'></div>
+          <div class ='colorBar lightBlueColorBar' id='ai1_boardGraph_colorBar_lightBlue' style='background:lightBlue'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6427,7 +6882,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_green'></div>
+          <div class ='colorBar greenColorBar' id='ai1_boardGraph_colorBar_green'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6460,7 +6915,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_yellow'></div>
+          <div class ='colorBar yellowColorBar' id='ai1_boardGraph_colorBar_yellow'  style='background:yellow'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6494,7 +6949,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai1_boardGraph_colorBar_brown'></div>
+          <div class ='colorBar brownColorBar' id='ai1_boardGraph_colorBar_brown'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -6561,7 +7016,7 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA">cash: $150</div>
+                     <div class="idDivBA" id='humanPlayerBoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -6614,7 +7069,7 @@
     <div class='homePropertyDivABA'>
 
 
-     <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_red'></div>
+     <div class ='colorBar redColorBar' id='humanPlayer_boardGraph_colorBar_red'></div>
           
     </div>
 
@@ -6649,7 +7104,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_darkBlue'></div>
+  <div class ='colorBar darkBlueColor' id='humanPlayer_boardGraph_colorBar_darkBlue'></div>
           
 </div>
  <div class='homePropertyDivABB'>
@@ -6682,7 +7137,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_black'></div>
+  <div class ='colorBar blackColorBar' id='humanPlayer_boardGraph_colorBar_black'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6716,7 +7171,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_purple'></div>
+  <div class ='colorBar purpleColorBar' id='humanPlayer_boardGraph_colorBar_purple'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6748,7 +7203,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_orange'></div>
+  <div class ='colorBar orangeColorBar' id='humanPlayer_boardGraph_colorBar_orange'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6779,7 +7234,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_publicServicesColor'></div>
+  <div class ='colorBar publicServicesColorBar' id='humanPlayer_boardGraph_colorBar_publicServicesColor'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6810,7 +7265,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_lightBlue'></div>
+  <div class ='colorBar lightBlueColorBar' id='humanPlayer_boardGraph_colorBar_lightBlue' style='background:lightBlue'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6843,7 +7298,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_green'></div>
+  <div class ='colorBar greenColorBar' id='humanPlayer_boardGraph_colorBar_green'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6876,7 +7331,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_yellow'></div>
+  <div class ='colorBar yellowColorBar' id='humanPlayer_boardGraph_colorBar_yellow'  style='background:yellow'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -6910,7 +7365,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='humanPlayer_boardGraph_colorBar_brown'></div>
+  <div class ='colorBar brownColorBar' id='humanPlayer_boardGraph_colorBar_brown'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -7011,68 +7466,67 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_brown"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_brown' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_brown' style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_lightBlue"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_lightBlue' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_lightBlue' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_lightBlue' style="opacity: 0.2"></div>
+
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_purple"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_purple' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_purple' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_purple' style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_orange"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_orange' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_orange' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_orange' style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
+           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_red"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_red' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_red' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_red' style="opacity: 0.2"></div>
                   </div>
           </div>
-
 
               </div>
               <div class="mobilePresentationsContainerAABA">
@@ -7082,67 +7536,66 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_yellow"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_yellow' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_yellow' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_yellow' style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_green"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_green' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_green' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_green' style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_darkBlue"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_darkBlue' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_darkBlue' style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_black"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_black' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_black' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_black' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint4_black' style="opacity: 0.2"></div>
                   </div>
           </div>
-
           
+
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar" id="ai1_mobileGraph_colorBar_publicServicesColor"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_publicServicesColor' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_publicServicesColor' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_publicServicesColor' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint4_publicServicesColor' style="opacity: 0.2"></div>
                   </div>
           </div>
+          
 
               </div>
           </div>
@@ -9721,7 +10174,7 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA">cash: $150</div>
+                     <div class="idDivBA" id='ai2BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -9809,7 +10262,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_darkBlue'></div>
+          <div class ='colorBar darkBlueColor' id='ai2_boardGraph_colorBar_darkBlue'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -9841,7 +10294,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_black'></div>
+          <div class ='colorBar blackColorBar' id='ai2_boardGraph_colorBar_black'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -9875,7 +10328,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_purple'></div>
+          <div class ='colorBar purpleColorBar' id='ai2_boardGraph_colorBar_purple'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -9907,7 +10360,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_orange'></div>
+          <div class ='colorBar orangeColorBar' id='ai2_boardGraph_colorBar_orange'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -9938,7 +10391,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_publicServicesColor'></div>
+          <div class ='colorBar publicServicesColorBar' id='ai2_boardGraph_colorBar_publicServicesColor'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -9969,7 +10422,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_lightBlue'></div>
+          <div class ='colorBar lightBlueColorBar' id='ai2_boardGraph_colorBar_lightBlue' style='background:lightBlue'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -10002,7 +10455,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_green'></div>
+          <div class ='colorBar greenColorBar' id='ai2_boardGraph_colorBar_green'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -10035,7 +10488,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_yellow'></div>
+          <div class ='colorBar yellowColorBar' id='ai2_boardGraph_colorBar_yellow'  style='background:yellow'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -10069,7 +10522,7 @@
 <div class='homePropertyDivABA'>
 
 
-          <div class ='colorBar' id='ai2_boardGraph_colorBar_brown'></div>
+          <div class ='colorBar brownColorBar' id='ai2_boardGraph_colorBar_brown'></div>
                   
 </div>
 <div class='homePropertyDivABB'>
@@ -10136,7 +10589,7 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA">cash: $150</div>
+                     <div class="idDivBA" id='ai3BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -10225,7 +10678,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_darkBlue'></div>
+  <div class ='colorBar darkBlueColor' id='ai3_boardGraph_colorBar_darkBlue'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10257,7 +10710,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_black'></div>
+  <div class ='colorBar blackColorBar' id='ai3_boardGraph_colorBar_black'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10291,7 +10744,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_purple'></div>
+  <div class ='colorBar purpleColorBar' id='ai3_boardGraph_colorBar_purple'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10323,7 +10776,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_orange'></div>
+  <div class ='colorBar orangeColorBar' id='ai3_boardGraph_colorBar_orange'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10354,7 +10807,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_publicServicesColor'></div>
+  <div class ='colorBar publicServicesColorBar' id='ai3_boardGraph_colorBar_publicServicesColor'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10385,7 +10838,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_lightBlue'></div>
+  <div class ='colorBar lightBlueColorBar' id='ai3_boardGraph_colorBar_lightBlue' style='background:lightBlue'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10418,7 +10871,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_green'></div>
+  <div class ='colorBar greenColorBar' id='ai3_boardGraph_colorBar_green'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10451,7 +10904,7 @@
 <div class='homePropertyDivABA'>
 
 
-  <div class ='colorBar' id='ai3_boardGraph_colorBar_yellow'></div>
+  <div class ='colorBar yellowColorBar' id='ai3_boardGraph_colorBar_yellow'  style='background:yellow'></div>
           
 </div>
 <div class='homePropertyDivABB'>
@@ -10485,7 +10938,7 @@
          <div class='homePropertyDivABA'>
 
 
-           <div class ='colorBar' id='ai3_boardGraph_colorBar_brown'></div>
+           <div class ='colorBar brownColorBar' id='ai3_boardGraph_colorBar_brown'></div>
           
                </div>
                      <div class='homePropertyDivABB'>

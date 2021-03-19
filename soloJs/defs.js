@@ -385,6 +385,8 @@ function closeMortgage(property){
 
          property.mortgaged = false;
          property.landLord.cash -= property.mortgageValue;
+         updateBoardCashOnGui(property.landLord)
+
          property.landLord.mortgages -= 1;
          addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name);
 
@@ -407,6 +409,11 @@ function closeMortgageFromThinking(property){
 
   property.landLord.cash -= property.mortgageValue;
 
+  updateBoardCashOnGui(property.landLord)
+
+
+  
+
   property.landLord.mortgages -= 1;
 
 }
@@ -420,6 +427,7 @@ function reverseMortgageClosing(property){
 
   property.landLord.cash += property.mortgageValue;
 
+  updateBoardCashOnGui(property.landLord)
 
 
 
@@ -460,11 +468,14 @@ function buildHouse(property){
 
       property.landLord.cash -= property.houseValue;
 
+      updateBoardCashOnGui(property.landLord)
+
+
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
 
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
-
+      alert(property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
  
 
@@ -523,10 +534,17 @@ function getRent(property){
 
             return property.rentHouse3;
 
+          } else if(property.houses == 4){
+
+            return property.rentHouse4;
+
+          } else {
+
+            return rentalHotel;
           }
 
 
-      } else if (property.type == trainStation) {
+      } else if (property.type == trainStation){
 
 
           //depending of the number of train stations owned by the landlord
@@ -534,6 +552,18 @@ function getRent(property){
           let numOfStationsOwned = property.landLord.propertiesByColor[black.index].properties.length;
 
           return 50 * numOfStationsOwned;
+
+      } else if (property.type == publicService) {
+
+        let numOfPsOwned = property.landLord.propertiesByColor[publicServicesColor.index].properties.length;
+
+        
+        if(numOfPsOwned == 1){
+          return 30;
+        } else {
+
+          return 70;
+        }
 
       }
 
@@ -801,6 +831,8 @@ function addPropertyToPlayerWallet(player, property){
     }
 
     updateBoardGraphs(player)
+    buildMobilePresentationBars(ai1);
+
 
     
     boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
@@ -1013,6 +1045,9 @@ function getMortgage(property){
         property.mortgaged = true ;
 
         property.landLord.cash += property.mortgageValue ;
+
+        updateBoardCashOnGui(property.landLord)
+
 
         property.landLord.mortgages += 1;
 

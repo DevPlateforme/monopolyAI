@@ -56,77 +56,127 @@ function hideDiceLaunchButton(){
 
 
 function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
+
+     let humanAnswerInterval;
+
+  
+if(humanAnswerInterfaceOn == false){
    
-     monopolyBoard.style.opacity = 0.05;
+     humanAnswerInterfaceOn = true;     
+
+  
+    humanAnswerInterval = setInterval(
+
+     function(){
 
 
-     document.getElementById('propositionPopup').style.display = 'flex';
 
 
+        if(tradeAnimationOn == false){
 
-     humanThinking = true;
-
-     
-     humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
-
-     humanAnswerInterfaceOffer.innerHTML = "Voici l'offre qui vous a été soumise :  </br>";
+          clearInterval(humanAnswerInterval);
 
 
-     //OFFER
-
-     for(i=0; i < proposition.offer.array.length; i++){  
-
-               humanAnswerInterfaceOffer.innerHTML += '' + proposition.offer.array[i].color.name +' : ' + proposition.offer.array[i].name + '</br>'; 
+         
+              let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
+         
+         
+         
+              hideBoard();
+                   
+              for(var i=0; i < nonTradingPlayers.length; i++){
+                   
+                  hidePlayer(nonTradingPlayers[i]);
+          
+              }
+          
+          
+          
+         
+         
+              document.getElementById('propositionPopup').style.display = 'flex';
+         
+         
+         
+              humanThinking = true;
+         
+              
+              humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
+         
+              humanAnswerInterfaceOffer.innerHTML = "Voici l'offre qui vous a été soumise :  </br>";
+         
+         
+              //OFFER
+         
+              for(i=0; i < proposition.offer.array.length; i++){  
+         
+                        humanAnswerInterfaceOffer.innerHTML += '' + proposition.offer.array[i].color.name +' : ' + proposition.offer.array[i].name + '</br>'; 
+                        
+                        addOfferLine(proposition,proposition.offer.array[i]);
+         
+              }
+         
+              //add cash
+         
+              if(proposition.offer.cash != 0){
+         
+                   humanAnswerInterfaceOffer.innerHTML += 'cash :' + proposition.offer.cash;
+         
+              } else {
+         
+                   humanAnswerInterfaceOffer.innerHTML += 'there is no cash in this offer';
+         
+              }
+         
+         
+         
+              //COUNTERPART ASKED
+         
+                      
+              humanAnswerInterfaceCounterPart.innerHTML = "Voici la contrepartie qui vous est demandée : </br> ";
+         
+         
+              for(i=0; i < proposition.counterPartAsked.array.length; i++){  
+         
+                        humanAnswerInterfaceCounterPart.innerHTML += '' + proposition.counterPartAsked.array[i].color.name +' :' + proposition.counterPartAsked.array[i].name + ' </br>'; 
+         
+                        addCounterPartAskedLine(proposition,proposition.counterPartAsked.array[i]);
+         
+              }
+         
+              //add cash
+         
+              if(proposition.counterPartAsked.cash != 0){
+         
+                   humanAnswerInterfaceCounterPart.innerHTML += ' cash asked :' + proposition.counterPartAsked.cash;
+         
+              } else {
+         
+                   humanAnswerInterfaceCounterPart.innerHTML += 'no cash was asked'
+         
+         
+              }
+         
+         
+              //pass the proposition object into the proposition button attribute
+         
+                 humanPlayer.propositionToAnswer = proposition;
+         
+         
                
-               addOfferLine(proposition,proposition.offer.array[i]);
 
-     }
 
-     //add cash
-
-     if(proposition.offer.cash != 0){
-
-          humanAnswerInterfaceOffer.innerHTML += 'cash :' + proposition.offer.cash;
-
-     } else {
-
-          humanAnswerInterfaceOffer.innerHTML += 'there is no cash in this offer';
-
-     }
+          }
 
 
 
-     //COUNTERPART ASKED
 
-             
-     humanAnswerInterfaceCounterPart.innerHTML = "Voici la contrepartie qui vous est demandée : </br> ";
+     } , 500
 
 
-     for(i=0; i < proposition.counterPartAsked.array.length; i++){  
+   )
 
-               humanAnswerInterfaceCounterPart.innerHTML += '' + proposition.counterPartAsked.array[i].color.name +' :' + proposition.counterPartAsked.array[i].name + ' </br>'; 
-
-               addCounterPartAskedLine(proposition,proposition.counterPartAsked.array[i]);
-
-     }
-
-     //add cash
-
-     if(proposition.counterPartAsked.cash != 0){
-
-          humanAnswerInterfaceCounterPart.innerHTML += ' cash asked :' + proposition.counterPartAsked.cash;
-
-     } else {
-
-          humanAnswerInterfaceCounterPart.innerHTML += 'no cash was asked'
-
-
-     }
-
-
-     //pass the proposition object into the proposition button attribute
-
-        humanPlayer.propositionToAnswer = proposition;
+ }
 
 }
 
@@ -135,8 +185,25 @@ function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
 
 function refusePropositionFromInterface(){
 
+    
+     //background opacity back to normal
+
+
+     let nonTradingPlayers = getNonTradingPlayersArray(humanPlayer.propositionToAnswer.offerer, humanPlayer.propositionToAnswer.answerer)
+
+     
+     unveilBoard();
+ 
+     for(var i=0; i < nonTradingPlayers.length; i++){  
+        
+          unveilPlayer(nonTradingPlayers[i]);
+
+    }
+
 
      addNotif('you refused a proposition!!')
+
+
 
      humanThinking = false;
 
@@ -170,6 +237,8 @@ function refusePropositionFromInterface(){
      
 
       humanPlayer.propositionToAnswer = none;
+
+      humanAnswerInterfaceOn = false;
 
 }
 
@@ -522,6 +591,10 @@ function displayPropositionInterface(){
      displayTradeDiv(tradeOfferer,humanPlayer,colorArray[displayedOffererColor]);
      document.getElementById('playerChoiceDiv').style.display = 'flex';
      document.getElementById('tradeInterfaceDiv').style.display = 'flex';
+
+     
+     buildTradePresentationCircles(humanPlayer);
+     buildTradePresentationBars(humanPlayer)
 
     
 
@@ -1184,6 +1257,23 @@ function initPropositionInterface(){
 
 function acceptPropositionFromInterface(){
 
+
+     //background opacity back to normal
+
+     let nonTradingPlayers = getNonTradingPlayersArray(humanPlayer.propositionToAnswer.offerer, humanPlayer.propositionToAnswer.answerer)
+
+
+     unveilBoard();
+ 
+     for(var i=0; i < nonTradingPlayers.length; i++){  
+        
+          unveilPlayer(nonTradingPlayers[i]);
+
+    }
+
+
+
+
      humanThinking = false;
 
      initHumanAnswerInterface();
@@ -1202,6 +1292,8 @@ function acceptPropositionFromInterface(){
      //init the property
 
      humanPlayer.propositionToAnswer = none;
+
+     humanAnswerInterfaceOn = false;
 
 }
 function initHumanAnswerInterface(){
@@ -1321,7 +1413,7 @@ function displayPM(){
 
      displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
 
-
+     
 
 }
 
@@ -1850,6 +1942,8 @@ function addOfferLine(proposition, property){
 
            if(proposition.offer.mortgagesClosed[i] == property){
 
+                propertyToUnmortgage = true;
+
                propertyName.innerHTML += '(u)';
 
            }
@@ -2190,23 +2284,31 @@ function displayNewAnswerer(player){
 
           if(observedPlayer != none && observedPlayer != player){
 
+
           clearTradeColor(tradeAnswerer, colorArray[displayedAnswererColor].units);
           document.getElementById(observedPlayer.name + '_avatar').style.opacity = '0.2';
+          document.getElementById(observedPlayer.name + '_tradeGraph_presentationContainer').style.display = 'none';
+
 
 
      } else {
 
-          document.getElementById('playerChoiceDiv').style.display = 'none';     
+          document.getElementById('playerChoiceDiv').style.display = 'none';  
+          document.getElementById('chosePlayer_tradeGraph_presentationContainer').style.display = 'none'; 
 
      }
 
     
      observePlayer(player);
 
+     document.getElementById(observedPlayer.name + '_tradeGraph_presentationContainer').style.display = 'flex';
+
+     buildTradePresentationCircles(observedPlayer);
+     buildTradePresentationBars(observedPlayer)
+
      document.getElementById(observedPlayer.name + '_avatar').style.opacity = '1';
 
      displayTradeDiv(tradeAnswerer,observedPlayer, colorArray[displayedAnswererColor]);
-
 }
 
 
@@ -2517,7 +2619,7 @@ function tradeAnimation(proposition){
       
              
       
-          }, 3000)
+          }, 5000)
 
 
           clearInterval(tradeAnimationInterval);
@@ -2575,7 +2677,6 @@ function squareBorderOn(square){
       highlightedSquare = square;
 
 
-      setTimeout(function(){
 
 
 
@@ -2592,7 +2693,6 @@ function squareBorderOn(square){
       
 
 
-      },100)
 
 
 
@@ -2739,7 +2839,7 @@ function buildTradeScreen(proposition){
 
            clearTradeScreen();
 
-        },3000)
+        },5000)
 
 }
 
@@ -2804,3 +2904,8 @@ function clearTradeScreen(){
    
 
 
+
+    function updateBoardCashOnGui(player){
+
+        document.getElementById(player.name + 'BoardCashDiv').innerHTML = 'cash: ' + player.cash;
+   }

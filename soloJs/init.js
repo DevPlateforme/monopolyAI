@@ -12,8 +12,12 @@ function init(){
      //buildBoard();  
      //setColorScores();
 
+     removePlayer(humanPlayer);
 
-     wakeUpAis();
+
+
+
+
 
 
     setInterval(
@@ -47,6 +51,9 @@ function init(){
          buildBoardPresentationCircles(humanPlayer)
          buildBoardPresentationBars(humanPlayer)
 
+         wakeUpAis();
+
+
       
    
        },400);
@@ -62,6 +69,9 @@ function init(){
      
   
       },500);
+
+
+
  
 
            
@@ -140,13 +150,17 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai2, bdDeLaVillette);
-     addPropertyToPlayerWallet(ai3, belleville);
-     addPropertyToPlayerWallet(ai1 , rueLecourbe);
-     addPropertyToPlayerWallet(ai1, rueDuParadis);
-     addPropertyToPlayerWallet(ai2 , avenueDeNeuilly);     
-     addPropertyToPlayerWallet(ai3 , placeDeLaBourse);
-     addPropertyToPlayerWallet(ai1 , avenueDeBreteuil);
+     addPropertyToPlayerWallet(ai3 , rueLecourbe);
+     addPropertyToPlayerWallet(ai3 , belleville);
+     addPropertyToPlayerWallet(ai3, rueDuParadis);
+     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);  
+     addPropertyToPlayerWallet(ai3 , bdDeLaVillette);
+     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
+
+     updateBoardGraphs(ai1);
+     updateBoardGraphs(ai2);
+     updateBoardGraphs(ai3);
+     updateBoardCashOnGui(ai3);
 
 
   }
