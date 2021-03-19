@@ -4687,6 +4687,14 @@ Property management interface
 }
 
 
+.dollarCardImgScreen{
+  height: 100%;
+  width: auto;
+  opacity:0.7;
+}
+
+
+
 .mortgageCardImg{
 
     height: 40%;

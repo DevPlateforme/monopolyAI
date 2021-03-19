@@ -13,13 +13,7 @@ function init(){
      //setColorScores();
 
 
-     //addTradeScreenOfferLine(avenueMatignon);
-
-
-      
-
-
-
+     wakeUpAis();
 
 
     setInterval(
@@ -42,8 +36,6 @@ function init(){
       
        buildBoardPresentationCircles(ai1)
        buildBoardPresentationBars(ai1)
-
-       addTradeScreenAnswerLine(avenueDeBreteuil);
 
       
   
@@ -70,16 +62,7 @@ function init(){
      
   
       },500);
-     
-      setTimeout(function(){
-
-      
-        buildBoardPresentationCircles(ai3)
-        buildBoardPresentationBars(ai3)
-
-  
-      },600);
-
+ 
 
            
 

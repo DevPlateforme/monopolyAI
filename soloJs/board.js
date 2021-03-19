@@ -170,7 +170,11 @@ function movePiece(){
 
                           if(nextDiceLauncher == humanPlayer){
 
-                            displayDiceLaunchButton();
+                            //displayDiceLaunchButton();
+
+                            launchDicesAndMovePieces();
+
+
   
                           } else {
 

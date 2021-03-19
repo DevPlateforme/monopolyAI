@@ -2470,14 +2470,17 @@ function hidePlayer(player){
 
 
 
-function tradeAnimation(playerA,playerB){
+function tradeAnimation(proposition){
+
+     let playerA = proposition.offerer;
+
+     let playerB = proposition.answerer;
 
     let tradeAnimationInterval = setInterval(function(){  
                    
        if(tradeAnimationOn == false ){    
           
-          
-          
+
           tradeAnimationOn = true;
 
           let nonTradingPlayers = getNonTradingPlayersArray(playerA,playerB);
@@ -2493,14 +2496,9 @@ function tradeAnimation(playerA,playerB){
       
           document.getElementById('checkmark').style.display = 'flex'; 
 
-          addTradeScreenOfferLine(avenueHenriMartin);
-
           
-          
-     setTimeout(function(){     addTradeScreenAnswerLine(avenueMatignon);
-     },1000)     
-
-
+          buildTradeScreen(proposition);
+     
       
       
       
@@ -2610,18 +2608,6 @@ function squareBorderOn(square){
 
 
 
-function fillTradeScreen(proposition){
-
-
-     for(var i=0; i < proposition.offer.array.length; i++){
-
-          addTradeScreenLine();
-
-     }
-
-
-}
-
 
 
 function addTradeScreenOfferLine(property){
@@ -2640,7 +2626,6 @@ function addTradeScreenOfferLine(property){
   line.append(colorContainer);
   line.append(propertyNameLine)
   document.getElementById('tradeScreen_offererContainer').append(line);
-  opacityTransition(colorPoint);
 
 
 
@@ -2656,8 +2641,6 @@ function addTradeScreenAnswerLine(property){
    colorContainer.setAttribute("class", "tradeScreenAABAA");
    let colorPoint = document.createElement('div');
    colorPoint.style.background = property.color.opacityOnCode;
-   colorPoint.style.opacity = 0;
-   opacityTransition(colorPoint);
    colorPoint.setAttribute("class", "tradeScreenAABAAA");
    colorContainer.append(colorPoint);
    let propertyNameLine = document.createElement("div");
@@ -2666,7 +2649,6 @@ function addTradeScreenAnswerLine(property){
    line.append(propertyNameLine)
    line.append(colorContainer);
    document.getElementById('tradescreen_answererContainer').append(line);
-   opacityTransition(colorPoint);
 
 }
 
@@ -2704,11 +2686,121 @@ function opacityTransition(element){
                     return;
                } 
 
-               currentOpacity += 0.15;
+               currentOpacity += 0.1;
                element.style.opacity = currentOpacity;
 
-          }, 20);
+          }, 50);
 
      document.getElementById(element);
 
 }
+
+
+
+
+
+function buildTradeScreen(proposition){
+
+
+     //OFFER
+
+     for(var i=0; i < proposition.offer.array.length; i++){  
+               
+               addTradeScreenOfferLine(proposition.offer.array[i]);
+
+     }
+
+     //add cash
+
+          addCashToOffererScreen(proposition.offer.cash);
+     
+
+
+     //COUNTERPART ASKED
+
+             
+
+     for(i=0; i < proposition.counterPartAsked.array.length; i++){  
+
+               addTradeScreenAnswerLine(proposition.counterPartAsked.array[i]);
+
+     }
+
+     addCashToAnswererScreen(proposition.counterPartAsked.cash);
+
+
+
+     //pass the proposition object into the proposition button attribute
+
+        humanPlayer.propositionToAnswer = proposition;
+
+        
+        setTimeout(function(){
+
+           clearTradeScreen();
+
+        },3000)
+
+}
+
+
+function clearTradeScreen(){
+
+     document.getElementById('tradeScreen_offererContainer').innerHTML = '';
+     document.getElementById('tradescreen_answererContainer').innerHTML = '';
+
+
+}
+
+
+
+
+
+
+
+
+   
+   function addCashToOffererScreen(cash){ 
+      
+       let line = document.createElement('div');
+       line.setAttribute("class", "tradeScreenAABA");
+       let colorContainer = document.createElement('div');
+       colorContainer.setAttribute("class", "tradeScreenAABAA");
+       let colorPoint = document.createElement('div');
+       colorPoint.style.background = 'gold';
+       colorPoint.setAttribute("class", "tradeScreenAABAAA");
+       colorContainer.append(colorPoint);
+       let propertyNameLine = document.createElement("div");
+       propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
+       propertyNameLine.innerHTML = '$' + cash;
+       line.append(colorContainer);
+       line.append(propertyNameLine)
+       document.getElementById('tradeScreen_offererContainer').append(line);
+   
+   }
+
+   
+   
+   function addCashToAnswererScreen(cash){     
+        
+     
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = 'gold';
+     colorPoint.setAttribute("class", "tradeScreenAABAAA");
+     colorContainer.append(colorPoint);
+     let propertyNameLine = document.createElement("div");
+     propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+     propertyNameLine.innerHTML = cash;
+     line.append(propertyNameLine)
+     line.append(colorContainer);
+     document.getElementById('tradescreen_answererContainer').append(line);
+     
+   
+   }
+   
+
+

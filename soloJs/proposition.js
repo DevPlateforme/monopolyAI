@@ -370,9 +370,7 @@ function makeProposition(proposition){
        updateBoardGraphs(answerer);
 
 
-       tradeAnimation(offerer,answerer);
-
-
+       tradeAnimation(proposition);
 
 
      
