@@ -12,11 +12,11 @@ function init(){
   //buildBoard();  
   //setColorScores();
   
+  removePlayer(humanPlayer);
 
-   //givePlayersPropertiesForDemo();
+  launchDicesAndMovePieces();
 
-
-
+  
     setInterval(
 
         function(){

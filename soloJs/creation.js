@@ -240,15 +240,15 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		
 		if(answerer.cash > 1200){
 	
-		answererCashSlices = [0  , answerer.cash * 0.05,  answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15 , answerer.cash * 0.2  ];
+		answererCashSlices = [0  , answerer.cash * 0.05,  answerer.cash * 0.1 , answerer.cash * 0.125 ];
    		
 	  } else if(answerer.cash > 500){
 		
-	        answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15, answerer.cash * 0.175 ,  answerer.cash * 0.2 , answerer.cash * 0.25 , answerer.cash * 0.3];
+	        answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15];
 
 	  } else {
 		
-		answererCashSlices = [0  , answerer.cash * 0.175 ,  answerer.cash * 0.2 ,  answerer.cash * 0.25,  answerer.cash * 0.3];
+		answererCashSlices = [0  , answerer.cash * 0.175 ,  answerer.cash * 0.2 ,  answerer.cash * 0.25];
 
      }
 
@@ -284,14 +284,14 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			if(offerer.cash > 1000){
 				
-				offererCashSlices = [0 , offerer.cash * 0.05 ,offerer.cash * 0.01 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ,  offerer.cash * 0.2];
+				offererCashSlices = [0 , offerer.cash * 0.05 ,offerer.cash * 0.01 , offerer.cash * 0.125 , offerer.cash * 0.15];
 		   
 			}else if(offerer.cash > 500){
 				
-			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25,  offerer.cash * 0.3 ];
+			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ];
 			 } else {
 
-				offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25,  offerer.cash * 0.3 ,  offerer.cash * 0.35 ];
+				offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25 ];
 
 
 
@@ -789,14 +789,17 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	     let trickedPlayerScore = 0;
 	     let trickedPlayerOpponentScore = 0;
+		 let trickedPlayerScoreWithoutCash = 0;
 
 		 for(var i = 0 ; i < offerSets.length; i++){
 
 			trickedPlayerScore += getArrayGainValueForPlayer( trickedPlayer , trickedPlayer, offerSets[i]);
+			trickedPlayerScoreWithoutCash += getArrayGainValueForPlayer( trickedPlayer , trickedPlayer, offerSets[i]);
 
 			trickedPlayerScore += offer.cash;
 			trickedPlayerScore -= counterPartAsked.cash;
 			trickedPlayerOpponentScore -= getArrayLossValueForPlayer( trickedPlayer , trickedPlayerOpponent , offerSets[i]);
+			
 
 		 }
 
@@ -810,6 +813,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 		 	  trickedPlayerOpponentScore  -=  offer.cash;
 
 			  trickedPlayerScore -= calculateSetValue( trickedPlayer , counterPartAskedSets[i]);
+			  trickedPlayerScoreWithoutCash -= calculateSetValue( trickedPlayer , counterPartAskedSets[i]);
+
 			  
 
 		
@@ -824,7 +829,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
           //Break right away if the tricked player feels the proposition is not fair
 
 
-		 if(trickedPlayerScore < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * (0.75 + (Math.random()/7) )) ){
+		 if(trickedPlayerScoreWithoutCash < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * (0.75 + (Math.random()/7) )) ){
 
 			 if(proposition.counterPartAsked.cash > 0){ 
 
