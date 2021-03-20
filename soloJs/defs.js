@@ -156,7 +156,7 @@ function calculateStepVariable(player, setArray){
           if(setArray.length == 1){
   
   
-              return 0.165;
+              return 0.125;
   
   
   
@@ -176,7 +176,7 @@ function calculateStepVariable(player, setArray){
   
          } else if(setArray.length == 2) {
   
-              return 0.165;
+              return 0.125;
   
          } else if(setArray.length == 3){
   
@@ -259,7 +259,7 @@ function calculateStepVariable(player, setArray){
          if(setArray.length == 1){
  
  
-             return 0.165;
+             return 0.125;
  
  
  
@@ -279,7 +279,7 @@ function calculateStepVariable(player, setArray){
  
         } else if(setArray.length == 2) {
  
-             return 0.1;
+             return 0.125;
  
         } else if(setArray.length == 3){
  

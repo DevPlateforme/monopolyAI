@@ -120,11 +120,9 @@ if(humanAnswerInterfaceOn == false){
          
               if(proposition.offer.cash != 0){
          
-                   alert('cash offered :' + proposition.offer.cash);
          
               } else {
          
-               alert(' cash offered :none');
          
               }
          
@@ -147,13 +145,9 @@ if(humanAnswerInterfaceOn == false){
               //add cash
          
               if(proposition.counterPartAsked.cash != 0){
-         
-                   alert(' cash asked :' + proposition.counterPartAsked.cash);
-         
+                  
               } else {
-         
-               alert(' cash asked :none');
-         
+                  
          
               }
          

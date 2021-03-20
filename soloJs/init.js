@@ -12,9 +12,8 @@ function init(){
   //buildBoard();  
   //setColorScores();
   
-  removePlayer(humanPlayer);
 
-   humanThinking = false;
+   //givePlayersPropertiesForDemo();
 
 
 
@@ -146,6 +145,24 @@ function setColorScores(){
 
 
   function givePlayersPropertiesForDemo(){
+
+
+    addPropertyToPlayerWallet(humanPlayer, belleville);
+
+
+
+    addPropertyToPlayerWallet(ai1, boulevardSaintMichel);
+    addPropertyToPlayerWallet(ai1, placePigalle);
+    addPropertyToPlayerWallet(ai1, avenueDesChampsElysees);
+
+
+
+    addPropertyToPlayerWallet(ai2, rueDeLaPaix);
+    addPropertyToPlayerWallet(ai2, rueLecourbe);
+
+
+
+
 
     
 
