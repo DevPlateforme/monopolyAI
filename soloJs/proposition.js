@@ -368,7 +368,7 @@ function makeProposition(proposition){
        updateBoardGraphs(offerer);
        updateBoardGraphs(answerer);
 
-       buildMobilePresentationBars(ai1);
+
 
 
 

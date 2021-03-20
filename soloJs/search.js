@@ -11,7 +11,6 @@ function searchForTradesOpportunities(activePlayer){
         
    if(activePlayer != undefined){
 
-
     //console.log(activePlayer.name + 'starts its search');
 
        let propositionList = [];

@@ -2508,7 +2508,7 @@ flex-direction: column;
 }
 
 
-.pawnContainer0{
+.pawnContainerhumanPlayer{
 
   height:20%;
   width:90%;
@@ -2518,7 +2518,7 @@ flex-direction: column;
 }
 
 
-.pawnContainer1{
+.pawnContainerai1{
 
    height:20%;
    width:90%;
@@ -2526,7 +2526,7 @@ flex-direction: column;
 }
 
 
-.pawnContainer2{
+.pawnContainerai2{
 
   height:20%;
   width:90%;
@@ -2534,11 +2534,10 @@ flex-direction: column;
 }
 
 
-.pawnContainer3{
+.pawnContainerai3{
 
   height:20%;
   width:90%;
-
 
 }
 
@@ -5984,8 +5983,6 @@ body {
 
 
 
-
- 
 
 
 

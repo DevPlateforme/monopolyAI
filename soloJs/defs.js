@@ -124,7 +124,7 @@ function calculateStepVariable(player, setArray){
 
             } else if (setArray.length == 3){
   
-              return 0.5;
+              return 0.7;
   
             } else if (setArray.length == 2){
   
@@ -227,7 +227,7 @@ function calculateStepVariable(player, setArray){
 
            } else if (setArray.length == 3){
  
-             return 0.5;
+             return 0.7;
  
            } else if (setArray.length == 2){
  
@@ -235,7 +235,7 @@ function calculateStepVariable(player, setArray){
  
            } else if (setArray.length == 1){
  
-             return 0.075;
+             return 0.095;
  
            }
  
@@ -279,7 +279,7 @@ function calculateStepVariable(player, setArray){
  
         } else if(setArray.length == 2) {
  
-             return 0.165;
+             return 0.1;
  
         } else if(setArray.length == 3){
  
@@ -474,8 +474,6 @@ function buildHouse(property){
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
 
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
-
-      alert(property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
  
 
@@ -831,7 +829,6 @@ function addPropertyToPlayerWallet(player, property){
     }
 
     updateBoardGraphs(player)
-    buildMobilePresentationBars(ai1);
 
 
     
@@ -1288,4 +1285,6 @@ function updateBoardGraphs(player){
   
   buildBoardPresentationCircles(player)
   buildBoardPresentationBars(player)
+  buildMobilePresentationBars(player);
+
 }

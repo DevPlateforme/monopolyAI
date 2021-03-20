@@ -120,11 +120,11 @@ if(humanAnswerInterfaceOn == false){
          
               if(proposition.offer.cash != 0){
          
-                   humanAnswerInterfaceOffer.innerHTML += 'cash :' + proposition.offer.cash;
+                   alert('cash offered :' + proposition.offer.cash);
          
               } else {
          
-                   humanAnswerInterfaceOffer.innerHTML += 'there is no cash in this offer';
+               alert(' cash offered :none');
          
               }
          
@@ -148,11 +148,11 @@ if(humanAnswerInterfaceOn == false){
          
               if(proposition.counterPartAsked.cash != 0){
          
-                   humanAnswerInterfaceCounterPart.innerHTML += ' cash asked :' + proposition.counterPartAsked.cash;
+                   alert(' cash asked :' + proposition.counterPartAsked.cash);
          
               } else {
          
-                   humanAnswerInterfaceCounterPart.innerHTML += 'no cash was asked'
+               alert(' cash asked :none');
          
          
               }
@@ -1608,16 +1608,41 @@ function sellHouseFromInterface(){
 
       //clear "from square"
 
+      setTimeout(function(){
+          let pawn;
 
 
-      document.getElementById('square' + from + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML ='x';
+          //move pawn towards "to square"
+    
+          if(player == ai1){
+    
+              pawn = 'red';
+    
+          } else if(player == ai2){          
+               
+              pawn = 'blue';
+    
+          } else if(player == ai3){
+              pawn = 'purple';
+    
+          } else {
+    
+              pawn = 'yellow';
+    
+          }
+    
+    
+          document.getElementById('square' + from + '_pawnContainer'+ player.name ).style.background ='none';
+    
+    
+    
+          document.getElementById('square' + to + '_pawnContainer'+ player.name ).style.background = pawn;
+    
+    
 
-      //move pawn towards "to square"
+      }, 500)
 
-
-      document.getElementById('square' + to + 'Player'+ player.playerIndex + 'Pawn' ).innerHTML = player.playerIndex.toString();
-
-
+     
  }
 
 

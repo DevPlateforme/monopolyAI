@@ -66,7 +66,7 @@ function movePiece(){
      lastDiceLauncher.position = updatedPosition;
 
 
-     //movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
+     movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
      //console.log('******square ' + squaresArray[updatedPosition] )      
 
@@ -170,7 +170,10 @@ function movePiece(){
 
                           if(nextDiceLauncher == humanPlayer){
 
-                            displayDiceLaunchButton();
+                            displayDiceLaunchButton(); 
+
+                            //launchDicesAndMovePieces();
+
 
 
 

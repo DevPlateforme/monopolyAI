@@ -7444,7 +7444,6 @@
 		</div>
 
 
-
     <div class="mobilePresentationsContainer">
 
 <div class="mobilePresentationsContainerA">
@@ -7466,25 +7465,25 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_brown"></div>
+                      <div class="colorBar brownColorBar" id="ai1_mobileGraph_colorBar_brown" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_brown' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_brown' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai1_mobileGraph_colorPoint1_brown" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai1_mobileGraph_colorPoint2_brown" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_lightBlue"></div>
+                      <div class="colorBar lightBlueColorBar" id="ai1_mobileGraph_colorBar_lightBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_lightBlue' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_lightBlue' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_lightBlue' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai1_mobileGraph_colorPoint1_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai1_mobileGraph_colorPoint2_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai1_mobileGraph_colorPoint3_lightBlue" style="opacity: 0.2"></div>
 
                   </div>
           </div>
@@ -7492,39 +7491,39 @@
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_purple"></div>
+                      <div class="colorBar purpleColorBar" id="ai1_mobileGraph_colorBar_purple" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                       <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_purple' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_purple' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_purple' style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA purpleColorBar" id="ai1_mobileGraph_colorPoint1_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai1_mobileGraph_colorPoint2_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai1_mobileGraph_colorPoint3_purple" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_orange"></div>
+                      <div class="colorBar orangeColorBar" id="ai1_mobileGraph_colorBar_orange" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                     <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_orange' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_orange' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_orange' style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA orangeColorBar" id="ai1_mobileGraph_colorPoint1_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai1_mobileGraph_colorPoint2_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai1_mobileGraph_colorPoint3_orange" style="opacity: 0.2"></div>
                   </div>
           </div>
 
            
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_red"></div>
+                      <div class="colorBar redColorBar" id="ai1_mobileGraph_colorBar_red" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                     <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_red' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_red' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_red' style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA redColorBar" id="ai1_mobileGraph_colorPoint1_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai1_mobileGraph_colorPoint2_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai1_mobileGraph_colorPoint3_red" style="opacity: 0.2"></div>
                   </div>
           </div>
 
@@ -7536,63 +7535,63 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_yellow"></div>
+                      <div class="colorBar yellowColorBar" id="ai1_mobileGraph_colorBar_yellow" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_yellow' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_yellow' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_yellow' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai1_mobileGraph_colorPoint1_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai1_mobileGraph_colorPoint2_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai1_mobileGraph_colorPoint3_yellow" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_green"></div>
+                      <div class="colorBar greenColorBar" id="ai1_mobileGraph_colorBar_green" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_green' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_green' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_green' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai1_mobileGraph_colorPoint1_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai1_mobileGraph_colorPoint2_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai1_mobileGraph_colorPoint3_green" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_darkBlue"></div>
+                      <div class="colorBar darkBlueColorBar" id="ai1_mobileGraph_colorBar_darkBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_darkBlue' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_darkBlue' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai1_mobileGraph_colorPoint1_darkBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai1_mobileGraph_colorPoint2_darkBlue" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_black"></div>
+                      <div class="colorBar blackColorBar" id="ai1_mobileGraph_colorBar_black" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_black' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_black' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_black' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint4_black' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai1_mobileGraph_colorPoint1_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai1_mobileGraph_colorPoint2_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai1_mobileGraph_colorPoint3_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai1_mobileGraph_colorPoint4_black" style="opacity: 0.2"></div>
                   </div>
           </div>
           
 
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai1_mobileGraph_colorBar_publicServicesColor"></div>
+                      <div class="colorBar publicServicesColorBar" id="ai1_mobileGraph_colorBar_publicServicesColor" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint1_publicServicesColor' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint2_publicServicesColor' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint3_publicServicesColor' style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" id='ai1_mobileGraph_colorPoint4_publicServicesColor' style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai1_mobileGraph_colorPoint1_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai1_mobileGraph_colorPoint2_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai1_mobileGraph_colorPoint3_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai1_mobileGraph_colorPoint4_publicServicesColor" style="opacity: 0.2"></div>
                   </div>
           </div>
           
@@ -7616,68 +7615,67 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar brownColorBar" id="humanPlayer_mobileGraph_colorBar_brown" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="humanPlayer_mobileGraph_colorPoint1_brown" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="humanPlayer_mobileGraph_colorPoint2_brown" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar lightBlueColorBar" id="humanPlayer_mobileGraph_colorBar_lightBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="humanPlayer_mobileGraph_colorPoint1_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="humanPlayer_mobileGraph_colorPoint2_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="humanPlayer_mobileGraph_colorPoint3_lightBlue" style="opacity: 0.2"></div>
+
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar purpleColorBar" id="humanPlayer_mobileGraph_colorBar_purple" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA purpleColorBar" id="humanPlayer_mobileGraph_colorPoint1_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="humanPlayer_mobileGraph_colorPoint2_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="humanPlayer_mobileGraph_colorPoint3_purple" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar orangeColorBar" id="humanPlayer_mobileGraph_colorBar_orange" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA orangeColorBar" id="humanPlayer_mobileGraph_colorPoint1_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="humanPlayer_mobileGraph_colorPoint2_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="humanPlayer_mobileGraph_colorPoint3_orange" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
+           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar redColorBar" id="humanPlayer_mobileGraph_colorBar_red" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA redColorBar" id="humanPlayer_mobileGraph_colorPoint1_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="humanPlayer_mobileGraph_colorPoint2_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="humanPlayer_mobileGraph_colorPoint3_red" style="opacity: 0.2"></div>
                   </div>
           </div>
-
 
               </div>
               <div class="mobilePresentationsContainerAABA">
@@ -7687,67 +7685,66 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar yellowColorBar" id="humanPlayer_mobileGraph_colorBar_yellow" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="humanPlayer_mobileGraph_colorPoint1_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="humanPlayer_mobileGraph_colorPoint2_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="humanPlayer_mobileGraph_colorPoint3_yellow" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar greenColorBar" id="humanPlayer_mobileGraph_colorBar_green" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="humanPlayer_mobileGraph_colorPoint1_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="humanPlayer_mobileGraph_colorPoint2_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="humanPlayer_mobileGraph_colorPoint3_green" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar darkBlueColorBar" id="humanPlayer_mobileGraph_colorBar_darkBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="humanPlayer_mobileGraph_colorPoint1_darkBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="humanPlayer_mobileGraph_colorPoint2_darkBlue" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar blackColorBar" id="humanPlayer_mobileGraph_colorBar_black" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="humanPlayer_mobileGraph_colorPoint1_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="humanPlayer_mobileGraph_colorPoint2_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="humanPlayer_mobileGraph_colorPoint3_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="humanPlayer_mobileGraph_colorPoint4_black" style="opacity: 0.2"></div>
                   </div>
           </div>
-
           
+
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar publicServicesColorBar" id="humanPlayer_mobileGraph_colorBar_publicServicesColor" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="humanPlayer_mobileGraph_colorPoint1_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="humanPlayer_mobileGraph_colorPoint2_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="humanPlayer_mobileGraph_colorPoint3_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="humanPlayer_mobileGraph_colorPoint4_publicServicesColor" style="opacity: 0.2"></div>
                   </div>
           </div>
+          
 
               </div>
           </div>
@@ -7774,68 +7771,67 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar brownColorBar" id="ai2_mobileGraph_colorBar_brown" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai2_mobileGraph_colorPoint1_brown" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai2_mobileGraph_colorPoint2_brown" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar lightBlueColorBar" id="ai2_mobileGraph_colorBar_lightBlue"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai2_mobileGraph_colorPoint1_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai2_mobileGraph_colorPoint2_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai2_mobileGraph_colorPoint3_lightBlue" style="opacity: 0.2"></div>
+
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar purpleColorBar" id="ai2_mobileGraph_colorBar_purple" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA purpleColorBar" id="ai2_mobileGraph_colorPoint1_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai2_mobileGraph_colorPoint2_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai2_mobileGraph_colorPoint3_purple" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar orangeColorBar" id="ai2_mobileGraph_colorBar_orange" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA orangeColorBar" id="ai2_mobileGraph_colorPoint1_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai2_mobileGraph_colorPoint2_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai2_mobileGraph_colorPoint3_orange" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
+           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar redColorBar" id="ai2_mobileGraph_colorBar_red" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA redColorBar" id="ai2_mobileGraph_colorPoint1_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai2_mobileGraph_colorPoint2_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai2_mobileGraph_colorPoint3_red" style="opacity: 0.2"></div>
                   </div>
           </div>
-
 
               </div>
               <div class="mobilePresentationsContainerAABA">
@@ -7845,67 +7841,66 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar yellowColorBar" id="ai2_mobileGraph_colorBar_yellow" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai2_mobileGraph_colorPoint1_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai2_mobileGraph_colorPoint2_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai2_mobileGraph_colorPoint3_yellow" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar greenColorBar" id="ai2_mobileGraph_colorBar_green" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai2_mobileGraph_colorPoint1_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai2_mobileGraph_colorPoint2_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai2_mobileGraph_colorPoint3_green" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar darkBlueColorBar" id="ai2_mobileGraph_colorBar_darkBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai2_mobileGraph_colorPoint1_darkBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai2_mobileGraph_colorPoint2_darkBlue" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar blackColorBar" id="ai2_mobileGraph_colorBar_black" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai2_mobileGraph_colorPoint1_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai2_mobileGraph_colorPoint2_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai2_mobileGraph_colorPoint3_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai2_mobileGraph_colorPoint4_black" style="opacity: 0.2"></div>
                   </div>
           </div>
-
           
+
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar publicServicesColorBar" id="ai2_mobileGraph_colorBar_publicServicesColor" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai2_mobileGraph_colorPoint1_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai2_mobileGraph_colorPoint2_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai2_mobileGraph_colorPoint3_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai2_mobileGraph_colorPoint4_publicServicesColor" style="opacity: 0.2"></div>
                   </div>
           </div>
+          
 
               </div>
           </div>
@@ -7926,68 +7921,67 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar brownColorBar" id="ai3_mobileGraph_colorBar_brown" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai3_mobileGraph_colorPoint1_brown" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA brownColorBar" id="ai3_mobileGraph_colorPoint2_brown" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar lightBlueColorBar" id="ai3_mobileGraph_colorBar_lightBlue" ></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai3_mobileGraph_colorPoint1_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai3_mobileGraph_colorPoint2_lightBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA lightBlueColorBar" id="ai3_mobileGraph_colorPoint3_lightBlue" style="opacity: 0.2"></div>
+
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar purpleColorBar" id="ai3_mobileGraph_colorBar_purple" style="width: 0px;"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                       <div class="homePropertyDivABBA purpleColorBar" id="ai3_mobileGraph_colorPoint1_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai3_mobileGraph_colorPoint2_purple" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA purpleColorBar" id="ai3_mobileGraph_colorPoint3_purple" style="opacity: 0.2"></div>
                   </div>
           </div>
 
           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar orangeColorBar" id="ai3_mobileGraph_colorBar_orange" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA orangeColorBar" id="ai3_mobileGraph_colorPoint1_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai3_mobileGraph_colorPoint2_orange" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA orangeColorBar" id="ai3_mobileGraph_colorPoint3_orange" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
+           
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar redColorBar" id="ai3_mobileGraph_colorBar_red" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                     <div class="homePropertyDivABBA redColorBar" id="ai3_mobileGraph_colorPoint1_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai3_mobileGraph_colorPoint2_red" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA redColorBar" id="ai3_mobileGraph_colorPoint3_red" style="opacity: 0.2"></div>
                   </div>
           </div>
-
 
               </div>
               <div class="mobilePresentationsContainerAABA">
@@ -7997,67 +7991,66 @@
 
            <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar yellowColorBar" id="ai3_mobileGraph_colorBar_yellow" style="width: 0p"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai3_mobileGraph_colorPoint1_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai3_mobileGraph_colorPoint2_yellow" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA yellowColorBar" id="ai3_mobileGraph_colorPoint3_yellow" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar greenColorBar" id="ai3_mobileGraph_colorBar_green" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai3_mobileGraph_colorPoint1_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai3_mobileGraph_colorPoint2_green" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA greenColorBar" id="ai3_mobileGraph_colorPoint3_green" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar darkBlueColorBar" id="ai3_mobileGraph_colorBar_darkBlue" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai3_mobileGraph_colorPoint1_darkBlue" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA darkBlueColorBar" id="ai3_mobileGraph_colorPoint2_darkBlue" style="opacity: 0.2"></div>
                   </div>
           </div>
 
-          
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar blackColorBar" id="ai3_mobileGraph_colorBar_black" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai3_mobileGraph_colorPoint1_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai3_mobileGraph_colorPoint2_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai3_mobileGraph_colorPoint3_black" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA blackColorBar" id="ai3_mobileGraph_colorPoint4_black" style="opacity: 0.2"></div>
                   </div>
           </div>
-
           
+
           <div class="homePropertyDivAB">
                    <div class="homePropertyDivABA">
-                      <div class="colorBar" id="ai2_boardGraph_colorBar_red"></div>
+                      <div class="colorBar publicServicesColorBar" id="ai3_mobileGraph_colorBar_publicServicesColor" style="width: 0"></div>
                   </div>
 
                    <div class="homePropertyDivABB">
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                      <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
-                       <div class="homePropertyDivABBA" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai3_mobileGraph_colorPoint1_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai3_mobileGraph_colorPoint2_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai3_mobileGraph_colorPoint3_publicServicesColor" style="opacity: 0.2"></div>
+                      <div class="homePropertyDivABBA publicServicesColorBar" id="ai3_mobileGraph_colorPoint4_publicServicesColor" style="opacity: 0.2"></div>
                   </div>
           </div>
+          
 
               </div>
           </div>
@@ -8074,6 +8067,10 @@
 
 
 </div>
+
+
+
+
 		 <div class='digitalContainerB'>
 
      <div class="digitalContainerBC" id='boardTop'>
@@ -8086,10 +8083,10 @@
               
       <div class='pawnContainer'>
 
-         <div class='square10_pawnContainer0'></div>
-         <div class='square10_pawnContainer1'></div>
-         <div class='square10_pawnContainer2'></div>
-         <div class='square10_pawnContainer3'></div>
+         <div class='square10_pawnContainerhumanPlayer'></div>
+         <div class='square10_pawnContainerai1'></div>
+         <div class='square10_pawnContainerai2'></div>
+         <div class='square10_pawnContainerai3'></div>
 
     </div>
 
@@ -8111,10 +8108,10 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square11_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square11_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square11_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square11_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square11_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square11_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square11_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square11_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -8177,10 +8174,10 @@
   <div class='pawnContainer'>
 
 
-      <div id='square12_pawnContainer0' class='pawnContainer0'></div>
-      <div id='square12_pawnContainer1' class='pawnContainer1'></div>
-      <div id='square12_pawnContainer2' class='pawnContainer2'></div>
-      <div id='square12_pawnContainer3' class='pawnContainer3'></div>
+      <div id='square12_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+      <div id='square12_pawnContainerai1' class='pawnContainerai1'></div>
+      <div id='square12_pawnContainerai2' class='pawnContainerai2'></div>
+      <div id='square12_pawnContainerai3' class='pawnContainerai3'></div>
 
     </div>
 
@@ -8198,10 +8195,10 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square13_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square13_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square13_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square13_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square13_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square13_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square13_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square13_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -8264,10 +8261,10 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square14_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square14_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square14_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square14_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square14_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square14_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square14_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square14_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -8331,10 +8328,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square15_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square15_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square15_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square15_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square15_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square15_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square15_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square15_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -8390,10 +8387,10 @@
      
         <div class='pawnContainer'>
 
-         <div id='square16_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square16_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square16_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square16_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square16_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square16_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square16_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square16_pawnContainerai3' class='pawnContainerai3'></div>
  
      </div>
                           
@@ -8455,10 +8452,10 @@
                      
          <div class='pawnContainer'>
         
-            <div id='square17_pawnContainer0' class='pawnContainer0'></div>
-            <div id='square17_pawnContainer1' class='pawnContainer1'></div>
-            <div id='square17_pawnContainer2' class='pawnContainer2'></div>
-            <div id='square17_pawnContainer3' class='pawnContainer3'></div>
+            <div id='square17_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+            <div id='square17_pawnContainerai1' class='pawnContainerai1'></div>
+            <div id='square17_pawnContainerai2' class='pawnContainerai2'></div>
+            <div id='square17_pawnContainerai3' class='pawnContainerai3'></div>
 
            </div>
       
@@ -8478,10 +8475,10 @@
      
         <div class='pawnContainer'>
 
-         <div id='square18_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square18_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square18_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square18_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square18_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square18_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square18_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square18_pawnContainerai3' class='pawnContainerai3'></div>
  
      </div>
                           
@@ -8543,10 +8540,10 @@
      
         <div class='pawnContainer'>
 
-         <div id='square19_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square19_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square19_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square19_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square19_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square19_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square19_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square19_pawnContainerai3' class='pawnContainerai3'></div>
  
      </div>
                           
@@ -8609,10 +8606,10 @@
   <div class='pawnContainer'>
 
 
-         <div id='square20_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square20_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square20_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square20_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square20_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square20_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square20_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square20_pawnContainerai3' class='pawnContainerai3'></div>
 
     </div>
 
@@ -8635,10 +8632,10 @@
            
     <div class='pawnContainer'>
 
-         <div id='square9_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square9_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square9_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square9_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square9_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square9_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square9_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square9_pawnContainerai3' class='pawnContainerai3'></div>
 
     </div>
                            
@@ -8692,10 +8689,10 @@
            
            <div class='pawnContainer'>
        
-                <div id='square8_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square8_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square8_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square8_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square8_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square8_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square8_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square8_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -8751,10 +8748,10 @@
 
                       <div class='pawnContainer'>
 
-                        <div id='square7_pawnContainer0' class='pawnContainer0'></div>
-                        <div id='square7_pawnContainer1' class='pawnContainer1'></div>
-                        <div id='square7_pawnContainer2' class='pawnContainer2'></div>
-                        <div id='square7_pawnContainer3' class='pawnContainer3'></div>
+                        <div id='square7_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                        <div id='square7_pawnContainerai1' class='pawnContainerai1'></div>
+                        <div id='square7_pawnContainerai2' class='pawnContainerai2'></div>
+                        <div id='square7_pawnContainerai3' class='pawnContainerai3'></div>
 
                      </div>
               </div>          
@@ -8767,10 +8764,10 @@
            
            <div class='pawnContainer'>
        
-                <div id='square6_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square6_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square6_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square6_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square6_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square6_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square6_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square6_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -8827,10 +8824,10 @@
            
            <div class='pawnContainer'>
        
-                <div id='square5_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square5_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square5_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square5_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square5_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square5_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square5_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square5_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -8882,10 +8879,10 @@
             <img style='height: 55%;width: auto;'  src="./img/dollar.png">
               
   <div class='pawnContainer'>
-         <div id='square4_pawnContainer0' class='pawnContainer0'></div>
-         <div id='square4_pawnContainer1' class='pawnContainer1'></div>
-         <div id='square4_pawnContainer2' class='pawnContainer2'></div>
-         <div id='square4_pawnContainer3' class='pawnContainer3'></div>
+         <div id='square4_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+         <div id='square4_pawnContainerai1' class='pawnContainerai1'></div>
+         <div id='square4_pawnContainerai2' class='pawnContainerai2'></div>
+         <div id='square4_pawnContainerai3' class='pawnContainerai3'></div>
     </div>
 
 </div>
@@ -8900,10 +8897,10 @@
            
            <div class='pawnContainer'>
        
-                <div id='square3_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square3_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square3_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square3_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square3_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square3_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square3_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square3_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -8961,10 +8958,10 @@
               
                    <div class='pawnContainer'>
            
-                    <div id='square2_pawnContainer0' class='pawnContainer0'></div>
-                    <div id='square2_pawnContainer1' class='pawnContainer1'></div>
-                    <div id='square2_pawnContainer2' class='pawnContainer2'></div>
-                    <div id='square2_pawnContainer3' class='pawnContainer3'></div>
+                    <div id='square2_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                    <div id='square2_pawnContainerai1' class='pawnContainerai1'></div>
+                    <div id='square2_pawnContainerai2' class='pawnContainerai2'></div>
+                    <div id='square2_pawnContainerai3' class='pawnContainerai3'></div>
    
                  </div>
 
@@ -8986,10 +8983,10 @@
                  
                  <div class='pawnContainer'>
              
-                      <div id='square1_pawnContainer0' class='pawnContainer0'></div>
-                      <div id='square1_pawnContainer1' class='pawnContainer1'></div>
-                      <div id='square1_pawnContainer2' class='pawnContainer2'></div>
-                      <div id='square1_pawnContainer3' class='pawnContainer3'></div>
+                      <div id='square1_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                      <div id='square1_pawnContainerai1' class='pawnContainerai1'></div>
+                      <div id='square1_pawnContainerai2' class='pawnContainerai2'></div>
+                      <div id='square1_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                         
@@ -9208,10 +9205,10 @@
                  
            <div class='pawnContainer'>
        
-                <div id='square21_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square21_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square21_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square21_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square21_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square21_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square21_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square21_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -9271,10 +9268,10 @@
 
                      <div class='pawnContainer'>
            
-                          <div id='square22_pawnContainer0' class='pawnContainer0'></div>
-                          <div id='square22_pawnContainer1' class='pawnContainer1'></div>
-                          <div id='square22_pawnContainer2' class='pawnContainer2'></div>
-                         <div id='square22_pawnContainer3' class='pawnContainer3'></div>
+                          <div id='square22_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                          <div id='square22_pawnContainerai1' class='pawnContainerai1'></div>
+                          <div id='square22_pawnContainerai2' class='pawnContainerai2'></div>
+                         <div id='square22_pawnContainerai3' class='pawnContainerai3'></div>
        
                      </div>
 
@@ -9285,10 +9282,10 @@
       <div class="digitalContainerBBAA" id='square23_container'>
            
             <div class='pawnContainer'>
-                   <div id='square23_pawnContainer0' class='pawnContainer0'></div>
-                   <div id='square23_pawnContainer1' class='pawnContainer1'></div>
-                   <div id='square23_pawnContainer2' class='pawnContainer2'></div>
-                  <div id='square23_pawnContainer3' class='pawnContainer3'></div>
+                   <div id='square23_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                   <div id='square23_pawnContainerai1' class='pawnContainerai1'></div>
+                   <div id='square23_pawnContainerai2' class='pawnContainerai2'></div>
+                  <div id='square23_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -9339,10 +9336,10 @@
          <div class="digitalContainerBBAA" id='square24_container'>
            
            <div class='pawnContainer'>
-                  <div id='square24_pawnContainer0' class='pawnContainer0'></div>
-                  <div id='square24_pawnContainer1' class='pawnContainer1'></div>
-                  <div id='square24_pawnContainer2' class='pawnContainer2'></div>
-                 <div id='square24_pawnContainer3' class='pawnContainer3'></div>
+                  <div id='square24_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                  <div id='square24_pawnContainerai1' class='pawnContainerai1'></div>
+                  <div id='square24_pawnContainerai2' class='pawnContainerai2'></div>
+                 <div id='square24_pawnContainerai3' class='pawnContainerai3'></div>
       
           </div>
                                  
@@ -9399,10 +9396,10 @@
            
            <div class='pawnContainer'>
        
-                <div id='square25_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square25_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square25_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square25_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square25_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square25_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square25_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square25_pawnContainerai3' class='pawnContainerai3'></div>
        
            </div>
                                   
@@ -9451,10 +9448,10 @@
          <div class="digitalContainerBBAA" id='square26_container'>
            
            <div class='pawnContainer'>
-                  <div id='square26_pawnContainer0' class='pawnContainer0'></div>
-                  <div id='square26_pawnContainer1' class='pawnContainer1'></div>
-                  <div id='square26_pawnContainer2' class='pawnContainer2'></div>
-                 <div id='square26_pawnContainer3' class='pawnContainer3'></div>
+                  <div id='square26_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                  <div id='square26_pawnContainerai1' class='pawnContainerai1'></div>
+                  <div id='square26_pawnContainerai2' class='pawnContainerai2'></div>
+                 <div id='square26_pawnContainerai3' class='pawnContainerai3'></div>
       
           </div>
                                  
@@ -9508,10 +9505,10 @@
          <div class="digitalContainerBBAA" id='square27_container'>
            
            <div class='pawnContainer'>
-                  <div id='square27_pawnContainer0' class='pawnContainer0'></div>
-                  <div id='square27_pawnContainer1' class='pawnContainer1'></div>
-                  <div id='square27_pawnContainer2' class='pawnContainer2'></div>
-                 <div id='square27_pawnContainer3' class='pawnContainer3'></div>
+                  <div id='square27_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                  <div id='square27_pawnContainerai1' class='pawnContainerai1'></div>
+                  <div id='square27_pawnContainerai2' class='pawnContainerai2'></div>
+                 <div id='square27_pawnContainerai3' class='pawnContainerai3'></div>
       
           </div>
                                  
@@ -9568,10 +9565,10 @@
                      
          <div class='pawnContainer'>
   
-                  <div id='square28_pawnContainer0' class='pawnContainer0'></div>
-                  <div id='square28_pawnContainer1' class='pawnContainer1'></div>
-                  <div id='square28_pawnContainer2' class='pawnContainer2'></div>
-                 <div id='square28_pawnContainer3' class='pawnContainer3'></div>
+                  <div id='square28_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                  <div id='square28_pawnContainerai1' class='pawnContainerai1'></div>
+                  <div id='square28_pawnContainerai2' class='pawnContainerai2'></div>
+                 <div id='square28_pawnContainerai3' class='pawnContainerai3'></div>
 
            </div>
       
@@ -9584,10 +9581,10 @@
    <div class="digitalContainerBBAA" id='square29_container'>
            
            <div class='pawnContainer'>
-                  <div id='square29_pawnContainer0' class='pawnContainer0'></div>
-                  <div id='square29_pawnContainer1' class='pawnContainer1'></div>
-                  <div id='square29_pawnContainer2' class='pawnContainer2'></div>
-                 <div id='square29_pawnContainer3' class='pawnContainer3'></div>
+                  <div id='square29_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                  <div id='square29_pawnContainerai1' class='pawnContainerai1'></div>
+                  <div id='square29_pawnContainerai2' class='pawnContainerai2'></div>
+                 <div id='square29_pawnContainerai3' class='pawnContainerai3'></div>
       
           </div>
                                  
@@ -9656,10 +9653,10 @@
                   <img style='height: 55%;width: auto;'  src="./img/chest.png">
                     
               <div class='pawnContainer'>
-                <div id='square0_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square0_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square0_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square0_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square0_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square0_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square0_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square0_pawnContainerai3' class='pawnContainerai3'></div>
               </div>
       
             </div>
@@ -9677,10 +9674,10 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square39_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square39_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square39_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square39_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square39_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square39_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square39_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square39_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -9743,10 +9740,10 @@
                   <img style='height: 55%;width: auto;'  src="./img/dollar.png">
                     
               <div class='pawnContainer'>
-                <div id='square38_pawnContainer0' class='pawnContainer0'></div>
-                <div id='square38_pawnContainer1' class='pawnContainer1'></div>
-                <div id='square38_pawnContainer2' class='pawnContainer2'></div>
-                <div id='square38_pawnContainer3' class='pawnContainer3'></div>
+                <div id='square38_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                <div id='square38_pawnContainerai1' class='pawnContainerai1'></div>
+                <div id='square38_pawnContainerai2' class='pawnContainerai2'></div>
+                <div id='square38_pawnContainerai3' class='pawnContainerai3'></div>
               </div>
       
             </div>
@@ -9763,10 +9760,10 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square37_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square37_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square37_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square37_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square37_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square37_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square37_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square37_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -9826,10 +9823,10 @@
             <img style='height: 55%;width: auto;'  src="./img/luck.png">
               
         <div class='pawnContainer'>
-          <div id='square36_pawnContainer0' class='pawnContainer0'></div>
-          <div id='square36_pawnContainer1' class='pawnContainer1'></div>
-          <div id='square36_pawnContainer2' class='pawnContainer2'></div>
-          <div id='square36_pawnContainer3' class='pawnContainer3'></div>
+          <div id='square36_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+          <div id='square36_pawnContainerai1' class='pawnContainerai1'></div>
+          <div id='square36_pawnContainerai2' class='pawnContainerai2'></div>
+          <div id='square36_pawnContainerai3' class='pawnContainerai3'></div>
         </div>
 
       </div>
@@ -9850,10 +9847,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square35_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square35_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square35_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square35_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square35_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square35_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square35_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square35_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -9914,10 +9911,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square34_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square34_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square34_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square34_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square34_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square34_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square34_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square34_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -9977,10 +9974,10 @@
               
                    <div class='pawnContainer'>
            
-                    <div id='square33_pawnContainer0' class='pawnContainer0'></div>
-                    <div id='square33_pawnContainer1' class='pawnContainer1'></div>
-                    <div id='square33_pawnContainer2' class='pawnContainer2'></div>
-                    <div id='square33_pawnContainer3' class='pawnContainer3'></div>
+                    <div id='square33_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                    <div id='square33_pawnContainerai1' class='pawnContainerai1'></div>
+                    <div id='square33_pawnContainerai2' class='pawnContainerai2'></div>
+                    <div id='square33_pawnContainerai3' class='pawnContainerai3'></div>
    
                  </div>
 
@@ -10000,10 +9997,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square32_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square32_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square32_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square32_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square32_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square32_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square32_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square32_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -10063,10 +10060,10 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square31_pawnContainer0' class='pawnContainer0'></div>
-                     <div id='square31_pawnContainer1' class='pawnContainer1'></div>
-                     <div id='square31_pawnContainer2' class='pawnContainer2'></div>
-                     <div id='square31_pawnContainer3' class='pawnContainer3'></div>
+                     <div id='square31_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square31_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square31_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square31_pawnContainerai3' class='pawnContainerai3'></div>
              
                  </div>
                                       
@@ -10125,10 +10122,10 @@
               
        <div class='pawnContainer'>
            
-           <div id='square30_pawnContainer0' class='pawnContainer0'></div>
-           <div id='square30_pawnContainer1' class='pawnContainer1'></div>
-           <div id='square30_pawnContainer2' class='pawnContainer2'></div>
-           <div id='square30_pawnContainer3' class='pawnContainer3'></div>
+           <div id='square30_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+           <div id='square30_pawnContainerai1' class='pawnContainerai1'></div>
+           <div id='square30_pawnContainerai2' class='pawnContainerai2'></div>
+           <div id='square30_pawnContainerai3' class='pawnContainerai3'></div>
    
        </div>
 

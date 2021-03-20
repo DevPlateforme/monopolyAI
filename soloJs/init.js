@@ -9,25 +9,19 @@ var breakVar = false;
 
 function init(){
 
-     //buildBoard();  
-     //setColorScores();
-
-     removePlayer(humanPlayer);
-
-
-
-
+  //buildBoard();  
+  //setColorScores();
+  
 
 
 
     setInterval(
+
         function(){
           
           boardJournal.innerHTML = ''}, 5000
           
       );
-      
-
       
 
 
@@ -150,17 +144,7 @@ function setColorScores(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai3 , rueLecourbe);
-     addPropertyToPlayerWallet(ai3 , belleville);
-     addPropertyToPlayerWallet(ai3, rueDuParadis);
-     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);  
-     addPropertyToPlayerWallet(ai3 , bdDeLaVillette);
-     addPropertyToPlayerWallet(ai3 , rueDeLaPaix);
-
-     updateBoardGraphs(ai1);
-     updateBoardGraphs(ai2);
-     updateBoardGraphs(ai3);
-     updateBoardCashOnGui(ai3);
+    
 
 
   }
@@ -229,7 +213,7 @@ function wakeUpAis(){
 
 
 
-var humanThinking = false;
+var humanThinking = true;
 
 var AiThinking = false;
 
