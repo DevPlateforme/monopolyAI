@@ -12,6 +12,9 @@ function init(){
   //buildBoard();  
   //setColorScores();
   
+  removePlayer(humanPlayer);
+
+   humanThinking = false;
 
 
 
