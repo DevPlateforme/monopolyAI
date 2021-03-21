@@ -1293,7 +1293,7 @@ function processPropositionAndAnswer(offerer, answerer, proposition){
 function clearInBuildingProposition(){
 
 
-	user.inBuildingProposition = none;
+	humanPlayer.inBuildingProposition = none;
 
 
 }

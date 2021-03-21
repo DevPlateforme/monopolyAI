@@ -1965,7 +1965,6 @@ presentation of properties
   .legendsDivAAAA{
     height:100%;
     width: 35%;
-    background:red;
   }
 
   .legendsDivAAAB{
@@ -2022,7 +2021,7 @@ presentation of properties
 }
 
 .idDivAInt{
-  height:50%;
+  height:70%;
   width:100%;
   display:flex;
   justify-content:center; 
@@ -2032,8 +2031,8 @@ presentation of properties
 
 
 .idDivAAInt{
-   height:2.25vw;
-   width:2.25vw;
+   height:4vw;
+   width:4vw;
    display:flex;
    justify-content: center;
    align-items: center;
@@ -2045,13 +2044,14 @@ presentation of properties
 
 .idDivBInt{
 
-  height:40%;
+  height:30%;
   width:100%;
   display:flex;
   flex-direction:column;
   justify-content: space-around;
   align-items:flex-start;
   margin-left:5%;
+  margin-bottom: 5%;
   font-size: 0.7vw;
 
 }
@@ -2792,7 +2792,6 @@ justify-content: space-around;
   flex-direction:column;
   align-items:center;
   justify-content: space-around;
-  opacity:0.55; 
 }
 
 
@@ -2859,8 +2858,8 @@ justify-content: space-around;
 }
 
 .tradeScreenAAAA{
-  height:1.25vw;
-  width:1.25vw;
+  height:1.5vw;
+  width:1.5vw;
   display:flex;
   justify-content: center;
   align-items: center;

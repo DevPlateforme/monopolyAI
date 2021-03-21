@@ -313,7 +313,7 @@
     
        <div class="idDivAAInt">
                  
-            <img src="./img/aiface.png" style="height:92.5%; width:92.5%">
+            <img src="./img/man.png" style="height:92.5%; width:92.5%">
 
        </div>
 
@@ -728,12 +728,12 @@
                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displayNewAnswerer(ai1)'></button>
               </div>
               <div id='ai2_avatar' style='position:relative; opacity:0.3; height:30%; width:5%; display:flex; justify-content:center; align-items:center; background:rgb(0,255,0,0.8); border-radius:30px ; margin-left:1.5% ; cursor:pointer'>
-                    <img style='height: 86%;width: 86%;'  src="./img/aiface.png">
+                    <img style='height: 86%;width: 86%;'  src="./img/woman.png">
                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displayNewAnswerer(ai2)'></button>
 
               </div>
               <div id='ai3_avatar' style='position:relative; opacity:0.3;height:30%; width:5%; display:flex; justify-content:center; align-items:center; background:rgb(0,255,0, 0.8); border-radius:30px ; margin-left:1.5% ; cursor:pointer'>
-                    <img style='height: 86%;width: 86%;'  src="./img/aiface.png">
+                    <img style='height: 86%;width: 86%;'  src="./img/woman2.png">
                     <button style='opacity:0; height:100%; width:100%; position:absolute; left:0%; top:0% ' onclick='displayNewAnswerer(ai3)'></button>
 
               </div>
@@ -3787,7 +3787,7 @@
     
        <div class='idDivAAInt'>
                  
-            <img src="./img/aiface.png" style='height:92.5%; width:92.5%'>
+            <img src="./img/woman.png" style='height:92.5%; width:92.5%'>
 
        </div>
 
@@ -4205,7 +4205,7 @@
 
 <div class='idDivAAInt'>
        
-  <img src="./img/aiface.png" style='height:92.5%; width:92.5%'>
+  <img src="./img/woman2.png" style='height:92.5%; width:92.5%'>
 
 </div>
 
@@ -7005,7 +7005,7 @@
                    
                       <div class="idDivAA">
                                 
-                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
+                           <img src="./img/man.png" style="height:90%; width:90%; margin-left:0.5%">
 
                       </div>
 
@@ -7601,7 +7601,7 @@
      </div><div class="mobilePresentationsContainerAA">
           <div class="mobilePresentationsContainerAAA">
                 <div class="mobileAvatarContainer">
-                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/man.png">
                 </div>
           </div>
           <div class="mobilePresentationsContainerAAB">
@@ -7757,7 +7757,7 @@
      <div class="mobilePresentationsContainerAA">
           <div class="mobilePresentationsContainerAAA">
                 <div class="mobileAvatarContainer">
-                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/woman.png">
                 </div>
           </div>
           <div class="mobilePresentationsContainerAAB">
@@ -7907,7 +7907,7 @@
      </div><div class="mobilePresentationsContainerAA">
           <div class="mobilePresentationsContainerAAA">
                 <div class="mobileAvatarContainer">
-                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/woman2.png">
                 </div>
           </div>
           <div class="mobilePresentationsContainerAAB">
@@ -9093,7 +9093,7 @@
         <div class='tradeScreenAA'>
             <div class='tradeScreenAAA'>
                 <div class='tradeScreenAAAA'>
-                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/aiface.png'></img>
+                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/woman.png'></img>
                 </div>
                 <div class='tradeScreenAAAB'></div>
             </div>
@@ -10160,7 +10160,7 @@
                    
                       <div class="idDivAA">
                                 
-                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
+                           <img src="./img/woman.png" style="height:90%; width:90%; margin-left:0.5%">
 
                       </div>
 
@@ -10575,7 +10575,7 @@
                    
                       <div class="idDivAA">
                                 
-                           <img src="./img/aiface.png" style="height:90%; width:90%; margin-left:0.5%">
+                           <img src="./img/woman2.png" style="height:90%; width:90%; margin-left:0.5%">
 
                       </div>
 

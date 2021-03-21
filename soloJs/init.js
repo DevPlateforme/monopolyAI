@@ -11,10 +11,8 @@ function init(){
 
   //buildBoard();  
   //setColorScores();
-  
-  removePlayer(humanPlayer);
 
-  launchDicesAndMovePieces();
+
 
   
     setInterval(
@@ -58,13 +56,30 @@ function init(){
 
       
    
-        buildBoardPresentationCircles(ai2)
-        buildBoardPresentationBars(ai2)
+        buildBoardPresentationCircles(ai2);
+        buildBoardPresentationBars(ai2);
 
    
      
   
       },500);
+
+      setTimeout(function(){
+
+      
+   
+        buildBoardPresentationCircles(ai3);
+        buildBoardPresentationBars(ai3);
+
+   
+     
+  
+      },600);
+
+      
+
+
+      
 
 
 

@@ -452,9 +452,6 @@ function observeAi(ai){
 
                //BEFORE SWITCHING TO ANOTHER PLAYER, CLEAR THE BUILDING PROPOSITION OBJECT.
 
-               clearInBuildingProposition();
-
-
                //INIT THE OFFERER DIV AS WELL (UNLESS IF THERE WAS NO OBSERVED PLAYER ==> THE ADD BUTTON WAS POSSIBLY MODIFIED)
 
 
@@ -2164,21 +2161,72 @@ function displayTradeDiv(type,player,color){
 
 
                let addBtn = document.createElement('button');
+               addBtn.setAttribute('class' , 'cardBtn');
+
      
                if(type == tradeOfferer){
+
+                 if(humanPlayer.inBuildingProposition != none){         
      
-                    addBtn.setAttribute('onclick', 'addOfferElement(event,' + humanPlayer.playerIndex + ',' + property.elementIndex + ')' );
-     
+
+                  if(humanPlayer.inBuildingProposition.offer[property.elementIndex] != undefined){
+
+                         
+                         addBtn.innerHTML = '-';
+
+                         addBtn.setAttribute('onclick', 'removeOfferElement(event ,' + humanPlayer.playerIndex + ',' + property.elementIndex + ')' );
+
+
+                    } else {
+
+                         addBtn.innerHTML = '+';
+                         addBtn.setAttribute('onclick', "addOfferElement(event , " + humanPlayer.playerIndex +  "," +  property.elementIndex + ")");
+                         
+                    }
+
+               } else {
+
+                    addBtn.innerHTML = '+';
+                    addBtn.setAttribute('onclick', "addOfferElement(event , " + humanPlayer.playerIndex +  "," +  property.elementIndex + ")");
+                    
+               }
      
                } else {
+
+                  if(humanPlayer.inBuildingProposition != none){         
+                         
+
+                     if(humanPlayer.inBuildingProposition.counterPartAsked[property.elementIndex] != undefined){
+
+                         
+                         addBtn.innerHTML = '-';
+
+                         addBtn.setAttribute('onclick', 'removeCounterPartAskedFromProposition(event , ' + humanPlayer.playerIndex + ',' + property.elementIndex + ')');
+                         
+
+
+                    } else {
+
+                         addBtn.innerHTML = '+';
+
+                         addBtn.setAttribute('onclick' , 'addCounterPartAskedElementToProposition(event ,' + humanPlayer.playerIndex + ',' + observedPlayer.playerIndex + ',' + property.elementIndex + ')'); 
+
+                    }
+
+               
+                    
+                 }else { 
+                      
+                    addBtn.innerHTML = '+';
+
+                    addBtn.setAttribute('onclick' , 'addCounterPartAskedElementToProposition(event ,' + humanPlayer.playerIndex + ',' + observedPlayer.playerIndex + ',' + property.elementIndex + ')'); 
+
+                }
      
-                    addBtn.setAttribute('onclick', 'addCounterPartAskedElementToProposition(event,' + humanPlayer.playerIndex + ',' + player.playerIndex + ',' + property.elementIndex + ')' ); 
      
                }
      
-               addBtn.setAttribute('class' , 'cardBtn');
      
-               addBtn.innerHTML = '+';
 
                document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_btnContainer').append(addBtn);
 
@@ -2259,6 +2307,8 @@ function displayTradeDiv(type,player,color){
 
 function observePlayer(player){
 
+     clearInBuildingProposition();
+     
      observedPlayer = player;
 
      observeAi(player);
