@@ -13,7 +13,9 @@ function init(){
 
   humanThinking = false;
 
-  givePlayersPropertiesForDemo();
+  removePlayer(humanPlayer);
+
+  launchDicesAndMovePieces();
 
 
   

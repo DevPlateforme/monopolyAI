@@ -235,7 +235,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	let answererCashSlices =  [0];
 
-	if(answerer == humanPlayer){	
 
 	  if(answerer.cash > 250){
 
@@ -260,7 +259,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		
 
 
-	}
 
 
 
@@ -284,7 +282,6 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		offererCashSlices = [0];
 
 
-		if(answerer == humanPlayer){	    
 			
 			
 			if(answererCashSliceIndex == 0){
@@ -314,8 +311,8 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		   }
 
 			
-		}
 
+		   
 
 
 
