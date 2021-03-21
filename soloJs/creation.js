@@ -236,21 +236,28 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let answererCashSlices =  [0];
 
 	if(answerer == humanPlayer){	
-		
-		
-		if(answerer.cash > 1200){
+
+	  if(answerer.cash > 250){
+
+		if(answerer.cash > 1000){
 	
-		answererCashSlices = [0  , answerer.cash * 0.05,  answerer.cash * 0.1 , answerer.cash * 0.125 ];
-   		
-	  } else if(answerer.cash > 500){
-		
-	        answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15];
+			answererCashSlices = [0  , answerer.cash * 0.05,  answerer.cash * 0.1 , answerer.cash * 0.125 ];
+			   
+		  } else if(answerer.cash > 500){
+			
+				answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15];
+	
+		  } else {
+			
+			answererCashSlices = [0  , answerer.cash * 0.175 ,  answerer.cash * 0.2 ,  answerer.cash * 0.225];
+	
+		 }
+	
 
-	  } else {
-		
-		answererCashSlices = [0  , answerer.cash * 0.175 ,  answerer.cash * 0.2 ,  answerer.cash * 0.25];
 
-     }
+	  }
+		
+		
 
 
 	}
@@ -282,23 +289,29 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 			
 			if(answererCashSliceIndex == 0){
 
-			if(offerer.cash > 1000){
+
+			if(offerer.cash > 250){
+
+				if(offerer.cash > 1000){
 				
-				offererCashSlices = [0 , offerer.cash * 0.05 ,offerer.cash * 0.01 , offerer.cash * 0.125 , offerer.cash * 0.15];
-		   
-			}else if(offerer.cash > 500){
+					offererCashSlices = [0 , offerer.cash * 0.05 ,offerer.cash * 0.1 , offerer.cash * 0.125];
+			   
+				}else if(offerer.cash > 500){
+					
+					  offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175];
+				 } else {
+	
+					offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 , offerer.cash * 0.25];
+	
+	
+
+				 }
 				
-			      offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175 ];
-			 } else {
+			}
 
-				offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 ,  offerer.cash * 0.25 ];
-
-
-
-			 }
+		
 			
-			
-		}
+		   }
 
 			
 		}
@@ -829,7 +842,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
           //Break right away if the tricked player feels the proposition is not fair
 
 
-		 if(trickedPlayerScoreWithoutCash < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * (0.75 + (Math.random()/7) )) ){
+		 if(trickedPlayerScoreWithoutCash < 0 || trickedPlayerScore < (trickedPlayerOpponentScore * (0.7 + (Math.random()/7) )) ){
 
 			 if(proposition.counterPartAsked.cash > 0){ 
 
@@ -1002,7 +1015,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 					bottomLimit = interlocutorScore * (0.7);
 
 
-					if(offerer == humanPlayer || answerer == humanPlayer ){
+					if(offerer == humanPlayer){
 
 						topLimit = interlocutorScore * (1.1);	
 						bottomLimit = interlocutorScore * (0.9);
@@ -1100,13 +1113,13 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 			} else {	
 
 
-				if(gainType == indirectGain){
+				if(gainType == directGain){
 
 
 
-              						////alert('checking!!!!!!')
 /*
 
+					 if(offerer == ai2 && answerer == ai3){
 
 						alert("cette proposition n'est pas raisonnable (offerer : " + offerer.name + ' , answerer =>' + answerer.name +')');
 
@@ -1168,9 +1181,14 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 						
 					 }
 
-			
 
-*/
+					 }
+
+
+
+			*/
+
+
 		}
 
 			
@@ -1403,7 +1421,6 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 
 				   //alert('an indirect opportunity was detected!')
 
-
 				   //To avoid collision, the elements offered by a "non trading player " were removed temporarily in getSetValueAtDepth2() . Store those objects, to add them back at the end of the iteration.
                    
 
@@ -1417,7 +1434,7 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
  
 		    	   //compute a synergetic cost for the player loosing the array 
 			
-			      //Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
+			       //Simply so that the offerer would rather propose an offer without synergetic cost , and a player (0.75) will prefer a direct monop exchange.
 
 
 				 

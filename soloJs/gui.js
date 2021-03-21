@@ -118,13 +118,7 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              if(proposition.offer.cash != 0){
-         
-         
-              } else {
-         
-         
-              }
+              alert('cash offered ==>' + proposition.offer.cash)
          
          
          
@@ -144,12 +138,8 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              if(proposition.counterPartAsked.cash != 0){
-                  
-              } else {
-                  
-         
-              }
+              alert('cash asked ==>' + proposition.counterPartAsked.cash)
+
          
          
               //pass the proposition object into the proposition button attribute
@@ -2881,7 +2871,6 @@ function buildTradeScreen(proposition){
 
      //add cash
 
-          addCashToOffererScreen(proposition.offer.cash);
      
 
 
@@ -2894,8 +2883,6 @@ function buildTradeScreen(proposition){
                addTradeScreenAnswerLine(proposition.counterPartAsked.array[i]);
 
      }
-
-     addCashToAnswererScreen(proposition.counterPartAsked.cash);
 
 
 

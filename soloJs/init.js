@@ -10,8 +10,10 @@ var breakVar = false;
 function init(){
 
   //buildBoard();  
-  //setColorScores();
 
+  humanThinking = false;
+
+  givePlayersPropertiesForDemo();
 
 
   
@@ -99,90 +101,36 @@ function init(){
 
 
 
-function setColorScores(){
-
-    let color;
-  
-    let ROI;
-  
-    
-    //BASED ON A GATHERED DATA SET, WE CREATED FOUR THRESHOLDS BASED ON A CERTAIN NUMBER OF DICE LAUNCHES N, WHERE WE CALCULATED THE ROIS.
-    //THE MOMENTUM OF A PLAYER BEING POTENTIALLY CRITICAL, THE IMPORTANCE OF THIS VALUE DECREASE WITH THE NUMBER OF DICES
-  
-    //THRESHOLDS: [ N30, N50, n75, n100]
-
-    
-    let threshHoldMultiplicator;
-  
-      
-    //WE LOOP ON THE WHOLE COLOR SET BUT THE 'NOCOLOR' COLOR ATTRIBUTED TO NON RENTAL PROPERTY ELEMENTS
-  
-    for(colorIndex = 0; colorIndex < colorArray.length - 1; colorIndex++){
-  
-
-       threshHoldMultiplicator = 4;
-  
-       color = colorArray[colorIndex];
-  
-      //LOOP ON EACH ROI
-  
-      for(ri= 0 ; ri < color.ROIS.length ; ri++){
-  
-          color.ROIS[ri] += 1016.16;
-  
-          ROI = color.ROIS[ri];
-     
-          color.growthScore += (ROI * threshHoldMultiplicator);
-      
-          threshHoldMultiplicator--;
-  
-      }
-  
-      //DIVIDE EACH SCORE BY ORANGE BEING THE BIGGEST SCORE , TO GET A 1 BASED INDEX
-  
-
-      color.growthScore = color.growthScore/43397;
-  
-      color.growthScore = color.growthScore.toFixed(2)
-
-
-      //console.log(color.name + ' : ' + color.growthScore)
-  
-    
-    }
-  
-    //console.log(colorArray[8].name + ' : ' + colorArray[8].growthScore);
-
-
-  }
-  
-  
-
 
   function givePlayersPropertiesForDemo(){
 
-
-    addPropertyToPlayerWallet(humanPlayer, belleville);
-
-
-
-    addPropertyToPlayerWallet(ai1, boulevardSaintMichel);
-    addPropertyToPlayerWallet(ai1, placePigalle);
-    addPropertyToPlayerWallet(ai1, avenueDesChampsElysees);
-
-
-
-    addPropertyToPlayerWallet(ai2, rueDeLaPaix);
-    addPropertyToPlayerWallet(ai2, rueLecourbe);
-
-
-
-
+    addPropertyToPlayerWallet(humanPlayer, bdDeLaVillette);
+    addPropertyToPlayerWallet(humanPlayer, rueDeLaPaix);
 
     
+    addPropertyToPlayerWallet(ai2, rueDuParadis);
+    addPropertyToPlayerWallet(ai2, avenueFoch);
+    addPropertyToPlayerWallet(ai2, bdDesCapucines);
+    addPropertyToPlayerWallet(ai2, gareDuNord);
+    addPropertyToPlayerWallet(ai3, avenueDesChampsElysees);
+    addPropertyToPlayerWallet(ai3, rueLecourbe);
+
+
+
+    addPropertyToPlayerWallet(ai3, avenueDeNeuilly);
+    addPropertyToPlayerWallet(ai3, avenueDeBreteuil);
+    
+    addPropertyToPlayerWallet(ai1, belleville);
+    addPropertyToPlayerWallet(ai1, publicServiceWater);
+    addPropertyToPlayerWallet(ai1, gareDeLyon);
+
+
+
 
 
   }
+
+
 
 function createTheCommunityChestDeck(){
 
