@@ -65,15 +65,23 @@ function movePiece(){
 
      lastDiceLauncher.position = updatedPosition;
 
+     //is there  departure collection pay
+
+
+     if(oldPosition > 0 && updatedPosition < oldPosition ){
+
+      collectDeparturePay(lastDiceLauncher);
+
+     }
+
 
      movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
      //console.log('******square ' + squaresArray[updatedPosition] )      
 
-     //moveGuiPiece(lastDiceLauncher, oldPosition, updatedPosition);
-
 
      //UPDATE THE POSITION ON THE BOARD
+     
 
      
      makePostLaunchMove();
@@ -253,6 +261,8 @@ function movePiece(){
        let currentSquare = squaresArray[lastDiceLauncher.position];
 
        let missingCash;
+
+       postLaunchDecision = waiting;
 
 
 
@@ -771,3 +781,14 @@ function acceptTrade(proposition){
 
   }
 
+
+
+
+  function collectDeparturePay(player){
+
+
+    player.cash += 200;
+
+    
+
+  }

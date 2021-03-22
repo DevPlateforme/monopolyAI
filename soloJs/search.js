@@ -133,8 +133,11 @@ function searchForTradesOpportunities(activePlayer){
      //Simply add probabilities, and build at the next available slot.
 
 
-     if(ai.monopoliesArray.length > 0){
+     
+ 
 
+     if(ai.monopoliesArray.length > 0){
+   
 
         
          if(ai.willingnessToBuild == false){
@@ -143,6 +146,7 @@ function searchForTradesOpportunities(activePlayer){
 
         } else {
 
+  
 
 
            ai.willingnessToBuild = false;
@@ -245,6 +249,7 @@ var nodes = 0;
 
         AiThinking = true;
 
+
     //can I build a dangerous house? (may require mortgage buying)
         
         checkForMortgageBuying(ai);
@@ -256,6 +261,8 @@ var nodes = 0;
               }
 
         AiThinking = false;
+
+
     
 
  }
@@ -353,7 +360,7 @@ function getBetterPositionedMonopoly(ai){
         
            //if player cash > getMonopolyHouseValue(ai.monopoliesArray) and if all the houses are unmortgaged 
 
-           if(checkForMortgageInMonopoly(ai.monopoliesArray) == false){
+           if(checkForMortgageInMonopoly(ai.monopoliesArray) == false &&  getMonopolyHouses(ai,monopColor) < (monopColor.units * 5)){
 
                for(var y = 0; y < ai.monopoliesArray[i].length ; y++){
   
@@ -615,6 +622,8 @@ function sellHouse(property){
       ////alert(property.landLord.name + ' just sold a house on ' + property.name);
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just sold a house on the property ' + property.name);
+
+      alert(property.landLord.name + ' just sold a house on the property ' + property.name)
 
    }
  

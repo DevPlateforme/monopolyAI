@@ -55,7 +55,7 @@ function hideDiceLaunchButton(){
 
 
 
-function displayHumanAnswerInterface(proposition, indirectMonopOpportunity){
+function displayHumanAnswerInterface(proposition, indirectOpportunity){
 
      let humanAnswerInterval;
 
@@ -118,13 +118,9 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              if(proposition.offer.cash != 0){
+              alert(proposition.offer.cash)
          
          
-              } else {
-         
-         
-              }
          
          
          
@@ -144,12 +140,8 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              if(proposition.counterPartAsked.cash != 0){
-                  
-              } else {
-                  
-         
-              }
+              alert(proposition.counterPartAsked.cash);
+           
          
          
               //pass the proposition object into the proposition button attribute
@@ -304,7 +296,6 @@ function displayPropertiesManagementInterface(){
 
 function closePropertiesManagementInterface(){
      
-     humanThinking = false;
 
      document.getElementById('playerPropertiesManagementInterface').style.opacity = 0;
      
@@ -572,7 +563,7 @@ function observeAi(ai){
 
 function displayPropositionInterface(){
 
-     humanThinking = true;
+     //humanThinking = true;
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='#6b6df2';
 
@@ -595,8 +586,6 @@ function displayPropositionInterface(){
 
 
 function closePropositionInterface(){
-
-     humanThinking = false;
 
      //INIT PROPOSITION INTERFACE
 
@@ -1484,6 +1473,7 @@ function closeInterfaces(){
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='darkblue';
 
+
      setTimeout(function(){
 
           document.getElementById('projectBody').style.transition = 'all 1s ease';
@@ -1498,6 +1488,9 @@ function closeInterfaces(){
      displayedOffererColor = 0;
      displayedAnswererColor = 0;
      displayedPmColor = 0;
+
+     humanThinking = false;
+
 
 
 }
@@ -2977,4 +2970,14 @@ function clearTradeScreen(){
     function updateBoardCashOnGui(player){
 
         document.getElementById(player.name + 'BoardCashDiv').innerHTML = 'cash: ' + player.cash;
+   
+     }
+
+
+
+
+   function checkForSearchVars(){
+
+        alert('AI thinking ==> ' + AiThinking + 'human thinking ==> ' + humanThinking + 'ta ==> ' + tradeAnimationOn + ' , pl : ' + postLaunchDecision  );
+
    }

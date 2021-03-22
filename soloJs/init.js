@@ -6,18 +6,13 @@ window.onload = function(){
 
 var breakVar = false;
 
-
 function init(){
 
   //buildBoard();  
 
-  humanThinking = false;
+   givePlayersPropertiesForDemo();
 
-  removePlayer(humanPlayer);
-
-  launchDicesAndMovePieces();
-
-
+   humanThinking = false;
   
     setInterval(
 
@@ -49,7 +44,6 @@ function init(){
          buildBoardPresentationCircles(humanPlayer)
          buildBoardPresentationBars(humanPlayer)
 
-         wakeUpAis();
 
 
       
@@ -83,13 +77,9 @@ function init(){
       
 
 
-      
+      wakeUpAis();
 
 
-
- 
-
-           
 
 
     
@@ -106,26 +96,20 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-    addPropertyToPlayerWallet(humanPlayer, bdDeLaVillette);
-    addPropertyToPlayerWallet(humanPlayer, rueDeLaPaix);
 
-    
-    addPropertyToPlayerWallet(ai2, rueDuParadis);
-    addPropertyToPlayerWallet(ai2, avenueFoch);
-    addPropertyToPlayerWallet(ai2, bdDesCapucines);
+    addPropertyToPlayerWallet(ai2, gareDeLyon);
+    addPropertyToPlayerWallet(ai2, gareDeMontparnasse);
+    addPropertyToPlayerWallet(ai2, gareSaintLazarre);
     addPropertyToPlayerWallet(ai2, gareDuNord);
-    addPropertyToPlayerWallet(ai3, avenueDesChampsElysees);
-    addPropertyToPlayerWallet(ai3, rueLecourbe);
+
+
+    addPropertyToPlayerWallet(ai2, rueDeVaugirard);
 
 
 
-    addPropertyToPlayerWallet(ai3, avenueDeNeuilly);
-    addPropertyToPlayerWallet(ai3, avenueDeBreteuil);
     
-    addPropertyToPlayerWallet(ai1, belleville);
-    addPropertyToPlayerWallet(ai1, publicServiceWater);
-    addPropertyToPlayerWallet(ai1, gareDeLyon);
-
+    addPropertyToPlayerWallet(humanPlayer, avenueDeLaRepublique);
+    addPropertyToPlayerWallet(humanPlayer, rueDeCourcelles);
 
 
 
@@ -207,17 +191,13 @@ var AiThinking = false;
 function aiReflects(ai){
 
 
-     if(AiThinking == false && humanThinking == false){
+     if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
        
 
          aiSearch(ai);
 
-     } else {
-
-        ////////alert('an AI is already thinking!');
-
-
-     }
+     } 
+     
 
 
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)

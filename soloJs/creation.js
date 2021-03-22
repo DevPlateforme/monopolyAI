@@ -29,7 +29,7 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.mortgagesClosed = [];
 
-	this.indirectMonopOpportunity = none;
+	this.indirectOpportunity = none;
 	
 
 
@@ -50,7 +50,7 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 	
 	this.mortgagesClosed = [];
 
-	this.indirectMonopOpportunity = none;
+	this.indirectOpportunity = none;
 
 
 
@@ -236,21 +236,15 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let answererCashSlices =  [0];
 
 
-	  if(answerer.cash > 250){
+	  if(answerer.cash > 50){
 
-		if(answerer.cash > 1000){
-	
-			answererCashSlices = [0  , answerer.cash * 0.05,  answerer.cash * 0.1 , answerer.cash * 0.125 ];
+		if(answerer.cash > 200){
+
+			answererCashSlices = [0  , 50 , 75 , 100 , 125, 150];
 			   
-		  } else if(answerer.cash > 500){
-			
-				answererCashSlices = [0 , answerer.cash * 0.1 , answerer.cash * 0.125 , answerer.cash * 0.15];
-	
-		  } else {
-			
-			answererCashSlices = [0  , answerer.cash * 0.175 ,  answerer.cash * 0.2 ,  answerer.cash * 0.225];
-	
-		 }
+		  } else {			
+			answererCashSlices = [0 , 50];	
+		  } 
 	
 
 
@@ -282,24 +276,20 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 		offererCashSlices = [0];
 
 
-			
+		
 			
 			if(answererCashSliceIndex == 0){
 
 
-			if(offerer.cash > 250){
+			if(offerer.cash > 50){
 
-				if(offerer.cash > 1000){
+				if(offerer.cash > 200){
 				
-					offererCashSlices = [0 , offerer.cash * 0.05 ,offerer.cash * 0.1 , offerer.cash * 0.125];
+					offererCashSlices = [0  , 50 , 75 , 100 , 125, 150];
 			   
-				}else if(offerer.cash > 500){
-					
-					  offererCashSlices = [0  , offerer.cash * 0.1 , offerer.cash * 0.125 , offerer.cash * 0.15 , offerer.cash * 0.175];
-				 } else {
+				}else {
 	
-					offererCashSlices = [0  , offerer.cash * 0.175 ,  offerer.cash * 0.2 , offerer.cash * 0.25];
-	
+					offererCashSlices = [0  , 50];
 	
 
 				 }
@@ -783,6 +773,9 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	let offererScore = 0;
 	let answererScore = 0;
 
+	let offererScoreWithoutCash;
+	let answererScoreWithoutCash;
+
 	
 	let thinkerScoreWithoutCash;
 
@@ -893,11 +886,6 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
             
 		 
 
-
-	
-
-
-
   //////////////////////alert('cash asked ' + counterPartAsked.cash);
 
 
@@ -907,30 +895,47 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
     offererScore += counterPartAsked.gainValueForTheOtherPlayer;
-
-
-
-
     offererScore -= offer.lossValueForTheOwner;
 
+	offererScoreWithoutCash = offererScore;
 
 
-//////////////////////////////////////////alert('the offererScore after =>' + offererScore  + 'the player receiving a counterPart receives a gain of =>' + counterPartAsked.gainValueForTheOtherPlayer);
 
 
      answererScore -= counterPartAsked.lossValueForTheOwner;
+	 answererScore += offer.gainValueForTheOtherPlayer;
+
+	 answererScoreWithoutCash = answererScore;
 
 
-     offererScore += counterPartAsked.cash;
+	 if(offererScoreWithoutCash > answererScoreWithoutCash){
+		
+		counterPartAsked.cash = 0;
+
+	 } else if (offererScoreWithoutCash < answererScoreWithoutCash){
+
+		offer.cash = 0;
+
+	 } else {
+		 
+		counterPartAsked.cash = 0;
+		offer.cash = 0;
+		 
+	 }
+
+
+
+	 
+	 
+	offererScore -= offer.cash;
+	offererScore += counterPartAsked.cash;
 
 
 
     answererScore -= counterPartAsked.cash;
-    answererScore += offer.gainValueForTheOtherPlayer;
     answererScore += offer.cash;
 
 
-   
 
     //Store the offererScore , and the answerer score
 
@@ -939,8 +944,8 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	
 
 	let thinkerScore;
-	let thinkerLoss;
 	let interlocutorScore;
+	let interlocutorScoreWithoutCash;
 
 
 	//WHATS THE STATUS OF THE AI TRIGGERING THIS FUNCTION IN THIS TRADE?
@@ -949,16 +954,17 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 	if(thinker == offerer ){
 
 	   thinkerScore = offererScore;
-	   thinkerLoss =  offer.lossValueForTheOwner + offer.cash;
 	   interlocutorScore = answererScore;
-	   thinkerScoreWithoutCash = counterPartAsked.gainValueForTheOtherPlayer - offer.lossValueForTheOwner;
+	   thinkerScoreWithoutCash = offererScoreWithoutCash;
+	   interlocutorScoreWithoutCash = answererScoreWithoutCash;
+
 
 	} else {	 
 
 	   thinkerScore = answererScore;
-	   thinkerLoss =  counterPartAsked.lossValueForTheOwner + counterPartAsked.cash;
 	   interlocutorScore = offererScore;
-	   thinkerScoreWithoutCash = offer.gainValueForTheOtherPlayer - counterPartAsked.lossValueForTheOwner;
+	   thinkerScoreWithoutCash = answererScoreWithoutCash;
+	   interlocutorScoreWithoutCash = offererScoreWithoutCash;
 
 
 	}
@@ -968,7 +974,7 @@ function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 	if(trick == true){
 
-		if(counterPartAsked.indirectMonopOpportunity != none){
+		if(counterPartAsked.indirectOpportunity != none){
 			
 	      	 proposition.unfair = true;
 
@@ -1426,7 +1432,7 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 				
 			   	   tradeObject.gainValueForTheOtherPlayer -= staticGain;
  
-				   tradeObject.indirectMonopOpportunity = set.proposition;
+				   tradeObject.indirectOpportunity = set.proposition;
 
  
 		    	   //compute a synergetic cost for the player loosing the array 

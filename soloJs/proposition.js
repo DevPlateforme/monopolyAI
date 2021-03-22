@@ -82,7 +82,7 @@ function makeProposition(proposition){
 
     if(proposition.answerer == humanPlayer){ 
     
-           displayHumanAnswerInterface(proposition , proposition.offer.indirectMonopOpportunity);
+           displayHumanAnswerInterface(proposition , proposition.offer.indirectOpportunity);
 
            return;
         

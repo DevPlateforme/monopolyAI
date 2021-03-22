@@ -475,6 +475,8 @@ function buildHouse(property){
 
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
+      alert(property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
+
  
 
      }
@@ -1231,13 +1233,24 @@ function removePlayer(player){
       }
     
     
-      if(displayedLaunchBtn = true){
-    
-           launchDicesAndMovePieces();
-        
-      }
+   
+
 
       clearInterval(removePlayerInterval);
+
+
+      if(player == humanPlayer){
+
+        humanThinking = false;
+      }
+
+
+
+    if(displayedLaunchBtn == true){
+    
+        launchDicesAndMovePieces();
+     
+   }
 
     }
     
@@ -1286,5 +1299,25 @@ function updateBoardGraphs(player){
   buildBoardPresentationCircles(player)
   buildBoardPresentationBars(player)
   buildMobilePresentationBars(player);
+
+}
+
+
+
+function getMonopolyHouses(player,color){
+
+  let count;
+      
+   for(var i=0 ; i < player.propertiesByColor[color.index].properties.length ; i++){
+
+     
+    count += player.propertiesByColor[color.index].properties[i].houses;
+
+   }
+
+
+   return count;
+
+
 
 }
