@@ -29,7 +29,7 @@ function searchForTradesOpportunities(activePlayer){
 
       //('moves generated...');
 
-    otherPlayersArray = [humanPlayer];
+    otherPlayersArray = getOtherPlayersArray(activePlayer);
     
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     
@@ -56,8 +56,11 @@ function searchForTradesOpportunities(activePlayer){
 
             if(otherPlayer == humanPlayer){
                 trick = true;
-            }
+            } else {
 
+                trick = false;
+            }
+ 
     
     
 
@@ -87,8 +90,49 @@ function searchForTradesOpportunities(activePlayer){
 
 
        if(propositionList.length != 0){      
-                      
-          makeProposition(getBestProposition(propositionList));
+
+
+           let topProposition = getBestProposition(propositionList);
+
+                      /*
+					alert('offerer score => ' + topProposition.offererScore);
+
+
+					
+					 alert('offerer gain value => ' + topProposition.counterPartAsked.gainValueForTheOtherPlayer);
+					 alert('offerer loss value => ' + topProposition.offer.lossValueForTheOwner);
+                     alert('cash offered => ' + topProposition.offer.cash);
+
+
+                     alert('answerer score => ' + topProposition.answererScore);
+					 alert('answerer gain value => ' + topProposition.offer.gainValueForTheOtherPlayer);
+					 alert('answerer loss value => ' + topProposition.counterPartAsked.lossValueForTheOwner);
+                     alert('cash asked => ' + topProposition.counterPartAsked.cash);
+
+
+
+					alert('here is the offer : ');
+  
+  
+					for(var i=0; i < topProposition.offer.array.length; i++){	
+						alert('offer element ' + i + ' ' + topProposition.offer.array[i].name);
+				   }
+  
+					alert('and, here is the cash in the offer :' + topProposition.offer.cash);				
+					 alert('here is the counterpart : ');
+  
+  
+				 for(var i=0; i < topProposition.counterPartAsked.array.length; i++){
+					 
+					 alert('counterpart asked ' + i + ' ' + topProposition.counterPartAsked.array[i].name);
+					
+				 }
+
+				*/
+
+          makeProposition(topProposition);
+
+
   
 
         }
@@ -310,6 +354,8 @@ var nodes = 0;
         AiThinking = false;
 
 
+
+        console.log(ai.name + ' finished to search');
     
 
  }

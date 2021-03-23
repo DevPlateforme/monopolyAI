@@ -834,7 +834,7 @@ function addPropertyToPlayerWallet(player, property){
 
     }
 
-    updateBoardGraphs(player)
+    //updateBoardGraphs(player)
     
     boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
 

@@ -196,6 +196,7 @@ function refusePropositionFromInterface(){
 
      
      unveilBoard();
+     unveilTradeScreen();
  
      for(var i=0; i < nonTradingPlayers.length; i++){  
         
@@ -1192,7 +1193,13 @@ function sendProposition(){
 
             } else {
 
-                alert('proposition refused');
+               if(answerer == humanPlayer){                
+                    
+                    alert('proposition refused');
+
+
+               }
+
                
                ////alert('offererscore=>' + proposition.offererScore);
                ////alert('answererscore=>' + proposition.answererScore);
@@ -1261,6 +1268,7 @@ function acceptPropositionFromInterface(){
 
 
      unveilBoard();
+     unveilTradeScreen();
  
      for(var i=0; i < nonTradingPlayers.length; i++){  
         
@@ -2638,11 +2646,18 @@ function hideBoard(){
      document.getElementById('boardGraphContainer3').style.opacity = 0; 
      document.getElementById('boardLegendsContainer').style.opacity = 0;
      document.getElementById('boardJournalContainer').style.opacity = 0;
-     document.getElementById('tradeScreen').style.opacity = 0;
 
 
 }
 
+
+function hideTradeScreen(){
+     document.getElementById('tradeScreen').style.opacity = 0;
+}
+
+function unveilTradeScreen(){
+     document.getElementById('tradeScreen').style.opacity = 1;
+}
 
 function hidePlayer(player){
 
@@ -2742,8 +2757,6 @@ function unveilBoard(){
      document.getElementById('boardGraphContainer3').style.opacity = 1; 
      document.getElementById('boardLegendsContainer').style.opacity = 1;
      document.getElementById('boardJournalContainer').style.opacity = 1;
-     document.getElementById('tradeScreen').style.opacity = 1;
-
 
 }
 
