@@ -259,10 +259,12 @@ width: auto;
   align-items: center;
   justify-content: space-around;
   font-size: 0.8vw;
-
   z-index:8;
 
 }
+
+
+
 
 
 .propPopupTop{
@@ -559,6 +561,34 @@ width: auto;
   width: 95%;
   background: rgb(255,255,255,0.1);
   border-radius: 10px;
+}
+
+
+
+#synergyDiv{
+
+  background:rgb(255,255,255,0.2);
+  border-radius: 10px;
+  display: flex;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+}
+
+
+
+#synergyDivA{  
+  
+  background:rgb(255,255,255,0.2);
+  border-radius: 10px;
+  
+}
+
+#synergyDivB{
+
+
 }
 
 
@@ -1759,19 +1789,12 @@ proposition buttons
    .digitalContainer{
 
     position: absolute;
-
     bottom:5vh;
-
     height: 90vh;
-
     width: 95vw;
-
     left: 2.5vw;
-
     display: flex;
-
     flex-direction: row;
-
     justify-content: space-between;
 
 }
@@ -2055,6 +2078,8 @@ presentation of properties
   font-size: 0.7vw;
 
 }
+
+
 
 
 .idDivBAInt{
@@ -2793,6 +2818,12 @@ justify-content: space-around;
   align-items:center;
   justify-content: space-around;
 }
+
+ #synergyDiv{
+
+  width: 35%;
+  height:95%;
+ }
 
 
 .tradeScreenTop{

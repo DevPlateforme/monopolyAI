@@ -363,13 +363,15 @@ function makeProposition(proposition){
        }
 
 
+       /*
+
 
 
        updateBoardGraphs(offerer);
        updateBoardGraphs(answerer);
 
 
-
+  */
 
 
 

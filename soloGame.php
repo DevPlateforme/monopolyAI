@@ -6486,16 +6486,79 @@
       
          
       </div>
+
+
    </div>
 
-   <div class='propPopupAB'style='background:rgb(255,255,255,0.02); border-radius:5px'>
-      <div class='propPopupABA'>
-             future opportunity : false
-      </div>     
 
-       <div class='propPopupABA'>
-      </div>       
-   </div>
+
+   <div class="tradeScreen" id="synergyDiv">
+
+        <div class="tradeScreenTop">
+
+                   <div class="tradeScreenTopA">
+
+                    </div>
+    
+                        </div>
+       
+                     <div class="tradeScreenBottom">
+
+
+                           <div class="tradeScreenA">
+
+                           
+
+        <div class="tradeScreenAA">
+            <div class="tradeScreenAAA">
+                <div class="tradeScreenAAAA" id='synergyDiv_offerer'>
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/woman.png">
+                </div>
+                <div class="tradeScreenAAAB"></div>
+            </div>
+
+            <div class="tradeScreenAAB" id="synergeticScreen_offererContainer">
+          
+            </div>
+        </div>
+
+        <div class="tradeScreenAB">
+            <div class="tradeScreenABA"></div>          
+        </div>
+
+    </div>
+
+    
+
+    <div class="tradeScreenA">
+
+    
+    <div class="tradeScreenAB">
+            <div class="tradeScreenABA"></div>          
+        </div>
+
+
+        <div class="tradeScreenAA">
+            <div class="tradeScreenAAA">
+               
+                <div class="tradeScreenAAAB"></div>
+                <div class="tradeScreenAAAA">
+                     <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/aiface.png">
+                </div>
+            </div>
+
+            <div class="tradeScreenAAB" id="synergeticScreen_answererContainer" >
+             
+
+
+            </div>
+        </div>
+
+    </div>
+        
+    </div>
+
+ </div>
 
 </div>
 

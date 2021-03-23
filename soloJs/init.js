@@ -8,22 +8,21 @@ var breakVar = false;
 
 function init(){
 
-  //buildBoard();  
-
    givePlayersPropertiesForDemo();
 
+
    humanThinking = false;
-  
+
     setInterval(
 
         function(){
-          
+
           boardJournal.innerHTML = ''}, 5000
           
       );
       
 
-
+     /*
          
       boardGraph1();  
       boardGraph2();  
@@ -31,8 +30,8 @@ function init(){
        
       setTimeout(function(){
       
-       buildBoardPresentationCircles(ai1)
-       buildBoardPresentationBars(ai1)
+       buildBoardPresentationCircles(ai1);
+       buildBoardPresentationBars(ai1);
 
       
   
@@ -76,17 +75,10 @@ function init(){
 
       
 
+      */
+
 
       wakeUpAis();
-
-
-
-
-    
-
-    
-
-      
   
 
 }
@@ -96,24 +88,15 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
+     addPropertyToPlayerWallet(humanPlayer , bdDesCapucines);
+     addPropertyToPlayerWallet(humanPlayer , boulevardSaintMichel);
 
-    addPropertyToPlayerWallet(ai2, gareDeLyon);
-    addPropertyToPlayerWallet(ai2, gareDeMontparnasse);
-    addPropertyToPlayerWallet(ai2, gareSaintLazarre);
-    addPropertyToPlayerWallet(ai2, gareDuNord);
+     addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
+     addPropertyToPlayerWallet(ai2 , avenueFoch);
 
-
-    addPropertyToPlayerWallet(ai2, rueDeVaugirard);
-
-
-
-    
-    addPropertyToPlayerWallet(humanPlayer, avenueDeLaRepublique);
-    addPropertyToPlayerWallet(humanPlayer, rueDeCourcelles);
-
-
-
-
+     addPropertyToPlayerWallet(ai3 , placePigalle);
+     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
+     
   }
 
 
@@ -172,11 +155,11 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, 3000);
+    //setTimeout(function(){ aiReflects(ai1)}, 3000);
 
     setTimeout(function(){ aiReflects(ai2)}, 5000 ) ;
 
-    setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
+    //setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
 
 }
 
@@ -192,9 +175,8 @@ function aiReflects(ai){
 
 
      if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
-       
-
-         aiSearch(ai);
+         
+        aiSearch(ai);
 
      } 
      
@@ -203,6 +185,8 @@ function aiReflects(ai){
          //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
          //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
 
+
+         
     setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
            
 

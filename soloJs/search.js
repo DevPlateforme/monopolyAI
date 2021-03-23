@@ -29,7 +29,7 @@ function searchForTradesOpportunities(activePlayer){
 
       //('moves generated...');
 
-    otherPlayersArray = getOtherPlayersArray(activePlayer);
+    otherPlayersArray = [humanPlayer];
     
 
     for (colorIndex = 0; colorIndex < activePlayer.propertiesByColor.length; colorIndex++) {     
@@ -154,7 +154,6 @@ function searchForTradesOpportunities(activePlayer){
            let betterPositionedMonopoly = getBetterPositionedMonopoly(ai);
 
            let cashToFind;
-
        
           if (betterPositionedMonopoly != none){
 
@@ -171,8 +170,6 @@ function searchForTradesOpportunities(activePlayer){
                 if( findCashWithNonMonopolyProperties(ai, cashToFind ) == true){ 
                        
                         buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
-
-
                    }
               } else {
                     buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
@@ -185,7 +182,7 @@ function searchForTradesOpportunities(activePlayer){
 
             ai.willingnessToBuild = true;
 
-          }, 5000)
+          }, 2000)
 
       }
 
@@ -239,6 +236,56 @@ var nodes = 0;
      ////alert('mortgage buying check done');     
 
    }
+
+
+
+   //trains 
+
+   let trainProperty;
+
+   for(var i=0; i < ai.propertiesByColor[black.index].properties.length; i++){
+
+    trainProperty =  ai.propertiesByColor[black.index].properties[i];
+
+
+       if(trainProperty.mortgaged == true){
+
+          if(ai.cash > trainProperty.mortgageValue){
+
+            closeMortgage(trainProperty);
+          }
+
+
+       }
+
+
+   }
+
+
+   //public services
+
+
+   let publicServiceProperty;
+
+   for(var i=0; i < ai.propertiesByColor[publicServicesColor.index].properties.length; i++){
+
+    publicServiceProperty =  ai.propertiesByColor[publicServicesColor.index].properties[i];
+
+
+       if(publicServiceProperty.mortgaged == true){
+
+          if(ai.cash > publicServiceProperty.mortgageValue){
+
+            closeMortgage(publicServiceProperty);
+            
+          }
+
+
+       }
+
+
+   }
+
 
 
   }
@@ -434,12 +481,30 @@ function findCash(player , goal){
 
           return true;
     }
- 
-    ////alert('after mortgaging our non monopoly properties , we still dont have enough cash');
+
+
+
+    if(findCashWithPublicServices(player , goal) == true){
+
+
+        return true;
+    }
+
+
+
+
+    if(findCashWithTrains(player , goal) == true){
+
+        return true;
+    }
+
+
+
+
+  ////alert('after mortgaging our non monopoly properties , we still dont have enough cash');
 
 
     if(findCashWithMonopolyProperties(player , goal) == true){
-
 
         return true;
     }
@@ -478,6 +543,71 @@ function findCashWithNonMonopolyProperties(player, goal){
     return false;
 
 }
+
+
+function findCashWithPublicServices(player , goal){
+
+  let psProperty;
+    for(var i=0 ; i < player.propertiesByColor[publicServicesColor.index].properties.length; i++){
+
+        psProperty = player.propertiesByColor[publicServicesColor.index].properties[i];
+
+        if(psProperty.mortgaged == true){
+            continue;
+        }
+
+        getMortgage(psProperty);
+        
+        if(player.cash >= goal){
+
+            return true;
+
+        }
+
+
+    }
+
+
+    return false;
+
+
+
+}
+
+
+
+function findCashWithTrains(player , goal){
+
+
+    let trainProperty;
+
+    for(var i=0 ; i < player.propertiesByColor[black.index].properties.length; i++){
+
+        trainProperty = player.propertiesByColor[black.index].properties[i];
+
+        if(trainProperty.mortgaged == true){
+            continue;
+        }
+
+        getMortgage(trainProperty);
+        
+        if(player.cash >= goal){
+
+            return true;
+
+        }
+
+
+    }
+
+
+    return false;
+
+
+
+}
+
+
 
 
 
@@ -623,7 +753,6 @@ function sellHouse(property){
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just sold a house on the property ' + property.name);
 
-      alert(property.landLord.name + ' just sold a house on the property ' + property.name)
 
    }
  

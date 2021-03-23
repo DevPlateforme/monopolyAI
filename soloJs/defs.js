@@ -172,7 +172,7 @@ function calculateStepVariable(player, setArray){
           
           if(setArray.length == 1){
   
-             return 0.05;
+             return 0.035;
   
          } else if(setArray.length == 2) {
   
@@ -454,7 +454,14 @@ function buildHouse(property){
 
      if(property.mortgaged == true){
 
-      alert('to build a house, you need to unmortgage this property');
+      if(property.landLord == humanPlayer){
+        
+        alert('to build a house, you need to unmortgage this property');
+        
+      } 
+
+      return;
+
 
      } else {      
        
@@ -475,7 +482,6 @@ function buildHouse(property){
 
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
-      alert(property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
  
 
@@ -540,7 +546,7 @@ function getRent(property){
 
           } else {
 
-            return rentalHotel;
+            return property.rentHotel;
           }
 
 
@@ -815,7 +821,6 @@ function addPropertyToPlayerWallet(player, property){
     
     if(property.type == rentalProperty){
 
-      
        insertNonMonopolyProperty(player, property);
     
       //check if the current property resulted in a monopoly
@@ -827,21 +832,15 @@ function addPropertyToPlayerWallet(player, property){
        };
 
 
-
     }
 
     updateBoardGraphs(player)
-
-
     
     boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
 
     addNotif(' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
 
     squareBorderOn(property.square);
-
-
-
 
    
 }
@@ -1306,7 +1305,7 @@ function updateBoardGraphs(player){
 
 function getMonopolyHouses(player,color){
 
-  let count;
+   let count = 0;
       
    for(var i=0 ; i < player.propertiesByColor[color.index].properties.length ; i++){
 
@@ -1314,6 +1313,7 @@ function getMonopolyHouses(player,color){
     count += player.propertiesByColor[color.index].properties[i].houses;
 
    }
+
 
 
    return count;

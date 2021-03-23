@@ -12,27 +12,34 @@ function hashProposition(proposition){
 
 
 
-    hash ^= (150 * (offerer.playerIndex + 1));
-    hash ^= (280 * (answerer.playerIndex + 1));
+    hash ^= (150 * (offerer.name));
+    hash ^= (280 * (answerer.name));
 
+    
+    let offerCount = 0;
+
+    let counterPartAskedCount = 0;
 
 
     for(var i = 0; i < offer.length; i++){
 
-        hash ^= (Math.pow(3, i+1) * (offer[i].elementIndex + 1) * 1000 );
+        offerCount++;
 
     } 
 
+
+
+    hash ^= (14270 * offerCount);
     
 
     for(var i = 0; i < counterPartAsked.length; i++){
 
-        hash ^= (Math.pow(3, i+1) * (counterPartAsked[i].elementIndex + 1) * 1000 );
+        counterPartAskedCount++;
 
     } 
 
 
-
+    hash ^= (12630 * counterPartAskedCount);
 
 
     return hash;
@@ -48,6 +55,7 @@ function hashAndStore(proposition){
 
 
     let hash = hashProposition(proposition);
+
 
 
     if(declinedPropositionsHashTable[hash % HASHENTRIES] == undefined ){

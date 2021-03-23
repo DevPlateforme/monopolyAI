@@ -53,16 +53,34 @@ function hideDiceLaunchButton(){
 
 
 
+var propCnt = 0;
+
 
 
 function displayHumanAnswerInterface(proposition, indirectOpportunity){
+
 
      let humanAnswerInterval;
 
   
 if(humanAnswerInterfaceOn == false){
+
+     humanThinking = true;
    
      humanAnswerInterfaceOn = true;     
+
+     propCnt++;
+
+     alert('proposition hash==>' + hashProposition(proposition) + ' , human prop Cnt =>' + propCnt);
+
+   if(indirectOpportunity != none){
+
+        alert('the AI included an indirect opportunity in its offer!')
+
+        //buildSynergeticScreen(proposition);
+
+    }
+
 
   
     humanAnswerInterval = setInterval(
@@ -98,7 +116,6 @@ if(humanAnswerInterfaceOn == false){
          
          
          
-              humanThinking = true;
          
               
               humanAnswerInterfaceBody.innerHTML = 'You received a proposition from ' + proposition.offerer.name;
@@ -2612,15 +2629,17 @@ function displayIntCard(propertyIndex){
 
 function hideBoard(){
 
-     document.getElementById('boardTop').style.opacity = 0.2;
-     document.getElementById('boardBottom').style.opacity = 0.2;
-     document.getElementById('boardLeft').style.opacity = 0.2;
-     document.getElementById('boardRight').style.opacity = 0.2;    
-     document.getElementById('boardGraphContainer1').style.opacity = 0.2;
-     document.getElementById('boardGraphContainer2').style.opacity = 0.2;
-     document.getElementById('boardGraphContainer3').style.opacity = 0.2; 
-     document.getElementById('boardLegendsContainer').style.opacity = 0.2;
-     document.getElementById('boardJournalContainer').style.opacity = 0.2;
+     document.getElementById('boardTop').style.opacity = 0;
+     document.getElementById('boardBottom').style.opacity = 0;
+     document.getElementById('boardLeft').style.opacity = 0;
+     document.getElementById('boardRight').style.opacity = 0;    
+     document.getElementById('boardGraphContainer1').style.opacity = 0;
+     document.getElementById('boardGraphContainer2').style.opacity = 0;
+     document.getElementById('boardGraphContainer3').style.opacity = 0; 
+     document.getElementById('boardLegendsContainer').style.opacity = 0;
+     document.getElementById('boardJournalContainer').style.opacity = 0;
+     document.getElementById('tradeScreen').style.opacity = 0;
+
 
 }
 
@@ -2673,8 +2692,13 @@ function tradeAnimation(proposition){
              for(var i=0; i < nonTradingPlayers.length; i++){  
                 
                   unveilPlayer(nonTradingPlayers[i]);
+
+                  
         
             }
+
+            document.getElementById('checkmark').style.display = 'none'; 
+
       
             tradeAnimationOn = false;
       
@@ -2718,6 +2742,8 @@ function unveilBoard(){
      document.getElementById('boardGraphContainer3').style.opacity = 1; 
      document.getElementById('boardLegendsContainer').style.opacity = 1;
      document.getElementById('boardJournalContainer').style.opacity = 1;
+     document.getElementById('tradeScreen').style.opacity = 1;
+
 
 }
 
@@ -2981,3 +3007,100 @@ function clearTradeScreen(){
         alert('AI thinking ==> ' + AiThinking + 'human thinking ==> ' + humanThinking + 'ta ==> ' + tradeAnimationOn + ' , pl : ' + postLaunchDecision  );
 
    }
+
+
+
+
+
+
+
+
+
+   
+
+function buildSynergeticScreen(proposition){
+     
+         
+              //OFFER
+
+
+         
+              for(i=0; i < proposition.offer.array.length; i++){  
+                                 
+                        addSynergeticOfferLine(proposition,proposition.offer.array[i]);
+         
+              }
+         
+              //add cash
+         
+         
+         
+              //COUNTERPART ASKED
+         
+                        
+         
+              for(i=0; i < proposition.counterPartAsked.array.length; i++){  
+                  
+                   addSynergeticCounterPartAskedLine(proposition,proposition.offer.array[i]);
+         
+              }
+
+              
+         
+              //add cash
+     
+         
+              //pass the proposition object into the proposition button attribute 
+
+}
+
+
+
+
+
+
+
+
+
+function addSynergeticOfferLine(property){     
+     
+   let line = document.createElement('div');
+   line.setAttribute("class", "tradeScreenAABA");
+   let colorContainer = document.createElement('div');
+   colorContainer.setAttribute("class", "tradeScreenAABAA");
+   let colorPoint = document.createElement('div');
+   colorPoint.style.background = property.color.opacityOnCode;
+   colorPoint.setAttribute("class", "tradeScreenAABAAA");
+   colorContainer.append(colorPoint);
+   let propertyNameLine = document.createElement("div");
+   propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
+   propertyNameLine.innerHTML = property.name;
+   line.append(colorContainer);
+   line.append(propertyNameLine)
+   document.getElementById('synergeticScreen_offererContainer').append(line);
+
+}
+
+
+
+
+function addSynergeticCounterPartAskedLine(proposition , property){
+
+    let line = document.createElement('div');
+    line.setAttribute("class", "tradeScreenAABA");
+    let colorContainer = document.createElement('div');
+    colorContainer.setAttribute("class", "tradeScreenAABAA");
+    let colorPoint = document.createElement('div');
+    colorPoint.style.background = property.color.opacityOnCode;
+    colorPoint.setAttribute("class", "tradeScreenAABAAA");
+    colorContainer.append(colorPoint);
+    let propertyNameLine = document.createElement("div");
+    propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+    propertyNameLine.innerHTML = property.name;
+    line.append(propertyNameLine)
+    line.append(colorContainer);
+    document.getElementById('synergeticScreen_answererContainer').append(line);
+
+
+}
+

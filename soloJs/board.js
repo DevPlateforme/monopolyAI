@@ -75,7 +75,7 @@ function movePiece(){
      }
 
 
-     movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
+     //movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
      //console.log('******square ' + squaresArray[updatedPosition] )      
 
