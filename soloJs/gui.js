@@ -75,9 +75,10 @@ if(humanAnswerInterfaceOn == false){
 
    if(indirectOpportunities.length != 0){
 
-        alert('the AI included' + indirectOpportunities.length + ' indirect opportunities in its offer!')
+        alert('the AI included' + indirectOpportunities.length + ' indirect opportunities in its offer!');
 
-        //buildSynergeticScreen(proposition);
+        buildSynergeticScreen(indirectOpportunities[0]);
+
 
     }
 
@@ -101,6 +102,7 @@ if(humanAnswerInterfaceOn == false){
          
          
               hideBoard();
+              hideTradeScreen();
                    
               for(var i=0; i < nonTradingPlayers.length; i++){
                    
@@ -197,6 +199,8 @@ function refusePropositionFromInterface(){
      
      unveilBoard();
      unveilTradeScreen();
+     clearSynergeticScreen();
+
  
      for(var i=0; i < nonTradingPlayers.length; i++){  
         
@@ -343,7 +347,7 @@ function displayAvailablePropertyInterface(square){
 
           humanThinking = false;
 
-          postLaunchDecision = done;
+          setPostLauncDecisionToDone();
 
           alert('the human landed on an available property, but dont have enough cash')
 
@@ -1269,6 +1273,8 @@ function acceptPropositionFromInterface(){
 
      unveilBoard();
      unveilTradeScreen();
+
+     clearSynergeticScreen();
  
      for(var i=0; i < nonTradingPlayers.length; i++){  
         
@@ -2637,15 +2643,15 @@ function displayIntCard(propertyIndex){
 
 function hideBoard(){
 
-     document.getElementById('boardTop').style.opacity = 0;
-     document.getElementById('boardBottom').style.opacity = 0;
-     document.getElementById('boardLeft').style.opacity = 0;
-     document.getElementById('boardRight').style.opacity = 0;    
-     document.getElementById('boardGraphContainer1').style.opacity = 0;
-     document.getElementById('boardGraphContainer2').style.opacity = 0;
-     document.getElementById('boardGraphContainer3').style.opacity = 0; 
-     document.getElementById('boardLegendsContainer').style.opacity = 0;
-     document.getElementById('boardJournalContainer').style.opacity = 0;
+     document.getElementById('boardTop').style.opacity = 0.1;
+     document.getElementById('boardBottom').style.opacity = 0.1;
+     document.getElementById('boardLeft').style.opacity = 0.1;
+     document.getElementById('boardRight').style.opacity = 0.1;    
+     document.getElementById('boardGraphContainer1').style.opacity = 0.1;
+     document.getElementById('boardGraphContainer2').style.opacity = 0.1;
+     document.getElementById('boardGraphContainer3').style.opacity = 0.1; 
+     document.getElementById('boardLegendsContainer').style.opacity = 0.1;
+     document.getElementById('boardJournalContainer').style.opacity = 0.1;
 
 
 }
@@ -2995,7 +3001,7 @@ function clearTradeScreen(){
      colorContainer.append(colorPoint);
      let propertyNameLine = document.createElement("div");
      propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
-     propertyNameLine.innerHTML = cash;
+     propertyNameLine.innerHTML = '$' + cash;
      line.append(propertyNameLine)
      line.append(colorContainer);
      document.getElementById('tradescreen_answererContainer').append(line);
@@ -3054,15 +3060,20 @@ function buildSynergeticScreen(proposition){
          
               for(i=0; i < proposition.counterPartAsked.array.length; i++){  
                   
-                   addSynergeticCounterPartAskedLine(proposition,proposition.offer.array[i]);
+                   addSynergeticCounterPartAskedLine(proposition,proposition.counterPartAsked.array[i]);
          
               }
 
               
          
               //add cash
+
+              addSynergeticCashOfferLine(proposition.offer.cash);
+
+              addSynergeticCashAnswerLine(proposition.counterPartAsked.cash);
+
+
      
-         
               //pass the proposition object into the proposition button attribute 
 
 }
@@ -3075,7 +3086,7 @@ function buildSynergeticScreen(proposition){
 
 
 
-function addSynergeticOfferLine(property){     
+function addSynergeticOfferLine(proposition, property){     
      
    let line = document.createElement('div');
    line.setAttribute("class", "tradeScreenAABA");
@@ -3083,7 +3094,7 @@ function addSynergeticOfferLine(property){
    colorContainer.setAttribute("class", "tradeScreenAABAA");
    let colorPoint = document.createElement('div');
    colorPoint.style.background = property.color.opacityOnCode;
-   colorPoint.setAttribute("class", "tradeScreenAABAAA");
+   colorPoint.setAttribute("class", "tradeScreenAABAAASynergy");
    colorContainer.append(colorPoint);
    let propertyNameLine = document.createElement("div");
    propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
@@ -3105,7 +3116,7 @@ function addSynergeticCounterPartAskedLine(proposition , property){
     colorContainer.setAttribute("class", "tradeScreenAABAA");
     let colorPoint = document.createElement('div');
     colorPoint.style.background = property.color.opacityOnCode;
-    colorPoint.setAttribute("class", "tradeScreenAABAAA");
+    colorPoint.setAttribute("class", "tradeScreenAABAAASynergy");
     colorContainer.append(colorPoint);
     let propertyNameLine = document.createElement("div");
     propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
@@ -3117,3 +3128,61 @@ function addSynergeticCounterPartAskedLine(proposition , property){
 
 }
 
+
+
+
+function addSynergeticCashOfferLine(cash){
+
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = 'gold';
+     colorPoint.setAttribute("class", "tradeScreenAABAAASynergy");
+     colorContainer.append(colorPoint);
+     let propertyNameLine = document.createElement("div");
+     propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
+     propertyNameLine.innerHTML = '$' + cash;
+     line.append(colorContainer);
+     line.append(propertyNameLine)
+     document.getElementById('synergeticScreen_offererContainer').append(line);
+ 
+
+
+
+}
+
+
+function addSynergeticCashAnswerLine(cash){
+
+     
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = 'gold';
+     colorPoint.setAttribute("class", "tradeScreenAABAAASynergy");
+     colorContainer.append(colorPoint);
+     let propertyNameLine = document.createElement("div");
+     propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+     propertyNameLine.innerHTML = '$' + cash;
+     line.append(propertyNameLine)
+     line.append(colorContainer);
+     document.getElementById('synergeticScreen_answererContainer').append(line);
+     
+
+
+
+}
+
+
+
+function clearSynergeticScreen(){
+
+
+     
+     document.getElementById('synergeticScreen_offererContainer').innerHTML = '';
+     document.getElementById('synergeticScreen_answererContainer').innerHTML = '';
+}

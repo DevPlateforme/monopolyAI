@@ -8,6 +8,10 @@ var breakVar = false;
 
 function init(){
 
+  givePlayersPropertiesForDemo();
+
+  humanThinking = false;
+
     
 
 
@@ -81,12 +85,20 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer,rueDeLaPaix);
-     addPropertyToPlayerWallet(humanPlayer,gareDeLyon);
-     addPropertyToPlayerWallet(humanPlayer,gareDuNord);
+     addPropertyToPlayerWallet(humanPlayer,rueDeVaugirard);
 
-     addPropertyToPlayerWallet(ai3,gareDeMontparnasse);
+
+     addPropertyToPlayerWallet(ai2 ,rueDeCourcelles);
+     addPropertyToPlayerWallet(ai2 ,avenueDeNeuilly);
+
+
+
+
+
+
      addPropertyToPlayerWallet(ai3,gareSaintLazarre);
+     addPropertyToPlayerWallet(ai3,avenueDeNeuilly);
+
      
   }
 

@@ -6458,7 +6458,12 @@
    <div class='propPopupAA'>
       <div class='propPopupAAA'>
             <div class='propPopupAABAAA'>
-             <img style='height: 70%;width: auto;' class="aiface" src="./img/woman2.png">
+
+            <div class='idDivAA popupAvatar'>           
+                  <img src="./img/aiface.png" style='height:90%; width:90%; margin-left:0.5%'>
+     
+             </div>
+       
             </div>
             <div class='propPopupAABAAB'>
                <div class='propPopupAABAABA'>
@@ -6494,7 +6499,7 @@
 
    <div class="tradeScreen" id="synergyDiv">
 
-        <div class="tradeScreenTop">
+        <div class="tradeScreenTop tradeScreenTopSynergy">
 
                    <div class="tradeScreenTopA">
 
@@ -6502,14 +6507,14 @@
     
                         </div>
        
-                     <div class="tradeScreenBottom">
+                     <div class="tradeScreenBottom tradeScreenBottomSynergy">
 
 
-                           <div class="tradeScreenA">
+                           <div class="tradeScreenA tradeScreenASynergy">
 
                            
 
-        <div class="tradeScreenAA">
+        <div class="tradeScreenAA tradeScreenAASynergy">
             <div class="tradeScreenAAA">
                 <div class="tradeScreenAAAA" id='synergyDiv_offerer'>
                      <img class="offererImgTradeScreen" style="height:92.5%; width:92.5%;" src="./img/woman.png">
@@ -6530,7 +6535,7 @@
 
     
 
-    <div class="tradeScreenA">
+    <div class="tradeScreenA tradeScreenASynergy">
 
     
     <div class="tradeScreenAB">
@@ -6538,7 +6543,7 @@
         </div>
 
 
-        <div class="tradeScreenAA">
+        <div class="tradeScreenAA tradeScreenAASynergy">
             <div class="tradeScreenAAA">
                
                 <div class="tradeScreenAAAB"></div>
@@ -6589,7 +6594,11 @@
 
       <div class='propPopupAAA'>
             <div class='propPopupAABAAA'>
-             <img style='height: 70%;width: auto;opacity:0.7' class="aiface" src="./img/man.png">
+
+            <div class='idDivAA popupAvatar'>           
+                  <img src="./img/man.png" style='height:90%; width:90%; margin-left:0.5%'>
+     
+             </div>
             </div>
             <div class='propPopupAABAAB'>
                <div class='propPopupAABAABA'>

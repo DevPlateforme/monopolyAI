@@ -131,6 +131,9 @@ function movePiece(){
 
       //console.log( lastDiceLauncher.name + ' just launched dices!!');
 
+
+      launchPlCheckTimeout();
+
       launchPLProcess();
       
         //FOR AIS, NO NEED TO EXECUTE THIS PART
@@ -210,47 +213,11 @@ function movePiece(){
               }, 500);
               
 
-  /*
-         postLaunchMoveCheckTimeout = setTimeout(function(){
-
-         if(postLaunchDecision == waiting){
-
-           //BREAK       
-
-             ////alert('the player took too much time to play!!');
-
-             boardJournal.innerHTML += ('the player took too much time to play!!');
-             alert('the player took too much time to play!!');
-
-             
-
-             if(lastDiceLauncher == humanPlayer){
-
-                 if(humanPlayer.propositionToAnswer != none){
-
-                    refusePropositionFromInterface();
-
-                 } else {
-
-                    closeAvailablePropertyInterface();
-
-                    closeChanceSquareInterface();
- 
-                    closeCommunityChestSquareInterface();
-
-                }
- 
-             }
-
-             postLaunchDecision = done;
-
-            }
-
-         }, 60000) ;
+  
+  
 
 
-
-         */
+         
 
 
 
@@ -373,12 +340,12 @@ function movePiece(){
              }
 
 
-             postLaunchDecision = done ;
+             setPostLauncDecisionToDone();
 
       
         } else {
 
-            postLaunchDecision = done ;
+          setPostLauncDecisionToDone();
 
 
 
@@ -412,7 +379,7 @@ function movePiece(){
              
       } else {
 
-             postLaunchDecision = done;
+        setPostLauncDecisionToDone();
 
       }
 
@@ -421,7 +388,7 @@ function movePiece(){
 
           ////alert('ok , post launch decision done!!')
 
-             postLaunchDecision = done;
+          setPostLauncDecisionToDone();
 
        }
 
@@ -513,7 +480,7 @@ function movePiece(){
         if(lastDiceLauncher == humanPlayer){
                  
           setTimeout( function(){ 
-          postLaunchDecision = done;
+          setPostLauncDecisionToDone();
           closeDrawCardInterface();
         
         }, 1500);
@@ -569,7 +536,7 @@ function movePiece(){
 
           setTimeout( function(){ 
             
-            postLaunchDecision = done;            
+            setPostLauncDecisionToDone();           
             closeDrawCardInterface()}, 1500);
 
    }
@@ -658,7 +625,7 @@ function buyAvailableProperty(){
       updateBoardGraphs(humanPlayer);
 
 
-      postLaunchDecision = done;
+      setPostLauncDecisionToDone();
 
       closeAvailablePropertyInterface();
 
@@ -668,7 +635,7 @@ function buyAvailableProperty(){
 
 function dontBuyAvailableProperty(){
 
-    postLaunchDecision = done;
+    setPostLauncDecisionToDone();
     closeAvailablePropertyInterface();  
 
 }
@@ -684,7 +651,7 @@ function launchInsufficientFundsForBuyingTimeout(){
 
         insufficientFundsForBuyingTimeout = setTimeout(function(){
 
-          setPostLaunchActionToDone( insufficientFundsForBuyingTimeout );
+          //setPostLaunchActionToDone( insufficientFundsForBuyingTimeout );
 
           clearTimeout( insufficientFundsForBuyingTimeout);
 
@@ -709,12 +676,6 @@ function clearInsufficientFundsForBuyingTimeout(){
 
 
 
-
-function setPostLaunchActionToDone(){
-
-    postDicesLaunchAction = done;
-
-}
 
 
 
@@ -760,7 +721,7 @@ function acceptTrade(proposition){
 
         //alert('you dont have enough cash...!!');
 
-        postLaunchDecision = done;
+        setPostLaunchDecisionToDone();
 
      
      } else {
@@ -776,7 +737,7 @@ function acceptTrade(proposition){
      
        ////alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
 
-       postLaunchDecision = done;
+       setPostLauncDecisionToDone();
 
 
 
@@ -803,5 +764,62 @@ function acceptTrade(proposition){
     player.cash += 200;
 
     
+
+  }
+
+
+
+
+  function setPostLauncDecisionToDone(){
+
+    postLaunchDecision = done;
+
+    clearTimeout(postLaunchMoveCheckTimeout);
+
+
+  }
+
+
+
+
+  function launchPlCheckTimeout(){
+
+
+    postLaunchMoveCheckTimeout = setTimeout(function(){
+
+      if(postLaunchDecision == waiting){
+
+        //BREAK       
+
+          ////alert('the player took too much time to play!!');
+
+          boardJournal.innerHTML += ('the player took too much time to play!!');
+          alert('the player took too much time to play!!');
+
+          
+
+          if(lastDiceLauncher == humanPlayer){
+
+              if(humanPlayer.propositionToAnswer != none){
+
+                 refusePropositionFromInterface();
+
+              } else {
+
+                 closeAvailablePropertyInterface();
+
+                 closeChanceSquareInterface();
+
+                 closeCommunityChestSquareInterface();
+
+             }
+
+          }
+
+          setPostLauncDecisionToDone();
+
+         }
+
+      }, 2000) ;
 
   }

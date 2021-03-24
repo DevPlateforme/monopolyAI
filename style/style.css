@@ -266,7 +266,6 @@ width: auto;
 
 
 
-
 .propPopupTop{
   height:8%;
   width:90%;
@@ -567,7 +566,7 @@ width: auto;
 
 #synergyDiv{
 
-  background:rgb(255,255,255,0.2);
+  background:rgb(255,255,255,0.1);
   border-radius: 10px;
   display: flex;
 
@@ -586,10 +585,6 @@ width: auto;
   
 }
 
-#synergyDivB{
-
-
-}
 
 
 
@@ -1910,9 +1905,19 @@ presentation of properties
    justify-content: center;
    align-items: center;
    background:rgb(0 ,255 , 0 , 0.7);
-   border-radius: 30px;
+   border-radius: 60px;
 
 }
+
+
+.popupAvatar{
+
+  height: 70%;
+  width: 70%;
+}
+
+
+
 
 .mobileAvatarContainer{   
   height: 4.5vw;
@@ -2060,7 +2065,7 @@ presentation of properties
    justify-content: center;
    align-items: center;
    background:rgb(0 ,255 , 0 , 0.7);
-   border-radius: 35px;
+   border-radius: 60px;
 
 }
 
@@ -2837,6 +2842,14 @@ justify-content: space-around;
 }
 
 
+.tradeScreenTopSynergy{
+
+  height:5%;
+  background: rgb(255,255,255,0.03);
+
+}
+
+
 .tradeScreenTopA{
   
     height:90%;
@@ -2860,6 +2873,13 @@ justify-content: space-around;
 }
 
 
+.tradeScreenBottomSynergy{
+
+  height:90%;
+
+}
+
+
 .tradeScreenA{
   height: 45%;
   width: 95%;
@@ -2867,9 +2887,22 @@ justify-content: space-around;
   background: rgb(255,255,255,0.05);
   display: flex;
   flex-direction:row; 
+  align-items: center;
   justify-content: space-around;
 
 }
+
+.tradeScreenASynergy{
+
+
+  background: rgb(255,255,255,0.03);
+
+
+
+}
+
+
+
 
 .tradeScreenAA{
   height: 100%;
@@ -2879,6 +2912,12 @@ justify-content: space-around;
   align-items: center;
   justify-content: space-around;
 }
+
+.tradeScreenAASynergy{
+  height: 95%;
+  width: 67.5%;
+}
+
 
 .tradeScreenAAA{
   height: 25%;
@@ -2923,6 +2962,7 @@ justify-content: space-around;
   justify-content:space-around;
   align-items: center;
   flex-direction: row;
+  margin-top: 2%;
 }
 
 .tradeScreenAABAA{
@@ -2935,8 +2975,14 @@ justify-content:flex-start;
 
 .tradeScreenAABAAA{
 
-height: 50%;
-width: 55%;
+  height: 50%;
+  width: 55%;
+}
+
+.tradeScreenAABAAASynergy{
+
+  height: 55%;
+  width: 40%;
 }
 
 

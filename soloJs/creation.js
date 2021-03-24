@@ -1088,8 +1088,8 @@ if(proposition.offerer == ai3 && proposition.answerer == humanPlayer && offer.ar
 				 //THE AI1 wants to have a better situation than the other player
 			     //bottomLimit = interlocutorScore * ((Math.random()/5) + 0.5);
 
-			 topLimit = interlocutorScore * (1.1);		
-			 bottomLimit = interlocutorScore * (0.9);
+			 topLimit = interlocutorScore * (1.125);		
+			 bottomLimit = interlocutorScore * (0.875);
 
 
 			
