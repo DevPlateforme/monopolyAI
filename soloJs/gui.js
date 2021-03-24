@@ -71,11 +71,9 @@ if(humanAnswerInterfaceOn == false){
 
      propCnt++;
 
-     alert('proposition hash==>' + hashProposition(proposition) + ' , human prop Cnt =>' + propCnt);
 
    if(indirectOpportunities.length != 0){
 
-        alert('the AI included' + indirectOpportunities.length + ' indirect opportunities in its offer!');
 
         buildSynergeticScreen(indirectOpportunities[0]);
 

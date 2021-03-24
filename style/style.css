@@ -251,7 +251,7 @@ width: auto;
   height: 70vh;
   width: 50vw;
   position: absolute;
-  top: 15vh;
+  bottom:12.5vh;
   left: 25vw;
   border-radius: 10px;
   display:none;
@@ -346,7 +346,7 @@ width: auto;
   display:flex;
   flex-direction:row; 
   justify-content: space-around;
-  color: green;
+  align-items: center;
 }
 
 .propPopupAA{
@@ -2909,19 +2909,21 @@ justify-content: space-around;
   width: 75%;
   display: flex;
   flex-direction:column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 }
 
 .tradeScreenAASynergy{
   height: 95%;
   width: 67.5%;
+  flex-direction:row;
+
 }
 
 
 .tradeScreenAAA{
   height: 25%;
-  width: 100%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2953,6 +2955,11 @@ justify-content: space-around;
   flex-direction: column;
   justify-content: flex-start;
   align-items:center;
+}
+
+.tradeScreenAABSynergy{
+
+  height: 60%;
 }
 
 .tradeScreenAABA{
@@ -3003,6 +3010,7 @@ justify-content:flex-start;
    align-items:center;
    justify-content: flex-end;
    font-size: 0.7vw;
+
 }
 
 
@@ -5712,7 +5720,7 @@ body {
 
 
 
-@media all and (max-width: 600px){
+@media all and (max-width: 800px){
 
   #mobileBottomNav{
     position: absolute;
@@ -5740,6 +5748,14 @@ body {
     width: auto;
   }
 
+  .popupAvatar {
+    height: 15vw;
+    width: 15vw;
+}
+
+.tradeScreenAAAB{
+  display: none;
+}
 
   .homePropertyDivAB {
     justify-content: space-between;
@@ -5765,6 +5781,73 @@ body {
   }
 
 
+
+.propPopup {
+    height: 60vh;
+    width: 100vw;
+    left: 0vw;
+    bottom:10vh;
+    font-size: 2vw;
+}
+
+.propPopupAA {
+  width: 55%;
+
+}
+
+#synergyDiv {
+  width: 45%;
+}
+
+#synergyDiv_offerer{
+  height: 5.5vw;
+  width: 5.5vw;
+}
+
+#synergyDiv_answerer{
+  height: 5.5vw;
+  width: 5.5vw;
+}
+
+
+.synergyDiv_offererContainer{
+
+  justify-content: flex-start;
+
+}
+
+
+.synergyDiv_answererContainer{
+
+  justify-content: flex-end;
+  
+}
+
+
+.tradeScreenAAB {
+  height: 55%;
+}
+
+
+.tradeScreenAABAB{
+  font-size: 2vw;
+
+}
+.tradeScreenAABAB_bottom{
+  
+  font-size: 2vw;
+}
+
+.propPopupTop {
+  height: 6%;
+
+}
+
+.colorSquare {
+  height: 45%;
+  width: 100%;
+
+}
   
 #interfacesPanel {
   width: 90vw;
