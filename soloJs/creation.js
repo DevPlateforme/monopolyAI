@@ -29,7 +29,7 @@ function CounterPartAsked(array, lossValueForTheOwner, gainValueForTheOtherPlaye
 
 	this.mortgagesClosed = [];
 
-	this.indirectOpportunity = none;
+	this.indirectOpportunities = [];
 	
 
 
@@ -50,7 +50,7 @@ function Offer(array, lossValueForTheOwner, gainValueForTheOtherPlayer) {
 	
 	this.mortgagesClosed = [];
 
-	this.indirectOpportunity = none;
+	this.indirectOpportunities = [];
 
 
 
@@ -1049,7 +1049,7 @@ if(proposition.offerer == ai3 && proposition.answerer == humanPlayer && offer.ar
 
 	if(trick == true){
 
-		if(counterPartAsked.indirectOpportunity != none){
+		if(counterPartAsked.indirectOpportunities.length != 0){
 			
 	      	 proposition.unfair = true;
 
@@ -1517,7 +1517,7 @@ function createIndirectTradeObject(type , offerer, answerer, tradeArray){
 				
 			   	   tradeObject.gainValueForTheOtherPlayer -= staticGain;
  
-				   tradeObject.indirectOpportunity = set.proposition;
+				   tradeObject.indirectOpportunities.push(set.proposition); 
 
  
 		    	   //compute a synergetic cost for the player loosing the array 

@@ -354,8 +354,6 @@ var nodes = 0;
         AiThinking = false;
 
 
-
-        console.log(ai.name + ' finished to search');
     
 
  }

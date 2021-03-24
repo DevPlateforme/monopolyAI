@@ -8,10 +8,8 @@ var breakVar = false;
 
 function init(){
 
-   givePlayersPropertiesForDemo();
+    
 
-
-   humanThinking = false;
 
     setInterval(
 
@@ -22,8 +20,6 @@ function init(){
       );
       
 
-     /*
-         
       boardGraph1();  
       boardGraph2();  
       boardGraph3();  
@@ -75,9 +71,6 @@ function init(){
 
       
 
-      */
-
-
       wakeUpAis();
   
 
@@ -88,14 +81,12 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer , bdDesCapucines);
-     addPropertyToPlayerWallet(humanPlayer , boulevardSaintMichel);
+     addPropertyToPlayerWallet(humanPlayer,rueDeLaPaix);
+     addPropertyToPlayerWallet(humanPlayer,gareDeLyon);
+     addPropertyToPlayerWallet(humanPlayer,gareDuNord);
 
-     addPropertyToPlayerWallet(ai2 , bdDeLaVillette);
-     addPropertyToPlayerWallet(ai2 , avenueFoch);
-
-     addPropertyToPlayerWallet(ai3 , placePigalle);
-     addPropertyToPlayerWallet(ai3 , avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai3,gareDeMontparnasse);
+     addPropertyToPlayerWallet(ai3,gareSaintLazarre);
      
   }
 
@@ -155,11 +146,11 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    //setTimeout(function(){ aiReflects(ai1)}, 3000);
+    setTimeout(function(){ aiReflects(ai1)}, 3000);
 
     setTimeout(function(){ aiReflects(ai2)}, 5000 ) ;
 
-    //setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
+    setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
 
 }
 

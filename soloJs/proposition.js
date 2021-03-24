@@ -82,7 +82,7 @@ function makeProposition(proposition){
 
     if(proposition.answerer == humanPlayer){ 
     
-           displayHumanAnswerInterface(proposition , proposition.offer.indirectOpportunity);
+           displayHumanAnswerInterface(proposition , proposition.offer.indirectOpportunities);
 
            return;
         
@@ -363,7 +363,7 @@ function makeProposition(proposition){
        }
 
 
-       /*
+       
 
 
 
@@ -371,7 +371,7 @@ function makeProposition(proposition){
        updateBoardGraphs(answerer);
 
 
-  */
+  
 
 
 

@@ -120,11 +120,11 @@ function calculateStepVariable(player, setArray){
 
             if(setArray.length == 4){
 
-              return 1;
+              return 1.25;
 
             } else if (setArray.length == 3){
   
-              return 0.5;
+              return 0.75;
   
             } else if (setArray.length == 2){
   

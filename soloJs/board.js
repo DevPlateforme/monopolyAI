@@ -208,8 +208,9 @@ function movePiece(){
                }  
           
               }, 500);
+              
 
-
+  /*
          postLaunchMoveCheckTimeout = setTimeout(function(){
 
          if(postLaunchDecision == waiting){
@@ -219,6 +220,8 @@ function movePiece(){
              ////alert('the player took too much time to play!!');
 
              boardJournal.innerHTML += ('the player took too much time to play!!');
+             alert('the player took too much time to play!!');
+
              
 
              if(lastDiceLauncher == humanPlayer){
@@ -244,6 +247,10 @@ function movePiece(){
             }
 
          }, 60000) ;
+
+
+
+         */
 
 
 
@@ -284,7 +291,7 @@ function movePiece(){
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
                      updateBoardCashOnGui(lastDiceLauncher)
-
+                     updateBoardGraphs(lastDiceLauncher);
                      
                      
                   }
@@ -314,6 +321,7 @@ function movePiece(){
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
                      updateBoardCashOnGui(lastDiceLauncher)
+                     updateBoardGraphs(lastDiceLauncher);
 
                      
 
@@ -646,7 +654,8 @@ function buyAvailableProperty(){
       let property = squaresArray[humanPlayer.position];
 
       addPropertyToPlayerWallet(humanPlayer, property);
-      updateBoardCashOnGui(humanPlayer)
+      updateBoardCashOnGui(humanPlayer);
+      updateBoardGraphs(humanPlayer);
 
 
       postLaunchDecision = done;
@@ -747,14 +756,18 @@ function acceptTrade(proposition){
   function tryToBuyAvailableProperty(player, property){
 
      
-     if(player.cash < property.houseValue ){
+     if(player.cash < value ){
 
         //alert('you dont have enough cash...!!');
+
+        postLaunchDecision = done;
+
      
      } else {
        
        addPropertyToPlayerWallet(player, property);
        updateBoardCashOnGui(player)
+       updateBoardGraphs(player);
 
  
 

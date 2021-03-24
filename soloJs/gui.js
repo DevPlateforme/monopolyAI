@@ -57,7 +57,7 @@ var propCnt = 0;
 
 
 
-function displayHumanAnswerInterface(proposition, indirectOpportunity){
+function displayHumanAnswerInterface(proposition, indirectOpportunities){
 
 
      let humanAnswerInterval;
@@ -73,9 +73,9 @@ if(humanAnswerInterfaceOn == false){
 
      alert('proposition hash==>' + hashProposition(proposition) + ' , human prop Cnt =>' + propCnt);
 
-   if(indirectOpportunity != none){
+   if(indirectOpportunities.length != 0){
 
-        alert('the AI included an indirect opportunity in its offer!')
+        alert('the AI included' + indirectOpportunities.length + ' indirect opportunities in its offer!')
 
         //buildSynergeticScreen(proposition);
 
