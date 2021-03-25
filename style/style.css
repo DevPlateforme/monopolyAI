@@ -2929,9 +2929,27 @@ justify-content: space-around;
   justify-content: space-between;
 }
 
+#tradeScren_offererContainer{
+     
+  width: 100%;
+  justify-content: flex-start;
+
+}
+
+
+
+
+#tradeScren_answererContainer{
+  
+  width: 100%;
+  justify-content: flex-end;
+
+
+}
+
 .tradeScreenAAAA{
-  height:1.5vw;
-  width:1.5vw;
+  height:2vw;
+  width:3.5vw;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -2940,7 +2958,16 @@ justify-content: space-around;
 
 }
 
-
+#tradeScren_offerer_imgDiv{
+  height:1.5vw;
+  width:1.5vw;
+  
+}
+#tradeScren_answerer_imgDiv{
+  height:1.5vw;
+  width:1.5vw;
+  
+}
 
 
 .tradeScreenAAAB{
@@ -5793,6 +5820,12 @@ body {
 .propPopupAA {
   width: 55%;
 
+}
+
+
+.tradeScreenAAAA{
+  height:1.5vw;
+  width:1.5vw;
 }
 
 #synergyDiv {

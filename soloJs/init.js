@@ -8,12 +8,6 @@ var breakVar = false;
 
 function init(){
 
-  givePlayersPropertiesForDemo();
-
-  humanThinking = false;
-
-    
-
 
     setInterval(
 
@@ -22,6 +16,11 @@ function init(){
           boardJournal.innerHTML = ''}, 5000
           
       );
+
+      removePlayer(humanPlayer);
+
+
+      givePlayersPropertiesForDemo();
       
 
       boardGraph1();  
@@ -40,13 +39,10 @@ function init(){
       setTimeout(function(){
 
       
-         buildBoardPresentationCircles(humanPlayer)
-         buildBoardPresentationBars(humanPlayer)
+         buildBoardPresentationCircles(humanPlayer);
+         buildBoardPresentationBars(humanPlayer);
 
 
-
-      
-   
        },400);
 
        setTimeout(function(){
@@ -63,20 +59,43 @@ function init(){
 
       setTimeout(function(){
 
-      
-   
+    
         buildBoardPresentationCircles(ai3);
         buildBoardPresentationBars(ai3);
 
-   
-     
+        
+        playerInJail(ai1);
+        improveJailCountAndCheck(ai1);
+        decideToStayInJailOrNot(ai1);
+
+        
   
       },600);
+
+
+
+          document.addEventListener("keypress", function(event) {
+
+                  //IF YOU PRESS Q, JUMP
+
+          if (event.keyCode == 113) {
+
+            if(displayedLaunchBtn == true){
+    
+              launchDicesAndMovePieces();
+           
+           }                        
+                    
+
+          } 
+     });
+
+     
 
       
 
       wakeUpAis();
-  
+
 
 }
 
@@ -85,19 +104,20 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer,rueDeVaugirard);
+     addPropertyToPlayerWallet(ai1,rueDeVaugirard);
+     addPropertyToPlayerWallet(ai1,rueDeCourcelles);
+     addPropertyToPlayerWallet(ai1,avenueDeLaRepublique);
+
+     buildHouse(rueDeVaugirard)
+     buildHouse(rueDeCourcelles)
 
 
-     addPropertyToPlayerWallet(ai2 ,rueDeCourcelles);
-     addPropertyToPlayerWallet(ai2 ,avenueDeNeuilly);
+     
 
 
 
 
-
-
-     addPropertyToPlayerWallet(ai3,gareSaintLazarre);
-     addPropertyToPlayerWallet(ai3,avenueDeNeuilly);
+  
 
      
   }

@@ -688,7 +688,7 @@ function createTradeObject( type , offerer, answerer, tradeArray ){
 
 	           //GAIN VALUE FOR THE OTHER PLAYER
 
-		        tradeObject.gainValueForTheOtherPlayer -= (tradeArray[tradeSetIndex][i].mortgageValue);
+		        tradeObject.gainValueForTheOtherPlayer -= (tradeArray[tradeSetIndex][i].mortgageValue * 0.1);
 
 			}
 

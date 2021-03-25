@@ -330,6 +330,9 @@ function closePropertiesManagementInterface(){
 
 function displayAvailablePropertyInterface(square){
 
+     alert('displaying the interface')
+
+
      humanThinking = true;
 
      if(lastDiceLauncher.cash >= square.value){
@@ -1646,8 +1649,9 @@ function sellHouseFromInterface(){
     
     
           document.getElementById('square' + from + '_pawnContainer'+ player.name ).style.background ='none';
-    
-    
+
+          
+          alert('jail ==> square' + from + '_pawnContainer'+ player.name );
     
           document.getElementById('square' + to + '_pawnContainer'+ player.name ).style.background = pawn;
     
@@ -2427,11 +2431,15 @@ function displayAvailablePropertyPopup(square){
 
      humanThinking = true;
 
-     monopolyBoard.style.opacity = 0.15;
+
+  setTimeout(     
+       
+     function(){
+        monopolyBoard.style.opacity = 0.15;
 
 
      if(lastDiceLauncher.cash >= square.value){
-
+  
            displayDetailCard(availableProperty,square)
 
      
@@ -2442,10 +2450,13 @@ function displayAvailablePropertyPopup(square){
        
      } else {
        
-       //unavailableFundInterface.style.zIndex = 3;
-       //unavailableFundInterface.style.opacity = 1;
+       alert('this property isnt available')
 
      }
+
+
+ },1500)
+
 
 
 }
@@ -3184,3 +3195,5 @@ function clearSynergeticScreen(){
      document.getElementById('synergeticScreen_offererContainer').innerHTML = '';
      document.getElementById('synergeticScreen_answererContainer').innerHTML = '';
 }
+
+

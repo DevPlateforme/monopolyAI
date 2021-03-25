@@ -226,7 +226,7 @@ function searchForTradesOpportunities(activePlayer){
 
             ai.willingnessToBuild = true;
 
-          }, 2000)
+          }, 1000)
 
       }
 
@@ -790,6 +790,8 @@ function sellHouse(property){
       property.landLord.cash += (property.houseValue/2);
 
       updateBoardCashOnGui(property.landLord)
+      updateHousesOnGui(property);
+
 
 
 

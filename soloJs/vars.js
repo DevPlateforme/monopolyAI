@@ -28,11 +28,8 @@
    
 
  var noPropertiesLvl = 0;
-
  var oneThreeLvl = 0.05;
- 
  var twoThreeLvl = 0.2;
-
  var threeThreeLvl = 0.75;
 
 
@@ -41,22 +38,15 @@
     
 
  var oneTwoLvl = 0.2;
- 
  var twoTwoLvl = 0.8;
 
 
  var playerNum = 4;
-
  var noMove = 'NM';
-
  var none = 'NONE';
-
  var off = 'off';
-
  var available = 'available';
-
  var busy = 'busy';
-
  var noCash = 'no cash';
 
 
@@ -64,27 +54,25 @@
 //perceptions
 
 var naive = 'naive';
-
 var regular = 'regular';
-
 var uncooperative = 'uncooperative';
+
 
 
 //state vars
 
 
 var upgrade = 'upgrade';
-
 var downgrade = 'downgrade';
 
 
 
+ 
 
-
-var ai1 = {playerIndex: 0 , key : 0,  position: 2 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
-var ai2 = {playerIndex: 1 , key : 0,  position: 2 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
-var humanPlayer = {playerIndex: 2 , key : 0,  position: 2 , name: 'humanPlayer', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 ,  propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
-var ai3 = {playerIndex: 3 , key : 0,  position: 2 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular }
+var ai1 = {playerIndex: 0 , key : 0,  position: 2 , name: 'ai1', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular , jailManagement: {inJail: false , jailCount: 0 } }
+var ai2 = {playerIndex: 1 , key : 0,  position: 2 , name: 'ai2', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount:0, propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular , jailManagement: {inJail: false , jailCount: 0 }}
+var humanPlayer = {playerIndex: 2 , key : 0,  position: 2 , name: 'humanPlayer', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 ,  propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] ,  willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular , jailManagement: {inJail: false , jailCount: 0 }}
+var ai3 = {playerIndex: 3 , key : 0,  position: 2 , name: 'ai3', cash: 1500, bankruptcy:false, rents: 0 , propertiesCount: 0 , propertiesByColor : [ { color: brown, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ] }, { color: lightBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: purple, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]},{ color: orange, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: red, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: yellow, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: green, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: darkBlue, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} , { color: black , monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]}, { color: publicServicesColor, monopoly: false, housesBuilt: false, houses: 0 , properties : [ ]} ] ,  nonMonopolyProperties: [] , propertiesArray: [], bankruptcyInterval : off , availability : available , propositionToAnswer : none, inBuildingProposition : none , propositionDone : none , propositionList: [] , mortgages: [] , monopolies: 0 , monopoliesArray: [] , mortgagedMonopolyProperties: [] , willingnessToBuild : true ,  trickRefusalsCount: 0 , fairPropositionRefusals: 0 , unfairPropositionsRefusals: 0 , humanPerception: regular , jailManagement: {inJail: false , jailCount: 0 } }
 
 
 
@@ -93,28 +81,23 @@ var playersArray = [ai1, ai2 , humanPlayer , ai3];
 
 
 var user = humanPlayer;
-
-
 var displayedLaunchBtn = true;
 
 
 //DICE
 
 
-var diceEdges = 12;
-
+var diceEdges = 6;
 var diceResult;
 
 
 var nextDiceLauncherIndex = humanPlayer.playerIndex;
-
 var nextDiceLauncher;
 
 
 //NO VALUE YET
 
 var lastDiceLauncher = none;
-
 var gameBoard = { activePlayer: ai1, state: none};
 
 
@@ -122,7 +105,6 @@ var gameBoard = { activePlayer: ai1, state: none};
 //GAMEBOARD STATES
 
 var tradeProposition = {tradeProposer: none};
-
 var tradeAnswer = {tradeProposition: none};
 
 
@@ -152,9 +134,7 @@ var tradeAnswer1 = 'TA1';
 var tradeAnswer2 = 'TA2';
 var tradeAnswer3 = 'TA3';
 var tradeAnswer4 = 'TA4';
-
 var postDicesLaunchAction = 'PDA';
-
 var game_posKey = 0;
 
 
@@ -168,11 +148,9 @@ var stringToInsert;
 //thinking animation
 
 var nodes = 0;
-
 var ai1ThinkingInterval;
 var ai2ThinkingInterval;
 var ai3ThinkingInterval;
-
 var nextTradeProposerIndex = 0;
 
 
@@ -180,11 +158,8 @@ var nextTradeProposerIndex = 0;
 
 
 var displayedPmColor = 0;
-
 var displayedOffererColor = 0;
-
 var displayedAnswerer = none;
-
 var displayedAnswererColor = 0;
 
 
@@ -192,30 +167,18 @@ var displayedAnswererColor = 0;
 //SQUARES TYPES
 
 var departure = 'DEPARTURE';
-
 var rentalProperty = 'RP';
-
 var  communityChest = 'CC';
-
 var trainStation = 'TS';
-
 var luck = 'LUCK';
-
 var publicService = 'PS';
-
 var special = 'SPECIAL';
-
 var waterPublicServices = 'waterPublicServices';
-
 var parc = 'PARC';
-
 var goToJailSquare = 'GTJ';
-
 var taxSquare = 'TS';
-
 var tax = 'tax';
-
-
+var inactive = "inactive";
 
 //squares objects 
 
@@ -223,17 +186,17 @@ var tax = 'tax';
 
 
 
-var departure = {name: 'Departure', square: 0, value: none, rent: 0 , type: departure };
+var departure = {name: 'Departure', square: 0, value: none, rent: 0 , type: inactive };
 var belleville = { name: 'Belleville',  square: 1, value: 60, rent: 2 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: rentalProperty, color: brown, landLord: none , elementIndex : 0 , mortgaged: false ,  mortgageValue: 30, houseValue: 50 , houses: 0 , houseValue: 50};
 var communityChestSquare1 = {name: 'Com.Chest', square:2, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var rueLecourbe = { name: 'Lecourbe St.', square: 3, value: 60, rent: 4 , rentHouse1: 20, rentHouse2: 60, rentHouse3: 180, rentHouse4: 320 ,  rentHotel: 450 , type: rentalProperty, color: brown, landLord: none , elementIndex : 1 , mortgaged: false ,  mortgageValue: 30, houses: 0 , houseValue: 50};
-var revenueTax = {name: 'revenue tax' , square: 4, value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: tax , color: none , landLord: none , mortgaged: false , houses: 0 , houseValue: 50};
+var revenueTax = {name: 'revenue tax' , square: 4, value: none, type: tax , color: none , landLord: none , mortgaged: false , houses: 0 , houseValue: 50};
 var gareDeMontparnasse = { name: 'MontParnasse', square: 5 , value: 200, rent: 5 , monopolyRent: 200, type: trainStation , color: black, landLord: none , elementIndex : 2, mortgaged: false ,  mortgageValue: 100 , houses: 0 , houseValue: 50};
 var rueDeVaugirard = {name: 'Vaugirard St.',  square: 6 , value: 100, rent: 6 , rentHouse1: 30, rentHouse2: 90, rentHouse3: 270, rentHouse4: 400 ,  rentHotel: 550 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 3, mortgaged: false ,  mortgageValue: 100 , houses: 0 , houseValue: 50};
 var luckSquare1 = {name: 'Luck', square: 7 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var rueDeCourcelles = {name: 'Courcelles St.', square: 8 , value: 100, rent: 6 , rentHouse1: 30, rentHouse2: 90, rentHouse3: 270, rentHouse4: 400 ,  rentHotel: 550 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4, mortgaged: false , mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDeLaRepublique =  {name: 'Republic av.', square: 9 , value: 120, rent: 8 , rentHouse1: 40, rentHouse2: 100, rentHouse3: 300 , rentHouse4: 450 ,  rentHotel: 600 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 5, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50} ;
-var jailVisit = {name: 'jail visit', square: 10 , value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: special , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50}; 
+var jailVisit = {name: 'jail visit', square: 10 , value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: inactive , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50}; 
 var bdDeLaVillette = {name: 'Villette Bd.', square: 11 , value: 140, rent: 10 , rentHouse1: 50, rentHouse2: 150, rentHouse3: 450, rentHouse4: 625 ,  rentHotel: 750 , type: rentalProperty , color: purple, landLord: none , elementIndex : 6, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
 var publicServiceElectricity =  {name: 'ps. Electricity', square: 12 , value: 150, rent: 0 , rentHouse1: 0, rentHouse2: 0, rentHouse3: 0, rentHouse4: 0 ,  rentHotel: 0 , type: publicService , color: publicServicesColor, landLord: none , elementIndex : 7, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDeNeuilly = {name: 'Neuilly Av.', square: 13 , value: 140, rent: 10 , rentHouse1: 50, rentHouse2: 150 , rentHouse3: 450 , rentHouse4: 625 ,  rentHotel: 750 , type: rentalProperty , color: purple, landLord: none , elementIndex : 8, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
@@ -243,7 +206,7 @@ var avenueMozart = {name: 'Mozart Av.', square: 16 , value: 180, rent: 14 , rent
 var communityChestSquare2 = {name: 'communityChest', square:17, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var boulevardSaintMichel = {name: 'St Michel Bd.' ,  square:18,  rent: 14 , rentHouse1: 70, rentHouse2: 200, rentHouse3: 550 , rentHouse4: 750 ,  rentHotel: 950 , value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 12, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
 var placePigalle = {name: 'Pigalle',  square:19, value: 200, rent: 16 , rentHouse1: 80, rentHouse2: 220, rentHouse3: 600, rentHouse4: 800 ,  rentHotel: 1000 , type: rentalProperty , color: orange, landLord: none , elementIndex : 13, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
-var freeParc = {name: 'Free parc' ,  square:20 ,  value: none , rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: parc , color: none, landLord: none , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
+var freeParc = {name: 'Free parc' ,  square:20 ,  value: none , rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: inactive , color: none, landLord: none , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueMatignon = {name: 'Matignon Av.',  square:21 , value:220, rent: 18 , rentHouse1: 90, rentHouse2: 250, rentHouse3: 700 , rentHouse4: 875 ,  rentHotel: 1050 , type: rentalProperty , color: red, landLord: none  , elementIndex : 14, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150};
 var luckSquare2 = {name: 'Luck', square: 22 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var bdMalesherbes = {name: 'Malesh. Bd.',  square:23 , value: 220, rent: 18 , rentHouse1: 90, rentHouse2: 250, rentHouse3: 700, rentHouse4: 875 ,  rentHotel: 1050 , type: rentalProperty , color: red, landLord: none  , elementIndex : 15 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150} ;
@@ -486,6 +449,12 @@ var streetRepair = 'streetRepair';
 
 
 
+
+ var nextDiceLaunchInterval;
+
+
+
+
 //graph types
 
 
@@ -559,6 +528,7 @@ var pmTop = 'pmTop';
 
 
 
+var jailReleaseCost = 50;
 
 
 var minimumHouseValue = 50; //smallest house value

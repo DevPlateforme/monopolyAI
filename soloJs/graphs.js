@@ -1466,3 +1466,30 @@ function buildRightColorGraph(type , player, color){
 
 
  }
+
+
+
+
+ function updateHousesOnGui(property){
+
+
+     let propertySquare = property.square;
+
+
+   for(var i=1; i < 6 ; i++){
+
+        document.getElementById('square' + propertySquare + '_houseBar_' + i).style.background = colorArray[property.color.index].opacityOffCode;
+
+   }
+
+
+   for(var i=1; i < property.houses+1 ; i++){
+
+    document.getElementById('square' + propertySquare + '_houseBar_' + i).style.background = colorArray[property.color.index].opacityOnCode;
+
+   }
+
+
+     
+
+ }

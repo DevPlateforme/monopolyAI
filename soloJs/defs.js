@@ -223,11 +223,11 @@ function calculateStepVariable(player, setArray){
 
            if(setArray.length == 4){
 
-             return 0.98;
+             return 1.25;
 
            } else if (setArray.length == 3){
  
-             return 0.5;
+             return 0.75;
  
            } else if (setArray.length == 2){
  
@@ -475,7 +475,9 @@ function buildHouse(property){
 
       property.landLord.cash -= property.houseValue;
 
-      updateBoardCashOnGui(property.landLord)
+      updateBoardCashOnGui(property.landLord);
+
+      updateHousesOnGui(property);
 
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
@@ -1318,6 +1320,32 @@ function getMonopolyHouses(player,color){
 
    return count;
 
+
+
+}
+
+
+
+
+function playerInJail(player){
+
+   alert(player.name + ' is in jail!!');
+   player.jailManagement.inJail = true;
+
+   movePieceOnGui(player, player.position, jailVisit.square);
+
+   player.position = jailVisit.square;
+
+
+}
+
+
+function releasePlayerFromJail(player){
+
+  
+  alert(player.name + ' is out from jail!!');
+  player.jailManagement.inJail = false;
+  player.jailManagement.jailCount = 0;
 
 
 }

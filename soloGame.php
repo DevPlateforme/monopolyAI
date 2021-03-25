@@ -8157,10 +8157,10 @@
               
       <div class='pawnContainer'>
 
-         <div class='square10_pawnContainerhumanPlayer'></div>
-         <div class='square10_pawnContainerai1'></div>
-         <div class='square10_pawnContainerai2'></div>
-         <div class='square10_pawnContainerai3'></div>
+                     <div id='square10_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
+                     <div id='square10_pawnContainerai1' class='pawnContainerai1'></div>
+                     <div id='square10_pawnContainerai2' class='pawnContainerai2'></div>
+                     <div id='square10_pawnContainerai3' class='pawnContainerai3'></div>
 
     </div>
 
@@ -8198,8 +8198,8 @@
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
                          
-                       <div class='rpSquareBA1' id='square11_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square11_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_1' style='background:rgb(255,0,255,0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square11_houseBar_2' style='background:rgb(255,0,255,0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square11_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square11_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square11_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
@@ -8285,8 +8285,8 @@
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
                      
-                       <div class='rpSquareBA1' id='square13_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square13_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_1' style='background:rgb(255,0,255,0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square13_houseBar_2' style='background:rgb(255,0,255,0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square13_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square13_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square13_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
@@ -8350,8 +8350,8 @@
            
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square14_houseBar_1' style='background:rgb(255,0,255); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square14_houseBar_2' style='background:rgb(255,0,255); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_1' style='background:rgb(255,0,255,0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square14_houseBar_2' style='background:rgb(255,0,255,0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square14_houseBar_3' style='background:rgb(255,0,255,0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square14_houseBar_4' style='background:rgb(255,0,255,0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square14_houseBar_5' style='background:rgb(255,0,255,0.3); height:95%; width:12.5%'></div>
@@ -8476,8 +8476,8 @@
 
          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
 
-           <div class='rpSquareBA1' id='square16_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square16_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_1' style='background:rgb(255,140,0.4,0.3); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square16_houseBar_2' style='background:rgb(255,140,0.4,0.3); height:30%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square16_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square16_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square16_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
@@ -8564,8 +8564,8 @@
 
          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
 
-           <div class='rpSquareBA1' id='square18_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square18_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_1' style='background:rgb(255,140,0.4,0.3); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square18_houseBar_2' style='background:rgb(255,140,0.4,0.3); height:30%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square18_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square18_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square18_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
@@ -8629,8 +8629,8 @@
 
          <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
 
-           <div class='rpSquareBA1' id='square19_houseBar_1' style='background:rgb(255,140,0.4); height:10%; width:12.5%'></div>
-           <div class='rpSquareBA1' id='square19_houseBar_2' style='background:rgb(255,140,0.4); height:30%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_1' style='background:rgb(255,140,0.4, 0.3); height:10%; width:12.5%'></div>
+           <div class='rpSquareBA1' id='square19_houseBar_2' style='background:rgb(255,140,0.4, 0.3); height:30%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square19_houseBar_3' style='background:rgb(255,140,0.4, 0.3); height:50%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square19_houseBar_4' style='background:rgb(255,140,0.4,0.3); height:70%; width:12.5%'></div>
            <div class='rpSquareBA1' id='square19_houseBar_5' style='background:rgb(255,140,0.4,0.3); height:95%; width:12.5%'></div>
@@ -8723,8 +8723,8 @@
 
         <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
 
-            <div class='rpSquareBA1' id='square9_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
-            <div class='rpSquareBA1' id='square9_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_1' style='background:rgb(0,191,255,0.3); height:10%; width:12.5%'></div>
+            <div class='rpSquareBA1' id='square9_houseBar_2' style='background:rgb(0,191,255,0.3); height:30%; width:12.5%'></div>
             <div class='rpSquareBA1' id='square9_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
             <div class='rpSquareBA1' id='square9_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
             <div class='rpSquareBA1' id='square9_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
@@ -8780,8 +8780,8 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' id='square8_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' id='square8_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_1' style='background:rgb(0,191,255,0.3); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square8_houseBar_2' style='background:rgb(0,191,255,0.3); height:30%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square8_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square8_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square8_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
@@ -8855,8 +8855,8 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' id='square6_houseBar_1' style='background:rgb(0,191,255); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' id='square6_houseBar_2' style='background:rgb(0,191,255); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_1' style='background:rgb(0,191,255,0.3); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square6_houseBar_2' style='background:rgb(0,191,255,0.3); height:30%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square6_houseBar_3' style='background:rgb(0,191,255,0.3); height:50%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square6_houseBar_4' style='background:rgb(0,191,255,0.3); height:70%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square6_houseBar_5' style='background:rgb(0,191,255,0.3); height:95%; width:12.5%'></div>
@@ -8989,9 +8989,9 @@
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
       
                       
-                       <div class='rpSquareBA1' id='square3_houseBar_1' style='background:rgb(139,69,19); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square3_houseBar_2' style='background:rgb(139,69,19); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square3_houseBar_3' style='background:rgb(165,42,42, 0.45; height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_1' style='background:rgb(165,42,42, 0.45); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_2' style='background:rgb(165,42,42, 0.45); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square3_houseBar_3' style='background:rgb(165,42,42, 0.45); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square3_houseBar_4' style='background:rgb(165,42,42, 0.45); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1'  id='square3_houseBar_5' style='background:rgb(165,42,42, 0.45); height:95%; width:12.5%'></div>
                           
@@ -9075,9 +9075,9 @@
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
              
                       
-                       <div class='rpSquareBA1' id='square1_houseBar_1' style='background:rgb(139,69,19); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square1_houseBar_2' style='background:rgb(139,69,19); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square1_houseBar_3' style='background:rgb(165,42,42, 0.45; height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_1' style='background:rgb(165,42,42, 0.45); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_2' style='background:rgb(165,42,42, 0.45); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square1_houseBar_3' style='background:rgb(165,42,42, 0.45); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square1_houseBar_4' style='background:rgb(165,42,42, 0.45); height:70%; width:12.5%'></div>
                       <div class='rpSquareBA1'  id='square1_houseBar_5' style='background:rgb(165,42,42, 0.45); height:95%; width:12.5%'></div>
                          
@@ -9165,9 +9165,9 @@
                            
 
         <div class='tradeScreenAA'>
-            <div class='tradeScreenAAA'>
-                <div class='tradeScreenAAAA'>
-                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/woman.png'></img>
+            <div class='tradeScreenAAA' id='tradeScren_offererContainer'>
+                <div class='tradeScreenAAAA' id='tradeScren_offerer_imgDiv'>
+                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;  margin-right: 1%; margin-top:0.5%' src='./img/woman.png'></img>
                 </div>
                 <div class='tradeScreenAAAB'></div>
             </div>
@@ -9194,10 +9194,10 @@
 
 
         <div class='tradeScreenAA'>
-            <div class='tradeScreenAAA'>
+            <div class='tradeScreenAAA' id='tradeScren_answererContainer'>
                
                 <div class='tradeScreenAAAB'></div>
-                <div class='tradeScreenAAAA'>
+                <div class='tradeScreenAAAA' id='tradeScren_answerer_imgDiv' >
                      <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/aiface.png'></img>
                 </div>
             </div>
@@ -9296,8 +9296,8 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' id='square21_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' id='square21_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_1' style='background:rgb(255,0,0,0.3); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square21_houseBar_2' style='background:rgb(255,0,0,0.3); height:30%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square21_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square21_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square21_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
@@ -9373,8 +9373,8 @@
        
                <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
        
-                   <div class='rpSquareBA1' id='square23_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                   <div class='rpSquareBA1' id='square23_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_1' style='background:rgb(255,0,0,0.3); height:10%; width:12.5%'></div>
+                   <div class='rpSquareBA1' id='square23_houseBar_2' style='background:rgb(255,0,0,0.3); height:30%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square23_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square23_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
                    <div class='rpSquareBA1' id='square23_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
@@ -9427,8 +9427,8 @@
       
               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
       
-                  <div class='rpSquareBA1' id='square24_houseBar_1' style='background:rgb(255,0,0); height:10%; width:12.5%'></div>
-                  <div class='rpSquareBA1' id='square24_houseBar_2' style='background:rgb(255,0,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_1' style='background:rgb(255,0,0,0.3); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square24_houseBar_2' style='background:rgb(255,0,0,0.3); height:30%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square24_houseBar_3' style='background:rgb(255,0,0,0.3); height:50%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square24_houseBar_4' style='background:rgb(255,0,0,0.3); height:70%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square24_houseBar_5' style='background:rgb(255,0,0,0.3); height:95%; width:12.5%'></div>
@@ -9539,8 +9539,8 @@
       
               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
       
-                  <div class='rpSquareBA1' id='square26_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
-                  <div class='rpSquareBA1' id='square26_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_1' style='background:rgb(255,255,0,0.3); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square26_houseBar_2' style='background:rgb(255,255,0,0.3); height:30%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square26_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square26_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square26_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
@@ -9596,8 +9596,8 @@
       
               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
       
-                  <div class='rpSquareBA1' id='square27_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
-                  <div class='rpSquareBA1' id='square27_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_1' style='background:rgb(255,255,0,0.3); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square27_houseBar_2' style='background:rgb(255,255,0,0.3); height:30%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square27_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square27_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square27_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
@@ -9672,8 +9672,8 @@
       
               <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
       
-                  <div class='rpSquareBA1' id='square29_houseBar_1' style='background:rgb(255,255,0); height:10%; width:12.5%'></div>
-                  <div class='rpSquareBA1' id='square29_houseBar_2' style='background:rgb(255,255,0); height:30%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_1' style='background:rgb(255,255,0,0.3); height:10%; width:12.5%'></div>
+                  <div class='rpSquareBA1' id='square29_houseBar_2' style='background:rgb(255,255,0,0.3); height:30%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square29_houseBar_3' style='background:rgb(255,255,0,0.3); height:50%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square29_houseBar_4' style='background:rgb(255,255,0,0.3); height:70%; width:12.5%'></div>
                   <div class='rpSquareBA1' id='square29_houseBar_5' style='background:rgb(255,255,0,0.3); height:95%; width:12.5%'></div>
@@ -9763,8 +9763,8 @@
            
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square39_houseBar_1' style='background:rgb(0,0,100); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square39_houseBar_2' style='background:rgb(0,0,100); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_1' style='background:rgb(0,0,100,0.4); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_2' style='background:rgb(0,0,100,0.4); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square39_houseBar_3' style='background:rgb(0,0,139,0.4); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square39_houseBar_4' style='background:rgb(0,0,139,0.4); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square39_houseBar_5' style='background:rgb(0,0,139,0.4); height:95%; width:12.5%'></div>
@@ -9849,8 +9849,8 @@
            
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square37_houseBar_1' style='background:rgb(0,0,139); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square37_houseBar_2' style='background:rgb(0,0,139); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_1' style='background:rgb(0,0,139,0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_2' style='background:rgb(0,0,139,0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square37_houseBar_3' style='background:rgb(0,0,139,0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square37_houseBar_4' style='background:rgb(0,0,139,0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square37_houseBar_5' style='background:rgb(0,0,139,0.3); height:95%; width:12.5%'></div>
@@ -10000,8 +10000,8 @@
            
                    <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square34_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square34_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_1' style='background:rgb(0,255,0, 0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square34_houseBar_2' style='background:rgb(0,255,0, 0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square34_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square34_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square34_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>
@@ -10010,7 +10010,7 @@
            
                    <div class='rpSquareC'>
            
-                       <div class='rpSquareCA'>Capicines Bd.</div>
+                       <div class='rpSquareCA'>Capucines Bd.</div>
            
                        <div id='square34_landLord' class='rpSquareCB'>landlord : none</div>
            
@@ -10086,8 +10086,8 @@
            
                    <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square32_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square32_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_1' style='background:rgb(0,255,0, 0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square32_houseBar_2' style='background:rgb(0,255,0, 0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square32_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square32_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square32_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>
@@ -10149,8 +10149,8 @@
            
                    <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:5%'>
            
-                       <div class='rpSquareBA1' id='square31_houseBar_1' style='background:rgb(0,255,0); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square31_houseBar_2' style='background:rgb(0,255,0); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_1' style='background:rgb(0,255,0, 0.3); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square31_houseBar_2' style='background:rgb(0,255,0,0.3); height:30%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square31_houseBar_3' style='background:rgb(0,255,0, 0.3); height:50%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square31_houseBar_4' style='background:rgb(0,255,0, 0.3); height:70%; width:12.5%'></div>
                        <div class='rpSquareBA1' id='square31_houseBar_5' style='background:rgb(0,255,0, 0.3); height:95%; width:12.5%'></div>

@@ -1,33 +1,42 @@
+function getNextDiceLauncherIndex(){
+
+
+  if(nextDiceLauncherIndex >= (playersArray.length - 1)){
+    nextDiceLauncherIndex = 0;
+
+   } else {
+    nextDiceLauncherIndex++;
+  }
+
+}
 
 
 function launchDices(){
 
-
-
-    diceResult = Math.floor(Math.random() * (diceEdges)) + 2 ;
-    
-    //update the diceLauncher index
-
-
-    if(nextDiceLauncherIndex >= (playersArray.length - 1)){
-
-        nextDiceLauncherIndex = 0;
-
-    } else {
-
-        nextDiceLauncherIndex++;
-
-    }
-
-
+    diceResult = (Math.floor(Math.random() * (diceEdges -2)) +2) + (Math.floor(Math.random() * (diceEdges-2)) + 2);
+ 
+     getNextDiceLauncherIndex();
 
     nextDiceLauncher = playersArray[nextDiceLauncherIndex];
 
 
+    if(nextDiceLauncher.jailManagement.inJail == true){
+      improveJailCountAndCheck(nextDiceLauncher);
+
+        
+      if(nextDiceLauncher.jailManagement.inJail == true){
+
+         if(nextDiceLauncher != humanPlayer){
+              decideToStayInJailOrNot(nextDiceLauncher);
+            }
+
+       }
+
+   getNextDiceLauncherIndex();
+ }
 
 
-    return diceResult;
-    
+    return diceResult;    
 }
 
 
@@ -35,193 +44,47 @@ function launchDices(){
 
 function movePiece(){
 
-
     if(nextDiceLauncherIndex == 0){
-
-         lastDiceLauncher = playersArray[playersArray.length - 1];
-
+       lastDiceLauncher = playersArray[playersArray.length - 1];
     } else {
-
         lastDiceLauncher = playersArray[nextDiceLauncherIndex - 1];
-        
     }
 
-
-    //using the dice result function launched just before
-
     let oldPosition = lastDiceLauncher.position;
-    
-
     let updatedPosition  = lastDiceLauncher.position + diceResult;
       
      if(updatedPosition >= 40){
-
-        //IF THE PLAYER MADE A COMPLETE TURN, TAKE IT INTO ACCOUNT
-        
           updatedPosition -= 40;
-
      }
 
 
      lastDiceLauncher.position = updatedPosition;
 
-     //is there  departure collection pay
-
 
      if(oldPosition > 0 && updatedPosition < oldPosition ){
-
-      collectDeparturePay(lastDiceLauncher);
-
+        collectDeparturePay(lastDiceLauncher);
      }
 
 
-     //movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
-
-     //console.log('******square ' + squaresArray[updatedPosition] )      
-
-
-     //UPDATE THE POSITION ON THE BOARD
-     
-
-     
-     makePostLaunchMove();
-
+     movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
    }
 
 
 
 
-   function moveGuiPiece(){
-
-
-    //////console.log('moving the piece...');
-
-       
-
-   }
-
-
-   function makePostLaunchMove(){
-     
-
-     //////console.log('now its time for ' + lastDiceLauncher.name + ' to make a post launch move...' + 'le prochain dice launcher est ' + playersArray[nextDiceLauncherIndex].name);     
-
-
-
-
-   }
 
   
 
 
    function launchDicesAndMovePieces(){
 
-
-      let nextDiceLauncheInterval;
- 
       hideDiceLaunchButton();
-
-       //MAKE ALL THE OTHER INTEFACES DISAPPEAR
-
       launchDices();
-
-
       movePiece();
-
-      //console.log( lastDiceLauncher.name + ' just launched dices!!');
-
-
-      launchPlCheckTimeout();
-
+      launchPlTimeout();
+      launchPlCheck();      
       launchPLProcess();
-      
-        //FOR AIS, NO NEED TO EXECUTE THIS PART
-
-        //WAIT FOR THE PLAYER TO MAKE ITS POST LAUNCH MOVE, WHICH WILL FILL THE VARIABLE POSTLAUNCH DECISION
-                        
-        postLaunchMoveCheckInterval = setInterval( function(){
-
-             if(postLaunchDecision != done){
-
-              //console.log('*****************************************no decisions were taken yet');
-
-             }
-        
-              if(postLaunchDecision == done){
-
-                 AiThinking = false;
-
-                 //console.log('**************time for the next player to launch');
-
-
-                   //NEXT PLAYER
-
-                   
-
-                   setTimeout(
-
-
-                     function(){
-
-                      nextDiceLauncheInterval = setInterval(function(){
-
-                        if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
-
-
-                          boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
-
-                          AiThinking = true;
-
-                          clearInterval(nextDiceLauncheInterval);
-                          clearInterval(postLaunchMoveCheckInterval);
-
-
-
-
-                          if(nextDiceLauncher == humanPlayer){
-
-                            displayDiceLaunchButton(); 
-
-                            //launchDicesAndMovePieces();
-
-
-
-
-  
-                          } else {
-
-                            //console.log('*******the next dice launcher isnt the human!!')
-  
-                            launchDicesAndMovePieces();
-                            
-   
-                          }
-
-
-                        }
-
-                      }, 500);
-                      
-
-                     } , 1000);
-
-
-
-               }  
-          
-              }, 500);
-              
-
-  
-  
-
-
-         
-
-
-
-
   }
 
 
@@ -229,13 +92,8 @@ function movePiece(){
 
    function launchPLProcess(){ 
 
-      
-
-
        let currentSquare = squaresArray[lastDiceLauncher.position];
-
        let missingCash;
-
        postLaunchDecision = waiting;
 
 
@@ -253,7 +111,6 @@ function movePiece(){
                     
                   } else {
 
-                     //console.log(lastDiceLauncher.name + ' decided to buy ' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
 
@@ -284,7 +141,7 @@ function movePiece(){
 
                  if(findCashWithNonMonopolyProperties(lastDiceLauncher , missingCash) == true){
 
-                  boardJournal.innerHTML += (lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
+                     boardJournal.innerHTML += (lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
 
                      addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
                      updateBoardCashOnGui(lastDiceLauncher)
@@ -299,13 +156,11 @@ function movePiece(){
                 }
 
              }
-               //alert('vous n avez pas assez de cash pour acheter cette propriété!');
          }
 
          
       } else if (currentSquare.landLord != lastDiceLauncher) {
 
-            ////alert('cette propriété est détenue par ' + currentSquare.landLord.name);
 
             boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + currentSquare.landLord.name);
              
@@ -321,7 +176,6 @@ function movePiece(){
              
              if(lastDiceLauncher.cash < 0){
 
-                //missing cash ==> distance from 0
 
                 missingCash = -lastDiceLauncher.cash;
 
@@ -340,13 +194,20 @@ function movePiece(){
              }
 
 
-             setPostLauncDecisionToDone();
+             if(lastDiceLauncher == humanPlayer){
+               
+              setPostLauncDecisionToDone();
+
+             }
 
       
         } else {
 
-          setPostLauncDecisionToDone();
+          if(lastDiceLauncher == humanPlayer){
+               
+            setPostLauncDecisionToDone();
 
+           }
 
 
         }
@@ -377,18 +238,63 @@ function movePiece(){
 
          }
              
+      } else if ( currentSquare == jail) {
+          
+         playerInJail(lastDiceLauncher);
+
+         if(lastDiceLauncher == humanPlayer){
+               
+             setPostLauncDecisionToDone();
+
+         } else { 
+
+            decideToStayInJailOrNot(lastDiceLauncher);
+
+
+         }
+
+
+
+           
+
+      } else if (currentSquare.type = tax ){
+
+
+        lastDiceLauncher.cash -= 50;
+
+        updateBoardCashOnGui(lastDiceLauncher);
+
+
+        if(lastDiceLauncher == humanPlayer){
+               
+          setPostLauncDecisionToDone();
+
+         }
+
+
+
+
+
+        
+
+
+
       } else {
 
-        setPostLauncDecisionToDone();
+        if(lastDiceLauncher == humanPlayer){
+               
+          setPostLauncDecisionToDone();
 
+         }
       }
 
       
       if(lastDiceLauncher != humanPlayer){
 
-          ////alert('ok , post launch decision done!!')
 
           setPostLauncDecisionToDone();
+
+          
 
        }
 
@@ -404,24 +310,16 @@ function movePiece(){
 
       let missingCash;
        
-        //THIS ACTION IS AUTOMATIC
-
-
-            //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
             if(communityChestCardsList.length != 0){
 
                let card = communityChestCardsList[0];
                
-               ////////alert('vous avez piochés la carte caisse de communauté : ' + card.description);
 
                if(card.type == 'collection'){
-
-                ////////alert('vous recevez la somme de ' + card.collection + ' dollars' );
     
               } else if(card.type == 'payment'){
     
-                    ////////alert('vous payez la somme de ' + card.fee + ' dollars' );
     
                     lastDiceLauncher.cash -= card.fee;
 
@@ -431,7 +329,6 @@ function movePiece(){
                            
                 if(lastDiceLauncher.cash < 0){
 
-                       //missing cash ==> distance from 0
 
                      missingCash = -lastDiceLauncher.cash;
 
@@ -452,30 +349,19 @@ function movePiece(){
     
          } else if (card.type == 'movement'){
     
-                ////////alert('vous vous déplacez jusque ' + card.destination.name);
-
-                
-    
               }
     
 
-               //communityChestCardsList.splice(0,1);
 
 
               
             } else {
 
 
-               ////////alert('il n y a plus de cartes dans le paquet!');
 
 
             }
 
-            //IF COLLECT, COLLECT 
-
-           //IF PAY, PAY
-
-        //IF MOVEMENT, MOVE
 
         if(lastDiceLauncher == humanPlayer){
                  
@@ -496,22 +382,18 @@ function movePiece(){
    
    function drawChanceCardAndExecuteAction(){
 
-         //TAKE AN ELEMENT OUT OF THE DECK, AND SPLICE IT.
 
          if(chanceCardsList.length != 0){
 
               let card =  chanceCardsList[0];
               
-          ////////alert('vous avez piochés la carte chance :  ' + card.description);
 
 
           if(card.type == 'collection'){
 
-            ////////alert('vous recevez la somme de ' + card.collection + ' dollars' );
 
           } else if(card.type == 'payment'){
 
-                ////////alert('vous payés la somme de ' + card.fee + ' dollars' );
 
                lastDiceLauncher.cash -= card.fee;
                updateBoardCashOnGui(lastDiceLauncher)
@@ -522,15 +404,12 @@ function movePiece(){
 
           } else if (card.type == 'movement'){
 
-            ////////alert('vous vous déplacez jusque ' + card.destination.name);
 
           }
 
-          //chanceCardsList.splice(0,1);
          
        } else {
 
-          ////////alert('il n y a plus de cartes dans le paquet!')
        }
 
 
@@ -553,17 +432,12 @@ function payTheBank(payer, amount){
 
        if(amount > payer.cash){
 
-            //THE PLAYER IS POTENTIALLY GAME OVER. WHEN THATS THE CASE, THE PLAYER HAVE THE OPPORTUNITY TO MORTGAGE AS MANY HOUSES AS HE WANTS , THEN TO SELL ANYTHING HE WANTS.
-
-            //IF NOT , GAME OVER
-
             playerLoses(payer);
 
 
       } else {
 
 
-        //SUBSTRACT THE CASH FROM THE PLAYER A , ADD IT TO PLAYER B
       }
   }
 }
@@ -576,16 +450,11 @@ function payPlayer(payer, receiver){
 
        if(amount > payer.cash){
 
-            //THE PLAYER IS POTENTIALLY GAME OVER. WHEN THATS THE CASE, THE PLAYER HAVE THE OPPORTUNITY TO MORTGAGE AS MANY HOUSES AS HE WANTS , THEN TO SELL ANYTHING HE WANTS.
-
-            //IF NOT , GAME OVER;
-
             playerLoses(payer);
 
       } else {
 
 
-        //SUBSTRACT THE CASH FROM THE PLAYER A , ADD IT TO PLAYER B
       }
   }
 
@@ -606,9 +475,6 @@ function playerLoses(player){
 
 
 function playerLeavesTheGame(player){
-
-
-     //THE PLAYER IS DELETED FROM THE PLAYERS ARRAY.
 
 
 }
@@ -651,8 +517,6 @@ function launchInsufficientFundsForBuyingTimeout(){
 
         insufficientFundsForBuyingTimeout = setTimeout(function(){
 
-          //setPostLaunchActionToDone( insufficientFundsForBuyingTimeout );
-
           clearTimeout( insufficientFundsForBuyingTimeout);
 
         } , 45000)
@@ -684,7 +548,6 @@ function clearInsufficientFundsForBuyingTimeout(){
 
 function playerPaymentToTheBank(player, amount){
 
-     ////////alert ('le joueur ' + player.name + ' a payé la somme de ' + amount + 'dollars');
 
 }
 
@@ -702,11 +565,6 @@ function acceptTrade(proposition){
 
     let answer = proposition.answer;
 
-  //When one player trigger this function
-
-   //THE OFFER ARRAY IS ADDED TO THE ANSWERER'S ARRAY
-
-   //THE ANSWER ARRAY IS ADDED TO THE OFFERERSARRAY
 
   }
 
@@ -718,8 +576,6 @@ function acceptTrade(proposition){
 
      
      if(player.cash < value ){
-
-        //alert('you dont have enough cash...!!');
 
         setPostLaunchDecisionToDone();
 
@@ -735,7 +591,6 @@ function acceptTrade(proposition){
        closeAvailablePropertyInterface();
 
      
-       ////alert('ok! ' + player.name + ' a acheté la propriété : ' + property.name)
 
        setPostLauncDecisionToDone();
 
@@ -774,6 +629,7 @@ function acceptTrade(proposition){
 
     postLaunchDecision = done;
 
+
     clearTimeout(postLaunchMoveCheckTimeout);
 
 
@@ -782,10 +638,25 @@ function acceptTrade(proposition){
 
 
 
-  function launchPlCheckTimeout(){
+  function launchPlTimeout(){
+
+    let plDecisionTime;
+
+    if(lastDiceLauncher == humanPlayer){
+
+       plDecisionTime = 3000;
+
+    } else {
+
+      plDecisionTime = 3000;
+
+
+
+    }
 
 
     postLaunchMoveCheckTimeout = setTimeout(function(){
+
 
       if(postLaunchDecision == waiting){
 
@@ -816,10 +687,173 @@ function acceptTrade(proposition){
 
           }
 
+          
+
           setPostLauncDecisionToDone();
 
          }
 
-      }, 2000) ;
+      }, plDecisionTime) ;
 
   }
+
+
+
+  
+  function decideToStayInJailOrNot(player){
+       
+    if(desireToStayInJail(player) == false){
+        
+         tryTobuyJailRelease(player);
+    
+        } else {
+
+          alert(player.name + ' desire to stay in jail');
+
+
+        }
+
+
+    }
+
+
+function desireToStayInJail(player){
+
+
+  if(player.monopoliesArray.length > 0){  
+    
+        return true;
+
+  }
+
+          
+
+return false;
+
+}
+
+
+function tryTobuyJailRelease(player){
+
+     if(player.cash >= jailReleaseCost){
+
+        buyJailRelease(player);
+
+
+     } else {
+
+       if(findCashWithNonMonopolyProperties(player, (jailReleaseCost - player.cash)) == true){
+
+            buyJailRelease(player);
+
+       }
+    }
+}
+
+
+
+
+function buyJailRelease(player){
+
+    player.cash -= jailReleaseCost;
+    updateBoardCashOnGui(player);
+    releasePlayerFromJail(player);
+
+}
+
+
+
+
+
+
+
+function launchPlCheck(){
+  
+  
+  postLaunchMoveCheckInterval = setInterval( function(){
+
+  if(postLaunchDecision != done){
+
+   //console.log('*****************************************no decisions were taken yet');
+
+  }
+
+   if(postLaunchDecision == done){
+
+    alert('the PL decision was done')
+
+      AiThinking = false;
+
+      //console.log('**************time for the next player to launch');
+
+
+        //NEXT PLAYER
+
+        
+
+        setTimeout(
+
+
+          function(){
+
+            nextDiceLaunchInterval = setInterval(function(){
+
+             if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
+
+
+               boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
+
+               AiThinking = true;
+
+               clearInterval(nextDiceLaunchInterval);
+               clearInterval(postLaunchMoveCheckInterval);
+
+  
+               if(nextDiceLauncher == humanPlayer){
+
+                 displayDiceLaunchButton(); 
+
+
+               } else {
+
+
+                 launchDicesAndMovePieces();
+
+                 
+                 
+               }
+
+             }
+
+           }, 500);
+           
+
+          } , 1000);
+
+
+
+    }  
+
+   }, 500);
+
+
+}
+
+
+
+
+
+
+function improveJailCountAndCheck(player){
+
+    if(player.jailManagement.jailCount < 2 ){  
+            
+         player.jailManagement.jailCount++;
+
+    } else {
+
+      releasePlayerFromJail(player);
+
+    }
+
+}  
