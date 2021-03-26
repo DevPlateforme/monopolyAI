@@ -117,7 +117,6 @@ function movePiece(){
 
     } else {
 
-      alert('you landed on =>' + currentSquare.name)
               
           automaticAction = true;
 
@@ -137,7 +136,6 @@ function movePiece(){
  
           } else if(currentSquare.type == inactive){
 
-            alert("you landed on an inactive square!")
           }
 
 
@@ -174,7 +172,6 @@ function movePiece(){
 
             }
 
-               alert('you drew this card ==>' + card.description);
 
 
                
@@ -741,7 +738,6 @@ function playerLandsOnProperty(player, property){
     player.cash -= rentToPay;
     property.landLord.cash += rentToPay;
 
-    alert(player.name + ' landed on an owned property, and pay ' + rentToPay)
     
     if(property.landLord == humanPlayer){
          increaseCashCollected(property.color , rentToPay);

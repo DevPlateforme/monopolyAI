@@ -8,6 +8,10 @@ var breakVar = false;
 
 function init(){
 
+  givePlayersPropertiesForDemo();
+
+  removePlayer(humanPlayer);
+
 
     setInterval(
 
@@ -102,28 +106,28 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer,rueDeVaugirard);
-     addPropertyToPlayerWallet(humanPlayer,rueDeCourcelles);
-     addPropertyToPlayerWallet(humanPlayer,avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai1,rueDeVaugirard);
+     addPropertyToPlayerWallet(ai1,rueDeCourcelles);
+     addPropertyToPlayerWallet(ai1,avenueDeLaRepublique);
 
 
-     addPropertyToPlayerWallet(humanPlayer,avenueMatignon);
-     addPropertyToPlayerWallet(humanPlayer,bdMalesherbes);
-     addPropertyToPlayerWallet(humanPlayer,avenueHenriMartin);
+     addPropertyToPlayerWallet(ai1,avenueMatignon);
+     addPropertyToPlayerWallet(ai1,bdMalesherbes);
+     addPropertyToPlayerWallet(ai1,avenueHenriMartin);
 
 
      
-     addPropertyToPlayerWallet(humanPlayer,bdDeLaVillette);
-     addPropertyToPlayerWallet(humanPlayer,avenueDeNeuilly);
-     addPropertyToPlayerWallet(humanPlayer,rueDuParadis);
+     addPropertyToPlayerWallet(ai1,bdDeLaVillette);
+     addPropertyToPlayerWallet(ai1,avenueDeNeuilly);
+     addPropertyToPlayerWallet(ai1,rueDuParadis);
 
      
-     addPropertyToPlayerWallet(humanPlayer,placePigalle);
-     addPropertyToPlayerWallet(humanPlayer,boulevardSaintMichel);
-     addPropertyToPlayerWallet(humanPlayer,avenueMozart);
+     addPropertyToPlayerWallet(ai1,placePigalle);
+     addPropertyToPlayerWallet(ai1,boulevardSaintMichel);
+     addPropertyToPlayerWallet(ai1,avenueMozart);
 
 
-
+   ai1.cash = 20000;
 
      
 

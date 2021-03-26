@@ -586,10 +586,10 @@ function getRent(property){
 
         
         if(numOfPsOwned == 1){
-          return 30;
+          return (diceResult * 4);
         } else {
 
-          return 70;
+          return (diceResult * 10);
         }
 
       }
@@ -1165,7 +1165,7 @@ function playerInBankruptcy(player){
 
       gameOver(player);
   
-     } , 15000);
+     } , 3000);
 
 
 
