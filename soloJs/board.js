@@ -33,6 +33,9 @@ function launchDices(){
        }
 
    getNextDiceLauncherIndex();
+
+   nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+
  }
 
 
@@ -90,278 +93,131 @@ function movePiece(){
 
 
 
-   function launchPLProcess(){ 
 
-       let currentSquare = squaresArray[lastDiceLauncher.position];
-       let missingCash;
-       postLaunchDecision = waiting;
+  function launchPLProcess(){
 
+    let currentSquare = squaresArray[lastDiceLauncher.position];
+    let automaticAction = false;
 
-
-
-      if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){          
-    
-         if( currentSquare.landLord == none ){
-
-             if(lastDiceLauncher.cash > currentSquare.value){
-
-                  if(lastDiceLauncher == humanPlayer){
-
-                    displayAvailablePropertyPopup(currentSquare);
-                    
-                  } else {
+    postLaunchDecision = waiting;
 
 
-                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
+     //different actions
+     if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){ 
+          
+          if(playerLandsOnProperty(lastDiceLauncher, currentSquare) == propertyPayment || playerLandsOnProperty(lastDiceLauncher, currentSquare) == ownPropertyLanding ){
 
-                     updateBoardCashOnGui(lastDiceLauncher)
-                     updateBoardGraphs(lastDiceLauncher);
-                     
-                     
-                  }
-
-             } else {
-
-              if(lastDiceLauncher == humanPlayer){
-
-
-              } else {
-                           
-
-                 if(lastDiceLauncher.cash < 0){
-
-                      missingCash = (-lastDiceLauncher.cash ) + currentSquare.value;
-
-                 } else {
-
-                     missingCash = currentSquare.value - lastDiceLauncher.cash;
-
-                 }
-
-
-                 if(findCashWithNonMonopolyProperties(lastDiceLauncher , missingCash) == true){
-
-                     boardJournal.innerHTML += (lastDiceLauncher.name + ' found cash and decided to buy =>' + currentSquare.name);
-
-                     addPropertyToPlayerWallet(lastDiceLauncher , currentSquare );
-                     updateBoardCashOnGui(lastDiceLauncher)
-                     updateBoardGraphs(lastDiceLauncher);
-
-                     
-
-                } else {
-
-                  boardJournal.innerHTML += (lastDiceLauncher.name + ' tried to find cash to buy this property , but couldnt');
-
-                }
-
-             }
-         }
-
-         
-      } else if (currentSquare.landLord != lastDiceLauncher) {
-
-
-            boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + currentSquare.landLord.name);
-             
-            let rentToPay = getRent(currentSquare);
-
-             lastDiceLauncher.cash -= rentToPay;
-
-             updateBoardCashOnGui(lastDiceLauncher)
-
-
-             boardJournal.innerHTML += (lastDiceLauncher.name + ' paid ' + rentToPay);
-
-             
-             if(lastDiceLauncher.cash < 0){
-
-
-                missingCash = -lastDiceLauncher.cash;
-
-                 playerInBankruptcy(lastDiceLauncher);
-                 
-                if(lastDiceLauncher == humanPlayer){
-
-                  displayBankruptcyInterface();
-                
-                } else {
-                  
-                  findCash(lastDiceLauncher , missingCash);
-
-                }
-
-             }
-
-
-             if(lastDiceLauncher == humanPlayer){
-               
-              setPostLauncDecisionToDone();
-
-             }
-
-      
-        } else {
-
-          if(lastDiceLauncher == humanPlayer){
-               
-            setPostLauncDecisionToDone();
-
-           }
-
-
-        }
-
-
-       } else if (currentSquare.type == communityChest){
-
-          if(lastDiceLauncher == humanPlayer){
-
-              displayCommunityChestSquareInterface();
-
-          } else {
-
-             drawCommunityChestCardAndExecuteAction()
-
+            automaticAction = true;
 
           }
 
-       } else if (currentSquare.type == luck){
-  
-          if(lastDiceLauncher == humanPlayer){
+     } else if(currentSquare == jail){
 
-              displayChanceSquareInterface();
+        playerInJail(lastDiceLauncher);
 
-         } else {
+    } else {
 
-             drawChanceCardAndExecuteAction()
+      alert('you landed on =>' + currentSquare.name)
+              
+          automaticAction = true;
 
-         }
-             
-      } else if ( currentSquare == jail) {
           
-         playerInJail(lastDiceLauncher);
-
-         if(lastDiceLauncher == humanPlayer){
-               
-             setPostLauncDecisionToDone();
-
-         } else { 
-
-            decideToStayInJailOrNot(lastDiceLauncher);
-
-
-         }
-
-
-
-           
-
-      } else if (currentSquare.type = tax ){
-
-
-        lastDiceLauncher.cash -= 50;
-
-        updateBoardCashOnGui(lastDiceLauncher);
-
-
-        if(lastDiceLauncher == humanPlayer){
-               
-          setPostLauncDecisionToDone();
-
-         }
-
-
-
-
-
-        
-
-
-
-      } else {
-
-        if(lastDiceLauncher == humanPlayer){
-               
-          setPostLauncDecisionToDone();
-
-         }
-      }
-
       
-      if(lastDiceLauncher != humanPlayer){
+          if (currentSquare.type == communityChest){
 
-
-          setPostLauncDecisionToDone();
-
+            drawCardAndExecuteAction(communityChest);
           
+          } else if (currentSquare.type == luck){
 
+            drawCardAndExecuteAction(luck);
+
+          } else if (currentSquare.type = tax ){  
+
+             playerLandsOnTaxSquare(lastDiceLauncher);
+ 
+          } else if(currentSquare.type == inactive){
+
+            alert("you landed on an inactive square!")
+          }
+
+
+    }
+
+
+     //end process
+
+
+
+       if(lastDiceLauncher != humanPlayer || automaticAction == true){
+
+        setPostLauncDecisionToDone();  
        }
 
 
 
-    
-    }
-
-    
-
-
-   function drawCommunityChestCardAndExecuteAction(){
-
-      let missingCash;
-       
-
-            if(communityChestCardsList.length != 0){
-
-               let card = communityChestCardsList[0];
-               
-
-               if(card.type == 'collection'){
-    
-              } else if(card.type == 'payment'){
-    
-    
-                    lastDiceLauncher.cash -= card.fee;
-
-                    updateBoardCashOnGui(lastDiceLauncher)
-
-    
-                           
-                if(lastDiceLauncher.cash < 0){
-
-
-                     missingCash = -lastDiceLauncher.cash;
-
-                    playerInBankruptcy(lastDiceLauncher);
-               
-                if(lastDiceLauncher == humanPlayer){
-
-                   displayBankruptcyInterface();
-              
-               } else {
-                
-                  findCash(lastDiceLauncher , missingCash);
-
-              }
-
-           }
-    
-    
-         } else if (card.type == 'movement'){
-    
-              }
-    
+   }
 
 
 
-              
+   function drawCardAndExecuteAction(type){
+
+            let card;
+            
+
+            if(type == communityChest){
+
+              card = communityChestCardsList[0];
+
             } else {
 
-
-
+              card =  chanceCardsList[0];
 
             }
 
+               alert('you drew this card ==>' + card.description);
+
+
+               
+
+             if(card.type == collection){
+
+                lastDiceLauncher.cash += card.collection;
+                updateBoardCashOnGui(lastDiceLauncher);
+      
+    
+               } else if(card.type == payment){
+    
+                    lastDiceLauncher.cash -= card.fee;
+                    updateBoardCashOnGui(lastDiceLauncher);
+
+                    if(checkForBankruptcy(lastDiceLauncher) == true){
+
+                      findCash(lastDiceLauncher , (-player.cash + card.fee));
+                      updateBoardCashOnGui(lastDiceLauncher);
+
+                  }
+
+            } else if (card.type == movement){
+ 
+              movePieceOnGui(lastDiceLauncher, lastDiceLauncher.position , card.destination.square)
+              lastDiceLauncher.position = card.destination.square;
+
+
+           } else if (card.type == movementAndCollection){ 
+
+              movePieceOnGui(lastDiceLauncher, lastDiceLauncher.position , departure.square)
+              lastDiceLauncher.position = card.destination.square;
+              lastDiceLauncher.cash += card.collection;
+              updateBoardCashOnGui(lastDiceLauncher);
+
+
+
+         }
+    
+
+
+
+          
 
         if(lastDiceLauncher == humanPlayer){
                  
@@ -380,47 +236,6 @@ function movePiece(){
 
 
    
-   function drawChanceCardAndExecuteAction(){
-
-
-         if(chanceCardsList.length != 0){
-
-              let card =  chanceCardsList[0];
-              
-
-
-          if(card.type == 'collection'){
-
-
-          } else if(card.type == 'payment'){
-
-
-               lastDiceLauncher.cash -= card.fee;
-               updateBoardCashOnGui(lastDiceLauncher)
-
-
-              checkForBankruptcy(lastDiceLauncher);
-
-
-          } else if (card.type == 'movement'){
-
-
-          }
-
-         
-       } else {
-
-       }
-
-
-          setTimeout( function(){ 
-            
-            setPostLauncDecisionToDone();           
-            closeDrawCardInterface()}, 1500);
-
-   }
-
-  
  
 
 
@@ -490,10 +305,10 @@ function buyAvailableProperty(){
       updateBoardCashOnGui(humanPlayer);
       updateBoardGraphs(humanPlayer);
 
-
       setPostLauncDecisionToDone();
-
       closeAvailablePropertyInterface();
+
+      increaseCashSpent(property.color , property.value);
 
 }
 
@@ -644,11 +459,11 @@ function acceptTrade(proposition){
 
     if(lastDiceLauncher == humanPlayer){
 
-       plDecisionTime = 3000;
+       plDecisionTime = 5000;
 
     } else {
 
-      plDecisionTime = 3000;
+      plDecisionTime = 5000;
 
 
 
@@ -708,7 +523,6 @@ function acceptTrade(proposition){
     
         } else {
 
-          alert(player.name + ' desire to stay in jail');
 
 
         }
@@ -780,7 +594,6 @@ function launchPlCheck(){
 
    if(postLaunchDecision == done){
 
-    alert('the PL decision was done')
 
       AiThinking = false;
 
@@ -798,7 +611,7 @@ function launchPlCheck(){
 
             nextDiceLaunchInterval = setInterval(function(){
 
-             if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
+             if(AiThinking == false && humanThinking == false && tradeAnimationOn == false && bankruptcyTimeoutOn == false){
 
 
                boardJournal.innerHTML += ('<br>' + nextDiceLauncher.name + ' will launch dices!!');
@@ -857,3 +670,133 @@ function improveJailCountAndCheck(player){
     }
 
 }  
+
+
+
+function handleBankruptcy(player){
+
+
+
+
+}
+
+
+
+
+function playerLandsOnProperty(player, property){
+
+   let missingCash;
+
+  if( property.landLord == none ){
+
+    if(player.cash > property.value){
+         if(player == humanPlayer){
+           displayAvailablePropertyPopup(property);
+         } else {
+            addPropertyToPlayerWallet(player , property );
+            updateBoardCashOnGui(player)
+            updateBoardGraphs(player);
+         }
+
+    } else {
+
+     if(lastDiceLauncher == humanPlayer){
+
+     } else {           
+
+        if(lastDiceLauncher.cash < 0){
+             missingCash = (-player.cash ) + property.value;
+        } else {
+
+            missingCash = property.value - player.cash;
+
+        }
+
+        if(findCashWithNonMonopolyProperties(player , missingCash) == true){
+
+            boardJournal.innerHTML += (player.name + ' found cash and decided to buy =>' + property.name);
+            addPropertyToPlayerWallet(player , property );
+            updateBoardCashOnGui(player)
+            updateBoardGraphs(player);
+
+       } else {
+
+         boardJournal.innerHTML += (player.name + ' tried to find cash to buy this property , but couldnt');
+
+       }
+
+    }
+
+}
+
+ return availableProperty;
+
+
+} else if (property.landLord != player) {
+
+   boardJournal.innerHTML += ('<br>' + 'cette propriété est détenue par ' + property.landLord.name);
+  
+   let rentToPay = getRent(property);
+
+    player.cash -= rentToPay;
+    property.landLord.cash += rentToPay;
+
+    alert(player.name + ' landed on an owned property, and pay ' + rentToPay)
+    
+    if(property.landLord == humanPlayer){
+         increaseCashCollected(property.color , rentToPay);
+    }
+
+    updateBoardCashOnGui(player);
+    updateBoardCashOnGui(property.landLord);
+
+
+    boardJournal.innerHTML += (player.name + ' paid ' + rentToPay);
+    
+    if(player.cash < 0){
+
+       missingCash = -player.cash;
+
+        playerInBankruptcy(lastDiceLauncher);
+        
+       if(player == humanPlayer){
+         displayBankruptcyInterface();
+       } else {
+         findCash(player , missingCash);
+       }
+
+    }
+
+ 
+      return propertyPayment;
+
+
+
+  } else {
+
+
+    if(property.landLord == humanPlayer){
+
+      colorLandingCounts[property.color.index]++;
+
+    }
+
+
+  return ownPropertyLanding;
+
+
+
+  }
+
+}
+
+
+
+
+
+function playerLandsOnTaxSquare(player){
+     
+   player.cash -= 150;
+   checkForBankruptcyAndReact(player);
+   
+}

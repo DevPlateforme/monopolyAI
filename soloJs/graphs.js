@@ -825,9 +825,9 @@ function buildPmGraph1(color){
             labels: ['', '', ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
+                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,255,0.7)",  "rgb(255,0,0,0.7)"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,15,45]  
+                data: [getColorLandingCounts(color) , getHousesBuiltCount(color), getHousesSoldCount(color)]  
             }]
         },
         
@@ -884,7 +884,7 @@ function buildPmGraph2(color){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,10, 30]
+                data: getNetProfit(color)
             }]
         },
         
@@ -1198,7 +1198,7 @@ function buildRightColorGraph(type , player, color){
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.35)", "rgb(255,0,0,0.35)",  "rgb(0,255,0,0.35)", "rgb(255,0,255,0.35)"],
                 borderColor: 'rgb(255,0,0)',
-                data: [15,15,20,40,1]
+                data: calculatePlayersSituations()
             }]
         },
         

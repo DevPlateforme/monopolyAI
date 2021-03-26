@@ -382,7 +382,7 @@ function closeAvailablePropertyInterface(){
      humanThinking = true;
      document.getElementById('chanceSquareInterface').style.display = 'flex';
 
-     document.getElementById('drawCardButton').setAttribute("onclick", "drawCommunityChestCardAndExecuteAction()")
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(communityChest)")
      
 
  }
@@ -392,7 +392,7 @@ function closeAvailablePropertyInterface(){
      humanThinking = true;
      document.getElementById('chanceSquareInterface').style.display = 'flex';
 
-     document.getElementById('drawCardButton').setAttribute("onclick", "drawChanceCardAndExecuteAction()")
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(luck)")
 
      //add an invisible button
 
@@ -1447,6 +1447,8 @@ function getMortgageFromInterface(elementIndex){
 
      getMortgage(property);
 
+     increaseCashCollected(property.color , property.mortgageValue);
+
      clearTradeColor(pmTop, colorArray[displayedPmColor].units);
 
      displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
@@ -1466,6 +1468,9 @@ function closeMortgageFromInterface(elementIndex){
      clearTradeColor(pmTop, colorArray[displayedPmColor].units);
 
      displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
+
+     increaseCashSpent(property.color , property.mortgageValue);
+
      
      displayPmBottomDiv();
 
@@ -1572,10 +1577,15 @@ function buildHouseFromInterface(){
 
       }
 
-
+ 
      
-          
           buildHouse(getNextHouseSlotToBuild(humanPlayer , colorArray[displayedPmColor]));
+
+          housesBuiltCounts[displayedPmColor]++;
+
+          increaseCashSpent(colorArray[displayedPmColor], humanPlayer.propertiesByColor[displayedPmColor].properties[0].houseValue);
+
+
 
           displayPmBottomDiv();
 
@@ -1598,6 +1608,8 @@ function sellHouseFromInterface(){
 
          if(nextHouseSlot.houses != 0){
              sellHouse(nextHouseSlot);
+             housesSoldCounts[displayedPmColor]++;
+             increaseCashCollected(colorArray[displayedPmColor], (humanPlayer.propertiesByColor[displayedPmColor].properties[0].houseValue/2))
              displayPmBottomDiv();
 
           } else {
@@ -1649,11 +1661,14 @@ function sellHouseFromInterface(){
     
     
           document.getElementById('square' + from + '_pawnContainer'+ player.name ).style.background ='none';
-
+          document.getElementById('square' + from + '_pawnContainer'+ player.name ).innerHTML = '';
           
-          alert('jail ==> square' + from + '_pawnContainer'+ player.name );
+          
+
     
           document.getElementById('square' + to + '_pawnContainer'+ player.name ).style.background = pawn;
+          document.getElementById('square' + to + '_pawnContainer'+ player.name ).innerHTML = player.name;
+
     
     
 
@@ -3190,8 +3205,6 @@ function addSynergeticCashAnswerLine(cash){
 
 function clearSynergeticScreen(){
 
-
-     
      document.getElementById('synergeticScreen_offererContainer').innerHTML = '';
      document.getElementById('synergeticScreen_answererContainer').innerHTML = '';
 }

@@ -791,6 +791,8 @@ function sellHouse(property){
 
       updateBoardCashOnGui(property.landLord)
       updateHousesOnGui(property);
+      boardGraph1();  
+
 
 
 

@@ -6015,38 +6015,37 @@
 
                               <div class='pManagementInterfaceABBAAA' style='height:20%;width:100%; display:flex; flex-direction:row; justify-content: space-around'> 
 
-                                 <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:center; align-items:center'>
+                                 <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:space-around; align-items:center'>
                                 
                                          <div style='height:20%;width:100%;  display:flex; flex-direction:row; justify-content:center; align-items:center'>
                                          
-                                              <div style='height:70%;width:20%;background:brown'>
+                                              <div style='height:70%;width:20%;background:blue'>
 
                                               </div>
                                         </div>
 
-                                         <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.7vw'>
-                                            
-                                             cash spent
+                                         <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
+                                            135 landings
                                          </div>
                                 </div>
 
 
-                                <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:center; align-items:center'>
+                                <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:space-around; align-items:center'>
                                 
                                 <div style='height:20%;width:100%; display:flex; flex-direction:row; justify-content:center; align-items:center'>
                                 
-                                     <div style='height:70%;width:20%;background:brown'>
+                                     <div style='height:70%;width:20%;background:purple'>
 
                                      </div>
                                </div>
 
-                                <div style='height:20%;width:100%;  display:flex; justify-content:center; align-items:center; font-size: 0.7vw'>
+                                <div style='height:20%;width:100%;  display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
                                    
-                                    cash spent
+                                    4 houses built
                                 </div>
                                </div> 
                                
-                               <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:center; align-items:center'>
+                               <div style='height:100%; width:33%; display:flex; flex-direction:column; justify-content:space-around; align-items:center'>
                                 
                                 <div style='height:20%;width:100%;  display:flex; flex-direction:row; justify-content:center; align-items:center'>
                                 
@@ -6055,9 +6054,9 @@
                                      </div>
                                </div>
 
-                                <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.7vw'>
+                                <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
                                    
-                                    cash spent
+                                    2 houses sold
                                 </div>
                             </div>
 
@@ -6073,7 +6072,7 @@
 
                        <div class='pManagementInterfaceABBAB' style='width:33%; height:100%; display:flex; flex-direction:column; align-items:center;justify-content:space-between'>
 
-                              <div  class='pManagementInterfaceABBABA' style=' height:20%; width: 100%;display:flex; justify-content:center; align-items:center'>avg.revenue</div>
+                              <div  class='pManagementInterfaceABBABA' style=' height:20%; width: 100%;display:flex; justify-content:center; align-items:center'>net profit : - 25$</div>
 
 
 
@@ -6086,7 +6085,7 @@
 
                        <div class='pManagementInterfaceABBAC' style='width:33%; height:100%; display:flex; flex-direction:column; align-items:center;justify-content:flex-start'>
 
-                             <div class='pManagementInterfaceABBACA' style=' height:20%; width: 100%; display:flex;  justify-content:center; align-items:center'>avg.cost</div>
+                             <div class='pManagementInterfaceABBACA' style=' height:20%; width: 100%; display:flex;  justify-content:center; align-items:center'>house cost</div>
                              <div class='pManagementInterfaceABBACB'  id='pmGraphContainer' style='height:60%; width: 100%; display:flex;  justify-content:center; align-items:center; margin-top:15%'>
                                     <canvas id='pmBottom_pmGraph3' width="100" height="55"></canvas>
                                  
@@ -9121,7 +9120,7 @@
 
                            <canvas height='100' width='100' id='boardGraph1'></canvas>
 
-                          <div  class='digitalContainerBBBAAA'>situation</div>
+                          <div  class='digitalContainerBBBAAA'>scores</div>
                         </div>
                         <div class='digitalContainerBBBAB' id='boardGraphContainer2'>
                            <canvas height='100' width='100' id='boardGraph2'></canvas>

@@ -66,6 +66,11 @@ var upgrade = 'upgrade';
 var downgrade = 'downgrade';
 
 
+var housesBuiltCounts = [ 0 , 0 ,  0 , 0 ,  0 , 0 , 0 , 0, 0, 0 ];
+var housesSoldCounts = [ 0 , 0 ,  0 , 0 ,  0 , 0 , 0 , 0 , 0 , 0 ];
+var colorLandingCounts = [ 0 , 0 ,  0 , 0 ,  0 , 0 , 0 , 0 , 0 , 0];
+var cashCollectedArray = [ 0 , 0 ,  0 , 0 ,  0 , 0 , 0 , 0 , 0 , 0];
+var cashSpentArray = [ 0 , 0 ,  0 , 0 ,  0 , 0 , 0 , 0 , 0 , 0];
 
  
 
@@ -89,6 +94,16 @@ var displayedLaunchBtn = true;
 
 var diceEdges = 6;
 var diceResult;
+
+
+//bankruptcy
+
+
+var bankruptcyTimeoutOn = false;
+
+var bankruptcyTimeout; 
+  
+var bankruptcyInterval;
 
 
 var nextDiceLauncherIndex = humanPlayer.playerIndex;
@@ -168,7 +183,7 @@ var displayedAnswererColor = 0;
 
 var departure = 'DEPARTURE';
 var rentalProperty = 'RP';
-var  communityChest = 'CC';
+var communityChest = 'CC';
 var trainStation = 'TS';
 var luck = 'LUCK';
 var publicService = 'PS';
@@ -196,7 +211,7 @@ var rueDeVaugirard = {name: 'Vaugirard St.',  square: 6 , value: 100, rent: 6 , 
 var luckSquare1 = {name: 'Luck', square: 7 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var rueDeCourcelles = {name: 'Courcelles St.', square: 8 , value: 100, rent: 6 , rentHouse1: 30, rentHouse2: 90, rentHouse3: 270, rentHouse4: 400 ,  rentHotel: 550 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4, mortgaged: false , mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDeLaRepublique =  {name: 'Republic av.', square: 9 , value: 120, rent: 8 , rentHouse1: 40, rentHouse2: 100, rentHouse3: 300 , rentHouse4: 450 ,  rentHotel: 600 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 5, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50} ;
-var jailVisit = {name: 'jail visit', square: 10 , value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: inactive , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50}; 
+var jailVisit = {name: 'jail visit', square: 10 , type: inactive}; 
 var bdDeLaVillette = {name: 'Villette Bd.', square: 11 , value: 140, rent: 10 , rentHouse1: 50, rentHouse2: 150, rentHouse3: 450, rentHouse4: 625 ,  rentHotel: 750 , type: rentalProperty , color: purple, landLord: none , elementIndex : 6, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
 var publicServiceElectricity =  {name: 'ps. Electricity', square: 12 , value: 150, rent: 0 , rentHouse1: 0, rentHouse2: 0, rentHouse3: 0, rentHouse4: 0 ,  rentHotel: 0 , type: publicService , color: publicServicesColor, landLord: none , elementIndex : 7, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDeNeuilly = {name: 'Neuilly Av.', square: 13 , value: 140, rent: 10 , rentHouse1: 50, rentHouse2: 150 , rentHouse3: 450 , rentHouse4: 625 ,  rentHotel: 750 , type: rentalProperty , color: purple, landLord: none , elementIndex : 8, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
@@ -280,16 +295,15 @@ var done = 'done';
 
 
 var postLaunchMoveCheckInterval;
-
 var postLaunchMoveCheckTimeout;
-
-
-
 
 
 var postLaunchDecision = waiting;
 
 
+var propertyPayment = 'property payment';
+
+var ownPropertyLanding = 'own property landing';
 
 var availableProperty = 'availableProperty';
 
@@ -306,6 +320,7 @@ var payment = 'payment';
 var outOfJail = 'outOfJail';
 var goToJail = 'goToJail';
 var streetRepair = 'streetRepair';
+var movementAndCollection = 'movementAndCollection';
 
 
 
@@ -317,39 +332,39 @@ var streetRepair = 'streetRepair';
        //COMMUNITY CHEST
 
 
-//var advanceToGoCard = {type: movementAndCollection , description: "déplacez vous jusque la case départ, et recevez 200 dollars", movement : departure , collection : none , fee : none };
+   var advanceToGoCard = {type: movementAndCollection , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination : departure , collection : 200};
 
-   var bankErrorCard = {type: collection , revenue: 200 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars" , movement: none, collection: 200, fee: none};
+   var bankErrorCard = {type: collection , revenue: 200 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars" , collection: 200, fee: none};
 
-   var DoctorsFeeCard = {type: payment , description: "Frais de docteur. Payez 50 dollars", movement: none , collection : none , fee: 50 };
+   var DoctorsFeeCard = {type: payment , description: "Frais de docteur. Payez 50 dollars", fee: 50 };
 
    var saleOfStockCard = {type: collection , description: "Vente d'actions, vous gagnez 50 dollars", collection : 50};
 
 //var getOutOfJailFreeCard = { type : outOfJail, descrition: "Cette carte vous permet de sortir prison, lorsqu'utilisée", movement: none, collection: none, fee : none}; 
 
-   var goToJailCard = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ" , movement: none, collection: none, fee : none };
+   var goToJailCard = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
 
 //var GrandOperaNightCard = {type: collection, revenue: 150 , description : "Grand Opera Night : Vous recevez 50 dollars de la part de chaque joueur" };
 
-    var HolidayFundCard = {type: collection, description: "Holliday fund. Recevez 20 dollars." , movement: none , collection : 100 , fee: 100 };
+    var HolidayFundCard = {type: collection, description: "Holliday fund. Recevez 20 dollars." , collection : 100 , fee: 100 };
 
-    var incomeTaxRefundCard = {type: collection , revenue: 20, description: "Remboursement des impôts. Recevez 20 dollars." , movment: none, collection: 10, fee:none};
+    var incomeTaxRefundCard = {type: collection , revenue: 20, description: "Remboursement des impôts. Recevez 20 dollars." , collection: 10};
 
-    var birthdayCollectCard = {type: collection ,  collection: 10, description: "C'est votre anniversaire. Recevez 10 dollars." , movement: none, fee:none};
+    var birthdayCollectCard = {type: collection ,  collection: 10, description: "C'est votre anniversaire. Recevez 10 dollars."};
 
-    var lifeInsuranceCard = {type: collection , collection: 100, description: "Assurance. Recevez 100 dollars", movement: none, fee: none};
+    var lifeInsuranceCard = {type: collection , collection: 100, description: "Assurance. Recevez 100 dollars"};
 
-    var hospitalFeesCard = {type: payment ,  description: "Frais d'Hôpitaux. Payez 100 dollars", movement : none , fee : none};
+    var hospitalFeesCard = {type: payment ,  description: "Frais d'Hôpitaux. Payez 100 dollars" , fee : 100};
  
-    var schoolFeesCard = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars", momement: none, collection: none}; 
+    var schoolFeesCard = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"}; 
 
-    var consultancyFeeCollectionCard  = {type: collection , collection: 25 , description: "Vous facturez 25 dollars de frais de consultation. Recevez 25 dollars" , movement:none, fee: none};
+    var consultancyFeeCollectionCard  = {type: collection , collection: 25 , description: "Vous facturez 25 dollars de frais de consultation. Recevez 25 dollars"};
 
   //var streetRepairCard = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
 
-    var beautyPrizeCard = {type: collection , collection : 150 , description: "Vous arrivez à la seconde position d'un concours de beauté. Vous recevez 10 dollars", movement: none, fee: none};
+    var beautyPrizeCard = {type: collection , collection : 150 , description: "Vous arrivez à la seconde position d'un concours de beauté. Vous recevez 10 dollars"};
 
-     var hundredDollarsInheritionCard = {type: collection , collection : 100 , description: "Vous héritez de 100 dollars", movement: none, fee : none};
+     var hundredDollarsInheritionCard = {type: collection , collection : 100 , description: "Vous héritez de 100 dollars"};
 
 
 
@@ -397,7 +412,7 @@ var streetRepair = 'streetRepair';
 
 
 
-    var communityChestCardsList = [ /* advanceToGoCard */ bankErrorCard,DoctorsFeeCard ,  saleOfStockCard ,/* getOutOfJailFreeCard , goToJailCard , GrandOperaNightCard , */ HolidayFundCard, incomeTaxRefundCard , birthdayCollectCard , lifeInsuranceCard , hospitalFeesCard, schoolFeesCard , consultancyFeeCollectionCard , /*streetRepairCard */ beautyPrizeCard , hundredDollarsInheritionCard ];
+    var communityChestCardsList = [  advanceToGoCard , bankErrorCard, DoctorsFeeCard ,  saleOfStockCard ,/* getOutOfJailFreeCard , goToJailCard , GrandOperaNightCard , */ HolidayFundCard, incomeTaxRefundCard , birthdayCollectCard , lifeInsuranceCard , hospitalFeesCard, schoolFeesCard , consultancyFeeCollectionCard , /*streetRepairCard */ beautyPrizeCard , hundredDollarsInheritionCard ];
 
 
     var availableCommunityCardsIndexesArray = [0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16] ;

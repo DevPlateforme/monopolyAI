@@ -17,10 +17,7 @@ function init(){
           
       );
 
-      removePlayer(humanPlayer);
 
-
-      givePlayersPropertiesForDemo();
       
 
       boardGraph1();  
@@ -74,6 +71,7 @@ function init(){
 
 
 
+
           document.addEventListener("keypress", function(event) {
 
                   //IF YOU PRESS Q, JUMP
@@ -104,12 +102,27 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai1,rueDeVaugirard);
-     addPropertyToPlayerWallet(ai1,rueDeCourcelles);
-     addPropertyToPlayerWallet(ai1,avenueDeLaRepublique);
+     addPropertyToPlayerWallet(humanPlayer,rueDeVaugirard);
+     addPropertyToPlayerWallet(humanPlayer,rueDeCourcelles);
+     addPropertyToPlayerWallet(humanPlayer,avenueDeLaRepublique);
 
-     buildHouse(rueDeVaugirard)
-     buildHouse(rueDeCourcelles)
+
+     addPropertyToPlayerWallet(humanPlayer,avenueMatignon);
+     addPropertyToPlayerWallet(humanPlayer,bdMalesherbes);
+     addPropertyToPlayerWallet(humanPlayer,avenueHenriMartin);
+
+
+     
+     addPropertyToPlayerWallet(humanPlayer,bdDeLaVillette);
+     addPropertyToPlayerWallet(humanPlayer,avenueDeNeuilly);
+     addPropertyToPlayerWallet(humanPlayer,rueDuParadis);
+
+     
+     addPropertyToPlayerWallet(humanPlayer,placePigalle);
+     addPropertyToPlayerWallet(humanPlayer,boulevardSaintMichel);
+     addPropertyToPlayerWallet(humanPlayer,avenueMozart);
+
+
 
 
      
@@ -203,10 +216,6 @@ function aiReflects(ai){
 
      } 
      
-
-
-         //SORT THE PROPOSITIONS (TAKING THE HIGHEST BENEFIT, USING QUICKSORT)
-         //DONT INCLUDE PROPOSITIONS , IF THEY ARE IN THE REFUSEDPROPOSAL HASH
 
 
          

@@ -347,11 +347,26 @@ function checkForBankruptcy(player){
 
         playerInBankruptcy(player);
 
-     }
+        return true;
 
+     } 
+
+
+     return false;
 
 }
 
+
+
+function checkForBankruptcyAndReact(player){
+
+      if(checkForBankruptcy(player) == true){
+
+        findCash(player, -player.cash );
+
+      };
+
+}
 
 
 
@@ -390,7 +405,10 @@ function closeMortgage(property){
          property.landLord.mortgages -= 1;
          addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name);
 
-         squareBorderOn(property.square)
+         squareBorderOn(property.square);
+
+         boardGraph1();
+
 
      } else {
 
@@ -485,7 +503,8 @@ function buildHouse(property){
       addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
 
 
- 
+      boardGraph1();  
+
 
      }
 
@@ -1064,6 +1083,8 @@ function getMortgage(property){
 
         squareBorderOn(property.square)
 
+        boardGraph1();
+
 
 
 
@@ -1134,11 +1155,19 @@ function playerInBankruptcy(player){
   if(player.bankruptcy == false){
     
      player.bankruptcy = true;
+     bankruptcyTimeoutOn = true;
+
+     alert(player.name + ' is in bankruptcy');
 
 
-    let bankruptcyTimeout; 
+      
+    bankruptcyTimeout = setTimeout(function(){
+
+      gameOver(player);
   
-   let bankruptcyInterval;
+     } , 15000);
+
+
 
 
    bankruptcyInterval = setInterval(
@@ -1151,11 +1180,14 @@ function playerInBankruptcy(player){
 
         clearInterval(bankruptcyInterval);
 
-        ////alert(' the player ' + player.name + ' went out from bankruptcy');
+        alert(' the player ' + player.name + ' went out from bankruptcy');
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
 
         addNotif('<br> the player ' + player.name + ' found enough cash to go out from bankruptcy');
+
+        bankruptcyTimeoutOn = false;
+
 
         
        }
@@ -1166,12 +1198,7 @@ function playerInBankruptcy(player){
      ////alert(' bankruptcy timeout launched for ' + player.name);
 
 
- 
-    bankruptcyTimeout = setTimeout(function(){
 
-    gameOver(player);
-
-   } , 15000);
 
 
   }
@@ -1184,6 +1211,9 @@ function playerInBankruptcy(player){
 function gameOver(player){
 
    alert(player.name + ' was defeated!!');
+
+   bankruptcyTimeoutOn = false;
+
 
    removePlayer(player);
 
@@ -1301,6 +1331,9 @@ function updateBoardGraphs(player){
   buildBoardPresentationBars(player)
   buildMobilePresentationBars(player);
 
+  boardGraph1();  
+
+
 }
 
 
@@ -1329,12 +1362,14 @@ function getMonopolyHouses(player,color){
 
 function playerInJail(player){
 
-   alert(player.name + ' is in jail!!');
    player.jailManagement.inJail = true;
-
    movePieceOnGui(player, player.position, jailVisit.square);
-
    player.position = jailVisit.square;
+
+   if(player == humanPlayer){
+
+    displayJailPopup();
+   }
 
 
 }
@@ -1343,9 +1378,159 @@ function playerInJail(player){
 function releasePlayerFromJail(player){
 
   
-  alert(player.name + ' is out from jail!!');
   player.jailManagement.inJail = false;
   player.jailManagement.jailCount = 0;
 
+
+}
+
+
+
+function displayJailPopup(){
+
+       setPostLauncDecisionToDone();
+  
+}
+
+
+
+
+function getHousesBuiltCount(color){
+
+   return housesBuiltCounts[color.index];
+
+}
+
+function getHousesSoldCount(color){
+
+  return housesSoldCounts[color.index];
+
+
+}
+
+
+function getColorLandingCounts(color){
+
+  return colorLandingCounts[color.index];
+
+}
+
+
+
+function getNetProfit(color){
+
+   
+
+    let netProfit = (cashCollectedArray[color.index] - cashSpentArray[color.index]  );
+
+    if(netProfit > 0 ){
+
+      return [1,10,30];
+
+      
+    } else if( netProfit < 0){
+
+      return [30,10,1];
+
+    } else {
+
+      return [0,0,0];
+
+
+    }
+
+}
+
+
+function increaseCashCollected(color , amount){
+
+  cashCollectedArray[color.index] += amount; 
+
+}
+
+
+function increaseCashSpent(color , amount){
+
+   cashSpentArray[color.index] += amount;
+
+}
+
+
+
+
+function calculatePlayersSituations(){
+
+    let boardPlayers = [ai1, ai2,humanPlayer, ai3];
+
+    let graphPlayer;
+
+
+    //get the sum of set values
+
+    let playerSituation;
+
+    let playersSituations = [];
+
+    for(var i=0 ;  i < boardPlayers.length ; i++){
+
+      graphPlayer = boardPlayers[i];
+
+      playerSituation = getPlayerSituation(graphPlayer);
+
+      playersSituations.push(playerSituation)
+
+
+      
+    }
+
+
+
+    playersSituations.push(1);
+
+
+
+
+
+    return playersSituations;
+
+
+
+
+}
+
+
+
+
+function getPlayerSituation(player){
+
+    let playerSituation = 0;
+
+    let set;
+
+     for(var i=0; i < player.propertiesByColor.length ; i++){
+
+      set = player.propertiesByColor[i].properties;
+
+         playerSituation += calculateSetValue(ai1 , set );
+
+         playerSituation += (getMonopolyHouses(player, colorArray[i])*500);
+
+          for(var y=0; y < set.length; y++){
+
+            if(set[y].mortgaged == true){
+
+              playerSituation -= set[y].mortgageValue;
+
+            }
+            
+          }
+        
+     }
+
+
+     playerSituation += player.cash;
+
+
+     return playerSituation;
 
 }
