@@ -585,3 +585,5 @@ var tradeAnimationInterval;
 var removePlayerInterval;
 
 var humanAnswerInterfaceOn = false;
+
+

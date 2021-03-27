@@ -168,7 +168,6 @@ function searchForTradesOpportunities(activePlayer){
  }
 
 
- var buildingSearch = 0;
 
 
  function checkForBuildingOpportunities(ai){
@@ -182,8 +181,10 @@ function searchForTradesOpportunities(activePlayer){
  
 
      if(ai.monopoliesArray.length > 0){
+
+
+           let buildingCount = 0;
            
-          //buildingSearch = 0;
 
 
            let betterPositionedMonopoly = getBetterPositionedMonopoly(ai);
@@ -196,10 +197,8 @@ function searchForTradesOpportunities(activePlayer){
               let houseValue = ai.propertiesByColor[betterPositionedMonopoly.index].properties[0].houseValue;
 
               
-              while(ai.cash > 0  &&  (ai.cash + getPotentialNonMonopolyMortgages(ai)) >= houseValue && getMonopolyHouses(ai, betterPositionedMonopoly) < (betterPositionedMonopoly.units * 5)){
-                //buildingSearch ++;
+              while(buildingCount < 6 && ai.cash > 0  &&  (ai.cash + getPotentialNonMonopolyMortgages(ai)) >= houseValue && getMonopolyHouses(ai, betterPositionedMonopoly) < (betterPositionedMonopoly.units * 5)){
 
-                //document.getElementById('blddiv').innerHTML = ' building search ' + buildingSearch;
 
               if(ai.cash < houseValue){
 
@@ -208,9 +207,11 @@ function searchForTradesOpportunities(activePlayer){
                 if( findCashWithNonMonopolyProperties(ai, cashToFind ) == true){ 
                        
                         buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+                        buildingCount++;
                    }
               } else {
                     buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
+                    buildingCount++;
               }
               
 
