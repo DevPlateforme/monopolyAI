@@ -11,6 +11,11 @@
 </div>
 
 
+<div id='blddiv'>
+
+
+</div>
+
 
 
 <h1 id='otherPlayersDiv'>

@@ -189,7 +189,7 @@ function movePiece(){
 
                     if(checkForBankruptcy(lastDiceLauncher) == true){
 
-                      findCash(lastDiceLauncher , (-player.cash + card.fee));
+                      findCash(lastDiceLauncher , (-lastDiceLauncher.cash + card.fee));
                       updateBoardCashOnGui(lastDiceLauncher);
 
                   }
@@ -638,7 +638,7 @@ function launchPlCheck(){
            }, 500);
            
 
-          } , 1000);
+          } , 1500);
 
 
 
@@ -735,8 +735,11 @@ function playerLandsOnProperty(player, property){
   
    let rentToPay = getRent(property);
 
+
+
     player.cash -= rentToPay;
     property.landLord.cash += rentToPay;
+
 
     
     if(property.landLord == humanPlayer){
@@ -746,20 +749,29 @@ function playerLandsOnProperty(player, property){
     updateBoardCashOnGui(player);
     updateBoardCashOnGui(property.landLord);
 
-
-    boardJournal.innerHTML += (player.name + ' paid ' + rentToPay);
     
-    if(player.cash < 0){
+    if(checkForBankruptcy(player) == true){
 
        missingCash = -player.cash;
 
         playerInBankruptcy(lastDiceLauncher);
         
        if(player == humanPlayer){
+
          displayBankruptcyInterface();
-       } else {
+       
+        } else {
+          
          findCash(player , missingCash);
        }
+
+    }
+
+
+    
+    if(property.landLord == humanPlayer){
+
+      colorLandingCounts[property.color.index]++;
 
     }
 
@@ -769,13 +781,6 @@ function playerLandsOnProperty(player, property){
 
 
   } else {
-
-
-    if(property.landLord == humanPlayer){
-
-      colorLandingCounts[property.color.index]++;
-
-    }
 
 
   return ownPropertyLanding;

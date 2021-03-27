@@ -168,6 +168,7 @@ function searchForTradesOpportunities(activePlayer){
  }
 
 
+ var buildingSearch = 0;
 
 
  function checkForBuildingOpportunities(ai){
@@ -181,19 +182,9 @@ function searchForTradesOpportunities(activePlayer){
  
 
      if(ai.monopoliesArray.length > 0){
-   
+           
+          //buildingSearch = 0;
 
-        
-         if(ai.willingnessToBuild == false){
-
-           return;
-
-        } else {
-
-  
-
-
-           ai.willingnessToBuild = false;
 
            let betterPositionedMonopoly = getBetterPositionedMonopoly(ai);
 
@@ -202,14 +193,17 @@ function searchForTradesOpportunities(activePlayer){
           if (betterPositionedMonopoly != none){
 
 
-
               let houseValue = ai.propertiesByColor[betterPositionedMonopoly.index].properties[0].houseValue;
+
+              
+              while(ai.cash > 0  &&  (ai.cash + getPotentialNonMonopolyMortgages(ai)) >= houseValue && getMonopolyHouses(ai, betterPositionedMonopoly) < (betterPositionedMonopoly.units * 5)){
+                //buildingSearch ++;
+
+                //document.getElementById('blddiv').innerHTML = ' building search ' + buildingSearch;
 
               if(ai.cash < houseValue){
 
                 cashToFind = ai.cash - houseValue;
-
-                  
 
                 if( findCashWithNonMonopolyProperties(ai, cashToFind ) == true){ 
                        
@@ -219,16 +213,19 @@ function searchForTradesOpportunities(activePlayer){
                     buildOnNextAvailableSlot(ai, betterPositionedMonopoly);
               }
               
+
+            }
+
+
+
+              
            };
         
 
-          setTimeout(function(){
+       
+           
 
-            ai.willingnessToBuild = true;
-
-          }, 1000)
-
-      }
+      
 
    }
 
@@ -335,10 +332,10 @@ var nodes = 0;
   }
 
 
-
  function aiSearch(ai){
 
         AiThinking = true;
+
 
 
     //can I build a dangerous house? (may require mortgage buying)
@@ -451,7 +448,7 @@ function getBetterPositionedMonopoly(ai){
         
            //if player cash > getMonopolyHouseValue(ai.monopoliesArray) and if all the houses are unmortgaged 
 
-           if(checkForMortgageInMonopoly(ai.monopoliesArray) == false &&  getMonopolyHouses(ai,monopColor) < (monopColor.units * 5)){
+           if(checkForMortgageInMonopoly(ai.monopoliesArray) == false && getMonopolyHouses(ai,monopColor) < (monopColor.units * 5)){
 
                for(var y = 0; y < ai.monopoliesArray[i].length ; y++){
   
@@ -568,12 +565,24 @@ function findCash(player , goal){
 
 function findCashWithNonMonopolyProperties(player, goal){
 
+    let property;
+
 
     for(var i=0 ; i < player.nonMonopolyProperties.length; i++){
 
-        getMortgage(player.nonMonopolyProperties[i]);
+        property = player.nonMonopolyProperties[i];
+
+        if(property.mortgaged == true){     
+            
+            continue;
+        
+        }   
+                        
+            getMortgage(player.nonMonopolyProperties[i]);
 
         
+
+
         if(player.cash >= goal){
 
             return true;
@@ -690,6 +699,11 @@ function findCashWithMonopolyProperties(player, goal){
          
           
            for(var y=0 ; y < player.monopoliesArray[i].length; y++){
+
+            if(player.monopoliesArray[i][y].mortgaged == true){
+
+                continue;
+            }
 
             
                getMortgage(player.monopoliesArray[i][y]);

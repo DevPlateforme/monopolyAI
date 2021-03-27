@@ -8,10 +8,8 @@ var breakVar = false;
 
 function init(){
 
-  givePlayersPropertiesForDemo();
-
-  removePlayer(humanPlayer);
-
+   
+  humanThinking = false;
 
     setInterval(
 
@@ -21,6 +19,10 @@ function init(){
           
       );
 
+
+      removePlayer(humanPlayer);
+
+            
 
       
 
@@ -53,6 +55,8 @@ function init(){
         buildBoardPresentationCircles(ai2);
         buildBoardPresentationBars(ai2);
 
+
+
    
      
   
@@ -64,11 +68,7 @@ function init(){
         buildBoardPresentationCircles(ai3);
         buildBoardPresentationBars(ai3);
 
-        
-        playerInJail(ai1);
-        improveJailCountAndCheck(ai1);
-        decideToStayInJailOrNot(ai1);
-
+      
         
   
       },600);
@@ -106,28 +106,34 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai1,rueDeVaugirard);
-     addPropertyToPlayerWallet(ai1,rueDeCourcelles);
-     addPropertyToPlayerWallet(ai1,avenueDeLaRepublique);
+     addPropertyToPlayerWallet(ai1, faubourgSaintHonore);
+     addPropertyToPlayerWallet(ai1, placeDeLaBourse);
+     addPropertyToPlayerWallet(ai1, rueLaFayette);
 
-
-     addPropertyToPlayerWallet(ai1,avenueMatignon);
-     addPropertyToPlayerWallet(ai1,bdMalesherbes);
-     addPropertyToPlayerWallet(ai1,avenueHenriMartin);
-
-
-     
-     addPropertyToPlayerWallet(ai1,bdDeLaVillette);
      addPropertyToPlayerWallet(ai1,avenueDeNeuilly);
      addPropertyToPlayerWallet(ai1,rueDuParadis);
+     addPropertyToPlayerWallet(ai1, belleville);
 
      
-     addPropertyToPlayerWallet(ai1,placePigalle);
-     addPropertyToPlayerWallet(ai1,boulevardSaintMichel);
-     addPropertyToPlayerWallet(ai1,avenueMozart);
+     addPropertyToPlayerWallet(ai1,belleville);
+     addPropertyToPlayerWallet(ai1,rueLecourbe);
+
+     
+     addPropertyToPlayerWallet(ai1,avenueMatignon);
+     addPropertyToPlayerWallet(ai1,bdMalesherbes);
+     addPropertyToPlayerWallet(ai1,avenueHenriMartin);     
+
+     
+     addPropertyToPlayerWallet(ai1,bdDesCapucines);
+     addPropertyToPlayerWallet(ai1,avenueFoch);
+     addPropertyToPlayerWallet(ai1,avenueDeBreteuil);
+
+     ai1.cash = 10000;
 
 
-   ai1.cash = 20000;
+
+
+
 
      
 
@@ -211,19 +217,22 @@ var AiThinking = false;
 
 
 
+
 function aiReflects(ai){
 
 
-     if(AiThinking == false && humanThinking == false && tradeAnimationOn == false){
+   let thinkingTimeout;
+
+     if(AiThinking == false && humanThinking == false && tradeAnimationOn == false && bankruptcyTimeoutOn == false){
          
         aiSearch(ai);
 
      } 
-     
 
 
-         
-    setTimeout(function(){ aiReflects(ai) }, Math.random()*5);  
+      ai.thinkingTimeout = setTimeout(function(){ aiReflects(ai) }, Math.random()*1.5);           
+
+
            
 
 }

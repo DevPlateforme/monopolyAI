@@ -376,7 +376,7 @@ function getPotentialMortgagesValue(player){
      let potentialValue = 0;
 
 
-     for(i=0; i < player.propertiesArray.length; i++){
+     for(var i=0; i < player.propertiesArray.length; i++){
 
         let property = player.propertiesArray[i];
 
@@ -389,6 +389,30 @@ function getPotentialMortgagesValue(player){
      }
 
    return potentialValue;
+
+}
+
+
+function getPotentialNonMonopolyMortgages(player){
+
+  
+  let potentialValue = 0;
+
+
+  for(var i=0; i < player.nonMonopolyProperties.length; i++){
+
+     let property = player.nonMonopolyProperties[i];
+
+     
+     if(property.mortgaged == false){
+
+            potentialValue += property.mortgageValue;
+     }
+
+  }
+
+return potentialValue;
+
 
 }
 
@@ -1079,6 +1103,8 @@ function getMortgage(property){
 
         boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just mortgaged the property ' + property.name);
 
+
+
         addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name);
 
         squareBorderOn(property.square)
@@ -1157,13 +1183,15 @@ function playerInBankruptcy(player){
      player.bankruptcy = true;
      bankruptcyTimeoutOn = true;
 
-     alert(player.name + ' is in bankruptcy');
 
 
       
     bankruptcyTimeout = setTimeout(function(){
 
       gameOver(player);
+      clearInterval(bankruptcyInterval);
+      bankruptcyTimeoutOn = false;
+
   
      } , 3000);
 
@@ -1180,13 +1208,19 @@ function playerInBankruptcy(player){
 
         clearInterval(bankruptcyInterval);
 
-        alert(' the player ' + player.name + ' went out from bankruptcy');
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
 
         addNotif('<br> the player ' + player.name + ' found enough cash to go out from bankruptcy');
 
-        bankruptcyTimeoutOn = false;
+
+        player.bankruptcy = false;
+
+        setTimeout(function(){
+                bankruptcyTimeoutOn = false;
+
+        },3000)
+
 
 
         
@@ -1238,17 +1272,12 @@ function removePlayer(player){
       let playerIndex = player.playerIndex;
   
   
-      playersArray.splice(playerIndex, 1);
-    
-    
-      removePlayerOnGui(player);
 
 
        //set all its properties to available
 
 
-       
-    
+          
     
         //update remaining players indexes
     
@@ -1262,9 +1291,13 @@ function removePlayer(player){
           }
          
       }
-    
-    
-   
+
+
+      playersArray.splice(playerIndex, 1);
+
+
+      removePlayerOnGui(player);
+
 
 
       clearInterval(removePlayerInterval);
@@ -1273,6 +1306,10 @@ function removePlayer(player){
       if(player == humanPlayer){
 
         humanThinking = false;
+
+      } else {
+
+        clearTimeout(player.thinkingTimeout);
       }
 
 
@@ -1477,7 +1514,7 @@ function calculatePlayersSituations(){
 
       playerSituation = getPlayerSituation(graphPlayer);
 
-      playersSituations.push(playerSituation)
+      playersSituations.push(playerSituation/1000)
 
 
       
