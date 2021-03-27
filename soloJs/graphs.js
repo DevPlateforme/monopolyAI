@@ -522,6 +522,17 @@ function buildPresentationCircle(player,color,type){
     let circleColor;
 
 
+    let colorLength;
+
+    if(player.propertiesByColor[color.index].properties.length == 0){
+
+        colorLength = 1;
+    } else {
+
+        colorLength = player.propertiesByColor[color.index].properties.length;
+    }
+
+
      context = document.getElementById(player.name + '_' + type + '_presentationCircle_' + color.name );
 
      
@@ -545,7 +556,7 @@ function buildPresentationCircle(player,color,type){
                 label: 'My First dataset',
                 backgroundColor: [ circleBackgroundColor ],
                 borderColor: circleColor,
-                data: [50,100]
+                data: [getMortgageCount(player, color), colorLength]
             }]
         },
         
@@ -882,7 +893,7 @@ function buildPmGraph2(color){
             labels: ['', '', ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
+                backgroundColor: ["rgb(0,0,255,0.7)", "blue",  "purple"],
                 borderColor: 'rgb(255,0,0)',
                 data: getNetProfit(color)
             }]
@@ -943,7 +954,7 @@ function buildPmGraph3(color){
             labels: ['', '', ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,0,255,0.7)", "green",  "orange"],
+                backgroundColor: ["rgb(0,0,255,0.7)", "blue",  "purple"],
                 borderColor: 'rgb(255,0,0)',
                 data: [1,20,50]
             }]

@@ -244,6 +244,8 @@ var nodes = 0;
  
  function checkForMortgageBuying(ai){
 
+    let mortgagesToClose = 0;
+
     //Store the monopoly properties . When the function newMonopoly is triggered :
 
     if(ai.mortgagedMonopolyProperties.length > 0){
@@ -254,6 +256,8 @@ var nodes = 0;
             if(ai.cash >= ai.mortgagedMonopolyProperties[i].mortgageValue){
 
                 closeMortgage(ai.mortgagedMonopolyProperties[i]);
+
+                mortgagesToClose++;
 
                 //alert('monopoly property freed ====>' + ai.mortgagedMonopolyProperties[i].name);
 
@@ -273,6 +277,12 @@ var nodes = 0;
                 break;
             }
 
+        }
+
+
+        if(mortgagesToClose > 0){
+
+            updateBoardGraphs(ai);
         }
 
      ////alert('mortgage buying check done');     

@@ -5,13 +5,7 @@
 
 
 <div id='notifContainer'>
-   
 
-
-</div>
-
-
-<div id='blddiv'>
 
 
 </div>
@@ -8161,10 +8155,50 @@
               
       <div class='pawnContainer'>
 
-                     <div id='square10_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square10_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square10_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square10_pawnContainerai3' class='pawnContainerai3'></div>
+      <div class='pawnContainerA'>
+                        
+                        <div id='square10_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square10_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square10_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square10_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
     </div>
 
@@ -8186,10 +8220,50 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square11_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square11_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square11_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square11_pawnContainerai3' class='pawnContainerai3'></div>
+                    <div class='pawnContainerA'>
+                        
+                        <div id='square11_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square11_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square11_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square11_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -8252,10 +8326,50 @@
   <div class='pawnContainer'>
 
 
-      <div id='square12_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-      <div id='square12_pawnContainerai1' class='pawnContainerai1'></div>
-      <div id='square12_pawnContainerai2' class='pawnContainerai2'></div>
-      <div id='square12_pawnContainerai3' class='pawnContainerai3'></div>
+  <div class='pawnContainerA'>
+                        
+                        <div id='square12_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square12_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square12_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square12_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
     </div>
 
@@ -8273,10 +8387,50 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square13_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square13_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square13_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square13_pawnContainerai3' class='pawnContainerai3'></div>
+                    <div class='pawnContainerA'>
+                        
+                        <div id='square13_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square13_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square13_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square13_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -8338,11 +8492,50 @@
                
                  
                     <div class='pawnContainer'>
-          
-                     <div id='square14_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square14_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square14_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square14_pawnContainerai3' class='pawnContainerai3'></div>
+                    <div class='pawnContainerA'>
+                        
+                        <div id='square14_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square14_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square14_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square14_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -8406,10 +8599,50 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square15_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square15_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square15_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square15_pawnContainerai3' class='pawnContainerai3'></div>
+                  <div class='pawnContainerA'>
+                        
+                        <div id='square15_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square15_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square15_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square15_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -8465,10 +8698,50 @@
      
         <div class='pawnContainer'>
 
-         <div id='square16_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square16_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square16_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square16_pawnContainerai3' class='pawnContainerai3'></div>
+        <div class='pawnContainerA'>
+                        
+                        <div id='square16_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square16_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square16_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square16_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
  
      </div>
                           
@@ -8530,10 +8803,50 @@
                      
          <div class='pawnContainer'>
         
-            <div id='square17_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-            <div id='square17_pawnContainerai1' class='pawnContainerai1'></div>
-            <div id='square17_pawnContainerai2' class='pawnContainerai2'></div>
-            <div id='square17_pawnContainerai3' class='pawnContainerai3'></div>
+         <div class='pawnContainerA'>
+                        
+                        <div id='square17_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square17_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square17_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square17_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
            </div>
       
@@ -8553,10 +8866,50 @@
      
         <div class='pawnContainer'>
 
-         <div id='square18_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square18_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square18_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square18_pawnContainerai3' class='pawnContainerai3'></div>
+        <div class='pawnContainerA'>
+                        
+                        <div id='square18_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square18_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square18_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square18_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
  
      </div>
                           
@@ -8618,10 +8971,50 @@
      
         <div class='pawnContainer'>
 
-         <div id='square19_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square19_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square19_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square19_pawnContainerai3' class='pawnContainerai3'></div>
+        <div class='pawnContainerA'>
+                        
+                        <div id='square19_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square19_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square19_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square19_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
  
      </div>
                           
@@ -8684,10 +9077,50 @@
   <div class='pawnContainer'>
 
 
-         <div id='square20_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square20_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square20_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square20_pawnContainerai3' class='pawnContainerai3'></div>
+  <div class='pawnContainerA'>
+                        
+                        <div id='square20_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square20_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square20_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square20_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
     </div>
 
@@ -8710,10 +9143,49 @@
            
     <div class='pawnContainer'>
 
-         <div id='square9_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square9_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square9_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square9_pawnContainerai3' class='pawnContainerai3'></div>
+    <div class='pawnContainerA'>
+                        
+                        <div id='square9_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square9_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square9_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square9_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
 
     </div>
                            
@@ -8767,10 +9239,50 @@
            
            <div class='pawnContainer'>
        
-                <div id='square8_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square8_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square8_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square8_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square9_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square9_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square9_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square9_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -8826,10 +9338,50 @@
 
                       <div class='pawnContainer'>
 
-                        <div id='square7_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                        <div id='square7_pawnContainerai1' class='pawnContainerai1'></div>
-                        <div id='square7_pawnContainerai2' class='pawnContainerai2'></div>
-                        <div id='square7_pawnContainerai3' class='pawnContainerai3'></div>
+                      <div class='pawnContainerA'>
+                        
+                        <div id='square7_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square7_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square7_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square7_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
                      </div>
               </div>          
@@ -8842,10 +9394,50 @@
            
            <div class='pawnContainer'>
        
-                <div id='square6_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square6_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square6_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square6_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square6_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square6_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square6_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square6_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -8900,12 +9492,52 @@
            
            
            
-           <div class='pawnContainer'>
+       <div class='pawnContainer'>
        
-                <div id='square5_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square5_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square5_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square5_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square5_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square5_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square5_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square5_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -8957,10 +9589,50 @@
             <img style='height: 55%;width: auto;'  src="./img/dollar.png">
               
   <div class='pawnContainer'>
-         <div id='square4_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-         <div id='square4_pawnContainerai1' class='pawnContainerai1'></div>
-         <div id='square4_pawnContainerai2' class='pawnContainerai2'></div>
-         <div id='square4_pawnContainerai3' class='pawnContainerai3'></div>
+  <div class='pawnContainerA'>
+                        
+                        <div id='square4_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square4_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square4_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square4_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
     </div>
 
 </div>
@@ -8975,10 +9647,50 @@
            
            <div class='pawnContainer'>
        
-                <div id='square3_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square3_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square3_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square3_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square3_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square3_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square3_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square3_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -9036,10 +9748,50 @@
               
                    <div class='pawnContainer'>
            
-                    <div id='square2_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                    <div id='square2_pawnContainerai1' class='pawnContainerai1'></div>
-                    <div id='square2_pawnContainerai2' class='pawnContainerai2'></div>
-                    <div id='square2_pawnContainerai3' class='pawnContainerai3'></div>
+                   <div class='pawnContainerA'>
+                        
+                        <div id='square2_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square2_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square2_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square2_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
    
                  </div>
 
@@ -9061,10 +9813,50 @@
                  
                  <div class='pawnContainer'>
              
-                      <div id='square1_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                      <div id='square1_pawnContainerai1' class='pawnContainerai1'></div>
-                      <div id='square1_pawnContainerai2' class='pawnContainerai2'></div>
-                      <div id='square1_pawnContainerai3' class='pawnContainerai3'></div>
+                 <div class='pawnContainerA'>
+                        
+                        <div id='square1_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square1_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square1_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square1_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                         
@@ -9283,10 +10075,50 @@
                  
            <div class='pawnContainer'>
        
-                <div id='square21_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square21_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square21_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square21_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square21_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square21_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square21_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square21_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -9346,10 +10178,50 @@
 
                      <div class='pawnContainer'>
            
-                          <div id='square22_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                          <div id='square22_pawnContainerai1' class='pawnContainerai1'></div>
-                          <div id='square22_pawnContainerai2' class='pawnContainerai2'></div>
-                         <div id='square22_pawnContainerai3' class='pawnContainerai3'></div>
+                     <div class='pawnContainerA'>
+                        
+                        <div id='square22_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square22_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square22_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square22_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
                      </div>
 
@@ -9360,10 +10232,50 @@
       <div class="digitalContainerBBAA" id='square23_container'>
            
             <div class='pawnContainer'>
-                   <div id='square23_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                   <div id='square23_pawnContainerai1' class='pawnContainerai1'></div>
-                   <div id='square23_pawnContainerai2' class='pawnContainerai2'></div>
-                  <div id='square23_pawnContainerai3' class='pawnContainerai3'></div>
+            <div class='pawnContainerA'>
+                        
+                        <div id='square23_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square23_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square23_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square23_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -9414,10 +10326,50 @@
          <div class="digitalContainerBBAA" id='square24_container'>
            
            <div class='pawnContainer'>
-                  <div id='square24_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                  <div id='square24_pawnContainerai1' class='pawnContainerai1'></div>
-                  <div id='square24_pawnContainerai2' class='pawnContainerai2'></div>
-                 <div id='square24_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square24_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square24_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square24_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square24_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
       
           </div>
                                  
@@ -9474,10 +10426,50 @@
            
            <div class='pawnContainer'>
        
-                <div id='square25_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square25_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square25_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square25_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square25_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square25_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square25_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square25_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
        
            </div>
                                   
@@ -9526,10 +10518,50 @@
          <div class="digitalContainerBBAA" id='square26_container'>
            
            <div class='pawnContainer'>
-                  <div id='square26_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                  <div id='square26_pawnContainerai1' class='pawnContainerai1'></div>
-                  <div id='square26_pawnContainerai2' class='pawnContainerai2'></div>
-                 <div id='square26_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square26_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square26_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square26_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square26_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
       
           </div>
                                  
@@ -9583,10 +10615,50 @@
          <div class="digitalContainerBBAA" id='square27_container'>
            
            <div class='pawnContainer'>
-                  <div id='square27_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                  <div id='square27_pawnContainerai1' class='pawnContainerai1'></div>
-                  <div id='square27_pawnContainerai2' class='pawnContainerai2'></div>
-                 <div id='square27_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square27_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square27_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square27_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square27_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
       
           </div>
                                  
@@ -9643,10 +10715,50 @@
                      
          <div class='pawnContainer'>
   
-                  <div id='square28_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                  <div id='square28_pawnContainerai1' class='pawnContainerai1'></div>
-                  <div id='square28_pawnContainerai2' class='pawnContainerai2'></div>
-                 <div id='square28_pawnContainerai3' class='pawnContainerai3'></div>
+         <div class='pawnContainerA'>
+                        
+                        <div id='square28_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square28_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square28_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square28_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
 
            </div>
       
@@ -9659,10 +10771,50 @@
    <div class="digitalContainerBBAA" id='square29_container'>
            
            <div class='pawnContainer'>
-                  <div id='square29_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                  <div id='square29_pawnContainerai1' class='pawnContainerai1'></div>
-                  <div id='square29_pawnContainerai2' class='pawnContainerai2'></div>
-                 <div id='square29_pawnContainerai3' class='pawnContainerai3'></div>
+           <div class='pawnContainerA'>
+                        
+                        <div id='square29_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square29_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square29_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square29_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
       
           </div>
                                  
@@ -9731,10 +10883,54 @@
                   <img style='height: 55%;width: auto;'  src="./img/chest.png">
                     
               <div class='pawnContainer'>
-                <div id='square0_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square0_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square0_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square0_pawnContainerai3' class='pawnContainerai3'></div>
+
+                <div class='pawnContainerA'>
+                        
+                    <div id='square0_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                    <div class="idDivAAPawn">
+                                
+                                <img src="./img/man.png" class="pawnImg">
+     
+                           </div>
+                    </div>
+                    <div id='square0_pawnContainerai1' class='pawnContainerai1'>
+                    <div class="idDivAAPawn">
+                                
+                    <img src="./img/aiface.png" class="pawnImg">
+     
+                           </div>
+                    </div> 
+
+                </div>
+
+                <div class='pawnContainerA' >
+                  
+                    <div id='square0_pawnContainerai2' class='pawnContainerai2'>
+
+                          <div class="idDivAAPawn">
+                                
+                                <img src="./img/woman.png" class="pawnImg">
+     
+                           </div>
+
+                    </div>
+
+
+                    <div id='square0_pawnContainerai3' class='pawnContainerai3'>
+                        
+                           <div class="idDivAAPawn">
+                                
+                               <img src="./img/woman2.png" class="pawnImg">
+     
+                           </div>
+                           
+                    </div>
+
+                </div>
+
+
+
+
               </div>
       
             </div>
@@ -9752,10 +10948,49 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square39_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square39_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square39_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square39_pawnContainerai3' class='pawnContainerai3'></div>
+                    <div class='pawnContainerA'>
+                        
+                        <div id='square39_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square39_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square39_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square39_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
              
                  </div>
                                       
@@ -9818,10 +11053,49 @@
                   <img style='height: 55%;width: auto;'  src="./img/dollar.png">
                     
               <div class='pawnContainer'>
-                <div id='square38_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                <div id='square38_pawnContainerai1' class='pawnContainerai1'></div>
-                <div id='square38_pawnContainerai2' class='pawnContainerai2'></div>
-                <div id='square38_pawnContainerai3' class='pawnContainerai3'></div>
+              <div class='pawnContainerA'>
+                        
+                        <div id='square38_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square38_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square38_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square38_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
               </div>
       
             </div>
@@ -9838,10 +11112,49 @@
                  
                     <div class='pawnContainer'>
           
-                     <div id='square37_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square37_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square37_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square37_pawnContainerai3' class='pawnContainerai3'></div>
+                    <div class='pawnContainerA'>
+                        
+                        <div id='square37_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square37_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square37_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square37_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
              
                  </div>
                                       
@@ -9901,10 +11214,49 @@
             <img style='height: 55%;width: auto;'  src="./img/luck.png">
               
         <div class='pawnContainer'>
-          <div id='square36_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-          <div id='square36_pawnContainerai1' class='pawnContainerai1'></div>
-          <div id='square36_pawnContainerai2' class='pawnContainerai2'></div>
-          <div id='square36_pawnContainerai3' class='pawnContainerai3'></div>
+              <div class='pawnContainerA'>
+                        
+                 <div id='square36_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square36_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square36_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square36_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
         </div>
 
       </div>
@@ -9925,10 +11277,49 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square35_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square35_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square35_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square35_pawnContainerai3' class='pawnContainerai3'></div>
+                  <div class='pawnContainerA'>
+                        
+                        <div id='square35_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square35_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square35_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square35_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
              
                  </div>
                                       
@@ -9948,7 +11339,7 @@
            
                        <div class='rpSquareCA'>St.Lazarre stat.</div>
            
-                       <div id='square34_landLord' class='rpSquareCB'>landlord : none</div>
+                       <div id='square35_landLord' class='rpSquareCB'>landlord : none</div>
            
                        <div class='rpSquareCC'>
                            <div class='rpSquareCCA'>$300</div> 
@@ -9989,10 +11380,49 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square34_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square34_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square34_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square34_pawnContainerai3' class='pawnContainerai3'></div>
+                  <div class='pawnContainerA'>
+                        
+                        <div id='square34_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square34_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square34_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square34_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
              
                  </div>
                                       
@@ -10052,10 +11482,49 @@
               
                    <div class='pawnContainer'>
            
-                    <div id='square33_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                    <div id='square33_pawnContainerai1' class='pawnContainerai1'></div>
-                    <div id='square33_pawnContainerai2' class='pawnContainerai2'></div>
-                    <div id='square33_pawnContainerai3' class='pawnContainerai3'></div>
+                   <div class='pawnContainerA'>
+                        
+                        <div id='square33_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square33_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square33_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square33_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
    
                  </div>
 
@@ -10075,10 +11544,50 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square32_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square32_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square32_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square32_pawnContainerai3' class='pawnContainerai3'></div>
+                  <div class='pawnContainerA'>
+                        
+                        <div id='square32_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square32_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square32_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square32_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -10138,10 +11647,50 @@
                
                   <div class='pawnContainer'>
            
-                     <div id='square31_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-                     <div id='square31_pawnContainerai1' class='pawnContainerai1'></div>
-                     <div id='square31_pawnContainerai2' class='pawnContainerai2'></div>
-                     <div id='square31_pawnContainerai3' class='pawnContainerai3'></div>
+                  <div class='pawnContainerA'>
+                        
+                        <div id='square31_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square31_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square31_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square31_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
              
                  </div>
                                       
@@ -10200,10 +11749,50 @@
               
        <div class='pawnContainer'>
            
-           <div id='square30_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'></div>
-           <div id='square30_pawnContainerai1' class='pawnContainerai1'></div>
-           <div id='square30_pawnContainerai2' class='pawnContainerai2'></div>
-           <div id='square30_pawnContainerai3' class='pawnContainerai3'></div>
+       <div class='pawnContainerA'>
+                        
+                        <div id='square30_pawnContainerhumanPlayer' class='pawnContainerhumanPlayer'>
+                        <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/man.png" class="pawnImg">
+         
+                               </div>
+                        </div>
+                        <div id='square30_pawnContainerai1' class='pawnContainerai1'>
+                        <div class="idDivAAPawn">
+                                    
+                        <img src="./img/aiface.png" class="pawnImg">
+         
+                               </div>
+                        </div> 
+    
+                    </div>
+    
+                    <div class='pawnContainerA' >
+                      
+                        <div id='square30_pawnContainerai2' class='pawnContainerai2'>
+    
+                              <div class="idDivAAPawn">
+                                    
+                                    <img src="./img/woman.png" class="pawnImg">
+         
+                               </div>
+    
+                        </div>
+    
+    
+                        <div id='square30_pawnContainerai3' class='pawnContainerai3'>
+                            
+                               <div class="idDivAAPawn">
+                                    
+                                   <img src="./img/woman2.png" class="pawnImg">
+         
+                               </div>
+                               
+                        </div>
+    
+                    </div>
+    
    
        </div>
 

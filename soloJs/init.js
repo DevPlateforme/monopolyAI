@@ -22,12 +22,9 @@ function init(){
 
       removePlayer(humanPlayer);
 
-            
-
-      
 
       boardGraph1();  
-      boardGraph2();  
+      boardGraph2(); 
       boardGraph3();  
        
       setTimeout(function(){
@@ -68,6 +65,7 @@ function init(){
         buildBoardPresentationCircles(ai3);
         buildBoardPresentationBars(ai3);
 
+
       
         
   
@@ -92,10 +90,11 @@ function init(){
           } 
      });
 
+
+
      
 
-      
-
+  
       wakeUpAis();
 
 
@@ -114,35 +113,7 @@ function init(){
      addPropertyToPlayerWallet(ai1,rueDuParadis);
      addPropertyToPlayerWallet(ai1, belleville);
 
-     
-     addPropertyToPlayerWallet(ai1,belleville);
-     addPropertyToPlayerWallet(ai1,rueLecourbe);
-
-     
-     addPropertyToPlayerWallet(ai1,avenueMatignon);
-     addPropertyToPlayerWallet(ai1,bdMalesherbes);
-     addPropertyToPlayerWallet(ai1,avenueHenriMartin);     
-
-     
-     addPropertyToPlayerWallet(ai1,bdDesCapucines);
-     addPropertyToPlayerWallet(ai1,avenueFoch);
-     addPropertyToPlayerWallet(ai1,avenueDeBreteuil);
-
-     ai1.cash = 10000;
-
-
-
-
-
-
-     
-
-
-
-
-  
-
-     
+    
   }
 
 

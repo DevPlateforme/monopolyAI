@@ -207,7 +207,7 @@ function refusePropositionFromInterface(){
     }
 
 
-     addNotif('you refused a proposition!!')
+     addNotif('you refused a proposition!!' , buyNotif);
 
 
 
@@ -1637,37 +1637,19 @@ function sellHouseFromInterface(){
       //clear "from square"
 
       setTimeout(function(){
-          let pawn;
 
 
           //move pawn towards "to square"
     
-          if(player == ai1){
+
     
-              pawn = 'red';
-    
-          } else if(player == ai2){          
-               
-              pawn = 'blue';
-    
-          } else if(player == ai3){
-              pawn = 'purple';
-    
-          } else {
-    
-              pawn = 'yellow';
-    
-          }
-    
-    
-          document.getElementById('square' + from + '_pawnContainer'+ player.name ).style.background ='none';
-          document.getElementById('square' + from + '_pawnContainer'+ player.name ).innerHTML = '';
+          document.getElementById('square' + from + '_pawnContainer'+ player.name ).style.opacity = 0;
           
           
 
     
-          document.getElementById('square' + to + '_pawnContainer'+ player.name ).style.background = pawn;
-          document.getElementById('square' + to + '_pawnContainer'+ player.name ).innerHTML = player.name;
+          document.getElementById('square' + to + '_pawnContainer'+ player.name ).style.opacity = 1;
+     
 
     
     
@@ -2139,14 +2121,37 @@ function addCounterPartAskedLine(proposition, property){
 
 
 
-function addNotif(content){
+function addNotif(content, type){
+
+
 
 
      let notif = document.createElement('div');
-
      notif.setAttribute('class', 'notifDiv');
-     notif.innerHTML = content;
 
+     let imgDiv = document.createElement('div');
+     imgDiv.setAttribute('class', 'notifDivA');
+
+     let notifImg = document.createElement('img');
+
+     imgDiv.append(notifImg)
+
+     notifImg.setAttribute("src", "./img/" + type + ".png");
+     notifImg.setAttribute("class", "notifImg");
+
+
+     let notifText = document.createElement('div');
+     notifText.setAttribute('class', 'notifDivB');
+
+
+     notifText.innerHTML = content;
+
+
+
+     notif.append(imgDiv);
+     notif.append(notifText);
+
+     
 
      notifContainer.append(notif);
 
@@ -2453,7 +2458,7 @@ function displayAvailablePropertyPopup(square){
         monopolyBoard.style.opacity = 0.15;
 
 
-     if(lastDiceLauncher.cash >= square.value){
+     if(humanPlayer.cash >= square.value){
   
            displayDetailCard(availableProperty,square)
 
@@ -2750,7 +2755,7 @@ function tradeAnimation(proposition){
       
              
       
-          }, 5000)
+          }, 3500)
 
 
           clearInterval(tradeAnimationInterval);
@@ -2970,7 +2975,7 @@ function buildTradeScreen(proposition){
 
            clearTradeScreen();
 
-        },5000)
+        },3500)
 
 }
 

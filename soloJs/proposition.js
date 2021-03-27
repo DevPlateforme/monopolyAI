@@ -12,14 +12,14 @@ function makeProposition(proposition){
 
     if(declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count > 1){
          
-       addNotif(proposition.offerer.name + ' made ' + declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count + ' counter offers before , and will do maximum 3');
+       addNotif(proposition.offerer.name + ' made ' + declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count + ' counter offers before , and will do maximum 3' , buyNotif);
 
     }
 
 
 } else {
 
-  addNotif('<br>' + proposition.offerer.name + ' made an offer!=>Offer:');
+  addNotif('<br>' + proposition.offerer.name + ' made an offer!=>Offer:' , buyNotif);
 
 
 }
@@ -111,7 +111,7 @@ function makeProposition(proposition){
 
                boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
 
-               addNotif('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!');
+               addNotif('<br>' + proposition.answerer.name + ' didnt found a better a better alternative and accepted the offer!' , buyNotif);
 
 
           } else {
@@ -120,14 +120,14 @@ function makeProposition(proposition){
 
                  hashAndStore(proposition);
                  boardJournal.innerHTML += ('<br>' + proposition.answerer.name + 'found a better alternative, and refused !');
-                 addNotif('<br>' + proposition.answerer.name + 'found a better alternative, and refused !')
+                 addNotif('<br>' + proposition.answerer.name + 'found a better alternative, and refused !' , buyNotif)
 
 
             } else {
 
               acceptProposition(proposition);
               boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' accepted the offer!');
-              addNotif('<br>' + proposition.answerer.name + ' accepted the offer!')
+              addNotif('<br>' + proposition.answerer.name + ' accepted the offer!' , buyNotif)
 
 
             }
@@ -145,7 +145,7 @@ function makeProposition(proposition){
 
               boardJournal.innerHTML += ('<br>' + proposition.answerer.name + ' refused an offer!');
   
-               addNotif('<br>' + proposition.answerer.name + ' refused an offer!');
+               addNotif('<br>' + proposition.answerer.name + ' refused an offer!' , buyNotif);
 
                ////alert('-->-->-->-->-->-->offerer score => ' + proposition.offererScore);
                ////alert('-->-->-->-->-->-->answerer score => ' + proposition.answererScore);

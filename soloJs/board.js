@@ -186,11 +186,13 @@ function movePiece(){
     
                     lastDiceLauncher.cash -= card.fee;
                     updateBoardCashOnGui(lastDiceLauncher);
+                    updateBoardGraphs(lastDiceLauncher)
 
-                    if(checkForBankruptcy(lastDiceLauncher) == true){
+                    if(checkForBankruptcy(lastDiceLauncher, none) == true){
 
                       findCash(lastDiceLauncher , (-lastDiceLauncher.cash + card.fee));
                       updateBoardCashOnGui(lastDiceLauncher);
+                      updateBoardGraphs(lastDiceLauncher)
 
                   }
 
@@ -206,6 +208,7 @@ function movePiece(){
               lastDiceLauncher.position = card.destination.square;
               lastDiceLauncher.cash += card.collection;
               updateBoardCashOnGui(lastDiceLauncher);
+              updateBoardGraphs(lastDiceLauncher)
 
 
 
@@ -558,6 +561,8 @@ function tryTobuyJailRelease(player){
             buyJailRelease(player);
 
        }
+
+       updateBoardGraphs(player);
     }
 }
 
@@ -750,7 +755,7 @@ function playerLandsOnProperty(player, property){
     updateBoardCashOnGui(property.landLord);
 
     
-    if(checkForBankruptcy(player) == true){
+    if(checkForBankruptcy(player, property.landLord ) == true){
 
        missingCash = -player.cash;
 
@@ -763,6 +768,10 @@ function playerLandsOnProperty(player, property){
         } else {
           
          findCash(player , missingCash);
+         updateBoardGraphs(player);
+         updateBoardCashOnGui(property.landLord);
+
+
        }
 
     }
@@ -798,6 +807,6 @@ function playerLandsOnProperty(player, property){
 function playerLandsOnTaxSquare(player){
      
    player.cash -= 150;
-   checkForBankruptcyAndReact(player);
+   checkForBankruptcyAndReact(player, none);
    
 }

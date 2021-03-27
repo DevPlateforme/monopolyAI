@@ -341,11 +341,11 @@ function calculateStepVariable(player, setArray){
 
 
 
-function checkForBankruptcy(player){
+function checkForBankruptcy(player, killer){
     
      if(player.cash < 0){
 
-        playerInBankruptcy(player);
+        playerInBankruptcy(player,killer);
 
         return true;
 
@@ -358,11 +358,15 @@ function checkForBankruptcy(player){
 
 
 
-function checkForBankruptcyAndReact(player){
+function checkForBankruptcyAndReact(player, killer){
 
-      if(checkForBankruptcy(player) == true){
+      if(checkForBankruptcy(player, killer) == true){
 
         findCash(player, -player.cash );
+        updateBoardGraphs(lastDiceLauncher)
+        updateBoardCashOnGui(lastDiceLauncher)
+        
+
 
       };
 
@@ -427,7 +431,7 @@ function closeMortgage(property){
          updateBoardCashOnGui(property.landLord)
 
          property.landLord.mortgages -= 1;
-         addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name);
+         addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name , buyNotif);
 
          squareBorderOn(property.square);
 
@@ -524,7 +528,7 @@ function buildHouse(property){
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
 
-      addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name);
+      addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name , buyNotif);
 
 
       boardGraph1();  
@@ -883,7 +887,7 @@ function addPropertyToPlayerWallet(player, property){
     
     boardJournal.innerHTML += ( ' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
 
-    addNotif(' <br> ' +player.name + ' just bought ' + property.name + ' ! ');
+    addNotif(' <br> ' +player.name + ' just bought ' + property.name + ' ! ', buyNotif);
 
     squareBorderOn(property.square);
 
@@ -930,7 +934,7 @@ function newMonopoly(player , color){
 
    boardJournal.innerHTML += ('<br>' + player.name + ' has a monopoly!! (' + color.name + ')');
 
-   addNotif('<br>' + player.name + ' has a monopoly!! (' + color.name + ')')
+   addNotif('<br>' + player.name + ' has a monopoly!! (' + color.name + ')', buyNotif)
 
 
    
@@ -1105,7 +1109,7 @@ function getMortgage(property){
 
 
 
-        addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name);
+        addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name , buyNotif);
 
         squareBorderOn(property.square)
 
@@ -1176,12 +1180,14 @@ function insertMortgagedMonopolyProperty(player , property){
 
 
 
-function playerInBankruptcy(player){
+function playerInBankruptcy(player, killer){
 
   if(player.bankruptcy == false){
     
      player.bankruptcy = true;
      bankruptcyTimeoutOn = true;
+
+     
 
 
 
@@ -1190,7 +1196,23 @@ function playerInBankruptcy(player){
 
       gameOver(player);
       clearInterval(bankruptcyInterval);
-      bankruptcyTimeoutOn = false;
+
+      if(killer != none){
+
+         plunderPlayer(killer, player);
+          
+         
+      } else {
+
+        freeAllProperties(player);
+
+      }
+
+      setTimeout(function(){
+
+        bankruptcyTimeoutOn = false;
+      }, 1000);
+      
 
   
      } , 3000);
@@ -1211,7 +1233,7 @@ function playerInBankruptcy(player){
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
 
-        addNotif('<br> the player ' + player.name + ' found enough cash to go out from bankruptcy');
+        addNotif('<br> the player ' + player.name + ' found enough cash to go out from bankruptcy' , buyNotif);
 
 
         player.bankruptcy = false;
@@ -1219,7 +1241,7 @@ function playerInBankruptcy(player){
         setTimeout(function(){
                 bankruptcyTimeoutOn = false;
 
-        },3000)
+        },4500)
 
 
 
@@ -1569,5 +1591,124 @@ function getPlayerSituation(player){
 
 
      return playerSituation;
+
+}
+
+
+
+
+function plunderPlayer(receiver, giver){
+
+
+    let givenProperty;
+
+
+    for(var i=0 ; i < giver.propertiesByColor.length ; i++){
+
+
+        if(giver.propertiesByColor[i].properties.length > 0){
+
+          for(var y=0; y < giver.propertiesByColor[i].properties.length  ; y++){
+
+            givenProperty = giver.propertiesByColor[i].properties[y];
+
+            addPropertyToPlayerWallet(receiver, givenProperty);
+
+            
+            receiver.cash += givenProperty.value;
+
+
+  
+          }
+    
+        }
+
+        giver.propertiesByColor[i].properties = [];
+
+
+
+      
+     }
+
+
+    updateBoardGraphs(receiver);
+    updateBoardGraphs(giver);
+
+
+
+}
+
+
+
+
+function freeAllProperties(player){
+
+  let givenProperty;
+
+
+  for(var i=0 ; i < player.propertiesByColor.length ; i++){
+
+
+      if(player.propertiesByColor[i].properties.length > 0){
+
+        for(var y=0; y < player.propertiesByColor[i].properties.length  ; y++){
+
+
+          givenProperty = player.propertiesByColor[i].properties[y];
+
+          givenProperty.landLord = none;
+          givenProperty.mortgaged = false;
+
+
+          
+
+        }
+  
+      }
+
+      player.propertiesByColor[i].properties = [];
+
+    
+   }
+
+
+   updateBoardGraphs(player);
+
+
+
+}
+
+
+
+function getMortgageCount(player, color){
+   
+  let mortgageCount = 0;
+
+  let property;
+
+  if(player.propertiesByColor[color.index].properties.length > 0){
+
+
+    for(var i=0; i < player.propertiesByColor[color.index].properties.length; i++){
+
+      property = player.propertiesByColor[color.index].properties[i];
+ 
+      if(property.mortgaged == true){
+
+        mortgageCount++;
+
+      }
+         
+         
+ 
+     
+    }
+ 
+
+
+  }
+
+  return mortgageCount;
+
 
 }

@@ -636,46 +636,63 @@ width: auto;
 }
 
 
+
+
 .notifDiv{
-    
-    background:white;
 
-    height:10%;
-
-    width: 80%;
-
-    margin-top:2%;
-
-    border-radius: 5px;
-
-    border: 1px solid;
-
-    display: flex;
-
-    justify-content: flex-wrap;
-
-    font-size: 1vw;
-
-    padding-left: 5%;
-
-    padding-top:5%;
-
-
-
+	height: 10%;
+	width: 80%;
+	background: rgb(255,255,255,0.75);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 10px;
+	color: rgb(0,0,0,0.875)
 
 }
 
+
+.notifDivA{
+
+	height: 80%;
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+.notifDivB{
+
+	height: 80%;
+	width: 70%;
+	display: flex;
+	justify-content: flex-wrap;
+	font-size : 0.8vw;
+	align-items: center;
+
+	
+}
+
+.notifImg{
+
+	height: 50%;
+	width: auto;
+
+}
+
+
+
 #navBar{
 
-    height: 10vh;
-
-    width: 100%;
-
-    background : lightblue;
-
-    display: flex;
-
-    justify-content: space-around;
+  height: 10vh;
+  width: 100%;
+  background : lightblue;
+  display: flex;
+  justify-content: space-around;
     
 }
 
@@ -1899,6 +1916,7 @@ presentation of properties
 
 
 .idDivAA{
+
    height:2.25vw;
    width:2.25vw;
    display:flex;
@@ -1908,6 +1926,21 @@ presentation of properties
    border-radius: 60px;
 
 }
+
+
+.idDivAAPawn{
+
+  height:1.5vw;
+  width:1.5vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:rgb(0 ,255 , 0 , 0.7);
+  border-radius: 60px;
+
+
+}
+
 
 
 .popupAvatar{
@@ -2522,55 +2555,95 @@ flex-direction: column;
 }
 
 
+
 .pawnContainer{
 
   position:absolute;
-  height:85%;
-  width:25%;
+  height:95%;
+  width:95%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  top:7.5%;
-  right:7%;
+  top:2.5%;
+  right:2.5%;
   z-index: 5;
 
 }
 
 
-.pawnContainerhumanPlayer{
 
-  height:20%;
-  width:90%;
-  
+.pawnContainerA{
 
-
+  height: 80%; 
+  width: 47.5%; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content: 
+  space-around; 
+  align-items:center;
 }
 
 
+
+.pawnImg{
+  height:80%; 
+  width:80%; 
+  margin-left:0.5%;
+}
+
+.pawnContainerhumanPlayer{
+
+  height:45%;
+  width:45%;
+  opacity: 0;
+
+  
+}
+
 .pawnContainerai1{
 
-   height:20%;
-   width:90%;
+  height:45%;
+  width:45%;
+  opacity: 0;
 
 }
 
 
 .pawnContainerai2{
 
-  height:20%;
-  width:90%;
+  height:45%;
+  width:45%;
+  opacity: 0;
 
 }
 
 
 .pawnContainerai3{
 
-  height:20%;
-  width:90%;
+  height:45%;
+  width:45%;
+  opacity: 0;
 
 }
 
+
+
+#square0_pawnContainerhumanPlayer{
+  opacity: 1;
+}
+
+#square0_pawnContainerai1{
+  opacity: 1;
+}
+
+#square0_pawnContainerai2{
+  opacity: 1;
+}
+
+#square0_pawnContainerai3{
+  opacity: 1;
+}
 
 
 .rpSquare{
