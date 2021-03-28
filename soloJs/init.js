@@ -20,8 +20,6 @@ function init(){
       );
 
 
-      removePlayer(humanPlayer);
-
 
       boardGraph1();  
       boardGraph2(); 
@@ -31,6 +29,11 @@ function init(){
       
        buildBoardPresentationCircles(ai1);
        buildBoardPresentationBars(ai1);
+       buildPresentationCircleLegend(ai1,boardGraph)
+       buildPresentationCircleLegend(ai2,boardGraph)
+       buildPresentationCircleLegend(ai3,boardGraph)
+       buildPresentationCircleLegend(humanPlayer,boardGraph)
+
 
       
   

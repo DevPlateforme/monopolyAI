@@ -373,11 +373,8 @@ function playerPaymentToTheBank(player, amount){
 function acceptTrade(proposition){
   
     let answerer = proposition.answerer;
-
     let offerer = proposition.offerer;
-     
     let offer = proposition.offer;
-
     let answer = proposition.answer;
 
 

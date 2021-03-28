@@ -193,7 +193,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 	let publicServices = offerer.propertiesByColor[publicServicesColor.index].properties;
 
 
-	if(answerer == humanPlayer){
+	if(answerer == humanPlayer && gainType == indirectGain){
 		
 		if(trains.length > 1){
 

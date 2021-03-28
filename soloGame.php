@@ -6497,7 +6497,18 @@
 
    <div class="tradeScreen" id="synergyDiv">
 
-        <div class="tradeScreenTop tradeScreenTopSynergy">
+        <div id="synergyDivNoSynergy">
+
+            <div id="synergyDivNoSynergyA">
+              0 future opportunities included
+            </div>
+            <div id="synergyDivNoSynergyB">
+              <button id='synergeticBtn' onclick='displaySynergeticWindow()'></button> see
+            </div>
+
+        </div>
+
+        <div class="tradeScreenTop tradeScreenTopSynergy" id='topSynergyDiv'>
 
                    <div class="tradeScreenTopA">
 
@@ -6505,7 +6516,7 @@
     
                         </div>
        
-                     <div class="tradeScreenBottom tradeScreenBottomSynergy">
+                     <div class="tradeScreenBottom tradeScreenBottomSynergy" id='bottomSynergyDiv'>
 
 
                            <div class="tradeScreenA tradeScreenASynergy">
@@ -6672,7 +6683,6 @@
                       
                      <div class='idDivBA'>name: pm45</div>
                      <div class='idDivBA'>position: sq.32</div>
-                     <div class='idDivBA' id='ai1BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -6682,16 +6692,27 @@
             <div class='legendsDivA'>
                     <div class='legendsDivAA'>
                             <div class='legendsDivAAA'>
-                              <div class='legendsDivAAAA'></div>
-                              <div class='legendsDivAAAB'>development</div>
+                              <div class='legendsDivAAAA'>
+                                   <canvas id='ai1_boardGraph_presentationCircleLegend' height='100' width='100'></canvas>
+                              </div>
+                              <div class='legendsDivAAAB' style='display:flex; align-items:center'>mortgages</div>
                             </div>
 
                             <div class='legendsDivAAA'>
-                                 <div class='legendsDivAAAA'></div>
-                                 <div class='legendsDivAAAB'>houses</div>
+                                 <div class='legendsDivAAAA'>
+                                        <div class="cashGraphContainer">
+
+                                             <div id='ai1_boardGraph_cashGraphContent' class='boardGraph_cashGraphContent' style=' height:70%; '></div>
+                                  
+                          
+                                        </div>
+
+                                 </div>
+                                 
+                                 <div class='legendsDivAAAB' id='ai1BoardCashDiv' >cash: $2500</div>
                             </div>
 
-                    </div>
+                   </div>
             </div>
 
 
@@ -7088,7 +7109,6 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA" id='humanPlayerBoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -7098,13 +7118,27 @@
             <div class="legendsDivA">
                     <div class="legendsDivAA">
                             <div class="legendsDivAAA">
-                              <div class="legendsDivAAAA"></div>
-                              <div class="legendsDivAAAB">development</div>
+                              <div class="legendsDivAAAA">
+                              <canvas id='humanPlayer_boardGraph_presentationCircleLegend' height='100' width='100'></canvas>
+                              </div>
+                              <div class="legendsDivAAAB">mortgages</div>
                             </div>
 
                             <div class="legendsDivAAA">
-                                 <div class="legendsDivAAAA"></div>
-                                 <div class="legendsDivAAAB">houses</div>
+                                 <div class="legendsDivAAAA">
+                                     <div class="cashGraphContainer">
+
+                                             <div id='ai1_boardGraph_cashGraphContent' class='boardGraph_cashGraphContent' style=' height:70%; '></div>
+                                  
+                          
+                                        </div>
+
+                                 </div>
+
+
+                                 <div class="legendsDivAAAB"  id='humanPlayerBoardCashDiv'>
+                                   cash: $1500
+                                 </div>
                             </div>
 
                     </div>
@@ -9962,8 +9996,8 @@
 
         <div class='tradeScreenAA'>
             <div class='tradeScreenAAA' id='tradeScren_offererContainer'>
-                <div class='tradeScreenAAAA' id='tradeScren_offerer_imgDiv'>
-                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;  margin-right: 1%; margin-top:0.5%' src='./img/woman.png'></img>
+                <div class='tradeScreenAAAA' id='tradeScren_offerer_imgDiv' style='opacity:0'>
+                     <img class='offererImgTradeScreen' style='opacity:0; height:92.5%; width:92.5%;  margin-right: 1%; margin-top:0.5%' src='./img/woman.png'></img>
                 </div>
                 <div class='tradeScreenAAAB'></div>
             </div>
@@ -9993,7 +10027,7 @@
             <div class='tradeScreenAAA' id='tradeScren_answererContainer'>
                
                 <div class='tradeScreenAAAB'></div>
-                <div class='tradeScreenAAAA' id='tradeScren_answerer_imgDiv' >
+                <div class='tradeScreenAAAA' id='tradeScren_answerer_imgDiv'  style='opacity:0' >
                      <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/aiface.png'></img>
                 </div>
             </div>
@@ -11838,7 +11872,6 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA" id='ai2BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -11848,13 +11881,23 @@
             <div class="legendsDivA">
                     <div class="legendsDivAA">
                             <div class="legendsDivAAA">
-                              <div class="legendsDivAAAA"></div>
-                              <div class="legendsDivAAAB">development</div>
+                              <div class="legendsDivAAAA">
+                              <canvas id='ai2_boardGraph_presentationCircleLegend' height='100' width='100'></canvas>
+                              </div>
+                              <div class="legendsDivAAAB">mortgages</div>
                             </div>
 
                             <div class="legendsDivAAA">
-                                 <div class="legendsDivAAAA"></div>
-                                 <div class="legendsDivAAAB">houses</div>
+                                 <div class="legendsDivAAAA">
+
+                                        <div class="cashGraphContainer">
+
+                                             <div id='ai2_boardGraph_cashGraphContent' class='boardGraph_cashGraphContent' style=' height:70%; '></div>
+                                  
+                          
+                                        </div>
+                                 </div>
+                                 <div class="legendsDivAAAB" id='ai2BoardCashDiv'> cash : 1500</div>
                             </div>
 
                     </div>
@@ -12253,7 +12296,6 @@
                       
                      <div class="idDivBA">name: pm45</div>
                      <div class="idDivBA">position: sq.32</div>
-                     <div class="idDivBA" id='ai3BoardCashDiv'>cash: $1500</div>
 
                </div>
 
@@ -12263,13 +12305,22 @@
             <div class="legendsDivA">
                     <div class="legendsDivAA">
                             <div class="legendsDivAAA">
-                              <div class="legendsDivAAAA"></div>
-                              <div class="legendsDivAAAB">development</div>
+                              <div class="legendsDivAAAA">
+                              <canvas id='ai3_boardGraph_presentationCircleLegend' height='100' width='100'></canvas>
+                              </div>
+                              <div class="legendsDivAAAB">mortgages</div>
                             </div>
 
                             <div class="legendsDivAAA">
-                                 <div class="legendsDivAAAA"></div>
-                                 <div class="legendsDivAAAB">houses</div>
+                                 <div class="legendsDivAAAA">
+                                        <div class="cashGraphContainer">
+
+                                             <div id='ai3_boardGraph_cashGraphContent' class='boardGraph_cashGraphContent' style=' height:70%;'></div>
+                                  
+                          
+                                        </div>
+                                 </div>
+                                 <div class="legendsDivAAAB" id='ai3BoardCashDiv'> cash: $1500</div>
                             </div>
 
                     </div>

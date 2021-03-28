@@ -431,7 +431,6 @@ function closeMortgage(property){
          updateBoardCashOnGui(property.landLord)
 
          property.landLord.mortgages -= 1;
-         addNotif('<br>  after analysing its wallet , and the board , ' + property.landLord.name + '  and just close the mortgage for the property ' + property.name , buyNotif);
 
          squareBorderOn(property.square);
 
@@ -1109,8 +1108,6 @@ function getMortgage(property){
 
 
 
-        addNotif('<br>' + property.landLord.name + 'sorted its properties by priority, and just mortgaged the property ' + property.name , buyNotif);
-
         squareBorderOn(property.square)
 
         boardGraph1();
@@ -1389,6 +1386,8 @@ function updateBoardGraphs(player){
   buildBoardPresentationCircles(player)
   buildBoardPresentationBars(player)
   buildMobilePresentationBars(player);
+  buildPresentationCircleLegend(player,boardGraph)
+
 
   boardGraph1();  
 
@@ -1710,5 +1709,61 @@ function getMortgageCount(player, color){
 
   return mortgageCount;
 
+
+}
+
+
+
+function getPlayerMortgages(player){
+   
+  let mortgageCount = 0;
+  let colorSet;
+
+   for(var i=0 ; i < player.propertiesByColor.length; i++){
+
+      colorSet = player.propertiesByColor[i].properties;
+
+      if(colorSet.length == 0){
+
+        continue;
+
+      }
+
+      for(var y=0; y < colorSet.length ; y++){
+
+          if(colorSet[y].mortgaged == true){
+
+            mortgageCount++;
+
+          }
+        
+      }
+
+      
+
+   }
+
+
+
+ 
+   return mortgageCount;
+
+
+}
+
+
+
+
+function getPropertiesCount(player){
+
+  let propertiesCount = 0;
+
+  for(var i=0; i < player.propertiesByColor.length ; i++){
+
+     propertiesCount += player.propertiesByColor[i].properties.length;
+
+  }
+
+  return propertiesCount;
 
 }

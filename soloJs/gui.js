@@ -73,10 +73,15 @@ if(humanAnswerInterfaceOn == false){
 
 
    if(indirectOpportunities.length != 0){
-
+        
+        buildSynergeticWindow(indirectOpportunities[0]);
 
         buildSynergeticScreen(indirectOpportunities[0]);
 
+
+    } else {
+
+     document.getElementById('synergyDivNoSynergyA').innerHTML = '0 future opportunities included';
 
     }
 
@@ -243,8 +248,13 @@ function refusePropositionFromInterface(){
      
 
       humanPlayer.propositionToAnswer = none;
-
       humanAnswerInterfaceOn = false;
+
+      
+     document.getElementById('synergyDivNoSynergy').style.display = 'flex';
+     document.getElementById(' synergyDivNoSynergyB').style.display = 'none';
+     document.getElementById('topSynergyDiv').style.display = 'none';
+     document.getElementById('bottomSynergyDiv').style.display = 'none';
 
 }
 
@@ -1302,6 +1312,12 @@ function acceptPropositionFromInterface(){
      //The AI will adopt a different behavior regarding what the proposition was
 
      //init the property
+
+     document.getElementById('synergyDivNoSynergy').style.display = 'flex';
+     document.getElementById(' synergyDivNoSynergyB').style.display = 'none';
+     document.getElementById('topSynergyDiv').style.display = 'none';
+     document.getElementById('bottomSynergyDiv').style.display = 'none';
+ 
 
      humanPlayer.propositionToAnswer = none;
 
@@ -3176,9 +3192,6 @@ function addSynergeticCashOfferLine(cash){
      line.append(colorContainer);
      line.append(propertyNameLine)
      document.getElementById('synergeticScreen_offererContainer').append(line);
- 
-
-
 
 }
 
@@ -3202,8 +3215,6 @@ function addSynergeticCashAnswerLine(cash){
      document.getElementById('synergeticScreen_answererContainer').append(line);
      
 
-
-
 }
 
 
@@ -3212,6 +3223,25 @@ function clearSynergeticScreen(){
 
      document.getElementById('synergeticScreen_offererContainer').innerHTML = '';
      document.getElementById('synergeticScreen_answererContainer').innerHTML = '';
+}
+
+
+
+
+function buildSynergeticWindow(proposition){
+
+     document.getElementById('synergyDivNoSynergyA').innerHTML = '1 future opportunity included';
+     document.getElementById('synergyDivNoSynergyB').style.display = 'flex';
+
+}
+
+
+function displaySynergeticWindow(){
+
+    document.getElementById('synergyDivNoSynergy').style.display = 'none';
+    document.getElementById('topSynergyDiv').style.display = 'flex';
+    document.getElementById('bottomSynergyDiv').style.display = 'flex';
+
 }
 
 
