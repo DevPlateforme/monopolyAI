@@ -790,7 +790,7 @@ function buildRightColorGraph(type , player, color){
             labels: ['', '', ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,0,255,0.7)", "rgb(255,0,0,0.7)",  "rgb(255,0,0,0.7)"],
+                backgroundColor: ["rgb(0,0,255,0.7)", "purple",  "rgb(255,0,0,0.7)"],
                 borderColor: 'rgb(255,0,0)',
                 data: [1,25, 40]
             }]
@@ -810,11 +810,16 @@ function buildRightColorGraph(type , player, color){
         }
         }, 
         scales: {
-           xAxes: [{
-            ticks: {
-                   display: false
-            }
-          }]
+            "xAxes": [{
+                gridLines: {
+                    display: false
+                },
+            }],
+            "yAxes": [{
+                gridLines: {
+                    color: "#666666"
+                },
+            }]
         }
         }
    );

@@ -455,8 +455,6 @@ function closeMortgageFromThinking(property){
   property.landLord.cash -= property.mortgageValue;
 
   updateBoardCashOnGui(property.landLord)
-
-
   
 
   property.landLord.mortgages -= 1;
@@ -526,8 +524,6 @@ function buildHouse(property){
 
 
       boardJournal.innerHTML += ('<br>' + property.landLord.name + ' just built a house on ' + property.name);
-
-      addNotif('<br>' + property.landLord.name + ' analysed the board and decided to build a house on the property ' + property.name , buyNotif);
 
 
       boardGraph1();  
@@ -1179,20 +1175,40 @@ function insertMortgagedMonopolyProperty(player , property){
 
 function playerInBankruptcy(player, killer){
 
+  let bankruptcyTime;
+  
+
   if(player.bankruptcy == false){
     
      player.bankruptcy = true;
      bankruptcyTimeoutOn = true;
 
+
+     if(player == humanPlayer){
+
+      launchBankruptcyInterface(player);
+      bankruptcyTime = 15000;
+
+     } else {
+
+      bankruptcyTime = 3000;
+
+
+     }
+
      
 
-
-
-      
     bankruptcyTimeout = setTimeout(function(){
 
       gameOver(player);
       clearInterval(bankruptcyInterval);
+
+      if(player == humanPlayer){     
+  
+        closeBankruptcyInterface(player);
+
+      }
+
 
       if(killer != none){
 
@@ -1212,7 +1228,7 @@ function playerInBankruptcy(player, killer){
       
 
   
-     } , 3000);
+     } , bankruptcyTime);
 
 
 
@@ -1224,8 +1240,9 @@ function playerInBankruptcy(player, killer){
        if(player.cash > 0 ){
 
         clearTimeout(bankruptcyTimeout);
-
         clearInterval(bankruptcyInterval);
+        closeBankruptcyInterface(player);
+
 
 
         boardJournal.innerHTML += ('<br> the player ' + player.name + ' went out from bankruptcy');
@@ -1291,8 +1308,6 @@ function removePlayer(player){
       let playerIndex = player.playerIndex;
   
   
-
-
        //set all its properties to available
 
 
@@ -1333,14 +1348,22 @@ function removePlayer(player){
 
 
 
+      if(playersArray.length == 1){
+
+        clearTimeout(playersArray[0].thinkingTimeout);
+
+        displayVictoryDiv(playersArray[0]);
+      }
+
+
+
     if(displayedLaunchBtn == true){
     
         launchDicesAndMovePieces();
      
-   }
-
     }
-    
+
+  }
     
 
 
@@ -1421,12 +1444,15 @@ function getMonopolyHouses(player,color){
 function playerInJail(player){
 
    player.jailManagement.inJail = true;
+   launchJailInterface(player);
    movePieceOnGui(player, player.position, jailVisit.square);
    player.position = jailVisit.square;
 
    if(player == humanPlayer){
 
-    displayJailPopup();
+       displayJailPopup();
+
+
    }
 
 
@@ -1438,6 +1464,7 @@ function releasePlayerFromJail(player){
   
   player.jailManagement.inJail = false;
   player.jailManagement.jailCount = 0;
+  closeJailInterface(player);
 
 
 }

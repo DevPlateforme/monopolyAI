@@ -251,11 +251,11 @@ function refusePropositionFromInterface(){
       humanAnswerInterfaceOn = false;
 
       
-     document.getElementById('synergyDivNoSynergy').style.display = 'flex';
-     document.getElementById(' synergyDivNoSynergyB').style.display = 'none';
-     document.getElementById('topSynergyDiv').style.display = 'none';
-     document.getElementById('bottomSynergyDiv').style.display = 'none';
 
+      document.getElementById('synergyDivNoSynergy').style.display = 'flex';
+      document.getElementById('synergyDivNoSynergyB').style.display = 'none';
+      document.getElementById('topSynergyDiv').style.display = 'none';
+      document.getElementById('bottomSynergyDiv').style.display = 'none';
 }
 
 
@@ -390,16 +390,49 @@ function closeAvailablePropertyInterface(){
  function displayCommunityChestSquareInterface(){
 
      humanThinking = true;
-     document.getElementById('chanceSquareInterface').style.display = 'flex';
 
-     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(communityChest)")
+     hideBoard();
+     hideTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+
+          hidePlayer(playersArray[i]);
+
+     }
+
+
+     document.getElementById('chanceSquareInterface').style.display = 'flex';
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(communityChest)");
      
+ }
+
+
+ function displayDrewCardPopup(type, cardType, title, description){
+
+
+   document.getElementById('cardName').innerHTML = title;
+   document.getElementById('cardType').innerHTML = 'type : ' + cardType;
+   document.getElementById('cardDescription').innerHTML = description;
+
+   document.getElementById('drewCardPopup').style.display = 'flex';
+            
 
  }
 
  function displayChanceSquareInterface(){
 
      humanThinking = true;
+
+     hideBoard();
+     hideTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+
+          hidePlayer(playersArray[i]);
+
+     }
+
+
      document.getElementById('chanceSquareInterface').style.display = 'flex';
 
      document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(luck)")
@@ -425,8 +458,6 @@ function closeCommunityChestSquareInterface(){
      humanThinking = false;
 
      document.getElementById('chanceSquareInterface').style.display = 'false';
-
-
 
 }
 
@@ -599,8 +630,6 @@ function displayPropositionInterface(){
      //humanThinking = true;
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='#6b6df2';
-
-
 
 
      displayTradeDiv(tradeOfferer,humanPlayer,colorArray[displayedOffererColor]);
@@ -1314,7 +1343,7 @@ function acceptPropositionFromInterface(){
      //init the property
 
      document.getElementById('synergyDivNoSynergy').style.display = 'flex';
-     document.getElementById(' synergyDivNoSynergyB').style.display = 'none';
+     document.getElementById('synergyDivNoSynergyB').style.display = 'none';
      document.getElementById('topSynergyDiv').style.display = 'none';
      document.getElementById('bottomSynergyDiv').style.display = 'none';
  
@@ -2504,10 +2533,26 @@ function closeDrawCardInterface(){
 
      document.getElementById('chanceSquareInterface').style.display = 'none';
      
-     humanThinking = false;
-
 }
 
+
+function closeDrewCardInterface(){
+
+     unveilBoard();
+     unveilTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+
+           unveilPlayer(playersArray[i]);
+     }
+
+     document.getElementById('drewCardPopup').style.display = 'none';
+
+     humanThinking = false;
+
+     
+
+}
 
 
 
@@ -2712,7 +2757,7 @@ function unveilTradeScreen(){
 
 function hidePlayer(player){
 
-      document.getElementById(player.name+'BoardPresentation').style.opacity = 0.2;
+      document.getElementById(player.name+'BoardCard').style.opacity = 0.2;
 
 }
 
@@ -2792,7 +2837,7 @@ function tradeAnimation(proposition){
 
 function unveilPlayer(player){      
      
-     document.getElementById(player.name+'BoardPresentation').style.opacity = 1;
+     document.getElementById(player.name+'BoardCard').style.opacity = 1;
 
 }
 
@@ -3245,3 +3290,140 @@ function displaySynergeticWindow(){
 }
 
 
+
+
+function launchBankruptcyInterface(player){
+     
+     document.getElementById(player.name + '_bankruptcyImg').style.opacity = 0.8;
+     launchBankruptcyCount(player);
+
+}
+
+
+
+function closeBankruptcyInterface(player){
+     
+     document.getElementById(player.name + '_bankruptcyImg').style.opacity = 0.15;
+     document.getElementById(player.name + '_bankruptcyTimeout').innerHTML = off;
+
+     stopBankruptcyCount(player);
+
+}
+
+
+function launchBankruptcyCount(player){
+
+     let totalTime = 15000;
+     
+     player.bankruptcyInterval = setInterval(function(){
+
+           document.getElementById(player.name + '_bankruptcyTimeout').innerHTML = Math.floor(totalTime/1000).toFixed(0) + ':' + (((totalTime/1000) -  Math.floor(totalTime/1000)  ) *10).toFixed(0) + "0" ;
+
+           totalTime-=100;
+
+     },100);
+     
+}
+
+
+function stopBankruptcyCount(player){
+
+     clearInterval(player.bankruptcyInterval);
+     
+}
+
+
+
+
+function launchJailInterface(player){
+
+    document.getElementById(player.name + '_jailImg').style.opacity = 0.7;
+    updateJailInterface(player);
+
+}
+
+function updateJailInterface(player){
+
+     document.getElementById(player.name + '_jailCount').innerHTML = player.jailManagement.jailCount + '/3';      
+
+}
+
+
+function closeJailInterface(player){
+
+     document.getElementById(player.name + '_jailImg').style.opacity = 0.15;
+     document.getElementById(player.name + '_jailCount').innerHTML = 'free';
+
+}
+
+
+
+
+
+
+function displayVictoryDiv(player){
+
+     document.getElementById('victoryTop').innerHTML = player.name + 'won.';
+     document.getElementById('victoryBottom').innerHTML = 'Description: ' + ai.name + ' won the game';
+     
+     hideBoard();
+     hideTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+
+          hidePlayer(playersArray[i]);
+
+     }
+
+
+}
+
+
+
+
+
+function displayLaunchInfo(){
+
+     document.getElementById('launchInfoPopup').style.display = 'flex';
+
+     hideBoard();
+     hideTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+          hidePlayer(playersArray[i]);
+     }
+
+
+     unveilPlayer(humanPlayer);
+
+
+}
+
+
+
+function launchDicesFromInterface(){
+
+
+     closeLaunchInfo();
+     launchDicesAndMovePieces();
+
+
+
+
+
+
+
+}
+
+
+
+function closeLaunchInfo(){
+
+     unveilBoard();
+     unveilTradeScreen();
+
+     for(var i=0; i < playersArray.length ; i++){
+          unveilPlayer(playersArray[i]);
+     }
+
+}

@@ -18,6 +18,139 @@
 
 
 
+
+<div class='launchInfoDiv' id='launchInfoPopup'>
+
+<div class='launchInfoPopupLeftDiv'>
+    <div class='launchInfoPopupLeftDivA'>card id: n°32</div>
+  </div>
+
+ <div class='launchInfoDivA'>
+     <div class='launchInfoDivAA'>
+
+       <img src="./img/dices.png" class='winLogolaunchInfo'>
+      
+
+     </div>
+
+ </div>
+
+
+ <div class='launchInfoDivB'>
+  <div class='launchInfoDivBA'>
+    <div class='launchInfoDivBAA'>
+        Press "Q" , or "play" to launch dices 
+    </div>
+  </div>
+  <div class='launchInfoDivBB'>
+
+    <div class='launchInfoDivBBA'>
+      Type: launchInfo
+    </div>
+
+
+    <div class='launchInfoDivBBB'>
+      Description: PM-45 won the game
+    </div>
+
+
+  </div>
+
+ </div>
+
+</div>
+
+
+<div class='drewCardDiv' id='drewCardPopup'>
+
+<div class='drewCardPopupLeftDiv'>
+    <div class='drewCardPopupLeftDivA'>card id: n°32</div>
+  </div>
+
+ <div class='drewCardDivA'>
+     <div class='drewCardDivAA'>
+
+       <img src="./img/luck.png" class='luckLogodrewCard'>
+      
+
+     </div>
+
+ </div>
+
+
+ <div class='drewCardDivB'>
+  <div class='drewCardDivBA'>
+    <div class='drewCardDivBAA' id='cardName'>
+      Building fine
+    </div>
+  </div>
+  <div class='drewCardDivBB'>
+
+    <div class='drewCardDivBBA' id='cardType'>
+      Type: movement
+    </div>
+
+
+    <div class='drewCardDivBBB' id='cardDescription'>
+      Description: You move 5 pawns backward.
+    </div>
+
+
+  </div>
+
+ </div>
+
+</div>
+
+
+
+
+<div class='victoryDiv'>
+
+<div class='victoryPopupLeftDiv'>
+    <div class='victoryPopupLeftDivA'>card id: n°32</div>
+  </div>
+
+ <div class='victoryDivA'>
+     <div class='victoryDivAA'>
+
+     <div class='victoryAvatar'>
+                                
+              <img src="./img/aiface.png" style='height:90%; width:90%; margin-left:0.5%'>
+     
+        </div>
+      
+
+     </div>
+
+ </div>
+
+
+ <div class='victoryDivB'>
+  <div class='victoryDivBA'>
+    <div class='victoryDivBAA' id='victoryTop'>
+      PM-45 won.
+    </div>
+  </div>
+  <div class='victoryDivBB'>
+
+    <div class='victoryDivBBA'>
+      Type: Victory
+    </div>
+
+
+    <div class='victoryDivBBB' id='victoryBottom'>
+      Description: PM-45 won the game
+    </div>
+
+
+  </div>
+
+ </div>
+
+</div>
+
+
 <div  id='mobileBottomNav'>
 
        <div class='digitalContainerAABA'>   
@@ -27,7 +160,7 @@
           <img class="showImg" src="./img/show.png" alt="">
        </div>
          <div class='digitalContainerAABA' > 
-              <button id='mobileLaunchBtn' class='navBtn' onclick='launchDicesAndMovePieces()'>Lancer</button>
+              <button id='mobileLaunchBtn' class='navBtn' onclick='launchDicesFromInterface()'>Lancer</button>
               <img class="mobilePlayImg" id='bottomPlayImg' src="./img/play.png" alt="">
         </div>
         <div class='jailAndBankruptcyInt'>
@@ -1018,12 +1151,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages:0</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses: 3</div>
                            </div>
                        </div>
 
@@ -1443,12 +1576,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA'  style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB' style='background:purple'>houses: 2</div>
                            </div>
                        </div>
 
@@ -1993,12 +2126,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
                            </div>
                        </div>
 
@@ -2305,12 +2438,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA'  style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
                            </div>
                        </div>
 
@@ -2733,12 +2866,12 @@
 
                          <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses:4</div>
                            </div>
                        </div>
                   </div>
@@ -3285,12 +3418,12 @@
                          
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages:1</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses:0</div>
                            </div>
                        </div>
                                     
@@ -5042,12 +5175,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages:2</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses:1</div>
                            </div>
                        </div>
 
@@ -5452,12 +5585,12 @@
 
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend1</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages:1</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
-                                 <div class='tradeInterfaceABABBBAA'></div>
-                                 <div class='tradeInterfaceABABBBAB'>legend2</div>
+                                 <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
+                                 <div class='tradeInterfaceABABBBAB'>houses:2</div>
                            </div>
                        </div>
 
@@ -5981,12 +6114,12 @@
 
                     <div class='tradeInterfaceABABBB'>
                          <div class='tradeInterfaceABABBBA'>
-                              <div class='tradeInterfaceABABBBAA'></div>
-                              <div class='tradeInterfaceABABBBAB'>legend1</div>
+                              <div class='tradeInterfaceABABBBAA' style='background:red'></div>
+                              <div class='tradeInterfaceABABBBAB'>mortgages:2</div>
                         </div>
                         <div class='tradeInterfaceABABBBA'>
-                              <div class='tradeInterfaceABABBBAA'></div>
-                              <div class='tradeInterfaceABABBBAB'>legend2</div>
+                              <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
+                              <div class='tradeInterfaceABABBBAB'>houses:0</div>
                         </div>
                     </div>
 
@@ -6659,7 +6792,7 @@
 
 <div class='digitalContainer' id='monopolyBoard'>
 		<div class='digitalContainerA'>
-			<div class='digitalContainerAA'>
+			<div class='digitalContainerAA' id='ai1BoardCard'>
 
         <div class = 'digitalContainerAAA' id='ai1BoardPresentation' >
 
@@ -7078,14 +7211,48 @@
 
 		
 
-	           <div class='digitalContainerAAB'></div>
+        <div class="digitalContainerAAB" id="ai1LeftInterface">
+
+<div class="digitalContainerAABA">   
+
+</div>
+  <div class="digitalContainerAABA"> 
+ 
+
+ </div>
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+             <div class="jailAndBankruptcyIntAA">
+                <img class="jailImg" id="ai1_jailImg" src="./img/jail.png">
+             </div>
+
+      </div>
+
+      <div class="jailAndBankruptcyIntB" id="ai1_jailCount">free</div>
+     
+ </div>
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+              <div class="jailAndBankruptcyIntAA">
+                    <img class="bankruptcyImg" id="ai1_bankruptcyImg" src="./img/bankruptcy.png">
+
+              </div>
+
+      </div>
+      <div class="jailAndBankruptcyIntB" id='ai1_bankruptcyTimeout'>off</div>
+         
+ </div>
+
+</div>
 		
 	         </div>
 
 
 
 
-           <div class='digitalContainerAA'>
+           <div class='digitalContainerAA' id='humanPlayerBoardCard'>
 
                   <div class = 'digitalContainerAAA' id='humanPlayerBoardPresentation' >
 
@@ -7512,7 +7679,7 @@
           <img class="showImg" src="./img/show.png" alt="">
        </div>
          <div class='digitalContainerAABA' > 
-              <button id='launchBtn' class='navBtn' onclick='launchDicesAndMovePieces()'>Lancer</button>
+              <button id='launchBtn' class='navBtn' onclick='launchDicesFromInterface()'>Lancer</button>
               <img class="playImg" id='playImg' src="./img/play.png" alt="">
 
         </div>
@@ -7520,25 +7687,25 @@
 
              <div class='jailAndBankruptcyIntA'>
                     <div class='jailAndBankruptcyIntAA'>
-                    <img class = 'jailImg'  src="./img/jail.png">
+                    <img class="jailImg" id="humanPlayer_jailImg" src="./img/jail.png">
 
                     </div>
 
              </div>
 
-             <div class='jailAndBankruptcyIntB'>free</div>
+             <div class='jailAndBankruptcyIntB' id='humanPlayer_jailCount'>free</div>
             
         </div>
         <div class='jailAndBankruptcyInt'>
 
              <div class='jailAndBankruptcyIntA'>
                      <div class='jailAndBankruptcyIntAA'>
-                           <img class = 'bankruptcyImg'  src="./img/bankruptcy.png">
+                     <img class="bankruptcyImg" id="humanPlayer_bankruptcyImg" src="./img/bankruptcy.png">
 
                      </div>
 
              </div>
-             <div class='jailAndBankruptcyIntB'>off</div>
+             <div class='jailAndBankruptcyIntB' id='humanPlayer_bankruptcyTimeout'>off</div>
                 
         </div>
 
@@ -11848,7 +12015,7 @@
 
 
 <div class='digitalContainerA'>
-			<div class='digitalContainerAA'>
+			<div class='digitalContainerAA' id='ai2BoardCard'>
 
         <div class = 'digitalContainerAAA' id='ai2BoardPresentation' >
 
@@ -12265,14 +12432,50 @@
 
 		
 
-	           <div class='digitalContainerAAB'></div>
+        <div class="digitalContainerAAB" id="ai2LeftInterface">
+
+<div class="digitalContainerAABA">   
+
+</div>
+  <div class="digitalContainerAABA"> 
+
+
+ </div>
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+             <div class="jailAndBankruptcyIntAA">
+
+                 <img class="jailImg" id="ai2_jailImg" src="./img/jail.png">
+
+             </div>
+
+      </div>
+
+      <div class="jailAndBankruptcyIntB" id="ai2_jailCount">free</div>
+     
+ </div>
+
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+              <div class="jailAndBankruptcyIntAA">
+                 <img class="bankruptcyImg" id="ai2_bankruptcyImg" src="./img/bankruptcy.png">
+              </div>
+
+      </div>
+      <div class="jailAndBankruptcyIntB" id="ai2_bankruptcyTimeout">off</div>
+         
+ </div>
+
+</div>
 		
 	         </div>
 
 
 
 
-           <div class='digitalContainerAA'>
+           <div class='digitalContainerAA' id='ai3BoardCard'>
 
                   <div class = 'digitalContainerAAA' id='ai3BoardPresentation' >
 
@@ -12678,7 +12881,43 @@
 
 
 
-    <div class='digitalContainerAAB'></div>
+        <div class="digitalContainerAAB" id="ai3LeftInterface">
+
+<div class="digitalContainerAABA">   
+
+
+ </div>
+  <div class="digitalContainerAABA"> 
+
+
+ </div>
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+             <div class="jailAndBankruptcyIntAA">
+                 <img class="jailImg" id="ai3_jailImg" src="./img/jail.png">
+             </div>
+
+      </div>
+
+      <div class="jailAndBankruptcyIntB" id="ai3_jailCount">free</div>
+     
+ </div>
+ <div class="jailAndBankruptcyInt">
+
+      <div class="jailAndBankruptcyIntA">
+              <div class="jailAndBankruptcyIntAA">
+              <img class="bankruptcyImg" id="ai3_bankruptcyImg" src="./img/bankruptcy.png">
+
+              </div>
+
+      </div>
+
+      <div class="jailAndBankruptcyIntB" id="ai3_bankruptcyTimeout">off</div>
+         
+ </div>
+
+</div>
 
     </div>
 		

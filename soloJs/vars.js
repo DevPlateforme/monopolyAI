@@ -332,39 +332,39 @@ var movementAndCollection = 'movementAndCollection';
        //COMMUNITY CHEST
 
 
-   var advanceToGoCard = {type: movementAndCollection , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination : departure , collection : 200};
+   var advanceToGoCard = {name:"back to departure", type: movementAndCollection , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination : departure , collection : 200};
 
-   var bankErrorCard = {type: collection , collection: 100 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars" , collection: 200, fee: none};
+   var bankErrorCard = { name:"bank error " , type: collection , collection: 100 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars" , collection: 200, fee: none};
 
-   var DoctorsFeeCard = {type: payment , description: "Frais de docteur. Payez 50 dollars", fee: 50 };
+   var DoctorsFeeCard = { name:"Doctor fee" , type: payment , description: "Doctor fee. Pay 50 dollars", fee: 50 };
 
-   var saleOfStockCard = {type: collection , description: "Vente d'actions, vous gagnez 50 dollars", collection : 50};
+   var saleOfStockCard = { name:"Doctor fee" , type: collection , description: "Vente d'actions, vous gagnez 50 dollars", collection : 50};
 
 //var getOutOfJailFreeCard = { type : outOfJail, descrition: "Cette carte vous permet de sortir prison, lorsqu'utilisée", movement: none, collection: none, fee : none}; 
 
-   var goToJailCard = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
+   var goToJailCard = {name:"Doctor fee" , type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
 
 //var GrandOperaNightCard = {type: collection, revenue: 150 , description : "Grand Opera Night : Vous recevez 50 dollars de la part de chaque joueur" };
 
-    var HolidayFundCard = {type: collection, description: "Holliday fund. Recevez 20 dollars." , collection : 20};
+    var HolidayFundCard = {name:"Doctor fee" ,type: collection, description: "Holliday fund. Recevez 20 dollars." , collection : 20};
 
-    var incomeTaxRefundCard = {type: collection , revenue: 20, description: "Remboursement des impôts. Recevez 20 dollars." , collection: 10};
+    var incomeTaxRefundCard = {name:"Doctor fee" ,type: collection , revenue: 20, description: "Remboursement des impôts. Recevez 20 dollars." , collection: 10};
 
-    var birthdayCollectCard = {type: collection ,  collection: 10, description: "C'est votre anniversaire. Recevez 10 dollars."};
+    var birthdayCollectCard = {name:"Doctor fee" ,type: collection ,  collection: 10, description: "C'est votre anniversaire. Recevez 10 dollars."};
 
-    var lifeInsuranceCard = {type: collection , collection: 100, description: "Assurance. Recevez 100 dollars"};
+    var lifeInsuranceCard = {name:"Doctor fee" ,type: collection , collection: 100, description: "Assurance. Recevez 100 dollars"};
 
-    var hospitalFeesCard = {type: payment ,  description: "Frais d'Hôpitaux. Payez 100 dollars" , fee : 100};
+    var hospitalFeesCard = {name:"Doctor fee" ,type: payment ,  description: "Frais d'Hôpitaux. Payez 100 dollars" , fee : 100};
  
-    var schoolFeesCard = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"}; 
+    var schoolFeesCard = {name:"Doctor fee" ,type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"}; 
 
-    var consultancyFeeCollectionCard  = {type: collection , collection: 25 , description: "Vous facturez 25 dollars de frais de consultation. Recevez 25 dollars"};
+    var consultancyFeeCollectionCard  = {name:"Doctor fee" ,type: collection , collection: 25 , description: "Vous facturez 25 dollars de frais de consultation. Recevez 25 dollars"};
 
   //var streetRepairCard = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
 
-    var beautyPrizeCard = {type: collection , collection : 150 , description: "Vous arrivez à la seconde position d'un concours de beauté. Vous recevez 10 dollars"};
+    var beautyPrizeCard = {name:"Doctor fee" ,type: collection , collection : 150 , description: "Vous arrivez à la seconde position d'un concours de beauté. Vous recevez 10 dollars"};
 
-     var hundredDollarsInheritionCard = {type: collection , collection : 100 , description: "Vous héritez de 100 dollars"};
+     var hundredDollarsInheritionCard = {name:"Doctor fee" ,type: collection , collection : 100 , description: "Vous héritez de 100 dollars"};
 
 
 
@@ -373,39 +373,39 @@ var movementAndCollection = 'movementAndCollection';
 
 
 
-      var speedFineCard = {type: payment , fee: 100,  description: "Amende pour excès de vitesse.  Payez 100 dollars"};
+      var speedFineCard = {name:"Doctor fee" , type: payment , fee: 100,  description: "Amende pour excès de vitesse.  Payez 100 dollars"};
 
-      var bankErrorCard2 = {type: collection , collection: 50 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars"};
+      var bankErrorCard2 = {name:"Doctor fee" , type: collection , collection: 50 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars"};
       
       //var streetRepairCard2 = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
       
-      var advanceToGoCard2 = {type: movement , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination: departure};
+      var advanceToGoCard2 = {name:"Doctor fee" , type: movement , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination: departure};
   
-      var schoolFeesCard2 = {type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"};
+      var schoolFeesCard2 = {name:"Doctor fee" , type: payment , fee: 150 , description: "Frais Scolaires. Payez 150 dollars"};
       
-      var goToRueDeLaPaixCard = {type: movement , description: "Déplacez vous jusque Rue de la Paix", destination : rueDeLaPaix };
+      var goToRueDeLaPaixCard = {name:"Doctor fee" , type: movement , description: "Déplacez vous jusque Rue de la Paix", destination : rueDeLaPaix };
 
       //var getOutOfJailFreeCard2 = { type : outOfJail, descrition: "Cette carte vous permet de sortir de prison, lorsqu'utilisée"}; 
       
-      var goToAvenueHenriMartinCard = {type: movement ,  description: "Déplacez vous jusque l'avenue Henri Martin" , destination : avenueHenriMartin };
+      var goToAvenueHenriMartinCard = {name:"Doctor fee" , type: movement ,  description: "Déplacez vous jusque l'avenue Henri Martin" , destination : avenueHenriMartin };
 
       //var streetRepairCard3 = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
       
-      var goToBdDeLaVilletteCard = {type: movement , description: "Avancez au Bd de la Vilette. Si vous passez par la case Départ, recevez 200 dollars", destination: belleville};
+      var goToBdDeLaVilletteCard = {name:"Doctor fee" , type: movement , description: "Avancez au Bd de la Vilette. Si vous passez par la case Départ, recevez 200 dollars", destination: belleville};
  
-      var goToGareDeLyonCard = {type: movement , description: "Avancez jusque Gare De Lyon. Si vous passez par la case Départ, recevez 200 dollars", destination: gareDeLyon};
+      var goToGareDeLyonCard = {name:"Doctor fee" , type: movement , description: "Avancez jusque Gare De Lyon. Si vous passez par la case Départ, recevez 200 dollars", destination: gareDeLyon};
 
-      var realEstateCard = {type: collection , collection: 150 ,  description: "Votre immeuble et votre prêt vous rapportent 150 dollars"};
+      var realEstateCard = {name:"Doctor fee" , type: collection , collection: 150 ,  description: "Votre immeuble et votre prêt vous rapportent 150 dollars"};
        
       //var goToJailCard2 = { type : goToJail , description : "Vous allez directement en prison sans passer par la case départ"};
 
       //var stepBackCard = { type : movement , description : "Reculez de 3 cases"};
 
-      var dangerousDrivingFineCard = { type : payment , fee: 150, description : "Amende pour conduite dangereuse. Vous perdez 150 dollars"};
+      var dangerousDrivingFineCard = { name:"Doctor fee" ,  type : payment , fee: 150, description : "Amende pour conduite dangereuse. Vous perdez 150 dollars"};
 
       //var stepBackCard = { type : movement , description : "Reculez de 3 cases"};
 
-      var gamePrizeCard = { type : collection , collection: 100,  description : "Vous avez gagné le prix des mots croisés. Vous recevez 100 dollars"};
+      var gamePrizeCard = { name:"Doctor fee" , type : collection , collection: 100,  description : "Vous avez gagné le prix des mots croisés. Vous recevez 100 dollars"};
 
 
 
@@ -557,6 +557,7 @@ var pmTop = 'pmTop';
 
 var jailReleaseCost = 50;
 
+var launcherInJail;
 
 var minimumHouseValue = 50; //smallest house value
 

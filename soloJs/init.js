@@ -17,10 +17,15 @@ function init(){
 
           boardJournal.innerHTML = ''}, 5000
           
-      );
+        );
 
 
+      decideToStayInJailOrNot(ai1)
+      decideToStayInJailOrNot(ai2)
+      decideToStayInJailOrNot(ai3)
 
+
+      removePlayer(humanPlayer)
       boardGraph1();  
       boardGraph2(); 
       boardGraph3();  
@@ -93,10 +98,8 @@ function init(){
           } 
      });
 
-
-
-     
-
+    
+     lastDiceLauncher = humanPlayer;
   
       wakeUpAis();
 
@@ -111,6 +114,10 @@ function init(){
      addPropertyToPlayerWallet(ai1, faubourgSaintHonore);
      addPropertyToPlayerWallet(ai1, placeDeLaBourse);
      addPropertyToPlayerWallet(ai1, rueLaFayette);
+
+     buildOnNextAvailableSlot(ai1, yellow)
+     buildOnNextAvailableSlot(ai1, yellow)
+
 
      addPropertyToPlayerWallet(ai1,avenueDeNeuilly);
      addPropertyToPlayerWallet(ai1,rueDuParadis);

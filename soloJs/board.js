@@ -1,6 +1,5 @@
 function getNextDiceLauncherIndex(){
 
-
   if(nextDiceLauncherIndex >= (playersArray.length - 1)){
     nextDiceLauncherIndex = 0;
 
@@ -14,29 +13,40 @@ function getNextDiceLauncherIndex(){
 function launchDices(){
 
     diceResult = (Math.floor(Math.random() * (diceEdges -2)) +2) + (Math.floor(Math.random() * (diceEdges-2)) + 2);
- 
+
      getNextDiceLauncherIndex();
 
-    nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+     nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+
+   if(nextDiceLauncherIndex == 0){
+
+        lastDiceLauncher = playersArray[playersArray.length - 1];
+    
+      } else {
+
+         lastDiceLauncher = playersArray[nextDiceLauncherIndex - 1];
+    }
 
 
-    if(nextDiceLauncher.jailManagement.inJail == true){
-      improveJailCountAndCheck(nextDiceLauncher);
+   if(lastDiceLauncher.jailManagement.inJail == true){
 
-        
-      if(nextDiceLauncher.jailManagement.inJail == true){
+    launcherInJail = true;
+    increaseJailCountAndCheck(lastDiceLauncher);
+    
 
-         if(nextDiceLauncher != humanPlayer){
-              decideToStayInJailOrNot(nextDiceLauncher);
-            }
+  if(lastDiceLauncher.jailManagement.inJail == true){
 
-       }
+     if(lastDiceLauncher != humanPlayer){
+          decideToStayInJailOrNot(lastDiceLauncher);
+        }
 
-   getNextDiceLauncherIndex();
+    } 
 
-   nextDiceLauncher = playersArray[nextDiceLauncherIndex];
+  } else {
 
- }
+     launcherInJail = false;
+
+  }
 
 
     return diceResult;    
@@ -47,11 +57,6 @@ function launchDices(){
 
 function movePiece(){
 
-    if(nextDiceLauncherIndex == 0){
-       lastDiceLauncher = playersArray[playersArray.length - 1];
-    } else {
-        lastDiceLauncher = playersArray[nextDiceLauncherIndex - 1];
-    }
 
     let oldPosition = lastDiceLauncher.position;
     let updatedPosition  = lastDiceLauncher.position + diceResult;
@@ -71,6 +76,7 @@ function movePiece(){
 
      movePieceOnGui(lastDiceLauncher , oldPosition , updatedPosition);
 
+
    }
 
 
@@ -84,10 +90,24 @@ function movePiece(){
 
       hideDiceLaunchButton();
       launchDices();
-      movePiece();
-      launchPlTimeout();
-      launchPlCheck();      
-      launchPLProcess();
+        
+        if(launcherInJail == false){   
+        
+
+          movePiece();
+          launchPlTimeout();
+          launchPlCheck();      
+          launchPLProcess();
+        
+        } else {
+
+
+          launchDicesAndMovePieces();
+
+
+      }
+   
+
   }
 
 
@@ -124,11 +144,32 @@ function movePiece(){
       
           if (currentSquare.type == communityChest){
 
-            drawCardAndExecuteAction(communityChest);
+              if(lastDiceLauncher == humanPlayer){
+                 
+                displayCommunityChestSquareInterface();
+
+              } else {
+
+                drawCardAndExecuteAction(communityChest);
+
+
+              }
+
           
           } else if (currentSquare.type == luck){
 
-            drawCardAndExecuteAction(luck);
+            if(lastDiceLauncher == humanPlayer){
+
+              displayChanceSquareInterface();
+
+            } else {
+
+              drawCardAndExecuteAction(luck);
+
+
+            }
+
+
 
           } else if (currentSquare.type = tax ){  
 
@@ -160,6 +201,7 @@ function movePiece(){
    function drawCardAndExecuteAction(type){
 
             let card;
+            let cardTitle;
             
 
             if(type == communityChest){
@@ -172,9 +214,6 @@ function movePiece(){
 
             }
 
-
-
-               
 
              if(card.type == collection){
 
@@ -210,9 +249,10 @@ function movePiece(){
               updateBoardCashOnGui(lastDiceLauncher);
               updateBoardGraphs(lastDiceLauncher)
 
-
-
          }
+
+         closeDrawCardInterface();
+
     
 
 
@@ -220,12 +260,15 @@ function movePiece(){
           
 
         if(lastDiceLauncher == humanPlayer){
+
+          displayDrewCardPopup(type, card.type, card.name, card.description);
                  
           setTimeout( function(){ 
-          setPostLauncDecisionToDone();
-          closeDrawCardInterface();
+
+            setPostLauncDecisionToDone();
+            closeDrewCardInterface();
         
-        }, 1500);
+           }, 2500);
 
 
         }
@@ -477,7 +520,6 @@ function acceptTrade(proposition){
           ////alert('the player took too much time to play!!');
 
           boardJournal.innerHTML += ('the player took too much time to play!!');
-          alert('the player took too much time to play!!');
 
           
 
@@ -516,11 +558,10 @@ function acceptTrade(proposition){
        
     if(desireToStayInJail(player) == false){
         
-         tryTobuyJailRelease(player);
+          tryTobuyJailRelease(player);
+ 
     
         } else {
-
-
 
         }
 
@@ -656,11 +697,13 @@ function launchPlCheck(){
 
 
 
-function improveJailCountAndCheck(player){
+function increaseJailCountAndCheck(player){
 
     if(player.jailManagement.jailCount < 2 ){  
             
          player.jailManagement.jailCount++;
+
+         updateJailInterface(player);
 
     } else {
 

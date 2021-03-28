@@ -221,6 +221,15 @@ function searchForTradesOpportunities(activePlayer){
 
               
            };
+
+
+
+
+           if(buildingCount > 0){
+
+               addNotif('<br>' + ai.name + ' analysed the board and decided to build ' + buildingCount + ' ' + betterPositionedMonopoly.name + ' house(s)' );
+
+           }
         
 
        

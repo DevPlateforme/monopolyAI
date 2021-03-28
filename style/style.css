@@ -217,6 +217,507 @@ align-items: center;
 
 
 
+
+/* */
+
+
+.drewCardDiv{
+
+  position: absolute;
+
+  top: 15vh;
+
+  left: 30vw;
+
+  height: 30vh;
+
+  width: 30vw;
+
+  background: rgb(255,255,255,0.075);
+
+  display: none;
+
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  font-size: 0.75vw;
+
+  border-radius: 8px;
+
+  color: rgb(0,255,0,0.8);
+
+
+}
+
+
+.drewCardDivA{
+height: 35%;
+width: 90%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.drewCardDivAA{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.drewCardDivB{
+
+height:50%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+
+}
+
+
+.drewCardDivBA{
+height: 35%;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+
+.drewCardDivBAA{
+
+  height: 80%;
+  width: 60%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2.25vw;
+  
+}
+
+
+.drewCardDivBB{
+height:65%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+align-items:center;
+}
+
+
+.drewCardDivAA{
+height:70%;
+width:30%;
+display: flex;
+justify-content: center;
+
+}
+
+.drewCardDivBBA{
+margin-top: 7%;
+height: 40%;
+width: 90%;
+display: flex;
+}
+
+
+.drewCardDivBBB{
+height: 40%;
+width: 90%;
+}
+
+
+
+.drewCardPopupLeftDiv{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 30%;
+width: 35%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+font-size: 0.75vw;
+
+}
+
+
+.drewCardPopupLeftDivA{
+width:70%;
+height:20%;
+margin-left: 3%;
+}
+
+
+
+
+
+
+.luckLogodrewCard{
+
+height: 90%;
+width: auto;
+
+
+}
+
+
+/*  */
+
+
+.launchInfoDiv{
+
+  position: absolute;
+
+  top: 15vh;
+
+  left: 30vw;
+
+  height: 30vh;
+
+  width: 30vw;
+
+  background: rgb(255,255,255,0.075);
+
+  display: none;
+
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  font-size: 0.75vw;
+
+  border-radius: 8px;
+
+  color: rgb(0,255,0,0.8);
+
+
+}
+
+
+.launchInfoDivA{
+height: 35%;
+width: 90%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.launchInfoDivAA{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.launchInfoDivB{
+
+height:50%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+
+}
+
+
+.launchInfoDivBA{
+height: 35%;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+
+.launchInfoDivBAA{
+
+height: 80%;
+width: 100%;
+margin-left: 5%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+font-size: 1.75vw;
+padding-left: 2.5%;
+}
+
+
+.launchInfoDivBB{
+height:65%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+align-items:center;
+}
+
+
+.launchInfoDivAA{
+height:70%;
+width:30%;
+display: flex;
+justify-content: center;
+
+}
+
+.launchInfoDivBBA{
+margin-top: 7%;
+height: 40%;
+width: 90%;
+display: flex;
+}
+
+
+.launchInfoDivBBB{
+height: 40%;
+width: 90%;
+}
+
+
+
+.launchInfoPopupLeftDiv{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 30%;
+width: 35%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+font-size: 0.75vw;
+
+}
+
+
+.launchInfoPopupLeftDivA{
+width:70%;
+height:20%;
+margin-left: 3%;
+}
+
+
+
+
+
+
+.winLogolaunchInfo{
+
+height: 90%;
+width: auto;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*   */
+
+
+
+
+
+.victoryDiv{
+
+  position: absolute;
+
+  top: 15vh;
+
+  left: 30vw;
+
+  height: 30vh;
+
+  width: 30vw;
+
+  background: rgb(255,255,255,0.075);
+
+  display: none;
+
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  align-items: center;
+
+  font-size: 0.75vw;
+
+  border-radius: 8px;
+
+  color: rgb(0,255,0,0.8);
+
+
+}
+
+
+.victoryDivA{
+height: 35%;
+width: 90%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.victoryDivAA{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.victoryDivB{
+
+height:50%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+
+}
+
+
+.victoryDivBA{
+height: 35%;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+
+.victoryDivBAA{
+
+height: 80%;
+width: 40%;
+margin-left: 5%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+font-size: 2.25vw;
+}
+
+
+.victoryDivBB{
+height:65%;
+width:100%;
+display:flex;
+flex-direction: column;
+justify-content: space-around;
+align-items:center;
+}
+
+
+.victoryDivAA{
+height:70%;
+width:30%;
+display: flex;
+justify-content: center;
+
+}
+
+.victoryDivBBA{
+margin-top: 7%;
+height: 40%;
+width: 90%;
+display: flex;
+}
+
+
+.victoryDivBBB{
+height: 40%;
+width: 90%;
+}
+
+
+
+.victoryPopupLeftDiv{
+position: absolute;
+left: 0px;
+top: 0px;
+height: 30%;
+width: 35%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+font-size: 0.75vw;
+
+}
+
+
+.victoryPopupLeftDivA{
+width:70%;
+height:20%;
+margin-left: 3%;
+}
+
+
+
+
+
+
+.winLogovictory{
+
+height: 90%;
+width: auto;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* */
+
+
 .luckLogoPopup{
 
 height: 90%;
@@ -1992,6 +2493,19 @@ presentation of properties
    align-items: center;
    background:rgb(0 ,255 , 0 , 0.7);
    border-radius: 60px;
+}
+
+.victoryAvatar{
+
+
+  height:5vw;
+  width:5vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background:rgb(0 ,255 , 0 , 0.7);
+  border-radius: 60px;
+
 
 }
 
@@ -2559,14 +3073,11 @@ board
 
 .jailAndBankruptcyIntB{
 
-  
   height:30%;
   width:100%;
   background:rgb(255,255,255,0.05);
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
 
