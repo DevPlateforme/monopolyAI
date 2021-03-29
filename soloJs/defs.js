@@ -235,7 +235,7 @@ function calculateStepVariable(player, setArray){
  
            } else if (setArray.length == 1){
  
-             return 0.095;
+             return 0.125;
  
            }
  

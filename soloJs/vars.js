@@ -10,7 +10,7 @@
    var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 10100 , opacityOnCode: 'rgb(255,255,0)', opacityOffCode:'rgb(255,255,0,0.3)', units : 3} ;
    var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 10100 ,  opacityOnCode: 'rgb(0,255,0)', opacityOffCode:'rgb(0,255,0,0.3)', units : 3} ;
    var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 10000 , opacityOnCode: 'pink', opacityOffCode:'rgb(0,0,139,0.3)', units : 2};  
-   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 7500 ,  opacityOnCode: 'rgb(0,0,0, 0.8)', opacityOffCode:'rgb(0,0,0,0.3)', units : 4};
+   var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 8500 ,  opacityOnCode: 'rgb(0,0,0, 0.8)', opacityOffCode:'rgb(0,0,0,0.3)', units : 4};
    var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 2500 ,  opacityOnCode: 'rgb(169,169,169)', opacityOffCode:'rgb(169,169,169,0.3)', units : 2 };
 
 

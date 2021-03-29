@@ -352,17 +352,21 @@ var nodes = 0;
   }
 
 
- function aiSearch(ai){
+ function ai1Search(ai){
 
         AiThinking = true;
 
 
 
     //can I build a dangerous house? (may require mortgage buying)
-        
-        checkForMortgageBuying(ai);
+ 
      
         checkForBuildingOpportunities(ai);
+
+        checkForMortgageBuying(ai);
+
+
+
 
               if(playersArray.length > 2){
                     searchForTradesOpportunities(ai);
@@ -374,6 +378,67 @@ var nodes = 0;
     
 
  }
+
+ function ai2Search(ai){
+
+    AiThinking = true;
+
+
+
+//can I build a dangerous house? (may require mortgage buying)
+
+    checkForMortgageBuying(ai);
+ 
+    checkForBuildingOpportunities(ai);
+
+
+
+
+
+          if(playersArray.length > 2){
+                searchForTradesOpportunities(ai);
+          }
+
+    AiThinking = false;
+
+
+
+
+}
+
+
+
+function ai3Search(ai){
+
+    AiThinking = true;
+
+
+
+//can I build a dangerous house? (may require mortgage buying)
+
+
+   if(playersArray.length > 2){
+       searchForTradesOpportunities(ai); 
+    }
+
+    checkForMortgageBuying(ai);
+
+    checkForBuildingOpportunities(ai);
+
+  
+
+
+
+
+
+    AiThinking = false;
+
+
+
+
+}
+
+
 
 
  

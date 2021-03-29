@@ -255,7 +255,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 	  if(answerer.cash > 50){
 
-		if(answerer.cash > 200){
+		if(answerer.cash > 450){
 
 			answererCashSlices = [0  , 50 , 75 , 100 , 125, 150, 175,200];
 			   
@@ -300,7 +300,7 @@ function tryToCreateProposition(thinker,  gainType , propositionMaterial , trick
 
 			if(offerer.cash > 50){
 
-				if(offerer.cash > 200){
+				if(offerer.cash > 450){
 				
 					offererCashSlices = [0  , 50 , 75 , 100 , 125, 150, 175, 200];
 			   

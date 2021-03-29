@@ -24,8 +24,6 @@ function init(){
       decideToStayInJailOrNot(ai2)
       decideToStayInJailOrNot(ai3)
 
-
-      removePlayer(humanPlayer)
       boardGraph1();  
       boardGraph2(); 
       boardGraph3();  
@@ -182,11 +180,11 @@ function createTheChanceDeck(){
 
 function wakeUpAis(){
 
-    setTimeout(function(){ aiReflects(ai1)}, 3000);
+    setTimeout(function(){ ai1Reflects(ai1)}, 3000);
 
-    setTimeout(function(){ aiReflects(ai2)}, 5000 ) ;
+    setTimeout(function(){ ai2Reflects(ai2)}, 5000 ) ;
 
-    setTimeout(function(){ aiReflects(ai3)}, 7000 ) ;
+    setTimeout(function(){ ai3Reflects(ai3)}, 7000 ) ;
 
 }
 
@@ -199,23 +197,68 @@ var AiThinking = false;
 
 
 
-function aiReflects(ai){
+function ai1Reflects(ai){
 
 
    let thinkingTimeout;
 
      if(AiThinking == false && humanThinking == false && tradeAnimationOn == false && bankruptcyTimeoutOn == false){
          
-        aiSearch(ai);
+        ai1Search(ai);
 
      } 
 
 
-      ai.thinkingTimeout = setTimeout(function(){ aiReflects(ai) }, Math.random()*1.5);           
+      ai.thinkingTimeout = setTimeout(function(){ ai1Reflects(ai) }, Math.random()*1.5);           
 
 
            
 
 }
+
+
+
+
+function ai2Reflects(ai){
+
+
+  let thinkingTimeout;
+
+    if(AiThinking == false && humanThinking == false && tradeAnimationOn == false && bankruptcyTimeoutOn == false){
+        
+       ai2Search(ai);
+
+    } 
+
+
+     ai.thinkingTimeout = setTimeout(function(){ ai2Reflects(ai) }, Math.random()*1.5);           
+
+
+          
+
+}
+
+
+
+
+function ai3Reflects(ai){
+
+
+  let thinkingTimeout;
+
+    if(AiThinking == false && humanThinking == false && tradeAnimationOn == false && bankruptcyTimeoutOn == false){
+        
+       ai3Search(ai);
+
+    } 
+
+
+     ai.thinkingTimeout = setTimeout(function(){ ai3Reflects(ai) }, Math.random()*1.5);           
+
+
+          
+
+}
+
 
 
