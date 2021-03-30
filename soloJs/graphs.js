@@ -583,9 +583,22 @@ function buildPmGraph2(color){
 
 function buildPmGraph3(color){
 
+    
+    if(color == publicServicesColor || color == black){
+
+        document.getElementById('pmBottom_pmGraph3').style.opacity = 0.05;
+
+
+    } else {
+
+        document.getElementById('pmBottom_pmGraph3').style.opacity = 1;
+
+
+
+    }
+
     let context = document.getElementById('pmBottom_pmGraph3').getContext('2d');
 
-    
     let chart = new Chart(context, {
 
         // The type of chart we want to create
@@ -594,12 +607,12 @@ function buildPmGraph3(color){
         
          // The data for our dataset
          data: {
-            labels: ['', '', ''],
+            labels: ['' , '', ''],
             datasets: [{
                 label: 'My First dataset',
                 backgroundColor: ["rgb(0,0,255,0.7)", "blue",  "purple"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,20,50]
+                data: [1, housesCostArray[color.index].houseValue,(200 - housesCostArray[color.index].houseValue)]
             }]
         },
         
@@ -778,6 +791,14 @@ function buildTradeCardGraphMaxRent(type,player,color,propertyNum){
 function buildRightColorGraph(type , player, color){
    
     let context = document.getElementById(type+'Div_propertyTemplate_' + color.units + '_rightGraph').getContext('2d');
+
+    let mortgagesCount = (getMortgageCount(player,color));
+
+    if(mortgagesCount > 0){
+
+        mortgagesCount += 2;
+    }
+    let housesCount = getMonopolyHouses(player,color)/3;
      
     let chart = new Chart(context, {
 
@@ -790,9 +811,9 @@ function buildRightColorGraph(type , player, color){
             labels: ['', '', ''],
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: ["rgb(0,0,255,0.7)", "purple",  "rgb(255,0,0,0.7)"],
+                backgroundColor: ["rgb(0,0,255,0)", "purple",  "rgb(255,0,0,0.7)"],
                 borderColor: 'rgb(255,0,0)',
-                data: [1,25, 40]
+                data: [5,mortgagesCount, housesCount]
             }]
         },
         

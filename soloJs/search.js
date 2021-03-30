@@ -387,9 +387,11 @@ var nodes = 0;
 
 //can I build a dangerous house? (may require mortgage buying)
 
-    checkForMortgageBuying(ai);
  
     checkForBuildingOpportunities(ai);
+
+    checkForMortgageBuying(ai);
+
 
 
 
@@ -417,13 +419,17 @@ function ai3Search(ai){
 //can I build a dangerous house? (may require mortgage buying)
 
 
+
+    checkForBuildingOpportunities(ai);
+
+    checkForMortgageBuying(ai);
+
+
+
    if(playersArray.length > 2){
        searchForTradesOpportunities(ai); 
     }
 
-    checkForMortgageBuying(ai);
-
-    checkForBuildingOpportunities(ai);
 
   
 

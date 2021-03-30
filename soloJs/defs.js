@@ -487,8 +487,7 @@ function buildHouse(property){
 
      if(property.houses >= maxHouseNum){
 
-
-         alert('you reached the maximum number of houses on this property');
+         alert('you reached the maximum number of houses on this property, indeed, ' + property.name + ' has ' + property.houses + ' houses built' );
 
          return;
 
@@ -1187,11 +1186,11 @@ function playerInBankruptcy(player, killer){
      if(player == humanPlayer){
 
       launchBankruptcyInterface(player);
-      bankruptcyTime = 15000;
+      bankruptcyTime = 45000;
 
      } else {
 
-      bankruptcyTime = 3000;
+      bankruptcyTime = 1000;
 
 
      }
@@ -1478,6 +1477,7 @@ function displayJailPopup(){
 }
 
 
+//stats
 
 
 function getHousesBuiltCount(color){
@@ -1794,3 +1794,4 @@ function getPropertiesCount(player){
   return propertiesCount;
 
 }
+

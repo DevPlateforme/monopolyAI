@@ -140,8 +140,7 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              alert(proposition.offer.cash)
-         
+              addCashOfferLine(proposition.offer.cash);         
          
          
          
@@ -162,7 +161,7 @@ if(humanAnswerInterfaceOn == false){
          
               //add cash
          
-              alert(proposition.counterPartAsked.cash);
+              addCashAnswerLine(proposition.counterPartAsked.cash);
            
          
          
@@ -628,19 +627,17 @@ function observeAi(ai){
 function displayPropositionInterface(){
 
      //humanThinking = true;
+
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='#6b6df2';
 
-
      displayTradeDiv(tradeOfferer,humanPlayer,colorArray[displayedOffererColor]);
+
      document.getElementById('playerChoiceDiv').style.display = 'flex';
      document.getElementById('tradeInterfaceDiv').style.display = 'flex';
-
      
      buildTradePresentationCircles(humanPlayer);
-     buildTradePresentationBars(humanPlayer)
-
-    
+     buildTradePresentationBars(humanPlayer);
 
   }   
 
@@ -1993,7 +1990,7 @@ function addOfferLine(proposition, property){
 
    //build the color square
 
-      let colorContainer =document.createElement('div');
+      let colorContainer = document.createElement('div');
 
       colorContainer.setAttribute('class' , 'propPopupAABAA')
 
@@ -2062,6 +2059,56 @@ function addOfferLine(proposition, property){
 
 
       
+}
+
+
+
+function addCashOfferLine(cash){
+
+     let cashContainer = document.createElement('div');
+     cashContainer.setAttribute('class' , 'propPopupAABA');
+ 
+ 
+ 
+    //build the color square
+ 
+       let colorContainer = document.createElement('div');
+ 
+       colorContainer.setAttribute('class' , 'propPopupAABAA')
+ 
+ 
+ 
+       let colorSquare = document.createElement('div');
+ 
+ 
+       colorSquare.setAttribute('class' , 'colorSquare');
+ 
+       colorSquare.style.background = 'orange' ;
+ 
+       colorContainer.append(colorSquare);
+ 
+   
+ 
+       let cashLine = document.createElement('div');
+ 
+ 
+       cashLine.setAttribute('class' , 'propPopupAABAB');
+ 
+       cashLine.innerHTML = '$' + cash;
+ 
+   
+   
+
+    
+       cashContainer.append(colorContainer);
+ 
+       cashContainer.append(cashLine);
+ 
+       document.getElementById('propertyLineContainer1').append(cashContainer)
+ 
+ 
+ 
+
 }
 
 
@@ -2156,6 +2203,59 @@ function addCounterPartAskedLine(proposition, property){
 
 }
 
+
+
+
+function addCashAnswerLine(cash){
+
+     
+     let cashContainer = document.createElement('div');
+     cashContainer.setAttribute('class' , 'propPopupAABA');
+ 
+
+ 
+    //build the color square
+ 
+       let colorContainer =document.createElement('div');
+ 
+       colorContainer.setAttribute('class' , 'propPopupAABAA')
+ 
+ 
+ 
+       let colorSquare = document.createElement('div');
+ 
+ 
+       colorSquare.setAttribute('class' , 'colorSquare');
+ 
+       colorSquare.style.background = 'orange';
+ 
+       colorContainer.append(colorSquare);
+ 
+       
+ 
+       let cashLine = document.createElement('div');
+ 
+       cashLine.setAttribute('class' , 'propPopupAABAB');
+ 
+       cashLine.innerHTML = '$' + cash;
+
+
+
+
+
+
+ 
+       cashContainer.append(colorContainer);
+ 
+       cashContainer.append(cashLine);
+ 
+       document.getElementById('propertyLineContainer2').append(cashContainer)
+ 
+ 
+
+
+
+}
 
 
 
@@ -2709,6 +2809,7 @@ function displayPmBottomDiv(){
 
 
      buildPmGraphs(colorArray[displayedPmColor]);
+     buildRightColorGraph(pmTop , humanPlayer, colorArray[displayedPmColor]);
 
 
 
@@ -2924,9 +3025,49 @@ function addTradeScreenOfferLine(property){
   line.append(propertyNameLine)
   document.getElementById('tradeScreen_offererContainer').append(line);
 
+}
 
+
+function addPropPopupOfferLine(property){
+
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = property.color.opacityOnCode;
+     colorPoint.setAttribute("class", "tradeScreenAABAAA");
+     colorContainer.append(colorPoint);
+     let propertyNameLine = document.createElement("div");
+     propertyNameLine.setAttribute('class', 'tradeScreenAABAB');
+     propertyNameLine.innerHTML = property.name;
+     line.append(colorContainer);
+     line.append(propertyNameLine)
+     document.getElementById('tradeScreen_offererContainer').append(line);
 
 }
+
+
+function addPropPopupCashOfferLine(cash){
+
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = 'orange';
+     colorPoint.setAttribute("class", "tradeScreenAABAAA");
+     colorContainer.append(colorPoint);
+     let cashLine = document.createElement("div");
+     cashLine.setAttribute('class', 'tradeScreenAABAB');
+     cashLine.innerHTML = '$'+ cash;
+     line.append(colorContainer);
+     line.append(cashLine)
+     document.getElementById('tradeScreen_offererContainer').append(line);
+
+}
+
+
 
 
 
@@ -2950,7 +3091,47 @@ function addTradeScreenAnswerLine(property){
 }
 
 
+function addPropPopupAnswerLine(property){
 
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = property.color.opacityOnCode;
+     colorPoint.setAttribute("class", "tradeScreenAABAAA");
+     colorContainer.append(colorPoint);
+     let propertyNameLine = document.createElement("div");
+     propertyNameLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+     propertyNameLine.innerHTML = property.name;
+     line.append(propertyNameLine)
+     line.append(colorContainer);
+     document.getElementById('tradescreen_answererContainer').append(line);
+
+     
+}
+
+
+
+function addPropPopupCashAnswerLine(cash){
+
+     let line = document.createElement('div');
+     line.setAttribute("class", "tradeScreenAABA");
+     let colorContainer = document.createElement('div');
+     colorContainer.setAttribute("class", "tradeScreenAABAA");
+     let colorPoint = document.createElement('div');
+     colorPoint.style.background = 'orange';
+     colorPoint.setAttribute("class", "tradeScreenAABAAA");
+     colorContainer.append(colorPoint);
+     let cashLine = document.createElement("div");
+     cashLine.setAttribute('class', 'tradeScreenAABAB_bottom');
+     cashLine.innerHTML = '$' + cash;
+     line.append(cashLine)
+     line.append(colorContainer);
+     document.getElementById('tradescreen_answererContainer').append(line);
+
+     
+}
 
 
 
@@ -3313,7 +3494,7 @@ function closeBankruptcyInterface(player){
 
 function launchBankruptcyCount(player){
 
-     let totalTime = 15000;
+     let totalTime = 45000;
      
      player.bankruptcyInterval = setInterval(function(){
 

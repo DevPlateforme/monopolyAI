@@ -1,5 +1,4 @@
 window.onload = function(){
- 
     init();
 }
 
@@ -18,6 +17,8 @@ function init(){
           boardJournal.innerHTML = ''}, 5000
           
         );
+
+        givePlayersPropertiesForDemo();
 
 
       decideToStayInJailOrNot(ai1)
@@ -109,17 +110,17 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(ai1, faubourgSaintHonore);
-     addPropertyToPlayerWallet(ai1, placeDeLaBourse);
+     addPropertyToPlayerWallet(humanPlayer, faubourgSaintHonore);
+     addPropertyToPlayerWallet(humanPlayer, placeDeLaBourse);
      addPropertyToPlayerWallet(ai1, rueLaFayette);
 
-     buildOnNextAvailableSlot(ai1, yellow)
-     buildOnNextAvailableSlot(ai1, yellow)
+     buildOnNextAvailableSlot(humanPlayer, yellow)
+     buildOnNextAvailableSlot(humanPlayer, yellow)
 
 
-     addPropertyToPlayerWallet(ai1,avenueDeNeuilly);
+     addPropertyToPlayerWallet(humanPlayer,avenueDeNeuilly);
      addPropertyToPlayerWallet(ai1,rueDuParadis);
-     addPropertyToPlayerWallet(ai1, belleville);
+     addPropertyToPlayerWallet(ai1, bdDeLaVillette);
 
     
   }

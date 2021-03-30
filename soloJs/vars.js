@@ -83,8 +83,6 @@ var ai3 = {playerIndex: 3 , key : 0,  position: 0 , name: 'ai3', cash: 1500, ban
 
 var playersArray = [ai1, ai2 , humanPlayer , ai3];
 
-
-
 var user = humanPlayer;
 var displayedLaunchBtn = true;
 
@@ -246,6 +244,9 @@ var rueDeLaPaix = { name : 'R.de la paix' , square: 39, value: 400, rent: 50 , r
 
 
 var propertiesList = [belleville, rueLecourbe , gareDeMontparnasse, rueDeVaugirard, rueDeCourcelles, avenueDeLaRepublique, bdDeLaVillette, publicServiceElectricity, avenueDeNeuilly, rueDuParadis, gareDeLyon, avenueMozart, boulevardSaintMichel, placePigalle, avenueMatignon,  bdMalesherbes , avenueHenriMartin , gareDuNord , faubourgSaintHonore , placeDeLaBourse , publicServiceWater, rueLaFayette , avenueDeBreteuil , avenueFoch , bdDesCapucines , gareSaintLazarre, avenueDesChampsElysees , rueDeLaPaix];
+
+
+var housesCostArray = [rueLecourbe, rueDeVaugirard, avenueDeNeuilly, boulevardSaintMichel, avenueMatignon, placeDeLaBourse , avenueFoch, rueDeLaPaix, { houseCost:0}, { houseCost:0}];
 
 
 var squaresProbabilities = [0 , 0.16 , 0.32, 0.48, 0.64, 0.8, 1, 0.8 , 0.64 , 0.48, 0.32,0.16 ];
