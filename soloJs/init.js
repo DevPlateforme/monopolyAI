@@ -18,7 +18,7 @@ function init(){
           
         );
 
-        givePlayersPropertiesForDemo();
+      givePlayersPropertiesForDemo();
 
 
       decideToStayInJailOrNot(ai1)

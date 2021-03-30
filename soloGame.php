@@ -1581,7 +1581,7 @@
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA'  style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB' style='background:purple'>houses: 2</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
                            </div>
                        </div>
 
@@ -4759,7 +4759,7 @@
                                
                      <div class='selectedPropertiesBarContainer' style='justify-content:flex-start'>
 
-                            <div id='tradeInterface_offer_barContent' style='height:100%;width:10%;background:rgb(0,255,0,0.8);  border-radius: 15px 0px 0px 15px'></div>
+                            <div class='offerBarContent' id='tradeInterface_offer_barContent' style='height:100%;width:0;background:rgb(0,255,0,0.8);  border-radius: 15px 0px 0px 15px'></div>
                               
                        </div>
 
@@ -4781,7 +4781,7 @@
 
                                 <div class='selectedPropertiesBarContainer' style='justify-content:flex-end'>
 
-                                        <div id='tradeInterface_offer_barContent' style='height:100%;width:10%;background:rgb(0,255,0,0.8); border-radius: 0px 15px 15px 0px'></div>
+                                        <div class='offerBarContent' id='tradeInterface_answer_barContent' style='height:100%;width:0;background:rgb(0,255,0,0.8); border-radius: 0px 15px 15px 0px'></div>
                                 
                                 </div>
 
@@ -4826,7 +4826,7 @@
                        <div class='selectedPropertiesDivAA'></div>
 
                  </div>
-                  <div class='selectedPropertiesDivB'>3 <span class='selectSpan'>properties selected</span></div>
+                  <div class='selectedPropertiesDivB'><span id='offeredElementsSpan' style='margin-right:2.5%'>0</span> <span class='selectSpan'>element(s) selected</span></div>
 
 
 
@@ -4844,7 +4844,7 @@
                   <div class='selectedPropertiesDivA'>
                         <div class='selectedPropertiesDivAA'></div>
                   </div>
-                  <div class='selectedPropertiesDivB'>6<span class='selectSpan'> properties selected</span></div>
+                  <div class='selectedPropertiesDivB'><span id='askedElementsSpan' style='margin-right:2.5%'> 0 </span><span class='selectSpan'> element(s) selected</span></div>
 
 
               </div>

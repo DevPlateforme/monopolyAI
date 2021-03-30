@@ -876,6 +876,9 @@ function addCounterPartAskedElementToProposition(event, offererIndex, answererIn
 
      offerer.inBuildingProposition.counterPartAskedElementsCount++;
 
+     updatePropositionBar();
+
+
 
 
 
@@ -936,6 +939,9 @@ function removeCounterPartAskedFromProposition(event, playerIndex, elementIndex)
 
 
          offerer.inBuildingProposition.counterPartAskedElementsCount--;
+
+         updatePropositionBar();
+
 
 
 }
@@ -1005,6 +1011,8 @@ function addOfferElement(event, offererIndex, elementIndex ){
      
                offerer.inBuildingProposition.offerElementsCount++;
 
+               updatePropositionBar();
+
 
 
 
@@ -1072,6 +1080,9 @@ function removeOfferElement(event, offererIndex, elementIndex){
           //REDUCE THE COUNT BY 1
 
          offerer.inBuildingProposition.offerElementsCount--;
+
+
+         updatePropositionBar();
 
 
 
@@ -1554,6 +1565,11 @@ function closeInterfaces(){
 
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='darkblue';
+
+
+
+     initPropositionBar();
+
 
 
      setTimeout(function(){
@@ -2506,6 +2522,8 @@ function observePlayer(player){
      observedPlayer = player;
 
      observeAi(player);
+
+     initPropositionBar();
 
 }
 
@@ -3621,5 +3639,81 @@ function closeLaunchInfo(){
      for(var i=0; i < playersArray.length ; i++){
           unveilPlayer(playersArray[i]);
      }
+
+}
+
+
+
+
+
+function buildPropositionBar(){
+
+     let propBarInterval;
+
+     document.getElementById('tradeInterface_offer_barContent').style.width = 0;
+     document.getElementById('tradeInterface_answer_barContent').style.width = 0;
+
+
+     document.getElementById("tradeInterface_offer_barContent").style.width =  (offerer.inBuildingProposition.offerElementsCount*10 + '%');
+
+
+}
+
+
+
+
+
+function updatePropositionBar(){
+
+     document.getElementById('offeredElementsSpan').innerHTML = humanPlayer.inBuildingProposition.offerElementsCount;
+     document.getElementById('askedElementsSpan').innerHTML = humanPlayer.inBuildingProposition.counterPartAskedElementsCount;
+
+
+  if(humanPlayer.inBuildingProposition.offerElementsCount < 10 ){
+     document.getElementById("tradeInterface_offer_barContent").style.width =  (humanPlayer.inBuildingProposition.offerElementsCount*10 + '%');
+
+  } else if(humanPlayer.inBuildingProposition.offerElementsCount == 0 ){
+
+     document.getElementById("tradeInterface_offer_barContent").style.width = 0;
+
+  } else {
+     document.getElementById("tradeInterface_offer_barContent").style.width =  '100%';
+
+  }
+
+
+  if(humanPlayer.inBuildingProposition.counterPartAskedElementsCount < 10){
+
+     document.getElementById("tradeInterface_answer_barContent").style.width =  ((humanPlayer.inBuildingProposition.counterPartAskedElementsCount*10) + '%');
+
+
+  } else if(humanPlayer.inBuildingProposition.counterPartAskedElementsCount == 0 ){
+
+
+     document.getElementById("tradeInterface_answer_barContent").style.width = 0;
+
+  } else {
+
+     document.getElementById("tradeInterface_answer_barContent").style.width =  '100%';
+
+  }
+
+
+
+
+
+
+}
+
+
+
+
+function initPropositionBar(){
+
+     document.getElementById('offeredElementsSpan').innerHTML = 0;
+     document.getElementById('askedElementsSpan').innerHTML = 0;
+
+     document.getElementById("tradeInterface_offer_barContent").style.width = 0;
+     document.getElementById("tradeInterface_answer_barContent").style.width = 0;
 
 }

@@ -230,7 +230,6 @@ function movePiece(){
                     if(checkForBankruptcy(lastDiceLauncher, none) == true){
 
                       if(lastDiceLauncher != humanPlayer){
-                        
                         findCash(lastDiceLauncher , (-lastDiceLauncher.cash + card.fee));
                         updateBoardCashOnGui(lastDiceLauncher);
                         updateBoardGraphs(lastDiceLauncher);
