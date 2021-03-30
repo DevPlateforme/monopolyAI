@@ -5,6 +5,8 @@ window.onload = function(){
 
 var breakVar = false;
 
+
+
 function init(){
 
    
@@ -100,7 +102,7 @@ function init(){
     
      lastDiceLauncher = humanPlayer;
   
-      wakeUpAis();
+      //wakeUpAis();
 
 
 }

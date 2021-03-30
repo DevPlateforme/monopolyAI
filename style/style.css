@@ -6424,6 +6424,169 @@ body {
      /*mobile version */
 
 
+/*
+acceptance popup
+
+*/
+
+
+    .acceptanceDiv{
+
+        position: absolute;
+
+        top: 15vh;
+
+        left: 30vw;
+
+        height: 30vh;
+
+        width: 30vw;
+
+        background: rgb(255,255,255,0.075);
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-around;
+
+        align-items: center;
+
+        font-size: 0.75vw;
+
+        border-radius: 8px;
+
+        color: rgb(0,255,0,0.8);
+
+
+    }
+
+
+    .acceptanceDivA{
+      height: 35%;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .acceptanceDivAA{
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .acceptanceDivB{
+
+      height:50%;
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+    }
+
+
+    .acceptanceDivBA{
+      height: 35%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+
+   .acceptanceDivBAA{
+
+      height: 80%;
+      width: 40%;
+      margin-left: 5%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 2.25vw;
+    }
+
+
+    .acceptanceDivBB{
+      height:65%;
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items:center;
+    }
+
+
+    .acceptanceDivAA{
+      height:70%;
+      width:30%;
+      display: flex;
+      justify-content: center;
+
+    }
+
+   .acceptanceDivBBA{
+      margin-top: 7%;
+      height: 40%;
+      width: 90%;
+      display: flex;
+   }
+
+
+   .acceptanceDivBBB{
+      height: 40%;
+      width: 90%;
+   }
+
+
+  
+   .acceptanceWindowLeftDiv{
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     height: 30%;
+     width: 35%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     font-size: 0.75vw;
+
+   }
+
+
+   .acceptanceWindowLeftDivA{
+     width:70%;
+     height:20%;
+     margin-left: 3%;
+   }
+
+
+
+
+
+
+   .luckLogoacceptance{
+
+      height: 90%;
+      width: auto;
+
+
+   }
+
+    
+
+   #acceptanceWindow{
+
+    display:none;
+   }
+    
+
+
+
 
 @media all and (max-width: 800px){
 
@@ -6438,6 +6601,22 @@ body {
     bottom:1vh;
     background: rgb(0,0,0,0.1);
   }
+
+  
+ #idDiVTradeAnswer {
+  height: 25vw;
+  width: 25vw;
+
+}
+
+
+.acceptanceDivBAA {
+  height: 80%;
+  width: 40%;
+  font-size: 7.5vw;
+  
+
+}
 
   .mobileBoardAvatar{
 
@@ -7398,6 +7577,36 @@ body {
 #notifContainer{
 
   display: none;
+}
+
+
+.idDiVTradeAnswer {
+  height: 25vw;
+  width: 25vw;
+
+}
+
+.acceptanceDiv {
+  position: absolute;
+  top:30vh;
+  left: 2.5vw;
+  height: 55vh;
+  width: 95vw;
+  background: rgb(255,255,255,0.075);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 4.5vw;
+
+}
+
+.acceptanceWindowLeftDiv{
+
+  font-size: 3vw;
+
+
+
 }
 
 

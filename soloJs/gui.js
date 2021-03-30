@@ -289,6 +289,12 @@ function storeInHashTable(proposition){
 
       declinedPropositionsHashTable[hashValue % 10000] = hashValue;
 
+
+
+
+
+
+
 } 
 
 
@@ -1136,8 +1142,6 @@ function sendProposition(){
          } else {
 
 
-          alert('proposition sent!');
-
 
           //DID THE PROPERTIES HASHKEY CHANGE?
 
@@ -1222,17 +1226,37 @@ function sendProposition(){
                if(alternatives.monopolyOpportunity == false ) {
      
 
-          
-                    alert(proposition.answerer.name + ' didnt found better alternative and accepted the offer!');
-     
+               
                     acceptProposition(proposition);
                     
      
                } else {
      
                  if(proposition.answererScore < (0.9 * alternatives.gainValue)){
+
+
+                    alert(proposition.answerer.name + 'found better alternative and refused the offer!');
+
+
+                    if(proposition.offerer == humanPlayer){
+
+                         displayRefusalPopup(proposition);
+               
+               
+                         setTimeout(function(){
+               
+                              closeTradeAnswerPopup(proposition)
+                         
+                         }, 5000 );
+               
+               
+                     }
+
+
+
+
      
-                      alert(proposition.answerer.name + 'found a better alternative, and refused !');
+                      
      
                  } else {
      
@@ -1248,18 +1272,26 @@ function sendProposition(){
 
             } else {
 
-               if(answerer == humanPlayer){                
                     
-                    alert('proposition refused');
-
-
-               }
-
                
                ////alert('offererscore=>' + proposition.offererScore);
                ////alert('answererscore=>' + proposition.answererScore);
                
                ////alert('we talk about the proposition with this offer ');
+
+               if(proposition.offerer == humanPlayer){
+
+                    displayRefusalPopup(proposition);
+          
+          
+                    setTimeout(function(){
+          
+                         closeTradeAnswerPopup(proposition)
+                    
+                    }, 3500 );
+          
+          
+                }
 
                hashAndStore(proposition);
 
@@ -1279,6 +1311,10 @@ function sendProposition(){
                     ////alert(proposition.counterPartAsked.array[i].name);
 
                }
+
+
+
+
 
                
             
@@ -3717,3 +3753,92 @@ function initPropositionBar(){
      document.getElementById("tradeInterface_answer_barContent").style.width = 0;
 
 }
+
+
+
+function displayAcceptancePopup(proposition){
+
+
+         
+     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
+         
+         
+         
+     hideBoard();
+     hideTradeScreen();
+          
+     for(var i=0; i < nonTradingPlayers.length; i++){
+          
+         hidePlayer(nonTradingPlayers[i]);
+ 
+     }
+ 
+ 
+ 
+
+     document.getElementById('acceptanceWindow').setAttribute("src", "./img/" + proposition.answerer.name +".png");
+
+     document.getElementById('tradeAnswerType').innerHTML = 'Deal Accepted';
+
+     document.getElementById('tradeAnswerDescription').innerHTML = ' Description: Your offer was accepted.';
+
+
+     document.getElementById('acceptanceWindow').style.display = 'flex';
+
+
+}
+
+function displayRefusalPopup(proposition){
+
+
+     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
+         
+         
+         
+     hideBoard();
+     hideTradeScreen();
+          
+     for(var i=0; i < nonTradingPlayers.length; i++){
+          
+         hidePlayer(nonTradingPlayers[i]);
+ 
+     }
+ 
+ 
+
+     document.getElementById('acceptanceWindow').setAttribute("src", "./img/" + proposition.answerer.name +".png");
+
+     document.getElementById('tradeAnswerType').innerHTML = 'Refusal';
+     document.getElementById('tradeAnswerDescription').innerHTML = ' Description: Your offer was refused.';
+
+     document.getElementById('acceptanceWindow').style.display = 'flex';
+
+
+}
+
+
+
+function closeTradeAnswerPopup(proposition){
+
+
+     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
+         
+         
+         
+     unveilBoard();
+     unveilTradeScreen();
+          
+     for(var i=0; i < nonTradingPlayers.length; i++){
+          
+         unveilPlayer(nonTradingPlayers[i]);
+ 
+     }
+ 
+
+
+     document.getElementById('acceptanceWindow').style.display = 'none';
+
+
+}
+
+

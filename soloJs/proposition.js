@@ -363,6 +363,24 @@ function makeProposition(proposition){
        }
 
 
+
+
+
+       proposition.offerer.cash -= proposition.offer.cash;
+
+       proposition.answerer.cash += proposition.offer.cash;
+
+
+       proposition.answerer.cash -= proposition.counterPartAsked.cash;
+       proposition.answerer.cash += proposition.counterPartAsked.cash;
+
+
+       
+
+
+
+
+
        
 
 
@@ -381,6 +399,22 @@ function makeProposition(proposition){
 
        }
 
+
+
+       
+      if(proposition.offerer == humanPlayer){
+
+        displayAcceptancePopup(proposition);
+
+
+        setTimeout(function(){
+             
+             closeTradeAnswerPopup(proposition)
+        
+        }, 3500 );
+
+
+    }
 
 
 

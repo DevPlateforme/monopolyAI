@@ -104,6 +104,51 @@
 
 
 
+ <div class='acceptanceDiv' id='acceptanceWindow'>
+
+    <div class='acceptanceWindowLeftDiv'>
+        <div class='acceptanceWindowLeftDivA'>message id: n°32</div>
+      </div>
+
+     <div class='acceptanceDivA'>
+         <div class='acceptanceDivAA'>
+
+                <div class="idDivAA" id='idDiVTradeAnswer' >
+                                
+                           <img id='tradeAnswerWindow_Avatar' src="./img/humanPlayer.png" style="height:90%; width:90%; margin-left:0.5%">
+
+                </div>          
+
+         </div>
+
+     </div>
+
+
+     <div class='acceptanceDivB'>
+      <div class='acceptanceDivBA'>
+        <div class='acceptanceDivBAA' id='tradeAnswerType'>
+          Refusal
+        </div>
+      </div>
+      <div class='acceptanceDivBB'>
+
+        <div class='acceptanceDivBBA'>
+          Type: trade
+        </div>
+
+
+        <div class='acceptanceDivBBB' id='tradeAnswerDescription'>
+          Description: Your offer was refused.
+        </div>
+
+
+      </div>
+
+     </div>
+
+  </div>
+
+
 
 <div class='victoryDiv'>
 
