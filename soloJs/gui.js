@@ -3656,20 +3656,10 @@ function displayVictoryDiv(player){
 
 function displayLaunchInfo(){
   
-
-
      document.getElementById('mobileBottomNav').style.opacity = '0';
-
      monopolyBoard.style.transition = 'all 1s ease';
-
      monopolyBoard.style.opacity = 0.15;
-
-
      document.getElementById('launchInfoPopup').style.opacity = 1;
-
-
-
-
 }
 
 
