@@ -110,17 +110,23 @@ function init(){
 
   function givePlayersPropertiesForDemo(){
 
-     addPropertyToPlayerWallet(humanPlayer, faubourgSaintHonore);
-     addPropertyToPlayerWallet(humanPlayer, placeDeLaBourse);
-     addPropertyToPlayerWallet(ai1, rueLaFayette);
-
-     buildOnNextAvailableSlot(humanPlayer, yellow)
-     buildOnNextAvailableSlot(humanPlayer, yellow)
-
-
+     addPropertyToPlayerWallet(humanPlayer, rueLaFayette);
      addPropertyToPlayerWallet(humanPlayer,avenueDeNeuilly);
-     addPropertyToPlayerWallet(ai1,rueDuParadis);
-     addPropertyToPlayerWallet(ai1, bdDeLaVillette);
+     addPropertyToPlayerWallet(humanPlayer,avenueHenriMartin);
+
+
+     addPropertyToPlayerWallet(ai2, rueDuParadis);
+     addPropertyToPlayerWallet(ai2, bdDeLaVillette);
+     addPropertyToPlayerWallet(ai2, faubourgSaintHonore);
+
+
+
+     addPropertyToPlayerWallet(ai3, placeDeLaBourse);
+     addPropertyToPlayerWallet(ai3, avenueMatignon);
+     addPropertyToPlayerWallet(ai3, bdMalesherbes);
+
+
+
 
     
   }

@@ -229,9 +229,14 @@ function movePiece(){
 
                     if(checkForBankruptcy(lastDiceLauncher, none) == true){
 
-                      findCash(lastDiceLauncher , (-lastDiceLauncher.cash + card.fee));
-                      updateBoardCashOnGui(lastDiceLauncher);
-                      updateBoardGraphs(lastDiceLauncher)
+                      if(lastDiceLauncher != humanPlayer){
+                        
+                        findCash(lastDiceLauncher , (-lastDiceLauncher.cash + card.fee));
+                        updateBoardCashOnGui(lastDiceLauncher);
+                        updateBoardGraphs(lastDiceLauncher);
+
+                      }
+
 
                   }
 

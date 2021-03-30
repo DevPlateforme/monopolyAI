@@ -60,6 +60,13 @@ var propCnt = 0;
 function displayHumanAnswerInterface(proposition, indirectOpportunities){
 
 
+     //display avatars
+
+
+     document.getElementById('propPopupOffererAvatar').setAttribute("src", "./img/" + proposition.offerer.name + ".png" );
+
+
+
      let humanAnswerInterval;
 
   
@@ -168,10 +175,6 @@ if(humanAnswerInterfaceOn == false){
               //pass the proposition object into the proposition button attribute
          
                  humanPlayer.propositionToAnswer = proposition;
-         
-         
-               
-
 
           }
 
@@ -3312,6 +3315,18 @@ function buildSynergeticScreen(proposition){
      
          
               //OFFER
+
+
+              //add avatars
+
+
+              document.getElementById('synergeticOffererAvatar').setAttribute("src" , "./img/" + proposition.offerer.name +".png");
+
+              document.getElementById('synergeticAnswererAvatar').setAttribute("src" , "./img/" + proposition.answerer.name +".png")
+
+
+
+
 
 
          
