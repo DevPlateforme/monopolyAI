@@ -81,12 +81,33 @@ function movePiece(){
 
 
 
+function humanLaunchDices(){
+
+  if(firstLaunch == true){
+
+    firstLaunch = false;
+    
+    closeLaunchInfo();
+
+    setTimeout(function(){launchDicesAndMovePieces()}, 1000);
+    
+  } else {
+
+      launchDicesAndMovePieces();
+      squareBorderOffHuman();
+
+
+  }
+
+}
+
 
 
   
 
 
    function launchDicesAndMovePieces(){
+
 
       hideDiceLaunchButton();
       launchDices();

@@ -75,6 +75,8 @@ drawCardContainer
   font-size: 0.75vw;
   border-radius: 8px;
   color: rgb(0,255,0,0.8);
+  transition: all 1s ease;
+
 }
 
 .drawCardLeftDiv{
@@ -383,9 +385,9 @@ width: auto;
 
   position: absolute;
 
-  top: 15vh;
+  top: 20vh;
 
-  left: 30vw;
+  left: 35vw;
 
   height: 30vh;
 
@@ -393,7 +395,7 @@ width: auto;
 
   background: rgb(255,255,255,0.075);
 
-  display: none;
+  display: flex;
 
   flex-direction: column;
 
@@ -406,6 +408,8 @@ width: auto;
   border-radius: 8px;
 
   color: rgb(0,255,0,0.8);
+
+  opacity:0;
 
 
 }

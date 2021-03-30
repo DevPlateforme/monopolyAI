@@ -32,6 +32,7 @@
  var twoThreeLvl = 0.2;
  var threeThreeLvl = 0.75;
 
+ var firstLaunch = true;
 
 
    //2 PROPERTIES SETS

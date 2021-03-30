@@ -22,7 +22,7 @@
 <div class='launchInfoDiv' id='launchInfoPopup'>
 
 <div class='launchInfoPopupLeftDiv'>
-    <div class='launchInfoPopupLeftDivA'>card id: n°32</div>
+    <div class='launchInfoPopupLeftDivA'>message id: n°49</div>
   </div>
 
  <div class='launchInfoDivA'>
@@ -45,12 +45,12 @@
   <div class='launchInfoDivBB'>
 
     <div class='launchInfoDivBBA'>
-      Type: launchInfo
+      Type: launch Information
     </div>
 
 
     <div class='launchInfoDivBBB'>
-      Description: PM-45 won the game
+      Description: It's your turn , please launch dices to play
     </div>
 
 
@@ -205,7 +205,7 @@
           <img class="showImg" src="./img/show.png" alt="">
        </div>
          <div class='digitalContainerAABA' > 
-              <button id='mobileLaunchBtn' class='navBtn' onclick='launchDicesFromInterface()'>Lancer</button>
+              <button id='mobileLaunchBtn' class='navBtn' onclick='humanLaunchDices()'>Lancer</button>
               <img class="mobilePlayImg" id='bottomPlayImg' src="./img/play.png" alt="">
         </div>
         <div class='jailAndBankruptcyInt'>

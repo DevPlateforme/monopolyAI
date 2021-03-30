@@ -39,6 +39,7 @@ function displayDiceLaunchButton(){
      mobileLaunchBtn.style.display = 'flex';
      playImg.style.opacity = 0.6;
      bottomPlayImg.style.opacity = 1;
+     squareBorderOnHuman();
 }
 
 
@@ -49,6 +50,8 @@ function hideDiceLaunchButton(){
      mobileLaunchBtn.style.display = 'none';
      playImg.style.opacity = 0.1;
      bottomPlayImg.style.opacity = 0.1;
+     squareBorderOffHuman();
+
 }
 
 
@@ -396,6 +399,8 @@ function closeAvailablePropertyInterface(){
 
 
  function displayCommunityChestSquareInterface(){
+
+     
 
      humanThinking = true;
 
@@ -3064,6 +3069,23 @@ function squareBorderOn(square){
 
 
 
+function squareBorderOnHuman(){
+
+
+         document.getElementById('square' + squaresArray[humanPlayer.position].square + '_container').style.border = 'solid 1.5px';
+
+
+}
+
+
+function squareBorderOffHuman(){
+
+     document.getElementById('square' + squaresArray[humanPlayer.position].square + '_container').style.border = 'none';
+
+}
+
+
+
 
 function addTradeScreenOfferLine(property){
  
@@ -3633,50 +3655,47 @@ function displayVictoryDiv(player){
 
 
 function displayLaunchInfo(){
-
-     document.getElementById('launchInfoPopup').style.display = 'flex';
-
-     hideBoard();
-     hideTradeScreen();
-
-     for(var i=0; i < playersArray.length ; i++){
-          hidePlayer(playersArray[i]);
-     }
+  
 
 
-     unveilPlayer(humanPlayer);
+     document.getElementById('mobileBottomNav').style.opacity = '0';
+
+     monopolyBoard.style.transition = 'all 1s ease';
+
+     monopolyBoard.style.opacity = 0.15;
 
 
-}
-
-
-
-function launchDicesFromInterface(){
-
-
-     closeLaunchInfo();
-     launchDicesAndMovePieces();
-
-
-
+     document.getElementById('launchInfoPopup').style.opacity = 1;
 
 
 
 
 }
+
 
 
 
 function closeLaunchInfo(){
 
-     unveilBoard();
-     unveilTradeScreen();
+     monopolyBoard.style.opacity = 1;
+     document.getElementById('launchInfoPopup').style.opacity = 0;
 
-     for(var i=0; i < playersArray.length ; i++){
-          unveilPlayer(playersArray[i]);
-     }
+
+     setTimeout(function(){
+
+          document.getElementById('projectBody').style.transition = 'all 1s ease';
+
+
+     }, 500);
+
 
 }
+
+
+
+
+
+
 
 
 
@@ -3842,3 +3861,40 @@ function closeTradeAnswerPopup(proposition){
 }
 
 
+
+
+
+
+function hideBoardMiddle(){
+
+
+
+     document.getElementById('boardGraphContainer1').style.opacity = 0.1;
+     document.getElementById('boardGraphContainer2').style.opacity = 0.1;
+     document.getElementById('boardGraphContainer3').style.opacity = 0.1; 
+     document.getElementById('boardLegendsContainer').style.opacity = 0.1;
+     document.getElementById('boardJournalContainer').style.opacity = 0.1;
+
+
+     hideTradeScreen();
+
+
+}
+
+
+
+function unveilBoardMiddle(){
+
+     
+
+     document.getElementById('boardGraphContainer1').style.opacity = 1;
+     document.getElementById('boardGraphContainer2').style.opacity = 1;
+     document.getElementById('boardGraphContainer3').style.opacity = 1; 
+     document.getElementById('boardLegendsContainer').style.opacity = 1;
+     document.getElementById('boardJournalContainer').style.opacity = 1;
+
+
+     unveilTradeScreen();
+
+
+}

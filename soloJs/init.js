@@ -8,7 +8,6 @@ var breakVar = false;
 
 
 function init(){
-
    
   humanThinking = false;
 
@@ -20,7 +19,6 @@ function init(){
           
         );
 
-      givePlayersPropertiesForDemo();
 
 
       decideToStayInJailOrNot(ai1)
@@ -56,17 +54,13 @@ function init(){
 
        setTimeout(function(){
 
-      
-   
-        buildBoardPresentationCircles(ai2);
-        buildBoardPresentationBars(ai2);
+         buildBoardPresentationCircles(ai2);
+         buildBoardPresentationBars(ai2);
 
-
-
-   
-     
   
       },500);
+
+
 
       setTimeout(function(){
 
@@ -75,8 +69,7 @@ function init(){
         buildBoardPresentationBars(ai3);
 
 
-      
-        
+            
   
       },600);
 
@@ -91,7 +84,7 @@ function init(){
 
             if(displayedLaunchBtn == true){
     
-              launchDicesAndMovePieces();
+                humanLaunchDices();
            
            }                        
                     
@@ -101,6 +94,20 @@ function init(){
 
     
      lastDiceLauncher = humanPlayer;
+
+
+     setTimeout(
+       function(){
+
+
+        displayLaunchInfo();
+
+
+
+       }, 2000
+      
+     );
+
   
       //wakeUpAis();
 
