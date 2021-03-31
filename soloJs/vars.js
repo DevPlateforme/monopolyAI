@@ -32,7 +32,6 @@
  var twoThreeLvl = 0.2;
  var threeThreeLvl = 0.75;
 
- var firstLaunch = true;
 
 
    //2 PROPERTIES SETS
@@ -59,6 +58,22 @@ var regular = 'regular';
 var uncooperative = 'uncooperative';
 
 
+//launch info
+
+var displayPopupOn = false;
+
+var firstLaunch = true;
+
+
+//interfaces
+
+
+var displayedPM = false;
+
+var displayedTradeInterface = false;
+
+
+var availablePopupOn = false;
 
 //state vars
 
@@ -204,8 +219,8 @@ var departure = {name: 'Departure', square: 0, value: none, rent: 0 , type: inac
 var belleville = { name: 'Belleville',  square: 1, value: 60, rent: 2 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: rentalProperty, color: brown, landLord: none , elementIndex : 0 , mortgaged: false ,  mortgageValue: 30, houseValue: 50 , houses: 0 , houseValue: 50};
 var communityChestSquare1 = {name: 'Com.Chest', square:2, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var rueLecourbe = { name: 'Lecourbe St.', square: 3, value: 60, rent: 4 , rentHouse1: 20, rentHouse2: 60, rentHouse3: 180, rentHouse4: 320 ,  rentHotel: 450 , type: rentalProperty, color: brown, landLord: none , elementIndex : 1 , mortgaged: false ,  mortgageValue: 30, houses: 0 , houseValue: 50};
-var revenueTax = {name: 'revenue tax' , square: 4, value: none, type: tax , color: none , landLord: none , mortgaged: false , houses: 0 , houseValue: 50};
-var gareDeMontparnasse = { name: 'MontParnasse', square: 5 , value: 200, rent: 5 , monopolyRent: 200, type: trainStation , color: black, landLord: none , elementIndex : 2, mortgaged: false ,  mortgageValue: 100 , houses: 0 , houseValue: 50};
+var revenueTax = {name: 'revenue tax' , square: 4 , type: tax};
+var gareDeMontparnasse = { name: 'MontParnasse', square: 5 , value: 200, rent: 5 , monopolyRent: 200, rentHotel:200, type: trainStation , color: black, landLord: none , elementIndex : 2, mortgaged: false ,  mortgageValue: 100 , houses: 0 , houseValue: 50};
 var rueDeVaugirard = {name: 'Vaugirard St.',  square: 6 , value: 100, rent: 6 , rentHouse1: 30, rentHouse2: 90, rentHouse3: 270, rentHouse4: 400 ,  rentHotel: 550 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 3, mortgaged: false ,  mortgageValue: 100 , houses: 0 , houseValue: 50};
 var luckSquare1 = {name: 'Luck', square: 7 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var rueDeCourcelles = {name: 'Courcelles St.', square: 8 , value: 100, rent: 6 , rentHouse1: 30, rentHouse2: 90, rentHouse3: 270, rentHouse4: 400 ,  rentHotel: 550 , type: rentalProperty , color: lightBlue, landLord: none , elementIndex : 4, mortgaged: false , mortgageValue: 200 , houses: 0 , houseValue: 50};
@@ -215,7 +230,7 @@ var bdDeLaVillette = {name: 'Villette Bd.', square: 11 , value: 140, rent: 10 , 
 var publicServiceElectricity =  {name: 'ps. Electricity', square: 12 , value: 150, rent: 0 , rentHouse1: 0, rentHouse2: 0, rentHouse3: 0, rentHouse4: 0 ,  rentHotel: 0 , type: publicService , color: publicServicesColor, landLord: none , elementIndex : 7, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDeNeuilly = {name: 'Neuilly Av.', square: 13 , value: 140, rent: 10 , rentHouse1: 50, rentHouse2: 150 , rentHouse3: 450 , rentHouse4: 625 ,  rentHotel: 750 , type: rentalProperty , color: purple, landLord: none , elementIndex : 8, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
 var rueDuParadis = {name: 'Paradise St.', square: 14 , value: 160, rent: 12 , rentHouse1: 60 , rentHouse2: 180, rentHouse3: 500, rentHouse4: 700 ,  rentHotel: 900 , type: rentalProperty , color: purple, landLord: none , elementIndex : 9, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
-var gareDeLyon = {name: 'Lyon stat.', square: 15 , value: 200, rent: 5 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black, landLord: none , elementIndex : 10, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
+var gareDeLyon = {name: 'Lyon stat.', square: 15 , value: 200, rentHotel: 200 , type: trainStation , color: black, landLord: none , elementIndex : 10, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueMozart = {name: 'Mozart Av.', square: 16 , value: 180, rent: 14 , rentHouse1: 70 , rentHouse2: 200, rentHouse3: 550, rentHouse4: 750 ,  rentHotel: 950 , type: rentalProperty , color: orange, landLord: none , elementIndex : 11, mortgaged: false , mortgageValue:200 , houses: 0 , houseValue: 100};
 var communityChestSquare2 = {name: 'communityChest', square:17, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var boulevardSaintMichel = {name: 'St Michel Bd.' ,  square:18,  rent: 14 , rentHouse1: 70, rentHouse2: 200, rentHouse3: 550 , rentHouse4: 750 ,  rentHotel: 950 , value: 180, type: rentalProperty , color: orange, landLord: none , elementIndex : 12, mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 100};
@@ -225,7 +240,7 @@ var avenueMatignon = {name: 'Matignon Av.',  square:21 , value:220, rent: 18 , r
 var luckSquare2 = {name: 'Luck', square: 22 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var bdMalesherbes = {name: 'Malesh. Bd.',  square:23 , value: 220, rent: 18 , rentHouse1: 90, rentHouse2: 250, rentHouse3: 700, rentHouse4: 875 ,  rentHotel: 1050 , type: rentalProperty , color: red, landLord: none  , elementIndex : 15 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150} ;
 var avenueHenriMartin = {name: 'Henri Martin Av.', square:24 , value: 240, rent: 20 , rentHouse1: 100, rentHouse2: 300, rentHouse3: 750, rentHouse4: 925 ,  rentHotel: 1100 , type: rentalProperty , color: red, landLord: none  , elementIndex : 16 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150};
-var gareDuNord = {name: 'North Stat.' , value: 200, square : 25 , rent: 5 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black, landLord: none  , elementIndex : 17 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
+var gareDuNord = {name: 'North Stat.' , value: 200, square : 25 , rent: 5 , rentHotel: 200 , type: trainStation , color: black, landLord: none  , elementIndex : 17 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var faubourgSaintHonore = {name : 'St honoré Fb.' ,  square:26 , value: 260, rent: 22 , rentHouse1: 110, rentHouse2: 330, rentHouse3: 800, rentHouse4: 975 ,  rentHotel: 1150 , type: rentalProperty , color: yellow , landLord: none  , elementIndex : 18 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150};
 var placeDeLaBourse = { name:'Bourse pl.',  square:27 ,  value: 260, rent: 22 , rentHouse1: 110, rentHouse2: 330, rentHouse3: 800, rentHouse4: 975 ,  rentHotel: 1150 , type: rentalProperty , color: yellow , landLord: none  , elementIndex : 19 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150};
 var publicServiceWater = { name :'Ps. water' ,  square:28 , value: 150, rent: 0 , rentHouse1: 0, rentHouse2: 0, rentHouse3: 0, rentHouse4: 0 ,  rentHotel: 0 , type: publicService , color: publicServicesColor, landLord: none  , elementIndex : 20 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
@@ -235,7 +250,7 @@ var avenueDeBreteuil = { name: 'Breteuil av.',  square:31 , value: 300, rent: 26
 var avenueFoch = { name: 'Avenue Foch' ,  square:32 , value: 300, rent: 26 , rentHouse1: 130, rentHouse2: 390, rentHouse3: 900, rentHouse4: 1100 ,  rentHotel: 1275 , type: rentalProperty , color: green , landLord: none  , elementIndex : 23 , mortgaged: false ,  mortgageValue: 200, houses: 0 , houseValue: 150 };
 var communityChestSquare3 = {name: 'communityChest', square:33, value: none, rent: 0 , type: communityChest ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var bdDesCapucines = { name:'Capucines bd.' , square:34 , value: 320, rent: 28 , rentHouse1: 150, rentHouse2: 450, rentHouse3: 1000, rentHouse4: 1200 ,  rentHotel: 1400 , type: rentalProperty , color: green , landLord: none  , elementIndex : 24 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 150};
-var gareSaintLazarre = {name: 'St Lazarre st.' ,  square:35 , value: 200, rent: 5 , rentHouse1: 10 , rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: trainStation , color: black , landLord: none  , elementIndex : 25 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50} ;
+var gareSaintLazarre = {name: 'St Lazarre st.' ,  square:35 , value: 200, rentHotel: 200 , type: trainStation , color: black , landLord: none  , elementIndex : 25 , mortgaged: false ,  mortgageValue: 200 , houses: 0 , houseValue: 50} ;
 var luckSquare3 = {name: 'Luck', square: 36 , value: none, rent: 0 , type: luck , landLord: none ,  mortgageValue: 200 , houses: 0 , houseValue: 50};
 var avenueDesChampsElysees = {name: 'Chps elyzees' , square: 37 , value: 350, rent: 35 , rentHouse1: 175, rentHouse2: 500 , rentHouse3: 1100 , rentHouse4: 1300 ,  rentHotel: 1500 , type: trainStation , color: darkBlue , landLord: none, elementIndex : 26 ,  mortgaged: false,  mortgageValue: 200 , houses: 0 , houseValue: 200};
 var luxuryTax = {name: 'Luxury Tax' , square: 38, value: none, rent: 0 , rentHouse1: 10, rentHouse2: 30, rentHouse3: 90, rentHouse4: 160 ,  rentHotel: 250 , type: tax , color: none , landLord: none , mortgaged: false , houses: 0 , houseValue: 50};

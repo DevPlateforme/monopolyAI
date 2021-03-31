@@ -9,7 +9,7 @@ var breakVar = false;
 
 function init(){
    
-  humanThinking = false;
+  //displayStartPopup();
 
     setInterval(
 
@@ -18,7 +18,18 @@ function init(){
           boardJournal.innerHTML = ''}, 5000
           
         );
+         
+        lastDiceLauncher = humanPlayer;
 
+        lastDiceLauncher.position = 4;
+
+        nextDiceLauncher = ai1;
+
+        humanThinking = false;
+
+        launchPlTimeout();
+        launchPlCheck();      
+        launchPLProcess();
 
 
       decideToStayInJailOrNot(ai1)
@@ -72,6 +83,7 @@ function init(){
             
   
       },600);
+      
 
 
 
@@ -96,20 +108,10 @@ function init(){
      lastDiceLauncher = humanPlayer;
 
 
-     setTimeout(
-       function(){
 
-
-        displayLaunchInfo();
-
-
-
-       }, 2000
-      
-     );
 
   
-      //wakeUpAis();
+      wakeUpAis();
 
 
 }

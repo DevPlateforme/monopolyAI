@@ -34,6 +34,8 @@ var player2PawnContainer;
 
 
 function displayDiceLaunchButton(){
+
+     displayLaunchInfo();
      displayedLaunchBtn = true;
      launchBtn.style.display = 'flex';
      mobileLaunchBtn.style.display = 'flex';
@@ -41,6 +43,17 @@ function displayDiceLaunchButton(){
      bottomPlayImg.style.opacity = 1;
      squareBorderOnHuman();
 }
+
+
+function launchDicesFromInterface(){
+     
+
+          launchDicesAndMovePieces()
+
+      
+
+ }
+
 
 
 function hideDiceLaunchButton(){
@@ -265,6 +278,67 @@ function refusePropositionFromInterface(){
 
 
 
+function clearPropositionPopup(){
+
+    
+     //background opacity back to normal
+
+
+     let nonTradingPlayers = getNonTradingPlayersArray(humanPlayer.propositionToAnswer.offerer, humanPlayer.propositionToAnswer.answerer)
+
+     
+     unveilBoard();
+     unveilTradeScreen();
+     clearSynergeticScreen();
+
+ 
+     for(var i=0; i < nonTradingPlayers.length; i++){  
+        
+          unveilPlayer(nonTradingPlayers[i]);
+
+    }
+
+
+
+
+     humanThinking = false;
+
+     let offerer = humanPlayer.propositionToAnswer.offerer;
+
+     document.getElementById('propositionPopup').style.display = 'none';
+     monopolyBoard.style.opacity = 1;
+     document.getElementById('propertyLineContainer1').innerHTML = '';
+     document.getElementById('propertyLineContainer2').innerHTML = '';
+
+
+     humanAnswerInterface.style.opacity = 0;
+     initHumanAnswerInterface();
+
+
+     
+
+     if(offerer.humanPerception == regular){
+
+        perceptionCheck(offerer , humanPlayer.propositionToAnswer );
+
+     }
+
+     
+
+      humanPlayer.propositionToAnswer = none;
+      humanAnswerInterfaceOn = false;
+
+      
+
+      document.getElementById('synergyDivNoSynergy').style.display = 'flex';
+      document.getElementById('synergyDivNoSynergyB').style.display = 'none';
+      document.getElementById('topSynergyDiv').style.display = 'none';
+      document.getElementById('bottomSynergyDiv').style.display = 'none';
+}
+
+
+
+
 
 function storeInHashTable(proposition){
 
@@ -390,9 +464,15 @@ function closeAvailablePropertyInterface(){
 
          humanThinking = false;
 
+         availablePopupOn = false;
+
          document.getElementById('availablePropertyInt').style.display = 'none';
 
-         monopolyBoard.style.opacity = 1;
+         unveilBoard();
+         unveilTradeScreen();
+
+
+  
 
  }
  
@@ -404,15 +484,7 @@ function closeAvailablePropertyInterface(){
 
      humanThinking = true;
 
-     hideBoard();
-     hideTradeScreen();
-
-     for(var i=0; i < playersArray.length ; i++){
-
-          hidePlayer(playersArray[i]);
-
-     }
-
+      monopolyBoard.style.opacity = 0.15;
 
      document.getElementById('chanceSquareInterface').style.display = 'flex';
      document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(communityChest)");
@@ -436,14 +508,9 @@ function closeAvailablePropertyInterface(){
 
      humanThinking = true;
 
-     hideBoard();
-     hideTradeScreen();
 
-     for(var i=0; i < playersArray.length ; i++){
+     monopolyBoard.style.opacity = 0.15;
 
-          hidePlayer(playersArray[i]);
-
-     }
 
 
      document.getElementById('chanceSquareInterface').style.display = 'flex';
@@ -461,6 +528,9 @@ function closeCommunityChestSquareInterface(){
 
      humanThinking = false;
 
+     monopolyBoard.style.opacity = 1;
+
+
      document.getElementById('communityChestSquareInterface').style.display = 'false';
 
  }
@@ -469,6 +539,9 @@ function closeCommunityChestSquareInterface(){
  function closeChanceSquareInterface(){
 
      humanThinking = false;
+
+     monopolyBoard.style.opacity = 1;
+
 
      document.getElementById('chanceSquareInterface').style.display = 'false';
 
@@ -1497,10 +1570,9 @@ function displayPlayersWallets(){
 function displayPM(){
 
      
-
+     displayedPM = true;
 
      humanThinking = true;
-
 
 
      displayPmBottomDiv();
@@ -1523,6 +1595,29 @@ function displayPM(){
      displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
 
      
+
+}
+
+
+
+function closePM(){    
+     
+     
+     displayedPM = false;
+
+     document.getElementById('playerPropertiesManagementInterface').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph1').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph2').style.display = 'none';
+     document.getElementById('pmBottom_pmGraph3').style.display = 'none';
+
+
+     clearTradeColor(pmTop, colorArray[displayedPmColor].units);
+
+     displayedPmColor = 0;
+
+
+
+
 
 }
 
@@ -1586,20 +1681,30 @@ function initPropertiesManagementInterface(){
 function closeInterfaces(){
 
      interfacesPanel.style.display = 'none';
+
      monopolyBoard.style.opacity = 1;
+
      document.getElementById('projectBody').style.background= darkBlue;
 
      document.getElementById('mobileBottomNav').style.opacity = '1';
 
+     if(displayPopupOn == true){
+          document.getElementById('launchInfoPopup').style.opacity = '1';
+     }
+
+     document.getElementById('propositionPopup').style.opacity = '1';
+
+     document.getElementById('availablePropertyInt').style.opacity = '1';
+
+
 
      
      document.getElementById('tradeInterfaceDiv').style.display = 'none';
-     closePropositionInterface();
-     document.getElementById('playerPropertiesManagementInterface').style.display = 'none';
-     document.getElementById('pmBottom_pmGraph1').style.display = 'none';
-     document.getElementById('pmBottom_pmGraph2').style.display = 'none';
-     document.getElementById('pmBottom_pmGraph3').style.display = 'none';
 
+     closePropositionInterface();
+
+     closePM();
+  
 
 
      document.getElementById('closeInterfaceBtn').style.display = 'none';
@@ -1626,7 +1731,6 @@ function closeInterfaces(){
 
      displayedOffererColor = 0;
      displayedAnswererColor = 0;
-     displayedPmColor = 0;
 
      humanThinking = false;
 
@@ -1640,6 +1744,15 @@ function displayInterfaces(){
      humanThinking = true;
 
      document.getElementById('mobileBottomNav').style.opacity = '0';
+     document.getElementById('launchInfoPopup').style.opacity = '0';
+     if(humanAnswerInterfaceOn == true){
+          document.getElementById('propositionPopup').style.opacity = '0.4';
+     } else {
+          document.getElementById('propositionPopup').style.opacity = '0'; 
+     }
+     document.getElementById('availablePropertyInt').style.opacity = '0.4';
+
+
 
      monopolyBoard.style.transition = 'all 1s ease';
 
@@ -2368,7 +2481,7 @@ function addNotif(content, type){
 
                notifContainer.removeChild(notif);
 
-          }, 1000);
+          }, 2500);
 
 
 }
@@ -2398,7 +2511,14 @@ function displayTradeDiv(type,player,color){
 
           property = player.propertiesByColor[color.index].properties[i];
 
-          document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_houseCost').innerHTML = ('$' + property.houseValue);
+          if(color == publicServicesColor || color == black){
+               document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_houseCost').innerHTML = 'none';
+
+          } else {
+               document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_houseCost').innerHTML = ('$' + property.houseValue);
+
+          }
+
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_maxRent').innerHTML = ('$' + property.rentHotel);
           document.getElementById(type+'Div_propertyTemplate_'+ color.units + '_property_' + i + '_value').innerHTML = ('$' + property.value);
           document.getElementById(type+'Div_propertyTemplate_' + color.units + '_property_' + i + '_propertyName').innerHTML = (property.name);
@@ -2658,11 +2778,18 @@ function displayAvailablePropertyPopup(square){
 
      humanThinking = true;
 
+     availablePopupOn = true;
+
 
   setTimeout(     
        
      function(){
-        monopolyBoard.style.opacity = 0.15;
+
+
+          hideBoard();
+          hideTradeScreen();
+
+
 
 
      if(humanPlayer.cash >= square.value){
@@ -2700,13 +2827,7 @@ function closeDrawCardInterface(){
 
 function closeDrewCardInterface(){
 
-     unveilBoard();
-     unveilTradeScreen();
-
-     for(var i=0; i < playersArray.length ; i++){
-
-           unveilPlayer(playersArray[i]);
-     }
+     monopolyBoard.style.opacity = 1;
 
      document.getElementById('drewCardPopup').style.display = 'none';
 
@@ -3654,18 +3775,16 @@ function displayVictoryDiv(player){
 
 
 
-function displayLaunchInfo(){
+function displayStartPopup(){
   
-     document.getElementById('mobileBottomNav').style.opacity = '0';
      monopolyBoard.style.transition = 'all 1s ease';
      monopolyBoard.style.opacity = 0.15;
      document.getElementById('launchInfoPopup').style.opacity = 1;
+
+
 }
 
-
-
-
-function closeLaunchInfo(){
+function closeStartPopup(){
 
      monopolyBoard.style.opacity = 1;
      document.getElementById('launchInfoPopup').style.opacity = 0;
@@ -3677,6 +3796,41 @@ function closeLaunchInfo(){
 
 
      }, 500);
+
+
+}
+
+
+
+function displayLaunchInfo(){
+
+        displayPopupOn = true;
+
+        hideBoardMiddle();
+  
+       document.getElementById('launchInfoPopup').style.opacity = 1;
+  
+}
+
+
+
+
+
+
+
+
+
+
+function closeLaunchInfo(){
+
+     displayPopupOn = false;
+
+     unveilBoardMiddle();
+     
+     document.getElementById('launchInfoPopup').style.opacity = 0;
+
+
+
 
 
 }
@@ -3767,6 +3921,13 @@ function initPropositionBar(){
 
 function displayAcceptancePopup(proposition){
 
+          if(displayPopupOn == true){
+               document.getElementById('launchInfoPopup').style.opacity = '0';
+          }
+
+     
+
+
 
          
      let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
@@ -3781,6 +3942,14 @@ function displayAcceptancePopup(proposition){
          hidePlayer(nonTradingPlayers[i]);
  
      }
+
+
+     if( humanAnswerInterfaceOn = true){
+
+          clearPropositionPopup();
+
+          
+     }
  
  
  
@@ -3790,6 +3959,7 @@ function displayAcceptancePopup(proposition){
      document.getElementById('tradeAnswerType').innerHTML = 'Deal Accepted';
 
      document.getElementById('tradeAnswerDescription').innerHTML = ' Description: Your offer was accepted.';
+     
 
 
      document.getElementById('acceptanceWindow').style.display = 'flex';
@@ -3812,6 +3982,18 @@ function displayRefusalPopup(proposition){
          hidePlayer(nonTradingPlayers[i]);
  
      }
+
+
+     
+
+     if( humanAnswerInterfaceOn = true){
+
+          clearPropositionPopup();
+
+          
+     }
+ 
+
  
  
 
@@ -3830,8 +4012,9 @@ function displayRefusalPopup(proposition){
 function closeTradeAnswerPopup(proposition){
 
 
-     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
-         
+     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer);
+
+
          
          
      unveilBoard();
@@ -3842,10 +4025,16 @@ function closeTradeAnswerPopup(proposition){
          unveilPlayer(nonTradingPlayers[i]);
  
      }
- 
+
 
 
      document.getElementById('acceptanceWindow').style.display = 'none';
+
+     if(displayPopupOn == true){
+          document.getElementById('launchInfoPopup').style.opacity = '1';
+     }
+
+         
 
 
 }

@@ -415,6 +415,12 @@ width: auto;
 }
 
 
+#launchTextMobile{
+
+  display: none;
+}
+
+
 .launchInfoDivA{
 height: 35%;
 width: 90%;
@@ -1219,14 +1225,15 @@ width: auto;
 
 .notifDiv{
 
-	height: 10%;
+	height: 8%;
 	width: 80%;
 	background: rgb(255,255,255,0.75);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	border-radius: 10px;
-	color: rgb(0,0,0,0.875)
+	color: rgb(0,0,0,0.875);
+  margin-top: 2.5%;
 
 }
 
@@ -2502,7 +2509,7 @@ presentation of properties
    justify-content: center;
    align-items: center;
    background:rgb(0 ,255 , 0 , 0.7);
-   border-radius: 60px;
+   border-radius: 80px;
 }
 
 .victoryAvatar{
@@ -2514,7 +2521,7 @@ presentation of properties
   justify-content: center;
   align-items: center;
   background:rgb(0 ,255 , 0 , 0.7);
-  border-radius: 60px;
+  border-radius: 80px;
 
 
 }
@@ -2528,7 +2535,7 @@ presentation of properties
   justify-content: center;
   align-items: center;
   background:rgb(0 ,255 , 0 , 0.7);
-  border-radius: 60px;
+  border-radius: 80px;
 
 
 }
@@ -6589,7 +6596,14 @@ acceptance popup
    }
     
 
+   #initialDetailCardPm{
+    justify-content:center; 
+    
+    align-items:center;
 
+    font-size: 0.65vw;
+
+   }
 
 
 @media all and (max-width: 800px){
@@ -6606,7 +6620,38 @@ acceptance popup
     background: rgb(0,0,0,0.1);
   }
 
+
+  #launchText{
+    display: none;
+  }
+
   
+  #launchTextMobile{
+  
+    display: flex;
+  }
+  
+  
+  .launchInfoDiv {
+    top: 40vh;
+    left: 20vw;
+    height: 27.5vh;
+    width: 60vw;
+    font-size: 1.75vw;
+    
+}
+
+.launchInfoPopupLeftDiv{
+
+  font-size: 1.75vw;
+
+}
+
+.launchInfoDivBAA{
+
+  font-size: 2.75vw;
+}
+
  #idDiVTradeAnswer {
   height: 25vw;
   width: 25vw;
@@ -7191,9 +7236,9 @@ acceptance popup
    }
    
     .landDiv {
-        top: 12.5vh;
+        top:30vh;
         left: 5vw;
-        height: 75vh;
+        height: 60vh;
         width: 90vw;
         display: flex;
         flex-direction: column;
@@ -7216,6 +7261,22 @@ acceptance popup
       border-radius: 8px;
       color: rgb(0,255,0,0.8);
    }
+
+
+
+  .drewCardDiv{
+
+     position: absolute;
+      top: 35vh;
+      left: 15vw;
+      height: 30vh;
+      width: 70vw;
+      font-size: 2vw;
+      border-radius: 8px;
+      color: rgb(0,255,0,0.8);
+
+
+  }
 
   .drawCardPopupBBBA {
      height: 10vw;

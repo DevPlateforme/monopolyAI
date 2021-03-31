@@ -82,12 +82,14 @@ function movePiece(){
 
 
 function humanLaunchDices(){
-
+  
   if(firstLaunch == true){
 
     firstLaunch = false;
     
-    closeLaunchInfo();
+    closeStartPopup();
+
+    document.getElementById('launchText').innerHTML = 'Press Q, or "play" to launch dices';
 
     setTimeout(function(){launchDicesAndMovePieces()}, 1000);
     
@@ -95,6 +97,8 @@ function humanLaunchDices(){
 
       launchDicesAndMovePieces();
       squareBorderOffHuman();
+      closeLaunchInfo();
+
 
 
   }
@@ -121,7 +125,6 @@ function humanLaunchDices(){
           launchPLProcess();
         
         } else {
-
 
           launchDicesAndMovePieces();
 
@@ -158,12 +161,47 @@ function humanLaunchDices(){
 
     } else {
 
+
+
+      if(currentSquare == jailVisit){
+
+        boardJournal.innerHTML += (lastDiceLauncher.name + ' </br>landed on a tax square!!');
+    
+
+      }
+
               
           automaticAction = true;
+
+
+          if(currentSquare == jailVisit){
+
+            boardJournal.innerHTML += (lastDiceLauncher.name + '</br> made a jail visit!!');
+            addNotif(lastDiceLauncher.name + '</br> made a jail visit!!' , buyNotif);
+
+
+          }
+
+          
+          if(currentSquare == freeParc){
+
+            boardJournal.innerHTML += (lastDiceLauncher.name + '</br> made a tour in the free parc!!');
+
+            addNotif(lastDiceLauncher.name + '</br> made a tour in the free parc!!' , buyNotif);
+
+
+          }
+
+          
 
           
       
           if (currentSquare.type == communityChest){
+
+            boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a community chest square');
+            addNotif(lastDiceLauncher.name + '</br>landed on a community chest square' , buyNotif);
+
+
 
               if(lastDiceLauncher == humanPlayer){
                  
@@ -178,6 +216,12 @@ function humanLaunchDices(){
 
           
           } else if (currentSquare.type == luck){
+
+
+            boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a luck square');
+            addNotif(lastDiceLauncher.name + ' </br> landed on a luck square' , buyNotif);
+
+
 
             if(lastDiceLauncher == humanPlayer){
 
@@ -196,9 +240,7 @@ function humanLaunchDices(){
 
              playerLandsOnTaxSquare(lastDiceLauncher);
  
-          } else if(currentSquare.type == inactive){
-
-          }
+          } 
 
 
     }
@@ -524,7 +566,7 @@ function acceptTrade(proposition){
 
     if(lastDiceLauncher == humanPlayer){
 
-       plDecisionTime = 5000;
+       plDecisionTime = 30000;
 
     } else {
 
@@ -870,8 +912,18 @@ function playerLandsOnProperty(player, property){
 
 
 function playerLandsOnTaxSquare(player){
+
+  boardJournal.innerHTML += (player.name + ' landed on a tax square!!');
      
    player.cash -= 150;
-   checkForBankruptcyAndReact(player, none);
-   
+
+   if(checkForBankruptcy(player, none) == true){
+       
+      if(player != humanPlayer){
+
+         findCash(player, -player.cash);
+
+        }
+   }
+
 }

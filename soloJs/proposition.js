@@ -8,7 +8,7 @@ function makeProposition(proposition){
     
   if(declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES] != undefined){
 
-    addNotif('<br>' + proposition.offerer.name + ' made a counter offer! <br>');
+    addNotif('<br>' + proposition.offerer.name + ' made a counter offer! <br>', buyNotif);
 
     if(declinedPropositionsHashTable[hashProposition(proposition) % HASHENTRIES].count > 1){
          
