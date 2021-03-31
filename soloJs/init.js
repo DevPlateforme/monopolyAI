@@ -9,7 +9,7 @@ var breakVar = false;
 
 function init(){
    
-  //displayStartPopup();
+  displayStartPopup();
 
     setInterval(
 
@@ -18,10 +18,9 @@ function init(){
           boardJournal.innerHTML = ''}, 5000
           
         );
-         
-       givePlayersPropertiesForDemo();
 
-       humanThinking = false;
+
+         
 
 
 

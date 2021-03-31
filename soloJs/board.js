@@ -161,6 +161,7 @@ function humanLaunchDices(){
 
     } else {
 
+      automaticAction = true;
 
 
       if(currentSquare == jailVisit){
@@ -171,7 +172,6 @@ function humanLaunchDices(){
       }
 
               
-          automaticAction = true;
 
 
           if(currentSquare == jailVisit){
@@ -566,7 +566,7 @@ function acceptTrade(proposition){
 
     if(lastDiceLauncher == humanPlayer){
 
-       plDecisionTime = 30000;
+       plDecisionTime = 10000;
 
     } else {
 
@@ -890,6 +890,7 @@ function playerLandsOnProperty(player, property){
       colorLandingCounts[property.color.index]++;
 
     }
+
 
  
       return propertyPayment;

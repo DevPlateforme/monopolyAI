@@ -9,7 +9,7 @@
    var red = {index: 4, name: 'red' ,  ROIS: [-309.33, 1437.79, 5805, 14541.17], growthScore : 1 , finishedSetValue: 10150 , opacityOnCode: 'rgb(255,0,0)' , opacityOffCode: 'rgb(255,0,0,0.3)' ,  units : 3};
    var yellow = {index: 5, name: 'yellow' ,  ROIS: [-462.62, 1322.31, 5694.61, 14439.23], growthScore : 1 , finishedSetValue: 10100 , opacityOnCode: 'rgb(255,255,0)', opacityOffCode:'rgb(255,255,0,0.3)', units : 3} ;
    var green = {index: 6, name: 'green' ,  ROIS: [-1016.60, 918.99, 5757.99, 15435.98], growthScore : 1 , finishedSetValue: 10100 ,  opacityOnCode: 'rgb(0,255,0)', opacityOffCode:'rgb(0,255,0,0.3)', units : 3} ;
-   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 10000 , opacityOnCode: 'pink', opacityOffCode:'rgb(0,0,139,0.3)', units : 2};  
+   var darkBlue = {index: 7, name: 'darkBlue' ,  ROIS: [-330.6, 1282.3, 5314.66, 13379.31] , growthScore : 1 , finishedSetValue: 10000 , opacityOnCode: 'rgb(0,70,255)', opacityOffCode:'rgb(0,70,255,0.5)', units : 2};  
    var black = {index: 8, name: 'black' ,  ROIS: [-219.68, 927.19, 3794.38 , 9528.77] ,  growthScore: 1 , finishedSetValue: 8500 ,  opacityOnCode: 'rgb(0,0,0, 0.8)', opacityOffCode:'rgb(0,0,0,0.3)', units : 4};
    var publicServicesColor = {index: 9, name: 'publicServicesColor' , ROIS: [-219.68, 927.19, 3794.38 , 9528.77] , growthScore: 1 ,  finishedSetValue: 2500 ,  opacityOnCode: 'rgb(169,169,169)', opacityOffCode:'rgb(169,169,169,0.3)', units : 2 };
 
@@ -351,7 +351,7 @@ var movementAndCollection = 'movementAndCollection';
 
    var advanceToGoCard = {name:"back to departure", type: movementAndCollection , description: "déplacez vous jusque la case départ, et recevez 200 dollars", destination : departure , collection : 200};
 
-   var bankErrorCard = { name:"bank error " , type: collection , collection: 100 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars" , collection: 200, fee: none};
+   var bankErrorCard = { name:"bank error " , type: collection , collection: 100 ,  description: "Bank error, you receive 200 dollars" , collection: 200, fee: none};
 
    var DoctorsFeeCard = { name:"Doctor fee" , type: payment , description: "Doctor fee. Pay 50 dollars", fee: 50 };
 
@@ -392,7 +392,7 @@ var movementAndCollection = 'movementAndCollection';
 
       var speedFineCard = {name:"Doctor fee" , type: payment , fee: 100,  description: "Amende pour excès de vitesse.  Payez 100 dollars"};
 
-      var bankErrorCard2 = {name:"Doctor fee" , type: collection , collection: 50 ,  description: "Erreur de la banque en votre faveur. Recevez 200 dollars"};
+      var bankErrorCard2 = {name:"Doctor fee" , type: collection , collection: 50 ,  description: "Bank error, you receive 200 dollars"};
       
       //var streetRepairCard2 = {type: streetRepair, description: "Frais de construction. Payez 40 dollars par maison, et 115 dollars par Hôtel"};
       

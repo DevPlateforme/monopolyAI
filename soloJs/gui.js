@@ -305,7 +305,6 @@ function clearPropositionPopup(){
 
      humanThinking = false;
 
-     let offerer = humanPlayer.propositionToAnswer.offerer;
 
      document.getElementById('propositionPopup').style.display = 'none';
      monopolyBoard.style.opacity = 1;
@@ -316,16 +315,6 @@ function clearPropositionPopup(){
      humanAnswerInterface.style.opacity = 0;
      initHumanAnswerInterface();
 
-
-     
-
-     if(offerer.humanPerception == regular){
-
-        perceptionCheck(offerer , humanPlayer.propositionToAnswer );
-
-     }
-
-     
 
       humanPlayer.propositionToAnswer = none;
       humanAnswerInterfaceOn = false;
@@ -742,6 +731,14 @@ function closePropositionInterface(){
      document.getElementById(ai1.name + '_avatar').style.opacity = '0.2';
      document.getElementById(ai2.name + '_avatar').style.opacity = '0.2';
      document.getElementById(ai3.name + '_avatar').style.opacity = '0.2';
+
+     if(observedPlayer != none){
+          document.getElementById(observedPlayer.name + '_tradeGraph_presentationContainer').style.display = 'none';
+
+     }
+
+
+     document.getElementById('chosePlayer_tradeGraph_presentationContainer').style.display = 'flex';
 
 
 
@@ -1191,6 +1188,7 @@ function sendProposition(){
      let answerer = offerer.inBuildingProposition.answerer;
 
 
+     closeInterfaces();
 
      //IF THERE ARE NO OBJECTS 
 
@@ -1404,7 +1402,6 @@ function sendProposition(){
 
             };
 
-            closeInterfaces();
             
 
 
@@ -2639,15 +2636,13 @@ function displayTradeDiv(type,player,color){
 
           }
 
-          
-
-
-
           document.getElementById(type + 'Div_propertyTemplate_' + color.units + '_property_' + i + '_container').style.display = 'flex';
           
 
 
        }
+
+       
 
 
        setTimeout(function(){
@@ -2666,8 +2661,10 @@ function displayTradeDiv(type,player,color){
 
             
        },100);
-       
+
+       document.getElementById('colorSquareHeader_' + type+'Div_propertyTemplate_' + color.units).style.background = color.opacityOnCode;
        document.getElementById(type+'Div_propertyTemplate_' + color.units).style.display = 'flex';
+       
        
 }
 
@@ -3058,7 +3055,15 @@ function tradeAnimation(proposition){
 
     let tradeAnimationInterval = setInterval(function(){  
                    
-       if(tradeAnimationOn == false ){    
+       if(tradeAnimationOn == false ){  
+            
+          
+          if(displayPopupOn == true){
+
+               closeLaunchInfo();
+
+          }
+
           
 
           tradeAnimationOn = true;
@@ -3807,11 +3812,19 @@ function closeStartPopup(){
 
 function displayLaunchInfo(){
 
-        displayPopupOn = true;
+        if(tradeAnimationOn == false){
 
-        hideBoardMiddle();
-  
-       document.getElementById('launchInfoPopup').style.opacity = 1;
+             displayPopupOn = true;
+             hideBoardMiddle();  
+             document.getElementById('launchInfoPopup').style.opacity = 1;
+
+        } else {
+
+          setTimeout(function(){displayLaunchInfo()},1500);
+
+
+        }
+
   
 }
 
@@ -3831,10 +3844,6 @@ function closeLaunchInfo(){
      unveilBoardMiddle();
      
      document.getElementById('launchInfoPopup').style.opacity = 0;
-
-
-
-
 
 }
 
@@ -3947,12 +3956,21 @@ function displayAcceptancePopup(proposition){
      }
 
 
-     if( humanAnswerInterfaceOn = true){
+     if( humanAnswerInterfaceOn == true){
 
           clearPropositionPopup();
 
           
      }
+
+
+     
+     if(availablePopupOn == true){
+
+          document.getElementById('availablePropertyInt').style.display = 'none';
+
+     }
+
  
  
  
@@ -3973,7 +3991,19 @@ function displayAcceptancePopup(proposition){
 function displayRefusalPopup(proposition){
 
 
-     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer)
+     let nonTradingPlayers = getNonTradingPlayersArray(proposition.offerer, proposition.answerer);
+
+     
+     if(displayPopupOn == true){
+          document.getElementById('launchInfoPopup').style.opacity = '0';
+     }
+
+     if(availablePopupOn == true){
+
+          document.getElementById('availablePropertyInt').style.display = 'none';
+
+     }
+
          
          
          
@@ -3989,12 +4019,15 @@ function displayRefusalPopup(proposition){
 
      
 
-     if( humanAnswerInterfaceOn = true){
+     if( humanAnswerInterfaceOn == true){
 
           clearPropositionPopup();
 
           
      }
+
+
+
  
 
  

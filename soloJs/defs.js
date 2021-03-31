@@ -1185,6 +1185,8 @@ function playerInBankruptcy(player, killer){
 
      if(player == humanPlayer){
 
+      alert('you are in bankruptcy!!! you have 45 seconds to find ' + (-player.cash) + 'dollars (using your management interface to mortgage properties, or try to make deals with other players, to collect this amount)');
+
       launchBankruptcyInterface(player);
       bankruptcyTime = 45000;
 

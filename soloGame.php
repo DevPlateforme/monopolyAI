@@ -947,6 +947,7 @@
         </div>
 
 
+
         <div class='avatarsDiv'>
 
           <div id='ai1_avatar' style='position:relative; opacity:0.3;  height:30%; width:5%; display:flex; justify-content:center; align-items:center; background:rgb(0,255,0,0.8); border-radius:30px; margin-left:1.5%; cursor:pointer'>
@@ -974,6 +975,12 @@
 
   
 <div class='tradeInterfaceABA' id='tradeOffererDiv_propertyTemplate_2' >
+
+
+  <div class='colorHeaderSquare' id='colorSquareHeader_tradeOffererDiv_propertyTemplate_2'>
+                     
+                   
+  </div>
 
  <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
               
@@ -1226,7 +1233,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -1246,11 +1252,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages:0</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses: 3</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -1268,6 +1274,9 @@
 
   
  <div class='tradeInterfaceABA' id='tradeOffererDiv_propertyTemplate_3' >
+
+
+ <div class='colorHeaderSquare' id='colorSquareHeader_tradeOffererDiv_propertyTemplate_3'></div>
 
  
  <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
@@ -1651,7 +1660,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -1671,11 +1679,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA'  style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -1694,6 +1702,9 @@
 
   
 <div class='tradeInterfaceABA' id='tradeOffererDiv_propertyTemplate_4'>
+
+<div class='colorHeaderSquare' id='colorSquareHeader_tradeOffererDiv_propertyTemplate_4'></div>
+
  <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
               
   <div class='squareCard'>
@@ -2201,7 +2212,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -2221,11 +2231,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -2259,6 +2269,9 @@
 
   
 <div class='tradeInterfaceABA' id='answererDiv_propertyTemplate_2'>
+
+<div class='colorHeaderSquare' id='colorSquareHeader_answererDiv_propertyTemplate_2'></div>
+
           <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
               
 
@@ -2513,7 +2526,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -2533,11 +2545,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA'  style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses: 2</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -2559,6 +2571,10 @@
 
   
 <div class='tradeInterfaceABA' id='answererDiv_propertyTemplate_3'>
+
+   
+<div class='colorHeaderSquare' id='colorSquareHeader_answererDiv_propertyTemplate_3'></div>
+
 
 
     <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
@@ -2943,8 +2959,6 @@
             <div class='tradeInterfaceABAB'>
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
-
-                        <div id='colorInfo' style='background:black'></div>
                       
                     </div>
                    <div class='tradeInterfaceABABAA'></div>
@@ -2961,11 +2975,11 @@
                          <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages: 0</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses:4</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
                   </div>
@@ -2986,6 +3000,8 @@
 
   
 <div class='tradeInterfaceABA' id='answererDiv_propertyTemplate_4' style='display:none'>
+
+<div class='colorHeaderSquare' id='colorSquareHeader_answererDiv_propertyTemplate_4'></div>
 
 
 <div class='tradeInterfaceABAA' id='tradeOffererDivProperties'>
@@ -3495,7 +3511,6 @@
               <div class='tradeInterfaceABABA'>
                 <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                    <div id='colorInfo' style='background:black'></div>
                   
                 </div>
                 <div class='tradeInterfaceABABAA'></div>
@@ -3513,11 +3528,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages:1</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses:0</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
                                     
@@ -5404,6 +5419,9 @@
   
    <div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_2' >
 
+   <div class='colorHeaderSquare' id='colorSquareHeader_pmTopDiv_propertyTemplate_2'></div>
+
+
     <div class='tradeInterfaceABAA' id='pmTopDivProperties'>
 
        
@@ -5656,7 +5674,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -5676,11 +5693,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages:2</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses:1</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -5692,6 +5709,9 @@
 
       
 <div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_3' >
+
+<div class='colorHeaderSquare' id='colorSquareHeader_pmTopDiv_propertyTemplate_3'></div>
+
 
  <div class='tradeInterfaceABAA' id='pmTopDivProperties'>
               
@@ -6066,7 +6086,6 @@
                   <div class='tradeInterfaceABABA'>
                     <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                        <div id='colorInfo' style='background: brown'></div>
                       
                     </div>
 
@@ -6086,11 +6105,11 @@
                        <div class='tradeInterfaceABABBB'>
                             <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                                 <div class='tradeInterfaceABABBBAB'>mortgages:1</div>
+                                 <div class='tradeInterfaceABABBBAB'>mortgages</div>
                            </div>
                            <div class='tradeInterfaceABABBBA'>
                                  <div class='tradeInterfaceABABBBAA' style='background:purple'></div>
-                                 <div class='tradeInterfaceABABBBAB'>houses:2</div>
+                                 <div class='tradeInterfaceABABBBAB'>houses</div>
                            </div>
                        </div>
 
@@ -6108,6 +6127,9 @@
 
 
       <div class='tradeInterfaceABA' id='pmTopDiv_propertyTemplate_4'>
+
+      <div class='colorHeaderSquare' id='colorSquareHeader_pmTopDiv_propertyTemplate_4'></div>
+
 
 <div class='tradeInterfaceABAA' id='pmTopDiv_DivProperties'>
             
@@ -6595,7 +6617,6 @@
                <div class='tradeInterfaceABABA'>
                  <div class='tradeInterfaceABABAA' id='colorInfoContainer'>
 
-                     <div id='colorInfo' style='background: brown'></div>
                    
                  </div>
 
@@ -6615,11 +6636,11 @@
                     <div class='tradeInterfaceABABBB'>
                          <div class='tradeInterfaceABABBBA'>
                               <div class='tradeInterfaceABABBBAA' style='background:red'></div>
-                              <div class='tradeInterfaceABABBBAB'>mortgages:2</div>
+                              <div class='tradeInterfaceABABBBAB'>mortgages</div>
                         </div>
                         <div class='tradeInterfaceABABBBA'>
                               <div class='tradeInterfaceABABBBAA'  style='background:purple'></div>
-                              <div class='tradeInterfaceABABBBAB'>houses:0</div>
+                              <div class='tradeInterfaceABABBBAB'>houses</div>
                         </div>
                     </div>
 
@@ -6657,7 +6678,7 @@
                                         </div>
 
                                          <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
-                                            135 landings
+                                            landings
                                          </div>
                                 </div>
 
@@ -6673,7 +6694,7 @@
 
                                 <div style='height:20%;width:100%;  display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
                                    
-                                    4 houses built
+                                    houses built
                                 </div>
                                </div> 
                                
@@ -6688,7 +6709,7 @@
 
                                 <div style='height:20%;width:100%; display:flex; justify-content:center; align-items:center; font-size: 0.55vw'>
                                    
-                                    2 houses sold
+                                    houses sold
                                 </div>
                             </div>
 
@@ -6704,7 +6725,7 @@
 
                        <div class='pManagementInterfaceABBAB' style='width:33%; height:100%; display:flex; flex-direction:column; align-items:center;justify-content:space-between'>
 
-                              <div  class='pManagementInterfaceABBABA' style=' height:20%; width: 100%;display:flex; justify-content:center; align-items:center'>net profit : - 25$</div>
+                              <div  class='pManagementInterfaceABBABA' style=' height:20%; width: 100%;display:flex; justify-content:center; align-items:center'>net profit </div>
 
 
 
@@ -11715,11 +11736,11 @@
            
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square39_houseBar_1' style='background:rgb(0,0,100,0.4); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square39_houseBar_2' style='background:rgb(0,0,100,0.4); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square39_houseBar_3' style='background:rgb(0,0,139,0.4); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square39_houseBar_4' style='background:rgb(0,0,139,0.4); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square39_houseBar_5' style='background:rgb(0,0,139,0.4); height:95%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_1' style='background:rgb(0,70,255,0.5); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_2' style='background:rgb(0,70,255,0.5); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_3' style='background:rgb(0,70,255,0.5); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_4' style='background:rgb(0,70,255,0.5); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square39_houseBar_5' style='background:rgb(0,70,255,0.5); height:95%; width:12.5%'></div>
                        
                    </div>
            
@@ -11879,11 +11900,11 @@
            
                      <div class='rpSquareB' style='width: 40%; height:30%;display:flex; flex-direction: row; align-items:flex-end; justify-content:space-around; opacity:0.6;padding-top:10%'>
            
-                       <div class='rpSquareBA1' id='square37_houseBar_1' style='background:rgb(0,0,139,0.3); height:10%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square37_houseBar_2' style='background:rgb(0,0,139,0.3); height:30%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square37_houseBar_3' style='background:rgb(0,0,139,0.3); height:50%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square37_houseBar_4' style='background:rgb(0,0,139,0.3); height:70%; width:12.5%'></div>
-                       <div class='rpSquareBA1' id='square37_houseBar_5' style='background:rgb(0,0,139,0.3); height:95%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_1' style='background:rgb(0,70,255,0.5); height:10%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_2' style='background:rgb(0,70,255,0.5); height:30%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_3' style='background:rgb(0,70,255,0.5); height:50%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_4' style='background:rgb(0,70,255,0.5); height:70%; width:12.5%'></div>
+                       <div class='rpSquareBA1' id='square37_houseBar_5' style='background:rgb(0,70,255,0.5); height:95%; width:12.5%'></div>
                        
                    </div>
            
