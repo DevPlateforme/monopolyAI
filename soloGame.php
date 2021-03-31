@@ -5049,7 +5049,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_red" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_red" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5061,13 +5061,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar redColorBar" id="humanPlayer_tradeGraph_colorBar_red" style="width: 0px;"></div>
+  <div class="colorBar redColorBar" id="humanPlayer_pmGraph_colorBar_red" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_red_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_red_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_red_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_red_property_2" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -5082,7 +5082,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_darkBlue" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_darkBlue" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5094,12 +5094,12 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar darkBlueColorBar" id="humanPlayer_tradeGraph_colorBar_darkBlue" style="width: 0px;"></div>
+  <div class="colorBar darkBlueColorBar" id="humanPlayer_pmGraph_colorBar_darkBlue" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_darkBlue_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_darkBlue_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_darkBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_darkBlue_property_1" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -5114,7 +5114,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_black" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_black" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5126,14 +5126,14 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar blackColorBar" id="humanPlayer_tradeGraph_colorBar_black" style="width: 0px;"></div>
+  <div class="colorBar blackColorBar" id="humanPlayer_pmGraph_colorBar_black" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_2" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_black_property_3" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_black_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_black_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_black_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_black_property_3" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -5148,7 +5148,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_purple" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_purple" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5160,13 +5160,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar purpleColorBar" id="humanPlayer_tradeGraph_colorBar_purple" style="width: 0px;"></div>
+  <div class="colorBar purpleColorBar" id="humanPlayer_pmGraph_colorBar_purple" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_purple_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_purple_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_purple_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_purple_property_2" style="opacity: 0.2"></div>
 
 </div>
 </div>
@@ -5180,7 +5180,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_orange" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_orange" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5192,13 +5192,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar orangeColorBar" id="humanPlayer_tradeGraph_colorBar_orange" style="width: 0px;"></div>
+  <div class="colorBar orangeColorBar" id="humanPlayer_pmGraph_colorBar_orange" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_orange_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_orange_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_orange_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_orange_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -5211,7 +5211,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_publicServicesColor" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_publicServicesColor" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5223,13 +5223,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar publicServicesColorBar" id="humanPlayer_tradeGraph_colorBar_publicServicesColor" style="width: 0px;"></div>
+  <div class="colorBar publicServicesColorBar" id="humanPlayer_pmGraph_colorBar_publicServicesColor" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_publicServicesColor_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_publicServicesColor_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_publicServicesColor_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_publicServicesColor_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -5242,7 +5242,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_lightBlue" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_lightBlue" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5254,46 +5254,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar lightBlueColorBar" id="humanPlayer_tradeGraph_colorBar_lightBlue" style="background: lightblue; width: 35%;"></div>
+  <div class="colorBar lightBlueColorBar" id="humanPlayer_pmGraph_colorBar_lightBlue" style="background: lightblue; width: 35%;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_lightBlue_property_2" style="opacity: 0.2"></div>
-</div>
-</div>
-
-</div>
-
-
-
-
-<div class="homePropertyDivAInt">
-
-<div class="homePropertyDivAA">
-
-<div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-
-<canvas id="humanPlayer_tradeGraph_presentationCircle_green" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
-
-
-
-</div>
-
-</div>
-
-<div class="homePropertyDivAB">
-<div class="homePropertyDivABA">
-
-
-  <div class="colorBar greenColorBar" id="humanPlayer_tradeGraph_colorBar_green" style="width: 0px;"></div>
-          
-</div>
-<div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_green_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_lightBlue_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_lightBlue_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_lightBlue_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -5308,7 +5275,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_yellow" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_green" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5320,13 +5287,46 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar yellowColorBar" id="humanPlayer_tradeGraph_colorBar_yellow" style="background: yellow; width: 0px;"></div>
+  <div class="colorBar greenColorBar" id="humanPlayer_pmGraph_colorBar_green" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_yellow_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_green_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_green_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_green_property_2" style="opacity: 0.2"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class="homePropertyDivAInt">
+
+<div class="homePropertyDivAA">
+
+<div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+
+<canvas id="humanPlayer_pmGraph_presentationCircle_yellow" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+
+
+
+</div>
+
+</div>
+
+<div class="homePropertyDivAB">
+<div class="homePropertyDivABA">
+
+
+  <div class="colorBar yellowColorBar" id="humanPlayer_pmGraph_colorBar_yellow" style="background: yellow; width: 0px;"></div>
+          
+</div>
+<div class="homePropertyDivABB">
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_yellow_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_yellow_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_yellow_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 
@@ -5342,7 +5342,7 @@
 
 <div class="homePropertyDivAAA"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
 
-<canvas id="humanPlayer_tradeGraph_presentationCircle_brown" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
+<canvas id="humanPlayer_pmGraph_presentationCircle_brown" width="42" height="42" class="chartjs-render-monitor" style="display: block; width: 21px; height: 21px;"></canvas>     		
 
 
 
@@ -5354,13 +5354,13 @@
 <div class="homePropertyDivABA">
 
 
-  <div class="colorBar brownColorBar" id="humanPlayer_tradeGraph_colorBar_brown" style="width: 0px;"></div>
+  <div class="colorBar brownColorBar" id="humanPlayer_pmGraph_colorBar_brown" style="width: 0px;"></div>
           
 </div>
 <div class="homePropertyDivABB">
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_0" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_1" style="opacity: 0.2"></div>
-<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_tradeGraph_brown_property_2" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_brown_property_0" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_brown_property_1" style="opacity: 0.2"></div>
+<div class="homePropertyDivABBA" id="humanPlayer_propertyPoint_pmGraph_brown_property_2" style="opacity: 0.2"></div>
 </div>
 </div>
 

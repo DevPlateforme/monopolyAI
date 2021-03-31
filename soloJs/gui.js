@@ -1613,6 +1613,9 @@ function displayPM(){
 
      displayTradeDiv(pmTop,humanPlayer,colorArray[displayedPmColor]);
 
+          
+     buildPmPresentationCircles(humanPlayer);
+     buildPmPresentationBars(humanPlayer);
      
 
 }
