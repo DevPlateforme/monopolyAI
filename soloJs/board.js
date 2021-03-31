@@ -25,7 +25,7 @@ function launchDices(){
       } else {
 
          lastDiceLauncher = playersArray[nextDiceLauncherIndex - 1];
-    }
+      }
 
 
    if(lastDiceLauncher.jailManagement.inJail == true){

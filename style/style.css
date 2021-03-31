@@ -5122,6 +5122,20 @@ Property management interface
 
 }
 
+.tradeInterfacePresContainer{
+  background: blue;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(117, 190, 218, 0.1);
+  border-radius: 7px;
+
+}
+
+
 
 
 /*
@@ -6620,6 +6634,10 @@ acceptance popup
     background: rgb(0,0,0,0.1);
   }
 
+  .tradeInterfaceAC{
+
+    display: none;
+  }
 
   #launchText{
     display: none;
