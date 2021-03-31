@@ -19,22 +19,12 @@ function init(){
           
         );
          
-        lastDiceLauncher = humanPlayer;
+       givePlayersPropertiesForDemo();
 
-        lastDiceLauncher.position = 4;
-
-        nextDiceLauncher = ai1;
-
-        humanThinking = false;
-
-        launchPlTimeout();
-        launchPlCheck();      
-        launchPLProcess();
+       humanThinking = false;
 
 
-      decideToStayInJailOrNot(ai1)
-      decideToStayInJailOrNot(ai2)
-      decideToStayInJailOrNot(ai3)
+
 
       boardGraph1();  
       boardGraph2(); 

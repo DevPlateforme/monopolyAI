@@ -579,6 +579,11 @@ var launcherInJail;
 var minimumHouseValue = 50; //smallest house value
 
 
+//Synergy
+
+
+var synergeticPlayer = none;
+
 
 //proposition gain types
 

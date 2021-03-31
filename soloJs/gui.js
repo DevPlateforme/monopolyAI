@@ -96,6 +96,8 @@ if(humanAnswerInterfaceOn == false){
 
 
    if(indirectOpportunities.length != 0){
+
+     synergeticPlayer = indirectOpportunities[0].offerer;
         
         buildSynergeticWindow(indirectOpportunities[0]);
 
@@ -3680,6 +3682,7 @@ function displaySynergeticWindow(){
     document.getElementById('topSynergyDiv').style.display = 'flex';
     document.getElementById('bottomSynergyDiv').style.display = 'flex';
 
+    unveilPlayer(synergeticPlayer);
 }
 
 
