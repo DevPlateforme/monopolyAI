@@ -706,6 +706,8 @@ function displayPropositionInterface(){
 
      //humanThinking = true;
 
+     displayedTradeInterface = true;
+
      document.getElementById('projectBody').style.transition = 'none';
      document.getElementById('projectBody').style.background='#6b6df2';
 
@@ -723,6 +725,9 @@ function displayPropositionInterface(){
 
 
 function closePropositionInterface(){
+
+
+     
 
      //INIT PROPOSITION INTERFACE
 
@@ -754,6 +759,14 @@ function closePropositionInterface(){
      displayedOffererColor = 0;
 
      displayedAnswererColor = 0;
+
+     displayedTradeInterface = false;
+
+     document.getElementById('tradeInterfaceDiv').style.display = 'none';
+
+
+
+
 
 
 }
@@ -1568,6 +1581,13 @@ function displayPlayersWallets(){
 
 function displayPM(){
 
+      
+     if(displayedTradeInterface == true){
+
+
+          closePropositionInterface();
+     }
+
      
      displayedPM = true;
 
@@ -1602,7 +1622,6 @@ function displayPM(){
 function closePM(){    
      
      
-     displayedPM = false;
 
      document.getElementById('playerPropertiesManagementInterface').style.display = 'none';
      document.getElementById('pmBottom_pmGraph1').style.display = 'none';
@@ -1613,6 +1632,9 @@ function closePM(){
      clearTradeColor(pmTop, colorArray[displayedPmColor].units);
 
      displayedPmColor = 0;
+
+     displayedPM = false;
+
 
 
 
@@ -1698,7 +1720,6 @@ function closeInterfaces(){
 
 
      
-     document.getElementById('tradeInterfaceDiv').style.display = 'none';
 
      closePropositionInterface();
 
@@ -1727,9 +1748,6 @@ function closeInterfaces(){
 
 
      //init displayed colors 
-
-     displayedOffererColor = 0;
-     displayedAnswererColor = 0;
 
      humanThinking = false;
 
