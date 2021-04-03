@@ -6642,16 +6642,27 @@ acceptance popup
 @media all and (max-width: 800px){
 
   #mobileBottomNav{
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 8vh;
-    width: 100vw;
+    width: 100%;
     left: 0px;
-    bottom:1vh;
+    bottom: 0;
     background: rgb(0,0,0,0.1);
   }
+
+  .digitalContainer{
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    left:0px;
+    width: 100vw;
+    bottom: 8vh;
+    height: 87vh;
+ }
+
 
   .tradeInterfaceAC{
 
@@ -6929,18 +6940,12 @@ acceptance popup
 
 
    .digitalContainer{
-
       flex-direction: column;
-
       align-items: center;
-
       left:0px;
-
       width: 100vw;
-
       bottom: 10vh;
       height: 87vh;
-
    }
  
  
@@ -7724,10 +7729,46 @@ acceptance popup
 
   font-size: 3vw;
 
+}
 
+
+.digitalContainer{
+  position: fixed;
+  bottom: 8vh;
+  height: 92vh;
+}
+
+.mobilePresentationsContainer{
+
+  height: 37.5%;
+}
+
+
+.mobilePresentationsContainerAA{
+
+  height: 48%;
+}
+
+
+.digitalContainerB {
+
+  height: 62.5%;
+
+}
+
+.digitalContainerBB{
+
+  height: 70%;
 
 }
 
 
+.digitalContainerBBA{
+
+  width: 12.5%;
+}
+
+.digitalContainerBC {
+  height: 15%;
 }
 
