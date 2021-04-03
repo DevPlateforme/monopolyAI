@@ -13,7 +13,7 @@ function getNextDiceLauncherIndex(){
 function launchDices(){
 
     diceResult = (Math.floor(Math.random() * (diceEdges -2)) +2) + (Math.floor(Math.random() * (diceEdges-2)) + 2);
-
+     
      getNextDiceLauncherIndex();
 
      nextDiceLauncher = playersArray[nextDiceLauncherIndex];
@@ -253,6 +253,7 @@ function humanLaunchDices(){
        if(lastDiceLauncher != humanPlayer || automaticAction == true){
 
         setPostLauncDecisionToDone();  
+        humanThinking = false;
        }
 
 
