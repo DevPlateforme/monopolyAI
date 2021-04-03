@@ -43,7 +43,7 @@
     </div>
 
     <div class='launchInfoDivBAA' id='launchTextMobile'>
-        Press "start" , to launch the game
+        Press "start" , to launch dices
     </div>
   </div>
   <div class='launchInfoDivBB'>

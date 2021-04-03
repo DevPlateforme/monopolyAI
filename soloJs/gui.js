@@ -472,11 +472,8 @@ function closeAvailablePropertyInterface(){
  function displayCommunityChestSquareInterface(){
 
      
-
      humanThinking = true;
-
-      monopolyBoard.style.opacity = 0.15;
-
+     hideBoardMiddle();
      document.getElementById('chanceSquareInterface').style.display = 'flex';
      document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(communityChest)");
      
@@ -489,7 +486,6 @@ function closeAvailablePropertyInterface(){
    document.getElementById('cardName').innerHTML = title;
    document.getElementById('cardType').innerHTML = 'type : ' + cardType;
    document.getElementById('cardDescription').innerHTML = description;
-
    document.getElementById('drewCardPopup').style.display = 'flex';
             
 
@@ -498,14 +494,8 @@ function closeAvailablePropertyInterface(){
  function displayChanceSquareInterface(){
 
      humanThinking = true;
-
-
-     monopolyBoard.style.opacity = 0.15;
-
-
-
+     hideBoardMiddle();
      document.getElementById('chanceSquareInterface').style.display = 'flex';
-
      document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(luck)")
 
      //add an invisible button
@@ -517,11 +507,8 @@ function closeAvailablePropertyInterface(){
 
 function closeCommunityChestSquareInterface(){
 
+     alert('closing down the cc');
      humanThinking = false;
-
-     monopolyBoard.style.opacity = 1;
-
-
      document.getElementById('communityChestSquareInterface').style.display = 'false';
 
  }
@@ -529,11 +516,8 @@ function closeCommunityChestSquareInterface(){
 
  function closeChanceSquareInterface(){
 
+     alert('closing down the chance');
      humanThinking = false;
-
-     monopolyBoard.style.opacity = 1;
-
-
      document.getElementById('chanceSquareInterface').style.display = 'false';
 
 }
@@ -2846,6 +2830,9 @@ function closeDrawCardInterface(){
 
 
 function closeDrewCardInterface(){
+
+
+     unveilBoardMiddle();
 
      monopolyBoard.style.opacity = 1;
 

@@ -12,7 +12,8 @@ function getNextDiceLauncherIndex(){
 
 function launchDices(){
 
-    diceResult = (Math.floor(Math.random() * (diceEdges -2)) +2) + (Math.floor(Math.random() * (diceEdges-2)) + 2);
+    
+     diceResult = 7;
      
      getNextDiceLauncherIndex();
 
@@ -159,20 +160,62 @@ function humanLaunchDices(){
 
         playerInJail(lastDiceLauncher);
 
+    }  else if (currentSquare.type == communityChest){
+
+        boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a community chest square');
+        addNotif(lastDiceLauncher.name + '</br>landed on a community chest square' , buyNotif);
+
+
+
+        if(lastDiceLauncher == humanPlayer){
+           
+          displayCommunityChestSquareInterface();
+
+        } else {
+
+          drawCardAndExecuteAction(communityChest);
+
+
+        }
+
+    
+    } else if (currentSquare.type == luck){
+
+
+      boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a luck square');
+      addNotif(lastDiceLauncher.name + ' </br> landed on a luck square' , buyNotif);
+
+
+
+        if(lastDiceLauncher == humanPlayer){
+
+          displayChanceSquareInterface();
+
+        } else {
+
+           drawCardAndExecuteAction(luck);
+
+      }
+
+
+
     } else {
+
+
+
+
+
+
+      //automatic actions
+
 
       automaticAction = true;
 
-
       if(currentSquare == jailVisit){
-
         boardJournal.innerHTML += (lastDiceLauncher.name + ' </br>landed on a tax square!!');
     
 
       }
-
-              
-
 
           if(currentSquare == jailVisit){
 
@@ -192,51 +235,8 @@ function humanLaunchDices(){
 
           }
 
-          
-
-          
-      
-          if (currentSquare.type == communityChest){
-
-            boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a community chest square');
-            addNotif(lastDiceLauncher.name + '</br>landed on a community chest square' , buyNotif);
-
-
-
-              if(lastDiceLauncher == humanPlayer){
-                 
-                displayCommunityChestSquareInterface();
-
-              } else {
-
-                drawCardAndExecuteAction(communityChest);
-
-
-              }
-
-          
-          } else if (currentSquare.type == luck){
-
-
-            boardJournal.innerHTML += (lastDiceLauncher.name + 'landed on a luck square');
-            addNotif(lastDiceLauncher.name + ' </br> landed on a luck square' , buyNotif);
-
-
-
-            if(lastDiceLauncher == humanPlayer){
-
-              displayChanceSquareInterface();
-
-            } else {
-
-              drawCardAndExecuteAction(luck);
-
-
-            }
-
-
-
-          } else if (currentSquare.type = tax ){  
+            
+          if (currentSquare.type = tax ){  
 
              playerLandsOnTaxSquare(lastDiceLauncher);
  
@@ -246,14 +246,36 @@ function humanLaunchDices(){
     }
 
 
+
+
+
+
+       //cards
+
+
+    
+
+
+
+
+
+
+
+
+
+
      //end process
 
 
 
        if(lastDiceLauncher != humanPlayer || automaticAction == true){
 
+        if(lastDiceLauncher == humanPlayer){
+            humanThinking = false;
+
+        }
+
         setPostLauncDecisionToDone();  
-        humanThinking = false;
        }
 
 
@@ -263,6 +285,7 @@ function humanLaunchDices(){
 
 
    function drawCardAndExecuteAction(type){
+
 
             let card;
             let cardTitle;
@@ -552,8 +575,8 @@ function acceptTrade(proposition){
 
     postLaunchDecision = done;
 
-
     clearTimeout(postLaunchMoveCheckTimeout);
+
 
 
   }
@@ -567,7 +590,7 @@ function acceptTrade(proposition){
 
     if(lastDiceLauncher == humanPlayer){
 
-       plDecisionTime = 10000;
+       plDecisionTime = 60000;
 
     } else {
 
