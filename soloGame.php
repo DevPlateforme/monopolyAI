@@ -933,8 +933,8 @@
 
        <div class='leftArrowDiv'>
 
-           <div class='leftArrowDivA'><button><</button></div>
-           <div class='leftArrowDivB'><button><</button></div>
+           <div class='leftArrowDivA'><button onclick='displayPreviousTradeOffererColor()'><</button></div>
+           <div class='leftArrowDivB'><button onclick='displayPreviousTradeAnswererColor()'><</button></div>
          
        </div>
 

@@ -2049,7 +2049,8 @@ function displayNextPmColor(){
 
 function displayPreviousPmColor(){
 
-     clearTradeColor(pmTop, colorArray[displayedOffererColor].units);
+
+     clearTradeColor(pmTop, colorArray[displayedPmColor].units);
 
      
 
@@ -2061,8 +2062,9 @@ function displayPreviousPmColor(){
      }
 
 
-     displayTradeDiv(pmTop,humanPlayer, colorArray[displayedOffererColor]);
+     displayTradeDiv(pmTop,humanPlayer, colorArray[displayedPmColor]);
 
+     displayPmBottomDiv();
 
 }
 
@@ -2091,8 +2093,7 @@ function displayNextTradeOffererColor(){
 
 function displayPreviousTradeOffererColor(){
 
-     document.getElementById('tradeInterface_humanPlayer_' + colorArray[displayedOffererColor].name).style.display='none';
-
+     clearTradeColor(tradeOfferer, colorArray[displayedOffererColor].units);
 
      if(displayedOffererColor == 0){
           displayedOffererColor = 9;
@@ -2100,8 +2101,9 @@ function displayPreviousTradeOffererColor(){
 
           displayedOffererColor--;
      }
-     
-     document.getElementById('tradeInterface_humanPlayer_' + colorArray[displayedOffererColor].name).style.display='flex';
+
+
+     displayTradeDiv(tradeOfferer,humanPlayer, colorArray[displayedOffererColor]);
 
 }
 
@@ -2126,7 +2128,8 @@ function displayNextTradeAnswererColor(){
 
 function displayPreviousTradeAnswererColor(){
      
-     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='none';
+
+     clearTradeColor(tradeAnswerer, colorArray[displayedAnswererColor].units);
 
      if(displayedAnswererColor == 0){
           displayedAnswererColor = 9;
@@ -2134,11 +2137,8 @@ function displayPreviousTradeAnswererColor(){
 
           displayedAnswererColor--;
      }
-     
-     document.getElementById(displayedAnswerer.name + '_answererDiv_' + colorArray[displayedAnswererColor].name).style.display='flex';
 
-
-
+     displayTradeDiv(tradeAnswerer, observedPlayer , colorArray[displayedAnswererColor]);
      
 }
 
