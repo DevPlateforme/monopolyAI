@@ -130,6 +130,8 @@ var lastDiceLauncher = none;
 var gameBoard = { activePlayer: ai1, state: none};
 
 
+var insufficientCash = 'insufficientCash';
+
 
 //GAMEBOARD STATES
 

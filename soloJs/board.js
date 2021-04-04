@@ -13,7 +13,7 @@ function getNextDiceLauncherIndex(){
 function launchDices(){
 
     
-     diceResult = 7;
+     diceResult = Math.floor((Math.random())*10) + 2;
      
      getNextDiceLauncherIndex();
 
@@ -150,7 +150,7 @@ function humanLaunchDices(){
      //different actions
      if(currentSquare.type == rentalProperty || currentSquare.type == trainStation || currentSquare.type == publicService ){ 
           
-          if(playerLandsOnProperty(lastDiceLauncher, currentSquare) == propertyPayment || playerLandsOnProperty(lastDiceLauncher, currentSquare) == ownPropertyLanding ){
+          if(playerLandsOnProperty(lastDiceLauncher, currentSquare) == propertyPayment || playerLandsOnProperty(lastDiceLauncher, currentSquare) == ownPropertyLanding || playerLandsOnProperty(lastDiceLauncher, currentSquare) == insufficientCash  ){
 
             automaticAction = true;
 
@@ -835,6 +835,9 @@ function playerLandsOnProperty(player, property){
 
      if(lastDiceLauncher == humanPlayer){
 
+  
+        return insufficientCash;
+
      } else {           
 
         if(lastDiceLauncher.cash < 0){
@@ -856,13 +859,17 @@ function playerLandsOnProperty(player, property){
 
          boardJournal.innerHTML += (player.name + ' tried to find cash to buy this property , but couldnt');
 
+         return insufficientCash;
+
+
        }
+
+
 
     }
 
 }
 
- return availableProperty;
 
 
 } else if (property.landLord != player) {

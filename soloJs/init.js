@@ -20,9 +20,9 @@ function init(){
         );
 
 
+
+
          
-
-
 
 
       boardGraph1();  
