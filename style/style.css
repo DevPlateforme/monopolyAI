@@ -3062,6 +3062,19 @@ board
 
 }
 
+
+.digitalContainerAABAAI{
+
+  height:85%;
+  width: 40%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 0.7vw;
+
+}
+
 .jailAndBankruptcyInt{
 
    height:85%;
@@ -3636,7 +3649,7 @@ justify-content: space-around;
   justify-content: space-between;
 }
 
-#tradeScren_offererContainer{
+#tradeScreen_offererContainer{
      
   width: 100%;
   justify-content: flex-start;
@@ -3646,7 +3659,7 @@ justify-content: space-around;
 
 
 
-#tradeScren_answererContainer{
+#tradeScreen_answererContainer{
   
   width: 100%;
   justify-content: flex-end;
@@ -3665,12 +3678,12 @@ justify-content: space-around;
 
 }
 
-#tradeScren_offerer_imgDiv{
+#tradeScreen_offerer_imgDiv{
   height:1.5vw;
   width:1.5vw;
   
 }
-#tradeScren_answerer_imgDiv{
+#tradeScreen_answerer_imgDiv{
   height:1.5vw;
   width:1.5vw;
   

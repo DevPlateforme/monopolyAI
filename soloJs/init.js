@@ -8,9 +8,10 @@ var breakVar = false;
 
 
 function init(){
-   
-  displayStartPopup();
 
+  alert(document.getElementById('tradeScreen_offerer_img').src);
+   
+removePlayer(humanPlayer);
     setInterval(
 
         function(){

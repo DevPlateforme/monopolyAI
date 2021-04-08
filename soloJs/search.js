@@ -248,8 +248,6 @@ function searchForTradesOpportunities(activePlayer){
 
 
  
-var nodes = 0;
-
  
  function checkForMortgageBuying(ai){
 
@@ -354,6 +352,8 @@ var nodes = 0;
 
  function ai1Search(ai){
 
+       nodes = 0;
+
         AiThinking = true;
 
 
@@ -372,7 +372,11 @@ var nodes = 0;
                     searchForTradesOpportunities(ai);
               }
 
-        AiThinking = false;
+
+
+     document.getElementById(ai.name + 'Thinking').innerHTML = 'moves simulated in last search : ' + nodes;
+
+     AiThinking = false;
 
 
     
@@ -380,6 +384,8 @@ var nodes = 0;
  }
 
  function ai2Search(ai){
+
+    nodes = 0;
 
     AiThinking = true;
 
@@ -401,6 +407,9 @@ var nodes = 0;
                 searchForTradesOpportunities(ai);
           }
 
+
+    document.getElementById(ai.name + 'Thinking').innerHTML = 'moves simulated in last search : ' + nodes;
+
     AiThinking = false;
 
 
@@ -411,6 +420,8 @@ var nodes = 0;
 
 
 function ai3Search(ai){
+
+    nodes = 0;
 
     AiThinking = true;
 
@@ -434,6 +445,7 @@ function ai3Search(ai){
   
 
 
+    document.getElementById(ai.name + 'Thinking').innerHTML = 'moves simulated in last search : ' + nodes;
 
 
 

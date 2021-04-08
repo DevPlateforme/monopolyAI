@@ -7746,13 +7746,10 @@
 
         <div class="digitalContainerAAB" id="ai1LeftInterface">
 
-<div class="digitalContainerAABA">   
+  <div class="digitalContainerAABAAI" id='ai1Thinking'>   
 
-</div>
-  <div class="digitalContainerAABA"> 
- 
+  </div>
 
- </div>
  <div class="jailAndBankruptcyInt">
 
       <div class="jailAndBankruptcyIntA">
@@ -10695,9 +10692,9 @@
                            
 
         <div class='tradeScreenAA'>
-            <div class='tradeScreenAAA' id='tradeScren_offererContainer'>
-                <div class='tradeScreenAAAA' id='tradeScren_offerer_imgDiv' style='opacity:0'>
-                     <img class='offererImgTradeScreen' style='opacity:0; height:92.5%; width:92.5%;  margin-right: 1%; margin-top:0.5%' src='./img/ai2.png'></img>
+            <div class='tradeScreenAAA'>
+                <div class='tradeScreenAAAA' id='tradeScreen_offerer_imgDiv' style='opacity:0' >
+                     <img id="tradeScreen_offerer_img" class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/ai1.png'>
                 </div>
                 <div class='tradeScreenAAAB'></div>
             </div>
@@ -10724,11 +10721,11 @@
 
 
         <div class='tradeScreenAA'>
-            <div class='tradeScreenAAA' id='tradeScren_answererContainer'>
+            <div class='tradeScreenAAA'>
                
                 <div class='tradeScreenAAAB'></div>
-                <div class='tradeScreenAAAA' id='tradeScren_answerer_imgDiv'  style='opacity:0' >
-                     <img class='offererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/ai1.png'></img>
+                <div class='tradeScreenAAAA' id='tradeScreen_answerer_imgDiv'  style='justify-content:flex-end;opacity:0' >
+                     <img id='tradeScreen_answerer_img' class='answererImgTradeScreen' style='height:92.5%; width:92.5%;' src='./img/ai1.png'>
                 </div>
             </div>
 
@@ -10819,9 +10816,9 @@
                                </div>
                         </div>
                         <div id='square21_pawnContainerai1' class='pawnContainerai1'>
-                        <div class="idDivAAPawn">
+                              <div class="idDivAAPawn">
                                     
-                        <img src="./img/ai1.png" class="pawnImg">
+                                  <img src="./img/ai1.png" class="pawnImg">
          
                                </div>
                         </div> 
@@ -12967,13 +12964,10 @@
 
         <div class="digitalContainerAAB" id="ai2LeftInterface">
 
-<div class="digitalContainerAABA">   
+  <div class="digitalContainerAABAAI" id='ai2Thinking'>   
 
-</div>
-  <div class="digitalContainerAABA"> 
+  </div>
 
-
- </div>
  <div class="jailAndBankruptcyInt">
 
       <div class="jailAndBankruptcyIntA">
@@ -13416,14 +13410,11 @@
 
         <div class="digitalContainerAAB" id="ai3LeftInterface">
 
-<div class="digitalContainerAABA">   
+<div class="digitalContainerAABAAI" id='ai3Thinking'>   
 
 
  </div>
-  <div class="digitalContainerAABA"> 
-
-
- </div>
+ 
  <div class="jailAndBankruptcyInt">
 
       <div class="jailAndBankruptcyIntA">

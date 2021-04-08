@@ -14,7 +14,7 @@ function launchDices(){
 
     
      diceResult = Math.floor((Math.random())*10) + 2;
-     
+
      getNextDiceLauncherIndex();
 
      nextDiceLauncher = playersArray[nextDiceLauncherIndex];

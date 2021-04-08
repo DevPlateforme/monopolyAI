@@ -806,6 +806,9 @@ function getArrayLossValueForPlayer(thinker, player, array){
 function profitableTrade(thinker, proposition , trick , perception , gainType){
 
 
+	nodes++;
+
+
 	let offer = proposition.offer;
 	let counterPartAsked = proposition.counterPartAsked;
 	let offerer = proposition.offerer;

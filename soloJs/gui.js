@@ -493,10 +493,11 @@ function closeAvailablePropertyInterface(){
 
  function displayChanceSquareInterface(){
 
-     humanThinking = true;
      hideBoardMiddle();
+     humanThinking = true;
      document.getElementById('chanceSquareInterface').style.display = 'flex';
-     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(luck)")
+     document.getElementById('drawCardButton').setAttribute("onclick", "drawCardAndExecuteAction(luck)");
+
 
      //add an invisible button
 
@@ -3352,13 +3353,6 @@ function addPropPopupCashAnswerLine(cash){
 
 
 
-function clearTradeScreen(){
-
-     document.getElementById('tradescreen_answererContainer').innerHTML = '';
-     document.getElementById('tradeScreen_offererContainer').innerHTML = '';
-
-}
-
 
 
 
@@ -3393,6 +3387,9 @@ function opacityTransition(element){
 
 
 function buildTradeScreen(proposition){
+
+     //avatars
+
 
 
      //OFFER
@@ -3438,6 +3435,10 @@ function buildTradeScreen(proposition){
 
 
 function clearTradeScreen(){
+
+     
+
+     //assets
 
      document.getElementById('tradeScreen_offererContainer').innerHTML = '';
      document.getElementById('tradescreen_answererContainer').innerHTML = '';
@@ -4091,7 +4092,6 @@ function closeTradeAnswerPopup(proposition){
 function hideBoardMiddle(){
 
 
-
      document.getElementById('boardGraphContainer1').style.opacity = 0.1;
      document.getElementById('boardGraphContainer2').style.opacity = 0.1;
      document.getElementById('boardGraphContainer3').style.opacity = 0.1; 
@@ -4108,7 +4108,7 @@ function hideBoardMiddle(){
 
 function unveilBoardMiddle(){
 
-     
+
 
      document.getElementById('boardGraphContainer1').style.opacity = 1;
      document.getElementById('boardGraphContainer2').style.opacity = 1;
